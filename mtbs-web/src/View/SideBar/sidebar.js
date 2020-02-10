@@ -1,101 +1,152 @@
 import React from 'react';
-import {NavItem, NavLink, Nav, Label} from 'reactstrap';
+import {NavItem, NavLink, Nav, Label, Row, Col} from 'reactstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircle } from '@fortawesome/free-solid-svg-icons'
 
+var bgColor = {
+    backgroundColor: '#41E8B3'
+} 
 
 const SideBar = () =>{
     return (
-        <div style={{backgroundColor: '#F8F9FB', minHeight : '100vh', width: '250px' }}>
-            <Nav vertical className="">
+        <div style={{backgroundColor: '#F8F9FB', minHeight : '100vh'}} className="col-3 p-0">
+            <Nav vertical className="w-100">
+                <div className="sidebar-header text-center" style={bgColor}>
+                    <h3 className="mt-2">Halaman MTBS</h3>
+                </div>
                 <NavItem>
                     <NavLink href="#" className="btn btn-light text-left">
-                        <div className="d-flex">
-                            <Label>Anak Batuk Atau Sukar Bernafas</Label>
-                            <i className="fa fa-circle mt-3" style={{color: 'lightGreen'}}></i>
-                        </div>
+                        <Row className="pr-3">
+                            <Col xs="auto">
+                                <span className="text-left">Tanda Bahaya Umum</span>
+                            </Col>
+                            <Col xs="1" className="ml-auto">
+                                <FontAwesomeIcon icon={faCircle} className="text-danger" />
+                            </Col>
+                        </Row>
                     </NavLink>
                 </NavItem>
                 <NavItem>
                     <NavLink href="#" className="btn btn-light text-left">
-                        <div>
-                            <Label>Diare</Label>
-                            <i className="fa fa-circle ml-2" style={{color: 'red'}}></i>
-                        </div>
+                        <Row className="pr-3">
+                            <Col xs="auto">
+                                <span className="text-left">Batuk atau Sukar Bernafas</span>
+                            </Col>
+                            <Col xs="1" className="ml-auto">
+                                <FontAwesomeIcon icon={faCircle} className="text-warning" />
+                            </Col>
+                        </Row>
                     </NavLink>
                 </NavItem>
                 <NavItem>
                     <NavLink href="#" className="btn btn-light text-left">
-                        <div>
-                            <Label>Demam</Label>
-                            <i className="fa fa-circle ml-2" style={{color: 'orange'}}></i>
-                        </div>
+                        <Row className="pr-3">
+                            <Col xs="auto">
+                                <span className="text-left">Diare</span>
+                            </Col>
+                            <Col xs="1" className="ml-auto">
+                                <FontAwesomeIcon icon={faCircle} className="text-success" />
+                            </Col>
+                        </Row>
                     </NavLink>
                 </NavItem>
                 <NavItem>
                     <NavLink href="#" className="btn btn-light text-left" active>
-                        <div>
-                            <Label>Masalah Telinga</Label>
-                            <i className="fa fa-circle ml-2" style={{color: 'lightGrey'}}></i>
-                        </div>
+                        <Row className="pr-3">
+                            <Col xs="auto">
+                                <span className="text-left">Demam</span>
+                            </Col>
+                            <Col xs="1" className="ml-auto">
+                                <FontAwesomeIcon icon={faCircle} className="text-muted" />
+                            </Col>
+                        </Row>
                     </NavLink>
                 </NavItem>
                 <NavItem>
                     <NavLink href="#" className="btn btn-light text-left" disabled>
-                        <div>
-                            <Label>Status Gizi</Label>
-                            <i className="fa fa-circle ml-2" style={{color: 'lightGrey'}}></i>
-                        </div>
+                        <Row className="pr-3">
+                            <Col xs="auto">
+                                <span className="text-left">Masalah Telinga</span>
+                            </Col>
+                            <Col xs="1" className="ml-auto">
+                                <FontAwesomeIcon icon={faCircle} className="text-muted" />
+                            </Col>
+                        </Row>
                     </NavLink>
                 </NavItem>
                 <NavItem>
                     <NavLink href="#" className="btn btn-light text-left" disabled>
-                        <div>
-                            <Label>Anemia</Label>
-                            <i className="fa fa-circle ml-2" style={{color: 'lightGrey'}}></i>
-                        </div>
+                        <Row className="pr-3">
+                            <Col xs="auto">
+                                <span className="text-left">Anemia</span>
+                            </Col>
+                            <Col xs="1" className="ml-auto">
+                                <FontAwesomeIcon icon={faCircle} className="text-muted" />
+                            </Col>
+                        </Row>
                     </NavLink>
                 </NavItem>
                 <NavItem>
                     <NavLink href="#" className="btn btn-light text-left" disabled>
-                        <div>
-                            <Label>Status HIV</Label>
-                            <i className="fa fa-circle ml-2" style={{color: 'lightGrey'}}></i>
-                        </div>
+                        <Row className="pr-3">
+                            <Col xs="auto">
+                                <span className="text-left">Status HIV</span>
+                            </Col>
+                            <Col xs="1" className="ml-auto">
+                                <FontAwesomeIcon icon={faCircle} className="text-muted" />
+                            </Col>
+                        </Row>
                     </NavLink>
                 </NavItem>
                 <NavItem>
                     <NavLink href="#" className="btn btn-light text-left" disabled>
-                        Status Imunisasi
-                        <div>
-                            <Label>Status HIV</Label>
-                            <i className="fa fa-circle ml-2" style={{color: 'lightGrey'}}></i>
-                        </div>
+                        <Row className="pr-3">
+                            <Col xs="auto">
+                                <span className="text-left">Status Imunisasi</span>
+                            </Col>
+                            <Col xs="1" className="ml-auto">
+                                <FontAwesomeIcon icon={faCircle} className="text-muted" />
+                            </Col>
+                        </Row>
                     </NavLink>
                 </NavItem>
                 <NavItem>
                     <NavLink href="#" className="btn btn-light text-left" disabled>
-                        <div>
-                            <Label>Vitamin A</Label>
-                            <i className="fa fa-circle ml-2" style={{color: 'lightGrey'}}></i>
-                        </div>
+                        <Row className="pr-3">
+                            <Col xs="auto">
+                                <span className="text-left">Pemberian Vitamin A</span>
+                            </Col>
+                            <Col xs="1" className="ml-auto">
+                                <FontAwesomeIcon icon={faCircle} className="text-muted" />
+                            </Col>
+                        </Row>
                     </NavLink>
                 </NavItem>
                 <NavItem>
                     <NavLink href="#" className="btn btn-light text-left" disabled>
-                        <div>
-                            <Label>Keluhan Lain</Label>
-                            <i className="fa fa-circle ml-2" style={{color: 'lightGrey'}}></i>
-                        </div>
+                        <Row className="pr-3">
+                            <Col xs="auto">
+                                <span className="text-left">Keluhan Lain</span>
+                            </Col>
+                            <Col xs="1" className="ml-auto">
+                                <FontAwesomeIcon icon={faCircle} className="text-muted" />
+                            </Col>
+                        </Row>
                     </NavLink>
                 </NavItem>
                 <NavItem>
                     <NavLink href="#" className="btn btn-light text-left" disabled>
-                        <div>
-                            <Label>Pemberian Makan</Label>
-                            <i className="fa fa-circle ml-2" style={{color: 'lightGrey'}}></i>
-                        </div>
+                        <Row className="pr-3">
+                            <Col xs="auto">
+                                <span className="text-left">Penilaian Pemberian Makanan</span>
+                            </Col>
+                            <Col xs="1" className="ml-auto">
+                                <FontAwesomeIcon icon={faCircle} className="text-muted" />
+                            </Col>
+                        </Row>
                     </NavLink>
                 </NavItem>
-            </Nav>        
+            </Nav> 
         </div>
     );
 }

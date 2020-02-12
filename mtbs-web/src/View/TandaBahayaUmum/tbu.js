@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { FormGroup,Label, Input, Form} from "reactstrap";
 
-
-
+var bColor = {
+  borderColor : '#41E8B3'
+}
 const TandaBahayaUmum = (props) => {
   // const [cSelected, setCSelected] = useState([]);
   // const [rSelected, setRSelected] = useState(null);
@@ -24,18 +25,18 @@ const TandaBahayaUmum = (props) => {
           
         </div>
         <div className="col-6">
-          <div className="border-bottom">
-            <h3>Tanda Bahaya Umum</h3>
-            <h5>Tanyakan dan periksa !</h5>
+          <div className="border-bottom p-3" style={bColor}>
+            <h3 className="text-center">Tanda Bahaya Umum</h3>
           </div>
+          <h5 className="text-center">Tanyakan dan periksa !</h5>
           <div className="row">
             <div className="col-8">
               <FormGroup tag="fieldset">
                 <legend>Tidak bisa minum/menyusu</legend>
               </FormGroup>
             </div>
-            <div className="col-4">
-              <FormGroup check className="d-inline">
+            <div className="col-4 p-2">
+              <FormGroup check className="d-inline pr-2">
                 <Label cek>
                   <Input type="radio" name="radio1"/>{''}
                   Ya
@@ -55,8 +56,8 @@ const TandaBahayaUmum = (props) => {
                 <legend>Memuntahkan semuanya</legend>
               </FormGroup>
             </div>
-            <div className="col-4">
-              <FormGroup check className="d-inline">
+            <div className="col-4 p-2">
+              <FormGroup check className="d-inline pr-2">
                 <Label cek>
                   <Input type="radio" name="radio2"/>{''}
                   Ya
@@ -76,8 +77,8 @@ const TandaBahayaUmum = (props) => {
                 <legend>Kejang-kejang</legend>
               </FormGroup>
             </div>
-            <div className="col-4">
-              <FormGroup check className="d-inline">
+            <div className="col-4 p-2">
+              <FormGroup check className="d-inline pr-2">
                 <Label cek>
                   <Input type="radio" name="radio3"/>{''}
                   Ya
@@ -97,8 +98,8 @@ const TandaBahayaUmum = (props) => {
                 <legend>Gelisah, Letargis atau tidak sadar</legend>
               </FormGroup>
             </div>
-            <div className="col-4">
-              <FormGroup check className="d-inline">
+            <div className="col-4 p-2">
+              <FormGroup check className="d-inline pr-2">
                 <Label cek>
                   <Input type="radio" name="radio4"/>{''}
                   Ya
@@ -118,8 +119,8 @@ const TandaBahayaUmum = (props) => {
                 <legend>Terdapat stridor</legend>
               </FormGroup>
             </div>
-            <div className="col-4">
-              <FormGroup check className="d-inline">
+            <div className="col-4 p-2">
+              <FormGroup check className="d-inline pr-2">
                 <Label cek>
                   <Input type="radio" name="radio5"/>{''}
                   Ya
@@ -139,8 +140,8 @@ const TandaBahayaUmum = (props) => {
                 <legend>Biru <i>(sianosis)</i></legend>
               </FormGroup>
             </div>
-            <div className="col-4">
-              <FormGroup check className="d-inline">
+            <div className="col-4 p-2">
+              <FormGroup check className="d-inline pr-2">
                 <Label cek>
                   <Input type="radio" name="radio6"/>{''}
                   Ya
@@ -160,8 +161,8 @@ const TandaBahayaUmum = (props) => {
                 <legend>Ujung tangan dan kaki pucat dan dingin</legend>
               </FormGroup>
             </div>
-            <div className="col-4">
-              <FormGroup check className="d-inline">
+            <div className="col-4 p-2">
+              <FormGroup check className="d-inline pr-2">
                 <Label cek>
                   <Input type="radio" name="radio7"/>{''}
                   Ya

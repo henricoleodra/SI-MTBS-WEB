@@ -24,7 +24,9 @@ function Accordion(props) {
     <div className="accordion__section">
       <button className={`accordion ${setActive}`} onClick={toggleAccordion}>
         <p className="accordion__title">{props.title}</p>
-        <Chevron className={`${setRotate}`} width={10} fill={"#777"} />
+
+        {/* warna panah */}
+        <Chevron className={`${setRotate}`} width={10} fill={"#ffffff"} />
       </button>
       <div
         ref={content}

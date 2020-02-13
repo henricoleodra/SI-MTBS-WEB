@@ -8,7 +8,10 @@ import './Assets/style/style.css';
 import SideBar from './View/SideBar/sidebar';
 import TandaBahayaUmum from './View/TandaBahayaUmum/tbu';
 import Summary from './View/Summary/collapse';
+<<<<<<< HEAD
 // import index from '.index';
+=======
+>>>>>>> 180d23f44ad6a1c49cd525952fd418004cd2720c
 
 function App() {
   return (

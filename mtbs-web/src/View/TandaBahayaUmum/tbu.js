@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { FormGroup,Label, Input, Form} from "reactstrap";
+import { FormGroup,Label, Input, Form, Row, Col} from "reactstrap";
 
 var bColor = {
-  borderColor : '#41E8B3'
+  backgrouColor : '#41E8B3'
 }
 const TandaBahayaUmum = (props) => {
   // const [cSelected, setCSelected] = useState([]);
@@ -25,10 +25,17 @@ const TandaBahayaUmum = (props) => {
           
         </div>
         <div className="col-6">
-          <div className="border-bottom p-3" style={bColor}>
-            <h3 className="text-center">Tanda Bahaya Umum</h3>
+          <div className="p-3" style={bColor}>
+            <h3 className="text-center font-weight-bold">Tanda Bahaya Umum</h3>
+            <hr
+              style={{
+                  color: "#41E8B3",
+                  backgroundColor: "#41E8B3",
+                  height: 5
+              }}
+            />
           </div>
-          <h5 className="text-center">Tanyakan dan periksa !</h5>
+          <h4 className="text-center">Tanyakan dan periksa !</h4>
           <div className="row">
             <div className="col-8">
               <FormGroup tag="fieldset">

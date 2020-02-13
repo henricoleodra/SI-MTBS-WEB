@@ -7,13 +7,15 @@ import './Assets/style/style.css';
 //Import Pages
 import SideBar from './View/SideBar/sidebar';
 import TandaBahayaUmum from './View/TandaBahayaUmum/tbu';
-import Summary from './View/Summary/summary';
+import Summary from './View/Summary/collapse';
+// import index from '.index';
 
 function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/" component={SideBar}/>
+        {/* <Route exact path="/" component={index}/> */}
+        <Route exact path="/sidebar" component={SideBar}/>
         <Route path="/tandabahayaumum" component={TandaBahayaUmum}/>
         <Route path="/summary" component={Summary}/>
       </Switch>

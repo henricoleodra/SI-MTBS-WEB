@@ -7,7 +7,7 @@ import './Assets/style/style.css';
 //Import Pages
 import SideBar from './View/SideBar/sidebar';
 import TandaBahayaUmum from './View/TandaBahayaUmum/tbu';
-import Summary from './View/Summary/summary';
+import Summary from './View/Summary/collapse';
 
 function App() {
   return (

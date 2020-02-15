@@ -2,56 +2,56 @@ import React from 'react';
 import { UncontrolledCollapse, Button, CardBody, Card, Badge } from 'reactstrap';
 
 const Example = () => (
-  <div>
+  <div className="w-100">
     <div>
-      <h2><Badge className="p-3" color="danger" style={{ width: '20%'}} pill>Rujuk Segera</Badge></h2>
+      <h2><Badge href="#" className="p-3" color="danger" style={{ width: '100%'}} pill>Rujuk Segera</Badge></h2>
     </div>
     <br></br>
 
     <div>
-      <Button  className="btn" color="success" id="toggler" style={{ width: '20%', marginBottom: '5px' }}>
+      <Button  className="btn" color="success" id="toggler" style={{ width: '100%', marginBottom: '5px' }}>
         Tanda Bahaya Umum
       </Button>
-      <UncontrolledCollapse toggler="#toggler" style={{width: '20%'}}>
+      <UncontrolledCollapse toggler="#toggler" style={{width: '100%'}}>
         <Card>
           <CardBody>
-            Penyakit Berat
+            Tidak Ada Penyakit Berat
           </CardBody>
         </Card>
       </UncontrolledCollapse>
     </div>
     
     <div>
-      <Button className="btn" color="warning" id="toggler2" style={{ width: '20%', marginBottom: '5px' }}>
-        Batuk/Sukar Bernapas
+      <Button className="btn" color="warning" id="toggler2" style={{ width: '100%', marginBottom: '5px' }}>
+        Batuk
       </Button>
-      <UncontrolledCollapse toggler="#toggler2" style={{width: '20%'}}>
+      <UncontrolledCollapse toggler="#toggler2" style={{width: '100%'}}>
         <Card>
           <CardBody>
-            Batuk Berat
+            Pneumonia
           </CardBody>
         </Card>
       </UncontrolledCollapse>
     </div>
     
     <div>
-      <Button className="btn" color="danger" id="toggler3" style={{ width: '20%', marginBottom: '5px' }}>
+      <Button className="btn" color="danger" id="toggler3" style={{ width: '100%', marginBottom: '5px' }}>
         Diare
       </Button>
-      <UncontrolledCollapse toggler="#toggler3" style={{width: '20%'}}>
+      <UncontrolledCollapse toggler="#toggler3" style={{width: '100%'}}>
         <Card>
           <CardBody>
-            Tidak Diare
+            Diare Dehidrasi Berat
           </CardBody>
         </Card>
       </UncontrolledCollapse>
     </div>
 
     <div>
-      <Button className="btn" color="secondary" id="toggler4" style={{ width: '20%', marginBottom: '5px' }}>
+      <Button className="btn" color="secondary" id="toggler4" style={{ width: '100%', marginBottom: '5px' }}>
         Demam
       </Button>
-      <UncontrolledCollapse toggler="#toggler4" style={{width: '20%'}}>
+      <UncontrolledCollapse toggler="#toggler4" style={{width: '100%'}}>
         <Card>
           <CardBody>
             Tidak Deman
@@ -61,10 +61,10 @@ const Example = () => (
     </div>
 
     <div>
-      <Button className="btn" color="secondary" id="toggler5" style={{ width: '20%', marginBottom: '5px' }}>
-        Masalah Telinga
+      <Button className="btn" color="secondary" id="toggler5" style={{ width: '100%', marginBottom: '5px' }}>
+        Telinga
       </Button>
-      <UncontrolledCollapse toggler="#toggler5" style={{width: '20%'}}>
+      <UncontrolledCollapse toggler="#toggler5" style={{width: '100%'}}>
         <Card>
           <CardBody>
             Tidak Ada Gangguan
@@ -74,10 +74,10 @@ const Example = () => (
     </div>
 
     <div>
-      <Button className="btn" color="secondary" id="toggler6" style={{ width: '20%', marginBottom: '5px' }}>
+      <Button className="btn" color="secondary" id="toggler6" style={{ width: '100%', marginBottom: '5px' }}>
         Anemia
       </Button>
-      <UncontrolledCollapse toggler="#toggler6" style={{width: '20%'}}>
+      <UncontrolledCollapse toggler="#toggler6" style={{width: '100%'}}>
         <Card>
           <CardBody>
             Tidak Anemia
@@ -87,10 +87,10 @@ const Example = () => (
     </div>
 
     <div>
-      <Button className="btn" color="secondary" id="toggler7" style={{ width: '20%', marginBottom: '5px' }}>
-        Status HIV
+      <Button className="btn" color="secondary" id="toggler7" style={{ width: '100%', marginBottom: '5px' }}>
+        HIV
       </Button>
-      <UncontrolledCollapse toggler="#toggler7" style={{width: '20%'}}>
+      <UncontrolledCollapse toggler="#toggler7" style={{width: '100%'}}>
         <Card>
           <CardBody>
             Terkena HIV
@@ -100,10 +100,10 @@ const Example = () => (
     </div>
 
     <div>
-      <Button className="btn" color="secondary" id="toggler8" style={{ width: '20%', marginBottom: '5px' }}>
-        Status Imunisasi
+      <Button className="btn" color="secondary" id="toggler8" style={{ width: '100%', marginBottom: '5px' }}>
+       Imunisasi
       </Button>
-      <UncontrolledCollapse toggler="#toggler8" style={{width: '20%'}}>
+      <UncontrolledCollapse toggler="#toggler8" style={{width: '100%'}}>
         <Card>
           <CardBody>
             Beri Polio 4
@@ -113,10 +113,10 @@ const Example = () => (
     </div>
 
     <div>
-      <Button className="btn" color="secondary" id="toggler9" style={{ width: '20%', marginBottom: '5px' }}>
-        Pemberian Vitamin A
+      <Button className="btn" color="secondary" id="toggler9" style={{ width: '100%', marginBottom: '5px' }}>
+        Vitamin A
       </Button>
-      <UncontrolledCollapse toggler="#toggler9" style={{width: '20%'}}>
+      <UncontrolledCollapse toggler="#toggler9" style={{width: '100%'}}>
         <Card>
           <CardBody>
             Beri Vitamin A
@@ -126,10 +126,10 @@ const Example = () => (
     </div>
 
     <div>
-      <Button className="btn" color="secondary" id="toggler10" style={{ width: '20%', marginBottom: '5px' }}>
+      <Button className="btn" color="secondary" id="toggler10" style={{ width: '100%', marginBottom: '5px' }}>
         Keluhan Lain
       </Button>
-      <UncontrolledCollapse toggler="#toggler10" style={{width: '20%'}}>
+      <UncontrolledCollapse toggler="#toggler10" style={{width: '100%'}}>
         <Card>
           <CardBody>
             Tidak Ada Keluhan
@@ -139,10 +139,10 @@ const Example = () => (
     </div>
 
     <div>
-      <Button className="btn" color="secondary" id="toggler11" style={{ width: '20%', marginBottom: '5px' }}>
-        Penilaian Pemberian Makan
+      <Button className="btn" color="secondary" id="toggler11" style={{ width: '100%', marginBottom: '5px' }}>
+        Pemberian Makan
       </Button>
-      <UncontrolledCollapse toggler="#toggler11" style={{width: '20%'}}>
+      <UncontrolledCollapse toggler="#toggler11" style={{width: '100%'}}>
         <Card>
           <CardBody>
             Sudah Baik

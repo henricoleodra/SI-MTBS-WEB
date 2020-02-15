@@ -20,11 +20,9 @@ const TandaBahayaUmum = (props) => {
   // }
   return (
     <Form>
-      <div className="row">
-        <div className="col">
-          
-        </div>
-        <div className="col-6">
+      <div className="w-100">
+
+        <div className="col-12">
           <div className="p-3" style={bColor}>
             <h3 className="text-center font-weight-bold">Tanda Bahaya Umum</h3>
             <hr
@@ -183,9 +181,6 @@ const TandaBahayaUmum = (props) => {
               </FormGroup>
             </div>
           </div>
-        </div>
-        <div className="col">
-          
         </div>
       </div>
     </Form>

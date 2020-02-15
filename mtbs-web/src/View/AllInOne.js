@@ -35,7 +35,7 @@ function AllInOne(){
                         <div className="w-75">
                             <TandaBahayaUmum/>
                         </div>
-                        <div className="mt-2 w-25">
+                        <div className="mt-2 w-25 mr-1">
                             <Summary/>
                         </div>
 

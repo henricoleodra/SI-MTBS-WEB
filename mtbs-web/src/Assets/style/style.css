@@ -2,3 +2,14 @@ html, body {
     width: 100%;
     height: 100%;
   }
+
+  .glowing-border {
+    border: 2px solid #dadada;
+    border-radius: 7px;
+}
+
+.glowing-border:focus { 
+    outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
+}

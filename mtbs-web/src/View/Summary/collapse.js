@@ -1,10 +1,17 @@
 import React from 'react';
 import { UncontrolledCollapse, Button, CardBody, Card, Badge } from 'reactstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
 
 const Example = () => (
   <div className="w-100">
     <div>
-      <h2><Badge href="#" className="p-3" color="danger" style={{ width: '100%'}} pill>Rujuk Segera</Badge></h2>
+      <h2>
+        <Badge href="#" className="p-3 border-glow" color="danger" style={{ width: '100%'}} pill>
+          Rujuk Segera
+          <FontAwesomeIcon icon={faExclamationTriangle} className="ml-3"/>
+        </Badge>
+      </h2>
     </div>
     <br></br>
 

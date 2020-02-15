@@ -7,6 +7,7 @@ import './Assets/style/style.css';
 //Import Pages
 import SideBar from './View/SideBar/sidebar';
 import TandaBahayaUmum from './View/TandaBahayaUmum/tbu';
+import TandaBahayaUmum2 from './View/TandaBahayaUmum/tbu2';
 import Summary from './View/Summary/collapse';
 import AllInOne from './View/AllInOne';
 
@@ -21,6 +22,7 @@ function App() {
         
         <Route path="/sidebar" component={SideBar}/>
         <Route path="/tandabahayaumum" component={TandaBahayaUmum}/>
+        <Route path="/tandabahayaumum2" component={TandaBahayaUmum2}/>
         <Route path="/summary" component={Summary}/>
       </Switch>
     </BrowserRouter>

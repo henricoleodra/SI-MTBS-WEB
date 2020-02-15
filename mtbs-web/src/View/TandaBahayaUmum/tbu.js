@@ -2,16 +2,27 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FormGroup,Label, Input, Form, Row, Col, Card, CardBody,
   CardTitle, Button, Pagination, PaginationItem, PaginationLink} from "reactstrap";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircle } from '@fortawesome/free-solid-svg-icons'
 
-var bColor = {
-  backgrouColor : '#41E8B3'
+var outlineColor = {
+  borderColor : '#41E8B3'
 }
+
 const TandaBahayaUmum = (props) => {
   return (
     <Form>
       <div className="w-100">
         <div className="col-12">
-          <div className="p-3" style={bColor}>
+          <div className="d-flex justify-content-center mt-3">
+            <div className="p-2">
+              <FontAwesomeIcon icon={faCircle} style={{color: '#41E8B3'}}/>
+            </div>
+            <div className="p-2">
+              <FontAwesomeIcon icon={faCircle} className="text-muted"/>
+            </div> 
+          </div>
+          <div className="p-3 mt-2">
             <h3 className="text-center font-weight-bold">Tanda Bahaya Umum</h3>
             <hr
               style={{
@@ -23,7 +34,7 @@ const TandaBahayaUmum = (props) => {
           </div>
           <h4 className="text-center">Tanyakan dan periksa !</h4>
           <div className="row d-flex justify-content-center">
-            <Card className="text-center w-50">
+            <Card style={outlineColor} className="text-center w-75" >
               <CardBody>
                 <CardTitle>Tidak bisa minum/menyusu</CardTitle>
                 <FormGroup check className="d-inline pr-2">
@@ -40,9 +51,7 @@ const TandaBahayaUmum = (props) => {
                 </FormGroup>
               </CardBody>
             </Card>
-          </div>
-          <div className="row d-flex justify-content-center">
-            <Card className="text-center w-50">
+            <Card style={outlineColor} className="text-center w-75 mt-3">
               <CardBody>
                 <CardTitle>Memuntahkan semuanya</CardTitle>
                 <FormGroup check className="d-inline pr-2">
@@ -59,9 +68,7 @@ const TandaBahayaUmum = (props) => {
                 </FormGroup>
               </CardBody>
             </Card>
-          </div>
-          <div className="row d-flex justify-content-center">
-            <Card className="text-center w-50">
+            <Card style={outlineColor} className="text-center w-75 mt-3">
               <CardBody>
                 <CardTitle>Kejang-kejang</CardTitle>
                 <FormGroup check className="d-inline pr-2">
@@ -78,9 +85,7 @@ const TandaBahayaUmum = (props) => {
                 </FormGroup>
               </CardBody>
             </Card>
-          </div>
-          <div className="row d-flex justify-content-center">
-            <Card className="text-center w-50">
+            <Card style={outlineColor} className="text-center w-75 mt-3">
               <CardBody>
                 <CardTitle>Gelisah, Letargis atau tidak sadar</CardTitle>
                 <FormGroup check className="d-inline pr-2">
@@ -99,13 +104,17 @@ const TandaBahayaUmum = (props) => {
             </Card>
           </div>
         </div>
-        <Row>
+        {/* <Row>
           <Col className="text-center">
           </Col>
           <Col className="text-center">
               <Link to="/TandaBahayaUmum2"><Button>Berikutnya</Button></Link>
           </Col>
-        </Row>
+        </Row> */}
+        <div className="d-flex justify-content-around mt-5">
+          <Link to="/TandaBahayaUmum2"><Button color="danger" disabled>Sebelumnya</Button></Link>
+          <Link to="/TandaBahayaUmum2"><Button color="success">Berikutnya</Button></Link>
+        </div>
       </div>
     </Form>
   );

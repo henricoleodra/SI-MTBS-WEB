@@ -25,7 +25,7 @@ const TandaBahayaUmum2 = (props) => {
           <div className="row d-flex justify-content-center">
             <Card className="text-center w-50">
               <CardBody>
-                <CardTitle>Ada stridor</CardTitle>
+                <CardTitle className="h5">Ada stridor</CardTitle>
                 <FormGroup check className="d-inline pr-2">
                 <Label cek>
                   <Input type="radio" name="radio5"/>{''}
@@ -44,7 +44,7 @@ const TandaBahayaUmum2 = (props) => {
           <div className="row d-flex justify-content-center">
             <Card className="text-center w-50">
               <CardBody>
-                <CardTitle>Biru(sianosis)</CardTitle>
+                <CardTitle className="h5">Biru(sianosis)</CardTitle>
                 <FormGroup check className="d-inline pr-2">
                 <Label cek>
                   <Input type="radio" name="radio6"/>{''}
@@ -63,7 +63,7 @@ const TandaBahayaUmum2 = (props) => {
           <div className="row d-flex justify-content-center">
             <Card className="text-center w-50">
               <CardBody>
-                <CardTitle>Ujung tangan dan kaki pucat dan dingin</CardTitle>
+                <CardTitle className="h5">Ujung tangan dan kaki pucat dan dingin</CardTitle>
                 <FormGroup check className="d-inline pr-2">
                 <Label cek>
                   <Input type="radio" name="radio7"/>{''}

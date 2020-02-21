@@ -8,6 +8,7 @@ import './Assets/style/style.css';
 import SideBar from './View/SideBar/sidebar';
 import TandaBahayaUmum from './View/TandaBahayaUmum/tbu';
 import TandaBahayaUmum2 from './View/TandaBahayaUmum/tbu2';
+import Batuk from './View/Batuk/batuk';
 import Summary from './View/Summary/collapse';
 import AllInOne from './View/AllInOne';
 
@@ -23,6 +24,7 @@ function App() {
         <Route path="/sidebar" component={SideBar}/>
         <Route path="/tandabahayaumum" component={TandaBahayaUmum}/>
         <Route path="/tandabahayaumum2" component={TandaBahayaUmum2}/>
+        <Route path="/batuk" component={Batuk}/>
         <Route path="/summary" component={Summary}/>
       </Switch>
     </BrowserRouter>

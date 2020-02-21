@@ -22,7 +22,7 @@ const TandaBahayaUmum = (props) => {
               <FontAwesomeIcon icon={faCircle} className="text-muted"/>
             </div> 
           </div>
-          <div className="p-3 mt-2">
+          <div className="mt-2">
             <h3 className="text-center font-weight-bold">Tanda Bahaya Umum</h3>
             <hr
               style={{
@@ -36,7 +36,7 @@ const TandaBahayaUmum = (props) => {
           <div className="row d-flex justify-content-center">
             <Card style={outlineColor} className="text-center w-75" >
               <CardBody>
-                <CardTitle>Tidak bisa minum/menyusu</CardTitle>
+                <CardTitle className="h5">Tidak bisa minum/menyusu</CardTitle>
                 <FormGroup check className="d-inline pr-2">
                 <Label cek>
                   <Input type="radio" name="radio1"/>{''}
@@ -53,7 +53,7 @@ const TandaBahayaUmum = (props) => {
             </Card>
             <Card style={outlineColor} className="text-center w-75 mt-3">
               <CardBody>
-                <CardTitle>Memuntahkan semuanya</CardTitle>
+                <CardTitle className="h5">Memuntahkan semuanya</CardTitle>
                 <FormGroup check className="d-inline pr-2">
                 <Label cek>
                   <Input type="radio" name="radio2"/>{''}
@@ -70,7 +70,7 @@ const TandaBahayaUmum = (props) => {
             </Card>
             <Card style={outlineColor} className="text-center w-75 mt-3">
               <CardBody>
-                <CardTitle>Kejang-kejang</CardTitle>
+                <CardTitle className="h5">Kejang-kejang</CardTitle>
                 <FormGroup check className="d-inline pr-2">
                 <Label cek>
                   <Input type="radio" name="radio3"/>{''}
@@ -87,7 +87,7 @@ const TandaBahayaUmum = (props) => {
             </Card>
             <Card style={outlineColor} className="text-center w-75 mt-3">
               <CardBody>
-                <CardTitle>Gelisah, Letargis atau tidak sadar</CardTitle>
+                <CardTitle className="h5">Gelisah, Letargis atau tidak sadar</CardTitle>
                 <FormGroup check className="d-inline pr-2">
                 <Label cek>
                   <Input type="radio" name="radio4"/>{''}
@@ -104,14 +104,7 @@ const TandaBahayaUmum = (props) => {
             </Card>
           </div>
         </div>
-        {/* <Row>
-          <Col className="text-center">
-          </Col>
-          <Col className="text-center">
-              <Link to="/TandaBahayaUmum2"><Button>Berikutnya</Button></Link>
-          </Col>
-        </Row> */}
-        <div className="d-flex justify-content-around mt-5">
+        <div className="d-flex justify-content-around mt-3">
           <Link to="/TandaBahayaUmum2"><Button color="danger" disabled>Sebelumnya</Button></Link>
           <Link to="/TandaBahayaUmum2"><Button color="success">Berikutnya</Button></Link>
         </div>

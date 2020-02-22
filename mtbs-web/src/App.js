@@ -5,13 +5,13 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import './Assets/style/style.css';
 
 //Import Pages
-import SideBar from './View/SideBar/sidebar';
-import TandaBahayaUmum from './View/TandaBahayaUmum/tbu';
-import TandaBahayaUmum2 from './View/TandaBahayaUmum/tbu2';
-import Batuk from './View/Batuk/batuk';
-import Batuk2 from './View/Batuk/batuk2';
-import Summary from './View/Summary/collapse';
-import AllInOne from './View/AllInOne';
+import SideBar from './Component/SideBar/sidebar';
+import TandaBahayaUmum from './Component/TandaBahayaUmum/tbu';
+import TandaBahayaUmum2 from './Component/TandaBahayaUmum/tbu2';
+import Batuk from './Component/Batuk/batuk';
+import Batuk2 from './Component/Batuk/batuk2';
+import Summary from './Component/Summary/summary';
+import AllInOne from './Component/AllInOne';
 
 function App() {
   return (

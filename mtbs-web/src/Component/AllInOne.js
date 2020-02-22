@@ -1,11 +1,11 @@
 import React from 'react'
 import { useRouteMatch } from 'react-router-dom';
-import SideBar from './SideBar/sidebar.js'
-import TandaBahayaUmum from './TandaBahayaUmum/tbu.js'
-import TandaBahayaUmum2 from './TandaBahayaUmum/tbu2.js'
-import Batuk from './Batuk/batuk.js'
-import Batuk2 from './Batuk/batuk2.js'
-import Summary from './Summary/collapse'
+import SideBar from './SideBar/sidebar'
+import TandaBahayaUmum from './TandaBahayaUmum/tbu'
+import TandaBahayaUmum2 from './TandaBahayaUmum/tbu2'
+import Batuk from './Batuk/batuk'
+import Batuk2 from './Batuk/batuk2'
+import Summary from './Summary/summary'
 import {Container, Col, Row} from 'reactstrap'
 function AllInOne(props){
 

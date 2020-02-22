@@ -3,6 +3,8 @@ import { useRouteMatch } from 'react-router-dom';
 import SideBar from './SideBar/sidebar.js'
 import TandaBahayaUmum from './TandaBahayaUmum/tbu.js'
 import TandaBahayaUmum2 from './TandaBahayaUmum/tbu2.js'
+import Batuk from './Batuk/batuk.js'
+import Batuk2 from './Batuk/batuk2.js'
 import Summary from './Summary/collapse'
 import {Container, Col, Row} from 'reactstrap'
 function AllInOne(props){
@@ -47,6 +49,10 @@ function AllInOne(props){
                                     return <TandaBahayaUmum/>;
                                 case `/AllInOne/tb2` : 
                                     return <TandaBahayaUmum2/>;
+                                case `/AllInOne/btk1` :
+                                    return <Batuk/>;
+                                case `/AllInOne/btk2` :
+                                    return <Batuk2/>;
                                 default :
                                     console.log(props.location.pathname);
                                     return "404 not found";

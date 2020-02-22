@@ -80,13 +80,10 @@ const TandaBahayaUmum2 = (props) => {
             </Card>
           </div>
         </div>
-        <Row>
-          <Col className="text-center">
-            <Link to="tb1"><Button>Sebelumnya</Button></Link>
-          </Col>
-          <Col className="text-center">
-          </Col>
-        </Row>
+        <div className="d-flex justify-content-around mt-3">
+            <Link to="tb1"><Button color="danger" >Sebelumnya</Button></Link>
+            <Link to="btk1"><Button color="success">Batuk</Button></Link>
+        </div>
       </div>
     </Form>
   );

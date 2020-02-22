@@ -18,9 +18,8 @@ function App() {
     <BrowserRouter>
       <Switch>
         {/* <Route exact path="/" component={index}/> */}
-        <Route exact path = "/AllInOne" component={AllInOne}>
-
-        </Route>
+        <Route path = "/AllInOne/" component={AllInOne}/>
+        
         
         <Route path="/sidebar" component={SideBar}/>
         <Route path="/tandabahayaumum" component={TandaBahayaUmum}/>

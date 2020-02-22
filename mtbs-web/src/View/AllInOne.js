@@ -1,9 +1,11 @@
 import React from 'react'
+import { useRouteMatch } from 'react-router-dom';
 import SideBar from './SideBar/sidebar.js'
 import TandaBahayaUmum from './TandaBahayaUmum/tbu.js'
+import TandaBahayaUmum2 from './TandaBahayaUmum/tbu2.js'
 import Summary from './Summary/collapse'
 import {Container, Col, Row} from 'reactstrap'
-function AllInOne(){
+function AllInOne(props){
 
     //     return<div>
     //         { joinChildren(this.props.items, this.renderItem, this.renderSeparator) }
@@ -18,6 +20,11 @@ function AllInOne(){
     // renderSeparator = key => {
     // return <Separator className="separator" key={ key } />
     // }'
+
+    let { url } = useRouteMatch();
+    
+    let location = props.location.pathname.split("/");
+    console.log(url);
         return(
             <div style={{ width: '100%'}} className="d-flex">
                 {/* <Row>
@@ -33,7 +40,18 @@ function AllInOne(){
                 </Row> */}
                         <SideBar/>
                         <div className="w-75">
-                            <TandaBahayaUmum/>
+                        {(() => {
+                            switch(props.location.pathname) {
+                                
+                                case `/AllInOne/tb1` : 
+                                    return <TandaBahayaUmum/>;
+                                case `/AllInOne/tb2` : 
+                                    return <TandaBahayaUmum2/>;
+                                default :
+                                    console.log(props.location.pathname);
+                                    return "404 not found";
+                            }
+                        })()}
                         </div>
                         <div className="mt-2 w-25 mr-1">
                             <Summary/>

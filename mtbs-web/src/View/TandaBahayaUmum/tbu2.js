@@ -82,7 +82,7 @@ const TandaBahayaUmum2 = (props) => {
         </div>
         <Row>
           <Col className="text-center">
-            <Link to="../AllInOne"><Button>Sebelumnya</Button></Link>
+            <Link to="tb1"><Button>Sebelumnya</Button></Link>
           </Col>
           <Col className="text-center">
           </Col>

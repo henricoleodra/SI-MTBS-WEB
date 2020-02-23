@@ -4,29 +4,15 @@ import './App.css';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import './Assets/style/style.css';
 
-//Import Pages
-import SideBar from './Component/SideBar/sidebar';
-import TandaBahayaUmum from './Component/TandaBahayaUmum/tbu';
-import TandaBahayaUmum2 from './Component/TandaBahayaUmum/tbu2';
-import Batuk from './Component/Batuk/batuk';
-import Batuk2 from './Component/Batuk/batuk2';
-import Summary from './Component/Summary/summary';
-import AllInOne from './Component/AllInOne';
+//Import Components
+import MTBS from './Component/mtbs';
 
 function App() {
   return (
     <BrowserRouter>
       <Switch>
         {/* <Route exact path="/" component={index}/> */}
-        <Route path = "/AllInOne/" component={AllInOne}/>
-        
-        
-        <Route path="/sidebar" component={SideBar}/>
-        <Route path="/tandabahayaumum" component={TandaBahayaUmum}/>
-        <Route path="/tandabahayaumum2" component={TandaBahayaUmum2}/>
-        <Route path="/batuk" component={Batuk}/>
-        <Route path="/batuk2" component={Batuk2}/>
-        <Route path="/summary" component={Summary}/>
+        <Route path = "/MTBS/" component={MTBS}/>
       </Switch>
     </BrowserRouter>
   );

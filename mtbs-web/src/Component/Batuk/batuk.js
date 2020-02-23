@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FormGroup,Label, Input, Form, Row, Col, Card, CardBody,
-  CardTitle, Button, Pagination, PaginationItem, PaginationLink} from "reactstrap";
+import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button} from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle } from '@fortawesome/free-solid-svg-icons'
 
@@ -84,8 +83,8 @@ const Batuk = (props) => {
                 </div>
             </div>
             <div className="d-flex justify-content-around mt-3">
-                <Link to="tb2"><Button color="danger">Tanda Bahaya Umum</Button></Link>
-                <Link to="btk2"><Button color="success">Berikutnya</Button></Link>
+                <Link to="TandaBahayaUmum1"><Button color="danger">Tanda Bahaya Umum</Button></Link>
+                <Link to="Batuk2"><Button color="success">Berikutnya</Button></Link>
             </div>
         </div>
         </Form>

@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle } from '@fortawesome/free-solid-svg-icons';
 import { NavLink as RRNavlink} from 'react-router-dom';
 
-var bgColor = {
+let bgColor = {
     backgroundColor: '#41E8B3'
 } 
 
@@ -18,25 +18,26 @@ const SideBar = (props) => {
                     <h3 className="mt-2">Halaman MTBS</h3>
                 </div>
                 <NavItem>
-                    <NavLink className="btn btn-light text-left" to="TandaBahayaUmum1" tag={RRNavlink}>
+                    {/* <NavLink className="btn btn-light text-left" to="TandaBahayaUmum1" tag={RRNavlink}> */}
+                    <NavLink className="btn btn-light text-left" to="TandaBahayaUmum1" tag={RRNavlink} active={props.location === "TandaBahayaUmum1" || props.location === "TandaBahayaUmum2"}>
                         <Row className="pr-3">
                             <Col xs="auto">
                                 <span className="text-left">Tanda Bahaya Umum</span>
                             </Col>
                             <Col xs="1" className="ml-auto">
-                                <FontAwesomeIcon icon={faCircle} className="text-danger" />
+                                <FontAwesomeIcon icon={faCircle} className={props.iconColor[0]} />
                             </Col>
                         </Row>
                     </NavLink>
                 </NavItem>
                 <NavItem>
-                    <NavLink className="btn btn-light text-left" to="Batuk1" tag={RRNavlink}>
+                    <NavLink className="btn btn-light text-left" to="Batuk1" tag={RRNavlink} active={props.location === "Batuk1" || props.location === "Batuk2"}>
                         <Row className="pr-3">
                             <Col xs="auto">
                                 <span className="text-left">Batuk</span>
                             </Col>
                             <Col xs="1" className="ml-auto">
-                                <FontAwesomeIcon icon={faCircle} className="text-warning" />
+                                <FontAwesomeIcon icon={faCircle} className={props.iconColor[1]} />
                             </Col>
                         </Row>
                     </NavLink>

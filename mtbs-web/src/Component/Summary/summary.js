@@ -3,7 +3,7 @@ import { UncontrolledCollapse, Button, CardBody, Card, Badge } from 'reactstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
 
-const Example = () => (
+const Summary = () => (
   <div className="w-100">
     <div>
       <h2>
@@ -16,7 +16,7 @@ const Example = () => (
     <br></br>
 
     <div>
-      <Button  className="btn" color="success" id="toggler" style={{ width: '100%', marginBottom: '5px' }}>
+      <Button  className="btn" color="danger" id="toggler" style={{ width: '100%', marginBottom: '5px' }}>
         Tanda Bahaya Umum
       </Button>
       <UncontrolledCollapse toggler="#toggler" style={{width: '100%'}}>
@@ -42,7 +42,7 @@ const Example = () => (
     </div>
     
     <div>
-      <Button className="btn" color="danger" id="toggler3" style={{ width: '100%', marginBottom: '5px' }}>
+      <Button className="btn" color="secondary" id="toggler3" style={{ width: '100%', marginBottom: '5px' }} disabled>
         Diare
       </Button>
       <UncontrolledCollapse toggler="#toggler3" style={{width: '100%'}}>
@@ -55,7 +55,7 @@ const Example = () => (
     </div>
 
     <div>
-      <Button className="btn" color="secondary" id="toggler4" style={{ width: '100%', marginBottom: '5px' }}>
+      <Button className="btn" color="secondary" id="toggler4" style={{ width: '100%', marginBottom: '5px' }} disabled>
         Demam
       </Button>
       <UncontrolledCollapse toggler="#toggler4" style={{width: '100%'}}>
@@ -68,7 +68,7 @@ const Example = () => (
     </div>
 
     <div>
-      <Button className="btn" color="secondary" id="toggler5" style={{ width: '100%', marginBottom: '5px' }}>
+      <Button className="btn" color="secondary" id="toggler5" style={{ width: '100%', marginBottom: '5px' }} disabled>
         Telinga
       </Button>
       <UncontrolledCollapse toggler="#toggler5" style={{width: '100%'}}>
@@ -81,7 +81,7 @@ const Example = () => (
     </div>
 
     <div>
-      <Button className="btn" color="secondary" id="toggler6" style={{ width: '100%', marginBottom: '5px' }}>
+      <Button className="btn" color="secondary" id="toggler6" style={{ width: '100%', marginBottom: '5px' }} disabled>
         Anemia
       </Button>
       <UncontrolledCollapse toggler="#toggler6" style={{width: '100%'}}>
@@ -94,7 +94,7 @@ const Example = () => (
     </div>
 
     <div>
-      <Button className="btn" color="secondary" id="toggler7" style={{ width: '100%', marginBottom: '5px' }}>
+      <Button className="btn" color="secondary" id="toggler7" style={{ width: '100%', marginBottom: '5px' }} disabled>
         HIV
       </Button>
       <UncontrolledCollapse toggler="#toggler7" style={{width: '100%'}}>
@@ -107,7 +107,7 @@ const Example = () => (
     </div>
 
     <div>
-      <Button className="btn" color="secondary" id="toggler8" style={{ width: '100%', marginBottom: '5px' }}>
+      <Button className="btn" color="secondary" id="toggler8" style={{ width: '100%', marginBottom: '5px' }} disabled>
        Imunisasi
       </Button>
       <UncontrolledCollapse toggler="#toggler8" style={{width: '100%'}}>
@@ -120,7 +120,7 @@ const Example = () => (
     </div>
 
     <div>
-      <Button className="btn" color="secondary" id="toggler9" style={{ width: '100%', marginBottom: '5px' }}>
+      <Button className="btn" color="secondary" id="toggler9" style={{ width: '100%', marginBottom: '5px' }} disabled>
         Vitamin A
       </Button>
       <UncontrolledCollapse toggler="#toggler9" style={{width: '100%'}}>
@@ -133,7 +133,7 @@ const Example = () => (
     </div>
 
     <div>
-      <Button className="btn" color="secondary" id="toggler10" style={{ width: '100%', marginBottom: '5px' }}>
+      <Button className="btn" color="secondary" id="toggler10" style={{ width: '100%', marginBottom: '5px' }} disabled>
         Keluhan Lain
       </Button>
       <UncontrolledCollapse toggler="#toggler10" style={{width: '100%'}}>
@@ -146,7 +146,7 @@ const Example = () => (
     </div>
 
     <div>
-      <Button className="btn" color="secondary" id="toggler11" style={{ width: '100%', marginBottom: '5px' }}>
+      <Button className="btn" color="secondary" id="toggler11" style={{ width: '100%', marginBottom: '5px' }}disabled>
         Pemberian Makan
       </Button>
       <UncontrolledCollapse toggler="#toggler11" style={{width: '100%'}}>
@@ -161,4 +161,4 @@ const Example = () => (
   </div>
 );
 
-export default Example;
+export default Summary;

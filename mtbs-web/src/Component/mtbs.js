@@ -11,10 +11,20 @@ import Summary from './Summary/summary';
 
 function MTBS(props){
     // let { url } = useRouteMatch();
-    // let location = props.location.pathname.split("/");
+    let location = props.location.pathname.split("/");
+
+    if(location[location.length - 1] === "") {
+        location = location[location.length - 2];
+    }
+    else {
+        location = location[location.length - 1];
+    }
+
+    let iconColor = ["text-danger", "text-warning"];
+
     return(
         <div style={{ width: '100%'}} className="d-flex">
-            <SideBar/>
+            <SideBar location={location} iconColor={iconColor} />
             <div className="w-75">
             {(() => {
                 switch(props.location.pathname) {

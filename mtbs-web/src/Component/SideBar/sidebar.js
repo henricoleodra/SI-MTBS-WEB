@@ -2,7 +2,7 @@ import React from 'react';
 import {NavItem, Nav, Row, Col, NavLink} from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle } from '@fortawesome/free-solid-svg-icons';
-import { NavLink as RRNavlink} from 'react-router-dom';
+// import { NavLink as RRNavlink} from 'react-router-dom';
 
 let bgColor = {
     backgroundColor: '#41E8B3'
@@ -19,7 +19,7 @@ const SideBar = (props) => {
                 </div>
                 <NavItem>
                     {/* <NavLink className="btn btn-light text-left" to="TandaBahayaUmum1" tag={RRNavlink}> */}
-                    <NavLink className="btn btn-light text-left" to="TandaBahayaUmum1" tag={RRNavlink} active={props.location === "TandaBahayaUmum1" || props.location === "TandaBahayaUmum2"}>
+                    <NavLink className="btn btn-light text-left" href="TandaBahayaUmum1" active={props.location === "TandaBahayaUmum1" || props.location === "TandaBahayaUmum2"}>
                         <Row className="pr-3">
                             <Col xs="auto">
                                 <span className="text-left">Tanda Bahaya Umum</span>
@@ -31,7 +31,7 @@ const SideBar = (props) => {
                     </NavLink>
                 </NavItem>
                 <NavItem>
-                    <NavLink className="btn btn-light text-left" to="Batuk1" tag={RRNavlink} active={props.location === "Batuk1" || props.location === "Batuk2"}>
+                    <NavLink className="btn btn-light text-left" href="Batuk1" active={props.location === "Batuk1" || props.location === "Batuk2"}>
                         <Row className="pr-3">
                             <Col xs="auto">
                                 <span className="text-left">Batuk</span>
@@ -151,7 +151,7 @@ const SideBar = (props) => {
                     </NavLink>
                 </NavItem>
                 <NavItem>
-                    <NavLink href="#" className="btn btn-light text-left" id="klasifikasi">
+                    <NavLink href="Klasifikasi" className="btn btn-light text-left" id="klasifikasi" active={props.location === 'Klasifikasi'}>
                         <Row className="pr-3">
                             <Col xs="auto">
                                 <span className="text-left">Klasfikasi</span>
@@ -167,6 +167,11 @@ const SideBar = (props) => {
                             </Col>
                         </Row>
                     </NavLink>
+                </NavItem>
+                <NavItem>
+                    <div>
+
+                    </div>
                 </NavItem>
             </Nav> 
         </div> 

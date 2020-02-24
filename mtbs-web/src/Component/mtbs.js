@@ -1,13 +1,15 @@
 import React from 'react'
 import { useRouteMatch } from 'react-router-dom';
 import SideBar from './SideBar/sidebar'
+import Summary from './Summary/summary';
+import Klasifikasi from './Klasifikasi/klasifikasi';
 
 //Import Components MTBS Pages
 import TandaBahayaUmum from './TandaBahayaUmum/tbu';
 import TandaBahayaUmum2 from './TandaBahayaUmum/tbu2';
 import Batuk from './Batuk/batuk';
 import Batuk2 from './Batuk/batuk2';
-import Summary from './Summary/summary';
+
 
 function MTBS(props){
     // let { url } = useRouteMatch();
@@ -36,15 +38,22 @@ function MTBS(props){
                         return <Batuk/>;
                     case `/MTBS/Batuk2` :
                         return <Batuk2/>;
+                    case `/MTBS/Klasifikasi`:
+                        return <Klasifikasi/>;
                     default :
                         console.log(props.location.pathname);
                         return "404 not found";
                 }
             })()}
             </div>
-            <div className="mt-2 w-25 mr-1">
-                <Summary/>
-            </div>  
+            {(() => {
+                let x = props.location.pathname;
+                if (x !== '/MTBS/Klasifikasi') return (
+                    <div className="mt-2 w-25 mr-1">
+                        <Summary/>
+                    </div>
+                )
+            })()}
         </div>
     );
 }

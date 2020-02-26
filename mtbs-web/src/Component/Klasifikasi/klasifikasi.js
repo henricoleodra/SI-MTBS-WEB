@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import {Card, CardHeader, CardBody, CardTitle, CardFooter, Button} from 'reactstrap';
 
 let bgColor = {
@@ -30,7 +31,7 @@ const Klasifikasi = (props) =>{
                             Penyakit PROSI
                         </CardBody>
                         <CardFooter className="d-flex justify-content-center">
-                            <Button className="btn btn-secondary" >Tindakan</Button>
+                            <Link to="Tindakan"><Button className="btn btn-secondary" >Tindakan</Button></Link>
                         </CardFooter>
                     </Card>
                 </div>

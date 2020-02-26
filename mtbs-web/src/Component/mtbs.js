@@ -3,6 +3,7 @@ import { useRouteMatch } from 'react-router-dom';
 import SideBar from './SideBar/sidebar'
 import Summary from './Summary/summary';
 import Klasifikasi from './Klasifikasi/klasifikasi';
+import Tindakan from './Tindakan/tindakan';
 
 //Import Components MTBS Pages
 import TandaBahayaUmum from './TandaBahayaUmum/tbu';
@@ -46,6 +47,8 @@ function MTBS(props){
                         return <Diare2/>;
                     case `/MTBS/Klasifikasi`:
                         return <Klasifikasi/>;
+                    case `/MTBS/Tindakan`:
+                        return <Tindakan/>;
                     default :
                         console.log(props.location.pathname);
                         return "404 not found";
@@ -54,7 +57,7 @@ function MTBS(props){
             </div>
             {(() => {
                 let x = props.location.pathname;
-                if (x !== '/MTBS/Klasifikasi') return (
+                if (x !== '/MTBS/Klasifikasi' && x !== '/MTBS/Tindakan' ) return (
                     <div className="mt-2 w-25 mr-1">
                         <Summary/>
                     </div>

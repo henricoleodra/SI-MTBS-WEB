@@ -43,13 +43,13 @@ const SideBar = (props) => {
                     </NavLink>
                 </NavItem>
                 <NavItem>
-                    <NavLink href="#" className="btn btn-light text-left" id="diare" disabled>
+                    <NavLink href="Diare1" className="btn btn-light text-left" active={props.location === "Diare1" || props.location === "Diare2"}>
                         <Row className="pr-3">
                             <Col xs="auto">
                                 <span className="text-left">Diare</span>
                             </Col>
                             <Col xs="1" className="ml-auto">
-                                <FontAwesomeIcon icon={faCircle} className="text-muted" />
+                                <FontAwesomeIcon icon={faCircle} className={props.iconColor[1]} />
                             </Col>
                         </Row>
                     </NavLink>

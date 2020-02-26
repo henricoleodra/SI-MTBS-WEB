@@ -32,11 +32,10 @@ const Batuk = (props) => {
                     }}
                     />
                 </div>
-                <h4 className="text-center">Tanyakan dan periksa !</h4>
                 <div className="row d-flex justify-content-center">
                     <Card style={outlineColor} className="text-center w-75 mt-3">
                         <CardBody>
-                            <CardTitle className="h5">Ada wheezing</CardTitle>
+                            <CardTitle className="h5"><b>Tanyakan! </b>Ada wheezing</CardTitle>
                             <FormGroup check className="d-inline pr-2">
                                 <Label cek>
                                     <Input type="radio" name="radio3"/>{''}
@@ -53,7 +52,7 @@ const Batuk = (props) => {
                     </Card>
                     <Card style={outlineColor} className="text-center w-75 mt-3">
                         <CardBody>
-                            <CardTitle className="h5">Saturasi oksigen</CardTitle>
+                            <CardTitle className="h5"><b>Tanyakan! </b>Saturasi oksigen</CardTitle>
                             <input type="number"/>%
                         </CardBody>
                     </Card>
@@ -61,7 +60,7 @@ const Batuk = (props) => {
             </div>
             <div className="d-flex justify-content-around mt-3">
                 <Link to="Batuk1"><Button color="danger" >Sebelumnya</Button></Link>
-                <Link to="#"><Button color="success">Diare</Button></Link>
+                <Link to="Diare1"><Button color="success">Diare</Button></Link>
             </div>
         </div>
         </Form>

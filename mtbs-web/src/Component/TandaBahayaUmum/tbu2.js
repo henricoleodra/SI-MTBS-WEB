@@ -31,11 +31,10 @@ const TandaBahayaUmum2 = (props) => {
               }}
             />
           </div>
-          <h4 className="text-center">Tanyakan dan periksa !</h4>
           <div className="row d-flex justify-content-center">
             <Card style={outlineColor} className="text-center w-75" >
               <CardBody>
-                <CardTitle className="h5">Ada Stridor</CardTitle>
+                <CardTitle className="h5"><b>Tanyakan! </b>Ada Stridor</CardTitle>
                 <FormGroup check className="d-inline pr-2">
                 <Label cek>
                   <Input type="radio" name="radio1"/>{''}
@@ -52,7 +51,7 @@ const TandaBahayaUmum2 = (props) => {
             </Card>
             <Card style={outlineColor} className="text-center w-75 mt-3">
               <CardBody>
-                <CardTitle className="h5">Biru (Sianosis)</CardTitle>
+                <CardTitle className="h5"><b>Tanyakan! </b>Biru (Sianosis)</CardTitle>
                 <FormGroup check className="d-inline pr-2">
                 <Label cek>
                   <Input type="radio" name="radio2"/>{''}
@@ -69,7 +68,7 @@ const TandaBahayaUmum2 = (props) => {
             </Card>
             <Card style={outlineColor} className="text-center w-75 mt-3">
               <CardBody>
-                <CardTitle className="h5">Ujung tangan dan kaki pcuat dan dingin</CardTitle>
+                <CardTitle className="h5"><b>Tanyakan! </b>Ujung tangan dan kaki pcuat dan dingin</CardTitle>
                 <FormGroup check className="d-inline pr-2">
                 <Label cek>
                   <Input type="radio" name="radio3"/>{''}

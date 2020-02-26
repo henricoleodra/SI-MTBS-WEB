@@ -9,6 +9,8 @@ import TandaBahayaUmum from './TandaBahayaUmum/tbu';
 import TandaBahayaUmum2 from './TandaBahayaUmum/tbu2';
 import Batuk from './Batuk/batuk';
 import Batuk2 from './Batuk/batuk2';
+import Diare from './Diare/diare';
+import Diare2 from './Diare/diare2';
 
 
 function MTBS(props){
@@ -38,6 +40,10 @@ function MTBS(props){
                         return <Batuk/>;
                     case `/MTBS/Batuk2` :
                         return <Batuk2/>;
+                    case `/MTBS/Diare1` :
+                        return <Diare/>;
+                    case `/MTBS/Diare2` :
+                        return <Diare2/>;
                     case `/MTBS/Klasifikasi`:
                         return <Klasifikasi/>;
                     default :

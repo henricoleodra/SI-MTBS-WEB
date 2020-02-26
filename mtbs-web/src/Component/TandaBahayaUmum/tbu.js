@@ -31,11 +31,10 @@ const TandaBahayaUmum = (props) => {
               }}
             />
           </div>
-          <h4 className="text-center">Tanyakan dan periksa !</h4>
           <div className="row d-flex justify-content-center">
             <Card style={outlineColor} className="text-center w-75" >
               <CardBody>
-                <CardTitle className="h5">Tidak bisa minum/menyusu</CardTitle>
+                <CardTitle className="h5"><b>Tanyakan! </b>Tidak bisa minum/menyusu</CardTitle>
                 <FormGroup check className="d-inline pr-2">
                 <Label cek>
                   <Input type="radio" name="radio1"/>{''}
@@ -52,7 +51,7 @@ const TandaBahayaUmum = (props) => {
             </Card>
             <Card style={outlineColor} className="text-center w-75 mt-3">
               <CardBody>
-                <CardTitle className="h5">Memuntahkan semuanya</CardTitle>
+                <CardTitle className="h5"><b>Tanyakan! </b>Memuntahkan semuanya</CardTitle>
                 <FormGroup check className="d-inline pr-2">
                 <Label cek>
                   <Input type="radio" name="radio2"/>{''}
@@ -69,7 +68,7 @@ const TandaBahayaUmum = (props) => {
             </Card>
             <Card style={outlineColor} className="text-center w-75 mt-3">
               <CardBody>
-                <CardTitle className="h5">Kejang-kejang</CardTitle>
+                <CardTitle className="h5"><b>Tanyakan! </b>Kejang-kejang</CardTitle>
                 <FormGroup check className="d-inline pr-2">
                 <Label cek>
                   <Input type="radio" name="radio3"/>{''}
@@ -86,7 +85,7 @@ const TandaBahayaUmum = (props) => {
             </Card>
             <Card style={outlineColor} className="text-center w-75 mt-3">
               <CardBody>
-                <CardTitle className="h5">Gelisah, Letargis atau tidak sadar</CardTitle>
+                <CardTitle className="h5"><b>Tanyakan! </b>Gelisah, Letargis atau tidak sadar</CardTitle>
                 <FormGroup check className="d-inline pr-2">
                 <Label cek>
                   <Input type="radio" name="radio4"/>{''}

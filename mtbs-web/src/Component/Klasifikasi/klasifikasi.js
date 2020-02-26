@@ -24,7 +24,7 @@ const Klasifikasi = (props) =>{
                 <div className="" style={{width: '30%'}}>
                     <Card className="">
                         <CardHeader className="text-center bg-danger text-light">
-                            <CardTitle className="">Tanda Bahaya Umum</CardTitle>
+                            <CardTitle className="font-weight-bold">Tanda Bahaya Umum</CardTitle>
                         </CardHeader>
                         <CardBody className="text-center">
                             Penyakit PROSI
@@ -37,7 +37,7 @@ const Klasifikasi = (props) =>{
                 <div className="" style={{width: '30%'}}>
                     <Card className="">
                         <CardHeader className="text-center bg-warning text-dark">
-                            <CardTitle>Batuk</CardTitle>
+                            <CardTitle className="font-weight-bold">Batuk</CardTitle>
                         </CardHeader>
                         <CardBody className="text-center">
                             Penyakit PROSI

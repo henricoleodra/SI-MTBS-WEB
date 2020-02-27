@@ -48,23 +48,36 @@ const HIV = (props) =>{
                                     Tidak
                                 </Label>
                             </FormGroup>
-                            <h6>Jika pernah, kapan</h6>
-                            <FormGroup check className="d-inline pr-2">
-                                <input type="number"/> Tahun ini
-                            </FormGroup>
-                            <h6>Hasilnya</h6>
-                            <FormGroup check className="d-inline pr-2">
-                                <Label cek>
-                                    <Input type="radio" name="radio2"/>{''}
-                                    Positif
-                                </Label>
-                            </FormGroup>
-                            <FormGroup check className="d-inline">
-                                <Label cek>
-                                    <Input type="radio" name="radio2"/>{''}
-                                    Negatif
-                                </Label>
-                            </FormGroup>
+                            <hr
+                                style={{
+                                    color: "#41E8B3",
+                                    backgroundColor: "#41E8B3",
+                                    height: 1
+                                }}
+                            />
+                            <div className="d-flex justify-content-around pt-2">
+                                <div className="d-line">
+                                    <h6>Jika pernah, kapan ?</h6>
+                                    <FormGroup check className="d-inline pr-2">
+                                        <input type="number"/> Tahun ini
+                                    </FormGroup>
+                                </div>
+                                <div className="d-line">
+                                    <h6>Hasilnya</h6>
+                                    <FormGroup check className="d-inline pr-2">
+                                        <Label cek>
+                                            <Input type="radio" name="radio2"/>{''}
+                                            Positif
+                                        </Label>
+                                    </FormGroup>
+                                    <FormGroup check className="d-inline">
+                                        <Label cek>
+                                            <Input type="radio" name="radio2"/>{''}
+                                            Negatif
+                                        </Label>
+                                    </FormGroup>
+                                </div>
+                            </div>
                         </CardBody>
                     </Card>
                     <Card style={outlineColor} className="text-center w-75 mt-3">

@@ -61,30 +61,16 @@ const Diare = (props) => {
                     <Card style={outlineColor} className="text-center w-75 mt-3">
                         <CardBody>
                             <CardTitle className="h5"><b>Tanyakan! </b>Keadaan umum anak</CardTitle>
-                            <h6>Letargis / tidak sadar</h6>
                             <FormGroup check className="d-inline pr-2">
                                 <Label cek>
                                     <Input type="radio" name="radio2"/>{''}
-                                    Ya
+                                    Letargis / tidak sadar
                                 </Label>
                             </FormGroup>
                             <FormGroup check className="d-inline">
                                 <Label cek>
                                     <Input type="radio" name="radio2"/>{''}
-                                    Tidak
-                                </Label>
-                            </FormGroup>
-                            <h6>Rewel / mudah marah</h6>
-                            <FormGroup check className="d-inline pr-2">
-                                <Label cek>
-                                    <Input type="radio" name="radio3"/>{''}
-                                    Ya
-                                </Label>
-                            </FormGroup>
-                            <FormGroup check className="d-inline">
-                                <Label cek>
-                                    <Input type="radio" name="radio3"/>{''}
-                                    Tidak
+                                    Rewel / mudah marah
                                 </Label>
                             </FormGroup>
                         </CardBody>
@@ -92,7 +78,7 @@ const Diare = (props) => {
                 </div>
             </div>
             <div className="d-flex justify-content-around mt-3">
-                <Link to="Batuk2"><Button color="danger">Batuk</Button></Link>
+                <Link to="Batuk1"><Button color="danger">Batuk</Button></Link>
                 <Link to="Diare2"><Button color="success">Berikutnya</Button></Link>
             </div>
         </div>

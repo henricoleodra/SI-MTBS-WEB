@@ -67,7 +67,7 @@ const SideBar = (props) => {
                     </NavLink>
                 </NavItem>
                 <NavItem>
-                    <NavLink href="#" className="btn btn-light text-left" id="telinga" disabled>
+                    <NavLink href="Telinga1" className="btn btn-light text-left" id="telinga" active={props.location === "Telinga1" || props.location === "Telinga2"} >
                         <Row className="pr-3">
                             <Col xs="auto">
                                 <span className="text-left">Telinga</span>

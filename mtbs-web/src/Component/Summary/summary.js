@@ -81,6 +81,19 @@ const Summary = () => (
     </div>
 
     <div>
+      <Button className="btn" color="secondary" id="toggler12" style={{ width: '100%', marginBottom: '5px' }} disabled>
+        Gizi
+      </Button>
+      <UncontrolledCollapse toggler="#toggler12" style={{width: '100%'}}>
+        <Card>
+          <CardBody>
+            Tidak Anemia
+          </CardBody>
+        </Card>
+      </UncontrolledCollapse>
+    </div>
+
+    <div>
       <Button className="btn" color="secondary" id="toggler6" style={{ width: '100%', marginBottom: '5px' }} disabled>
         Anemia
       </Button>

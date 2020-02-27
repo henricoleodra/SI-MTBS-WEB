@@ -18,6 +18,10 @@ import Telinga2 from './Telinga/telinga2';
 import Anemia from './Anemia/anemia';
 import HIV from './HIV/HIV';
 import HIV2 from './HIV/HIV2';
+import Imunisasi from './Imunisasi/imunisasi';
+import Imunisasi2 from './Imunisasi/imunisasi2';
+import Imunisasi3 from './Imunisasi/imunisasi3';
+import Imunisasi4 from './Imunisasi/imunisasi4';
 
 function MTBS(props){
     // let { url } = useRouteMatch();
@@ -60,6 +64,14 @@ function MTBS(props){
                         return <HIV/>;
                     case `/MTBS/HIV2`:
                         return <HIV2/>;
+                    case `/MTBS/Imunisasi1`:
+                        return <Imunisasi/>;
+                    case `/MTBS/Imunisasi2`:
+                        return <Imunisasi2/>;
+                    case `/MTBS/Imunisasi3`:
+                        return <Imunisasi3/>;
+                    case `/MTBS/Imunisasi4`:
+                        return <Imunisasi4/>;
                     case `/MTBS/Klasifikasi`:
                         return <Klasifikasi/>;
                     case `/MTBS/Tindakan`:

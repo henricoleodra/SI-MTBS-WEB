@@ -9,7 +9,7 @@ var outlineColor = {
     borderColor : '#41E8B3'
 }
 
-const HIV = (props) =>{
+const Imunisasi = (props) =>{
     return(
         <Form>
             <div className="w-100">
@@ -19,11 +19,17 @@ const HIV = (props) =>{
                         <FontAwesomeIcon icon={faCircle} className="text-muted"/>
                     </div>
                     <div className="p-2">
+                        <FontAwesomeIcon icon={faCircle} className="text-muted"/>
+                    </div>
+                    <div className="p-2">
                         <FontAwesomeIcon icon={faCircle} style={{color: '#41E8B3'}}/>
-                    </div>      
+                    </div>
+                    <div className="p-2">
+                        <FontAwesomeIcon icon={faCircle} className="text-muted"/>
+                    </div> 
                 </div>
                 <div className="mt-2">
-                    <h3 className="text-center font-weight-bold">HIV</h3>
+                    <h3 className="text-center font-weight-bold">Imunisasi</h3>
                     <hr
                     style={{
                         color: "#41E8B3",
@@ -35,8 +41,7 @@ const HIV = (props) =>{
                 <div className="row d-flex justify-content-center">
                     <Card style={outlineColor} className="text-center w-75 mt-3">
                         <CardBody>
-                            <CardTitle className="h5"><b>Tanyakan! </b>Anak memiliki orang tua kandung dan/atau saudara kandung</CardTitle>
-                            <h6>Yang terdiagnosis HIV</h6>
+                            <CardTitle className="h5"><b>Tanyakan! </b>Sudah diberi DPT-HB-Hib 1</CardTitle>
                             <FormGroup check className="d-inline pr-2">
                                 <Label cek>
                                     <Input type="radio" name="radio1"/>{''}
@@ -49,7 +54,11 @@ const HIV = (props) =>{
                                     Tidak
                                 </Label>
                             </FormGroup>
-                            <h6>Yang meninggal karena penyebab tidak diketahui tapi masih mungkin karena HIV</h6>
+                        </CardBody>
+                    </Card>
+                    <Card style={outlineColor} className="text-center w-75 mt-3">
+                        <CardBody>
+                            <CardTitle className="h5"><b>Tanyakan! </b>Sudah diberi DPT-HB-Hib 2</CardTitle>
                             <FormGroup check className="d-inline pr-2">
                                 <Label cek>
                                     <Input type="radio" name="radio2"/>{''}
@@ -66,7 +75,7 @@ const HIV = (props) =>{
                     </Card>
                     <Card style={outlineColor} className="text-center w-75 mt-3">
                         <CardBody>
-                            <CardTitle className="h5"><b>Tanyakan! </b>Anak masih mendapatkan ASI</CardTitle>
+                            <CardTitle className="h5"><b>Tanyakan! </b>Sudah diberi DPT-HB-Hib 3</CardTitle>
                             <FormGroup check className="d-inline pr-2">
                                 <Label cek>
                                     <Input type="radio" name="radio3"/>{''}
@@ -76,23 +85,6 @@ const HIV = (props) =>{
                             <FormGroup check className="d-inline">
                                 <Label cek>
                                     <Input type="radio" name="radio3"/>{''}
-                                    Tidak
-                                </Label>
-                            </FormGroup>
-                        </CardBody>
-                    </Card>
-                    <Card style={outlineColor} className="text-center w-75 mt-3">
-                        <CardBody>
-                            <CardTitle className="h5"><b>Lihat! </b>Ada bercak putih di rongga mulut</CardTitle>
-                            <FormGroup check className="d-inline pr-2">
-                                <Label cek>
-                                    <Input type="radio" name="radio4"/>{''}
-                                    Ya
-                                </Label>
-                            </FormGroup>
-                            <FormGroup check className="d-inline">
-                                <Label cek>
-                                    <Input type="radio" name="radio4"/>{''}
                                     Tidak
                                 </Label>
                             </FormGroup>
@@ -101,12 +93,12 @@ const HIV = (props) =>{
                 </div>
             </div>
             <div className="d-flex justify-content-around mt-3">
-                <Link to="HIV1"><Button color="danger">Sebelumnya</Button></Link>
-                <Link to="Imunisasi1"><Button color="success">Imunisasi</Button></Link>
+                <Link to="Imunisasi2"><Button color="danger">Sebelumnya</Button></Link>
+                <Link to="Imunisasi4"><Button color="success">Selanjutnya</Button></Link>
             </div>
         </div>
         </Form>
     );
 }
 
-export default HIV;
+export default Imunisasi;

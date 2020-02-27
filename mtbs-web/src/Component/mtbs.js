@@ -16,7 +16,8 @@ import Diare2 from './Diare/diare2';
 import Telinga from './Telinga/telinga';
 import Telinga2 from './Telinga/telinga2';
 import Anemia from './Anemia/anemia';
-
+import HIV from './HIV/HIV';
+import HIV2 from './HIV/HIV2';
 
 function MTBS(props){
     // let { url } = useRouteMatch();
@@ -55,6 +56,10 @@ function MTBS(props){
                         return <Telinga2/>;
                     case `/MTBS/Anemia`:
                         return <Anemia/>;
+                    case `/MTBS/HIV1`:
+                        return <HIV/>;
+                    case `/MTBS/HIV2`:
+                        return <HIV2/>;
                     case `/MTBS/Klasifikasi`:
                         return <Klasifikasi/>;
                     case `/MTBS/Tindakan`:

@@ -39,25 +39,25 @@ const Anemia = (props) =>{
                                     Sangat pucat
                                 </Label>
                             </FormGroup>
-                            <FormGroup check className="d-inline pr-2">
+                            <FormGroup check className="d-inline">
                                 <Label cek>
                                     <Input type="radio" name="radio1"/>{''}
                                     Agak pucat
                                 </Label>
                             </FormGroup>
-                            <FormGroup check className="d-inline">
+                            {/* <FormGroup check className="d-inline">
                                 <Label cek>
                                     <Input type="radio" name="radio1"/>{''}
                                     Tidak pucat
                                 </Label>
-                            </FormGroup>
+                            </FormGroup> */}
                         </CardBody>
                     </Card>
                 </div>
             </div>
             <div className="d-flex justify-content-around mt-3">
                 <Link to="Telinga1"><Button color="danger">Telinga</Button></Link>
-                <Link to="HIV"><Button color="success" disabled>Gizi</Button></Link>
+                <Link to="HIV"><Button color="success">HIV</Button></Link>
             </div>
         </div>
         </Form>

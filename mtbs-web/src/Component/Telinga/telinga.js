@@ -52,7 +52,7 @@ const Telinga = (props) =>{
                     </Card>
                     <Card style={outlineColor} className="text-center w-75 mt-3">
                         <CardBody>
-                            <CardTitle className="h5"><b>Tanyakan! </b>Ada rasa penuh di telinga (Anak rewel, ada rasa tidak nyaman di telinga, menarik-narik telinga)</CardTitle>
+                            <CardTitle className="h5"><b>Tanyakan! </b>Ada rasa penuh di telinga</CardTitle>
                             <FormGroup check className="d-inline pr-2">
                                 <Label cek>
                                     <Input type="radio" name="radio2"/>{''}

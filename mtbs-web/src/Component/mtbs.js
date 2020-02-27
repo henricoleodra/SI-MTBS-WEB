@@ -12,8 +12,10 @@ import Batuk from './Batuk/batuk';
 import Batuk2 from './Batuk/batuk2';
 import Diare from './Diare/diare';
 import Diare2 from './Diare/diare2';
+// import Demam
 import Telinga from './Telinga/telinga';
 import Telinga2 from './Telinga/telinga2';
+import Anemia from './Anemia/anemia';
 
 
 function MTBS(props){
@@ -51,6 +53,8 @@ function MTBS(props){
                         return <Telinga/>;
                     case `/MTBS/Telinga2`:
                         return <Telinga2/>;
+                    case `/MTBS/Anemia`:
+                        return <Anemia/>;
                     case `/MTBS/Klasifikasi`:
                         return <Klasifikasi/>;
                     case `/MTBS/Tindakan`:

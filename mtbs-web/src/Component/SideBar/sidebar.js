@@ -139,7 +139,7 @@ const SideBar = (props) => {
                     </NavLink>
                 </NavItem>
                 <NavItem>
-                    <NavLink href="#" className="btn btn-light text-left" id="keluhanlain" disabled>
+                    <NavLink href="KeluhanLain" className="btn btn-light text-left" id="keluhanlain" active={props.location === "KeluhanLain"}>
                         <Row className="pr-3">
                             <Col xs="auto">
                                 <span className="text-left">Keluhan Lain</span>

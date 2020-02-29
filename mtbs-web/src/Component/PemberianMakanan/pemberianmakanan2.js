@@ -66,7 +66,7 @@ const PemberianMakanan = (props) =>{
                                 <div className="d-line">
                                     <h6>Jika Ya, makanan atau minuman apa?</h6>
                                     <FormGroup check className="d-inline pr-2">
-                                        <input type="text"/>
+                                        <input type="textarea"/>
                                     </FormGroup>
                                     <h6>Berapa kali sehari?</h6>
                                     <FormGroup check className="d-inline pr-2">
@@ -76,7 +76,7 @@ const PemberianMakanan = (props) =>{
                                 <div className="d-line">
                                     <h6>Alat apa yang digunakan untuk memberi minum anak?</h6>
                                     <FormGroup check className="d-inline pr-2">
-                                        <input type="text"/>
+                                        <input type="textarea"/>
                                     </FormGroup>
                                 </div>
                             </div>

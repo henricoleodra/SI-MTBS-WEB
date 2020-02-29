@@ -66,7 +66,7 @@ const PemberianMakanan = (props) =>{
                                 <div className="d-line">
                                     <h6>Jika Ya, bagaimana?</h6>
                                     <FormGroup check className="d-inline pr-2">
-                                        <input type="text"/>
+                                        <input type="textarea"/>
                                     </FormGroup>
                                 </div>
                             </div>

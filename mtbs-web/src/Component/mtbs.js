@@ -24,6 +24,7 @@ import Imunisasi2 from './Imunisasi/imunisasi2';
 import Imunisasi3 from './Imunisasi/imunisasi3';
 import Imunisasi4 from './Imunisasi/imunisasi4';
 import Vitamina from './VitaminA/vitamina';
+import KeluhanLain from './KeluhanLain/keluhanlain';
 import PemberianMakanan from './PemberianMakanan/pemberianmakanan';
 import PemberianMakanan2 from './PemberianMakanan/pemberianmakanan2';
 import PemberianMakanan3 from './PemberianMakanan/pemberianmakanan3';
@@ -82,6 +83,8 @@ function MTBS(props){
                         return <Imunisasi4/>;
                     case `/MTBS/Vitamina` :
                         return <Vitamina/>;
+                    case `/MTBS/KeluhanLain` :
+                        return <KeluhanLain/>;                    
                     case `/MTBS/Klasifikasi`:
                         return <Klasifikasi/>;
                     case `/MTBS/Tindakan`:

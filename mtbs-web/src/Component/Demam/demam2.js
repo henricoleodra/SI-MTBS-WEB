@@ -16,10 +16,10 @@ const Demam = (props) => {
                 <div className="col-12">
                     <div className="d-flex justify-content-center mt-3">
                         <div className="p-2">
-                            <FontAwesomeIcon icon={faCircle} style={{ color: '#41E8B3' }} />
+                            <FontAwesomeIcon icon={faCircle} className="text-muted" />
                         </div>
                         <div className="p-2">
-                            <FontAwesomeIcon icon={faCircle} className="text-muted" />
+                            <FontAwesomeIcon icon={faCircle} style={{ color: '#41E8B3' }} />
                         </div>
                         <div className="p-2">
                             <FontAwesomeIcon icon={faCircle} className="text-muted" />
@@ -55,50 +55,51 @@ const Demam = (props) => {
                                 height: 5
                             }}
                         />
+                        <p className="text-center"><b>Jika Daerah Non Endemis</b>, tanyakan riwayat bepergian ke daerah endemis
+                        malaria dalam 2 minggu terakhir dan tentukan daerah endemis sesuai tempat yang dikunjungi</p>
                     </div>
                     <div className="row d-flex justify-content-around">
-                        <Card style={outlineColor} className="text-center w-75" >
+                        <Card style={outlineColor} className="text-center w-75 mt-3">
                             <CardBody>
-                                <CardTitle className="h5"><b>Tanyakan dan periksa!</b></CardTitle>
+                                <CardTitle className="h5"><b>Tanyakan! </b>Sudah berapa lama?</CardTitle>
+                                <FormGroup check className="d-inline pr-2">
+                                    <input type="number" /> hari
+                                </FormGroup>
+                            </CardBody>
+                        </Card>
+
+                        <Card style={outlineColor} className="text-center w-75 mt-3">
+                            <CardBody>
+                                <CardTitle className="h5"><b>Tanyakan! </b>Jika lebih dari 7 hari, apakah demam terjadi
+                                setiap hari?</CardTitle>
                                 <FormGroup check className="d-inline pr-2">
                                     <Label cek>
                                         <Input type="radio" name="radio1" />{''}
-                                        Anamnesis
+                                        Ya
                                     </Label>
                                 </FormGroup>
                                 <FormGroup check className="d-inline">
                                     <Label cek>
                                         <Input type="radio" name="radio1" />{''}
-                                        Teraba panas
-                                    </Label>
-                                </FormGroup>
-                                <FormGroup check className="d-inline pl-4">
-                                    <Label cek>
-                                        <Input type="radio" name="radio1" />{''}
-                                        Suhu >= 37.5 derajat Celcius
+                                        Tidak
                                     </Label>
                                 </FormGroup>
                             </CardBody>
                         </Card>
-                        <Card style={outlineColor} className="text-center w-75 mt-3" >
+
+                        <Card style={outlineColor} className="text-center w-75 mt-3">
                             <CardBody>
-                                <CardTitle className="h5"><b>Periksa! </b>Tentukan daerah endemis malaria</CardTitle>
+                                <CardTitle className="h5"><b>Tanyakan! </b>Apakah pernah sakit malaria atau minum obat malaria?</CardTitle>
                                 <FormGroup check className="d-inline pr-2">
                                     <Label cek>
                                         <Input type="radio" name="radio2" />{''}
-                                        Tinggi
+                                        Ya
                                     </Label>
                                 </FormGroup>
                                 <FormGroup check className="d-inline">
                                     <Label cek>
                                         <Input type="radio" name="radio2" />{''}
-                                        Rendah
-                                    </Label>
-                                </FormGroup>
-                                <FormGroup check className="d-inline pl-4">
-                                    <Label cek>
-                                        <Input type="radio" name="radio2" />{''}
-                                        Non Endemis
+                                        Tidak
                                     </Label>
                                 </FormGroup>
                             </CardBody>
@@ -106,8 +107,8 @@ const Demam = (props) => {
                     </div>
                 </div>
                 <div className="d-flex justify-content-around mt-3">
-                    <Link to="Diare1"><Button color="danger">Diare</Button></Link>
-                    <Link to="Demam2"><Button color="success">Selanjutnya</Button></Link>
+                    <Link to="Demam1"><Button color="danger">Sebelumnya</Button></Link>
+                    <Link to="Demam3"><Button color="success">Selanjutnya</Button></Link>
                 </div>
             </div>
         </Form>

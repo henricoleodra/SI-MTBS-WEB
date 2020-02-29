@@ -71,7 +71,7 @@ const Telinga = (props) =>{
             </div>
             <div className="d-flex justify-content-around mt-3">
                 <Link to="Telinga1"><Button color="danger">Sebelumnya</Button></Link>
-                <Link to="gizi"><Button color="success" disabled>Gizi</Button></Link>
+                <Link to="Gizi1"><Button color="success">Gizi</Button></Link>
             </div>
         </div>
         </Form>

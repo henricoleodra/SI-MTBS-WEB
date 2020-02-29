@@ -33,7 +33,7 @@ const Telinga = (props) =>{
                     />
                 </div>
                 <div className="row d-flex justify-content-center">
-                    <Card style={outlineColor} className="text-center w-75 mt-3">
+                    <Card style={outlineColor} className="text-center w-75">
                         <CardBody>
                             <CardTitle className="h5"><b>Tanyakan! </b>Ada nyeri telinga</CardTitle>
                             <FormGroup check className="d-inline pr-2">

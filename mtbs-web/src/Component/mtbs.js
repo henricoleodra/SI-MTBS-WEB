@@ -16,6 +16,9 @@ import Diare2 from './Diare/diare2';
 import Demam from './Demam/demam';
 import Telinga from './Telinga/telinga';
 import Telinga2 from './Telinga/telinga2';
+import Gizi from './Gizi/gizi';
+import Gizi2 from './Gizi/gizi2';
+import Gizi3 from './Gizi/gizi3';
 import Anemia from './Anemia/anemia';
 import HIV from './HIV/HIV';
 import HIV2 from './HIV/HIV2';
@@ -29,6 +32,7 @@ import PemberianMakanan from './PemberianMakanan/pemberianmakanan';
 import PemberianMakanan2 from './PemberianMakanan/pemberianmakanan2';
 import PemberianMakanan3 from './PemberianMakanan/pemberianmakanan3';
 import PemberianMakanan4 from './PemberianMakanan/pemberianmakanan4';
+
 
 function MTBS(props){
     // let { url } = useRouteMatch();
@@ -67,6 +71,12 @@ function MTBS(props){
                         return <Telinga/>;
                     case `/MTBS/Telinga2`:
                         return <Telinga2/>;
+                    case `/MTBS/Gizi1` :
+                        return <Gizi/>;
+                    case `/MTBS/Gizi2` :
+                        return <Gizi2/>;
+                    case `/MTBS/Gizi3` :
+                        return <Gizi3/>;
                     case `/MTBS/Anemia`:
                         return <Anemia/>;
                     case `/MTBS/HIV1`:

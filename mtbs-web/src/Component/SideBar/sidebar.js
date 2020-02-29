@@ -1,7 +1,7 @@
 import React from 'react';
-import {NavItem, Nav, Row, Col, NavLink} from 'reactstrap';
+import {NavItem, Nav, Row, Col, NavLink, Label, Container} from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircle } from '@fortawesome/free-solid-svg-icons';
+import { faCircle, faBaby } from '@fortawesome/free-solid-svg-icons';
 // import { NavLink as RRNavlink} from 'react-router-dom';
 
 let bgColor = {
@@ -14,7 +14,7 @@ const SideBar = (props) => {
     return (
         <div style={{backgroundColor: '#F8F9FB', minHeight : '100vh'}} className="w-25 p-0">
             <Nav vertical className="w-100">
-                <div className="sidebar-header text-center" style={bgColor}>
+                <div className="text-center" style={bgColor}>
                     <h3 className="mt-2">Halaman MTBS</h3>
                 </div>
                 <NavItem>
@@ -180,10 +180,23 @@ const SideBar = (props) => {
                         </Row>
                     </NavLink>
                 </NavItem>
-                <NavItem>
-                    <div>
-
-                    </div>
+                <NavItem style={bgColor}>
+                    <NavLink href="#" className="btn btn-light text-left position-absolute" id="tindakan" style={{bottom: 0, backgroundColor:'#41E8B3'}}>
+                        <div className="d-flex flex-row">
+                            <div className="mt-1">
+                                <FontAwesomeIcon icon={faBaby} className="fa-3x"/>
+                            </div>
+                            <div className="d-flex flex-column ml-3">
+                                <div>
+                                    <Label>Nama Anak :</Label> Harry Senjaya
+                                </div>
+                                <div>
+                                    <Label>Click disini untuk Detail Anak!</Label> 
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </NavLink>
                 </NavItem>
             </Nav> 
         </div> 

@@ -63,20 +63,31 @@ const PemberianMakanan = (props) =>{
                                 }}
                             />
                             <div className="d-flex justify-content-around pt-2">
-                                <div className="d-line">
+                                <div className="flex-row">
                                     <h6>Jika Ya, makanan atau minuman apa?</h6>
                                     <FormGroup check className="d-inline pr-2">
-                                        <input type="textarea"/>
+                                        <Input type="textarea"/>
                                     </FormGroup>
                                     <h6>Berapa kali sehari?</h6>
                                     <FormGroup check className="d-inline pr-2">
                                         <input type="number"/> kali
                                     </FormGroup>
                                 </div>
-                                <div className="d-line">
+                                <div className="d-line ml-4 mb-2">
+                                    <hr
+                                        style={{
+                                            color: "#41E8B3",
+                                            backgroundColor: "#41E8B3",
+                                            height: "100%",
+                                            width: 2
+                                        }}
+                                    />
+                                </div>
+                                
+                                <div className="d-line ml-4">
                                     <h6>Alat apa yang digunakan untuk memberi minum anak?</h6>
                                     <FormGroup check className="d-inline pr-2">
-                                        <input type="textarea"/>
+                                        <Input type="textarea"/>
                                     </FormGroup>
                                 </div>
                             </div>

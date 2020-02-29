@@ -69,7 +69,7 @@ const PemberianMakanan = (props) =>{
                         <CardBody>
                             <CardTitle className="h5"><b>Tanyakan! </b>Siapa yang memberi makan dan bagaimana caranya?</CardTitle>
                             <FormGroup check className="d-inline pr-2">
-                                <input type="textarea"/> 
+                                <Input type="textarea"/> 
                             </FormGroup>
                         </CardBody>
                     </Card>

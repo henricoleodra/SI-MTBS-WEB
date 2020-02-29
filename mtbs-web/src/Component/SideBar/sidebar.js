@@ -181,7 +181,7 @@ const SideBar = (props) => {
                     </NavLink>
                 </NavItem>
                 <NavItem style={bgColor}>
-                    <NavLink href="#" className="btn btn-light text-left" id="tindakan" style={{bottom: 0, backgroundColor:'#41E8B3'}}>
+                    <NavLink href="#" className="btn btn-light text-left position-absolute" id="tindakan" style={{bottom: 0, backgroundColor:'#41E8B3'}}>
                         <div className="d-flex flex-row">
                             <div className="mt-1">
                                 <FontAwesomeIcon icon={faBaby} className="fa-3x"/>
@@ -195,7 +195,6 @@ const SideBar = (props) => {
                                 </div>
                             </div>
                         </div>
-                        
                     </NavLink>
                 </NavItem>
             </Nav> 

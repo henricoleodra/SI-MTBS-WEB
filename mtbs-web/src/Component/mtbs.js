@@ -24,6 +24,10 @@ import Imunisasi2 from './Imunisasi/imunisasi2';
 import Imunisasi3 from './Imunisasi/imunisasi3';
 import Imunisasi4 from './Imunisasi/imunisasi4';
 import Vitamina from './VitaminA/vitamina';
+import PemberianMakanan from './PemberianMakanan/pemberianmakanan';
+import PemberianMakanan2 from './PemberianMakanan/pemberianmakanan2';
+import PemberianMakanan3 from './PemberianMakanan/pemberianmakanan3';
+import PemberianMakanan4 from './PemberianMakanan/pemberianmakanan4';
 
 function MTBS(props){
     // let { url } = useRouteMatch();
@@ -82,6 +86,14 @@ function MTBS(props){
                         return <Klasifikasi/>;
                     case `/MTBS/Tindakan`:
                         return <Tindakan/>;
+                    case `/MTBS/PemberianMakanan1`:
+                        return <PemberianMakanan/>;
+                    case `/MTBS/PemberianMakanan2`:
+                        return <PemberianMakanan2/>;
+                    case `/MTBS/PemberianMakanan3`:
+                        return <PemberianMakanan3/>;
+                    case `/MTBS/PemberianMakanan4`:
+                        return <PemberianMakanan4/>;
                     default :
                         console.log(props.location.pathname);
                         return "404 not found";

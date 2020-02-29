@@ -16,17 +16,17 @@ const PemberianMakanan = (props) =>{
                 <div className="col-12">
                 <div className="d-flex justify-content-center mt-3">
                     <div className="p-2">
+                        <FontAwesomeIcon icon={faCircle} className="text-muted"/>
+                    </div> 
+                    <div className="p-2">
+                        <FontAwesomeIcon icon={faCircle} className="text-muted"/>
+                    </div> 
+                    <div className="p-2">
+                        <FontAwesomeIcon icon={faCircle} className="text-muted"/>
+                    </div> 
+                    <div className="p-2">
                         <FontAwesomeIcon icon={faCircle} style={{color: '#41E8B3'}}/>
-                    </div>
-                    <div className="p-2">
-                        <FontAwesomeIcon icon={faCircle} className="text-muted"/>
                     </div> 
-                    <div className="p-2">
-                        <FontAwesomeIcon icon={faCircle} className="text-muted"/>
-                    </div> 
-                    <div className="p-2">
-                        <FontAwesomeIcon icon={faCircle} className="text-muted"/>
-                    </div>  
                 </div>
                 <div className="mt-2">
                     <h3 className="text-center font-weight-bold">Pemberian Makanan</h3>  
@@ -37,12 +37,12 @@ const PemberianMakanan = (props) =>{
                         height: 5
                     }}
                     />
-                    <p className="text-center">Jika anak berumur kurang dari 2 tahun atau GIZI KURUS atau ANEMIA <b>DAN</b> anak tidak akan dirujuk segera</p>
+                    <p className="text-center">Jika anak <b>GIZI KURUS</b></p>
                 </div>
                 <div className="row d-flex justify-content-center">
                     <Card style={outlineColor} className="text-center w-75 mt-3">
                         <CardBody>
-                            <CardTitle className="h5"><b>Tanyakan! </b>Apakah ibu menyusui anak?</CardTitle>
+                            <CardTitle className="h5"><b>Tanyakan! </b>Selama sakit ini, apakah ada perubahan permberian makan?</CardTitle>
                             <FormGroup check className="d-inline pr-2">
                                 <Label cek>
                                     <Input type="radio" name="radio1"/>{''}
@@ -64,24 +64,9 @@ const PemberianMakanan = (props) =>{
                             />
                             <div className="d-flex justify-content-around pt-2">
                                 <div className="d-line">
-                                    <h6>Jika Ya, berapa kali sehari ?</h6>
+                                    <h6>Jika Ya, bagaimana?</h6>
                                     <FormGroup check className="d-inline pr-2">
-                                        <input type="number"/> kali
-                                    </FormGroup>
-                                </div>
-                                <div className="d-line">
-                                    <h6>Apakah menyusui juga di malam hari?</h6>
-                                    <FormGroup check className="d-inline pr-2">
-                                        <Label cek>
-                                            <Input type="radio" name="radio2"/>{''}
-                                            Ya
-                                        </Label>
-                                    </FormGroup>
-                                    <FormGroup check className="d-inline">
-                                        <Label cek>
-                                            <Input type="radio" name="radio2"/>{''}
-                                            Tidak
-                                        </Label>
+                                        <input type="text"/>
                                     </FormGroup>
                                 </div>
                             </div>
@@ -90,8 +75,8 @@ const PemberianMakanan = (props) =>{
                 </div>
             </div>
             <div className="d-flex justify-content-around mt-3">
-                <Link to="KeluhanLain"><Button color="danger">KeluhanLain</Button></Link>
-                <Link to="PemberianMakanan2"><Button color="success">Selanjutnya</Button></Link>
+                <Link to="PemberianMakanan3"><Button color="danger">Sebelumnya</Button></Link>
+                <Link to="Klasifikasi"><Button color="success">Klasifikasi</Button></Link>
             </div>
         </div>
         </Form>

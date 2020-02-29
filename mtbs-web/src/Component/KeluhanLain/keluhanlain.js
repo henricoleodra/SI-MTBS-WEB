@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button} from "reactstrap";
+import { FormGroup, Input, Form, Card, CardBody, CardTitle, Button} from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle } from '@fortawesome/free-solid-svg-icons'
 
@@ -34,7 +34,7 @@ const Keluhan = (props) =>{
                         <CardBody>
                             <CardTitle className="h5"><b>Tanyakan! </b>Apakah ada keluhan lain?</CardTitle>
                             <FormGroup check className="d-inline pr-2">
-                                <input type="textarea"/>
+                                <Input type="textarea"/>
                             </FormGroup>
                         </CardBody>
                     </Card>

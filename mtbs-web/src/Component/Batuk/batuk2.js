@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button} from "reactstrap";
+import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button, InputGroup, InputGroupAddon, InputGroupText} from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle } from '@fortawesome/free-solid-svg-icons'
 
 
 var outlineColor = {
     borderColor : '#41E8B3'
+}
+
+let bgColor ={
+    backgroundColor : '#41E8B3',
+    color: 'white'
 }
 
 const Batuk = (props) => {
@@ -53,7 +58,14 @@ const Batuk = (props) => {
                     <Card style={outlineColor} className="text-center w-75 mt-3">
                         <CardBody>
                             <CardTitle className="h5"><b>Tanyakan! </b>Saturasi oksigen</CardTitle>
-                            <input type="number"/>%
+                            <div className="w-100 d-flex justify-content-center">
+                                <InputGroup className="w-25">
+                                    <Input type="number" min="0"/>
+                                    <InputGroupAddon addonType="append" >
+                                        <InputGroupText style={bgColor}>%</InputGroupText>
+                                    </InputGroupAddon>
+                                </InputGroup>         
+                            </div>     
                         </CardBody>
                     </Card>
                 </div>

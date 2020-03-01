@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button} from "reactstrap";
+import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button, InputGroup, InputGroupText, InputGroupAddon} from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle } from '@fortawesome/free-solid-svg-icons'
 
 
-var outlineColor = {
+let outlineColor = {
     borderColor : '#41E8B3'
+}
+
+let bgColor ={
+    backgroundColor : '#41E8B3',
+    color: 'white'
 }
 
 const Batuk = (props) => {
@@ -34,20 +39,30 @@ const Batuk = (props) => {
                 </div>
                 <div className="row d-flex justify-content-center">
                     <Card style={outlineColor} className="text-center w-75" >
-                        <CardBody>
-                            <CardTitle className="h5"><b>Tanyakan! </b>Sudah berapa lama?(Hari)</CardTitle>
-                            <FormGroup check className="d-inline pr-2">
-                                <input type="number" min="1"/>
-                            </FormGroup>
+                        <CardBody className="d-flex justify-content-center flex-column">
+                            <CardTitle className="h5"><b>Tanyakan! </b>Sudah berapa lama?</CardTitle>
+                                <div className="w-100 d-flex justify-content-center">
+                                    <InputGroup className="w-25">
+                                        <Input type="number" min="0"/>
+                                        <InputGroupAddon addonType="append" >
+                                            <InputGroupText style={bgColor}>Hari</InputGroupText>
+                                        </InputGroupAddon>
+                                    </InputGroup>         
+                                </div>                 
                         </CardBody>
                     </Card>
                     <Card style={outlineColor} className="text-center w-75 mt-3">
                         <CardBody>
                             <CardTitle className="h5"><b>Tanyakan! </b>Hitung nafas dalam 1 menit !</CardTitle>
-                            <FormGroup check className="d-inline pr-2">
-                                <input type="number"/>Kali / menit
-                            </FormGroup>
-                            <h5>Nafas cepat?</h5>
+                            <div className="w-100 d-flex justify-content-center">
+                                    <InputGroup className="w-50">
+                                        <Input type="number" min="0"/>
+                                        <InputGroupAddon addonType="append" >
+                                            <InputGroupText style={bgColor}>Kali/Menit</InputGroupText>
+                                        </InputGroupAddon>
+                                    </InputGroup>         
+                            </div>     
+                            {/* <h5>Nafas cepat?</h5>
                             <FormGroup check className="d-inline pr-2">
                                 <Label cek>
                                     <Input type="radio" name="radio1"/>{''}
@@ -59,7 +74,7 @@ const Batuk = (props) => {
                                     <Input type="radio" name="radio1"/>{''}
                                     Tidak
                                 </Label>
-                            </FormGroup>
+                            </FormGroup> */}
                         </CardBody>
                     </Card>
                     <Card style={outlineColor} className="text-center w-75 mt-3">

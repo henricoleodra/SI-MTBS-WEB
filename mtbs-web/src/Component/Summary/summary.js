@@ -1,7 +1,7 @@
 import React from 'react';
 import { UncontrolledCollapse, Button, CardBody, Card, Badge } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
+import { faExclamationTriangle, faChevronDown, faChevronUp} from '@fortawesome/free-solid-svg-icons'
 
 const Summary = () => (
   <div className="w-100">
@@ -16,8 +16,9 @@ const Summary = () => (
     <br></br>
 
     <div>
-      <Button  className="btn" color="danger" id="toggler" style={{ width: '100%', marginBottom: '5px' }}>
-        Tanda Bahaya Umum
+        <Button  className="btn" color="danger" id="toggler" style={{ width: '100%', marginBottom: '5px' }}>
+          Tanda Bahaya Umum
+        <FontAwesomeIcon icon={faChevronUp} className="ml-2"/>
       </Button>
       <UncontrolledCollapse toggler="#toggler" style={{width: '100%'}}>
         <Card>
@@ -31,6 +32,7 @@ const Summary = () => (
     <div>
       <Button className="btn" color="warning" id="toggler2" style={{ width: '100%', marginBottom: '5px' }}>
         Batuk
+        <FontAwesomeIcon icon={faChevronUp} className="ml-2"/>
       </Button>
       <UncontrolledCollapse toggler="#toggler2" style={{width: '100%'}}>
         <Card>
@@ -44,6 +46,7 @@ const Summary = () => (
     <div>
       <Button className="btn" color="secondary" id="toggler3" style={{ width: '100%', marginBottom: '5px' }} disabled>
         Diare
+        <FontAwesomeIcon icon={faChevronUp} className="ml-2"/>
       </Button>
       <UncontrolledCollapse toggler="#toggler3" style={{width: '100%'}}>
         <Card>
@@ -57,6 +60,7 @@ const Summary = () => (
     <div>
       <Button className="btn" color="secondary" id="toggler4" style={{ width: '100%', marginBottom: '5px' }} disabled>
         Demam
+        <FontAwesomeIcon icon={faChevronUp} className="ml-2"/>
       </Button>
       <UncontrolledCollapse toggler="#toggler4" style={{width: '100%'}}>
         <Card>
@@ -70,6 +74,7 @@ const Summary = () => (
     <div>
       <Button className="btn" color="secondary" id="toggler5" style={{ width: '100%', marginBottom: '5px' }} disabled>
         Telinga
+        <FontAwesomeIcon icon={faChevronUp} className="ml-2"/>
       </Button>
       <UncontrolledCollapse toggler="#toggler5" style={{width: '100%'}}>
         <Card>
@@ -83,6 +88,7 @@ const Summary = () => (
     <div>
       <Button className="btn" color="secondary" id="toggler12" style={{ width: '100%', marginBottom: '5px' }} disabled>
         Gizi
+        <FontAwesomeIcon icon={faChevronUp} className="ml-2"/>
       </Button>
       <UncontrolledCollapse toggler="#toggler12" style={{width: '100%'}}>
         <Card>
@@ -96,6 +102,7 @@ const Summary = () => (
     <div>
       <Button className="btn" color="secondary" id="toggler6" style={{ width: '100%', marginBottom: '5px' }} disabled>
         Anemia
+        <FontAwesomeIcon icon={faChevronUp} className="ml-2"/>
       </Button>
       <UncontrolledCollapse toggler="#toggler6" style={{width: '100%'}}>
         <Card>
@@ -109,6 +116,7 @@ const Summary = () => (
     <div>
       <Button className="btn" color="secondary" id="toggler7" style={{ width: '100%', marginBottom: '5px' }} disabled>
         HIV
+        <FontAwesomeIcon icon={faChevronUp} className="ml-2"/>
       </Button>
       <UncontrolledCollapse toggler="#toggler7" style={{width: '100%'}}>
         <Card>
@@ -122,6 +130,7 @@ const Summary = () => (
     <div>
       <Button className="btn" color="secondary" id="toggler8" style={{ width: '100%', marginBottom: '5px' }} disabled>
        Imunisasi
+       <FontAwesomeIcon icon={faChevronUp} className="ml-2"/>
       </Button>
       <UncontrolledCollapse toggler="#toggler8" style={{width: '100%'}}>
         <Card>
@@ -135,6 +144,7 @@ const Summary = () => (
     <div>
       <Button className="btn" color="secondary" id="toggler9" style={{ width: '100%', marginBottom: '5px' }} disabled>
         Vitamin A
+        <FontAwesomeIcon icon={faChevronUp} className="ml-2"/>
       </Button>
       <UncontrolledCollapse toggler="#toggler9" style={{width: '100%'}}>
         <Card>
@@ -148,6 +158,7 @@ const Summary = () => (
     <div>
       <Button className="btn" color="secondary" id="toggler10" style={{ width: '100%', marginBottom: '5px' }} disabled>
         Keluhan Lain
+        <FontAwesomeIcon icon={faChevronUp} className="ml-2"/>
       </Button>
       <UncontrolledCollapse toggler="#toggler10" style={{width: '100%'}}>
         <Card>
@@ -161,6 +172,7 @@ const Summary = () => (
     <div>
       <Button className="btn" color="secondary" id="toggler11" style={{ width: '100%', marginBottom: '5px' }}disabled>
         Pemberian Makan
+        <FontAwesomeIcon icon={faChevronUp} className="ml-2"/>
       </Button>
       <UncontrolledCollapse toggler="#toggler11" style={{width: '100%'}}>
         <Card>

@@ -12,8 +12,18 @@ import Batuk from './Batuk/batuk';
 import Batuk2 from './Batuk/batuk2';
 import Diare from './Diare/diare';
 import Diare2 from './Diare/diare2';
-// import Demam
 import Demam from './Demam/demam';
+import Demam2 from './Demam/demam2';
+import Demam3 from './Demam/demam3';
+import Demam4 from './Demam/demam4';
+import Demam5 from './Demam/demam5';
+//campak
+import Demam6 from './Demam/demam6';
+//DBD
+import Demam7 from './Demam/demam7';
+import Demam8 from './Demam/demam8';
+import Demam9 from './Demam/demam9';
+import Demam10 from './Demam/demam10';
 import Telinga from './Telinga/telinga';
 import Telinga2 from './Telinga/telinga2';
 import Gizi from './Gizi/gizi';
@@ -67,6 +77,24 @@ function MTBS(props){
                         return <Diare2/>;
                     case `/MTBS/Demam1` :
                         return <Demam/>;
+                    case `/MTBS/Demam2` :
+                        return <Demam2/>;
+                    case `/MTBS/Demam3` :
+                        return <Demam3/>;
+                    case `/MTBS/Demam4` :
+                        return <Demam4/>;
+                    case `/MTBS/Demam5` :
+                        return <Demam5/>;
+                    case `/MTBS/Demam6` :
+                        return <Demam6/>;
+                    case `/MTBS/Demam7` :
+                        return <Demam7/>;
+                    case `/MTBS/Demam8` :
+                        return <Demam8/>;
+                    case `/MTBS/Demam9` :
+                        return <Demam9/>;
+                    case `/MTBS/Demam10` :
+                        return <Demam10/>;
                     case `/MTBS/Telinga1`:
                         return <Telinga/>;
                     case `/MTBS/Telinga2`:

@@ -1,5 +1,5 @@
-import React from 'react';
-import {NavItem, Nav, Row, Col, NavLink, Label, Container} from 'reactstrap';
+import React, {useState} from 'react';
+import {NavItem, Nav, Row, Col, NavLink, Label,  Modal, ModalHeader, ModalBody, ModalFooter, Button } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle, faBaby } from '@fortawesome/free-solid-svg-icons';
 // import { NavLink as RRNavlink} from 'react-router-dom';
@@ -11,12 +11,31 @@ let bgColor = {
 const SideBar = (props) => {
     // var x = window.location.pathname;
     // console.log(x);
+
+    const [modal, setModal] = useState(false);
+
+    const toggle = () => setModal(!modal);
+
     return (
         <div style={{backgroundColor: '#F8F9FB', minHeight : '100vh'}} className="w-25 p-0">
             <Nav vertical className="w-100">
-                <div className="text-center" style={bgColor}>
-                    <h3 className="mt-2">Halaman MTBS</h3>
-                </div>
+                <NavItem>
+                    <NavLink href="#" className="btn btn-light text-left" id="tindakan" style={{backgroundColor:'#41E8B3'}} onClick={toggle}>
+                        <div className="d-flex flex-row">
+                            <div className="mt-1">
+                                <FontAwesomeIcon icon={faBaby} className="fa-3x"/>
+                            </div>
+                            <div className="d-flex flex-column ml-3">
+                                <div>
+                                    <Label>Nama Anak :</Label> <strong>Harry Senjaya</strong>
+                                </div>
+                                <div>
+                                    <Label>Click disini untuk Detail Anak!</Label> 
+                                </div>
+                            </div>
+                        </div>
+                    </NavLink>
+                </NavItem>
                 <NavItem>
                     {/* <NavLink className="btn btn-light text-left" to="TandaBahayaUmum1" tag={RRNavlink}> */}
                     <NavLink className="btn btn-light text-left" href="TandaBahayaUmum1" active={props.location === "TandaBahayaUmum1" || props.location === "TandaBahayaUmum2"}>
@@ -180,24 +199,17 @@ const SideBar = (props) => {
                         </Row>
                     </NavLink>
                 </NavItem>
-                <NavItem style={bgColor}>
-                    <NavLink href="#" className="btn btn-light text-left position-absolute" id="tindakan" style={{bottom: 0, backgroundColor:'#41E8B3'}}>
-                        <div className="d-flex flex-row">
-                            <div className="mt-1">
-                                <FontAwesomeIcon icon={faBaby} className="fa-3x"/>
-                            </div>
-                            <div className="d-flex flex-column">
-                                <div>
-                                    <Label>Nama Anak :</Label> Harry Senjaya
-                                </div>
-                                <div>
-                                    <Label>Click disini untuk Detail Anak!</Label> 
-                                </div>
-                            </div>
-                        </div>
-                    </NavLink>
-                </NavItem>
             </Nav> 
+
+            <Modal isOpen={modal} toggle={toggle} size="lg" centered>
+                <ModalHeader toggle={toggle} style={bgColor}>Profile Anak</ModalHeader>
+                <ModalBody>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </ModalBody>
+                <ModalFooter className="d-flex justify-content-center">
+                    <Button color="danger" onClick={toggle}>Tutup</Button>{' '}
+                </ModalFooter>
+            </Modal>
         </div> 
     );
 }

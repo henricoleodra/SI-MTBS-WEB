@@ -8,6 +8,10 @@ let bgColor = {
     backgroundColor: '#41E8B3'
 } 
 
+let bold = {
+    fontWeight: 'bold'
+}
+
 const SideBar = (props) => {
     // var x = window.location.pathname;
     // console.log(x);
@@ -203,8 +207,22 @@ const SideBar = (props) => {
 
             <Modal isOpen={modal} toggle={toggle} size="lg" centered>
                 <ModalHeader toggle={toggle} style={bgColor}>Profile Anak</ModalHeader>
-                <ModalBody>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                <ModalBody className="d-flex">
+                    <div>
+                        <div><Label style={bold}>Nama Anak :</Label> Harry Senjaya</div>
+                        <div><Label style={bold}>Nama Ibu :</Label> Friska Christiana</div>
+                        <div><Label style={bold}>Jenis Kelamin :</Label> Laki-laki</div>
+                        <div><Label style={bold}>Tanggal Lahir: </Label> 4 Mei 2020</div>
+                        <div><Label style={bold}>Suhu: </Label> 37 °C</div>
+                    </div>
+                    <hr style={{backgroundColor: '#41E8B3', width: 1, height: "15vh"}} className="ml-5 mr-5"/>
+                    <div className="ml-0">
+                        <div><Label style={bold}>Berat Badan: </Label> 100 kg</div>
+                        <div><Label style={bold}>Tinggi Badan: </Label> 50 cm</div>
+                        <div><Label style={bold}>Keluhan Anak: </Label> Diare, Muntah-muntah, Nangis</div>
+                        <div><Label style={bold}>Kunjungan Ke: </Label> 5</div>
+                        <div><Label style={bold}>Alamat: </Label> Indonesia, Bandung</div>
+                    </div>
                 </ModalBody>
                 <ModalFooter className="d-flex justify-content-center">
                     <Button color="danger" onClick={toggle}>Tutup</Button>{' '}

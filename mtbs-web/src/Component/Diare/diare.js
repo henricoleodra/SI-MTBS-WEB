@@ -5,7 +5,7 @@ import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button, InputG
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle } from '@fortawesome/free-solid-svg-icons'
 
-var outlineColor = {
+let outlineColor = {
     borderColor : '#41E8B3'
 }
 
@@ -42,12 +42,12 @@ const Diare = (props) => {
                         <CardBody>
                             <CardTitle className="h5"><b>Tanyakan dan periksa! </b>Sudah berapa lama?</CardTitle>
                             <div className="w-100 d-flex justify-content-center">
-                                    <InputGroup className="w-50">
-                                        <Input type="number" min="0"/>
-                                        <InputGroupAddon addonType="append" >
-                                            <InputGroupText style={bgColor}>Hari</InputGroupText>
-                                        </InputGroupAddon>
-                                    </InputGroup>         
+                                <InputGroup className="w-50">
+                                    <Input type="number" min="0"/>
+                                    <InputGroupAddon addonType="append" >
+                                        <InputGroupText style={bgColor}>Hari</InputGroupText>
+                                    </InputGroupAddon>
+                                </InputGroup>         
                             </div> 
                         </CardBody>
                     </Card>
@@ -78,8 +78,8 @@ const Diare = (props) => {
                                     height: 1
                                 }}
                             />
-                            <div className="d-flex justify-content-around pt-2">
-                                <div className="d-line">
+                            <div className="d-flex flex-column justify-content-around pt-2">
+                                <div className="">
                                     <h6>Letargis / tidak sadar</h6>
                                     <FormGroup check className="d-inline pr-2">
                                         <Label>
@@ -94,7 +94,7 @@ const Diare = (props) => {
                                         </Label>
                                     </FormGroup>
                                 </div>
-                                <div className="d-line">
+                                <div className="">
                                     <h6>Rewel / mudah marah</h6>
                                     <FormGroup check className="d-inline pr-2">
                                         <Label>

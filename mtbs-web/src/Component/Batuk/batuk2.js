@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle } from '@fortawesome/free-solid-svg-icons'
 
 
-var outlineColor = {
+let outlineColor = {
     borderColor : '#41E8B3'
 }
 
@@ -42,13 +42,13 @@ const Batuk = (props) => {
                         <CardBody>
                             <CardTitle className="h5"><b>Tanyakan! </b>Ada wheezing</CardTitle>
                             <FormGroup check className="d-inline pr-2">
-                                <Label cek>
+                                <Label>
                                     <Input type="radio" name="radio3"/>{''}
                                     Ya
                                 </Label>
                             </FormGroup>
                             <FormGroup check className="d-inline">
-                                <Label cek>
+                                <Label>
                                     <Input type="radio" name="radio3"/>{''}
                                     Tidak
                                 </Label>

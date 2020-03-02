@@ -36,13 +36,13 @@ const TandaBahayaUmum = (props) => {
               <CardBody>
                 <CardTitle className="h5"><b>Tanyakan! </b>Tidak bisa minum/menyusu</CardTitle>
                 <FormGroup check className="d-inline pr-2">
-                <Label cek>
+                <Label>
                   <Input type="radio" name="radio1"/>{''}
                   Ya
                 </Label>
                 </FormGroup>
                 <FormGroup check className="d-inline">
-                  <Label cek>
+                  <Label>
                     <Input type="radio" name="radio1"/>{''}
                     Tidak
                   </Label>
@@ -53,13 +53,13 @@ const TandaBahayaUmum = (props) => {
               <CardBody>
                 <CardTitle className="h5"><b>Tanyakan! </b>Memuntahkan semuanya</CardTitle>
                 <FormGroup check className="d-inline pr-2">
-                <Label cek>
+                <Label>
                   <Input type="radio" name="radio2"/>{''}
                   Ya
                 </Label>
                 </FormGroup>
                 <FormGroup check className="d-inline">
-                  <Label cek>
+                  <Label>
                     <Input type="radio" name="radio2"/>{''}
                     Tidak
                   </Label>
@@ -70,13 +70,13 @@ const TandaBahayaUmum = (props) => {
               <CardBody>
                 <CardTitle className="h5"><b>Tanyakan! </b>Kejang-kejang</CardTitle>
                 <FormGroup check className="d-inline pr-2">
-                <Label cek>
+                <Label>
                   <Input type="radio" name="radio3"/>{''}
                   Ya
                 </Label>
                 </FormGroup>
                 <FormGroup check className="d-inline">
-                  <Label cek>
+                  <Label>
                     <Input type="radio" name="radio3"/>{''}
                     Tidak
                   </Label>
@@ -87,13 +87,13 @@ const TandaBahayaUmum = (props) => {
               <CardBody>
                 <CardTitle className="h5"><b>Tanyakan! </b>Gelisah, Letargis atau tidak sadar</CardTitle>
                 <FormGroup check className="d-inline pr-2">
-                <Label cek>
+                <Label>
                   <Input type="radio" name="radio4"/>{''}
                   Ya
                 </Label>
                 </FormGroup>
                 <FormGroup check className="d-inline">
-                  <Label cek>
+                  <Label>
                     <Input type="radio" name="radio4"/>{''}
                     Tidak
                   </Label>

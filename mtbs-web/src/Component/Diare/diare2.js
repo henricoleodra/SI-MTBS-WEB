@@ -5,7 +5,7 @@ import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button} from "
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle } from '@fortawesome/free-solid-svg-icons'
 
-var outlineColor = {
+let outlineColor = {
     borderColor : '#41E8B3'
 }
 

@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle } from '@fortawesome/free-solid-svg-icons'
 
 
-var outlineColor = {
+let outlineColor = {
     borderColor : '#41E8B3'
 }
 
@@ -34,19 +34,25 @@ const Anemia = (props) =>{
                         <CardBody>
                             <CardTitle className="h5"><b>Lihat! </b>Ada kepucatan telapak tangan</CardTitle>
                             <FormGroup check className="d-inline pr-2">
-                                <Label cek>
+                                <Label>
                                     <Input type="radio" name="radio1"/>{''}
                                     Sangat pucat
                                 </Label>
                             </FormGroup>
-                            <FormGroup check className="d-inline">
-                                <Label cek>
+                            <FormGroup check className="d-inline pr-2">
+                                <Label>
                                     <Input type="radio" name="radio1"/>{''}
                                     Agak pucat
                                 </Label>
                             </FormGroup>
+                            <FormGroup check className="d-inline">
+                                <Label>
+                                    <Input type="radio" name="radio1"/>{''}
+                                    Normal
+                                </Label>
+                            </FormGroup>
                             {/* <FormGroup check className="d-inline">
-                                <Label cek>
+                                <Label>
                                     <Input type="radio" name="radio1"/>{''}
                                     Tidak pucat
                                 </Label>

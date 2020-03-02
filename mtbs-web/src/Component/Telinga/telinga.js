@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button} from "reactstrap";
+import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button, InputGroup, InputGroupText, InputGroupAddon} from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle } from '@fortawesome/free-solid-svg-icons'
 
 
-var outlineColor = {
+let outlineColor = {
     borderColor : '#41E8B3'
+}
+
+let bgColor ={
+    backgroundColor : '#41E8B3',
+    color: 'white'
 }
 
 const Telinga = (props) =>{
@@ -37,13 +42,13 @@ const Telinga = (props) =>{
                         <CardBody>
                             <CardTitle className="h5"><b>Tanyakan! </b>Ada nyeri telinga</CardTitle>
                             <FormGroup check className="d-inline pr-2">
-                                <Label cek>
+                                <Label>
                                     <Input type="radio" name="radio1"/>{''}
                                     Ya
                                 </Label>
                             </FormGroup>
                             <FormGroup check className="d-inline">
-                                <Label cek>
+                                <Label>
                                     <Input type="radio" name="radio1"/>{''}
                                     Tidak
                                 </Label>
@@ -54,13 +59,13 @@ const Telinga = (props) =>{
                         <CardBody>
                             <CardTitle className="h5"><b>Tanyakan! </b>Ada rasa penuh di telinga</CardTitle>
                             <FormGroup check className="d-inline pr-2">
-                                <Label cek>
+                                <Label>
                                     <Input type="radio" name="radio2"/>{''}
                                     Ya
                                 </Label>
                             </FormGroup>
                             <FormGroup check className="d-inline">
-                                <Label cek>
+                                <Label>
                                     <Input type="radio" name="radio2"/>{''}
                                     Tidak
                                 </Label>
@@ -71,21 +76,26 @@ const Telinga = (props) =>{
                         <CardBody>
                             <CardTitle className="h5"><b>Tanyakan! </b>Ada cairan/nanah keluar dari telinga</CardTitle>
                             <FormGroup check className="d-inline pr-2">
-                                <Label cek>
+                                <Label>
                                     <Input type="radio" name="radio3"/>{''}
                                     Ya
                                 </Label>
                             </FormGroup>
                             <FormGroup check className="d-inline">
-                                <Label cek>
+                                <Label>
                                     <Input type="radio" name="radio3"/>{''}
                                     Tidak
                                 </Label>
                             </FormGroup>
                             <h5>Jika ya, berapa lama?</h5>
-                            <FormGroup check className="d-inline pr-2">
-                                <input type="number"/>Hari
-                            </FormGroup>
+                            <div className="w-100 d-flex justify-content-center">
+                                <InputGroup className="w-50">
+                                    <Input type="number" min="0"/>
+                                    <InputGroupAddon addonType="append" >
+                                        <InputGroupText style={bgColor}>Hari</InputGroupText>
+                                    </InputGroupAddon>
+                                </InputGroup>         
+                            </div> 
                         </CardBody>
                     </Card>
                 </div>

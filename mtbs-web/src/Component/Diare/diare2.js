@@ -35,15 +35,15 @@ const Diare = (props) => {
                 <div className="row d-flex justify-content-center">
                     <Card style={outlineColor} className="text-center w-75 mt-3">
                         <CardBody>
-                            <CardTitle className="h5"><b>Tanyakan dan periksa! </b>Mata Cekung</CardTitle>
+                            <CardTitle className="h5"><b>Tanyakan dan periksa! </b>Mataung</CardTitle>
                             <FormGroup check className="d-inline pr-2">
-                                <Label cek>
+                                <Label>
                                     <Input type="radio" name="radio4"/>{''}
                                     Ya
                                 </Label>
                             </FormGroup>
                             <FormGroup check className="d-inline">
-                                <Label cek>
+                                <Label>
                                     <Input type="radio" name="radio4"/>{''}
                                     Tidak
                                 </Label>
@@ -54,13 +54,13 @@ const Diare = (props) => {
                         <CardBody>
                             <CardTitle className="h5"><b>Tanyakan! </b>Beri anak minum</CardTitle>
                             <FormGroup check className="d-inline pr-2">
-                                <Label cek>
+                                <Label>
                                     <Input type="radio" name="radio5"/>{''}
                                     Tidak bisa minum / malas minum
                                 </Label>
                             </FormGroup>
                             <FormGroup check className="d-inline">
-                                <Label cek>
+                                <Label>
                                     <Input type="radio" name="radio5"/>{''}
                                     Haus, minum dengan lahap
                                 </Label>
@@ -70,16 +70,22 @@ const Diare = (props) => {
                     <Card style={outlineColor} className="text-center w-75 mt-3">
                         <CardBody>
                             <CardTitle className="h5"><b>Tanyakan! </b>Cubit kulit perut, apakah kembalinya : </CardTitle>
-                            <FormGroup check className="d-inline pr-2">
-                                <Label cek>
+                            <FormGroup check className="pr-2">
+                                <Label>
                                     <Input type="radio" name="radio6"/>{''}
-                                    Sangat lambat(lebih dari 2 detik)
+                                    Sangat lambat (lebih dari 2 detik)
                                 </Label>
                             </FormGroup>
-                            <FormGroup check className="d-inline">
-                                <Label cek>
+                            <FormGroup check className="pr-2">
+                                <Label>
                                     <Input type="radio" name="radio6"/>{''}
-                                    Lambat(masih sempat terlihat lipatan kulit)
+                                    Lambat (masih sempat terlihat lipatan kulit)
+                                </Label>
+                            </FormGroup>
+                            <FormGroup check className="pr-2">
+                                <Label>
+                                    <Input type="radio" name="radio6"/>{''}
+                                    Normal
                                 </Label>
                             </FormGroup>
                         </CardBody>

@@ -189,7 +189,7 @@ const SideBar = (props) => {
                     <NavLink href="Klasifikasi" className="btn btn-light text-left" id="klasifikasi" active={props.location === 'Klasifikasi'}>
                         <Row className="pr-3">
                             <Col xs="auto">
-                                <span className="text-left">Klasfikasi</span>
+                                <span className="text-left">Klasifikasi</span>
                             </Col>
                         </Row>
                     </NavLink>

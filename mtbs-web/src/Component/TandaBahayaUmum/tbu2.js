@@ -68,7 +68,7 @@ const TandaBahayaUmum2 = (props) => {
             </Card>
             <Card style={outlineColor} className="text-center w-75 mt-3">
               <CardBody>
-                <CardTitle className="h5"><b>Tanyakan! </b>Ujung tangan dan kaki pcuat dan dingin</CardTitle>
+                <CardTitle className="h5"><b>Tanyakan! </b>Ujung tangan dan kaki pucat dan dingin</CardTitle>
                 <FormGroup check className="d-inline pr-2">
                 <Label cek>
                   <Input type="radio" name="radio3"/>{''}

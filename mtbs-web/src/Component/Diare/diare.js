@@ -115,7 +115,7 @@ const Diare = (props) => {
                 </div>
             </div>
             <div className="d-flex justify-content-around mt-3">
-                <Link to="Batuk1"><Button color="danger">Batuk</Button></Link>
+                <Link to="Batuk1"><Button color="danger">Pemeriksaan Batuk</Button></Link>
                 <Link to="Diare2"><Button color="success">Berikutnya</Button></Link>
             </div>
         </div>

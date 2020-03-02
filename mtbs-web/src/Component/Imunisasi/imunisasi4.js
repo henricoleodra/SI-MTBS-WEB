@@ -111,7 +111,7 @@ const Imunisasi = (props) =>{
             </div>
             <div className="d-flex justify-content-around mt-3">
                 <Link to="Imunisasi3"><Button color="danger">Sebelumnya</Button></Link>
-                <Link to="Vitamina"><Button color="success">Vitamin A</Button></Link>
+                <Link to="Vitamina"><Button color="success">Pemeriksaan Vitamin A</Button></Link>
             </div>
         </div>
         </Form>

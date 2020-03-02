@@ -53,8 +53,8 @@ const Keluhan = (props) =>{
                 </div>
             </div>
             <div className="d-flex justify-content-around mt-3">
-                <Link to="Vitamina"><Button color="danger">Vitamin A</Button></Link>
-                <Link to="PemberianMakanan1"><Button color="success">Pemberian Makanan</Button></Link>
+                <Link to="Vitamina"><Button color="danger">Pemeriksaan Vitamin A</Button></Link>
+                <Link to="PemberianMakanan1"><Button color="success">Pemeriksaan Pemberian Makanan</Button></Link>
             </div>
         </div>
         </Form>

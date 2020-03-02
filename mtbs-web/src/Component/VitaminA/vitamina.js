@@ -50,8 +50,8 @@ const Vitamina = (props) => {
                 </div>
             </div>
             <div className="d-flex justify-content-around mt-3">
-                <Link to="Imunisasi1"><Button color="danger" >Imunisasi</Button></Link>
-                <Link to="KeluhanLain"><Button color="success">Keluhan Lain</Button></Link>
+                <Link to="Imunisasi1"><Button color="danger" >Pemeriksaan Imunisasi</Button></Link>
+                <Link to="KeluhanLain"><Button color="success">Pemeriksaan Keluhan Lain</Button></Link>
             </div>
         </div>
         </Form>

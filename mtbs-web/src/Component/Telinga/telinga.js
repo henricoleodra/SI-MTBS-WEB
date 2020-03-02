@@ -101,7 +101,7 @@ const Telinga = (props) =>{
                 </div>
             </div>
             <div className="d-flex justify-content-around mt-3">
-                <Link to="Demam1"><Button color="danger">Deman</Button></Link>
+                <Link to="Demam1"><Button color="danger">Pemeriksaan Deman</Button></Link>
                 <Link to="Telinga2"><Button color="success">Selanjutnya</Button></Link>
             </div>
         </div>

@@ -106,8 +106,8 @@ const Gizi3 = (props) => {
                     </div>
                 </div>
                 <div className="d-flex justify-content-around mt-3">
-                    <Link to="Gizi1"><Button color="danger">Sebelumnya</Button></Link>
-                    <Link to="Gizi3"><Button color="success">Selanjutnya</Button></Link>
+                    <Link to="Gizi2"><Button color="danger">Sebelumnya</Button></Link>
+                    <Link to="Anemia"><Button color="success">Pemeriksaan Anemia</Button></Link>
                 </div>
             </div>
         </Form>

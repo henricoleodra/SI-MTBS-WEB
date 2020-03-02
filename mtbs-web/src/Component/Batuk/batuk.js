@@ -82,7 +82,7 @@ const Batuk = (props) => {
                             <CardTitle className="h5"><b>Tanyakan! </b>Ada tarikan dinding dada dalam</CardTitle>
                             <FormGroup check className="d-inline pr-2">
                                 <Label cek>
-                                    <Input type="radio" name="radio2"/>{''}
+                                    <Input type="radio" name="radio2" style={{backgroundColor: "blue"}}/>{''}
                                     Ya
                                 </Label>
                             </FormGroup>

@@ -40,13 +40,13 @@ const Gizi = (props) => {
                             <CardBody>
                                 <CardTitle className="h5"><b>Lihat! </b>Apakah anak tampak sangat kurus</CardTitle>
                                 <FormGroup check className="d-inline pr-2">
-                                    <Label cek>
+                                    <Label>
                                         <Input type="radio" name="radio1"/>{''}
                                         Ya
                                     </Label>
                                 </FormGroup>
                                 <FormGroup check className="d-inline">
-                                    <Label cek>
+                                    <Label>
                                         <Input type="radio" name="radio1"/>{''}
                                         Tidak
                                     </Label>
@@ -57,13 +57,13 @@ const Gizi = (props) => {
                             <CardBody>
                                 <CardTitle className="h5"><b>Lihat dan raba! </b>Adanya pembengkakan di kedua punggung kaki/tangan</CardTitle>
                                 <FormGroup check className="d-inline pr-2">
-                                    <Label cek>
+                                    <Label>
                                         <Input type="radio" name="radio2"/>{''}
                                         Ya
                                     </Label>
                                 </FormGroup>
                                 <FormGroup check className="d-inline">
-                                    <Label cek>
+                                    <Label>
                                         <Input type="radio" name="radio2"/>{''}
                                         Tidak
                                     </Label>

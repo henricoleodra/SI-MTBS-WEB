@@ -52,7 +52,7 @@ const Klasifikasi = (props) =>{
                 </div>
             </div>
             <div className="d-flex justify-content-around mt-3">
-                <div className="" style={{width: '30%'}}>
+                <div className="text-muted" style={{width: '30%'}}>
                     <Card className="">
                         <CardHeader className="text-center ">
                             <CardTitle className="font-weight-bold">Diare</CardTitle>
@@ -61,7 +61,7 @@ const Klasifikasi = (props) =>{
                             Penyakit PROSI
                         </CardBody>
                         <CardFooter className="d-flex justify-content-center">
-                            <Link to="Tindakan"><Button className="btn btn-secondary" >Tindakan</Button></Link>
+                            <Link to="Tindakan"><Button className="btn btn-secondary" disabled>Tindakan</Button></Link>
                         </CardFooter>
                     </Card>
                 </div>
@@ -80,7 +80,7 @@ const Klasifikasi = (props) =>{
                 </div>
             </div>
             <div className="d-flex justify-content-around mt-3">
-                <div className="" style={{width: '30%'}}>
+                <div className="text-muted" style={{width: '30%'}}>
                     <Card className="">
                         <CardHeader className="text-center ">
                             <CardTitle className="font-weight-bold">Telinga</CardTitle>
@@ -89,26 +89,26 @@ const Klasifikasi = (props) =>{
                             Penyakit PROSI
                         </CardBody>
                         <CardFooter className="d-flex justify-content-center">
-                            <Link to="Tindakan"><Button className="btn btn-secondary" >Tindakan</Button></Link>
+                            <Link to="Tindakan"><Button className="btn btn-secondary" disabled>Tindakan</Button></Link>
                         </CardFooter>
                     </Card>
                 </div>
-                <div className="" style={{width: '30%'}}>
+                <div className="text-muted" style={{width: '30%'}}>
                     <Card className="">
-                        <CardHeader className="text-center bg-light text-dark">
+                        <CardHeader className="text-center">
                             <CardTitle className="font-weight-bold">Gizi</CardTitle>
                         </CardHeader>
                         <CardBody className="text-center">
                             Penyakit PROSI
                         </CardBody>
                         <CardFooter className="d-flex justify-content-center">
-                            <Button className="btn btn-secondary">Tindakan</Button>
+                            <Button className="btn btn-secondary" disabled>Tindakan</Button>
                         </CardFooter>
                     </Card>
                 </div>
             </div>
             <div className="d-flex justify-content-around mt-3">
-                <div className="" style={{width: '30%'}}>
+                <div className="text-muted" style={{width: '30%'}}>
                     <Card className="">
                         <CardHeader className="text-center ">
                             <CardTitle className="font-weight-bold">Anemia</CardTitle>
@@ -117,26 +117,26 @@ const Klasifikasi = (props) =>{
                             Penyakit PROSI
                         </CardBody>
                         <CardFooter className="d-flex justify-content-center">
-                            <Link to="Tindakan"><Button className="btn btn-secondary" >Tindakan</Button></Link>
+                            <Link to="Tindakan"><Button className="btn btn-secondary" disabled >Tindakan</Button></Link>
                         </CardFooter>
                     </Card>
                 </div>
-                <div className="" style={{width: '30%'}}>
+                <div className="text-muted" style={{width: '30%'}}>
                     <Card className="">
-                        <CardHeader className="text-center bg-light text-dark">
+                        <CardHeader className="text-center">
                             <CardTitle className="font-weight-bold">HIV</CardTitle>
                         </CardHeader>
                         <CardBody className="text-center">
                             Penyakit PROSI
                         </CardBody>
                         <CardFooter className="d-flex justify-content-center">
-                            <Button className="btn btn-secondary">Tindakan</Button>
+                            <Button className="btn btn-secondary" disabled>Tindakan</Button>
                         </CardFooter>
                     </Card>
                 </div>
             </div>
             <div className="d-flex justify-content-around mt-3">
-                <div className="" style={{width: '30%'}}>
+                <div className="text-muted" style={{width: '30%'}}>
                     <Card className="">
                         <CardHeader className="text-center ">
                             <CardTitle className="font-weight-bold">Imunisasi</CardTitle>
@@ -145,26 +145,26 @@ const Klasifikasi = (props) =>{
                             Penyakit PROSI
                         </CardBody>
                         <CardFooter className="d-flex justify-content-center">
-                            <Link to="Tindakan"><Button className="btn btn-secondary" >Tindakan</Button></Link>
+                            <Button className="btn btn-secondary" disabled>Tindakan</Button>
                         </CardFooter>
                     </Card>
                 </div>
                 <div className="" style={{width: '30%'}}>
-                    <Card className="">
-                        <CardHeader className="text-center bg-light text-dark">
+                    <Card className="text-muted">
+                        <CardHeader className="text-center">
                             <CardTitle className="font-weight-bold">Vitamin A</CardTitle>
                         </CardHeader>
                         <CardBody className="text-center">
                             Penyakit PROSI
                         </CardBody>
                         <CardFooter className="d-flex justify-content-center">
-                            <Button className="btn btn-secondary">Tindakan</Button>
+                            <Button className="btn btn-secondary" disabled>Tindakan</Button>
                         </CardFooter>
                     </Card>
                 </div>
             </div>
             <div className="d-flex justify-content-around mt-3 mb-3">
-                    <div className="" style={{width: '30%'}}>
+                    <div className="text-muted" style={{width: '30%'}}>
                         <Card className="">
                             <CardHeader className="text-center ">
                                 <CardTitle className="font-weight-bold">Keluhan Lain</CardTitle>
@@ -173,20 +173,20 @@ const Klasifikasi = (props) =>{
                                 Penyakit PROSI
                             </CardBody>
                             <CardFooter className="d-flex justify-content-center">
-                                <Link to="Tindakan"><Button className="btn btn-secondary" >Tindakan</Button></Link>
+                                <Link to="Tindakan"><Button className="btn btn-secondary" disabled>Tindakan</Button></Link>
                             </CardFooter>
                         </Card>
                     </div>
-                    <div className="" style={{width: '30%'}}>
+                    <div className="text-muted" style={{width: '30%'}}>
                         <Card className="">
-                            <CardHeader className="text-center bg-light text-dark">
+                            <CardHeader className="text-center">
                                 <CardTitle className="font-weight-bold">Pemberian Makanan</CardTitle>
                             </CardHeader>
                             <CardBody className="text-center">
                                 Penyakit PROSI
                             </CardBody>
                             <CardFooter className="d-flex justify-content-center">
-                                <Button className="btn btn-secondary">Tindakan</Button>
+                                <Button className="btn btn-secondary" disabled>Tindakan</Button>
                             </CardFooter>
                         </Card>
                     </div>

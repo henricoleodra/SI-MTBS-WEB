@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle } from '@fortawesome/free-solid-svg-icons'
 
 
-var outlineColor = {
+let outlineColor = {
     borderColor : '#41E8B3'
 }
 
@@ -39,53 +39,85 @@ const Imunisasi = (props) =>{
                     />
                 </div>
                 <div className="row d-flex justify-content-center">
-                    <Card style={outlineColor} className="text-center w-75 mt-3">
+                    <Card style={outlineColor} className="text-left w-75 mt-3">
                         <CardBody>
-                            <CardTitle className="h5"><b>Tanyakan! </b>Sudah diberi BCG</CardTitle>
-                            <FormGroup check className="d-inline pr-2">
-                                <Label cek>
-                                    <Input type="radio" name="radio1"/>{''}
-                                    Ya
+                            <CardTitle className="h5 text-center"><b>Tanyakan! </b>Sudah diberi.....</CardTitle>
+                            <FormGroup check>
+                                <Label check>
+                                    <Input type="checkbox" />{' '}
+                                    BCG
                                 </Label>
                             </FormGroup>
-                            <FormGroup check className="d-inline">
-                                <Label cek>
-                                    <Input type="radio" name="radio1"/>{''}
-                                    Tidak
+                            <FormGroup check>
+                                <Label check>
+                                    <Input type="checkbox" />{' '}
+                                    HB 0
                                 </Label>
                             </FormGroup>
-                        </CardBody>
-                    </Card>
-                    <Card style={outlineColor} className="text-center w-75 mt-3">
-                        <CardBody>
-                            <CardTitle className="h5"><b>Tanyakan! </b>Sudah diberi HB 0</CardTitle>
-                            <FormGroup check className="d-inline pr-2">
-                                <Label cek>
-                                    <Input type="radio" name="radio2"/>{''}
-                                    Ya
+                            <FormGroup check>
+                                <Label check>
+                                    <Input type="checkbox" />{' '}
+                                    Polio 1
                                 </Label>
                             </FormGroup>
-                            <FormGroup check className="d-inline">
-                                <Label cek>
-                                    <Input type="radio" name="radio2"/>{''}
-                                    Tidak
+                            <FormGroup check>
+                                <Label check>
+                                    <Input type="checkbox" />{' '}
+                                    Polio 2
                                 </Label>
                             </FormGroup>
-                        </CardBody>
-                    </Card>
-                    <Card style={outlineColor} className="text-center w-75 mt-3">
-                        <CardBody>
-                            <CardTitle className="h5"><b>Tanyakan! </b>Sudah diberi Polio 1</CardTitle>
-                            <FormGroup check className="d-inline pr-2">
-                                <Label cek>
-                                    <Input type="radio" name="radio3"/>{''}
-                                    Ya
+                            <FormGroup check>
+                                <Label check>
+                                    <Input type="checkbox" />{' '}
+                                    Polio 3
                                 </Label>
                             </FormGroup>
-                            <FormGroup check className="d-inline">
-                                <Label cek>
-                                    <Input type="radio" name="radio3"/>{''}
-                                    Tidak
+                            <FormGroup check>
+                                <Label check>
+                                    <Input type="checkbox" />{' '}
+                                    Polio 4
+                                </Label>
+                            </FormGroup>
+                            <FormGroup check>
+                                <Label check>
+                                    <Input type="checkbox" />{' '}
+                                    DPT-HB-HiB 1
+                                </Label>
+                            </FormGroup>
+                            <FormGroup check>
+                                <Label check>
+                                    <Input type="checkbox" />{' '}
+                                    DPT-HB-HiB 2
+                                </Label>
+                            </FormGroup>
+                            <FormGroup check>
+                                <Label check>
+                                    <Input type="checkbox" />{' '}
+                                    DPT-HB-HiB 3
+                                </Label>
+                            </FormGroup>
+                            <FormGroup check>
+                                <Label check>
+                                    <Input type="checkbox" />{' '}
+                                    IPV
+                                </Label>
+                            </FormGroup>
+                            <FormGroup check>
+                                <Label check>
+                                    <Input type="checkbox" />{' '}
+                                    Campak
+                                </Label>
+                            </FormGroup>
+                            <FormGroup check>
+                                <Label check>
+                                    <Input type="checkbox" />{' '}
+                                    DPT-HB-HiB (lanjutan)
+                                </Label>
+                            </FormGroup>
+                            <FormGroup check>
+                                <Label check>
+                                    <Input type="checkbox" />{' '}
+                                    Campak (lanjutan)
                                 </Label>
                             </FormGroup>
                         </CardBody>
@@ -94,7 +126,7 @@ const Imunisasi = (props) =>{
             </div>
             <div className="d-flex justify-content-around mt-3">
                 <Link to="HIV1"><Button color="danger">Pemeriksaan HIV</Button></Link>
-                <Link to="Imunisasi2"><Button color="success">Selanjutnya</Button></Link>
+                <Link to="Vitamina"><Button color="success">Pemeriksaan Vitamin A</Button></Link>
             </div>
         </div>
         </Form>

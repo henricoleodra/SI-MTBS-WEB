@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button} from "reactstrap";
+import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button, InputGroup, InputGroupText, InputGroupAddon} from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle } from '@fortawesome/free-solid-svg-icons'
 
 
-var outlineColor = {
+let outlineColor = {
     borderColor : '#41E8B3'
+}
+
+let bgColor ={
+    backgroundColor : '#41E8B3',
+    color: 'white'
 }
 
 const PemberianMakanan = (props) =>{
@@ -43,22 +48,27 @@ const PemberianMakanan = (props) =>{
                     <Card style={outlineColor} className="text-center w-75 mt-3">
                         <CardBody>
                             <CardTitle className="h5"><b>Tanyakan! </b>Berapa banyak makanan atau minuman yang diberikan pada anak?</CardTitle>
-                            <FormGroup check className="d-inline pr-2">
-                                <input type="number"/> kali
-                            </FormGroup>
+                            <div className="w-100 d-flex justify-content-center">
+                                <InputGroup className="w-50">
+                                    <Input type="number" min="0"/>
+                                    <InputGroupAddon addonType="append" >
+                                        <InputGroupText style={bgColor}>Kali</InputGroupText>
+                                    </InputGroupAddon>
+                                </InputGroup>         
+                            </div> 
                         </CardBody>
                     </Card>
                     <Card style={outlineColor} className="text-center w-75 mt-3">
                         <CardBody>
                             <CardTitle className="h5"><b>Tanyakan! </b>Apakah anak mendapat makanan tersendiri?</CardTitle>
                             <FormGroup check className="d-inline pr-2">
-                                <Label cek>
+                                <Label>
                                     <Input type="radio" name="radio1"/>{''}
                                     Ya
                                 </Label>
                             </FormGroup>
                             <FormGroup check className="d-inline">
-                                <Label cek>
+                                <Label>
                                     <Input type="radio" name="radio1"/>{''}
                                     Tidak
                                 </Label>

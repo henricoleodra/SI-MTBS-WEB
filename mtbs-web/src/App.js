@@ -5,7 +5,7 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import './Assets/style/style.css';
 
 //Import Components
-import MTBS from './Component/mtbs';
+import MTBS from './Pages/mtbs/MTBS';
 
 function App() {
   return (

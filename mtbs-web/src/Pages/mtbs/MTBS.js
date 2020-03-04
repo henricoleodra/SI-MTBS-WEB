@@ -123,7 +123,7 @@ function MTBS(props){
                         return <Imunisasi3/>;
                     case `/MTBS/Imunisasi4`:
                         return <Imunisasi4/>;
-                    case `/MTBS/Vitamina` :
+                    case `/MTBS/VitaminA` :
                         return <Vitamina/>;
                     case `/MTBS/KeluhanLain` :
                         return <KeluhanLain/>;                    

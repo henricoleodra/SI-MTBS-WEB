@@ -3,7 +3,8 @@ import { Badge } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExclamationTriangle} from '@fortawesome/free-solid-svg-icons';
 
-import SummaryItem from './summaryItem/SummaryItem';
+//Import SummaryItem Component
+import SummaryItem from './summaryitem/SummaryItem';
 
 const Summary = () => {
   let [ dropDown, setDropDown ] = useState([

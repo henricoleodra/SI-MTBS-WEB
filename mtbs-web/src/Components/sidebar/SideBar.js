@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
 import {NavItem, Nav, Row, Col, NavLink, Label,  Modal, ModalHeader, ModalBody, ModalFooter, Button } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircle, faBaby } from '@fortawesome/free-solid-svg-icons';
-// import { NavLink as RRNavlink} from 'react-router-dom';
+import { faBaby } from '@fortawesome/free-solid-svg-icons';
+
+import SideBarItem from './sidebaritem/SideBarItem'
 
 let bgColor = {
     backgroundColor: '#41E8B3'
@@ -19,6 +20,103 @@ const SideBar = (props) => {
     const [modal, setModal] = useState(false);
 
     const toggle = () => setModal(!modal);
+    let url = props.location.replace(/[0-9]/g, '');
+    
+    let sidebar = [
+        {
+            'title' : 'Tanda Bahaya Umum',
+            'link' : 'TandaBahayaUmum1',
+            'active' : url==='TandaBahayaUmum',
+            'color' : props.iconColor[0],
+            'disabled' : false
+        },
+        {
+            'title' : 'Batuk',
+            'link' : 'Batuk1',
+            'active' : url==='Batuk',
+            'color' : props.iconColor[1],
+            'disabled' : false
+        },
+        {
+            'title' : 'Diare',
+            'link' : 'Diare1',
+            'active' : url==='Diare',
+            'color' : props.iconColor[2],
+            'disabled' : true
+        },
+        {
+            'title' : 'Demam',
+            'link' : 'Demam1',
+            'active' : url==='Demam',
+            'color' : props.iconColor[3],
+            'disabled' : true
+        },
+        {
+            'title' : 'Telinga',
+            'link' : 'Telinga1',
+            'active' : url==='Telinga',
+            'color' : props.iconColor[4],
+            'disabled' : true
+        },
+        {
+            'title' : 'Gizi',
+            'link' : 'Gizi1',
+            'active' : url==='Gizi',
+            'color' : props.iconColor[5],
+            'disabled' : true
+        },
+        {
+            'title' : 'Anemia',
+            'link' : 'Anemia',
+            'active' : url==='Anemia',
+            'color' : props.iconColor[6],
+            'disabled' : true
+        },
+        {
+            'title' : 'HIV',
+            'link' : 'HIV1',
+            'active' : url==='HIV',
+            'color' : props.iconColor[7],
+            'disabled' : true
+        },
+        {
+            'title' : 'Imunisasi',
+            'link' : 'Imunisasi1',
+            'active' : url==='Imunisasi',
+            'color' : props.iconColor[8],
+            'disabled' : true
+        },
+        {
+            'title' : 'Vitamin A',
+            'link' : 'VitaminA',
+            'active' : url==='VitaminA',
+            'color' : props.iconColor[9],
+            'disabled' : true
+        },
+        {
+            'title' : 'KeluhanLain',
+            'link' : 'KeluhanLain',
+            'active' : url==='KeluhanLain',
+            'color' : props.iconColor[10],
+            'disabled' : true
+        },
+        {
+            'title' : 'PemberianMakanan',
+            'link' : 'PemberianMakanan1',
+            'active' : url==='PemberianMakanan',
+            'color' : props.iconColor[11],
+            'disabled' : true
+        },
+      ];
+    
+    const renderSideBar = sidebar.map((curr, index) => {
+    console.log("hello");
+    return(
+        <SideBarItem key={"sidebar" + index} title={curr.title} link={curr.link} active={curr.active} color={curr.color} disabled={curr.disabled}/>
+            
+    )
+    })
+
 
     return (
         <div style={{backgroundColor: '#F8F9FB', minHeight : '100vh'}} className="w-25 p-0">
@@ -36,155 +134,11 @@ const SideBar = (props) => {
                                 <div>
                                     <Label>Click disini untuk Detail Anak!</Label> 
                                 </div>
-                            </div>
+                            </div> 
                         </div>
                     </NavLink>
                 </NavItem>
-                <NavItem>
-                    {/* <NavLink className="btn btn-light text-left" to="TandaBahayaUmum1" tag={RRNavlink}> */}
-                    <NavLink className="btn btn-light text-left" href="TandaBahayaUmum1" active={props.location === "TandaBahayaUmum1" || props.location === "TandaBahayaUmum2"}>
-                        <Row className="pr-3">
-                            <Col xs="auto">
-                                <span className="text-left">Tanda Bahaya Umum</span>
-                            </Col>
-                            <Col xs="1" className="ml-auto">
-                                <FontAwesomeIcon icon={faCircle} className={props.iconColor[0]} />
-                            </Col>
-                        </Row>
-                    </NavLink>
-                </NavItem>
-                <NavItem>
-                    <NavLink className="btn btn-light text-left" href="Batuk1" active={props.location === "Batuk1" || props.location === "Batuk2"}>
-                        <Row className="pr-3">
-                            <Col xs="auto">
-                                <span className="text-left">Batuk</span>
-                            </Col>
-                            <Col xs="1" className="ml-auto">
-                                <FontAwesomeIcon icon={faCircle} className={props.iconColor[1]} />
-                            </Col>
-                        </Row>
-                    </NavLink>
-                </NavItem>
-                <NavItem>
-                    <NavLink href="Diare1" className="btn btn-light text-left" active={props.location === "Diare1" || props.location === "Diare2"}>
-                        <Row className="pr-3">
-                            <Col xs="auto">
-                                <span className="text-left">Diare</span>
-                            </Col>
-                            <Col xs="1" className="ml-auto">
-                                <FontAwesomeIcon icon={faCircle} className={props.iconColor[1]} />
-                            </Col>
-                        </Row>
-                    </NavLink>
-                </NavItem>
-                <NavItem>
-                    <NavLink href="Demam1" className="btn btn-light text-left" id="demam" active={props.location === "Demam1"}>
-                        <Row className="pr-3">
-                            <Col xs="auto">
-                                <span className="text-left">Demam</span>
-                            </Col>
-                            <Col xs="1" className="ml-auto">
-                                <FontAwesomeIcon icon={faCircle} className="text-muted" />
-                            </Col>
-                        </Row>
-                    </NavLink>
-                </NavItem>
-                <NavItem>
-                    <NavLink href="Telinga1" className="btn btn-light text-left" id="telinga" active={props.location === "Telinga1" || props.location === "Telinga2"} >
-                        <Row className="pr-3">
-                            <Col xs="auto">
-                                <span className="text-left">Telinga</span>
-                            </Col>
-                            <Col xs="1" className="ml-auto">
-                                <FontAwesomeIcon icon={faCircle} className="text-muted" />
-                            </Col>
-                        </Row>
-                    </NavLink>
-                </NavItem>
-                <NavItem>
-                    <NavLink href="Gizi1" className="btn btn-light text-left" id="telinga" active={props.location === "Gizi1" || props.location === "Gizi2" || props.location === "Gizi3"} >
-                        <Row className="pr-3">
-                            <Col xs="auto">
-                                <span className="text-left">Gizi</span>
-                            </Col>
-                            <Col xs="1" className="ml-auto">
-                                <FontAwesomeIcon icon={faCircle} className="text-muted" />
-                            </Col>
-                        </Row>
-                    </NavLink>
-                </NavItem>
-                <NavItem>
-                    <NavLink href="Anemia" className="btn btn-light text-left" id="anemia" active={props.location === "Anemia"} >
-                        <Row className="pr-3">
-                            <Col xs="auto">
-                                <span className="text-left">Anemia</span>
-                            </Col>
-                            <Col xs="1" className="ml-auto">
-                                <FontAwesomeIcon icon={faCircle} className="text-muted" />
-                            </Col>
-                        </Row>
-                    </NavLink>
-                </NavItem>
-                <NavItem>
-                    <NavLink href="HIV1" className="btn btn-light text-left" id="hiv" active={props.location === "HIV1" || props.location === "HIV2"}>
-                        <Row className="pr-3">
-                            <Col xs="auto">
-                                <span className="text-left">HIV</span>
-                            </Col>
-                            <Col xs="1" className="ml-auto">
-                                <FontAwesomeIcon icon={faCircle} className="text-muted" />
-                            </Col>
-                        </Row>
-                    </NavLink>
-                </NavItem>
-                <NavItem>
-                    <NavLink href="Imunisasi1" className="btn btn-light text-left" id="imunisasi" active={props.location === "Imunisasi1" ||props.location === "Imunisasi2" ||props.location === "Imunisasi3" || props.location === "Imunisasi4" }>
-                        <Row className="pr-3">
-                            <Col xs="auto">
-                                <span className="text-left">Imunisasi</span>
-                            </Col>
-                            <Col xs="1" className="ml-auto">
-                                <FontAwesomeIcon icon={faCircle} className="text-muted" />
-                            </Col>
-                        </Row>
-                    </NavLink>
-                </NavItem>
-                <NavItem>
-                    <NavLink href="Vitamina" className="btn btn-light text-left" id="vitA" active={props.location === "Vitamina"}>
-                        <Row className="pr-3">
-                            <Col xs="auto">
-                                <span className="text-left">Vitamin A</span>
-                            </Col>
-                            <Col xs="1" className="ml-auto">
-                                <FontAwesomeIcon icon={faCircle} className="text-muted" />
-                            </Col>
-                        </Row>
-                    </NavLink>
-                </NavItem>
-                <NavItem>
-                    <NavLink href="KeluhanLain" className="btn btn-light text-left" id="keluhanlain" active={props.location === "KeluhanLain"}>
-                        <Row className="pr-3">
-                            <Col xs="auto">
-                                <span className="text-left">Keluhan Lain</span>
-                            </Col>
-                            <Col xs="1" className="ml-auto">
-                                <FontAwesomeIcon icon={faCircle} className="text-muted" />
-                            </Col>
-                        </Row>
-                    </NavLink>
-                </NavItem>
-                <NavItem>
-                    <NavLink href="PemberianMakanan1" className="btn btn-light text-left" id="pemberianmakanan" active={props.location === "PemberianMakanan1" || props.location === "PemberianMakanan2" || props.location === "PemberianMakanan3" || props.location === "PemberianMakanan4"}>
-                        <Row className="pr-3">
-                            <Col xs="auto">
-                                <span className="text-left">Pemberian Makanan</span>
-                            </Col>
-                            <Col xs="1" className="ml-auto">
-                                <FontAwesomeIcon icon={faCircle} className="text-muted" />
-                            </Col>
-                        </Row>
-                    </NavLink>
-                </NavItem>
+                {renderSideBar}
                 <NavItem>
                     <NavLink href="Klasifikasi" className="btn btn-light text-left" id="klasifikasi" active={props.location === 'Klasifikasi'}>
                         <Row className="pr-3">

@@ -70,7 +70,7 @@ function MTBS(props){
                     case `/MTBS/TandaBahayaUmum1` : 
                         return <TandaBahayaUmum/>;
                     case `/MTBS/TandaBahayaUmum2` : 
-                        return <TandaBahayaUmum2/>;
+                        return <TandaBahayaUmum2 history={props.history}/>;
                     case `/MTBS/Batuk1` :
                         return <Batuk/>;
                     case `/MTBS/Batuk2` :

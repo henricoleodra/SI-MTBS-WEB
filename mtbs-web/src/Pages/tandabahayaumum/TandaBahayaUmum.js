@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button} from "reactstrap";
+import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button, Row, Col} from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
@@ -31,81 +31,89 @@ const TandaBahayaUmum = (props) => {
               }}
             />
           </div>
-          <div className="row d-flex justify-content-center">
-            <Card style={outlineColor} className="text-center w-75" >
-              <CardBody>
-                <CardTitle className="h5"><b>Tanyakan! </b>Tidak bisa minum/menyusu</CardTitle>
-                <FormGroup check className="d-inline pr-2">
-                <Label>
-                  <Input type="radio" name="radio1"/>{''}
-                  Ya
-                </Label>
-                </FormGroup>
-                <FormGroup check className="d-inline">
+          <div style={{minHeight: "500px"}}>
+            <Row className="justify-content-center">
+              <Card style={outlineColor} className="text-center w-75">
+                <CardBody>
+                  <CardTitle className="h5"><b>Tanyakan! </b>Tidak bisa minum/menyusu</CardTitle>
+                  <FormGroup check className="d-inline pr-2">
                   <Label>
                     <Input type="radio" name="radio1"/>{''}
-                    Tidak
+                    Ya
                   </Label>
-                </FormGroup>
-              </CardBody>
-            </Card>
-            <Card style={outlineColor} className="text-center w-75 mt-3">
-              <CardBody>
-                <CardTitle className="h5"><b>Tanyakan! </b>Memuntahkan semuanya</CardTitle>
-                <FormGroup check className="d-inline pr-2">
-                <Label>
-                  <Input type="radio" name="radio2"/>{''}
-                  Ya
-                </Label>
-                </FormGroup>
-                <FormGroup check className="d-inline">
+                  </FormGroup>
+                  <FormGroup check className="d-inline">
+                    <Label>
+                      <Input type="radio" name="radio1"/>{''}
+                      Tidak
+                    </Label>
+                  </FormGroup>
+                </CardBody>
+              </Card>
+              <Card style={outlineColor} className="text-center w-75 mt-3">
+                <CardBody>
+                  <CardTitle className="h5"><b>Tanyakan! </b>Memuntahkan semuanya</CardTitle>
+                  <FormGroup check className="d-inline pr-2">
                   <Label>
                     <Input type="radio" name="radio2"/>{''}
-                    Tidak
+                    Ya
                   </Label>
-                </FormGroup>
-              </CardBody>
-            </Card>
-            <Card style={outlineColor} className="text-center w-75 mt-3">
-              <CardBody>
-                <CardTitle className="h5"><b>Tanyakan! </b>Kejang-kejang</CardTitle>
-                <FormGroup check className="d-inline pr-2">
-                <Label>
-                  <Input type="radio" name="radio3"/>{''}
-                  Ya
-                </Label>
-                </FormGroup>
-                <FormGroup check className="d-inline">
+                  </FormGroup>
+                  <FormGroup check className="d-inline">
+                    <Label>
+                      <Input type="radio" name="radio2"/>{''}
+                      Tidak
+                    </Label>
+                  </FormGroup>
+                </CardBody>
+              </Card>
+              <Card style={outlineColor} className="text-center w-75 mt-3">
+                <CardBody>
+                  <CardTitle className="h5"><b>Tanyakan! </b>Kejang-kejang</CardTitle>
+                  <FormGroup check className="d-inline pr-2">
                   <Label>
                     <Input type="radio" name="radio3"/>{''}
-                    Tidak
+                    Ya
                   </Label>
-                </FormGroup>
-              </CardBody>
-            </Card>
-            <Card style={outlineColor} className="text-center w-75 mt-3">
-              <CardBody>
-                <CardTitle className="h5"><b>Tanyakan! </b>Gelisah, Letargis atau tidak sadar</CardTitle>
-                <FormGroup check className="d-inline pr-2">
-                <Label>
-                  <Input type="radio" name="radio4"/>{''}
-                  Ya
-                </Label>
-                </FormGroup>
-                <FormGroup check className="d-inline">
+                  </FormGroup>
+                  <FormGroup check className="d-inline">
+                    <Label>
+                      <Input type="radio" name="radio3"/>{''}
+                      Tidak
+                    </Label>
+                  </FormGroup>
+                </CardBody>
+              </Card>
+              <Card style={outlineColor} className="text-center w-75 mt-3">
+                <CardBody>
+                  <CardTitle className="h5"><b>Tanyakan! </b>Gelisah, Letargis atau tidak sadar</CardTitle>
+                  <FormGroup check className="d-inline pr-2">
                   <Label>
                     <Input type="radio" name="radio4"/>{''}
-                    Tidak
+                    Ya
                   </Label>
-                </FormGroup>
-              </CardBody>
-            </Card>
+                  </FormGroup>
+                  <FormGroup check className="d-inline">
+                    <Label>
+                      <Input type="radio" name="radio4"/>{''}
+                      Tidak
+                    </Label>
+                  </FormGroup>
+                </CardBody>
+              </Card>
+            </Row>
           </div>
+          
+          <Row className="justify-content-between px-5 py-3">
+            <Col sm="4">
+              <Link to="#" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Data Anak</Button></Link>
+            </Col>
+            <Col sm="4">
+              <Link to="TandaBahayaUmum2" style={{textDecoration: "none"}}><Button color="success" block>Berikutnya  <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
+            </Col>
+          </Row>
         </div>
-        <div className="row d-flex justify-content-around mt-3 mb-5 pb-5">
-            <Link to="#"><Button color="danger"><FontAwesomeIcon icon={faChevronLeft}/> Data Anak</Button></Link>
-            <Link to="TandaBahayaUmum2"><Button color="success">Berikutnya  <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
-        </div>
+        
       </div>
     </Form>
   );

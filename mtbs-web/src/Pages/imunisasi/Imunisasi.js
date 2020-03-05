@@ -18,15 +18,6 @@ const Imunisasi = (props) =>{
                     <div className="p-2">
                         <FontAwesomeIcon icon={faCircle} style={{color: '#41E8B3'}}/>
                     </div>
-                    <div className="p-2">
-                        <FontAwesomeIcon icon={faCircle} className="text-muted"/>
-                    </div>
-                    <div className="p-2">
-                        <FontAwesomeIcon icon={faCircle} className="text-muted"/>
-                    </div>
-                    <div className="p-2">
-                        <FontAwesomeIcon icon={faCircle} className="text-muted"/>
-                    </div> 
                 </div>
                 <div className="mt-2">
                     <h3 className="text-center font-weight-bold">Imunisasi</h3>
@@ -126,7 +117,7 @@ const Imunisasi = (props) =>{
             </div>
             <div className="d-flex justify-content-around mt-3">
                 <Link to="HIV1"><Button color="danger">Pemeriksaan HIV</Button></Link>
-                <Link to="Vitamina"><Button color="success">Pemeriksaan Vitamin A</Button></Link>
+                <Link to="VitaminA"><Button color="success">Pemeriksaan Vitamin A</Button></Link>
             </div>
         </div>
         </Form>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FormGroup, Label, Input, Form, Card, CardBody, CardTitle, Button} from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircle } from '@fortawesome/free-solid-svg-icons'
+import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
 
 let outlineColor = {
@@ -53,8 +53,8 @@ const Keluhan = (props) =>{
                 </div>
             </div>
             <div className="d-flex justify-content-around mt-3">
-                <Link to="Vitamina"><Button color="danger">Pemeriksaan Vitamin A</Button></Link>
-                <Link to="PemberianMakanan1"><Button color="success">Pemeriksaan Pemberian Makanan</Button></Link>
+                <Link to="VitaminA"><Button color="danger"><FontAwesomeIcon icon={faChevronLeft}/> Pemeriksaan Vitamin A</Button></Link>
+                <Link to="PemberianMakanan1"><Button color="success">Pemeriksaan Pemberian Makanan <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
             </div>
         </div>
         </Form>

@@ -16,7 +16,7 @@ const Gizi2 = (props) => {
                 <div className="col-12">
                     <div className="d-flex justify-content-center mt-3">
                         <div className="p-2">
-                            <FontAwesomeIcon icon={faCircle} style={{ color: '#41E8B3' }} />
+                            <FontAwesomeIcon icon={faCircle} className="text-muted"/>
                         </div>
                         <div className="p-2">
                             <FontAwesomeIcon icon={faCircle} style={{ color: '#41E8B3' }} />

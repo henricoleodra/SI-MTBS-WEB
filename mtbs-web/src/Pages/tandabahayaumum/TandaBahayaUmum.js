@@ -103,7 +103,7 @@ const TandaBahayaUmum = (props) => {
           </div>
         </div>
         <div className="d-flex justify-content-around mt-3">
-          <Link to="/TandaBahayaUmum2"><Button color="danger" disabled>Sebelumnya</Button></Link>
+          <Link to="#"><Button color="danger">Data Anak</Button></Link>
           <Link to="TandaBahayaUmum2"><Button color="success">Berikutnya</Button></Link>
         </div>
       </div>

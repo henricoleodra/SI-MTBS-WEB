@@ -62,7 +62,7 @@ const Anemia = (props) =>{
                 </div>
             </div>
             <div className="d-flex justify-content-around mt-3">
-                <Link to="Gizi"><Button color="danger">Pemeriksaan Gizi</Button></Link>
+                <Link to="Gizi1"><Button color="danger">Pemeriksaan Gizi</Button></Link>
                 <Link to="HIV1"><Button color="success">Pemeriksaan HIV</Button></Link>
             </div>
         </div>

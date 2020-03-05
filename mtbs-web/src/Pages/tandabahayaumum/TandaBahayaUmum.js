@@ -12,7 +12,7 @@ const TandaBahayaUmum = (props) => {
   return (
     <Form className="">
       <div className="w-100">
-        <div className="col-12">
+        <div className="col-12" style={{minHeight: 50}}>
           <div className="d-flex justify-content-center mt-3">
             <div className="p-2">
               <FontAwesomeIcon icon={faCircle} style={{color: '#41E8B3'}}/>
@@ -102,13 +102,9 @@ const TandaBahayaUmum = (props) => {
             </Card>
           </div>
         </div>
-        <div className="row d-flex justify-content-around mt-3 fixed-bottom mb-5 pb-5">
-          <div className="pl-5 ml-5">
+        <div className="row d-flex justify-content-around mt-3 mb-5 pb-5">
             <Link to="#"><Button color="danger"><FontAwesomeIcon icon={faChevronLeft}/> Data Anak</Button></Link>
-          </div>
-          <div className="pr-5 mr-5">
             <Link to="TandaBahayaUmum2"><Button color="success">Berikutnya  <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
-          </div>
         </div>
       </div>
     </Form>

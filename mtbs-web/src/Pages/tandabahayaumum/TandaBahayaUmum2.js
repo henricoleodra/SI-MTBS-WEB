@@ -85,13 +85,9 @@ const TandaBahayaUmum2 = (props) => {
             </Card>
           </div>
         </div>
-        <div className="row d-flex justify-content-around mt-3 fixed-bottom mb-5 pb-5">
-          <div className="pl-5 ml-5">
+        <div className="row d-flex justify-content-around mt-3 mb-5 pb-5">
             <Link to="TandaBahayaUmum1"><Button color="danger"><FontAwesomeIcon icon={faChevronLeft}/> Sebelumnya</Button></Link>
-          </div>
-          <div className="pr-5 mr-5">
             <Link to="Batuk"><Button color="success">Pemeriksaan Batuk  <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
-          </div>
         </div>
       </div>
     </Form>

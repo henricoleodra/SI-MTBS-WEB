@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button} from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircle } from '@fortawesome/free-solid-svg-icons'
+import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
 var outlineColor = {
   borderColor : '#41E8B3'
@@ -31,7 +31,7 @@ const TandaBahayaUmum2 = (props) => {
               }}
             />
           </div>
-          <div className="row d-flex justify-content-center">
+          <div className="row d-flex justify-content-center" style={{height: "400px"}}>
             <Card style={outlineColor} className="text-center w-75" >
               <CardBody>
                 <CardTitle className="h5"><b>Tanyakan! </b>Ada Stridor</CardTitle>
@@ -85,9 +85,9 @@ const TandaBahayaUmum2 = (props) => {
             </Card>
           </div>
         </div>
-        <div className="d-flex justify-content-around mt-3">
-          <Link to="TandaBahayaUmum1"><Button color="danger">Sebelumnya</Button></Link>
-          <Link to="Batuk1"><Button color="success">Pemeriksaan Batuk</Button></Link>
+        <div className="row d-flex justify-content-around mt-3 ">
+          <Link to="TandaBahayaUmum1"><Button color="danger"><FontAwesomeIcon icon={faChevronLeft}/> Sebelumnya</Button></Link>
+          <Link to="Batuk1"><Button color="success">Pemeriksaan Batuk <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
         </div>
       </div>
     </Form>

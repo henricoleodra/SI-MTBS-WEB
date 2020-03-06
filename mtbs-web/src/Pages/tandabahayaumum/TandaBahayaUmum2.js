@@ -36,7 +36,7 @@ const TandaBahayaUmum2 = (props) => {
             <Row className="justify-content-center">
               <Card style={outlineColor} className="text-center w-75">
                 <CardBody>
-                  <CardTitle className="h5"><b>Tanyakan! </b>Tidak bisa minum/menyusu</CardTitle>
+                  <CardTitle className="h5"><b>Tanyakan! </b>Ada stridor</CardTitle>
                   <FormGroup check className="d-inline pr-2">
                   <Label>
                     <Input type="radio" name="radio1"/>{''}
@@ -53,7 +53,7 @@ const TandaBahayaUmum2 = (props) => {
               </Card>
               <Card style={outlineColor} className="text-center w-75 mt-3">
                 <CardBody>
-                  <CardTitle className="h5"><b>Tanyakan! </b>Memuntahkan semuanya</CardTitle>
+                  <CardTitle className="h5"><b>Tanyakan! </b>Biru (sianosis)</CardTitle>
                   <FormGroup check className="d-inline pr-2">
                   <Label>
                     <Input type="radio" name="radio2"/>{''}
@@ -70,7 +70,7 @@ const TandaBahayaUmum2 = (props) => {
               </Card>
               <Card style={outlineColor} className="text-center w-75 mt-3">
                 <CardBody>
-                  <CardTitle className="h5"><b>Tanyakan! </b>Kejang-kejang</CardTitle>
+                  <CardTitle className="h5"><b>Tanyakan! </b>ujung tangan dan kaki pucat dan dingin</CardTitle>
                   <FormGroup check className="d-inline pr-2">
                   <Label>
                     <Input type="radio" name="radio3"/>{''}
@@ -90,10 +90,10 @@ const TandaBahayaUmum2 = (props) => {
           
           <Row className="justify-content-between px-5 py-3">
             <Col sm="4">
-              <Link to="TandaBahayaUmum1" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/>Sebelumnya</Button></Link>
+              <Link to="TandaBahayaUmum1" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Sebelumnya</Button></Link>
             </Col>
             <Col sm="4">
-              <Link to="Batuk1" style={{textDecoration: "none"}}><Button color="success" block >Pemeriksaan Batuk<FontAwesomeIcon icon={faChevronRight}/></Button></Link>
+              <Link to="Batuk1" style={{textDecoration: "none"}}><Button color="success" block >Pemeriksaan Batuk <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
             </Col>
           </Row>
           

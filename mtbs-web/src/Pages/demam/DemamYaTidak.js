@@ -14,7 +14,7 @@ let bgColor ={
     color: 'white'
 }
 
-const Batuk = (props) => {
+const Demam = (props) => {
     return(
         <Form>
             <div className="w-100">
@@ -33,7 +33,7 @@ const Batuk = (props) => {
                     <Row className="justify-content-center">
                         <Card style={outlineColor} className="text-center w-75" >
                             <CardBody className="d-flex justify-content-center flex-column">
-                                <CardTitle className="h5"><b>Tanyakan! </b>Apakah anak batuk / sukar bernafas?</CardTitle>
+                                <CardTitle className="h5"><b>Tanyakan! </b>Apakah anak Demam?</CardTitle>
                                     <div className="w-100 d-flex justify-content-center">
                                         <FormGroup check className="d-inline pr-2">
                                             <Label>
@@ -55,10 +55,10 @@ const Batuk = (props) => {
             </div>
             <Row className="justify-content-between px-5 py-3">
                 <Col sm="5">
-                    <Link to="TandaBahayaUmum1" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Pemeriksaan Tanda Bahaya Umum</Button></Link>
+                    <Link to="Diare1" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Pemeriksaan Diare</Button></Link>
                 </Col>
                 <Col sm="4">
-                    <Link to="Batuk1" style={{textDecoration: "none"}}><Button color="success" block >Selanjutnya <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
+                    <Link to="Demam1" style={{textDecoration: "none"}}><Button color="success" block >Selanjutnya <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
                 </Col>
             </Row>
         </div>
@@ -66,4 +66,4 @@ const Batuk = (props) => {
     );
 }
 
-export default Batuk
+export default Demam

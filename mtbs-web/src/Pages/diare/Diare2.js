@@ -99,7 +99,7 @@ const Diare = (props) => {
                     <Link to="Diare1" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Sebelumnya</Button></Link>
                 </Col>
                 <Col sm="4">
-                    <Link to="Demam1" style={{textDecoration: "none"}}><Button color="success" block >Pemeriksaan Demam <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
+                    <Link to="DemamYaTidak" style={{textDecoration: "none"}}><Button color="success" block >Pemeriksaan Demam <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
                 </Col>
             </Row>
         </div>

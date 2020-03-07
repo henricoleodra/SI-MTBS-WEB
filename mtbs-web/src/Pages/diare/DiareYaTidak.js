@@ -14,13 +14,13 @@ let bgColor ={
     color: 'white'
 }
 
-const Batuk = (props) => {
+const Diare = (props) => {
     return(
         <Form>
             <div className="w-100">
                 <div className="col-12">
                     <div className="mt-2">
-                        <h3 className="text-center font-weight-bold">Batuk / Sukar Bernafas</h3>
+                        <h3 className="text-center font-weight-bold">Diare</h3>
                         <hr
                         style={{
                             color: "#41E8B3",
@@ -33,7 +33,7 @@ const Batuk = (props) => {
                     <Row className="justify-content-center">
                         <Card style={outlineColor} className="text-center w-75" >
                             <CardBody className="d-flex justify-content-center flex-column">
-                                <CardTitle className="h5"><b>Tanyakan! </b>Apakah anak batuk / sukar bernafas?</CardTitle>
+                                <CardTitle className="h5"><b>Tanyakan! </b>Apakah anak diare?</CardTitle>
                                     <div className="w-100 d-flex justify-content-center">
                                         <FormGroup check className="d-inline pr-2">
                                             <Label>
@@ -54,11 +54,11 @@ const Batuk = (props) => {
                 </div>
             </div>
             <Row className="justify-content-between px-5 py-3">
-                <Col sm="5">
-                    <Link to="TandaBahayaUmum1" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Pemeriksaan Tanda Bahaya Umum</Button></Link>
+                <Col sm="4">
+                    <Link to="Batuk1" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Pemeriksaan Batuk</Button></Link>
                 </Col>
                 <Col sm="4">
-                    <Link to="Batuk1" style={{textDecoration: "none"}}><Button color="success" block >Selanjutnya <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
+                    <Link to="Diare1" style={{textDecoration: "none"}}><Button color="success" block >Selanjutnya <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
                 </Col>
             </Row>
         </div>
@@ -66,4 +66,4 @@ const Batuk = (props) => {
     );
 }
 
-export default Batuk
+export default Diare

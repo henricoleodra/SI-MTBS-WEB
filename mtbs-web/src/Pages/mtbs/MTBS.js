@@ -9,10 +9,13 @@ import Summary from './../../Components/summary/Summary';
 //Import Pages MTBS
 import TandaBahayaUmum from './../tandabahayaumum/TandaBahayaUmum';
 import TandaBahayaUmum2 from './../tandabahayaumum/TandaBahayaUmum2';
+import BatukYaTidak from './../batuk/BatukYaTidak';
 import Batuk from './../batuk/Batuk';
 import Batuk2 from './../batuk/Batuk2';
+import DiareYaTidak from './../diare/DiareYaTidak';
 import Diare from './../diare/Diare';
 import Diare2 from './../diare/Diare2';
+import DemamYaTidak from './../demam/DemamYaTidak'
 import Demam from './../demam/Demam';
 import Demam2 from './../demam/Demam2';
 import Demam3 from './../demam/Demam3';
@@ -71,14 +74,20 @@ function MTBS(props){
                         return <TandaBahayaUmum/>;
                     case `/MTBS/TandaBahayaUmum2` : 
                         return <TandaBahayaUmum2 history={props.history}/>;
+                    case `/MTBS/BatukYaTidak`:
+                        return <BatukYaTidak/>;
                     case `/MTBS/Batuk1` :
                         return <Batuk/>;
                     case `/MTBS/Batuk2` :
                         return <Batuk2/>;
+                    case `/MTBS/DiareYaTidak`:
+                        return <DiareYaTidak/>
                     case `/MTBS/Diare1` :
                         return <Diare/>;
                     case `/MTBS/Diare2` :
                         return <Diare2/>;
+                    case `/MTBS/DemamYaTidak`:
+                        return <DemamYaTidak/>;
                     case `/MTBS/Demam1` :
                         return <Demam/>;
                     case `/MTBS/Demam2` :

@@ -77,7 +77,7 @@ const Batuk = (props) => {
                     <Link to="Batuk1" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Sebelumnya</Button></Link>
                 </Col>
                 <Col sm="4">
-                    <Link to="Diare1" style={{textDecoration: "none"}}><Button color="success" block >Pemeriksaan Diare <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
+                    <Link to="DiareYaTidak" style={{textDecoration: "none"}}><Button color="success" block >Pemeriksaan Diare <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
                 </Col>
             </Row>
         </div>

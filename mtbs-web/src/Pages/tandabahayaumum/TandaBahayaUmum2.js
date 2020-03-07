@@ -93,7 +93,7 @@ const TandaBahayaUmum2 = (props) => {
               <Link to="TandaBahayaUmum1" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Sebelumnya</Button></Link>
             </Col>
             <Col sm="4">
-              <Link to="Batuk1" style={{textDecoration: "none"}}><Button color="success" block >Pemeriksaan Batuk <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
+              <Link to="BatukYaTidak" style={{textDecoration: "none"}}><Button color="success" block >Pemeriksaan Batuk <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
             </Col>
           </Row>
           

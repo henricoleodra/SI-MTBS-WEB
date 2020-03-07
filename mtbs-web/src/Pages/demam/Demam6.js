@@ -57,78 +57,76 @@ const Demam = (props) => {
                         />
                         <p className="text-center"><b>Jika anak sakit campak saat ini atau dalam 3 bulan terakhir</b></p>
                     </div>
-                    <div className="row d-flex justify-content-around">
-                        <Card style={outlineColor} className="text-center w-75 mt-3" >
-                            <CardBody>
-                                <CardTitle className="h5"><b>Lihat! </b>Adanya luka di mulut</CardTitle>
-                                <FormGroup check className="d-inline pr-2">
-                                    <Label cek>
-                                        <Input type="radio" name="radio1" />{''}
-                                        Ya
-                                    </Label>
-                                </FormGroup>
-                                <FormGroup check className="d-inline">
-                                    <Label cek>
-                                        <Input type="radio" name="radio1" />{''}
-                                        Tidak
-                                    </Label>
-                                </FormGroup>
-                                <div>
-                                    <h6>Jika ya, apakah dalam atau luas?</h6>
+                    <div style={{minHeight: "500px"}}>
+                        <Row className="justify-content-around">
+                            <Card style={outlineColor} className="text-center w-75 mt-3" >
+                                <CardBody>
+                                    <CardTitle className="h5"><b>Lihat! </b>Adanya luka di mulut</CardTitle>
                                     <FormGroup check className="d-inline pr-2">
                                         <Label cek>
-                                            <Input type="radio" name="radio2" />{''}
+                                            <Input type="radio" name="radio1" />{''}
                                             Ya
                                         </Label>
                                     </FormGroup>
                                     <FormGroup check className="d-inline">
                                         <Label cek>
-                                            <Input type="radio" name="radio2" />{''}
+                                            <Input type="radio" name="radio1" />{''}
                                             Tidak
                                         </Label>
                                     </FormGroup>
-                                </div>
-                            </CardBody>
-                        </Card>
-                        <Card style={outlineColor} className="text-center w-75 mt-3" >
-                            <CardBody>
-                                <CardTitle className="h5"><b>Lihat! </b>Adanya nanah di mata</CardTitle>
-                                <FormGroup check className="d-inline pr-2">
-                                    <Label cek>
-                                        <Input type="radio" name="radio3" />{''}
-                                        Ya
-                                    </Label>
-                                </FormGroup>
-                                <FormGroup check className="d-inline">
-                                    <Label cek>
-                                        <Input type="radio" name="radio3" />{''}
-                                        Tidak
-                                    </Label>
-                                </FormGroup>
-                            </CardBody>
-                        </Card>
-                        <Card style={outlineColor} className="text-center w-75 mt-3" >
-                            <CardBody>
-                                <CardTitle className="h5"><b>Lihat! </b>Adanya kekeruhan di kornea</CardTitle>
-                                <FormGroup check className="d-inline pr-2">
-                                    <Label cek>
-                                        <Input type="radio" name="radio4" />{''}
-                                        Ya
-                                    </Label>
-                                </FormGroup>
-                                <FormGroup check className="d-inline">
-                                    <Label cek>
-                                        <Input type="radio" name="radio4" />{''}
-                                        Tidak
-                                    </Label>
-                                </FormGroup>
-                            </CardBody>
-                        </Card>
+                                    <div>
+                                        <h6>Jika ya, apakah dalam atau luas?</h6>
+                                        <FormGroup check className="d-inline pr-2">
+                                            <Label cek>
+                                                <Input type="radio" name="radio2" />{''}
+                                                Ya
+                                            </Label>
+                                        </FormGroup>
+                                        <FormGroup check className="d-inline">
+                                            <Label cek>
+                                                <Input type="radio" name="radio2" />{''}
+                                                Tidak
+                                            </Label>
+                                        </FormGroup>
+                                    </div>
+                                </CardBody>
+                            </Card>
+                            <Card style={outlineColor} className="text-center w-75 mt-3" >
+                                <CardBody>
+                                    <CardTitle className="h5"><b>Lihat! </b>Adanya nanah di mata</CardTitle>
+                                    <FormGroup check className="d-inline pr-2">
+                                        <Label cek>
+                                            <Input type="radio" name="radio3" />{''}
+                                            Ya
+                                        </Label>
+                                    </FormGroup>
+                                    <FormGroup check className="d-inline">
+                                        <Label cek>
+                                            <Input type="radio" name="radio3" />{''}
+                                            Tidak
+                                        </Label>
+                                    </FormGroup>
+                                </CardBody>
+                            </Card>
+                            <Card style={outlineColor} className="text-center w-75 mt-3" >
+                                <CardBody>
+                                    <CardTitle className="h5"><b>Lihat! </b>Adanya kekeruhan di kornea</CardTitle>
+                                    <FormGroup check className="d-inline pr-2">
+                                        <Label cek>
+                                            <Input type="radio" name="radio4" />{''}
+                                            Ya
+                                        </Label>
+                                    </FormGroup>
+                                    <FormGroup check className="d-inline">
+                                        <Label cek>
+                                            <Input type="radio" name="radio4" />{''}
+                                            Tidak
+                                        </Label>
+                                    </FormGroup>
+                                </CardBody>
+                            </Card>
+                        </Row>
                     </div>
-                </div>
-                <div className="d-flex justify-content-around mt-3">
-                    <Link to="Demam5"><Button color="danger">Sebelumnya</Button></Link>
-                    <Link to="Demam7"><Button color="success">Selanjutnya</Button></Link>
                 </div>
                 <Row className="justify-content-between px-5 py-3">
                     <Col sm="4">

@@ -58,7 +58,7 @@ const Keluhan = (props) =>{
                 <Col sm="4">
                     <Link to="VitaminA" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Pemeriksaan Vitamin A</Button></Link>
                 </Col>
-                <Col sm="4">
+                <Col sm="5">
                     <Link to="PemberianMakanan1" style={{textDecoration: "none"}}><Button color="success" block >Pemeriksaan Pemberian Makanan <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
                 </Col>
             </Row>

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FormGroup, Label, Input, Form, Card, CardBody, CardTitle, Button } from "reactstrap";
+import { FormGroup, Label, Input, Form, Card, CardBody, CardTitle, Button, Row, Col } from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircle } from '@fortawesome/free-solid-svg-icons'
+import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
 
 var outlineColor = {
@@ -35,41 +35,47 @@ const Gizi2 = (props) => {
                         }}
                     />
                     </div>
-                    <div className="row d-flex justify-content-center">
-                        <Card style={outlineColor} className="text-center w-75" >
-                            <CardBody>
-                                <CardTitle className="h5"><b>Tentukan! </b>Berat badan(BB) menurut Panjang Badan(PB) / Tinggi Badan(TB)</CardTitle>
-                                <FormGroup check className="mt-3">
-                                    BB menurut PB / TB : xSD<input type="number"/>
-                                </FormGroup>
-                                <FormGroup check className="mt-3">
-                                    BB menurut PB / TB : -3SD sampai dengan -2SD<input type="number"/>
-                                </FormGroup>
-                                <FormGroup check className="mt-3">
-                                    BB menurut PB / TB : >= -2SD<input type="number"/>
-                                </FormGroup>
-                            </CardBody>
-                        </Card>
-                        <Card style={outlineColor} className="text-center w-75 mt-3" >
-                            <CardBody>
-                                <CardTitle className="h5"><b>Tentukan! </b>Lingkar lengan atas(LiLA) untuk anak umur 6 bulan / lebih</CardTitle>
-                                <FormGroup check className="mt-3">
-                                    LiLA lebih kecil dari 11.5 cm<input type="number"/>
-                                </FormGroup>
-                                <FormGroup check className="mt-3">
-                                    LiLA 11.5 cm - 12.5 cm<input type="number"/>
-                                </FormGroup>
-                                <FormGroup check className="mt-3">
-                                    LiLA >= 12.5 cm<input type="number"/>
-                                </FormGroup>
-                            </CardBody>
-                        </Card>
+                    <div style={{minHeight: "500px"}}>
+                        <Row className="justify-content-center">
+                            <Card style={outlineColor} className="text-center w-75" >
+                                <CardBody>
+                                    <CardTitle className="h5"><b>Tentukan! </b>Berat badan(BB) menurut Panjang Badan(PB) / Tinggi Badan(TB)</CardTitle>
+                                    <FormGroup check className="mt-3">
+                                        BB menurut PB / TB : xSD<Input type="number"/>
+                                    </FormGroup>
+                                    <FormGroup check className="mt-3">
+                                        BB menurut PB / TB : -3SD sampai dengan -2SD<Input type="number"/>
+                                    </FormGroup>
+                                    <FormGroup check className="mt-3">
+                                        BB menurut PB / TB : >= -2SD<Input type="number"/>
+                                    </FormGroup>
+                                </CardBody>
+                            </Card>
+                            <Card style={outlineColor} className="text-center w-75 mt-3" >
+                                <CardBody>
+                                    <CardTitle className="h5"><b>Tentukan! </b>Lingkar lengan atas(LiLA) untuk anak umur 6 bulan / lebih</CardTitle>
+                                    <FormGroup check className="mt-3">
+                                        LiLA lebih kecil dari 11.5 cm<Input type="number"/>
+                                    </FormGroup>
+                                    <FormGroup check className="mt-3">
+                                        LiLA 11.5 cm - 12.5 cm<Input type="number"/>
+                                    </FormGroup>
+                                    <FormGroup check className="mt-3">
+                                        LiLA >= 12.5 cm<Input type="number"/>
+                                    </FormGroup>
+                                </CardBody>
+                            </Card>
+                        </Row>
                     </div>
                 </div>
-                <div className="d-flex justify-content-around mt-3">
-                    <Link to="Gizi1"><Button color="danger">Sebelumnya</Button></Link>
-                    <Link to="Gizi3"><Button color="success">Selanjutnya</Button></Link>
-                </div>
+                <Row className="justify-content-between px-5 py-3">
+                    <Col sm="4">
+                        <Link to="Gizi1" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Sebelumnya</Button></Link>
+                    </Col>
+                    <Col sm="4">
+                        <Link to="Gizi3" style={{textDecoration: "none"}}><Button color="success" block >Selanjutnya <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
+                    </Col>
+                </Row>
             </div>
         </Form>
     )

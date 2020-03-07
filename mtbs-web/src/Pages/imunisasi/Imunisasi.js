@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button} from "reactstrap";
+import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button, Row, Col } from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircle } from '@fortawesome/free-solid-svg-icons'
+import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
 
 let outlineColor = {
@@ -29,96 +29,102 @@ const Imunisasi = (props) =>{
                     }}
                     />
                 </div>
-                <div className="row d-flex justify-content-center">
-                    <Card style={outlineColor} className="text-left w-75 mt-3">
-                        <CardBody>
-                            <CardTitle className="h5 text-center"><b>Tanyakan! </b>Sudah diberi.....</CardTitle>
-                            <FormGroup check>
-                                <Label check>
-                                    <Input type="checkbox" />{' '}
-                                    BCG
-                                </Label>
-                            </FormGroup>
-                            <FormGroup check>
-                                <Label check>
-                                    <Input type="checkbox" />{' '}
-                                    HB 0
-                                </Label>
-                            </FormGroup>
-                            <FormGroup check>
-                                <Label check>
-                                    <Input type="checkbox" />{' '}
-                                    Polio 1
-                                </Label>
-                            </FormGroup>
-                            <FormGroup check>
-                                <Label check>
-                                    <Input type="checkbox" />{' '}
-                                    Polio 2
-                                </Label>
-                            </FormGroup>
-                            <FormGroup check>
-                                <Label check>
-                                    <Input type="checkbox" />{' '}
-                                    Polio 3
-                                </Label>
-                            </FormGroup>
-                            <FormGroup check>
-                                <Label check>
-                                    <Input type="checkbox" />{' '}
-                                    Polio 4
-                                </Label>
-                            </FormGroup>
-                            <FormGroup check>
-                                <Label check>
-                                    <Input type="checkbox" />{' '}
-                                    DPT-HB-HiB 1
-                                </Label>
-                            </FormGroup>
-                            <FormGroup check>
-                                <Label check>
-                                    <Input type="checkbox" />{' '}
-                                    DPT-HB-HiB 2
-                                </Label>
-                            </FormGroup>
-                            <FormGroup check>
-                                <Label check>
-                                    <Input type="checkbox" />{' '}
-                                    DPT-HB-HiB 3
-                                </Label>
-                            </FormGroup>
-                            <FormGroup check>
-                                <Label check>
-                                    <Input type="checkbox" />{' '}
-                                    IPV
-                                </Label>
-                            </FormGroup>
-                            <FormGroup check>
-                                <Label check>
-                                    <Input type="checkbox" />{' '}
-                                    Campak
-                                </Label>
-                            </FormGroup>
-                            <FormGroup check>
-                                <Label check>
-                                    <Input type="checkbox" />{' '}
-                                    DPT-HB-HiB (lanjutan)
-                                </Label>
-                            </FormGroup>
-                            <FormGroup check>
-                                <Label check>
-                                    <Input type="checkbox" />{' '}
-                                    Campak (lanjutan)
-                                </Label>
-                            </FormGroup>
-                        </CardBody>
-                    </Card>
+                <div style={{minHeight: "500px"}}>
+                    <Row className="justify-content-center">
+                        <Card style={outlineColor} className="text-left w-75 mt-3">
+                            <CardBody>
+                                <CardTitle className="h5 text-center"><b>Tanyakan! </b>Sudah diberi.....</CardTitle>
+                                <FormGroup check>
+                                    <Label check>
+                                        <Input type="checkbox" />{' '}
+                                        BCG
+                                    </Label>
+                                </FormGroup>
+                                <FormGroup check>
+                                    <Label check>
+                                        <Input type="checkbox" />{' '}
+                                        HB 0
+                                    </Label>
+                                </FormGroup>
+                                <FormGroup check>
+                                    <Label check>
+                                        <Input type="checkbox" />{' '}
+                                        Polio 1
+                                    </Label>
+                                </FormGroup>
+                                <FormGroup check>
+                                    <Label check>
+                                        <Input type="checkbox" />{' '}
+                                        Polio 2
+                                    </Label>
+                                </FormGroup>
+                                <FormGroup check>
+                                    <Label check>
+                                        <Input type="checkbox" />{' '}
+                                        Polio 3
+                                    </Label>
+                                </FormGroup>
+                                <FormGroup check>
+                                    <Label check>
+                                        <Input type="checkbox" />{' '}
+                                        Polio 4
+                                    </Label>
+                                </FormGroup>
+                                <FormGroup check>
+                                    <Label check>
+                                        <Input type="checkbox" />{' '}
+                                        DPT-HB-HiB 1
+                                    </Label>
+                                </FormGroup>
+                                <FormGroup check>
+                                    <Label check>
+                                        <Input type="checkbox" />{' '}
+                                        DPT-HB-HiB 2
+                                    </Label>
+                                </FormGroup>
+                                <FormGroup check>
+                                    <Label check>
+                                        <Input type="checkbox" />{' '}
+                                        DPT-HB-HiB 3
+                                    </Label>
+                                </FormGroup>
+                                <FormGroup check>
+                                    <Label check>
+                                        <Input type="checkbox" />{' '}
+                                        IPV
+                                    </Label>
+                                </FormGroup>
+                                <FormGroup check>
+                                    <Label check>
+                                        <Input type="checkbox" />{' '}
+                                        Campak
+                                    </Label>
+                                </FormGroup>
+                                <FormGroup check>
+                                    <Label check>
+                                        <Input type="checkbox" />{' '}
+                                        DPT-HB-HiB (lanjutan)
+                                    </Label>
+                                </FormGroup>
+                                <FormGroup check>
+                                    <Label check>
+                                        <Input type="checkbox" />{' '}
+                                        Campak (lanjutan)
+                                    </Label>
+                                </FormGroup>
+                            </CardBody>
+                        </Card>
+                    </Row>
                 </div>
             </div>
-            <div className="d-flex justify-content-around mt-3">
-                <Link to="HIV1"><Button color="danger">Pemeriksaan HIV</Button></Link>
-                <Link to="VitaminA"><Button color="success">Pemeriksaan Vitamin A</Button></Link>
-            </div>
+            <Row className="justify-content-between px-5 py-3">
+                <Col sm="4">
+                    <Link to="HIV1" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Sebelumnya</Button></Link>
+                </Col>
+                <Col sm="4">
+                    <Link to="VitaminA" style={{textDecoration: "none"}}><Button color="success" block >Pemeriksaan VitaminA <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
+                </Col>
+            </Row>
         </div>
         </Form>
     );

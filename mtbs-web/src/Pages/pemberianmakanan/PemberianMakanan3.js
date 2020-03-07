@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button, InputGroup, InputGroupText, InputGroupAddon} from "reactstrap";
+import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button, InputGroup, InputGroupText, InputGroupAddon, Row, Col} from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircle } from '@fortawesome/free-solid-svg-icons'
+import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
 
 let outlineColor = {
@@ -44,51 +44,57 @@ const PemberianMakanan = (props) =>{
                     />
                     <p className="text-center">Jika anak <b>GIZI KURUS</b></p>
                 </div>
-                <div className="row d-flex justify-content-center">
-                    <Card style={outlineColor} className="text-center w-75 mt-3">
-                        <CardBody>
-                            <CardTitle className="h5"><b>Tanyakan! </b>Berapa banyak makanan atau minuman yang diberikan pada anak?</CardTitle>
-                            <div className="w-100 d-flex justify-content-center">
-                                <InputGroup className="w-50">
-                                    <Input type="number" min="0"/>
-                                    <InputGroupAddon addonType="append" >
-                                        <InputGroupText style={bgColor}>Kali</InputGroupText>
-                                    </InputGroupAddon>
-                                </InputGroup>         
-                            </div> 
-                        </CardBody>
-                    </Card>
-                    <Card style={outlineColor} className="text-center w-75 mt-3">
-                        <CardBody>
-                            <CardTitle className="h5"><b>Tanyakan! </b>Apakah anak mendapat makanan tersendiri?</CardTitle>
-                            <FormGroup check className="d-inline pr-2">
-                                <Label>
-                                    <Input type="radio" name="radio1"/>{''}
-                                    Ya
-                                </Label>
-                            </FormGroup>
-                            <FormGroup check className="d-inline">
-                                <Label>
-                                    <Input type="radio" name="radio1"/>{''}
-                                    Tidak
-                                </Label>
-                            </FormGroup>
-                        </CardBody>
-                    </Card>
-                    <Card style={outlineColor} className="text-center w-75 mt-3">
-                        <CardBody>
-                            <CardTitle className="h5"><b>Tanyakan! </b>Siapa yang memberi makan dan bagaimana caranya?</CardTitle>
-                            <FormGroup check className="d-inline pr-2">
-                                <Input type="textarea"/> 
-                            </FormGroup>
-                        </CardBody>
-                    </Card>
+                <div style={{minHeight: "500px"}}>
+                    <Row className="justify-content-center">
+                        <Card style={outlineColor} className="text-center w-75 mt-3">
+                            <CardBody>
+                                <CardTitle className="h5"><b>Tanyakan! </b>Berapa banyak makanan atau minuman yang diberikan pada anak?</CardTitle>
+                                <div className="w-100 d-flex justify-content-center">
+                                    <InputGroup className="w-50">
+                                        <Input type="number" min="0"/>
+                                        <InputGroupAddon addonType="append" >
+                                            <InputGroupText style={bgColor}>Kali</InputGroupText>
+                                        </InputGroupAddon>
+                                    </InputGroup>         
+                                </div> 
+                            </CardBody>
+                        </Card>
+                        <Card style={outlineColor} className="text-center w-75 mt-3">
+                            <CardBody>
+                                <CardTitle className="h5"><b>Tanyakan! </b>Apakah anak mendapat makanan tersendiri?</CardTitle>
+                                <FormGroup check className="d-inline pr-2">
+                                    <Label>
+                                        <Input type="radio" name="radio1"/>{''}
+                                        Ya
+                                    </Label>
+                                </FormGroup>
+                                <FormGroup check className="d-inline">
+                                    <Label>
+                                        <Input type="radio" name="radio1"/>{''}
+                                        Tidak
+                                    </Label>
+                                </FormGroup>
+                            </CardBody>
+                        </Card>
+                        <Card style={outlineColor} className="text-center w-75 mt-3">
+                            <CardBody>
+                                <CardTitle className="h5"><b>Tanyakan! </b>Siapa yang memberi makan dan bagaimana caranya?</CardTitle>
+                                <FormGroup check className="d-inline pr-2">
+                                    <Input type="textarea"/> 
+                                </FormGroup>
+                            </CardBody>
+                        </Card>
+                    </Row>
                 </div>
             </div>
-            <div className="d-flex justify-content-around mt-3">
-                <Link to="PemberianMakanan2"><Button color="danger">Sebelumnya</Button></Link>
-                <Link to="PemberianMakanan4"><Button color="success">Selanjutnya</Button></Link>
-            </div>
+            <Row className="justify-content-between px-5 py-3">
+                <Col sm="4">
+                    <Link to="PemberianMakanan2" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Sebelumnya</Button></Link>
+                </Col>
+                <Col sm="4">
+                    <Link to="PemberianMakanan4" style={{textDecoration: "none"}}><Button color="success" block >Selanjutnya <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
+                </Col>
+            </Row>
         </div>
         </Form>
     );

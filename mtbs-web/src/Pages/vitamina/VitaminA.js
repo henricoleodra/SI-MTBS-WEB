@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button} from "reactstrap";
+import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button, Row, Col} from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircle } from '@fortawesome/free-solid-svg-icons'
+import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
 
 var outlineColor = {
@@ -29,30 +29,36 @@ const Vitamina = (props) => {
                     }}
                     />
                 </div>
-                <div className="row d-flex justify-content-center">
-                    <Card style={outlineColor} className="text-center w-75 mt-3">
-                        <CardBody>
-                            <CardTitle className="h5">Dibutuhkan suplemen vitamin A</CardTitle>
-                            <FormGroup check className="d-inline pr-2">
-                                <Label cek>
-                                    <Input type="radio" name="radio3"/>{''}
-                                    Ya
-                                </Label>
-                            </FormGroup>
-                            <FormGroup check className="d-inline">
-                                <Label cek>
-                                    <Input type="radio" name="radio3"/>{''}
-                                    Tidak
-                                </Label>
-                            </FormGroup>
-                        </CardBody>
-                    </Card>
+                <div style={{minHeight: "500px"}}>
+                    <Row className="justify-content-center">
+                        <Card style={outlineColor} className="text-center w-75 mt-3">
+                            <CardBody>
+                                <CardTitle className="h5">Dibutuhkan suplemen vitamin A</CardTitle>
+                                <FormGroup check className="d-inline pr-2">
+                                    <Label cek>
+                                        <Input type="radio" name="radio3"/>{''}
+                                        Ya
+                                    </Label>
+                                </FormGroup>
+                                <FormGroup check className="d-inline">
+                                    <Label cek>
+                                        <Input type="radio" name="radio3"/>{''}
+                                        Tidak
+                                    </Label>
+                                </FormGroup>
+                            </CardBody>
+                        </Card>
+                    </Row>
                 </div>
             </div>
-            <div className="d-flex justify-content-around mt-3">
-                <Link to="Imunisasi1"><Button color="danger" >Pemeriksaan Imunisasi</Button></Link>
-                <Link to="KeluhanLain"><Button color="success">Pemeriksaan Keluhan Lain</Button></Link>
-            </div>
+            <Row className="justify-content-between px-5 py-3">
+                <Col sm="4">
+                    <Link to="Imunisasi1" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Pemeriksaan Imunisasi</Button></Link>
+                </Col>
+                <Col sm="4">
+                    <Link to="KeluhanLain" style={{textDecoration: "none"}}><Button color="success" block >Pemeriksaan Keluhan Lain <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
+                </Col>
+            </Row>
         </div>
         </Form>
     );

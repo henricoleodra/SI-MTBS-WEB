@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FormGroup, Label, Input, Form, Card, CardBody, CardTitle, Button} from "reactstrap";
+import { FormGroup, Label, Input, Form, Card, CardBody, CardTitle, Button, Row, Col} from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
@@ -29,33 +29,39 @@ const Keluhan = (props) =>{
                     }}
                     />
                 </div>
-                <div className="row d-flex justify-content-center">
-                    <Card style={outlineColor} className="text-center w-75 mt-3">
-                        <CardBody>
-                            <CardTitle className="h5"><b>Tanyakan! </b>Apakah ada keluhan lain?</CardTitle>
-                            <FormGroup check className="d-inline pr-2">
-                                <Label>
-                                    <Input type="radio" name="radio1"/>{''}
-                                    Ya
-                                </Label>
-                            </FormGroup>
-                            <FormGroup check className="d-inline">
-                                <Label>
-                                    <Input type="radio" name="radio1"/>{''}
-                                    Tidak
-                                </Label>
-                            </FormGroup>
-                            <FormGroup check className="d-inline pr-2">
-                                <Input type="textarea"/>
-                            </FormGroup>
-                        </CardBody>
-                    </Card>
+                <div style={{minHeight: "500px"}}> 
+                    <Row className="justify-content-center">
+                        <Card style={outlineColor} className="text-center w-75 mt-3">
+                            <CardBody>
+                                <CardTitle className="h5"><b>Tanyakan! </b>Apakah ada keluhan lain?</CardTitle>
+                                <FormGroup check className="d-inline pr-2">
+                                    <Label>
+                                        <Input type="radio" name="radio1"/>{''}
+                                        Ya
+                                    </Label>
+                                </FormGroup>
+                                <FormGroup check className="d-inline">
+                                    <Label>
+                                        <Input type="radio" name="radio1"/>{''}
+                                        Tidak
+                                    </Label>
+                                </FormGroup>
+                                <FormGroup check className="d-inline pr-2">
+                                    <Input type="textarea"/>
+                                </FormGroup>
+                            </CardBody>
+                        </Card>
+                    </Row>
                 </div>
             </div>
-            <div className="d-flex justify-content-around mt-3">
-                <Link to="VitaminA"><Button color="danger"><FontAwesomeIcon icon={faChevronLeft}/> Pemeriksaan Vitamin A</Button></Link>
-                <Link to="PemberianMakanan1"><Button color="success">Pemeriksaan Pemberian Makanan <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
-            </div>
+            <Row className="justify-content-between px-5 py-3">
+                <Col sm="4">
+                    <Link to="VitaminA" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Pemeriksaan Vitamin A</Button></Link>
+                </Col>
+                <Col sm="4">
+                    <Link to="PemberianMakanan1" style={{textDecoration: "none"}}><Button color="success" block >Pemeriksaan Pemberian Makanan <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
+                </Col>
+            </Row>
         </div>
         </Form>
     );

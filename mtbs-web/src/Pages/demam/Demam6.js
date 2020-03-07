@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FormGroup, Label, Input, Form, Card, CardBody, CardTitle, Button } from "reactstrap";
+import { FormGroup, Label, Input, Form, Card, CardBody, CardTitle, Button, Row, Col } from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircle } from '@fortawesome/free-solid-svg-icons'
+import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
 
 var outlineColor = {
@@ -130,6 +130,14 @@ const Demam = (props) => {
                     <Link to="Demam5"><Button color="danger">Sebelumnya</Button></Link>
                     <Link to="Demam7"><Button color="success">Selanjutnya</Button></Link>
                 </div>
+                <Row className="justify-content-between px-5 py-3">
+                    <Col sm="4">
+                        <Link to="Demam5" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Sebelumnya</Button></Link>
+                    </Col>
+                    <Col sm="4">
+                        <Link to="Demam7" style={{textDecoration: "none"}}><Button color="success" block >Selanjutnya <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
+                    </Col>
+                </Row>
             </div>
         </Form>
     )

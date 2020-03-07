@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FormGroup, Label, Input, Form, Card, CardBody, CardTitle, Button } from "reactstrap";
+import { FormGroup, Label, Input, Form, Card, CardBody, CardTitle, Button, Row, Col } from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircle } from '@fortawesome/free-solid-svg-icons'
+import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
 
 var outlineColor = {
@@ -58,7 +58,8 @@ const Demam = (props) => {
                         <p className="text-center"><b>Jika Daerah Non Endemis</b>, tanyakan riwayat bepergian ke daerah endemis
                         malaria dalam 2 minggu terakhir adn tentukan daerah endemis sesuai tempat yang dikunjungi</p>
                     </div>
-                    <div className="row d-flex justify-content-around">
+                    <div style={{minHeight: "500px"}}>
+                    <Row className="justify-content-around">
                         <Card style={outlineColor} className="text-center w-75 mt-3">
                             <CardBody>
                                 <CardTitle className="h5"><b>Tanyakan! </b>Apakah anak sakit campak dalam 3 bulan terakhir?</CardTitle>
@@ -103,12 +104,17 @@ const Demam = (props) => {
                                 </FormGroup>
                             </CardBody>
                         </Card>
+                    </Row>
                     </div>
                 </div>
-                <div className="d-flex justify-content-around mt-3">
-                    <Link to="Demam2"><Button color="danger">Sebelumnya</Button></Link>
-                    <Link to="Demam4"><Button color="success">Selanjutnya</Button></Link>
-                </div>
+                <Row className="justify-content-between px-5 py-3">
+                    <Col sm="4">
+                        <Link to="Demam2" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Sebelumnya</Button></Link>
+                    </Col>
+                    <Col sm="4">
+                        <Link to="Demam4" style={{textDecoration: "none"}}><Button color="success" block >Selanjutnya <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
+                    </Col>
+                </Row>
             </div>
         </Form>
     )

@@ -28,6 +28,7 @@ import Demam7 from './../demam/Demam7';
 import Demam8 from './../demam/Demam8';
 import Demam9 from './../demam/Demam9';
 import Demam10 from './../demam/Demam10';
+import TelingaYaTidak from './../telinga/TelingaYaTidak';
 import Telinga from './../telinga/Telinga';
 import Telinga2 from './../telinga/Telinga2';
 import Gizi from './../gizi/Gizi';
@@ -108,6 +109,8 @@ function MTBS(props){
                         return <Demam9/>;
                     case `/MTBS/Demam10` :
                         return <Demam10/>;
+                    case `/MTBS/TelingaYaTidak`:
+                        return <TelingaYaTidak/>;
                     case `/MTBS/Telinga1`:
                         return <Telinga/>;
                     case `/MTBS/Telinga2`:

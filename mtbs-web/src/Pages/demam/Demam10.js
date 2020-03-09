@@ -98,7 +98,7 @@ const Demam = (props) => {
                         <Link to="Demam9" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Sebelumnya</Button></Link>
                     </Col>
                     <Col sm="4">
-                        <Link to="Telinga1" style={{textDecoration: "none"}}><Button color="success" block >Pemeriksaan Telinga <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
+                        <Link to="TelingaYaTidak" style={{textDecoration: "none"}}><Button color="success" block >Pemeriksaan Telinga <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
                     </Col>
                 </Row>
             </div>

@@ -20,7 +20,7 @@ const Demam = (props) => {
             <div className="w-100">
                 <div className="col-12">
                     <div className="mt-2">
-                        <h3 className="text-center font-weight-bold">Batuk / Sukar Bernafas</h3>
+                        <h3 className="text-center font-weight-bold">Demam</h3>
                         <hr
                         style={{
                             color: "#41E8B3",

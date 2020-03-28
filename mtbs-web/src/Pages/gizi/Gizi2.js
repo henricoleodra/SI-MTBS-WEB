@@ -41,13 +41,7 @@ const Gizi2 = (props) => {
                                 <CardBody>
                                     <CardTitle className="h5"><b>Tentukan! </b>Berat badan(BB) menurut Panjang Badan(PB) / Tinggi Badan(TB)</CardTitle>
                                     <FormGroup check className="mt-3">
-                                        BB menurut PB / TB : xSD<Input type="number"/>
-                                    </FormGroup>
-                                    <FormGroup check className="mt-3">
-                                        BB menurut PB / TB : -3SD sampai dengan -2SD<Input type="number"/>
-                                    </FormGroup>
-                                    <FormGroup check className="mt-3">
-                                        BB menurut PB / TB : >= -2SD<Input type="number"/>
+                                        BB menurut PB / TB :<Input type="number"/>
                                     </FormGroup>
                                 </CardBody>
                             </Card>
@@ -55,13 +49,7 @@ const Gizi2 = (props) => {
                                 <CardBody>
                                     <CardTitle className="h5"><b>Tentukan! </b>Lingkar lengan atas(LiLA) untuk anak umur 6 bulan / lebih</CardTitle>
                                     <FormGroup check className="mt-3">
-                                        LiLA lebih kecil dari 11.5 cm<Input type="number"/>
-                                    </FormGroup>
-                                    <FormGroup check className="mt-3">
-                                        LiLA 11.5 cm - 12.5 cm<Input type="number"/>
-                                    </FormGroup>
-                                    <FormGroup check className="mt-3">
-                                        LiLA >= 12.5 cm<Input type="number"/>
+                                        LiLA :<Input type="number"/>
                                     </FormGroup>
                                 </CardBody>
                             </Card>

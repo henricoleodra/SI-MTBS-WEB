@@ -4,6 +4,8 @@ import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button, Row, C
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
+import '../../Assets/style/style.css';
+
 var outlineColor = {
   borderColor : '#41E8B3'
 }
@@ -36,18 +38,30 @@ const TandaBahayaUmum = (props) => {
               <Card style={outlineColor} className="text-center w-75">
                 <CardBody>
                   <CardTitle className="h5"><b>Tanyakan! </b>Tidak bisa minum/menyusu</CardTitle>
-                  <FormGroup check className="d-inline pr-2">
-                  <Label>
-                    <Input type="radio" name="radio1"/>{''}
-                    Ya
-                  </Label>
-                  </FormGroup>
-                  <FormGroup check className="d-inline">
-                    <Label>
-                      <Input type="radio" name="radio1"/>{''}
-                      Tidak
-                    </Label>
-                  </FormGroup>
+                  <Row>
+                    <Col sm="3">
+                    
+                    </Col>
+                    <Col sm="3">
+                      <FormGroup check className="d-inline pr-2">  
+                        <Label className="rdoBtn">Ya
+                          <Input type="radio" name="radio1"/>
+                          <span className="checkmark"></span>
+                        </Label>
+                      </FormGroup>
+                    </Col>
+                    <Col sm="1">
+                    
+                    </Col>
+                    <Col sm="3">
+                      <FormGroup check className="d-inline">
+                        <Label className="rdoBtn">Tidak
+                          <Input type="radio" name="radio1"/>
+                          <span class="checkmark"></span>
+                        </Label>
+                      </FormGroup>
+                    </Col>
+                  </Row>
                 </CardBody>
               </Card>
               <Card style={outlineColor} className="text-center w-75 mt-3">

@@ -3,7 +3,7 @@ html, body {
     height: 100%;
   }
 
-  .glowing-border {
+.glowing-border {
     border: 2px solid #dadada;
     border-radius: 7px;
 }
@@ -13,3 +13,64 @@ html, body {
     border-color: #9ecaed;
     box-shadow: 0 0 10px #9ecaed;
 }
+
+.rdoBtn{
+  display: block;
+  position: relative;
+  padding: 0,0,0,0;
+  margin: 0,0,0,0;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 25px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* menghilangkan radio button */
+.rdoBtn input{
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0,0,0,0;
+  margin: 0,0,0,0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+.rdoBtn:hover input ~ .checkmark{
+  background-color: #ccc;
+}
+
+.rdoBtn input:checked ~ .checkmark {
+  background-color: #41E8B3;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.rdoBtn input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.rdoBtn .checkmark:after {
+  top: 5.62px;
+  left: 5.6px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: white;
+}
+

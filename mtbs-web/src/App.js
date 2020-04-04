@@ -7,6 +7,7 @@ import './Assets/style/style.css';
 //Import Pages
 import MTBS from './Pages/mtbs/MTBS';
 import Beranda from './Pages/beranda/Beranda'
+import DataAnak from './Pages/dataanak/dataanak'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         {/* <Route exact path="/" component={index}/> */}
         <Route exact path = "/" component={Beranda}/>
         <Route path = "/MTBS/" component={MTBS}/>
+        <Route path = "/DataAnak/" component={DataAnak}/>
       </Switch>
     </BrowserRouter>
   );

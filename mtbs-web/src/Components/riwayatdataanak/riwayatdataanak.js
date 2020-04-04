@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {Card, CardBody, Row, Col, CardTitle, Button, Label} from 'reactstrap';
+import {Card, CardBody, Row, Col, Button, Label} from 'reactstrap';
 
 let bold = {
     fontWeight: 'bold'

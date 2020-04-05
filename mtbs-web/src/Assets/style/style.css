@@ -37,8 +37,7 @@ html, body {
 
 .checkmark {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 8px;
   padding: 0,0,0,0;
   margin: 0,0,0,0;
   height: 25px;
@@ -67,7 +66,7 @@ html, body {
 
 .rdoBtn .checkmark:after {
   top: 5.62px;
-  left: 5.6px;
+  left: 5.58px;
   width: 14px;
   height: 14px;
   border-radius: 50%;

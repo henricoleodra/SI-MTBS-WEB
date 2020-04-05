@@ -46,7 +46,7 @@ const TandaBahayaUmum = (props) => {
                       <FormGroup check className="d-inline pr-2">  
                         <Label className="rdoBtn">Ya
                           <Input type="radio" name="radio1"/>
-                          <span className="checkmark"></span>
+                          <span style={{left:"20px"}} className="checkmark"></span>
                         </Label>
                       </FormGroup>
                     </Col>
@@ -57,7 +57,7 @@ const TandaBahayaUmum = (props) => {
                       <FormGroup check className="d-inline">
                         <Label className="rdoBtn">Tidak
                           <Input type="radio" name="radio1"/>
-                          <span class="checkmark"></span>
+                          <span style={{left:"0px"}} class="checkmark"></span>
                         </Label>
                       </FormGroup>
                     </Col>
@@ -67,52 +67,88 @@ const TandaBahayaUmum = (props) => {
               <Card style={outlineColor} className="text-center w-75 mt-3">
                 <CardBody>
                   <CardTitle className="h5"><b>Tanyakan! </b>Memuntahkan semuanya</CardTitle>
-                  <FormGroup check className="d-inline pr-2">
-                  <Label>
-                    <Input type="radio" name="radio2"/>{''}
-                    Ya
-                  </Label>
-                  </FormGroup>
-                  <FormGroup check className="d-inline">
-                    <Label>
-                      <Input type="radio" name="radio2"/>{''}
-                      Tidak
-                    </Label>
-                  </FormGroup>
+                  <Row>
+                    <Col sm="3">
+                    
+                    </Col>
+                    <Col sm="3">
+                      <FormGroup check className="d-inline pr-2">  
+                        <Label className="rdoBtn">Ya
+                          <Input type="radio" name="radio2"/>
+                          <span style={{left:"20px"}} className="checkmark"></span>
+                        </Label>
+                      </FormGroup>
+                    </Col>
+                    <Col sm="1">
+                    
+                    </Col>
+                    <Col sm="3">
+                      <FormGroup check className="d-inline">
+                        <Label className="rdoBtn">Tidak
+                          <Input type="radio" name="radio2"/>
+                          <span style={{left:"0px"}} class="checkmark"></span>
+                        </Label>
+                      </FormGroup>
+                    </Col>
+                  </Row>
                 </CardBody>
               </Card>
               <Card style={outlineColor} className="text-center w-75 mt-3">
                 <CardBody>
                   <CardTitle className="h5"><b>Tanyakan! </b>Kejang-kejang</CardTitle>
-                  <FormGroup check className="d-inline pr-2">
-                  <Label>
-                    <Input type="radio" name="radio3"/>{''}
-                    Ya
-                  </Label>
-                  </FormGroup>
-                  <FormGroup check className="d-inline">
-                    <Label>
-                      <Input type="radio" name="radio3"/>{''}
-                      Tidak
-                    </Label>
-                  </FormGroup>
+                  <Row>
+                    <Col sm="3">
+                    
+                    </Col>
+                    <Col sm="3">
+                      <FormGroup check className="d-inline pr-2">  
+                        <Label className="rdoBtn">Ya
+                          <Input type="radio" name="radio3"/>
+                          <span style={{left:"20px"}} className="checkmark"></span>
+                        </Label>
+                      </FormGroup>
+                    </Col>
+                    <Col sm="1">
+                    
+                    </Col>
+                    <Col sm="3">
+                      <FormGroup check className="d-inline">
+                        <Label className="rdoBtn">Tidak
+                          <Input type="radio" name="radio3"/>
+                          <span style={{left:"0px"}} class="checkmark"></span>
+                        </Label>
+                      </FormGroup>
+                    </Col>
+                  </Row>
                 </CardBody>
               </Card>
               <Card style={outlineColor} className="text-center w-75 mt-3">
                 <CardBody>
                   <CardTitle className="h5"><b>Tanyakan! </b>Gelisah, Letargis atau tidak sadar</CardTitle>
-                  <FormGroup check className="d-inline pr-2">
-                  <Label>
-                    <Input type="radio" name="radio4"/>{''}
-                    Ya
-                  </Label>
-                  </FormGroup>
-                  <FormGroup check className="d-inline">
-                    <Label>
-                      <Input type="radio" name="radio4"/>{''}
-                      Tidak
-                    </Label>
-                  </FormGroup>
+                  <Row>
+                    <Col sm="3">
+                    
+                    </Col>
+                    <Col sm="3">
+                      <FormGroup check className="d-inline pr-2">  
+                        <Label className="rdoBtn">Ya
+                          <Input type="radio" name="radio4"/>
+                          <span style={{left:"20px"}} className="checkmark"></span>
+                        </Label>
+                      </FormGroup>
+                    </Col>
+                    <Col sm="1">
+                    
+                    </Col>
+                    <Col sm="3">
+                      <FormGroup check className="d-inline">
+                        <Label className="rdoBtn">Tidak
+                          <Input type="radio" name="radio4"/>
+                          <span style={{left:"0px"}} class="checkmark"></span>
+                        </Label>
+                      </FormGroup>
+                    </Col>
+                  </Row>
                 </CardBody>
               </Card>
             </Row>

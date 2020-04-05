@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {NavItem, Nav, Row, Col, NavLink, Label,  Modal, ModalHeader, ModalBody, ModalFooter, Button } from 'reactstrap';
+import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBaby } from '@fortawesome/free-solid-svg-icons';
 
@@ -22,95 +23,95 @@ const SideBar = (props) => {
     const toggle = () => setModal(!modal);
     let url = props.location.replace(/[0-9]/g, '');
     
+    const compStatus = useSelector(state => state.compStatus);
     let sidebar = [
         {
             'title' : 'Tanda Bahaya Umum',
             'link' : 'TandaBahayaUmum1',
             'active' : url==='TandaBahayaUmum',
             'color' : props.iconColor[0],
-            'disabled' : false
+            'disabled' : compStatus.tandabahayaumum
         },
         {
             'title' : 'Batuk',
             'link' : 'Batuk1',
-            'active' : url==='Batuk',
+            'active' : url==='BatukYaTidak' || url==='Batuk',
             'color' : props.iconColor[1],
-            'disabled' : false
+            'disabled' : compStatus.batuk
         },
         {
             'title' : 'Diare',
             'link' : 'Diare1',
-            'active' : url==='Diare',
+            'active' : url==='DiareYaTidak' || url==='Diare',
             'color' : props.iconColor[2],
-            'disabled' : true
+            'disabled' : compStatus.diare
         },
         {
             'title' : 'Demam',
             'link' : 'Demam1',
-            'active' : url==='Demam',
+            'active' : url==='DemamYaTidak' || url==='Demam',
             'color' : props.iconColor[3],
-            'disabled' : true
+            'disabled' : compStatus.demam
         },
         {
             'title' : 'Telinga',
             'link' : 'Telinga1',
-            'active' : url==='Telinga',
+            'active' : url==='TelingaYaTidak' || url==='Telinga',
             'color' : props.iconColor[4],
-            'disabled' : true
+            'disabled' : compStatus.telinga
         },
         {
             'title' : 'Gizi',
             'link' : 'Gizi1',
             'active' : url==='Gizi',
             'color' : props.iconColor[5],
-            'disabled' : true
+            'disabled' : compStatus.gizi
         },
         {
             'title' : 'Anemia',
             'link' : 'Anemia',
             'active' : url==='Anemia',
             'color' : props.iconColor[6],
-            'disabled' : true
+            'disabled' : compStatus.anemia
         },
         {
             'title' : 'HIV',
             'link' : 'HIV1',
             'active' : url==='HIV',
             'color' : props.iconColor[7],
-            'disabled' : true
+            'disabled' : compStatus.hiv
         },
         {
             'title' : 'Imunisasi',
             'link' : 'Imunisasi1',
             'active' : url==='Imunisasi',
             'color' : props.iconColor[8],
-            'disabled' : true
+            'disabled' : compStatus.imunisasi
         },
         {
             'title' : 'Vitamin A',
             'link' : 'VitaminA',
             'active' : url==='VitaminA',
             'color' : props.iconColor[9],
-            'disabled' : true
+            'disabled' : compStatus.vitamina
         },
         {
             'title' : 'KeluhanLain',
             'link' : 'KeluhanLain',
             'active' : url==='KeluhanLain',
             'color' : props.iconColor[10],
-            'disabled' : true
+            'disabled' : compStatus.keluhanlain
         },
         {
             'title' : 'PemberianMakanan',
             'link' : 'PemberianMakanan1',
             'active' : url==='PemberianMakanan',
             'color' : props.iconColor[11],
-            'disabled' : true
+            'disabled' : compStatus.makan
         },
       ];
     
     const renderSideBar = sidebar.map((curr, index) => {
-    console.log("hello");
     return(
         <SideBarItem key={"sidebar" + index} title={curr.title} link={curr.link} active={curr.active} color={curr.color} disabled={curr.disabled}/>
             

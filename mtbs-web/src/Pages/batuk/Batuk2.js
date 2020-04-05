@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button, InputGroup, InputGroupAddon, InputGroupText, Row, Col} from "reactstrap";
+import { useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { compStatusChange } from '../../Actions';
 
 
 let outlineColor = {
@@ -15,6 +17,7 @@ let bgColor ={
 }
 
 const Batuk = (props) => {
+    const dispatch = useDispatch();
     return(
         <Form>
             <div className="w-100">
@@ -77,7 +80,7 @@ const Batuk = (props) => {
                     <Link to="Batuk1" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Sebelumnya</Button></Link>
                 </Col>
                 <Col sm="4">
-                    <Link to="DiareYaTidak" style={{textDecoration: "none"}}><Button color="success" block >Pemeriksaan Diare <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
+                    <Link to="DiareYaTidak" style={{textDecoration: "none"}}><Button color="success" block onClick={() => dispatch(compStatusChange('DIARE'))} >Pemeriksaan Diare <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
                 </Col>
             </Row>
         </div>

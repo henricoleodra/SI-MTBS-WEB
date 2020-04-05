@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { Badge } from 'reactstrap';
+import { useSelector, useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExclamationTriangle} from '@fortawesome/free-solid-svg-icons';
 
@@ -20,79 +21,81 @@ const Summary = () => {
   //     setDropDown(dropDown => [...dropDown, false]);
   //   }
   // }, []);
+  
+  const compStatus = useSelector(state => state.compStatus);
 
   let summary = [
     {
       'title' : 'Tanda Bahaya Umum',
       'text' : 'Penyakit Tanda Bahaya Umum',
       'color' : 'danger',
-      'disabled' : false
+      'disabled' : compStatus.tandabahayaumum
     },
     {
       'title' : 'Batuk',
       'text' : 'Penyakit Batuk',
       'color' : 'warning',
-      'disabled' : false
+      'disabled' : compStatus.batuk
     },
     {
       'title' : 'Diare',
       'text' : 'Penyakit Diare',
       'color' : 'dark',
-      'disabled' : true
+      'disabled' : compStatus.diare
     },
     {
       'title' : 'Demam',
       'text' : 'Penyakit Demam',
       'color' : 'dark',
-      'disabled' : true
+      'disabled' : compStatus.demam
     },
     {
       'title' : 'Telinga',
       'text' : 'Penyakit Telinga',
       'color' : 'dark',
-      'disabled' : true
+      'disabled' : compStatus.telinga
     },
     {
       'title' : 'Gizi',
       'text' : 'Penyakit Gizi',
       'color' : 'dark',
-      'disabled' : true
+      'disabled' : compStatus.gizi
     },
     {
       'title' : 'Anemia',
       'text' : 'Penyakit Anemia',
       'color' : 'dark',
-      'disabled' : true
+      'disabled' : compStatus.anemia
     },
     {
       'title' : 'HIV',
       'text' : 'Penyakit HIV',
       'color' : 'dark',
-      'disabled' : true
+      'disabled' : compStatus.hiv
     },
     {
       'title' : 'Imunisasi',
       'text' : 'Penyakit Imunisasi',
       'color' : 'dark',
-      'disabled' : true
+      'disabled' : compStatus.imunisasi
     },
     {
       'title' : 'Vitamin A',
       'text' : 'Penyakit Vitamin A',
       'color' : 'dark',
-      'disabled' : true
+      'disabled' : compStatus.vitamina
     },
     {
       'title' : 'Keluhan Lain',
       'text' : 'Penyakit Lainnya',
       'color' : 'dark',
-      'disabled' : true
+      'disabled' : compStatus.keluhanlain
     },
     {
       'title' : 'Pemberian Makanan',
       'text' : 'Penyakit Makanan',
       'color' : 'dark',
-      'disabled' : true
+      'disabled' : compStatus.makan
     },
   ];
 

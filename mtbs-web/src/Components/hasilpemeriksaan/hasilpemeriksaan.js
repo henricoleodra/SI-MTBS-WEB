@@ -22,13 +22,6 @@ let squareRed = {
     backgroundColor: '#dc3545'
 }
 
-let squareRedTest = {
-    height: '48px',
-    width: '48px',
-    backgroundColor: '#dc3545',
-    borderRadius: '12px'
-}
-
 let squareYellow = {
     height: '50px',
     width: '50px',
@@ -39,6 +32,27 @@ let squareGreen = {
     height: '50px',
     width: '50px',
     backgroundColor: '#28a745'
+}
+
+let squareRedTest = {
+    height: '48px',
+    width: '48px',
+    backgroundColor: '#dc3545',
+    borderRadius: '12px'
+}
+
+let squareYellowTest = {
+    height: '48px',
+    width: '48px',
+    backgroundColor: '#ffc107',
+    borderRadius: '12px'
+}
+
+let squareGreenTest = {
+    height: '48px',
+    width: '48px',
+    backgroundColor: '#28a745',
+    borderRadius: '12px'
 }
 
 let konten={
@@ -56,24 +70,54 @@ const HasilPemeriksaan = (props) => {
             <div>
                 <Card style={outlineColorTest} className="mb-3">
                     <Row>
-                        <Col sm="1" className="border-right border-dark">
+                        <Col sm="1" className="">
                             <div style={squareRedTest}></div>
                         </Col>
 
-                        <Col sm="5" className=" pl-0 pr-0 border-right border-dark" style={bold}>
-                            <div className="text-left pl-1">
-                                <span className="" style={konten}>Tanda Bahaya Umum</span>
-                            </div>
+                        <Col sm="5" className=" pl-0 border-right border-dark" style={bold}>
+                            <p className="mt-2" style={konten}>Tanda Bahaya Umum </p>
                         </Col>
 
-                        <Col sm="6" className="text-right pl-0 mb-auto mt-auto" style={bold}>
+                        <Col sm="6" className="text-center pl-0 mt-2" style={bold}>
                             <p style={konten}>Diare Dehidrasi Ringan / Sedang </p>
                         </Col>
                     </Row>       
                 </Card>
 
+                <Card style={outlineColorTest} className="mb-3">
+                    <Row>
+                        <Col sm="1" className="">
+                            <div style={squareYellowTest}></div>
+                        </Col>
+
+                        <Col sm="5" className=" pl-0 border-right border-dark" style={bold}>
+                            <p className="mt-2" style={konten}>Batuk </p>
+                        </Col>
+
+                        <Col sm="6" className="text-center pl-0 mt-2" style={bold}>
+                            <p style={konten}>Pneumonia Ringan </p>
+                        </Col>
+                    </Row>       
+                </Card>
 
                 <Card style={outlineColorTest} className="mb-3">
+                    <Row>
+                        <Col sm="1" className="">
+                            <div style={squareGreenTest}></div>
+                        </Col>
+
+                        <Col sm="5" className=" pl-0 border-right border-dark" style={bold}>
+                            <p className="mt-2" style={konten}>Diare </p>
+                        </Col>
+
+                        <Col sm="6" className="text-center pl-0 mt-2" style={bold}>
+                            <p style={konten}>Aman </p>
+                        </Col>
+                    </Row>       
+                </Card>
+
+
+                {/* <Card style={outlineColorTest} className="mb-3">
                     <div className="d-flex justify-content-between">
                         <div style={squareRedTest} ></div>
                         <div className="mr-4">
@@ -94,18 +138,7 @@ const HasilPemeriksaan = (props) => {
                             <div><Label style={bold}>Malaria</Label></div>
                         </div>
                     </div>                 
-                </Card>
-                <Card style={outlineColor} className="mb-3">
-                    <div className="d-flex justify-content-between">
-                        <div style={squareGreen}></div>
-                        <div className="mr-4">
-                            <div><Label style={bold}>Diare</Label></div>
-                        </div>
-                        <div className="mr-4">
-                            <div><Label style={bold}>Bahaya</Label></div>
-                        </div>
-                    </div>                 
-                </Card>
+                </Card> */}
             </div>
         </div>
     );

@@ -1,37 +1,14 @@
 import React, { useState } from 'react';
-import {Card, CardBody, Label, Row,Col} from 'reactstrap';
+import {Card, Label, Row,Col} from 'reactstrap';
 
 let bold = {
     fontWeight: 'bold'
-}
-
-let outlineColor = {
-    borderColor : '#41E8B3',
-    borderWidth: '3px'
 }
 
 let outlineColorTest = {
     borderColor : '#41E8B3',
     borderWidth: '3px',
     borderRadius: '15px'
-}
-
-let squareRed = {
-    height: '50px',
-    width: '50px',
-    backgroundColor: '#dc3545'
-}
-
-let squareYellow = {
-    height: '50px',
-    width: '50px',
-    backgroundColor: '#ffc107'
-}
-
-let squareGreen = {
-    height: '50px',
-    width: '50px',
-    backgroundColor: '#28a745'
 }
 
 let squareRedTest = {

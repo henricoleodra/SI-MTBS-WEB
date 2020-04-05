@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExclamationTriangle} from '@fortawesome/free-solid-svg-icons';
 
 //Import SummaryItem Component
-import SummaryItem from './summaryitem/SummaryItem';
+import SummaryItem from './summaryItem/SummaryItem';
 
 const Summary = () => {
   let [ dropDown, setDropDown ] = useState([

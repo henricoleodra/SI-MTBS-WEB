@@ -8,11 +8,11 @@ const SideBarItem = (props) => {
     <NavItem>
       <NavLink className="btn btn-light text-left" href={props.link} active={props.active} disabled={props.disabled}>
           <Row className="pr-3">
-              <Col xs="auto">
-                <span className="text-left">{props.title}</span>
+              <Col xs="ml-0 mr-0">
+                <h5 className="ml-2 pt-1 text-left ">{props.title}</h5>
               </Col>
-              <Col xs="1" className="ml-auto">
-                  <FontAwesomeIcon icon={faCircle} className={props.color} />
+              <Col xs="1" className="ml-auto mt-auto mb-auto">
+                  <FontAwesomeIcon icon={faCircle} className={props.color}/>
               </Col>
           </Row>
       </NavLink>

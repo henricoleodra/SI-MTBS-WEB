@@ -9,7 +9,7 @@ const SummaryItem = (props) => {
         <Button className="w-100 mb-1" color={props.color} onClick={props.onClick} disabled={props.disabled}>
             <Row className="pr-3">
                 <Col xs="auto">
-                    <span className="text-right">{props.title}</span>
+                    <h5 className="text-right">{props.title}</h5>
                 </Col>
                 <Col xs="1" className="ml-auto">
                     { props.isOpen

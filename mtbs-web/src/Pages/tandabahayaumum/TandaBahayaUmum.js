@@ -37,14 +37,14 @@ const TandaBahayaUmum = (props) => {
             <Row className="justify-content-center">
               <Card style={outlineColor} className="text-center w-75">
                 <CardBody>
-                  <CardTitle className="h5"><b>Tanyakan! </b>Tidak bisa minum/menyusu</CardTitle>
+                  <CardTitle className="h4"><b>Tanyakan! </b>Tidak bisa minum/menyusu</CardTitle>
                   <Row>
                     <Col sm="3">
                     
                     </Col>
                     <Col sm="3">
                       <FormGroup check className="d-inline pr-2">  
-                        <Label className="rdoBtn">Ya
+                        <Label className="rdoBtn" style={{fontSize: "20px"}}>Ya
                           <Input type="radio" name="radio1"/>
                           <span style={{left:"20px"}} className="checkmark"></span>
                         </Label>
@@ -55,7 +55,7 @@ const TandaBahayaUmum = (props) => {
                     </Col>
                     <Col sm="3">
                       <FormGroup check className="d-inline">
-                        <Label className="rdoBtn">Tidak
+                        <Label className="rdoBtn" style={{fontSize: "20px"}}>Tidak
                           <Input type="radio" name="radio1"/>
                           <span style={{left:"0px"}} class="checkmark"></span>
                         </Label>
@@ -66,14 +66,14 @@ const TandaBahayaUmum = (props) => {
               </Card>
               <Card style={outlineColor} className="text-center w-75 mt-3">
                 <CardBody>
-                  <CardTitle className="h5"><b>Tanyakan! </b>Memuntahkan semuanya</CardTitle>
+                  <CardTitle className="h4"><b>Tanyakan! </b>Memuntahkan semuanya</CardTitle>
                   <Row>
                     <Col sm="3">
                     
                     </Col>
                     <Col sm="3">
                       <FormGroup check className="d-inline pr-2">  
-                        <Label className="rdoBtn">Ya
+                        <Label className="rdoBtn" style={{fontSize: "20px"}}>Ya
                           <Input type="radio" name="radio2"/>
                           <span style={{left:"20px"}} className="checkmark"></span>
                         </Label>
@@ -84,7 +84,7 @@ const TandaBahayaUmum = (props) => {
                     </Col>
                     <Col sm="3">
                       <FormGroup check className="d-inline">
-                        <Label className="rdoBtn">Tidak
+                        <Label className="rdoBtn" style={{fontSize: "20px"}}>Tidak
                           <Input type="radio" name="radio2"/>
                           <span style={{left:"0px"}} class="checkmark"></span>
                         </Label>
@@ -95,14 +95,14 @@ const TandaBahayaUmum = (props) => {
               </Card>
               <Card style={outlineColor} className="text-center w-75 mt-3">
                 <CardBody>
-                  <CardTitle className="h5"><b>Tanyakan! </b>Kejang-kejang</CardTitle>
+                  <CardTitle className="h4"><b>Tanyakan! </b>Kejang-kejang</CardTitle>
                   <Row>
                     <Col sm="3">
                     
                     </Col>
                     <Col sm="3">
                       <FormGroup check className="d-inline pr-2">  
-                        <Label className="rdoBtn">Ya
+                        <Label className="rdoBtn" style={{fontSize: "20px"}}>Ya
                           <Input type="radio" name="radio3"/>
                           <span style={{left:"20px"}} className="checkmark"></span>
                         </Label>
@@ -113,7 +113,7 @@ const TandaBahayaUmum = (props) => {
                     </Col>
                     <Col sm="3">
                       <FormGroup check className="d-inline">
-                        <Label className="rdoBtn">Tidak
+                        <Label className="rdoBtn" style={{fontSize: "20px"}}>Tidak
                           <Input type="radio" name="radio3"/>
                           <span style={{left:"0px"}} class="checkmark"></span>
                         </Label>
@@ -124,14 +124,14 @@ const TandaBahayaUmum = (props) => {
               </Card>
               <Card style={outlineColor} className="text-center w-75 mt-3">
                 <CardBody>
-                  <CardTitle className="h5"><b>Tanyakan! </b>Gelisah, Letargis atau tidak sadar</CardTitle>
+                  <CardTitle className="h4"><b>Tanyakan! </b>Gelisah, Letargis atau tidak sadar</CardTitle>
                   <Row>
                     <Col sm="3">
                     
                     </Col>
                     <Col sm="3">
                       <FormGroup check className="d-inline pr-2">  
-                        <Label className="rdoBtn">Ya
+                        <Label className="rdoBtn" style={{fontSize: "20px"}}>Ya
                           <Input type="radio" name="radio4"/>
                           <span style={{left:"20px"}} className="checkmark"></span>
                         </Label>
@@ -142,7 +142,7 @@ const TandaBahayaUmum = (props) => {
                     </Col>
                     <Col sm="3">
                       <FormGroup check className="d-inline">
-                        <Label className="rdoBtn">Tidak
+                        <Label className="rdoBtn" style={{fontSize: "20px"}}>Tidak
                           <Input type="radio" name="radio4"/>
                           <span style={{left:"0px"}} class="checkmark"></span>
                         </Label>

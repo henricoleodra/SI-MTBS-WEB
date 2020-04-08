@@ -44,7 +44,7 @@ const TandaBahayaUmum = (props) => {
                     </Col>
                     <Col sm="3">
                       <FormGroup check className="d-inline pr-2">  
-                        <Label className="rdoBtn" style={{fontSize: "20px"}}>Ya
+                        <Label className="rdoBtn">Ya
                           <Input type="radio" name="radio1"/>
                           <span style={{left:"20px"}} className="checkmark"></span>
                         </Label>
@@ -55,7 +55,7 @@ const TandaBahayaUmum = (props) => {
                     </Col>
                     <Col sm="3">
                       <FormGroup check className="d-inline">
-                        <Label className="rdoBtn" style={{fontSize: "20px"}}>Tidak
+                        <Label className="rdoBtn">Tidak
                           <Input type="radio" name="radio1"/>
                           <span style={{left:"0px"}} class="checkmark"></span>
                         </Label>
@@ -73,7 +73,7 @@ const TandaBahayaUmum = (props) => {
                     </Col>
                     <Col sm="3">
                       <FormGroup check className="d-inline pr-2">  
-                        <Label className="rdoBtn" style={{fontSize: "20px"}}>Ya
+                        <Label className="rdoBtn">Ya
                           <Input type="radio" name="radio2"/>
                           <span style={{left:"20px"}} className="checkmark"></span>
                         </Label>
@@ -84,7 +84,7 @@ const TandaBahayaUmum = (props) => {
                     </Col>
                     <Col sm="3">
                       <FormGroup check className="d-inline">
-                        <Label className="rdoBtn" style={{fontSize: "20px"}}>Tidak
+                        <Label className="rdoBtn">Tidak
                           <Input type="radio" name="radio2"/>
                           <span style={{left:"0px"}} class="checkmark"></span>
                         </Label>
@@ -102,7 +102,7 @@ const TandaBahayaUmum = (props) => {
                     </Col>
                     <Col sm="3">
                       <FormGroup check className="d-inline pr-2">  
-                        <Label className="rdoBtn" style={{fontSize: "20px"}}>Ya
+                        <Label className="rdoBtn">Ya
                           <Input type="radio" name="radio3"/>
                           <span style={{left:"20px"}} className="checkmark"></span>
                         </Label>
@@ -113,7 +113,7 @@ const TandaBahayaUmum = (props) => {
                     </Col>
                     <Col sm="3">
                       <FormGroup check className="d-inline">
-                        <Label className="rdoBtn" style={{fontSize: "20px"}}>Tidak
+                        <Label className="rdoBtn">Tidak
                           <Input type="radio" name="radio3"/>
                           <span style={{left:"0px"}} class="checkmark"></span>
                         </Label>
@@ -131,7 +131,7 @@ const TandaBahayaUmum = (props) => {
                     </Col>
                     <Col sm="3">
                       <FormGroup check className="d-inline pr-2">  
-                        <Label className="rdoBtn" style={{fontSize: "20px"}}>Ya
+                        <Label className="rdoBtn">Ya
                           <Input type="radio" name="radio4"/>
                           <span style={{left:"20px"}} className="checkmark"></span>
                         </Label>
@@ -142,7 +142,7 @@ const TandaBahayaUmum = (props) => {
                     </Col>
                     <Col sm="3">
                       <FormGroup check className="d-inline">
-                        <Label className="rdoBtn" style={{fontSize: "20px"}}>Tidak
+                        <Label className="rdoBtn">Tidak
                           <Input type="radio" name="radio4"/>
                           <span style={{left:"0px"}} class="checkmark"></span>
                         </Label>

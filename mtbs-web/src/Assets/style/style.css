@@ -19,9 +19,8 @@ html, body {
   position: relative;
   padding: 0,0,0,0;
   margin: 0,0,0,0;
-  margin-bottom: 12px;
   cursor: pointer;
-  font-size: 25px;
+  font-size: 20px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -37,7 +36,7 @@ html, body {
 
 .checkmark {
   position: absolute;
-  top: 8px;
+  top: 5px;
   padding: 0,0,0,0;
   margin: 0,0,0,0;
   height: 25px;
@@ -65,11 +64,10 @@ html, body {
 }
 
 .rdoBtn .checkmark:after {
-  top: 5.62px;
-  left: 5.58px;
+  top: 5.498px;
+  left: 5.48px;
   width: 14px;
   height: 14px;
   border-radius: 50%;
   background: white;
 }
-

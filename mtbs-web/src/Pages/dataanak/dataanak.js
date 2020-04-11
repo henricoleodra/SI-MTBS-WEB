@@ -5,6 +5,8 @@ import {Card, CardBody, CardImg, Button, Label} from 'reactstrap';
 import NavBar from './../../Components/navbar/NavBar'
 import RiwayatDataAnak from './../../Components/riwayatdataanak/riwayatdataanak'
 
+import '../../Assets/style/style.css';
+
 
 let bold = {
     fontWeight: 'bold'
@@ -26,7 +28,7 @@ const DataAnak = (props) => {
             </div>
 
             <div className="d-flex" >
-                <div style={{ width: '40%'}} className="m-3">
+                <div style={{ width: '40%'}} className="m-3 divider">
                     <div className="m-3 text-center"> 
                         <Card style={outlineColor}>
                             <CardBody>

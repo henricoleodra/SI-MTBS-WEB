@@ -8,14 +8,15 @@ let bold = {
 let outlineColor = {
     borderColor : '#41E8B3',
     borderWidth: '3px',
-    borderRadius: '25px'
+    borderRadius: '25px',
+    fontSize: '20px'
 }
 
 const DataAnak = (props) => {
     return(
         <div>
             <div>
-                <Label>Riwayat Data ada sebanyak 3</Label>
+                <h3 className="text-center pb-3">Riwayat Data ada sebanyak 3</h3>
             </div>
             <div style={{minHeight: "550px"}}>
                 <Card style={outlineColor} className="mb-3">

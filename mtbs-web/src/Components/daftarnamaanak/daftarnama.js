@@ -18,7 +18,7 @@ const DaftarNama = (props) => {
     return(
         <div>
             <div>
-                <Label>Riwayat data yang baru</Label>
+            <h3 className="text-center pb-3">Riwayat Data yang Baru</h3>
             </div>
             <div style={{minHeight: "550px"}}>
                 <Card style={outlineColor} className="mb-3">

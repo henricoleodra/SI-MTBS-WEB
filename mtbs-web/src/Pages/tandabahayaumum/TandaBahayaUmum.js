@@ -57,7 +57,7 @@ const TandaBahayaUmum = (props) => {
                       <FormGroup check className="d-inline">
                         <Label className="rdoBtn">Tidak
                           <Input type="radio" name="radio1"/>
-                          <span style={{left:"0px"}} class="checkmark"></span>
+                          <span style={{left:"0px"}} className="checkmark"></span>
                         </Label>
                       </FormGroup>
                     </Col>
@@ -86,7 +86,7 @@ const TandaBahayaUmum = (props) => {
                       <FormGroup check className="d-inline">
                         <Label className="rdoBtn">Tidak
                           <Input type="radio" name="radio2"/>
-                          <span style={{left:"0px"}} class="checkmark"></span>
+                          <span style={{left:"0px"}} className="checkmark"></span>
                         </Label>
                       </FormGroup>
                     </Col>
@@ -115,7 +115,7 @@ const TandaBahayaUmum = (props) => {
                       <FormGroup check className="d-inline">
                         <Label className="rdoBtn">Tidak
                           <Input type="radio" name="radio3"/>
-                          <span style={{left:"0px"}} class="checkmark"></span>
+                          <span style={{left:"0px"}} className="checkmark"></span>
                         </Label>
                       </FormGroup>
                     </Col>
@@ -144,7 +144,7 @@ const TandaBahayaUmum = (props) => {
                       <FormGroup check className="d-inline">
                         <Label className="rdoBtn">Tidak
                           <Input type="radio" name="radio4"/>
-                          <span style={{left:"0px"}} class="checkmark"></span>
+                          <span style={{left:"0px"}} className="checkmark"></span>
                         </Label>
                       </FormGroup>
                     </Col>

@@ -13,7 +13,8 @@ let outlineColor = {
     borderColor : '#41E8B3',
     borderWidth: '5px',
     borderRadius: '25px',
-    minHeight: "500px"
+    minHeight: "500px",
+    fontSize: '20px'
 }
 
 const DataAnak = (props) => {

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {Card, Label, Row,Col} from 'reactstrap';
+import {Card, Label, Row,Col, Button} from 'reactstrap';
 
 let bold = {
     fontWeight: 'bold'
@@ -37,12 +37,17 @@ let konten={
     marginBottom: '0px',
 }
 
+let printPDF={
+    backgroundColor: '#41E8B3',
+    color: 'black',
+    width: '50%'
+}
 
 const HasilPemeriksaan = (props) => {
     return(
         <div>
             <div>
-                <Label>Tanggal 20 Januari 2020</Label>
+                <h3 className="text-center pb-3">Tanggal 20 Januari 2020</h3>
             </div>
             <div>
                 <Card style={outlineColorTest} className="mb-3">
@@ -92,7 +97,14 @@ const HasilPemeriksaan = (props) => {
                         </Col>
                     </Row>       
                 </Card>
-
+                <Row>
+                    <Col>
+                    
+                    </Col>
+                    <Col>
+                        <Button style={printPDF} className="mt-3">Print PDF</Button>
+                    </Col>
+                </Row>
 
                 {/* <Card style={outlineColorTest} className="mb-3">
                     <div className="d-flex justify-content-between">

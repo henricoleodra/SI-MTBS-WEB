@@ -6,10 +6,11 @@ import NavBar from './../../Components/navbar/NavBar'
 import DaftarAnak from './../../Components/daftarnamaanak/daftarnama'
 import TidakDitemukan from './../../Components/daftarnamaanak/tidakditemukan'
 
+import '../../Assets/style/style.css';
+
 let bold = {
     fontWeight: 'bold'
 }
-
 
 const DaftarNamaAnak = (props) => {
     return(
@@ -19,9 +20,10 @@ const DaftarNamaAnak = (props) => {
             </div>
 
             <div className="d-flex" >
-                <div style={{ width: '40%'}} className="m-3">
-                    <Form>
+                <div style={{ width: '35%'}} className="m-3">
+                    <Form className="divider">
                         <div style={{minHeight: '550px'}}>
+                            <h3 className="text-center pb-3">Form Pencarian Anak</h3>
                             <FormGroup>
                                 <Label for="NamaAnak">Nama</Label>
                                 <Input type="text" name="NamaAnak" id="NamaAnak" placeholder="Masukkan nama anak" />
@@ -51,7 +53,7 @@ const DaftarNamaAnak = (props) => {
                             </FormGroup>
                         </div>
                         <div>
-                            <Button color="success" style={{ width: '100%'}}>Cari Data Anak</Button><br></br>
+                            <Button color="success" style={{ width: '100%'}}>Cari Data Anak</Button>
                             <Button color="danger" style={{ width: '100%'}} className="mt-3">Sebelumnya</Button>
                         </div>        
                     </Form>

@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBaby } from '@fortawesome/free-solid-svg-icons';
 
 import SideBarItem from './sidebaritem/SideBarItem'
+import '../../Assets/style/style.css';
 
 let bgColor = {
     backgroundColor: '#41E8B3'
@@ -123,37 +124,37 @@ const SideBar = (props) => {
         <div style={{backgroundColor: '#F8F9FB', minHeight : '100vh'}} className="w-25 p-0">
             <Nav vertical className="w-100">
                 <NavItem>
-                    <NavLink href="#" className="btn btn-light text-left" id="tindakan" style={{backgroundColor:'#41E8B3'}} onClick={toggle}>
-                        <div className="d-flex flex-row">
-                            <div className="mt-1">
+                    <NavLink href="#" className="btn btn-light text-left pr-0 pl-0 pt-2 pb-0" id="tindakan" style={{backgroundColor:'#41E8B3'}} onClick={toggle}>
+                        <Row className="">
+                            <Col sm="2" className="mt-1">
                                 <FontAwesomeIcon icon={faBaby} className="fa-3x"/>
-                            </div>
-                            <div className="d-flex flex-column ml-3">
+                            </Col>
+                            <Col sm="10" className="">
                                 <div>
                                     <Label>Nama Anak :</Label> <strong>Harry Senjaya</strong>
                                 </div>
                                 <div>
                                     <Label>Click disini untuk Detail Anak!</Label> 
                                 </div>
-                            </div> 
-                        </div>
+                            </Col> 
+                        </Row>
                     </NavLink>
                 </NavItem>
                 {renderSideBar}
                 <NavItem>
-                    <NavLink href="Klasifikasi" className="btn btn-light text-left" id="klasifikasi" active={props.location === 'Klasifikasi'}>
-                        <Row className="pr-3">
-                            <Col xs="auto">
-                                <span className="text-left">Klasifikasi</span>
+                    <NavLink href="Klasifikasi" className="btn pb-1 pt-1 btn-light text-left" id="klasifikasi" active={props.location === 'Klasifikasi'}>
+                        <Row className="">
+                            <Col xs="12 pl-2 pr-0">
+                                <span className="text-left fontSideBar">Klasifikasi</span>
                             </Col>
                         </Row>
                     </NavLink>
                 </NavItem>
                 <NavItem>
-                    <NavLink href="#" className="btn btn-light text-left" id="tindakan" disabled>
-                        <Row className="pr-3">
-                            <Col xs="auto">
-                                <span className="text-left">Tindakan</span>
+                    <NavLink href="#" className="btn pb-1 pt-1 btn-light text-left" id="tindakan" disabled>
+                        <Row className="">
+                            <Col xs="12 pl-2 pr-0">
+                                <span className="text-left fontSideBar">Tindakan</span>
                             </Col>
                         </Row>
                     </NavLink>

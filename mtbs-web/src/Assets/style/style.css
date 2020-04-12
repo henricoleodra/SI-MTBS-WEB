@@ -78,3 +78,21 @@ html, body {
   padding-right: 20px;
   border-color: #41E8B3;
 }
+
+.limitCol{
+  height: 30px;
+}
+
+.fontSideBar{
+  font-size : 18px;
+
+}
+
+.paddingSideBar{
+  padding-top : 6px;
+  padding-bottom : 6px;
+}
+
+.boldFont{
+  font-weight: bold;
+}

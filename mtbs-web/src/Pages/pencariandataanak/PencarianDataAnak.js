@@ -2,23 +2,19 @@ import React, { useState } from 'react';
 import { Button, Form, FormGroup, Label, Input} from 'reactstrap';
 
 //import components
-import NavBar from './../../Components/navbar/NavBar'
-import DaftarAnak from './../../Components/daftarnamaanak/daftarnama'
-import TidakDitemukan from './../../Components/daftarnamaanak/tidakditemukan'
+import HeaderTitle from './../../Components/headertitle/HeaderTitle'
+import DaftarAnak from './../../Components/daftaranak/DaftarAnak'
 
+//Styling
 import '../../Assets/style/style.css';
 
-let bold = {
-    fontWeight: 'bold'
-}
 
-const DaftarNamaAnak = (props) => {
+const PencarianDataAnak = (props) => {
     return(
         <div>
             <div>
-                <NavBar/>
+                <HeaderTitle title="Pencarian Data Anak"/>
             </div>
-
             <div className="d-flex" >
                 <div style={{ width: '35%'}} className="m-3">
                     <Form className="divider">
@@ -66,4 +62,4 @@ const DaftarNamaAnak = (props) => {
     );
 }
 
-export default DaftarNamaAnak
+export default PencarianDataAnak;

@@ -99,9 +99,6 @@ const HasilPemeriksaan = (props) => {
                 </Card>
                 <Row>
                     <Col>
-                    
-                    </Col>
-                    <Col>
                         <Button style={printPDF} className="mt-3">Print PDF</Button>
                     </Col>
                 </Row>
@@ -133,4 +130,4 @@ const HasilPemeriksaan = (props) => {
     );
 }
 
-export default HasilPemeriksaan
+export default HasilPemeriksaan;

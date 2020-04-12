@@ -47,13 +47,13 @@ const HIV = (props) =>{
                                 <div className="d-flex flex-column justify-content-center pt-2">
                                     <div className="w-100">
                                         <h6>..... yang terdiagnosis HIV</h6>
-                                        <FormGroup check className="d-inline pr-2">
+                                        <FormGroup  className="d-inline pr-2">
                                             <Label>
                                                 <Input type="radio" name="radio1"/>{''}
                                                 Ya
                                             </Label>
                                         </FormGroup>
-                                        <FormGroup check className="d-inline">
+                                        <FormGroup  className="d-inline">
                                             <Label>
                                                 <Input type="radio" name="radio1"/>{''}
                                                 Tidak
@@ -62,13 +62,13 @@ const HIV = (props) =>{
                                     </div>
                                     <div className="w-100">
                                         <h6>..... yang meninggal karena penyebab tidak diketahui tapi masih mungkin karena HIV</h6>
-                                        <FormGroup check className="d-inline pr-2">
+                                        <FormGroup  className="d-inline pr-2">
                                             <Label>
                                                 <Input type="radio" name="radio2"/>{''}
                                                 Ya
                                             </Label>
                                         </FormGroup>
-                                        <FormGroup check className="d-inline">
+                                        <FormGroup  className="d-inline">
                                             <Label>
                                                 <Input type="radio" name="radio2"/>{''}
                                                 Tidak
@@ -81,13 +81,13 @@ const HIV = (props) =>{
                         <Card style={outlineColor} className="text-center w-75 mt-3">
                             <CardBody>
                                 <CardTitle className="h5"><b>Tanyakan! </b>Anak masih mendapatkan ASI</CardTitle>
-                                <FormGroup check className="d-inline pr-2">
+                                <FormGroup  className="d-inline pr-2">
                                     <Label>
                                         <Input type="radio" name="radio3"/>{''}
                                         Ya
                                     </Label>
                                 </FormGroup>
-                                <FormGroup check className="d-inline">
+                                <FormGroup  className="d-inline">
                                     <Label>
                                         <Input type="radio" name="radio3"/>{''}
                                         Tidak
@@ -98,13 +98,13 @@ const HIV = (props) =>{
                         <Card style={outlineColor} className="text-center w-75 mt-3">
                             <CardBody>
                                 <CardTitle className="h5"><b>Lihat! </b>Ada bercak putih di rongga mulut</CardTitle>
-                                <FormGroup check className="d-inline pr-2">
+                                <FormGroup  className="d-inline pr-2">
                                     <Label>
                                         <Input type="radio" name="radio4"/>{''}
                                         Ya
                                     </Label>
                                 </FormGroup>
-                                <FormGroup check className="d-inline">
+                                <FormGroup className="d-inline">
                                     <Label>
                                         <Input type="radio" name="radio4"/>{''}
                                         Tidak

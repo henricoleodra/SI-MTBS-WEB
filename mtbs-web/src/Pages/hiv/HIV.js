@@ -38,22 +38,34 @@ const HIV = (props) =>{
                     />
                 </div>
                 <div style={{minHeight: "500px"}}>
-                    <Row className="justify-content-center">
-                        <Card style={outlineColor} className="text-center w-75 mt-3">
+                    <Row className="justify-content-center pr-0 pl-0">
+                        <Card style={outlineColor} className=" text-center pr-0 pl-0 w-75 mt-3">
                             <CardBody>
                                 <CardTitle className="h5"><b>Tanyakan! </b>Anak sudah pernah tes HIV</CardTitle>
-                                <FormGroup check className="d-inline pr-2">
-                                    <Label>
-                                        <Input type="radio" name="radio1"/>{''}
-                                        Ya
-                                    </Label>
-                                </FormGroup>
-                                <FormGroup check className="d-inline">
-                                    <Label>
-                                        <Input type="radio" name="radio1"/>{''}
-                                        Tidak
-                                    </Label>
-                                </FormGroup>
+                                <Row className="limitCol "> 
+                                    <Col  sm="3">
+                                    
+                                    </Col>
+                                    <Col sm="3">
+                                    <FormGroup className="d-inline pr-2">  
+                                        <Label className="rdoBtn">Ya
+                                        <Input type="radio" name="radio1"/>
+                                        <span style={{left:"20px"}} className="checkmark"></span>
+                                        </Label>
+                                    </FormGroup>
+                                    </Col>
+                                    <Col sm="1">
+                                    
+                                    </Col>
+                                    <Col sm="3">
+                                    <FormGroup className="d-inline">
+                                        <Label className="rdoBtn">Tidak
+                                        <Input type="radio" name="radio1"/>
+                                        <span style={{left:"0px"}} className="checkmark"></span>
+                                        </Label>
+                                    </FormGroup>
+                                    </Col>
+                                </Row>
                                 <hr
                                     style={{
                                         color: "#41E8B3",
@@ -75,18 +87,24 @@ const HIV = (props) =>{
                                     </div>
                                     <div className="d-line">
                                         <h6>Hasilnya</h6>
-                                        <FormGroup check className="d-inline pr-2">
-                                            <Label>
-                                                <Input type="radio" name="radio2"/>{''}
-                                                Positif
-                                            </Label>
-                                        </FormGroup>
-                                        <FormGroup check className="d-inline">
-                                            <Label>
-                                                <Input type="radio" name="radio2"/>{''}
-                                                Negatif
-                                            </Label>
-                                        </FormGroup>
+                                        <Row className="limitCol "> 
+                                            <Col sm="6">
+                                                <FormGroup className="d-inline ">  
+                                                    <Label className="rdoBtn">Ya
+                                                    <Input type="radio" name="radio2"/>
+                                                    <span style={{left:"-40px"}} className="checkmark"></span>
+                                                    </Label>
+                                                </FormGroup>
+                                            </Col>
+                                            <Col sm="6">
+                                                <FormGroup className="d-inline">
+                                                    <Label className="rdoBtn">Tidak
+                                                    <Input type="radio" name="radio2"/>
+                                                    <span style={{left:"-40px"}} className="checkmark"></span>
+                                                    </Label>
+                                                </FormGroup>
+                                            </Col>
+                                        </Row>
                                     </div>
                                 </div>
                             </CardBody>
@@ -94,31 +112,55 @@ const HIV = (props) =>{
                         <Card style={outlineColor} className="text-center w-75 mt-3">
                             <CardBody>
                                 <CardTitle className="h5"><b>Tanyakan! </b>Ibu pernah tes HIV</CardTitle>
-                                <FormGroup check className="d-inline pr-2">
-                                    <Label>
-                                        <Input type="radio" name="radio3"/>{''}
-                                        Ya
-                                    </Label>
-                                </FormGroup>
-                                <FormGroup check className="d-inline">
-                                    <Label>
-                                        <Input type="radio" name="radio3"/>{''}
-                                        Tidak
-                                    </Label>
-                                </FormGroup>
+                                <Row className="limitCol "> 
+                                    <Col  sm="3">
+                                    
+                                    </Col>
+                                    <Col sm="3">
+                                    <FormGroup className="d-inline pr-2">  
+                                        <Label className="rdoBtn">Ya
+                                        <Input type="radio" name="radio3"/>
+                                        <span style={{left:"20px"}} className="checkmark"></span>
+                                        </Label>
+                                    </FormGroup>
+                                    </Col>
+                                    <Col sm="1">
+                                    
+                                    </Col>
+                                    <Col sm="3">
+                                    <FormGroup className="d-inline">
+                                        <Label className="rdoBtn">Tidak
+                                        <Input type="radio" name="radio3"/>
+                                        <span style={{left:"0px"}} className="checkmark"></span>
+                                        </Label>
+                                    </FormGroup>
+                                    </Col>
+                                </Row>
                                 <h6>Hasilnya</h6>
-                                <FormGroup check className="d-inline pr-2">
-                                    <Label>
-                                        <Input type="radio" name="radio4"/>{''}
-                                        Positif
-                                    </Label>
-                                </FormGroup>
-                                <FormGroup check className="d-inline">
-                                    <Label>
-                                        <Input type="radio" name="radio4"/>{''}
-                                        Negatif
-                                    </Label>
-                                </FormGroup>
+                                <Row className="limitCol "> 
+                                    <Col  sm="3">
+                                    
+                                    </Col>
+                                    <Col sm="3">
+                                    <FormGroup className="d-inline pr-2">  
+                                        <Label className="rdoBtn">Ya
+                                        <Input type="radio" name="radio4"/>
+                                        <span style={{left:"20px"}} className="checkmark"></span>
+                                        </Label>
+                                    </FormGroup>
+                                    </Col>
+                                    <Col sm="1">
+                                    
+                                    </Col>
+                                    <Col sm="3">
+                                    <FormGroup className="d-inline">
+                                        <Label className="rdoBtn">Tidak
+                                        <Input type="radio" name="radio4"/>
+                                        <span style={{left:"0px"}} className="checkmark"></span>
+                                        </Label>
+                                    </FormGroup>
+                                    </Col>
+                                </Row>
                             </CardBody>
                         </Card>   
                     </Row>

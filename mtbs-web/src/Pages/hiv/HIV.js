@@ -4,7 +4,6 @@ import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button, InputG
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
-import '../../Assets/style/style.css';
 
 let outlineColor = {
     borderColor : '#41E8B3'
@@ -38,7 +37,7 @@ const HIV = (props) =>{
                     }}
                     />
                 </div>
-                <div style={{minHeight: "475px"}}>
+                <div style={{minHeight: "500px"}}>
                     <Row className="justify-content-center pr-0 pl-0">
                         <Card style={outlineColor} className=" text-center pr-0 pl-0 w-75 mt-3">
                             <CardBody>
@@ -62,7 +61,7 @@ const HIV = (props) =>{
                                     <FormGroup className="d-inline">
                                         <Label className="rdoBtn">Tidak
                                         <Input type="radio" name="radio1"/>
-                                        <span style={{left:"6px"}} className="checkmark"></span>
+                                        <span style={{left:"0px"}} className="checkmark"></span>
                                         </Label>
                                     </FormGroup>
                                     </Col>
@@ -132,7 +131,7 @@ const HIV = (props) =>{
                                     <FormGroup className="d-inline">
                                         <Label className="rdoBtn">Tidak
                                         <Input type="radio" name="radio3"/>
-                                        <span style={{left:"6px"}} className="checkmark"></span>
+                                        <span style={{left:"0px"}} className="checkmark"></span>
                                         </Label>
                                     </FormGroup>
                                     </Col>
@@ -157,7 +156,7 @@ const HIV = (props) =>{
                                     <FormGroup className="d-inline">
                                         <Label className="rdoBtn">Tidak
                                         <Input type="radio" name="radio4"/>
-                                        <span style={{left:"6px"}} className="checkmark"></span>
+                                        <span style={{left:"0px"}} className="checkmark"></span>
                                         </Label>
                                     </FormGroup>
                                     </Col>
@@ -167,12 +166,12 @@ const HIV = (props) =>{
                     </Row>
                 </div>
             </div>
-            <Row className="justify-content-between px-5 py-0">
+            <Row className="justify-content-between px-5 py-3">
                 <Col sm="4">
-                <Link to="Anemia" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/>Pemeriksaaan Anemia</Button></Link>
+                    <Link to="Anemia" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Pemeriksaan Anemia</Button></Link>
                 </Col>
                 <Col sm="4">
-                <Link to="HIV2" style={{textDecoration: "none"}}><Button color="success" block>Berikutnya  <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
+                    <Link to="HIV2" style={{textDecoration: "none"}}><Button color="success" block >Selanjutnya <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
                 </Col>
             </Row>
         </div>

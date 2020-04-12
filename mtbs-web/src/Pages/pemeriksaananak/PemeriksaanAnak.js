@@ -2,14 +2,10 @@ import React, { useState } from 'react';
 import {Card, CardBody, CardImg, Button, Label} from 'reactstrap';
 
 //import components
-import NavBar from './../../Components/navbar/NavBar'
-import HasilPemeriksaan from './../../Components/hasilpemeriksaan/hasilpemeriksaan'
+import HeaderTitle from './../../Components/headertitle/HeaderTitle'
+import HasilPemeriksaan from './../../Components/hasilpemeriksaan/HasilPemeriksaan'
 
 import '../../Assets/style/style.css';
-
-let bold = {
-    fontWeight: 'bold'
-}
 
 let outlineColor = {
     borderColor : '#41E8B3',
@@ -19,11 +15,11 @@ let outlineColor = {
     fontSize: '20px'
 }
 
-const DataAnak = (props) => {
+const PemeriksaanAnak = (props) => {
     return(
         <div>
             <div>
-                <NavBar/>
+                <HeaderTitle title="Pemeriksaan"/>
             </div>
 
             <div className="d-flex" >
@@ -32,16 +28,16 @@ const DataAnak = (props) => {
                         <Card style={outlineColor}>
                             <CardBody>
                                 <div><img src='kidboy.jpg'></img></div>
-                                <div><Label style={bold}>Berat Badan :</Label> 15 Kg</div>
-                                <div><Label style={bold}>Tinggi Badan :</Label> 70 cm</div>
-                                <div><Label style={bold}>Suhu :</Label> 40</div>
-                                <div><Label style={bold}>Keluhan  :</Label> Sakit, Demam, Diare</div>
-                                <div><Label style={bold}>Kunjungan :</Label> 3</div>
+                                <div><Label className="font-weight-bold">Berat Badan :</Label> 15 Kg</div>
+                                <div><Label className="font-weight-bold">Tinggi Badan :</Label> 70 cm</div>
+                                <div><Label className="font-weight-bold">Suhu :</Label> 40</div>
+                                <div><Label className="font-weight-bold">Keluhan  :</Label> Sakit, Demam, Diare</div>
+                                <div><Label className="font-weight-bold">Kunjungan :</Label> 3</div>
                             </CardBody>
                         </Card>
                     </div>
                     <div className="m-3">
-                        <Button color="success" style={{ width: '100%'}}>Kembali ke halaman utama</Button><br></br>
+                        <Button color="success" style={{ width: '100%'}}>Kembali ke Data Anak</Button><br></br>
                         <Button color="danger" style={{ width: '100%'}} className="mt-3">Kembali</Button>
                     </div>
                 </div>
@@ -53,4 +49,4 @@ const DataAnak = (props) => {
     );
 }
 
-export default DataAnak
+export default PemeriksaanAnak;

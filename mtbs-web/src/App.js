@@ -10,7 +10,7 @@ import Beranda from './Pages/beranda/Beranda'
 //import daftar nama anak
 import PencarianDataAnak from './Pages/pencariandataanak/PencarianDataAnak'
 import DataAnak from './Pages/dataanak/dataanak'
-import KunjunganAnak from './Pages/kunjungananak/kunjungananak'
+import PemeriksaanAnak from './Pages/pemeriksaananak/PemeriksaanAnak'
 
 function App() {
   return (
@@ -20,8 +20,8 @@ function App() {
         <Route exact path = "/" component={Beranda}/>
         <Route path = "/MTBS/" component={MTBS}/>
         <Route path = "/PencarianDataAnak" component={PencarianDataAnak}/>
-        <Route path = "/DataAnak/" component={DataAnak}/>
-        <Route path = "/KunjunganAnak/" component={KunjunganAnak}/>
+        <Route path = "/DataAnak" component={DataAnak}/>
+        <Route path = "/PemeriksaanAnak" component={PemeriksaanAnak}/>
         <Route/>
       </Switch>
     </BrowserRouter>

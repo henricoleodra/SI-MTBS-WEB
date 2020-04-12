@@ -5,6 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
 
+import '../../Assets/style/style.css';
+
 let outlineColor = {
     borderColor : '#41E8B3'
 }
@@ -34,30 +36,32 @@ const Anemia = (props) =>{
                         <Card style={outlineColor} className="text-center w-75 mt-3">
                             <CardBody>
                                 <CardTitle className="h5"><b>Lihat! </b>Ada kepucatan telapak tangan</CardTitle>
-                                <FormGroup check className="d-inline pr-2">
-                                    <Label>
-                                        <Input type="radio" name="radio1"/>{''}
-                                        Sangat pucat
-                                    </Label>
-                                </FormGroup>
-                                <FormGroup check className="d-inline pr-2">
-                                    <Label>
-                                        <Input type="radio" name="radio1"/>{''}
-                                        Agak pucat
-                                    </Label>
-                                </FormGroup>
-                                <FormGroup check className="d-inline">
-                                    <Label>
-                                        <Input type="radio" name="radio1"/>{''}
-                                        Normal
-                                    </Label>
-                                </FormGroup>
-                                {/* <FormGroup check className="d-inline">
-                                    <Label>
-                                        <Input type="radio" name="radio1"/>{''}
-                                        Tidak pucat
-                                    </Label>
-                                </FormGroup> */}
+                                <Row className="limitCol "> 
+                                    <Col  sm="4">
+                                        <FormGroup className="d-inline pr-2">  
+                                            <Label className="rdoBtn">Sangat Pucat
+                                            <Input type="radio" name="radio1"/>
+                                            <span style={{left:"-2px"}} className="checkmark"></span>
+                                            </Label>
+                                        </FormGroup>
+                                    </Col>
+                                    <Col sm="4">
+                                        <FormGroup className="d-inline pr-2">  
+                                            <Label className="rdoBtn">Agak Pucat
+                                            <Input type="radio" name="radio1"/>
+                                            <span style={{left:"6px"}} className="checkmark"></span>
+                                            </Label>
+                                        </FormGroup>
+                                    </Col>
+                                    <Col sm="4">
+                                        <FormGroup className="d-inline">
+                                            <Label className="rdoBtn">Normal
+                                            <Input type="radio" name="radio1"/>
+                                            <span style={{left:"24px"}} className="checkmark"></span>
+                                            </Label>
+                                        </FormGroup>
+                                    </Col>
+                                </Row>
                             </CardBody>
                         </Card>
                     </Row>

@@ -1,11 +1,11 @@
 import React from 'react';
 
 // Import Components
-import NavBar from './../../Components/navbar/NavBar'
+import HeaderTitle from './../../Components/headertitle/HeaderTitle'
 
-const Beranda = () =>{
+const Beranda = (props) =>{
     return(
-        <NavBar/>
+        <HeaderTitle title="Hai Richard"/>
     );
 }
 

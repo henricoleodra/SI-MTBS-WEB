@@ -86,21 +86,21 @@ const HIV = (props) =>{
                                         </div> 
                                     </div>
                                     <div className="d-line">
-                                        <h6>Hasilnya</h6>
+                                        <h6 className="pr-5"style={{left:"-30px"}}>Hasilnya</h6>
                                         <Row className="limitCol "> 
-                                            <Col sm="6">
+                                            <Col sm="">
                                                 <FormGroup className="d-inline ">  
-                                                    <Label className="rdoBtn">Ya
-                                                    <Input type="radio" name="radio2"/>
-                                                    <span style={{left:"-40px"}} className="checkmark"></span>
+                                                    <Label className="rdoBtn"style={{left:"-30px"}}>Ya
+                                                    <Input type="radio" name="radio2" />
+                                                    <span style={{left:"-30px"}} className="checkmark"></span>
                                                     </Label>
                                                 </FormGroup>
                                             </Col>
-                                            <Col sm="6">
+                                            <Col sm="">
                                                 <FormGroup className="d-inline">
-                                                    <Label className="rdoBtn">Tidak
+                                                    <Label className="rdoBtn" >Tidak
                                                     <Input type="radio" name="radio2"/>
-                                                    <span style={{left:"-40px"}} className="checkmark"></span>
+                                                    <span style={{left:"-30px"}} className="checkmark"></span>
                                                     </Label>
                                                 </FormGroup>
                                             </Col>

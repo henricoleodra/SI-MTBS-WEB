@@ -2,15 +2,11 @@ import React, { useState } from 'react';
 import {Card, CardBody, CardImg, Button, Label} from 'reactstrap';
 
 //import components
-import NavBar from './../../Components/navbar/NavBar'
-import RiwayatDataAnak from './../../Components/riwayatdataanak/riwayatdataanak'
+import HeaderTitle from './../../Components/headertitle/HeaderTitle'
+import RiwayatPemeriksaan from './../../Components/riwayatpemeriksaan/RiwayatPemeriksaan'
 
 import '../../Assets/style/style.css';
 
-
-let bold = {
-    fontWeight: 'bold'
-}
 
 let outlineColor = {
     borderColor : '#41E8B3',
@@ -24,7 +20,7 @@ const DataAnak = (props) => {
     return(
         <div>
             <div>
-                <NavBar/>
+                <HeaderTitle title="Data Anak"/>
             </div>
 
             <div className="d-flex" >
@@ -33,11 +29,11 @@ const DataAnak = (props) => {
                         <Card style={outlineColor}>
                             <CardBody>
                                 <div><img src='../../Assets/image/kidboy.png'></img></div>
-                                <div><Label style={bold}>Nama Anak :</Label> Harry Senjaya</div>
-                                <div><Label style={bold}>Nama Ibu :</Label> Friska Christiana</div>
-                                <div><Label style={bold}>Jenis Kelamin :</Label> Laki-laki</div>
-                                <div><Label style={bold}>Tanngal Lahir :</Label> 1 januari 2020</div>
-                                <div><Label style={bold}>Alamat :</Label> Jln. Holis No.4</div>
+                                <div><Label className="font-weight-bold">Nama Anak :</Label> Harry Senjaya</div>
+                                <div><Label className="font-weight-bold">Nama Ibu :</Label> Friska Christiana</div>
+                                <div><Label className="font-weight-bold">Jenis Kelamin :</Label> Laki-laki</div>
+                                <div><Label className="font-weight-bold">Tanngal Lahir :</Label> 1 januari 2020</div>
+                                <div><Label className="font-weight-bold">Alamat :</Label> Jln. Holis No.4</div>
                             </CardBody>
                         </Card>
                     </div>
@@ -47,7 +43,7 @@ const DataAnak = (props) => {
                     </div>
                 </div>
                 <div style={{ width: '60%'}} className="m-3 text-center">
-                    <RiwayatDataAnak/>
+                    <RiwayatPemeriksaan/>
                 </div>
             </div>
         </div>

@@ -6,6 +6,7 @@ import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid
 
 import '../../Assets/style/style.css';
 
+
 var outlineColor = {
   borderColor : '#41E8B3'
 }
@@ -58,7 +59,7 @@ const TandaBahayaUmum2 = (props) => {
                       <FormGroup className="d-inline">
                         <Label className="rdoBtn">Tidak
                           <Input type="radio" name="radio1"/>
-                          <span style={{left:"6px"}} className="checkmark"></span>
+                          <span style={{left:"0px"}} className="checkmark"></span>
                         </Label>
                       </FormGroup>
                     </Col>
@@ -87,7 +88,7 @@ const TandaBahayaUmum2 = (props) => {
                       <FormGroup className="d-inline">
                         <Label className="rdoBtn">Tidak
                           <Input type="radio" name="radio2"/>
-                          <span style={{left:"6px"}} className="checkmark"></span>
+                          <span style={{left:"0px"}} className="checkmark"></span>
                         </Label>
                       </FormGroup>
                     </Col>

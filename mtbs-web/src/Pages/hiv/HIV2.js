@@ -4,7 +4,6 @@ import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button, Row, C
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
-// import '../../Assets/style/style.css';
 
 let outlineColor = {
     borderColor : '#41E8B3'
@@ -33,7 +32,7 @@ const HIV = (props) =>{
                     }}
                     />
                 </div>
-                <div style={{minHeight: "475px"}}>
+                <div style={{minHeight: "500px"}}>
                     <Row className="justify-content-center">
                         <Card style={outlineColor} className="text-center w-75 mt-3">
                             <CardBody>
@@ -48,57 +47,33 @@ const HIV = (props) =>{
                                 <div className="d-flex flex-column justify-content-center pt-2">
                                     <div className="w-100">
                                         <h6>..... yang terdiagnosis HIV</h6>
-                                        <Row className="limitCol">
-                                            <Col sm="3">
-                                            
-                                            </Col>
-                                            <Col sm="3">
-                                            <FormGroup className="d-inline pr-2">  
-                                                <Label className="rdoBtn">Ya
-                                                <Input type="radio" name="radio1"/>
-                                                <span style={{left:"20px"}} className="checkmark"></span>
-                                                </Label>
-                                            </FormGroup>
-                                            </Col>
-                                            <Col sm="1">
-                                            
-                                            </Col>
-                                            <Col sm="3">
-                                            <FormGroup className="d-inline">
-                                                <Label className="rdoBtn">Tidak
-                                                <Input type="radio" name="radio1"/>
-                                                <span style={{left:"6px"}} className="checkmark"></span>
-                                                </Label>
-                                            </FormGroup>
-                                            </Col>
-                                        </Row>
+                                        <FormGroup  className="d-inline pr-2">
+                                            <Label>
+                                                <Input type="radio" name="radio1"/>{''}
+                                                Ya
+                                            </Label>
+                                        </FormGroup>
+                                        <FormGroup  className="d-inline">
+                                            <Label>
+                                                <Input type="radio" name="radio1"/>{''}
+                                                Tidak
+                                            </Label>
+                                        </FormGroup>
                                     </div>
                                     <div className="w-100">
                                         <h6>..... yang meninggal karena penyebab tidak diketahui tapi masih mungkin karena HIV</h6>
-                                        <Row className="limitCol">
-                                            <Col sm="3">
-                                            
-                                            </Col>
-                                            <Col sm="3">
-                                            <FormGroup className="d-inline pr-2">  
-                                                <Label className="rdoBtn">Ya
-                                                <Input type="radio" name="radio2"/>
-                                                <span style={{left:"20px"}} className="checkmark"></span>
-                                                </Label>
-                                            </FormGroup>
-                                            </Col>
-                                            <Col sm="1">
-                                            
-                                            </Col>
-                                            <Col sm="3">
-                                            <FormGroup className="d-inline">
-                                                <Label className="rdoBtn">Tidak
-                                                <Input type="radio" name="radio2"/>
-                                                <span style={{left:"6px"}} className="checkmark"></span>
-                                                </Label>
-                                            </FormGroup>
-                                            </Col>
-                                        </Row>
+                                        <FormGroup  className="d-inline pr-2">
+                                            <Label>
+                                                <Input type="radio" name="radio2"/>{''}
+                                                Ya
+                                            </Label>
+                                        </FormGroup>
+                                        <FormGroup  className="d-inline">
+                                            <Label>
+                                                <Input type="radio" name="radio2"/>{''}
+                                                Tidak
+                                            </Label>
+                                        </FormGroup>
                                     </div>
                                 </div>
                             </CardBody>
@@ -106,70 +81,46 @@ const HIV = (props) =>{
                         <Card style={outlineColor} className="text-center w-75 mt-3">
                             <CardBody>
                                 <CardTitle className="h5"><b>Tanyakan! </b>Anak masih mendapatkan ASI</CardTitle>
-                                <Row className="limitCol">
-                                    <Col sm="3">
-                                    
-                                    </Col>
-                                    <Col sm="3">
-                                    <FormGroup className="d-inline pr-2">  
-                                        <Label className="rdoBtn">Ya
-                                        <Input type="radio" name="radio3"/>
-                                        <span style={{left:"20px"}} className="checkmark"></span>
-                                        </Label>
-                                    </FormGroup>
-                                    </Col>
-                                    <Col sm="1">
-                                    
-                                    </Col>
-                                    <Col sm="3">
-                                    <FormGroup className="d-inline">
-                                        <Label className="rdoBtn">Tidak
-                                        <Input type="radio" name="radio3"/>
-                                        <span style={{left:"6px"}} className="checkmark"></span>
-                                        </Label>
-                                    </FormGroup>
-                                    </Col>
-                                </Row>
+                                <FormGroup  className="d-inline pr-2">
+                                    <Label>
+                                        <Input type="radio" name="radio3"/>{''}
+                                        Ya
+                                    </Label>
+                                </FormGroup>
+                                <FormGroup  className="d-inline">
+                                    <Label>
+                                        <Input type="radio" name="radio3"/>{''}
+                                        Tidak
+                                    </Label>
+                                </FormGroup>
                             </CardBody>
                         </Card>
                         <Card style={outlineColor} className="text-center w-75 mt-3">
                             <CardBody>
                                 <CardTitle className="h5"><b>Lihat! </b>Ada bercak putih di rongga mulut</CardTitle>
-                                <Row className="limitCol">
-                                    <Col sm="3">
-                                    
-                                    </Col>
-                                    <Col sm="3">
-                                    <FormGroup className="d-inline pr-2">  
-                                        <Label className="rdoBtn">Ya
-                                        <Input type="radio" name="radio4"/>
-                                        <span style={{left:"20px"}} className="checkmark"></span>
-                                        </Label>
-                                    </FormGroup>
-                                    </Col>
-                                    <Col sm="1">
-                                    
-                                    </Col>
-                                    <Col sm="3">
-                                    <FormGroup className="d-inline">
-                                        <Label className="rdoBtn">Tidak
-                                        <Input type="radio" name="radio"/>
-                                        <span style={{left:"6px"}} className="checkmark"></span>
-                                        </Label>
-                                    </FormGroup>
-                                    </Col>
-                                </Row>
+                                <FormGroup  className="d-inline pr-2">
+                                    <Label>
+                                        <Input type="radio" name="radio4"/>{''}
+                                        Ya
+                                    </Label>
+                                </FormGroup>
+                                <FormGroup className="d-inline">
+                                    <Label>
+                                        <Input type="radio" name="radio4"/>{''}
+                                        Tidak
+                                    </Label>
+                                </FormGroup>
                             </CardBody>
                         </Card>
                     </Row>
                 </div>
             </div>
-            <Row className="justify-content-between px-5 py-0">
+            <Row className="justify-content-between px-5 py-3">
                 <Col sm="4">
-                <Link to="HIV1" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/>Sebelumnya</Button></Link>
+                    <Link to="HIV1" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Sebelumnya</Button></Link>
                 </Col>
                 <Col sm="4">
-                <Link to="Imunisasi1" style={{textDecoration: "none"}}><Button color="success" block>Pemeriksaan Imunisasi<FontAwesomeIcon icon={faChevronRight}/></Button></Link>
+                    <Link to="Imunisasi1" style={{textDecoration: "none"}}><Button color="success" block >Pemeriksaan Imunisasi <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
                 </Col>
             </Row>
         </div>

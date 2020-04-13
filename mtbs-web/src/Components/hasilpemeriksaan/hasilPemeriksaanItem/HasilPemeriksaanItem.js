@@ -8,24 +8,9 @@ let outlineColorTest = {
     borderRadius: '15px'
 }
 
-let squareRedTest = {
+let squareStatus = {
     height: '48px',
     width: '48px',
-    backgroundColor: '#dc3545',
-    borderRadius: '12px'
-}
-
-let squareYellowTest = {
-    height: '48px',
-    width: '48px',
-    backgroundColor: '#ffc107',
-    borderRadius: '12px'
-}
-
-let squareGreenTest = {
-    height: '48px',
-    width: '48px',
-    backgroundColor: '#28a745',
     borderRadius: '12px'
 }
 
@@ -34,12 +19,23 @@ let konten={
     marginBottom: '0px',
 }
 
+
 const HasilPemeriksaanItem = (props) =>{
+    let colorIndicator;
+    if(props.status === "bahaya"){
+        colorIndicator = "bg-danger";
+    }
+    else if(props.status === "perhatikan"){
+        colorIndicator = "bg-warning";
+    }
+    else {
+        colorIndicator = "bg-success";
+    }
     return(
         <Card style={outlineColorTest} className="mb-3">
             <Row>
                 <Col sm="1">
-                    <div style={{squareRedTest}}></div>
+                    <div style={squareStatus} className={colorIndicator}></div>
                 </Col>
 
                 <Col sm="5" className=" pl-0 border-right border-dark font-weight-bold">

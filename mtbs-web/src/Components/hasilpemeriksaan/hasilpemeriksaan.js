@@ -1,41 +1,6 @@
 import React, { useState } from 'react';
-import {Card, Label, Row,Col, Button} from 'reactstrap';
-
-let bold = {
-    fontWeight: 'bold'
-}
-
-let outlineColorTest = {
-    borderColor : '#41E8B3',
-    borderWidth: '3px',
-    borderRadius: '15px'
-}
-
-let squareRedTest = {
-    height: '48px',
-    width: '48px',
-    backgroundColor: '#dc3545',
-    borderRadius: '12px'
-}
-
-let squareYellowTest = {
-    height: '48px',
-    width: '48px',
-    backgroundColor: '#ffc107',
-    borderRadius: '12px'
-}
-
-let squareGreenTest = {
-    height: '48px',
-    width: '48px',
-    backgroundColor: '#28a745',
-    borderRadius: '12px'
-}
-
-let konten={
-    marginTop: '0px',
-    marginBottom: '0px',
-}
+import {Row, Col, Button} from 'reactstrap';
+import HasilPemeriksaanItem from './hasilPemeriksaanItem/HasilPemeriksaanItem';
 
 let printPDF={
     backgroundColor: '#41E8B3',
@@ -44,59 +9,37 @@ let printPDF={
 }
 
 const HasilPemeriksaan = (props) => {
+    let pemeriksaan = [
+        {   
+            'status' : 'aman',
+            'kategori' : 'Tanda Bahaya Umum',
+            'klasifikasi' : 'Aman',
+        },
+        {   
+            'status' : 'perhatikan',
+            'kategori' : 'Batuk',
+            'klasifikasi' : 'Batuk bukan pneumonia',
+        },
+        {
+            'status' : 'bahaya',
+            'kategori' : 'Diare',
+            'klasifikasi' : 'Diare Berat',
+        },
+    ];
+    
+    const renderHasilPemeriksaan = pemeriksaan.map((curr, index) => {
+        return(
+            <HasilPemeriksaanItem status={curr.status} kategori={curr.kategori} klasifikasi={curr.klasifikasi} />
+        )
+    })
+
     return(
         <div>
             <div>
-                <h3 className="text-center pb-3">Tanggal 20 Januari 2020</h3>
+                <h5 className="text-center text-secondary">Tanggal 20 Januari 2020</h5>
             </div>
             <div>
-                <Card style={outlineColorTest} className="mb-3">
-                    <Row>
-                        <Col sm="1" className="">
-                            <div style={squareRedTest}></div>
-                        </Col>
-
-                        <Col sm="5" className=" pl-0 border-right border-dark" style={bold}>
-                            <p className="mt-2" style={konten}>Tanda Bahaya Umum </p>
-                        </Col>
-
-                        <Col sm="6" className="text-center pl-0 mt-2" style={bold}>
-                            <p style={konten}>Diare Dehidrasi Ringan / Sedang </p>
-                        </Col>
-                    </Row>       
-                </Card>
-
-                <Card style={outlineColorTest} className="mb-3">
-                    <Row>
-                        <Col sm="1" className="">
-                            <div style={squareYellowTest}></div>
-                        </Col>
-
-                        <Col sm="5" className=" pl-0 border-right border-dark" style={bold}>
-                            <p className="mt-2" style={konten}>Batuk </p>
-                        </Col>
-
-                        <Col sm="6" className="text-center pl-0 mt-2" style={bold}>
-                            <p style={konten}>Pneumonia Ringan </p>
-                        </Col>
-                    </Row>       
-                </Card>
-
-                <Card style={outlineColorTest} className="mb-3">
-                    <Row>
-                        <Col sm="1" className="">
-                            <div style={squareGreenTest}></div>
-                        </Col>
-
-                        <Col sm="5" className=" pl-0 border-right border-dark" style={bold}>
-                            <p className="mt-2" style={konten}>Diare </p>
-                        </Col>
-
-                        <Col sm="6" className="text-center pl-0 mt-2" style={bold}>
-                            <p style={konten}>Aman </p>
-                        </Col>
-                    </Row>       
-                </Card>
+                {renderHasilPemeriksaan}
                 <Row>
                     <Col>
                         <Button style={printPDF} className="mt-3">Print PDF</Button>

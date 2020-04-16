@@ -4,7 +4,7 @@ import { Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'react
 const HeaderTitle = (props) =>{
     return(
         <div>
-            <Navbar expand="md" style={{backgroundColor : '#41E8B3'}} className="d-flex justify-content-center">
+            <Navbar expand="md" style={{backgroundColor : '#41E8B3'}} className="d-flex justify-content-center shadow">
                 <h2 className="text-white">{props.title}</h2>
             </Navbar>
         </div>

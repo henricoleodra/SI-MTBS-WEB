@@ -7,6 +7,7 @@ import './Assets/style/style.css';
 //Import Pages
 import MTBS from './Pages/mtbs/MTBS';
 import Beranda from './Pages/beranda/Beranda'
+import MulaiPemeriksaan from './Pages/mulaipemeriksaan/MulaiPemeriksaan'
 //import daftar nama anak
 import PencarianDataAnak from './Pages/pencariandataanak/PencarianDataAnak'
 import DataAnak from './Pages/dataanak/dataanak'
@@ -22,7 +23,7 @@ function App() {
         <Route path = "/PencarianDataAnak" component={PencarianDataAnak}/>
         <Route path = "/DataAnak" component={DataAnak}/>
         <Route path = "/PemeriksaanAnak" component={PemeriksaanAnak}/>
-        <Route/>
+        <Route path = "/MulaiPemeriksaan" component={MulaiPemeriksaan}/>
       </Switch>
     </BrowserRouter>
   );

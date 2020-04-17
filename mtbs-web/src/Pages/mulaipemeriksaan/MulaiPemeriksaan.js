@@ -22,7 +22,7 @@ const MulaiPemeriksaan = (props) =>{
                     </Link>
                 </Col>
                 <Col md="5" >
-                    <Link to="PencarianDataAnak" style={{textDecoration: 'none'}}>
+                    <Link to="IsiDataAnak1" style={{textDecoration: 'none'}}>
                         <Card style={{minHeight: '400px'}} className="bg-danger shadow rounded">
                             <CardImg alt="Tidak"/>
                             <CardTitle className="text-white text-center"><h1>Tidak</h1></CardTitle>

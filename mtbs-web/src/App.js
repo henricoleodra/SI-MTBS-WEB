@@ -6,12 +6,14 @@ import './Assets/style/style.css';
 
 //Import Pages
 import MTBS from './Pages/mtbs/MTBS';
-import Beranda from './Pages/beranda/Beranda'
-import MulaiPemeriksaan from './Pages/mulaipemeriksaan/MulaiPemeriksaan'
+import Beranda from './Pages/beranda/Beranda';
+import MulaiPemeriksaan from './Pages/mulaipemeriksaan/MulaiPemeriksaan';
 //import daftar nama anak
-import PencarianDataAnak from './Pages/pencariandataanak/PencarianDataAnak'
-import DataAnak from './Pages/dataanak/dataanak'
-import PemeriksaanAnak from './Pages/pemeriksaananak/PemeriksaanAnak'
+import PencarianDataAnak from './Pages/pencariandataanak/PencarianDataAnak';
+import DataAnak from './Pages/dataanak/dataanak';
+import PemeriksaanAnak from './Pages/pemeriksaananak/PemeriksaanAnak';
+import IsiDataAnak1 from './Pages/isidataanak/IsiDataAnak1';
+import IsiDataAnak2 from './Pages/isidataanak/IsiDataAnak2';
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
         <Route path = "/DataAnak" component={DataAnak}/>
         <Route path = "/PemeriksaanAnak" component={PemeriksaanAnak}/>
         <Route path = "/MulaiPemeriksaan" component={MulaiPemeriksaan}/>
+        <Route path = "/IsiDataAnak1" component={IsiDataAnak1}/>
+        <Route path = "/IsiDataAnak2" component={IsiDataAnak2}/>
       </Switch>
     </BrowserRouter>
   );

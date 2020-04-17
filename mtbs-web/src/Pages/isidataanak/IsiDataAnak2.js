@@ -28,7 +28,7 @@ const IsiDataAnak2 = () =>{
                             <Col sm={2} className="mt-2"><Label for="beratBadan">Berat Badan</Label></Col>
                             <Col sm={3}>
                                 <InputGroup>
-                                    <Input type="number" name="beratBadan" id="beratBadan" placeholder="Contoh : 37" style={{borderColor : '#41E8B3'}} min="0"/>
+                                    <Input type="number" name="beratBadan" id="beratBadan" placeholder="Contoh : 20" style={{borderColor : '#41E8B3'}} min="0"/>
                                     <InputGroupAddon addonType="append">
                                         <InputGroupText style={{backgroundColor : "#41E8B3", borderColor : "#41E8B3"}} className="text-white">Kg</InputGroupText>
                                     </InputGroupAddon>
@@ -39,7 +39,7 @@ const IsiDataAnak2 = () =>{
                             <Col sm={2} className="mt-2"><Label for="tinggiBadan">Tinggi Badan</Label></Col>
                             <Col sm={3}>
                                 <InputGroup>
-                                    <Input type="number" name="tinggiBadan" id="tinggiBadan" placeholder="Contoh : 37" style={{borderColor : '#41E8B3'}} min="0"/>
+                                    <Input type="number" name="tinggiBadan" id="tinggiBadan" placeholder="Contoh : 50" style={{borderColor : '#41E8B3'}} min="0"/>
                                     <InputGroupAddon addonType="append">
                                         <InputGroupText style={{backgroundColor : "#41E8B3", borderColor : "#41E8B3"}} className="text-white">Cm</InputGroupText>
                                     </InputGroupAddon>
@@ -49,7 +49,7 @@ const IsiDataAnak2 = () =>{
                             <Col sm={2} className="mt-2"><Label for="kunjungan">Kunjungan Ke</Label></Col>
                             <Col sm={3}>
                                 <InputGroup>
-                                    <Input type="number" name="kunjungan" id="kunjungan" placeholder="Contoh : 37" style={{borderColor : '#41E8B3'}} min="0"/>
+                                    <Input type="number" name="kunjungan" id="kunjungan" placeholder="Contoh : 1" style={{borderColor : '#41E8B3'}} min="0"/>
                                     <InputGroupAddon addonType="append">
                                         <InputGroupText style={{backgroundColor : "#41E8B3", borderColor : "#41E8B3"}}><FontAwesomeIcon icon={faRunning} style={{color: 'white'}}/></InputGroupText>
                                     </InputGroupAddon>

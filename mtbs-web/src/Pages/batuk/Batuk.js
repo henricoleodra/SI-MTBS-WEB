@@ -114,10 +114,10 @@ const Batuk = (props) => {
             </div>
             <Row className="justify-content-between px-5 py-0">
                 <Col sm="4">
-                    <Link to="TandaBahayaUmum1" style={{textDecoration: "none"}}><Button style={{width: "250px", height : "60px"}} color="danger"><FontAwesomeIcon icon={faChevronLeft}/> Pemeriksaan Tanda Bahaya Umum</Button></Link>
+                    <Link to="TandaBahayaUmum1" style={{textDecoration: "none"}}><Button style={{width: "250px", height : "60px"}} color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Pemeriksaan Tanda Bahaya Umum</Button></Link>
                 </Col>
                 <Col sm="4">
-                    <Link to="Batuk2" style={{textDecoration: "none"}}><Button style={{width: "250px", height : "60px"}} color="success">Berikutnya  <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
+                    <Link to="Batuk2" style={{textDecoration: "none"}}><Button style={{width: "250px", height : "60px"}} color="success" block>Berikutnya  <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
                 </Col>
             </Row>
         </div>

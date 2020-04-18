@@ -6,12 +6,16 @@ import { Row, Col, Card, CardTitle, CardImg, CardBody, CardSubtitle, Button } fr
 //Import Component
 import HeaderTitle from './../../Components/headertitle/HeaderTitle'
 
+// import NavBar from './../../Components/navbar/NavBar'
+
+
 import '../../Assets/style/style.css';
 
 
 const ApaItuMtbs = (props) => {
     return(
         <div>
+            {/* <NavBar/> */}
             <HeaderTitle title="Apa Itu Manajemen Terpadu Balita Sakit"/>
                 <Card style={{minHeight: '100px',backgroundColor : '#41E8B3', borderColor : '#41E8B3'}} className="shadow-lg m-4">
                     <Row className=" m-3">
@@ -66,7 +70,7 @@ const ApaItuMtbs = (props) => {
                     </Row>
                 </Card>
                 <div className="d-flex justify-content-center mb-2" >
-                    <Link to="/" style={{textDecoration: "none"}} ><Button  style={{backgroundColor : '#41E8B3'}}color="light shadow-sm">Kembali</Button></Link>
+                    <Link to="/" style={{textDecoration: "none"}} ><Button  style={{backgroundColor : '#41E8B3', width:'100%'}}color="light shadow-sm">Kembali ke Halaman Utama</Button></Link>
                 </div>
         </div>
     )

@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import { compStatusChange } from '../../Actions';
 
+import '../../Assets/style/style.css';
 
 let outlineColor = {
     borderColor : '#41E8B3'
@@ -40,23 +41,35 @@ const Batuk = (props) => {
                     }}
                     />
                 </div>
-                <div style={{minHeight: "500px"}}>
+                <div style={{minHeight: "455px"}}>
                     <Row className="justify-content-center">
                         <Card style={outlineColor} className="text-center w-75">
                             <CardBody>
                                 <CardTitle className="h5"><b>Tanyakan! </b>Ada wheezing</CardTitle>
-                                <FormGroup check className="d-inline pr-2">
-                                    <Label>
-                                        <Input type="radio" name="radio3"/>{''}
-                                        Ya
-                                    </Label>
-                                </FormGroup>
-                                <FormGroup check className="d-inline">
-                                    <Label>
-                                        <Input type="radio" name="radio3"/>{''}
-                                        Tidak
-                                    </Label>
-                                </FormGroup>
+                                <Row className="limitCol "> 
+                                    <Col  sm="3">
+                                    
+                                    </Col>
+                                    <Col sm="3">
+                                    <FormGroup className="d-inline pr-2">  
+                                        <Label className="rdoBtn">Ya
+                                        <Input type="radio" name="radio1"/>
+                                        <span style={{left:"20px"}} className="checkmark"></span>
+                                        </Label>
+                                    </FormGroup>
+                                    </Col>
+                                    <Col sm="1">
+                                    
+                                    </Col>
+                                    <Col sm="3">
+                                    <FormGroup className="d-inline">
+                                        <Label className="rdoBtn">Tidak
+                                        <Input type="radio" name="radio1"/>
+                                        <span style={{left:"0px"}} className="checkmark"></span>
+                                        </Label>
+                                    </FormGroup>
+                                    </Col>
+                                </Row>     
                             </CardBody>
                         </Card>
                         <Card style={outlineColor} className="text-center w-75 mt-3">
@@ -75,12 +88,12 @@ const Batuk = (props) => {
                     </Row>
                 </div>
             </div>
-            <Row className="justify-content-between px-5 py-3">
+            <Row className="justify-content-between px-5 py-0">
                 <Col sm="4">
-                    <Link to="Batuk1" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Sebelumnya</Button></Link>
+                    <Link to="Batuk1" style={{textDecoration: "none"}}><Button style={{width: "250px", height : "60px"}} color="danger" ><FontAwesomeIcon icon={faChevronLeft}/> Pemeriksaan Tanda Bahaya Umum</Button></Link>
                 </Col>
                 <Col sm="4">
-                    <Link to="DiareYaTidak" style={{textDecoration: "none"}}><Button color="success" block onClick={() => dispatch(compStatusChange('DIARE'))} >Pemeriksaan Diare <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
+                    <Link to="DiareYaTidak" style={{textDecoration: "none"}}><Button style={{width: "250px", height : "60px"}} color="success" onClick={() => dispatch(compStatusChange('DIARE'))}>Pemeriksaan Diare   <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
                 </Col>
             </Row>
         </div>

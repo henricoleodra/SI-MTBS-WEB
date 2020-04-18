@@ -21,7 +21,10 @@ const HIV = (props) =>{
                     </div>
                     <div className="p-2">
                         <FontAwesomeIcon icon={faCircle} style={{color: '#41E8B3'}}/>
-                    </div>      
+                    </div>
+                    <div className="p-2">
+                        <FontAwesomeIcon icon={faCircle} className="text-muted"/>
+                    </div>    
                 </div>
                 <div className="mt-2">
                     <h3 className="text-center font-weight-bold">HIV</h3>
@@ -132,35 +135,6 @@ const HIV = (props) =>{
                                 </Row>
                             </CardBody>
                         </Card>
-                        <Card style={outlineColor} className="text-center w-75 mt-3">
-                            <CardBody>
-                                <CardTitle className="h5"><b>Lihat! </b>Ada bercak putih di rongga mulut</CardTitle>
-                                <Row className="limitCol">
-                                    <Col sm="3">
-                                    
-                                    </Col>
-                                    <Col sm="3">
-                                    <FormGroup className="d-inline pr-2">  
-                                        <Label className="rdoBtn">Ya
-                                        <Input type="radio" name="radio4"/>
-                                        <span style={{left:"20px"}} className="checkmark"></span>
-                                        </Label>
-                                    </FormGroup>
-                                    </Col>
-                                    <Col sm="1">
-                                    
-                                    </Col>
-                                    <Col sm="3">
-                                    <FormGroup className="d-inline">
-                                        <Label className="rdoBtn">Tidak
-                                        <Input type="radio" name="radio"/>
-                                        <span style={{left:"6px"}} className="checkmark"></span>
-                                        </Label>
-                                    </FormGroup>
-                                    </Col>
-                                </Row>
-                            </CardBody>
-                        </Card>
                     </Row>
                 </div>
             </div>
@@ -169,7 +143,7 @@ const HIV = (props) =>{
                 <Link to="HIV1" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/>Sebelumnya</Button></Link>
                 </Col>
                 <Col sm="4">
-                <Link to="Imunisasi1" style={{textDecoration: "none"}}><Button color="success" block>Pemeriksaan Imunisasi<FontAwesomeIcon icon={faChevronRight}/></Button></Link>
+                <Link to="HIV3" style={{textDecoration: "none"}}><Button color="success" block>Pemeriksaan Imunisasi<FontAwesomeIcon icon={faChevronRight}/></Button></Link>
                 </Col>
             </Row>
         </div>

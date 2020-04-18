@@ -26,6 +26,9 @@ const HIV = (props) =>{
                     <div className="p-2">
                         <FontAwesomeIcon icon={faCircle} className="text-muted"/>
                     </div>
+                    <div className="p-2">
+                        <FontAwesomeIcon icon={faCircle} className="text-muted"/>
+                    </div>
                 </div>
                 <div className="mt-2">
                     <h3 className="text-center font-weight-bold">HIV</h3>
@@ -37,7 +40,7 @@ const HIV = (props) =>{
                     }}
                     />
                 </div>
-                <div style={{minHeight: "500px"}}>
+                <div style={{minHeight: "475px"}}>
                     <Row className="justify-content-center pr-0 pl-0">
                         <Card style={outlineColor} className=" text-center pr-0 pl-0 w-75 mt-3">
                             <CardBody>
@@ -166,12 +169,12 @@ const HIV = (props) =>{
                     </Row>
                 </div>
             </div>
-            <Row className="justify-content-between px-5 py-3">
+            <Row className="justify-content-between px-5 py-0">
                 <Col sm="4">
-                    <Link to="Anemia" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Pemeriksaan Anemia</Button></Link>
+                <Link to="Anemia" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/>Sebelumnya</Button></Link>
                 </Col>
                 <Col sm="4">
-                    <Link to="HIV2" style={{textDecoration: "none"}}><Button color="success" block >Selanjutnya <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
+                <Link to="HIV2" style={{textDecoration: "none"}}><Button color="success" block>Pemeriksaan Imunisasi<FontAwesomeIcon icon={faChevronRight}/></Button></Link>
                 </Col>
             </Row>
         </div>

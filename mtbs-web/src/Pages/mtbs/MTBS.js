@@ -37,6 +37,7 @@ import Gizi3 from './../gizi/Gizi3';
 import Anemia from './../anemia/Anemia';
 import HIV from './../hiv/HIV';
 import HIV2 from './../hiv/HIV2';
+import HIV3 from './../hiv/HIV3';
 import Imunisasi from './../imunisasi/Imunisasi';
 import Imunisasi2 from './../imunisasi/Imunisasi2';
 import Imunisasi3 from './../imunisasi/Imunisasi3';
@@ -127,6 +128,8 @@ function MTBS(props){
                         return <HIV/>;
                     case `/MTBS/HIV2`:
                         return <HIV2/>;
+                    case `/MTBS/HIV3`:
+                        return <HIV3/>;
                     case `/MTBS/Imunisasi1`:
                         return <Imunisasi/>;
                     case `/MTBS/Imunisasi2`:

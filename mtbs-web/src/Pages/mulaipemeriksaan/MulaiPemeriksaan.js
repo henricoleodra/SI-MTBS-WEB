@@ -13,7 +13,7 @@ const MulaiPemeriksaan = (props) =>{
                 <h3 className="text-center">Apakah Anak sudah pernah melakukan pemeriksaan ?</h3>
             </div>
             <Row className="justify-content-around mt-3">
-                <Col md="5" >
+                <Col xs="6" >
                     <Link to="PencarianDataAnak" style={{textDecoration: 'none'}}>
                         <Card style={{minHeight: '400px'}} className="bg-success shadow rounded">
                             <CardImg alt="Ya"/>
@@ -21,7 +21,7 @@ const MulaiPemeriksaan = (props) =>{
                         </Card>
                     </Link>
                 </Col>
-                <Col md="5" >
+                <Col xs="6" >
                     <Link to="IsiDataAnak1" style={{textDecoration: 'none'}}>
                         <Card style={{minHeight: '400px'}} className="bg-danger shadow rounded">
                             <CardImg alt="Tidak"/>
@@ -30,6 +30,7 @@ const MulaiPemeriksaan = (props) =>{
                     </Link>
                 </Col>
             </Row>
+            
             
         </div>
     );

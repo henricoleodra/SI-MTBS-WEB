@@ -7,6 +7,7 @@ import DaftarAnak from './../../Components/daftaranak/DaftarAnak'
 
 //Styling
 import '../../Assets/style/style.css';
+import { Link } from 'react-router-dom';
 
 
 const PencarianDataAnak = (props) => {
@@ -50,7 +51,7 @@ const PencarianDataAnak = (props) => {
                         </div>
                         <div>
                             <Button color="success" style={{ width: '100%'}}>Cari Data Anak</Button>
-                            <Button color="danger" style={{ width: '100%'}} className="mt-3">Sebelumnya</Button>
+                            <Link to="MulaiPemeriksaan"><Button color="danger" style={{ width: '100%'}} className="mt-3">Sebelumnya</Button></Link>
                         </div>        
                     </Form>
                 </div>

@@ -24,7 +24,7 @@ const Beranda = (props) =>{
                             </CardText>
                         </CardBody>
                         <div className="d-flex justify-content-center mb-2" >
-                            <Link to="MulaiPemeriksaan" style={{textDecoration: "none"}} ><Button  color="light shadow-sm" style={{ color: '#41E8B3' }}>Mulai Pemeriksaan</Button></Link>
+                            <Link to="MulaiPemeriksaan" style={{textDecoration: "none"}} ><Button  color="light shadow-sm">Mulai Pemeriksaan</Button></Link>
                         </div>
                     </Card>
                 </Col>
@@ -38,7 +38,7 @@ const Beranda = (props) =>{
                             </CardText>
                         </CardBody>
                         <div className="d-flex justify-content-center mb-2" >
-                            <Link to="" style={{textDecoration: "none"}} ><Button  color="light shadow-sm" style={{ color: '#41E8B3' }}>Baca Lebih Lanjut</Button></Link>
+                            <Link to="ApaItuMtbs" style={{textDecoration: "none"}} ><Button  color="light shadow-sm">Baca Lebih Lanjut</Button></Link>
                         </div>
                     </Card>
                 </Col>
@@ -52,7 +52,7 @@ const Beranda = (props) =>{
                             </CardText>
                         </CardBody>
                         <div className="d-flex justify-content-center mb-2" >
-                            <Link to="PencarianDataAnak" style={{textDecoration: "none"}} ><Button  color="light shadow-sm" style={{ color: '#41E8B3' }}>Cari Data Anak</Button></Link>
+                            <Link to="PencarianDataAnak" style={{textDecoration: "none"}} ><Button  color="light shadow-sm">Cari Data Anak</Button></Link>
                         </div>
                     </Card>
                 </Col>

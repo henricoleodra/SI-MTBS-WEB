@@ -8,6 +8,7 @@ import './Assets/style/style.css';
 import MTBS from './Pages/mtbs/MTBS';
 import Beranda from './Pages/beranda/Beranda';
 import MulaiPemeriksaan from './Pages/mulaipemeriksaan/MulaiPemeriksaan';
+import ApaItuMTBS from './Pages/apaitumtbs/ApaItuMtbs';
 //import daftar nama anak
 import PencarianDataAnak from './Pages/pencariandataanak/PencarianDataAnak';
 import DataAnak from './Pages/dataanak/dataanak';
@@ -26,6 +27,7 @@ function App() {
         <Route path = "/DataAnak" component={DataAnak}/>
         <Route path = "/PemeriksaanAnak" component={PemeriksaanAnak}/>
         <Route path = "/MulaiPemeriksaan" component={MulaiPemeriksaan}/>
+        <Route path = "/ApaItuMtbs" component={ApaItuMTBS}/>
         <Route path = "/IsiDataAnak1" component={IsiDataAnak1}/>
         <Route path = "/IsiDataAnak2" component={IsiDataAnak2}/>
       </Switch>

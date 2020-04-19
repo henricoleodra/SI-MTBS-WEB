@@ -1,9 +1,13 @@
 import { combineReducers } from 'redux';
-import compStatusReducer from './CompStatus';
+import CompStatusReducer from './CompStatus';
+import AnsTBUReducer from './AnsTBU';
+import KlasifikasiTBUReducer from './KlasifikasiTBU';
 
 
 const rootReducer = combineReducers({
-    compStatus : compStatusReducer
+    compStatus : CompStatusReducer,
+    ansTBU : AnsTBUReducer,
+    klasifikasiTBU : KlasifikasiTBUReducer
 });
 
 export default rootReducer;

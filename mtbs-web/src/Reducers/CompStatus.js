@@ -15,7 +15,7 @@ const initState = {
     tindakan : true
 }
 
-const compStatusReducer = (state = initState, action) => {
+const CompStatusReducer = (state = initState, action) => {
     switch(action.type){
         case 'TANDA_BAHAYA_UMUM':
             return Object.assign({}, state, {
@@ -78,4 +78,4 @@ const compStatusReducer = (state = initState, action) => {
     }
 }
 
-export default compStatusReducer;
+export default CompStatusReducer;

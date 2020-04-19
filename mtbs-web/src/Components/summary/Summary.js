@@ -23,12 +23,13 @@ const Summary = () => {
   // }, []);
   
   const compStatus = useSelector(state => state.compStatus);
+  const klasifiKasi = useSelector(state => state.klasifikasiTBU)
 
   let summary = [
     {
       'title' : 'Tanda Bahaya Umum',
-      'text' : 'Penyakit Tanda Bahaya Umum',
-      'color' : 'danger',
+      'text' : (klasifiKasi.tbu_klasifikasi===null ? '' : klasifiKasi.tbu_klasifikasi),
+      'color' : (klasifiKasi.tbu_status===null ? 'dark' : klasifiKasi.tbu_status ),
       'disabled' : compStatus.tandabahayaumum
     },
     {

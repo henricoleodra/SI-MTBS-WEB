@@ -3,7 +3,7 @@ import {Card, CardBody, CardImg, Button, Label} from 'reactstrap';
 
 //import components
 import HeaderTitle from './../../Components/headertitle/HeaderTitle'
-import HasilPemeriksaan from './../../Components/hasilpemeriksaan/hasilpemeriksaan'
+import HasilPemeriksaan from './../../Components/hasilpemeriksaan/HasilPemeriksaan'
 
 import '../../Assets/style/style.css';
 

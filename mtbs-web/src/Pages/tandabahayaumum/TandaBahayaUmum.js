@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button, Row, Col} from "reactstrap";
+import { useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { KlasifikasiTBUChange } from '../../Actions';
 import axios from 'axios';
 
 import '../../Assets/style/style.css';
@@ -12,31 +14,15 @@ var outlineColor = {
 }
 
 const TandaBahayaUmum = (props) => {
-
-  // logic
-  let[tbu1, set_tbu1] = useState();
+  const history = useHistory();
+  const dispatch = useDispatch();
   let[tbu_tidakBisaMinum, set_tbu_tidakBisaMinum] = useState();
   let[tbu_muntah, set_tbu_muntah] = useState();
   let[tbu_kejang, set_tbu_kejang] = useState();
   let[tbu_gelisah, set_tbu_gelisah] = useState();
 
-//   useEffect(() => {
-//     axios.get('api/TBU1', {
-//       'Content-Type': 'text/plain',
-//       'crossDomain': 'true'  
-//     })
-//     .then((res) => {
-//       set_tbu1(res.data)
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//       alert(err + "\nsee details in dev console\ncommon: server off");
-//     })
-// }, [])
-
-const handleSubmit = () =>{
-  // event.preventDefault();
-  console.log("TERPANGGIL");
+const handleSubmit = event =>{
+  event.preventDefault();
   axios.post(`/TBU`, {
     tbu_tidakBisaMinum: tbu_tidakBisaMinum,
     tbu_muntah: tbu_muntah,
@@ -44,53 +30,45 @@ const handleSubmit = () =>{
     tbu_gelisah: tbu_gelisah
   })
   .then(res => {
-    console.log(res);
-    console.log(res.data);
+    dispatch(KlasifikasiTBUChange('TBU_KLASIFIKASI', res.data.hasilKlasifkasi));
+    dispatch(KlasifikasiTBUChange('TBU_STATUS', res.data.statusKlasifikasi));
   })
   .catch(err=>{
     console.log(err);
   });
+  history.push("TandaBahayaUmum2"); 
 }
 
 const handleAnswer1 = event =>{
   if(event.target.value == 1){
     set_tbu_tidakBisaMinum(true);
-    console.log('berhasil1');
   }else if(event.target.value == 2){
     set_tbu_tidakBisaMinum(false);
-    console.log('gagal1')
   }
 }
 
 const handleAnswer2 = event =>{
   if(event.target.value == 1){
     set_tbu_muntah(true);
-    console.log('berhasil2');
   }else if(event.target.value == 2){
     set_tbu_muntah(false);
-    console.log('gagal2')
   }
 }
 
 const handleAnswer3 = event =>{
   if(event.target.value == 1){
     set_tbu_kejang(true);
-    console.log('berhasil3');
   }else if(event.target.value == 2){
     set_tbu_kejang(false);
-    console.log('gagal3')
   }
 }
 
 const handleAnswer4 = event =>{
   if(event.target.value == 1){
     set_tbu_gelisah(true);
-    console.log('berhasil4');
   }else if(event.target.value == 2){
     set_tbu_gelisah(false);
-    console.log('gagal4')
   }
-  handleSubmit();
 }
 
   return (

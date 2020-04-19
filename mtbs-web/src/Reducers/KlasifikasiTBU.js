@@ -1,6 +1,7 @@
 const initState = {
     tbu_klasifikasi : null,
     tbu_status : null,
+    tbu_text_status : null
 }
 
 const KlasifikasiTBUReducer = (state = initState, action) => {
@@ -10,6 +11,10 @@ const KlasifikasiTBUReducer = (state = initState, action) => {
                 tbu_klasifikasi : action.answer
             });
         case 'TBU_STATUS':
+            return Object.assign({}, state, {
+                tbu_status : action.answer
+            });
+        case 'TBU_TEXT_STATUS':
             return Object.assign({}, state, {
                 tbu_status : action.answer
             });

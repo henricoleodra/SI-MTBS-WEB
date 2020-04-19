@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button, Row, Col} from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import axios from 'axios';
 
 import '../../Assets/style/style.css';
 
@@ -11,8 +12,96 @@ var outlineColor = {
 }
 
 const TandaBahayaUmum = (props) => {
+
+  // logic
+  let[tbu1, set_tbu1] = useState();
+  let[tbu_tidakBisaMinum, set_tbu_tidakBisaMinum] = useState();
+  let[tbu_muntah, set_tbu_muntah] = useState();
+  let[tbu_kejang, set_tbu_kejang] = useState();
+  let[tbu_gelisah, set_tbu_gelisah] = useState();
+
+//   useEffect(() => {
+//     axios.get('api/TBU1', {
+//       'Content-Type': 'text/plain',
+//       'crossDomain': 'true'  
+//     })
+//     .then((res) => {
+//       set_tbu1(res.data)
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//       alert(err + "\nsee details in dev console\ncommon: server off");
+//     })
+// }, [])
+
+const handleSubmit = event =>{
+  event.preventDefault();
+
+  let hasil = tbu_tidakBisaMinum;
+  let hasil2 = tbu_muntah;
+  let hasil3 = tbu_kejang;
+  let hasil4 = tbu_gelisah;
+  console.log('jawaban1', hasil);
+  console.log('jawaban2', hasil2);
+  console.log('jawaban3', hasil3);
+  console.log('jawaban4', hasil4);
+  // axios.post('api/sendTBU1', {
+  //   tbu_tidakBisaMinum: tbu_tidakBisaMinum,
+  //   tbu_muntah: tbu_muntah,
+  //   tbu_kejang: tbu_kejang,
+  //   tbu_gelisah: tbu_gelisah})
+  // .then(res => {
+  //   console.log(res);
+  //   console.log(res.data);
+  // })
+}
+
+const handleAnswer1 = event =>{
+  if(event.target.value == 1){
+    set_tbu_tidakBisaMinum(true);
+    console.log('berhasil1');
+    alert('berhasil1');
+  }else if(event.target.value == 2){
+    set_tbu_tidakBisaMinum(false);
+    console.log('gagal1')
+  }
+}
+
+const handleAnswer2 = event =>{
+  if(event.target.value == 1){
+    set_tbu_muntah(true);
+    console.log('berhasil2');
+    alert('berhasil2');
+  }else if(event.target.value == 2){
+    set_tbu_muntah(false);
+    console.log('gagal2')
+  }
+}
+
+const handleAnswer3 = event =>{
+  if(event.target.value == 1){
+    set_tbu_kejang(true);
+    console.log('berhasil3');
+    alert('berhasil3');
+  }else if(event.target.value == 2){
+    set_tbu_kejang(false);
+    console.log('gagal3')
+  }
+}
+
+const handleAnswer4 = event =>{
+  if(event.target.value == 1){
+    set_tbu_gelisah(true);
+    console.log('berhasil4');
+    alert('berhasil4');
+  }else if(event.target.value == 2){
+    set_tbu_gelisah(false);
+    console.log('gagal4')
+  }
+}
+
   return (
-    <Form className="">
+    <Form className="" onSubmit={handleSubmit}>
       <div className="w-100">
         <div className="col-12" >
           <div className="d-flex justify-content-center mt-3">
@@ -45,7 +134,7 @@ const TandaBahayaUmum = (props) => {
                     <Col sm="3">
                       <FormGroup className="d-inline pr-2">  
                         <Label className="rdoBtn">Ya
-                          <Input type="radio" name="radio1"/>
+                          <Input type="radio" name="radio1" value={1} onChange={handleAnswer1}/>
                           <span style={{left:"20px"}} className="checkmark"></span>
                         </Label>
                       </FormGroup>
@@ -56,7 +145,7 @@ const TandaBahayaUmum = (props) => {
                     <Col sm="3">
                       <FormGroup className="d-inline">
                         <Label className="rdoBtn">Tidak
-                          <Input type="radio" name="radio1"/>
+                          <Input type="radio" name="radio1" value={2} onChange={handleAnswer1}/>
                           <span style={{left:"0px"}} className="checkmark"></span>
                         </Label>
                       </FormGroup>
@@ -74,7 +163,7 @@ const TandaBahayaUmum = (props) => {
                     <Col sm="3">
                       <FormGroup className="d-inline pr-2">  
                         <Label className="rdoBtn">Ya
-                          <Input type="radio" name="radio2"/>
+                          <Input type="radio" name="radio2" value={1} onChange={handleAnswer2}/>
                           <span style={{left:"20px"}} className="checkmark"></span>
                         </Label>
                       </FormGroup>
@@ -85,7 +174,7 @@ const TandaBahayaUmum = (props) => {
                     <Col sm="3">
                       <FormGroup className="d-inline">
                         <Label className="rdoBtn">Tidak
-                          <Input type="radio" name="radio2"/>
+                          <Input type="radio" name="radio2" value={2} onChange={handleAnswer2}/>
                           <span style={{left:"0px"}} className="checkmark"></span>
                         </Label>
                       </FormGroup>
@@ -103,7 +192,7 @@ const TandaBahayaUmum = (props) => {
                     <Col sm="3">
                       <FormGroup className="d-inline pr-2">  
                         <Label className="rdoBtn">Ya
-                          <Input type="radio" name="radio3"/>
+                          <Input type="radio" name="radio3" value={1} onChange={handleAnswer3}/>
                           <span style={{left:"20px"}} className="checkmark"></span>
                         </Label>
                       </FormGroup>
@@ -114,7 +203,7 @@ const TandaBahayaUmum = (props) => {
                     <Col sm="3">
                       <FormGroup className="d-inline">
                         <Label className="rdoBtn">Tidak
-                          <Input type="radio" name="radio3"/>
+                          <Input type="radio" name="radio3" value={2} onChange={handleAnswer3}/>
                           <span style={{left:"0px"}} className="checkmark"></span>
                         </Label>
                       </FormGroup>
@@ -132,7 +221,7 @@ const TandaBahayaUmum = (props) => {
                     <Col sm="3">
                       <FormGroup className="d-inline pr-2">  
                         <Label className="rdoBtn">Ya
-                          <Input type="radio" name="radio4"/>
+                          <Input type="radio" name="radio4" value={1} onChange={handleAnswer4}/>
                           <span style={{left:"20px"}} className="checkmark"></span>
                         </Label>
                       </FormGroup>
@@ -143,7 +232,7 @@ const TandaBahayaUmum = (props) => {
                     <Col sm="3">
                       <FormGroup className="d-inline">
                         <Label className="rdoBtn">Tidak
-                          <Input type="radio" name="radio4"/>
+                          <Input type="radio" name="radio4" value={2} onChange={handleAnswer4}/>
                           <span style={{left:"0px"}} className="checkmark"></span>
                         </Label>
                       </FormGroup>
@@ -163,7 +252,7 @@ const TandaBahayaUmum = (props) => {
             </Col>
           </Row>
         </div>
-        
+        <button type="submit">submit</button>
       </div>
     </Form>
   );

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button, Row, Col} from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import axios from 'axios';
 
 import '../../Assets/style/style.css';
 
@@ -12,8 +13,66 @@ var outlineColor = {
 }
 
 const TandaBahayaUmum2 = (props) => {
+  //logic
+  let[tbu2, set_tbu2] = useState();
+  let[tbu_stridor, set_tbu_stridor] = useState();
+  let[tbu_pucatDingin, set_tbu_pucatDingin] = useState();
+
+  //   useEffect(() => {
+//     axios.get('api/TBU2', {
+//       'Content-Type': 'text/plain',
+//       'crossDomain': 'true'  
+//     })
+//     .then((res) => {
+//       set_tbu2(res.data)
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//       alert(err + "\nsee details in dev console\ncommon: server off");
+//     })
+// }, [])
+
+  const handleSubmit = event =>{
+    event.preventDefault();
+
+    let hasilStridor = tbu_stridor;
+    let hasilPucatDingin = tbu_pucatDingin;
+
+    console.log('hasilStridor', hasilStridor);
+    console.log('hasilPucatDingin', hasilPucatDingin);
+      // axios.post('api/sendTBU2', {
+  //   tbu_stridor: tbu_stridor,
+  //   tbu_pucatDingin: tbu_pucatDingin,
+
+  // .then(res => {
+  //   console.log(res);
+  //   console.log(res.data);
+  // })
+  }
+
+const handleAnswer1 = event =>{
+  if(event.target.value == 1){
+    set_tbu_stridor(true);
+    console.log('berhasil2');
+  }else{
+    set_tbu_stridor(false);
+    console.log('gagal2');
+  }
+}
+
+const handleAnswer2 = event =>{
+  if(event.target.value == 1){
+    set_tbu_pucatDingin(true);
+    console.log('berhasil1');
+  }else{
+    set_tbu_pucatDingin(false);
+    console.log('gagal1');
+  }
+}
+
+
   return (
-    <Form>
+    <Form onSubmit={handleSubmit}>
       <div className="w-100">
         <div className="col-12">
           <div className="d-flex justify-content-center mt-3">
@@ -47,7 +106,7 @@ const TandaBahayaUmum2 = (props) => {
                     <Col sm="3">
                       <FormGroup className="d-inline pr-2">  
                         <Label className="rdoBtn">Ya
-                          <Input type="radio" name="radio1"/>
+                          <Input type="radio" name="radio1" value={1} onChange={handleAnswer1}/>
                           <span style={{left:"20px"}} className="checkmark"></span>
                         </Label>
                       </FormGroup>
@@ -58,7 +117,7 @@ const TandaBahayaUmum2 = (props) => {
                     <Col sm="3">
                       <FormGroup className="d-inline">
                         <Label className="rdoBtn">Tidak
-                          <Input type="radio" name="radio1"/>
+                          <Input type="radio" name="radio1" value={2} onChange={handleAnswer1}/>
                           <span style={{left:"0px"}} className="checkmark"></span>
                         </Label>
                       </FormGroup>
@@ -76,7 +135,7 @@ const TandaBahayaUmum2 = (props) => {
                     <Col sm="3">
                       <FormGroup className="d-inline pr-2">  
                         <Label className="rdoBtn">Ya
-                          <Input type="radio" name="radio2"/>
+                          <Input type="radio" name="radio2" value={1} onChange={handleAnswer2}/>
                           <span style={{left:"20px"}} className="checkmark"></span>
                         </Label>
                       </FormGroup>
@@ -87,7 +146,7 @@ const TandaBahayaUmum2 = (props) => {
                     <Col sm="3">
                       <FormGroup className="d-inline">
                         <Label className="rdoBtn">Tidak
-                          <Input type="radio" name="radio2"/>
+                          <Input type="radio" name="radio2" value={2} onChange={handleAnswer2}/>
                           <span style={{left:"0px"}} className="checkmark"></span>
                         </Label>
                       </FormGroup>
@@ -106,7 +165,7 @@ const TandaBahayaUmum2 = (props) => {
               <Link to="BatukYaTidak" style={{textDecoration: "none"}}><Button color="success" block >Pemeriksaan Batuk <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
             </Col>
           </Row>
-          
+          <button type="submit">submit</button>
         </div>
       </div>
     </Form>

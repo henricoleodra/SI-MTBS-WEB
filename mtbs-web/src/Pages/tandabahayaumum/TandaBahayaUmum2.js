@@ -53,20 +53,20 @@ const TandaBahayaUmum2 = (props) => {
 const handleAnswer1 = event =>{
   if(event.target.value == 1){
     set_tbu_stridor(true);
-    console.log('berhasil2');
+    console.log('berhasil1');
   }else{
     set_tbu_stridor(false);
-    console.log('gagal2');
+    console.log('gagal1');
   }
 }
 
 const handleAnswer2 = event =>{
   if(event.target.value == 1){
     set_tbu_pucatDingin(true);
-    console.log('berhasil1');
+    console.log('berhasil2');
   }else{
     set_tbu_pucatDingin(false);
-    console.log('gagal1');
+    console.log('gagal2');
   }
 }
 
@@ -162,10 +162,9 @@ const handleAnswer2 = event =>{
               <Link to="TandaBahayaUmum1" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Sebelumnya</Button></Link>
             </Col>
             <Col sm="4">
-              <Link to="BatukYaTidak" style={{textDecoration: "none"}}><Button color="success" block >Pemeriksaan Batuk <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
+              <Link to="BatukYaTidak" style={{textDecoration: "none"}}><Button type="submit" color="success" block >Pemeriksaan Batuk <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
             </Col>
           </Row>
-          <button type="submit">submit</button>
         </div>
       </div>
     </Form>

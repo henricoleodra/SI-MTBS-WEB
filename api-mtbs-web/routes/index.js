@@ -7,6 +7,11 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.post('/TBU/1', tandabahayaumum.tandaBahayaUmum1);
+// router.post('/TBU',(req, res) => {
+  
+// });
+
+
+router.post('/TBU', tandabahayaumum.tandaBahayaUmum1);
 
 module.exports = router;

@@ -37,30 +37,35 @@ const TandaBahayaUmum = (props) => {
 const handleSubmit = event =>{
   event.preventDefault();
 
-  let hasil = tbu_tidakBisaMinum;
-  let hasil2 = tbu_muntah;
-  let hasil3 = tbu_kejang;
-  let hasil4 = tbu_gelisah;
-  console.log('jawaban1', hasil);
-  console.log('jawaban2', hasil2);
-  console.log('jawaban3', hasil3);
-  console.log('jawaban4', hasil4);
-  // axios.post('api/sendTBU1', {
-  //   tbu_tidakBisaMinum: tbu_tidakBisaMinum,
-  //   tbu_muntah: tbu_muntah,
-  //   tbu_kejang: tbu_kejang,
-  //   tbu_gelisah: tbu_gelisah})
-  // .then(res => {
-  //   console.log(res);
-  //   console.log(res.data);
-  // })
+  // let hasil = tbu_tidakBisaMinum;
+  // let hasil2 = tbu_muntah;
+  // let hasil3 = tbu_kejang;
+  // let hasil4 = tbu_gelisah;
+  // console.log('jawaban1', hasil);
+  // console.log('jawaban2', hasil2);
+  // console.log('jawaban3', hasil3);
+  // console.log('jawaban4', hasil4);
+  alert('tersubmit')
+
+  axios.post(`/TBU`, {
+    tbu_tidakBisaMinum: tbu_tidakBisaMinum,
+    tbu_muntah: tbu_muntah,
+    tbu_kejang: tbu_kejang,
+    tbu_gelisah: tbu_gelisah
+  })
+  .then(res => {
+    console.log(res);
+    console.log(res.data);
+  })
+  .catch(err=>{
+    console.log(err);
+  });
 }
 
 const handleAnswer1 = event =>{
   if(event.target.value == 1){
     set_tbu_tidakBisaMinum(true);
     console.log('berhasil1');
-    alert('berhasil1');
   }else if(event.target.value == 2){
     set_tbu_tidakBisaMinum(false);
     console.log('gagal1')
@@ -71,7 +76,6 @@ const handleAnswer2 = event =>{
   if(event.target.value == 1){
     set_tbu_muntah(true);
     console.log('berhasil2');
-    alert('berhasil2');
   }else if(event.target.value == 2){
     set_tbu_muntah(false);
     console.log('gagal2')
@@ -82,7 +86,6 @@ const handleAnswer3 = event =>{
   if(event.target.value == 1){
     set_tbu_kejang(true);
     console.log('berhasil3');
-    alert('berhasil3');
   }else if(event.target.value == 2){
     set_tbu_kejang(false);
     console.log('gagal3')
@@ -93,7 +96,6 @@ const handleAnswer4 = event =>{
   if(event.target.value == 1){
     set_tbu_gelisah(true);
     console.log('berhasil4');
-    alert('berhasil4');
   }else if(event.target.value == 2){
     set_tbu_gelisah(false);
     console.log('gagal4')

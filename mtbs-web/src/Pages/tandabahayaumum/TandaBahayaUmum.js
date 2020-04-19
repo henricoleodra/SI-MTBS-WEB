@@ -34,19 +34,9 @@ const TandaBahayaUmum = (props) => {
 //     })
 // }, [])
 
-const handleSubmit = event =>{
-  event.preventDefault();
-
-  // let hasil = tbu_tidakBisaMinum;
-  // let hasil2 = tbu_muntah;
-  // let hasil3 = tbu_kejang;
-  // let hasil4 = tbu_gelisah;
-  // console.log('jawaban1', hasil);
-  // console.log('jawaban2', hasil2);
-  // console.log('jawaban3', hasil3);
-  // console.log('jawaban4', hasil4);
-  alert('tersubmit')
-
+const handleSubmit = () =>{
+  // event.preventDefault();
+  console.log("TERPANGGIL");
   axios.post(`/TBU`, {
     tbu_tidakBisaMinum: tbu_tidakBisaMinum,
     tbu_muntah: tbu_muntah,
@@ -100,10 +90,11 @@ const handleAnswer4 = event =>{
     set_tbu_gelisah(false);
     console.log('gagal4')
   }
+  handleSubmit();
 }
 
   return (
-    <Form className="" onSubmit={handleSubmit}>
+    <Form id="formTBU1" className="" onSubmit={handleSubmit}>
       <div className="w-100">
         <div className="col-12" >
           <div className="d-flex justify-content-center mt-3">
@@ -250,7 +241,7 @@ const handleAnswer4 = event =>{
               <Link to="#" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Data Anak</Button></Link>
             </Col>
             <Col sm="4">
-              <Link to="TandaBahayaUmum2" style={{textDecoration: "none"}}><Button type="submit" color="success" block>Berikutnya  <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
+              <Button type="submit" color="success" block>Berikutnya  <FontAwesomeIcon icon={faChevronRight}/></Button>
             </Col>
           </Row>
         </div>

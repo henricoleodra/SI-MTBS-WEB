@@ -250,11 +250,10 @@ const handleAnswer4 = event =>{
               <Link to="#" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Data Anak</Button></Link>
             </Col>
             <Col sm="4">
-              <Link to="TandaBahayaUmum2" style={{textDecoration: "none"}}><Button color="success" block>Berikutnya  <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
+              <Link to="TandaBahayaUmum2" style={{textDecoration: "none"}}><Button type="submit" color="success" block>Berikutnya  <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
             </Col>
           </Row>
         </div>
-        <button type="submit">submit</button>
       </div>
     </Form>
   );

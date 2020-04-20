@@ -9,8 +9,7 @@ import '../../../Assets/style/style.css';
 const SideBarItem = (props) => {
   return(
     <NavItem>
-      <Link to={props.link} style={{textDecoration: "none", color: 'black'}}>
-        <NavLink className="btn btn-light text-left paddingSideBar" active={props.active} disabled={props.disabled} >
+        <NavLink className="btn btn-light text-left paddingSideBar" active={props.active} disabled={props.disabled} tag={Link} to={props.link} >
             <Row className="pr-3 pt-0 pb-0">
                 <Col xs="ml-0 mr-0">
                   <span className="ml-2 text-left fontSideBar">{props.title}</span>
@@ -20,7 +19,6 @@ const SideBarItem = (props) => {
                 </Col>
             </Row>
         </NavLink>
-      </Link>
     </NavItem>
   );
 };

@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button, Row, Col} from "reactstrap";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
-import { KlasifikasiTBUChange } from '../../Actions';
 import axios from 'axios';
+
+// Actions
+import { KlasifikasiTBUChange, AnsTBUChange } from '../../Actions';
+
 
 import '../../Assets/style/style.css';
 
@@ -16,60 +19,66 @@ var outlineColor = {
 const TandaBahayaUmum = (props) => {
   const history = useHistory();
   const dispatch = useDispatch();
-  let[tbu_tidakBisaMinum, set_tbu_tidakBisaMinum] = useState();
-  let[tbu_muntah, set_tbu_muntah] = useState();
-  let[tbu_kejang, set_tbu_kejang] = useState();
-  let[tbu_gelisah, set_tbu_gelisah] = useState();
+  const ansTBU = useSelector(state => state.ansTBU);
+  let[tbu_tidakBisaMinum, set_tbu_tidakBisaMinum] = useState(ansTBU.tbu_tidakBisaMinum);
+  let[tbu_muntah, set_tbu_muntah] = useState(ansTBU.tbu_muntah);
+  let[tbu_kejang, set_tbu_kejang] = useState(ansTBU.tbu_kejang);
+  let[tbu_gelisah, set_tbu_gelisah] = useState(ansTBU.tbu_gelisah);
 
-const handleSubmit = event =>{
-  event.preventDefault();
-  axios.post(`/TBU`, {
-    tbu_tidakBisaMinum: tbu_tidakBisaMinum,
-    tbu_muntah: tbu_muntah,
-    tbu_kejang: tbu_kejang,
-    tbu_gelisah: tbu_gelisah
-  })
-  .then(res => {
-    dispatch(KlasifikasiTBUChange('TBU_KLASIFIKASI', res.data.hasilKlasifkasi));
-    dispatch(KlasifikasiTBUChange('TBU_STATUS', res.data.statusKlasifikasi));
-  })
-  .catch(err=>{
-    console.log(err);
-  });
-  history.push("TandaBahayaUmum2"); 
-}
 
-const handleAnswer1 = event =>{
-  if(event.target.value == 1){
-    set_tbu_tidakBisaMinum(true);
-  }else if(event.target.value == 2){
-    set_tbu_tidakBisaMinum(false);
+  const handleSubmit = event =>{
+    event.preventDefault();
+    dispatch(AnsTBUChange('TIDAK_BISA_MINUM', tbu_tidakBisaMinum));
+    dispatch(AnsTBUChange('MUNTAH', tbu_muntah));
+    dispatch(AnsTBUChange('KEJANG', tbu_kejang));
+    dispatch(AnsTBUChange('GELISAH', tbu_gelisah));
+    axios.post(`/TBU/1`, {
+      tbu_tidakBisaMinum: tbu_tidakBisaMinum,
+      tbu_muntah: tbu_muntah,
+      tbu_kejang: tbu_kejang,
+      tbu_gelisah: tbu_gelisah
+    })
+    .then(res => {
+      dispatch(KlasifikasiTBUChange('TBU_KLASIFIKASI', res.data.hasilKlasifkasi));
+      dispatch(KlasifikasiTBUChange('TBU_STATUS', res.data.statusKlasifikasi));
+    })
+    .catch(err=>{
+      console.log(err);
+    });
+    history.push("TandaBahayaUmum2"); 
   }
-}
 
-const handleAnswer2 = event =>{
-  if(event.target.value == 1){
-    set_tbu_muntah(true);
-  }else if(event.target.value == 2){
-    set_tbu_muntah(false);
+  const handleAnswer1 = event =>{
+    if(event.target.value == 1){
+      set_tbu_tidakBisaMinum(true);
+    }else if(event.target.value == 2){
+      set_tbu_tidakBisaMinum(false);
+    }
   }
-}
 
-const handleAnswer3 = event =>{
-  if(event.target.value == 1){
-    set_tbu_kejang(true);
-  }else if(event.target.value == 2){
-    set_tbu_kejang(false);
+  const handleAnswer2 = event =>{
+    if(event.target.value == 1){
+      set_tbu_muntah(true);
+    }else if(event.target.value == 2){
+      set_tbu_muntah(false);
+    }
   }
-}
 
-const handleAnswer4 = event =>{
-  if(event.target.value == 1){
-    set_tbu_gelisah(true);
-  }else if(event.target.value == 2){
-    set_tbu_gelisah(false);
+  const handleAnswer3 = event =>{
+    if(event.target.value == 1){
+      set_tbu_kejang(true);
+    }else if(event.target.value == 2){
+      set_tbu_kejang(false);
+    }
   }
-}
+
+  const handleAnswer4 = event =>{
+    if(event.target.value == 1){
+      set_tbu_gelisah(true);
+    }else if(event.target.value == 2){
+      set_tbu_gelisah(false);
+    }
+  }
 
   return (
     <Form id="formTBU1" className="" onSubmit={handleSubmit}>
@@ -105,7 +114,7 @@ const handleAnswer4 = event =>{
                     <Col sm="3">
                       <FormGroup className="d-inline pr-2">  
                         <Label className="rdoBtn">Ya
-                          <Input type="radio" name="radio1" value={1} onChange={handleAnswer1}/>
+                          <Input type="radio" name="radio1" value={1} onChange={handleAnswer1} checked={tbu_tidakBisaMinum === true} required/>
                           <span style={{left:"20px"}} className="checkmark"></span>
                         </Label>
                       </FormGroup>
@@ -116,7 +125,7 @@ const handleAnswer4 = event =>{
                     <Col sm="3">
                       <FormGroup className="d-inline">
                         <Label className="rdoBtn">Tidak
-                          <Input type="radio" name="radio1" value={2} onChange={handleAnswer1}/>
+                          <Input type="radio" name="radio1" value={2} onChange={handleAnswer1} checked={tbu_tidakBisaMinum === false}/> 
                           <span style={{left:"0px"}} className="checkmark"></span>
                         </Label>
                       </FormGroup>
@@ -134,7 +143,7 @@ const handleAnswer4 = event =>{
                     <Col sm="3">
                       <FormGroup className="d-inline pr-2">  
                         <Label className="rdoBtn">Ya
-                          <Input type="radio" name="radio2" value={1} onChange={handleAnswer2}/>
+                          <Input type="radio" name="radio2" value={1} onChange={handleAnswer2} checked={tbu_muntah === true} required/>
                           <span style={{left:"20px"}} className="checkmark"></span>
                         </Label>
                       </FormGroup>
@@ -145,7 +154,7 @@ const handleAnswer4 = event =>{
                     <Col sm="3">
                       <FormGroup className="d-inline">
                         <Label className="rdoBtn">Tidak
-                          <Input type="radio" name="radio2" value={2} onChange={handleAnswer2}/>
+                          <Input type="radio" name="radio2" value={2} onChange={handleAnswer2} checked={tbu_muntah === false}/>
                           <span style={{left:"0px"}} className="checkmark"></span>
                         </Label>
                       </FormGroup>
@@ -163,7 +172,7 @@ const handleAnswer4 = event =>{
                     <Col sm="3">
                       <FormGroup className="d-inline pr-2">  
                         <Label className="rdoBtn">Ya
-                          <Input type="radio" name="radio3" value={1} onChange={handleAnswer3}/>
+                          <Input type="radio" name="radio3" value={1} onChange={handleAnswer3} checked={tbu_kejang === true} required/>
                           <span style={{left:"20px"}} className="checkmark"></span>
                         </Label>
                       </FormGroup>
@@ -174,7 +183,7 @@ const handleAnswer4 = event =>{
                     <Col sm="3">
                       <FormGroup className="d-inline">
                         <Label className="rdoBtn">Tidak
-                          <Input type="radio" name="radio3" value={2} onChange={handleAnswer3}/>
+                          <Input type="radio" name="radio3" value={2} onChange={handleAnswer3} checked={tbu_kejang === false}/>
                           <span style={{left:"0px"}} className="checkmark"></span>
                         </Label>
                       </FormGroup>
@@ -192,7 +201,7 @@ const handleAnswer4 = event =>{
                     <Col sm="3">
                       <FormGroup className="d-inline pr-2">  
                         <Label className="rdoBtn">Ya
-                          <Input type="radio" name="radio4" value={1} onChange={handleAnswer4}/>
+                          <Input type="radio" name="radio4" value={1} onChange={handleAnswer4} checked={tbu_gelisah === true} required/>
                           <span style={{left:"20px"}} className="checkmark"></span>
                         </Label>
                       </FormGroup>
@@ -203,7 +212,7 @@ const handleAnswer4 = event =>{
                     <Col sm="3">
                       <FormGroup className="d-inline">
                         <Label className="rdoBtn">Tidak
-                          <Input type="radio" name="radio4" value={2} onChange={handleAnswer4}/>
+                          <Input type="radio" name="radio4" value={2} onChange={handleAnswer4} checked={tbu_gelisah === false}/>
                           <span style={{left:"0px"}} className="checkmark"></span>
                         </Label>
                       </FormGroup>

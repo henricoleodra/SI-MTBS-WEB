@@ -24,12 +24,13 @@ const SideBar = (props) => {
     let url = props.location.replace(/[0-9]/g, '');
     
     const compStatus = useSelector(state => state.compStatus);
+    const klasifikasiTBU = useSelector(state => state.klasifikasiTBU);
     let sidebar = [
         {
             'title' : 'Tanda Bahaya Umum',
             'link' : 'TandaBahayaUmum1',
             'active' : url==='TandaBahayaUmum',
-            'color' : props.iconColor[0],
+            'color' : (klasifikasiTBU.tbu_status===null ? 'dark' : klasifikasiTBU.tbu_status ),
             'disabled' : compStatus.tandabahayaumum
         },
         {

@@ -2,7 +2,7 @@ const tandaBahayaUmum1 = async function(req, res, next) {
     if(req.body.tbu_tidakBisaMinum || req.body.tbu_muntah || req.body.tbu_kejang || req.body.tbu_gelisah){
         const ans = {
             hasilKlasifkasi : 'Penyakit sangat berat',
-            statusKlasifikasi: 'danger'
+            statusKlasifikasi: 'danger',
         }
         res.json(ans);
     }

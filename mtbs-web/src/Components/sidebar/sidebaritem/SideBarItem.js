@@ -15,7 +15,7 @@ const SideBarItem = (props) => {
                   <span className="ml-2 text-left fontSideBar">{props.title}</span>
                 </Col>
                 <Col xs="1" className="ml-auto mt-auto mb-auto">
-                    <FontAwesomeIcon icon={faCircle} className={props.color}/>
+                    <FontAwesomeIcon icon={faCircle} className={`text-`+props.color}/>
                 </Col>
             </Row>
         </NavLink>

@@ -1,6 +1,6 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState } from 'react';
 import { Badge } from 'reactstrap';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExclamationTriangle} from '@fortawesome/free-solid-svg-icons';
 
@@ -23,13 +23,13 @@ const Summary = () => {
   // }, []);
   
   const compStatus = useSelector(state => state.compStatus);
-  const klasifiKasi = useSelector(state => state.klasifikasiTBU)
+  const klasifikasiTBU = useSelector(state => state.klasifikasiTBU);
 
   let summary = [
     {
       'title' : 'Tanda Bahaya Umum',
-      'text' : (klasifiKasi.tbu_klasifikasi===null ? '' : klasifiKasi.tbu_klasifikasi),
-      'color' : (klasifiKasi.tbu_status===null ? 'dark' : klasifiKasi.tbu_status ),
+      'text' : (klasifikasiTBU.tbu_klasifikasi===null ? '' : klasifikasiTBU.tbu_klasifikasi),
+      'color' : (klasifikasiTBU.tbu_status===null ? 'dark' : klasifikasiTBU.tbu_status ),
       'disabled' : compStatus.tandabahayaumum
     },
     {

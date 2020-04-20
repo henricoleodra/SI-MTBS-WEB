@@ -12,6 +12,6 @@ router.get('/', function(req, res, next) {
 // });
 
 
-router.post('/TBU', tandabahayaumum.tandaBahayaUmum1);
+router.post('/TBU/1', tandabahayaumum.tandaBahayaUmum1);
 
 module.exports = router;

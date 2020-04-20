@@ -64,7 +64,7 @@ function MTBS(props){
         location = location[location.length - 1];
     }
 
-    let iconColor = ["text-danger", "text-warning"];
+    let iconColor = ["danger", "warning"];
 
     return(
         <div style={{ width: '100%'}} className="d-flex">

@@ -50,7 +50,7 @@ const TandaBahayaUmum2 = (props) => {
       console.log(err);
     });
     history.push("BatukYaTidak"); 
-    dispatch(compStatusChange('DIARE'));
+    dispatch(compStatusChange('BATUK'));
   }
 
   const handleAnswer1 = event =>{

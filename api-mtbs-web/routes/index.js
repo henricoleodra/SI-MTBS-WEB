@@ -7,11 +7,8 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-// router.post('/TBU',(req, res) => {
-  
-// });
-
-
+//Tanda Bahaya Umum
 router.post('/TBU/1', tandabahayaumum.tandaBahayaUmum1);
+router.post('/TBU/2', tandabahayaumum.tandaBahayaUmum2);
 
 module.exports = router;

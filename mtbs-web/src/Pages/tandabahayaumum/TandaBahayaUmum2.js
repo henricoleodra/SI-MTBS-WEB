@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button, Row, Col} from "reactstrap";
+import { useDispatch, useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios';
 
 import '../../Assets/style/style.css';
+
+// Actions
+import { KlasifikasiTBUChange, AnsTBUChange } from '../../Actions';
 
 
 var outlineColor = {
@@ -13,62 +17,72 @@ var outlineColor = {
 }
 
 const TandaBahayaUmum2 = (props) => {
-  //logic
-  let[tbu2, set_tbu2] = useState();
-  let[tbu_stridor, set_tbu_stridor] = useState();
-  let[tbu_pucatDingin, set_tbu_pucatDingin] = useState();
+  const history = useHistory();
+  const dispatch = useDispatch();
+  const ansTBU = useSelector(state => state.ansTBU);
+  let[tbu_letargis, set_tbu_letargis] = useState(ansTBU.tbu_letargis);
+  let[tbu_stridor, set_tbu_stridor] = useState(ansTBU.tbu_stridor);
+  let[tbu_sianosis, set_tbu_sianosis] = useState(ansTBU.tbu_sianosis);
+  let[tbu_pucatDingin, set_tbu_pucatDingin] = useState(ansTBU.tbu_pucatDingin);
 
-  //   useEffect(() => {
-//     axios.get('api/TBU2', {
-//       'Content-Type': 'text/plain',
-//       'crossDomain': 'true'  
-//     })
-//     .then((res) => {
-//       set_tbu2(res.data)
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//       alert(err + "\nsee details in dev console\ncommon: server off");
-//     })
-// }, [])
-
+  
   const handleSubmit = event =>{
     event.preventDefault();
-
-    let hasilStridor = tbu_stridor;
-    let hasilPucatDingin = tbu_pucatDingin;
-
-    console.log('hasilStridor', hasilStridor);
-    console.log('hasilPucatDingin', hasilPucatDingin);
-      // axios.post('api/sendTBU2', {
-  //   tbu_stridor: tbu_stridor,
-  //   tbu_pucatDingin: tbu_pucatDingin,
-
-  // .then(res => {
-  //   console.log(res);
-  //   console.log(res.data);
-  // })
+    dispatch(AnsTBUChange('LETARGIS', tbu_letargis));
+    dispatch(AnsTBUChange('STRIDOR', tbu_stridor));
+    dispatch(AnsTBUChange('SIANOSIS', tbu_sianosis));
+    dispatch(AnsTBUChange('PUCAT_DINGIN', tbu_pucatDingin));
+    axios.post(`/TBU/2`, {
+      tbu_tidakBisaMinum: ansTBU.tbu_tidakBisaMinum,
+      tbu_muntah: ansTBU.tbu_muntah,
+      tbu_kejang: ansTBU.tbu_kejang,
+      tbu_gelisah: ansTBU.tbu_gelisah,
+      tbu_letargis: tbu_letargis,
+      tbu_stridor: tbu_stridor,
+      tbu_sianosis: tbu_sianosis,
+      tbu_pucatDingin: tbu_pucatDingin
+    })
+    .then(res => {
+      dispatch(KlasifikasiTBUChange('TBU_KLASIFIKASI', res.data.hasilKlasifkasi));
+      dispatch(KlasifikasiTBUChange('TBU_STATUS', res.data.statusKlasifikasi));
+    })
+    .catch(err=>{
+      console.log(err);
+    });
+    history.push("BatukYaTidak"); 
   }
 
-const handleAnswer1 = event =>{
-  if(event.target.value == 1){
-    set_tbu_stridor(true);
-    console.log('berhasil1');
-  }else{
-    set_tbu_stridor(false);
-    console.log('gagal1');
+  const handleAnswer1 = event =>{
+    if(event.target.value == 1){
+      set_tbu_letargis(true);
+    }else{
+      set_tbu_letargis(false);
+    }
   }
-}
 
-const handleAnswer2 = event =>{
-  if(event.target.value == 1){
-    set_tbu_pucatDingin(true);
-    console.log('berhasil2');
-  }else{
-    set_tbu_pucatDingin(false);
-    console.log('gagal2');
+  const handleAnswer2 = event =>{
+    if(event.target.value == 1){
+      set_tbu_stridor(true);
+    }else{
+      set_tbu_stridor(false);
+    }
   }
-}
+
+  const handleAnswer3 = event =>{
+    if(event.target.value == 1){
+      set_tbu_sianosis(true);
+    }else{
+      set_tbu_sianosis(false);
+    }
+  }
+
+  const handleAnswer4 = event =>{
+    if(event.target.value == 1){
+      set_tbu_pucatDingin(true);
+    }else{
+      set_tbu_pucatDingin(false);
+    }
+  }
 
 
   return (
@@ -96,9 +110,9 @@ const handleAnswer2 = event =>{
 
           <div style={{minHeight: "475px"}}>
             <Row className="justify-content-center">
-              <Card style={outlineColor} className="text-center w-75">
+            <Card style={outlineColor} className="text-center w-75">
                 <CardBody>
-                  <CardTitle className="h5"><b>Tanyakan! </b>Ada stridor</CardTitle>
+                  <CardTitle className="h5 mb-2"><b>Tanyakan! </b>Apakah anak letargis atau tidak sadar</CardTitle>
                   <Row className="limitCol "> 
                     <Col  sm="3">
                     
@@ -106,7 +120,7 @@ const handleAnswer2 = event =>{
                     <Col sm="3">
                       <FormGroup className="d-inline pr-2">  
                         <Label className="rdoBtn">Ya
-                          <Input type="radio" name="radio1" value={1} onChange={handleAnswer1}/>
+                          <Input type="radio" name="radio1" value={1} onChange={handleAnswer1} checked={tbu_letargis === true} required/>
                           <span style={{left:"20px"}} className="checkmark"></span>
                         </Label>
                       </FormGroup>
@@ -117,7 +131,7 @@ const handleAnswer2 = event =>{
                     <Col sm="3">
                       <FormGroup className="d-inline">
                         <Label className="rdoBtn">Tidak
-                          <Input type="radio" name="radio1" value={2} onChange={handleAnswer1}/>
+                          <Input type="radio" name="radio1" value={2} onChange={handleAnswer1} checked={tbu_letargis === false}/> 
                           <span style={{left:"0px"}} className="checkmark"></span>
                         </Label>
                       </FormGroup>
@@ -127,15 +141,15 @@ const handleAnswer2 = event =>{
               </Card>
               <Card style={outlineColor} className="text-center w-75 mt-3">
                 <CardBody>
-                  <CardTitle className="h5"><b>Tanyakan! </b>ujung tangan dan kaki pucat dan dingin</CardTitle>
-                  <Row className="limitCol "> 
-                    <Col  sm="3">
+                  <CardTitle className="h5 mb-2"><b>Tanyakan! </b>Apakah anak stridor</CardTitle>
+                  <Row className="limitCol">
+                    <Col sm="3">
                     
                     </Col>
                     <Col sm="3">
                       <FormGroup className="d-inline pr-2">  
                         <Label className="rdoBtn">Ya
-                          <Input type="radio" name="radio2" value={1} onChange={handleAnswer2}/>
+                          <Input type="radio" name="radio2" value={1} onChange={handleAnswer2} checked={tbu_stridor === true} required/>
                           <span style={{left:"20px"}} className="checkmark"></span>
                         </Label>
                       </FormGroup>
@@ -146,7 +160,65 @@ const handleAnswer2 = event =>{
                     <Col sm="3">
                       <FormGroup className="d-inline">
                         <Label className="rdoBtn">Tidak
-                          <Input type="radio" name="radio2" value={2} onChange={handleAnswer2}/>
+                          <Input type="radio" name="radio2" value={2} onChange={handleAnswer2} checked={tbu_stridor === false}/>
+                          <span style={{left:"0px"}} className="checkmark"></span>
+                        </Label>
+                      </FormGroup>
+                    </Col>
+                  </Row>
+                </CardBody>
+              </Card>
+              <Card style={outlineColor} className="text-center w-75 mt-3">
+                <CardBody>
+                  <CardTitle className="h5 mb-2"><b>Tanyakan! </b>Apakah anak berwarna biru(sianosis)</CardTitle>
+                  <Row className="limitCol">
+                    <Col sm="3">
+                    
+                    </Col>
+                    <Col sm="3">
+                      <FormGroup className="d-inline pr-2">  
+                        <Label className="rdoBtn">Ya
+                          <Input type="radio" name="radio3" value={1} onChange={handleAnswer3} checked={tbu_sianosis === true} required/>
+                          <span style={{left:"20px"}} className="checkmark"></span>
+                        </Label>
+                      </FormGroup>
+                    </Col>
+                    <Col sm="1">
+                    
+                    </Col>
+                    <Col sm="3">
+                      <FormGroup className="d-inline">
+                        <Label className="rdoBtn">Tidak
+                          <Input type="radio" name="radio3" value={2} onChange={handleAnswer3} checked={tbu_sianosis === false}/>
+                          <span style={{left:"0px"}} className="checkmark"></span>
+                        </Label>
+                      </FormGroup>
+                    </Col>
+                  </Row>
+                </CardBody>
+              </Card>
+              <Card style={outlineColor} className="text-center w-75 mt-3">
+                <CardBody>
+                  <CardTitle className="h5 mb-2"><b>Tanyakan! </b>Apakah ujung tangan dan kaki pucat dan dingin</CardTitle>
+                  <Row className="limitCol">
+                    <Col sm="3">
+                    
+                    </Col>
+                    <Col sm="3">
+                      <FormGroup className="d-inline pr-2">  
+                        <Label className="rdoBtn">Ya
+                          <Input type="radio" name="radio4" value={1} onChange={handleAnswer4} checked={tbu_pucatDingin === true} required/>
+                          <span style={{left:"20px"}} className="checkmark"></span>
+                        </Label>
+                      </FormGroup>
+                    </Col>
+                    <Col sm="1">
+                    
+                    </Col>
+                    <Col sm="3">
+                      <FormGroup className="d-inline">
+                        <Label className="rdoBtn">Tidak
+                          <Input type="radio" name="radio4" value={2} onChange={handleAnswer4} checked={tbu_pucatDingin === false}/>
                           <span style={{left:"0px"}} className="checkmark"></span>
                         </Label>
                       </FormGroup>
@@ -162,7 +234,7 @@ const handleAnswer2 = event =>{
               <Link to="TandaBahayaUmum1" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Sebelumnya</Button></Link>
             </Col>
             <Col sm="4">
-              <Link to="BatukYaTidak" style={{textDecoration: "none"}}><Button type="submit" color="success" block >Pemeriksaan Batuk <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
+              <Button type="submit" color="success" block >Pemeriksaan Batuk <FontAwesomeIcon icon={faChevronRight}/></Button>
             </Col>
           </Row>
         </div>

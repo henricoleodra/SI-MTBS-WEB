@@ -35,7 +35,7 @@ const Summary = () => {
     {
       'title' : 'Batuk',
       'text' : 'Penyakit Batuk',
-      'color' : 'warning',
+      'color' : 'dark',
       'disabled' : compStatus.batuk
     },
     {

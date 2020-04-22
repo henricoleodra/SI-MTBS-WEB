@@ -10,7 +10,7 @@ import '../../Assets/style/style.css';
 
 // Actions
 import { KlasifikasiTBUChange, AnsTBUChange } from '../../Actions';
-
+import { compStatusChange } from '../../Actions';
 
 var outlineColor = {
   borderColor : '#41E8B3'
@@ -50,6 +50,7 @@ const TandaBahayaUmum2 = (props) => {
       console.log(err);
     });
     history.push("BatukYaTidak"); 
+    dispatch(compStatusChange('DIARE'));
   }
 
   const handleAnswer1 = event =>{

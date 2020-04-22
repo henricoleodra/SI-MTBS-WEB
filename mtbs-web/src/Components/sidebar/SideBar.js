@@ -37,77 +37,77 @@ const SideBar = (props) => {
             'title' : 'Batuk',
             'link' : 'Batuk1',
             'active' : url==='BatukYaTidak' || url==='Batuk',
-            'color' : props.iconColor[1],
+            'color' : 'dark',
             'disabled' : compStatus.batuk
         },
         {
             'title' : 'Diare',
             'link' : 'Diare1',
             'active' : url==='DiareYaTidak' || url==='Diare',
-            'color' : props.iconColor[2],
+            'color' : 'dark',
             'disabled' : compStatus.diare
         },
         {
             'title' : 'Demam',
             'link' : 'Demam1',
             'active' : url==='DemamYaTidak' || url==='Demam',
-            'color' : props.iconColor[3],
+            'color' : 'dark',
             'disabled' : compStatus.demam
         },
         {
             'title' : 'Telinga',
             'link' : 'Telinga1',
             'active' : url==='TelingaYaTidak' || url==='Telinga',
-            'color' : props.iconColor[4],
+            'color' : 'dark',
             'disabled' : compStatus.telinga
         },
         {
             'title' : 'Gizi',
             'link' : 'Gizi1',
             'active' : url==='Gizi',
-            'color' : props.iconColor[5],
+            'color' : 'dark',
             'disabled' : compStatus.gizi
         },
         {
             'title' : 'Anemia',
             'link' : 'Anemia',
             'active' : url==='Anemia',
-            'color' : props.iconColor[6],
+            'color' : 'dark',
             'disabled' : compStatus.anemia
         },
         {
             'title' : 'HIV',
             'link' : 'HIV1',
             'active' : url==='HIV',
-            'color' : props.iconColor[7],
+            'color' : 'dark',
             'disabled' : compStatus.hiv
         },
         {
             'title' : 'Imunisasi',
             'link' : 'Imunisasi1',
             'active' : url==='Imunisasi',
-            'color' : props.iconColor[8],
+            'color' : 'dark',
             'disabled' : compStatus.imunisasi
         },
         {
             'title' : 'Vitamin A',
             'link' : 'VitaminA',
             'active' : url==='VitaminA',
-            'color' : props.iconColor[9],
+            'color' : 'dark',
             'disabled' : compStatus.vitamina
         },
         {
             'title' : 'KeluhanLain',
             'link' : 'KeluhanLain',
             'active' : url==='KeluhanLain',
-            'color' : props.iconColor[10],
+            'color' : 'dark',
             'disabled' : compStatus.keluhanlain
         },
         {
             'title' : 'PemberianMakanan',
             'link' : 'PemberianMakanan1',
             'active' : url==='PemberianMakanan',
-            'color' : props.iconColor[11],
+            'color' : 'dark',
             'disabled' : compStatus.makan
         },
       ];

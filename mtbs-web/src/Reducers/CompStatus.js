@@ -1,6 +1,6 @@
 const initState = {
     tandabahayaumum : false,
-    batuk : false,
+    batuk : true,
     diare : true,
     demam : true,
     telinga : true,

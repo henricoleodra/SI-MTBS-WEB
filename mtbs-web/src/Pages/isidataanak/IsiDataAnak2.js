@@ -64,7 +64,7 @@ const IsiDataAnak2 = () =>{
                     
                     <div className="d-flex justify-content-between mt-4">
                         <Link to="IsiDataAnak1" style={{textDecoration: "none"}}><Button color="danger">Sebelumnya</Button></Link>
-                        <Link to="" style={{textDecoration: "none"}}><Button color="success">Selanjutnya</Button></Link>
+                        <Link to="MTBS/TandaBahayaUmum1" style={{textDecoration: "none"}}><Button color="success">Selanjutnya</Button></Link>
                     </div>   
                     
                 </Form>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button, InputGroup, InputGroupAddon, InputGroupText, Row, Col} from "reactstrap";
 import { useDispatch, useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -9,6 +9,7 @@ import axios from 'axios';
 
 // Actions
 import { KlasifikasiBatukChange, AnsBatukChange } from '../../Actions';
+
 
 import '../../Assets/style/style.css';
 
@@ -21,7 +22,7 @@ let bgColor ={
     color: 'white'
 }
 
-const Batuk = (props) =>{
+const Batuk2 = (props) =>{
     const history = useHistory();
     const dispatch = useDispatch();
     const ansBatuk = useSelector(state => state.ansBatuk);
@@ -33,10 +34,10 @@ const Batuk = (props) =>{
         dispatch(AnsBatukChange('WHEEZING', bsb_wheezing));
         dispatch(AnsBatukChange('SATURASI_OKSIGEN', bsb_saturasiOksigen));
         axios.post(`/Batuk/2`, {
-            bsb_lamaHari: bsb_lamaHari,
-            bsb_jumlahNafas: bsb_jumlahNafas,
-            bsb_nafasCepat: bsb_nafasCepat,
-            bsb_tarikanDindingDada: bsb_tarikanDindingDada,
+            bsb_lamaHari: ansBatuk.bsb_lamaHari,
+            bsb_jumlahNafas: ansBatuk.bsb_jumlahNafas,
+            bsb_nafasCepat: ansBatuk.bsb_nafasCepat,
+            bsb_tarikanDindingDada: ansBatuk.bsb_tarikanDindingDada,
             bsb_wheezing: bsb_wheezing,
             bsb_saturasiOksigen: bsb_saturasiOksigen
         })
@@ -58,7 +59,7 @@ const Batuk = (props) =>{
 
     const handleAnswer2 = event =>{
         set_bsb_saturasiOksigen(event.target.value);
-        console.log(bsb_saturasiOksigen)
+        console.log(bsb_saturasiOksigen);
     }
 
     return(
@@ -143,4 +144,4 @@ const Batuk = (props) =>{
     );
 }
 
-export default Batuk
+export default Batuk2

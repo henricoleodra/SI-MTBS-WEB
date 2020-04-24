@@ -22,6 +22,10 @@ const batuk1 = async function(req, res, next) {
     }
 };
 
+const batuk2 = async function(req, res, next){
+
+}
+
 module.exports = {
-    batuk1
+    batuk1, batuk2
 };

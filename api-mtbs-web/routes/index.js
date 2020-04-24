@@ -13,5 +13,6 @@ router.post('/TBU/1', tandabahayaumum.tandaBahayaUmum1);
 router.post('/TBU/2', tandabahayaumum.tandaBahayaUmum2);
 //Batuk
 router.post('/Batuk/1', batuk.batuk1);
+// router.post('/Batuk/2', batuk.batuk2);
 
 module.exports = router;

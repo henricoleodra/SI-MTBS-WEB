@@ -7,6 +7,9 @@ import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid
 import { compStatusChange } from '../../Actions';
 import axios from 'axios';
 
+// Actions
+import { KlasifikasiBatukChange, AnsBatukChange } from '../../Actions';
+
 import '../../Assets/style/style.css';
 
 let outlineColor = {
@@ -18,10 +21,48 @@ let bgColor ={
     color: 'white'
 }
 
-const Batuk = (props) => {
+const Batuk = (props) =>{
+    const history = useHistory();
     const dispatch = useDispatch();
+    const ansBatuk = useSelector(state => state.ansBatuk);
+    let[bsb_wheezing, set_bsb_wheezing] = useState(ansBatuk.bsb_wheezing);
+    let[bsb_saturasiOksigen, set_bsb_saturasiOksigen] = useState(ansBatuk.set_bsb_saturasiOksigen);
+
+    const handleSubmit = event =>{
+        event.preventDefault();
+        dispatch(AnsBatukChange('WHEEZING', bsb_wheezing));
+        dispatch(AnsBatukChange('SATURASI_OKSIGEN', bsb_saturasiOksigen));
+        axios.post(`/Batuk/2`, {
+            bsb_lamaHari: bsb_lamaHari,
+            bsb_jumlahNafas: bsb_jumlahNafas,
+            bsb_nafasCepat: bsb_nafasCepat,
+            bsb_tarikanDindingDada: bsb_tarikanDindingDada,
+            bsb_wheezing: bsb_wheezing,
+            bsb_saturasiOksigen: bsb_saturasiOksigen
+        })
+        .then(res => {
+        dispatch(KlasifikasiBatukChange('BATUK_KLASIFIKASI', res.data.hasilKlasifkasi));
+        dispatch(KlasifikasiBatukChange('BATUK_STATUS', res.data.statusKlasifikasi));
+        })
+        .catch(err=>{
+        console.log(err);
+        });
+        history.push("DiareYaTidak"); 
+        dispatch(compStatusChange('DIARE'));
+    }
+
+    const handleAnswer1 = event =>{
+        set_bsb_wheezing(event.target.value);
+        console.log(bsb_wheezing);
+    }
+
+    const handleAnswer2 = event =>{
+        set_bsb_saturasiOksigen(event.target.value);
+        console.log(bsb_saturasiOksigen)
+    }
+
     return(
-        <Form>
+        <Form onSubmit={handleSubmit}>
             <div className="w-100">
                 <div className="col-12">
                 <div className="d-flex justify-content-center mt-3">
@@ -54,7 +95,7 @@ const Batuk = (props) => {
                                     <Col sm="3">
                                     <FormGroup className="d-inline pr-2">  
                                         <Label className="rdoBtn">Ya
-                                        <Input type="radio" name="radio1"/>
+                                        <Input type="radio" name="radio1" value={1} onChange={handleAnswer1} checked={bsb_wheezing === true}/>
                                         <span style={{left:"20px"}} className="checkmark"></span>
                                         </Label>
                                     </FormGroup>
@@ -65,7 +106,7 @@ const Batuk = (props) => {
                                     <Col sm="3">
                                     <FormGroup className="d-inline">
                                         <Label className="rdoBtn">Tidak
-                                        <Input type="radio" name="radio1"/>
+                                        <Input type="radio" name="radio1" value={2} onChange={handleAnswer1} checked={bsb_wheezing === true}/>
                                         <span style={{left:"0px"}} className="checkmark"></span>
                                         </Label>
                                     </FormGroup>
@@ -78,7 +119,7 @@ const Batuk = (props) => {
                                 <CardTitle className="h5"><b>Tanyakan! </b>Saturasi oksigen</CardTitle>
                                 <div className="w-100 d-flex justify-content-center">
                                     <InputGroup className="w-25">
-                                        <Input type="number" min="0"/>
+                                        <Input type="number" min="0" value={bsb_saturasiOksigen} onChange={handleAnswer2}/>
                                         <InputGroupAddon addonType="append" >
                                             <InputGroupText style={bgColor}>%</InputGroupText>
                                         </InputGroupAddon>

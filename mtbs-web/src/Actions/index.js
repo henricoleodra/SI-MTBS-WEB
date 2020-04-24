@@ -5,7 +5,7 @@ export const compStatusChange = (comp) => {
     }
 }
 
-// ANSWER MTBS
+// ANSWER TBU
 export const AnsTBUChange = (comp, ans) => {
     return{
         type : comp,
@@ -13,8 +13,24 @@ export const AnsTBUChange = (comp, ans) => {
     }
 }
 
-// KLASIFIKASI MTBS
+// KLASIFIKASI TBU
 export const KlasifikasiTBUChange = (comp, ans) =>{
+    return{
+        type : comp,
+        answer : ans
+    }
+}
+
+// ANSWER BATUK
+export const AnsBatukChange = (comp, ans) => {
+    return{
+        type : comp,
+        answer : ans
+    }
+}
+
+// KLASIFIKASI BATUK
+export const KlasifikasiBatukChange = (comp, ans) =>{
     return{
         type : comp,
         answer : ans

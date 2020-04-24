@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button, InputGroup, InputGroupText, InputGroupAddon, Row, Col} from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { useDispatch, useSelector } from 'react-redux';
+import axios from 'axios';
+
+// Actions
+import { KlasifikasiBatukChange, AnsBatukChange } from '../../Actions';
 
 import '../../Assets/style/style.css';
 
@@ -16,8 +21,65 @@ let bgColor ={
 }
 
 const Batuk = (props) => {
+    const history = useHistory();
+    const dispatch = useDispatch();
+    const ansBatuk = useSelector(state => state.ansBatuk);
+    let[bsb_lamaHari, set_bsb_lamaHari] = useState(ansBatuk.bsb_lamaHari);
+    let[bsb_jumlahNafas, set_bsb_jumlahNafas] = useState(ansBatuk.bsb_jumlahNafas);
+    let[bsb_nafasCepat, set_bsb_nafasCepat] = useState(ansBatuk.bsb_nafasCepat);
+    let[bsb_tarikanDindingDada, set_bsb_tarikanDindingDada] = useState(ansBatuk.bsb_tarikanDindingDada);
+
+    const handleSubmit = event =>{
+        event.preventDefault();
+        dispatch(AnsBatukChange('LAMA_HARI', bsb_lamaHari));
+        dispatch(AnsBatukChange('JUMLAH_NAFAS', bsb_jumlahNafas));
+        dispatch(AnsBatukChange('NAFAS_CEPAT', bsb_nafasCepat));
+        dispatch(AnsBatukChange('TARIKAN_DINDING_DADA', bsb_tarikanDindingDada));
+        axios.post(`/Batuk/1`, {
+            bsb_lamaHari: bsb_lamaHari,
+            bsb_jumlahNafas: bsb_jumlahNafas,
+            bsb_nafasCepat: bsb_nafasCepat,
+            bsb_tarikanDindingDada: bsb_tarikanDindingDada
+        })
+        .then(res => {
+          dispatch(KlasifikasiBatukChange('BATUK_KLASIFIKASI', res.data.hasilKlasifkasi));
+          dispatch(KlasifikasiBatukChange('BATUK_STATUS', res.data.statusKlasifikasi));
+        })
+        .catch(err=>{
+          console.log(err);
+        });
+        history.push("Batuk2");
+        
+    }
+
+    const handleAnswer1 = event =>{
+        set_bsb_lamaHari(event.target.value);
+        console.log(bsb_lamaHari);
+    }
+
+    const handleAnswer2 = event =>{
+        set_bsb_jumlahNafas(event.target.value);
+        if(bsb_jumlahNafas>40){
+            set_bsb_nafasCepat(true);
+        }
+        else{
+            set_bsb_nafasCepat(false);   
+        }
+        console.log(bsb_jumlahNafas)
+        console.log(bsb_nafasCepat);
+    }
+
+    const handleAnswer3 = event =>{
+        if(event.target.value == 1){
+            set_bsb_tarikanDindingDada(true);
+        }else if(event.target.value == 2){
+            set_bsb_tarikanDindingDada(false);
+        }
+        console.log(bsb_tarikanDindingDada);
+    }
+
     return(
-        <Form>
+        <Form id="formBatuk1" className="" onSubmit={handleSubmit}>
             <div className="w-100">
                 <div className="col-12">
                 <div className="d-flex justify-content-center mt-3">
@@ -45,7 +107,7 @@ const Batuk = (props) => {
                                 <CardTitle className="h5"><b>Tanyakan! </b>Sudah berapa lama?</CardTitle>
                                     <div className="w-100 d-flex justify-content-center">
                                         <InputGroup className="w-25">
-                                            <Input type="number" min="0"/>
+                                            <Input type="number" min="0" value={bsb_lamaHari} onChange={handleAnswer1}/>
                                             <InputGroupAddon addonType="append" >
                                                 <InputGroupText style={bgColor}>Hari</InputGroupText>
                                             </InputGroupAddon>
@@ -58,7 +120,7 @@ const Batuk = (props) => {
                                 <CardTitle className="h5"><b>Tanyakan! </b>Hitung nafas dalam 1 menit !</CardTitle>
                                 <div className="w-100 d-flex justify-content-center">
                                         <InputGroup className="w-50">
-                                            <Input type="number" min="0"/>
+                                            <Input type="number" min="0" value={bsb_jumlahNafas} onChange={handleAnswer2}/>
                                             <InputGroupAddon addonType="append" >
                                                 <InputGroupText style={bgColor}>Kali/Menit</InputGroupText>
                                             </InputGroupAddon>
@@ -89,7 +151,7 @@ const Batuk = (props) => {
                                     <Col sm="3">
                                     <FormGroup className="d-inline pr-2">  
                                         <Label className="rdoBtn">Ya
-                                        <Input type="radio" name="radio1"/>
+                                        <Input type="radio" name="radio1" value={1} onChange={handleAnswer3} checked={bsb_tarikanDindingDada === true}/>
                                         <span style={{left:"20px"}} className="checkmark"></span>
                                         </Label>
                                     </FormGroup>
@@ -100,7 +162,7 @@ const Batuk = (props) => {
                                     <Col sm="3">
                                     <FormGroup className="d-inline">
                                         <Label className="rdoBtn">Tidak
-                                        <Input type="radio" name="radio1"/>
+                                        <Input type="radio" name="radio1" value={2} onChange={handleAnswer3} checked={bsb_tarikanDindingDada === false}/>
                                         <span style={{left:"0px"}} className="checkmark"></span>
                                         </Label>
                                     </FormGroup>

@@ -26,7 +26,6 @@ const SideBar = (props) => {
     const compStatus = useSelector(state => state.compStatus);
     const klasifikasiTBU = useSelector(state => state.klasifikasiTBU);
     const klasifikasiBatuk = useSelector(state => state.klasifikasiBatuk);
-    const klasifikasiDiare = useSelector(state => state.klasifikasiDiare);
     let sidebar = [
         {
             'title' : 'Tanda Bahaya Umum',
@@ -46,7 +45,7 @@ const SideBar = (props) => {
             'title' : 'Diare',
             'link' : 'Diare1',
             'active' : url==='DiareYaTidak' || url==='Diare',
-            'color' : (klasifikasiDiare.diare_status===null ? 'dark' : klasifikasiDiare.diare_status ),
+            'color' : 'dark',
             'disabled' : compStatus.diare
         },
         {

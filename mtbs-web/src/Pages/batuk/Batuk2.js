@@ -21,7 +21,7 @@ let bgColor ={
     color: 'white'
 }
 
-const Batuk = (props) =>{
+const Batuk2 = (props) =>{
     const history = useHistory();
     const dispatch = useDispatch();
     const ansBatuk = useSelector(state => state.ansBatuk);
@@ -53,12 +53,10 @@ const Batuk = (props) =>{
         }else if(event.target.value == 2){
             set_bsb_wheezing(false);
         }
-        console.log(bsb_wheezing);
     }
 
     const handleAnswer2 = event =>{
         set_bsb_saturasiOksigen(event.target.value);
-        console.log(bsb_saturasiOksigen)
     }
 
     return(

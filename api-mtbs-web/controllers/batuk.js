@@ -22,11 +22,6 @@ const batuk1 = async function(req, res, next) {
     }
 };
 
-<<<<<<< HEAD
-const batuk2 = async function(req, res, next){
-
-}
-=======
 const batuk2 = async function(req, res, next) {
     if(req.body.bsb_tarikanDindingDada || req.body.bsb_saturasiOksigen < 90){
         const ans = {
@@ -50,7 +45,6 @@ const batuk2 = async function(req, res, next) {
         res.json(ans);
     }
 };
->>>>>>> master
 
 module.exports = {
     batuk1, batuk2

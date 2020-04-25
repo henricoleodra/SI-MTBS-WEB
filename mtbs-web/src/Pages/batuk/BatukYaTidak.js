@@ -41,23 +41,23 @@ const Batuk = (props) => {
                                     
                                     </Col>
                                     <Col sm="3">
-                                    <FormGroup className="d-inline pr-2">  
-                                        <Label className="rdoBtn">Ya
-                                        <Input type="radio" name="radio1"/>
-                                        <span style={{left:"20px"}} className="checkmark"></span>
-                                        </Label>
-                                    </FormGroup>
+                                        <FormGroup className="d-inline pr-2">  
+                                            <Label className="rdoBtn">Ya
+                                            <Input type="radio" name="radio1"/>
+                                            <span style={{left:"20px"}} className="checkmark"></span>
+                                            </Label>
+                                        </FormGroup>
                                     </Col>
                                     <Col sm="1">
                                     
                                     </Col>
                                     <Col sm="3">
-                                    <FormGroup className="d-inline">
-                                        <Label className="rdoBtn">Tidak
-                                        <Input type="radio" name="radio1"/>
-                                        <span style={{left:"0px"}} className="checkmark"></span>
-                                        </Label>
-                                    </FormGroup>
+                                        <FormGroup className="d-inline">
+                                            <Label className="rdoBtn">Tidak
+                                            <Input type="radio" name="radio1"/>
+                                            <span style={{left:"0px"}} className="checkmark"></span>
+                                            </Label>
+                                        </FormGroup>
                                     </Col>
                                 </Row>              
                             </CardBody>

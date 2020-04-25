@@ -44,3 +44,19 @@ export const KlasifikasiBatukChange = (comp, ans) =>{
         answer : ans
     }
 }
+
+// ANSWER Diare
+export const AnsDiareChange = (comp, ans) => {
+    return{
+        type : comp,
+        answer : ans
+    }
+}
+
+// KLASIFIKASI Diare
+export const KlasifikasiDiareChange = (comp, ans) =>{
+    return{
+        type : comp,
+        answer : ans
+    }
+}

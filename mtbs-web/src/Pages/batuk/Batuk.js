@@ -35,6 +35,10 @@ const Batuk = (props) => {
         dispatch(AnsBatukChange('JUMLAH_NAFAS', bsb_jumlahNafas));
         dispatch(AnsBatukChange('NAFAS_CEPAT', bsb_nafasCepat));
         dispatch(AnsBatukChange('TARIKAN_DINDING_DADA', bsb_tarikanDindingDada));
+        console.log(bsb_lamaHari);
+        console.log(bsb_jumlahNafas);
+        console.log(bsb_nafasCepat);
+        console.log(bsb_tarikanDindingDada);
         axios.post(`/Batuk/1`, {
             bsb_lamaHari: bsb_lamaHari,
             bsb_jumlahNafas: bsb_jumlahNafas,
@@ -54,19 +58,16 @@ const Batuk = (props) => {
 
     const handleAnswer1 = event =>{
         set_bsb_lamaHari(event.target.value);
-        console.log(bsb_lamaHari);
     }
 
     const handleAnswer2 = event =>{
         set_bsb_jumlahNafas(event.target.value);
-        if(bsb_jumlahNafas>40){
+        if(event.target.value>40){
             set_bsb_nafasCepat(true);
         }
         else{
             set_bsb_nafasCepat(false);   
         }
-        console.log(bsb_jumlahNafas)
-        console.log(bsb_nafasCepat);
     }
 
     const handleAnswer3 = event =>{
@@ -151,7 +152,7 @@ const Batuk = (props) => {
                                     <Col sm="3">
                                     <FormGroup className="d-inline pr-2">  
                                         <Label className="rdoBtn">Ya
-                                        <Input type="radio" name="radio1" value={1} onChange={handleAnswer3} checked={bsb_tarikanDindingDada === true}/>
+                                        <Input type="radio" name="radio1" value={1} onChange={handleAnswer3} checked={bsb_tarikanDindingDada === true} required/>
                                         <span style={{left:"20px"}} className="checkmark"></span>
                                         </Label>
                                     </FormGroup>
@@ -162,7 +163,7 @@ const Batuk = (props) => {
                                     <Col sm="3">
                                     <FormGroup className="d-inline">
                                         <Label className="rdoBtn">Tidak
-                                        <Input type="radio" name="radio1" value={2} onChange={handleAnswer3} checked={bsb_tarikanDindingDada === false}/>
+                                        <Input type="radio" name="radio1" value={2} onChange={handleAnswer3} checked={bsb_tarikanDindingDada === false} required/>
                                         <span style={{left:"0px"}} className="checkmark"></span>
                                         </Label>
                                     </FormGroup>
@@ -179,7 +180,8 @@ const Batuk = (props) => {
                     <Link to="TandaBahayaUmum1" style={{textDecoration: "none"}}><Button style={{width: "250px", height : "60px"}} color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Pemeriksaan Tanda Bahaya Umum</Button></Link>
                 </Col>
                 <Col sm="4">
-                    <Link to="Batuk2" style={{textDecoration: "none"}}><Button style={{width: "250px", height : "60px"}} color="success" block>Berikutnya  <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
+                    {/* <Link to="Batuk2" style={{textDecoration: "none"}}><Button style={{width: "250px", height : "60px"}} color="success" block>Berikutnya  <FontAwesomeIcon icon={faChevronRight}/></Button></Link> */}
+                    <Button type="submit" color="success" block>Berikutnya  <FontAwesomeIcon icon={faChevronRight}/></Button>
                 </Col>
             </Row>
         </div>

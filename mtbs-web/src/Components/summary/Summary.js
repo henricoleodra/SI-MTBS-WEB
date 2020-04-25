@@ -24,6 +24,8 @@ const Summary = () => {
   
   const compStatus = useSelector(state => state.compStatus);
   const klasifikasiTBU = useSelector(state => state.klasifikasiTBU);
+  const klasifikasiBatuk = useSelector(state => state.klasifikasiBatuk);
+  const klasifikasiDiare = useSelector(state => state.klasifikasiDiare);
 
   let summary = [
     {
@@ -34,14 +36,14 @@ const Summary = () => {
     },
     {
       'title' : 'Batuk',
-      'text' : 'Penyakit Batuk',
-      'color' : 'dark',
+      'text' : (klasifikasiBatuk.bsb_klasifikasi===null ? '' : klasifikasiBatuk.bsb_klasifikasi),
+      'color' : (klasifikasiBatuk.bsb_status===null ? 'dark' : klasifikasiBatuk.bsb_status ),
       'disabled' : compStatus.batuk
     },
     {
       'title' : 'Diare',
-      'text' : 'Penyakit Diare',
-      'color' : 'dark',
+      'text' : (klasifikasiDiare.diare_klasifikasi===null ? '' : klasifikasiDiare.diare_klasifikasi),
+      'color' : (klasifikasiDiare.diare_status===null ? 'dark' : klasifikasiDiare.diare_status ),
       'disabled' : compStatus.diare
     },
     {

@@ -4,6 +4,8 @@ import AnsTBUReducer from './AnsTBU';
 import KlasifikasiTBUReducer from './KlasifikasiTBU';
 import AnsBatukReducer from './AnsBatuk';
 import KlasifikasiBatukReducer from './KlasifikasiBatuk';
+import AnsDiareReducer from './AnsBatuk';
+import KlasifikasiDiareReducer from './KlasifikasiBatuk';
 import DataAnakReducer from './DataAnak';
 
 
@@ -13,7 +15,9 @@ const rootReducer = combineReducers({
     ansTBU : AnsTBUReducer,
     klasifikasiTBU : KlasifikasiTBUReducer,
     ansBatuk : AnsBatukReducer,
-    klasifikasiBatuk : KlasifikasiBatukReducer
+    klasifikasiBatuk : KlasifikasiBatukReducer,
+    ansDiare : AnsDiareReducer,
+    klasifikasiDiare : KlasifikasiDiareReducer
 });
 
 export default rootReducer;

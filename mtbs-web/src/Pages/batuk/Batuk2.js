@@ -4,11 +4,11 @@ import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button, InputG
 import { useDispatch, useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
-import { compStatusChange } from '../../Actions';
 import axios from 'axios';
 
 // Actions
 import { KlasifikasiBatukChange, AnsBatukChange } from '../../Actions';
+import { compStatusChange } from '../../Actions';
 
 import '../../Assets/style/style.css';
 
@@ -21,7 +21,7 @@ let bgColor ={
     color: 'white'
 }
 
-const Batuk = (props) =>{
+const Batuk2 = (props) =>{
     const history = useHistory();
     const dispatch = useDispatch();
     const ansBatuk = useSelector(state => state.ansBatuk);
@@ -33,6 +33,10 @@ const Batuk = (props) =>{
         dispatch(AnsBatukChange('WHEEZING', bsb_wheezing));
         dispatch(AnsBatukChange('SATURASI_OKSIGEN', bsb_saturasiOksigen));
         axios.post(`/Batuk/2`, {
+            bsb_lamaHari: ansBatuk.bsb_lamaHari,
+            bsb_jumlahNafas: ansBatuk.bsb_jumlahNafas,
+            bsb_nafasCepat: ansBatuk.bsb_nafasCepat,
+            bsb_tarikanDindingDada: ansBatuk.bsb_tarikanDindingDada,
             bsb_wheezing: bsb_wheezing,
             bsb_saturasiOksigen: bsb_saturasiOksigen
         })
@@ -48,13 +52,15 @@ const Batuk = (props) =>{
     }
 
     const handleAnswer1 = event =>{
-        set_bsb_wheezing(event.target.value);
-        console.log(bsb_wheezing);
+        if(event.target.value == 1){
+            set_bsb_wheezing(true);
+        }else if(event.target.value == 2){
+            set_bsb_wheezing(false);
+        }
     }
 
     const handleAnswer2 = event =>{
         set_bsb_saturasiOksigen(event.target.value);
-        console.log(bsb_saturasiOksigen)
     }
 
     return(
@@ -91,7 +97,7 @@ const Batuk = (props) =>{
                                     <Col sm="3">
                                     <FormGroup className="d-inline pr-2">  
                                         <Label className="rdoBtn">Ya
-                                        <Input type="radio" name="radio1" value={1} onChange={handleAnswer1} checked={bsb_wheezing === true}/>
+                                        <Input type="radio" name="radio1" value={1} onChange={handleAnswer1} checked={bsb_wheezing === true} required/>
                                         <span style={{left:"20px"}} className="checkmark"></span>
                                         </Label>
                                     </FormGroup>
@@ -102,7 +108,7 @@ const Batuk = (props) =>{
                                     <Col sm="3">
                                     <FormGroup className="d-inline">
                                         <Label className="rdoBtn">Tidak
-                                        <Input type="radio" name="radio1" value={2} onChange={handleAnswer1} checked={bsb_wheezing === true}/>
+                                        <Input type="radio" name="radio1" value={2} onChange={handleAnswer1} checked={bsb_wheezing === false} required/>
                                         <span style={{left:"0px"}} className="checkmark"></span>
                                         </Label>
                                     </FormGroup>
@@ -131,7 +137,8 @@ const Batuk = (props) =>{
                     <Link to="Batuk1" style={{textDecoration: "none"}}><Button block style={{width: "250px", height : "60px"}} color="danger" ><FontAwesomeIcon icon={faChevronLeft}/> Pemeriksaan Tanda Bahaya Umum</Button></Link>
                 </Col>
                 <Col sm="4">
-                    <Link to="DiareYaTidak" style={{textDecoration: "none"}}><Button block style={{width: "250px", height : "60px"}} color="success" onClick={() => dispatch(compStatusChange('DIARE'))}>Pemeriksaan Diare   <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
+                    {/* <Link to="DiareYaTidak" style={{textDecoration: "none"}}><Button block style={{width: "250px", height : "60px"}} color="success" onClick={() => dispatch(compStatusChange('DIARE'))}>Pemeriksaan Diare   <FontAwesomeIcon icon={faChevronRight}/></Button></Link> */}
+                    <Button type="submit" color="success" block>Pemeriksaan Diare  <FontAwesomeIcon icon={faChevronRight}/></Button>
                 </Col>
             </Row>
         </div>
@@ -139,4 +146,4 @@ const Batuk = (props) =>{
     );
 }
 
-export default Batuk
+export default Batuk2

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button, InputGroup, InputGroupText, InputGroupAddon, Row, Col} from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
-
+import '../../Assets/style/style.css';
 
 let outlineColor = {
     borderColor : '#41E8B3'
@@ -29,36 +29,46 @@ const Diare = (props) => {
                         }}
                         />
                 </div>
-                <div style={{minHeight: "550px"}}>
+                <div style={{minHeight: "510px"}}>
                     <Row className="justify-content-center">
                         <Card style={outlineColor} className="text-center w-75" >
                             <CardBody className="d-flex justify-content-center flex-column">
                                 <CardTitle className="h5"><b>Tanyakan! </b>Apakah anak diare?</CardTitle>
-                                    <div className="w-100 d-flex justify-content-center">
-                                        <FormGroup check className="d-inline pr-2">
-                                            <Label>
-                                                <Input type="radio" name="radio2" style={{backgroundColor: "blue"}}/>{''}
-                                                Ya
+                                <Row className="limitCol "> 
+                                    <Col  sm="3">
+                                    
+                                    </Col>
+                                    <Col sm="3">
+                                        <FormGroup className="d-inline pr-2">  
+                                            <Label className="rdoBtn">Ya
+                                            <Input type="radio" name="radio1"/>
+                                            <span style={{left:"20px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>
-                                        <FormGroup check className="d-inline">
-                                            <Label>
-                                                <Input type="radio" name="radio2"/>{''}
-                                                Tidak
+                                    </Col>
+                                    <Col sm="1">
+                                    
+                                    </Col>
+                                    <Col sm="3">
+                                        <FormGroup className="d-inline">
+                                            <Label className="rdoBtn">Tidak
+                                            <Input type="radio" name="radio1"/>
+                                            <span style={{left:"0px"}} className="checkmark"></span>
                                             </Label>
-                                        </FormGroup> 
-                                    </div>                 
+                                        </FormGroup>
+                                    </Col>
+                                </Row>         
                             </CardBody>
                         </Card>
                     </Row>
                 </div>
             </div>
-            <Row className="justify-content-between px-5 py-3">
+            <Row className="justify-content-between px-5 py-0">
                 <Col sm="4">
                     <Link to="Batuk1" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Pemeriksaan Batuk</Button></Link>
                 </Col>
                 <Col sm="4">
-                    <Link to="Diare1" style={{textDecoration: "none"}}><Button color="success" block >Selanjutnya <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
+                    <Link to="Diare1" style={{textDecoration: "none"}}><Button color="success" block>Selanjutnya <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
                 </Col>
             </Row>
         </div>

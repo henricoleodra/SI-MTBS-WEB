@@ -40,6 +40,7 @@ const PemeriksaanAnak = (props) => {
                         <Button color="success" style={{ width: '100%'}}>Kembali ke Data Anak</Button><br></br>
                         <Button color="danger" style={{ width: '100%'}} className="mt-3">Kembali</Button>
                     </div>
+                    
                 </div>
                 <div style={{ width: '60%'}} className="m-3 text-center">
                     <HasilPemeriksaan/>

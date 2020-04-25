@@ -10,7 +10,10 @@ import axios from 'axios';
 // Actions
 import { KlasifikasiBatukChange, AnsBatukChange } from '../../Actions';
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 import '../../Assets/style/style.css';
 
 let outlineColor = {
@@ -22,7 +25,11 @@ let bgColor ={
     color: 'white'
 }
 
+<<<<<<< HEAD
 const Batuk2 = (props) =>{
+=======
+const Batuk = (props) =>{
+>>>>>>> master
     const history = useHistory();
     const dispatch = useDispatch();
     const ansBatuk = useSelector(state => state.ansBatuk);
@@ -34,10 +41,13 @@ const Batuk2 = (props) =>{
         dispatch(AnsBatukChange('WHEEZING', bsb_wheezing));
         dispatch(AnsBatukChange('SATURASI_OKSIGEN', bsb_saturasiOksigen));
         axios.post(`/Batuk/2`, {
+<<<<<<< HEAD
             bsb_lamaHari: ansBatuk.bsb_lamaHari,
             bsb_jumlahNafas: ansBatuk.bsb_jumlahNafas,
             bsb_nafasCepat: ansBatuk.bsb_nafasCepat,
             bsb_tarikanDindingDada: ansBatuk.bsb_tarikanDindingDada,
+=======
+>>>>>>> master
             bsb_wheezing: bsb_wheezing,
             bsb_saturasiOksigen: bsb_saturasiOksigen
         })
@@ -53,13 +63,25 @@ const Batuk2 = (props) =>{
     }
 
     const handleAnswer1 = event =>{
+<<<<<<< HEAD
         set_bsb_wheezing(event.target.value);
+=======
+        if(event.target.value == 1){
+            set_bsb_wheezing(true);
+        }else if(event.target.value == 2){
+            set_bsb_wheezing(false);
+        }
+>>>>>>> master
         console.log(bsb_wheezing);
     }
 
     const handleAnswer2 = event =>{
         set_bsb_saturasiOksigen(event.target.value);
+<<<<<<< HEAD
         console.log(bsb_saturasiOksigen);
+=======
+        console.log(bsb_saturasiOksigen)
+>>>>>>> master
     }
 
     return(
@@ -96,7 +118,11 @@ const Batuk2 = (props) =>{
                                     <Col sm="3">
                                     <FormGroup className="d-inline pr-2">  
                                         <Label className="rdoBtn">Ya
+<<<<<<< HEAD
                                         <Input type="radio" name="radio1" value={1} onChange={handleAnswer1} checked={bsb_wheezing === true}/>
+=======
+                                        <Input type="radio" name="radio1" value={1} onChange={handleAnswer1} checked={bsb_wheezing === true} required/>
+>>>>>>> master
                                         <span style={{left:"20px"}} className="checkmark"></span>
                                         </Label>
                                     </FormGroup>
@@ -107,7 +133,11 @@ const Batuk2 = (props) =>{
                                     <Col sm="3">
                                     <FormGroup className="d-inline">
                                         <Label className="rdoBtn">Tidak
+<<<<<<< HEAD
                                         <Input type="radio" name="radio1" value={2} onChange={handleAnswer1} checked={bsb_wheezing === true}/>
+=======
+                                        <Input type="radio" name="radio1" value={2} onChange={handleAnswer1} checked={bsb_wheezing === false} required/>
+>>>>>>> master
                                         <span style={{left:"0px"}} className="checkmark"></span>
                                         </Label>
                                     </FormGroup>
@@ -136,7 +166,8 @@ const Batuk2 = (props) =>{
                     <Link to="Batuk1" style={{textDecoration: "none"}}><Button block style={{width: "250px", height : "60px"}} color="danger" ><FontAwesomeIcon icon={faChevronLeft}/> Pemeriksaan Tanda Bahaya Umum</Button></Link>
                 </Col>
                 <Col sm="4">
-                    <Link to="DiareYaTidak" style={{textDecoration: "none"}}><Button block style={{width: "250px", height : "60px"}} color="success" onClick={() => dispatch(compStatusChange('DIARE'))}>Pemeriksaan Diare   <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
+                    {/* <Link to="DiareYaTidak" style={{textDecoration: "none"}}><Button block style={{width: "250px", height : "60px"}} color="success" onClick={() => dispatch(compStatusChange('DIARE'))}>Pemeriksaan Diare   <FontAwesomeIcon icon={faChevronRight}/></Button></Link> */}
+                    <Button type="submit" color="success" block>Pemeriksaan Diare  <FontAwesomeIcon icon={faChevronRight}/></Button>
                 </Col>
             </Row>
         </div>

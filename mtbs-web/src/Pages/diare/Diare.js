@@ -4,6 +4,10 @@ import { Link } from 'react-router-dom';
 import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button, InputGroup, InputGroupText, InputGroupAddon, Row, Col} from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import axios from 'axios';
+
+// Actions
+import { KlasifikasiDiareChange, AnsDiareChange } from '../../Actions';
 
 import '../../Assets/style/style.css';
 
@@ -17,6 +21,44 @@ let bgColor ={
 }
 
 const Diare = (props) => {
+    const history = useHistory();
+    const dispatch = useDispatch();
+    const ansDiare = useSelector(state => state.ansDiare);
+    let[diare_berapaLama, set_diare_berapaLama] = useState(ansDiare.diare_berapaLama);
+    let[diare_tinjaBerdarah, set_diare_tinjaBerdarah] = useState(ansDiare.diare_tinjaBerdarah);
+
+    const handleSubmit = event =>{
+        event.preventDefault();
+        dispatch(AnsDiareChange('BERAPA_LAMA', diare_berapaLama));
+        dispatch(AnsDiareChange('TINJA_BERDARAH', diare_tinjaBerdarah));
+        axios.post(`/Diare/1`, {
+            diare_berapaLama: diare_berapaLama,
+            diare_tinjaBerdarah: diare_tinjaBerdarah
+        })
+        .then(res => {
+          dispatch(KlasifikasiDiareChange('DIARE_KLASIFIKASI', res.data.hasilKlasifkasi));
+          dispatch(KlasifikasiDiareChange('DIARE_STATUS', res.data.statusKlasifikasi));
+        })
+        .catch(err=>{
+          console.log(err);
+        });
+        history.push("Diare2");
+        
+    }
+
+    const handleAnswer1 = event =>{
+        set_diare_berapaLama(event.target.value);
+    }
+
+    const handleAnswer2 = event =>{
+        if(event.target.value == 1){
+            set_diare_tinjaBerdarah(true);
+        }else if(event.target.value == 2){
+            set_diare_tinjaBerdarah(false);
+        }
+    }
+
+
     return(
         <Form>
             <div className="w-100">
@@ -49,7 +91,7 @@ const Diare = (props) => {
                                 <CardTitle className="h5"><b>Tanyakan dan periksa! </b>Sudah berapa lama?</CardTitle>
                                 <div className="w-100 d-flex justify-content-center">
                                     <InputGroup className="w-50">
-                                        <Input type="number" min="0"/>
+                                        <Input type="number" min="0" value={diare_berapaLama} onChange={handleAnswer1}/>
                                         <InputGroupAddon addonType="append" >
                                             <InputGroupText style={bgColor}>Hari</InputGroupText>
                                         </InputGroupAddon>
@@ -67,7 +109,7 @@ const Diare = (props) => {
                                     <Col sm="3">
                                     <FormGroup className="d-inline pr-2">  
                                         <Label className="rdoBtn">Ya
-                                        <Input type="radio" name="radio1" required/>
+                                        <Input type="radio" name="radio1" value={1} onChange={handleAnswer2} checked={diare_tinjaBerdarah === true} required/>
                                         <span style={{left:"20px"}} className="checkmark"></span>
                                         </Label>
                                     </FormGroup>
@@ -78,7 +120,7 @@ const Diare = (props) => {
                                     <Col sm="3">
                                     <FormGroup className="d-inline">
                                         <Label className="rdoBtn">Tidak
-                                        <Input type="radio" name="radio1"/> 
+                                        <Input type="radio" name="radio1" value={2} onChange={handleAnswer2} checked={diare_tinjaBerdarah === false} required/> 
                                         <span style={{left:"0px"}} className="checkmark"></span>
                                         </Label>
                                     </FormGroup>

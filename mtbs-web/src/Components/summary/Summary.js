@@ -25,6 +25,7 @@ const Summary = () => {
   const compStatus = useSelector(state => state.compStatus);
   const klasifikasiTBU = useSelector(state => state.klasifikasiTBU);
   const klasifikasiBatuk = useSelector(state => state.klasifikasiBatuk);
+  const klasifikasiDiare = useSelector(state => state.klasifikasiDiare);
 
   let summary = [
     {
@@ -41,8 +42,8 @@ const Summary = () => {
     },
     {
       'title' : 'Diare',
-      'text' : 'Penyakit Diare',
-      'color' : 'dark',
+      'text' : (klasifikasiDiare.diare_klasifikasi===null ? '' : klasifikasiDiare.diare_klasifikasi),
+      'color' : (klasifikasiDiare.diare_status===null ? 'dark' : klasifikasiDiare.diare_status ),
       'disabled' : compStatus.diare
     },
     {

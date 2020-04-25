@@ -4,11 +4,11 @@ import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button, InputG
 import { useDispatch, useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
-import { compStatusChange } from '../../Actions';
 import axios from 'axios';
 
 // Actions
 import { KlasifikasiBatukChange, AnsBatukChange } from '../../Actions';
+import { compStatusChange } from '../../Actions';
 
 import '../../Assets/style/style.css';
 
@@ -33,6 +33,10 @@ const Batuk2 = (props) =>{
         dispatch(AnsBatukChange('WHEEZING', bsb_wheezing));
         dispatch(AnsBatukChange('SATURASI_OKSIGEN', bsb_saturasiOksigen));
         axios.post(`/Batuk/2`, {
+            bsb_lamaHari: ansBatuk.bsb_lamaHari,
+            bsb_jumlahNafas: ansBatuk.bsb_jumlahNafas,
+            bsb_nafasCepat: ansBatuk.bsb_nafasCepat,
+            bsb_tarikanDindingDada: ansBatuk.bsb_tarikanDindingDada,
             bsb_wheezing: bsb_wheezing,
             bsb_saturasiOksigen: bsb_saturasiOksigen
         })

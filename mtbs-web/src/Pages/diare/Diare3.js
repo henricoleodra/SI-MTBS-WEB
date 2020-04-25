@@ -1,17 +1,65 @@
 
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button, Row, Col} from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { useDispatch, useSelector } from 'react-redux';
+import axios from 'axios';
+
+// Actions
+import { KlasifikasiDiareChange, AnsDiareChange } from '../../Actions';
+
+import '../../Assets/style/style.css';
 
 let outlineColor = {
     borderColor : '#41E8B3'
 }
 
-const Diare = (props) => {
+const Diare3 = (props) => {
+    const history = useHistory();
+    const useDispatch = useDispatch();
+    const ansDiare = useSelector(state=> state.ansDiare);
+    let[diare_isNotMinum, set_diare_isNotMinum] = useState(ansDiare.diare_isNotMinum);
+    let[diare_kulitPerutLambat, set_diare_kulitPerutLambat]=useState(ansDiare.diare_kulitPerutLambat);
+    const handleSubmit = event =>{
+        event.preventDefault();
+        dispatchEvent(AnsDiareChange('#', diare_isNotMinum));
+        dispatchEvent(AnsDiareChange('#', diare_kulitPerutLambat));
+        axios.post(`/Diare/3`,{
+            diare_isNotMinum: diare_isNotMinum,
+            diare_kulitPerutLambat: diare_kulitPerutLambat
+        })
+        .then(res =>{
+            dispatch(KlasifikasiDiareChange('DIARE_KLASIFIKASI', res.data.hasilKlasifikasi));
+            dispatch(KlasifikasiDiareChange('DIARE_STATUS', res.data.statusKlasifikasi));
+        })
+        .catch(err=>{
+            console.log(err);
+        });
+        history.pushState("DemamYaTidak");
+    }
+
+    const handleAnswer1 = event =>{
+        if(event.target.value == 1){
+            set_diare_isNotMinum(true);
+        }else{
+            set_diare_kulitPerutLambat(false);
+        }
+    }
+
+    const handleAnswer2 = event =>{
+        if(event.target.value ==='SangatLambat'){
+            set_diare_kulitPerutLambat('SangatLambat');
+        }else if(event.target.value ==='Lambat'){
+            set_diare_kulitPerutLambat('Lambat');
+        }else{
+            set_diare_kulitPerutLambat('Normal');
+        }
+    }
+
     return(
-        <Form>
+        <Form id="formDiare1" onSubmit={handleSubmit}>
             <div className="w-100">
                 <div className="col-12">
                 <div className="d-flex justify-content-center mt-3">
@@ -41,19 +89,19 @@ const Diare = (props) => {
                             <CardBody>
                                 <CardTitle className="h5"><b>Tanyakan! </b>Beri anak minum</CardTitle>
                                 <Row className="limitCol "> 
-                                    <Col sm="6">
+                                    <Col sm="7">
                                         <FormGroup className="d-inline pr-2">  
-                                            <Label className="rdoBtn">Tidak bisa minum / malas minum
-                                            <Input type="radio" name="radio1" required/>
-                                            <span style={{left:"20px"}} className="checkmark"></span>
+                                            <Label className="rdoBtn" style={{ fontSize: "18px"}}>Tidak bisa minum / malas minum
+                                            <Input type="radio" value={1} onChange={handleAnswer1} checked={diare_isNotMinum === true} name="radio1" required/>
+                                            <span style={{top:"1px", left:"1px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>
                                     </Col>
-                                    <Col sm="6">
+                                    <Col sm="5">
                                         <FormGroup className="d-inline">
-                                            <Label className="rdoBtn">Haus, minum dengan lahap
-                                            <Input type="radio" name="radio1"/> 
-                                            <span style={{left:"0px"}} className="checkmark"></span>
+                                            <Label className="rdoBtn" style={{ fontSize: "18px"}}>Haus, minum dengan lahap
+                                            <Input type="radio" value={2} onChange={handleAnswer1} checked={diare_isNotMinum === false} name="radio1"/> 
+                                            <span style={{top:"1px", left:"-25px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>
                                     </Col>
@@ -63,24 +111,38 @@ const Diare = (props) => {
                         <Card style={outlineColor} className="text-center w-75 mt-3">
                             <CardBody>
                                 <CardTitle className="h5"><b>Tanyakan! </b>Cubit kulit perut, apakah kembalinya : </CardTitle>
-                                <FormGroup check className="pr-2">
-                                    <Label>
-                                        <Input type="radio" name="radio6"/>{''}
-                                        Sangat lambat (lebih dari 2 detik)
-                                    </Label>
-                                </FormGroup>
-                                <FormGroup check className="pr-2">
-                                    <Label>
-                                        <Input type="radio" name="radio6"/>{''}
-                                        Lambat (masih sempat terlihat lipatan kulit)
-                                    </Label>
-                                </FormGroup>
-                                <FormGroup check className="pr-2">
-                                    <Label>
-                                        <Input type="radio" name="radio6"/>{''}
-                                        Normal
-                                    </Label>
-                                </FormGroup>
+                                <Row className="limitCol "> 
+                                    <Col sm="12">
+                                        <FormGroup className="d-inline pr-2">  
+                                            <Label className="rdoBtn">
+                                                <Col sm= "11" style={{left:"-17px"}}>Sangat lambat (lebih dari 2 detik)</Col>
+                                                <Input value={'SangatLambat'} onChange={handleAnswer2} checked={diare_kulitPerutLambat === 'SangatLambat'} type="radio" name="radio2" required/>
+                                                <span style={{left:"70px"}} className="checkmark"></span>
+                                            </Label>
+                                        </FormGroup>
+                                    </Col>
+                                </Row>
+                                <Row className="limitCol ">
+                                    <Col sm="12">
+                                        <FormGroup className="d-inline pr-2">  
+                                            <Label className="rdoBtn">Lambat(masih sempat terlihat lipatan kulit)
+                                                <Input type="radio" name="radio2" value={'Lambat'} onChange={handleAnswer2} checked={diare_kulitPerutLambat === 'Lambat'}/>
+                                                <span style={{left:"70px"}} className="checkmark"></span>
+                                            </Label>
+                                        </FormGroup>
+                                    </Col>
+                                </Row>
+                                <Row className="limitCol ">
+                                    <Col sm="12">
+                                        <FormGroup className="d-inline">
+                                            <Label className="rdoBtn">
+                                                <Col sm="6" style={{left:"-11px"}}>Normal</Col>
+                                                <Input type="radio" name="radio2" value={'Normal'} onChange={handleAnswer2} checked={diare_kulitPerutLambat === 'Normal'}/> 
+                                                <span style={{left:"70px"}} className="checkmark"></span>
+                                            </Label>
+                                        </FormGroup>
+                                    </Col>
+                                </Row>
                             </CardBody>
                         </Card>
                     </Row>
@@ -91,7 +153,7 @@ const Diare = (props) => {
                     <Link to="Diare2" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Sebelumnya</Button></Link>
                 </Col>
                 <Col sm="4">
-                    <Button type="submit" color="success" block> Pemeriksaan Batuk <FontAwesomeIcon icon={faChevronRight}/></Button>
+                    <Button type="submit" color="success" block> Pemeriksaan Demam <FontAwesomeIcon icon={faChevronRight}/></Button>
                 </Col>
             </Row>
         </div>
@@ -99,4 +161,4 @@ const Diare = (props) => {
     );
 }
 
-export default Diare
+export default Diare3

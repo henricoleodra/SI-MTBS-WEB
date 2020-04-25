@@ -62,7 +62,7 @@ const Batuk = (props) => {
 
     const handleAnswer2 = event =>{
         set_bsb_jumlahNafas(event.target.value);
-        if(event.target.value>40){
+        if(bsb_jumlahNafas > 40){
             set_bsb_nafasCepat(true);
         }
         else{

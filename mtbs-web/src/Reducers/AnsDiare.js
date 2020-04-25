@@ -1,0 +1,56 @@
+const initState = {
+    diare_berapaLama : null,
+    diare_tinjaBerdarah : null,
+    diare_isAnakTidakSadar : null,
+    diare_rewelMudahMarah : null,
+    diare_isMataCekung : null,
+    diare_isNotMinum : null,
+    diare_isMinum : null,
+    diare_kulitPerutSangatLambat : null,
+    diare_kulitPerutLambat : null
+}
+
+const ansDiareReducer = (state = initState, action) => {
+    switch(action.type){
+        case 'BERAPA_LAMA':
+            return Object.assign({}, state, {
+                diare_berapaLama : action.answer
+            });
+        case 'TINJA_BERDARAH':
+            return Object.assign({}, state, {
+                diare_tinjaBerdarah : action.answer
+            });
+        case 'ANAK_TIDAK_SADAR':
+            return Object.assign({}, state, {
+                diare_isAnakTidakSadar : action.answer
+            });
+        case 'REWEL_MUDAH_MARAH':
+            return Object.assign({}, state, {
+                diare_rewelMudahMarah : action.answer
+            });
+        case 'MATA_CEKUNG':
+            return Object.assign({}, state, {
+                diare_isMataCekung : action.answer
+            });
+        case 'TIDAK_MINUM':
+            return Object.assign({}, state, {
+                diare_isNotMinum : action.answer
+            });
+        case 'MINUM':
+            return Object.assign({}, state, {
+                diare_isMinum : action.answer
+            });
+        case 'KULIT_PERUT_SANGAT_LAMBAT':
+            return Object.assign({}, state, {
+                diare_kulitPerutSangatLambat : action.answer
+            });
+        case 'KULIT_PERUT_LAMBAT':
+            return Object.assign({}, state, {
+                diare_kulitPerutLambat : action.answer
+            });
+        default:
+            return state;
+    }
+}
+
+export default ansDiareReducer;

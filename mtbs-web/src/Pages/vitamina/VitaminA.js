@@ -4,6 +4,7 @@ import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button, Row, C
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
+import '../../Assets/style/style.css';
 
 var outlineColor = {
     borderColor : '#41E8B3'
@@ -29,7 +30,7 @@ const Vitamina = (props) => {
                     }}
                     />
                 </div>
-                <div style={{minHeight: "500px"}}>
+                <div style={{minHeight: "455px"}}>
                     <Row className="justify-content-center">
                         <Card style={outlineColor} className="text-center w-75 mt-3">
                             <CardBody>
@@ -51,12 +52,12 @@ const Vitamina = (props) => {
                     </Row>
                 </div>
             </div>
-            <Row className="justify-content-between px-5 py-3">
+            <Row className="justify-content-between px-5 py-0">
                 <Col sm="4">
-                    <Link to="Imunisasi1" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Pemeriksaan Imunisasi</Button></Link>
+                    <Link to="Imunisasi1" style={{textDecoration: "none"}}><Button style={{width: "250px", height : "60px"}} color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Pemeriksaan Imunisasi</Button></Link>
                 </Col>
                 <Col sm="4">
-                    <Link to="KeluhanLain" style={{textDecoration: "none"}}><Button color="success" block >Pemeriksaan Keluhan Lain <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
+                    <Button type="KeluhanLain" style={{width: "250px", height : "60px"}} color="success" block >Pemeriksaan Keluhan Lain <FontAwesomeIcon icon={faChevronRight}/></Button>
                 </Col>
             </Row>
         </div>

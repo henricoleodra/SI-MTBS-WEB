@@ -26,8 +26,8 @@ const SideBar = (props) => {
     const compStatus = useSelector(state => state.compStatus);
     const klasifikasiTBU = useSelector(state => state.klasifikasiTBU);
     const klasifikasiBatuk = useSelector(state => state.klasifikasiBatuk);
-    const klasifikasiDiare = useSelector(state => state.klasifikasiDiare);
     const dataAnak = useSelector(state => state.dataAnak)
+    const klasifikasiDiare = useSelector(state => state.klasifikasiDiare);
     let sidebar = [
         {
             'title' : 'Tanda Bahaya Umum',
@@ -114,7 +114,8 @@ const SideBar = (props) => {
             'disabled' : compStatus.makan
         },
       ];
-    let jenisKelamin = (dataAnak.jenisKelamin === true ? "Laki-laki" : "Perempuan")
+    let jenisKelamin = (dataAnak.jenisKelamin === true ? "Laki-laki" : "Perempuan");
+    let umur = (Math.floor(dataAnak.umurAnak/30) < 12 ? Math.floor(dataAnak.umurAnak/30) + " Bulan" : Math.floor(Math.floor(dataAnak.umurAnak/30)/12) + " Tahun");
     const renderSideBar = sidebar.map((curr, index) => {
     return(
         <SideBarItem key={"sidebar" + index} title={curr.title} link={curr.link} active={curr.active} color={curr.color} disabled={curr.disabled}/>
@@ -176,6 +177,7 @@ const SideBar = (props) => {
                     </div>
                     <hr style={{backgroundColor: '#41E8B3', width: 1, height: "15vh"}} className="ml-5 mr-5"/>
                     <div className="ml-0">
+                        <div><Label style={bold}>Umur: </Label> {umur}</div>
                         <div><Label style={bold}>Berat Badan: </Label> {dataAnak.beratAnak} Kg</div>
                         <div><Label style={bold}>Tinggi Badan: </Label> {dataAnak.tinggiAnak} cm</div>
                         <div><Label style={bold}>Keluhan Anak: </Label> {dataAnak.keluhanAwal}</div>

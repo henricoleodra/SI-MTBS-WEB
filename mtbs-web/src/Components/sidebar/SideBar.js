@@ -26,6 +26,7 @@ const SideBar = (props) => {
     const compStatus = useSelector(state => state.compStatus);
     const klasifikasiTBU = useSelector(state => state.klasifikasiTBU);
     const klasifikasiBatuk = useSelector(state => state.klasifikasiBatuk);
+    const dataAnak = useSelector(state => state.dataAnak)
     let sidebar = [
         {
             'title' : 'Tanda Bahaya Umum',
@@ -112,7 +113,7 @@ const SideBar = (props) => {
             'disabled' : compStatus.makan
         },
       ];
-    
+    let jenisKelamin = (dataAnak.jenisKelamin === true ? "Laki-laki" : "Perempuan")
     const renderSideBar = sidebar.map((curr, index) => {
     return(
         <SideBarItem key={"sidebar" + index} title={curr.title} link={curr.link} active={curr.active} color={curr.color} disabled={curr.disabled}/>
@@ -132,7 +133,7 @@ const SideBar = (props) => {
                             </Col>
                             <Col sm="10" className="">
                                 <div>
-                                    <Label>Nama Anak :</Label> <strong>Harry Senjaya</strong>
+                                    <Label>Nama Anak :</Label> <strong>{dataAnak.namaAnak}</strong>
                                 </div>
                                 <div>
                                     <Label>Click disini untuk Detail Anak!</Label> 
@@ -166,19 +167,19 @@ const SideBar = (props) => {
                 <ModalHeader toggle={toggle} style={bgColor}>Profile Anak</ModalHeader>
                 <ModalBody className="d-flex">
                     <div>
-                        <div><Label style={bold}>Nama Anak :</Label> Harry Senjaya</div>
-                        <div><Label style={bold}>Nama Ibu :</Label> Friska Christiana</div>
-                        <div><Label style={bold}>Jenis Kelamin :</Label> Laki-laki</div>
-                        <div><Label style={bold}>Tanggal Lahir: </Label> 4 Mei 2020</div>
-                        <div><Label style={bold}>Suhu: </Label> 37 °C</div>
+                        <div><Label style={bold}>Nama Anak :</Label> {dataAnak.namaAnak}</div>
+                        <div><Label style={bold}>Nama Ibu :</Label> {dataAnak.namaIbu}</div>
+                        <div><Label style={bold}>Jenis Kelamin :</Label> {jenisKelamin}</div>
+                        <div><Label style={bold}>Tanggal Lahir: </Label> {dataAnak.tglLahir}</div>
+                        <div><Label style={bold}>Suhu: </Label> {dataAnak.suhuAnak} °C</div>
                     </div>
                     <hr style={{backgroundColor: '#41E8B3', width: 1, height: "15vh"}} className="ml-5 mr-5"/>
                     <div className="ml-0">
-                        <div><Label style={bold}>Berat Badan: </Label> 100 kg</div>
-                        <div><Label style={bold}>Tinggi Badan: </Label> 50 cm</div>
-                        <div><Label style={bold}>Keluhan Anak: </Label> Diare, Muntah-muntah, Nangis</div>
-                        <div><Label style={bold}>Kunjungan Ke: </Label> 5</div>
-                        <div><Label style={bold}>Alamat: </Label> Indonesia, Bandung</div>
+                        <div><Label style={bold}>Berat Badan: </Label> {dataAnak.beratAnak} Kg</div>
+                        <div><Label style={bold}>Tinggi Badan: </Label> {dataAnak.tinggiAnak} cm</div>
+                        <div><Label style={bold}>Keluhan Anak: </Label> {dataAnak.keluhanAwal}</div>
+                        <div><Label style={bold}>Kunjungan Ke: </Label> {dataAnak.kunjunganKe}</div>
+                        <div><Label style={bold}>Alamat: </Label> {dataAnak.alamatAnak}</div>
                     </div>
                 </ModalBody>
                 <ModalFooter className="d-flex justify-content-center">

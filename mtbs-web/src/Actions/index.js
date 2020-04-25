@@ -5,6 +5,14 @@ export const compStatusChange = (comp) => {
     }
 }
 
+// DATA ANAK
+export const DataAnakChange = (comp, ans) => {
+    return{
+        type : comp,
+        answer : ans
+    }
+}
+
 // ANSWER TBU
 export const AnsTBUChange = (comp, ans) => {
     return{

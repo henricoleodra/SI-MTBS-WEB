@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button, InputGroup, InputGroupAddon, InputGroupText, Row, Col} from "reactstrap";
 import { useDispatch, useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -33,10 +33,6 @@ const Batuk = (props) =>{
         dispatch(AnsBatukChange('WHEEZING', bsb_wheezing));
         dispatch(AnsBatukChange('SATURASI_OKSIGEN', bsb_saturasiOksigen));
         axios.post(`/Batuk/2`, {
-            bsb_lamaHari: bsb_lamaHari,
-            bsb_jumlahNafas: bsb_jumlahNafas,
-            bsb_nafasCepat: bsb_nafasCepat,
-            bsb_tarikanDindingDada: bsb_tarikanDindingDada,
             bsb_wheezing: bsb_wheezing,
             bsb_saturasiOksigen: bsb_saturasiOksigen
         })

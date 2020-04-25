@@ -3,7 +3,7 @@ import {Card, CardBody, CardImg, Button, Label} from 'reactstrap';
 
 //import components
 import HeaderTitle from './../../Components/headertitle/HeaderTitle'
-import HasilPemeriksaan from '../../Components/hasilpemeriksaan/HasilPemeriksaan'
+import HasilPemeriksaan from '../../Components/hasilpemeriksaan/hasilpemeriksaan'
 
 import '../../Assets/style/style.css';
 
@@ -40,6 +40,7 @@ const PemeriksaanAnak = (props) => {
                         <Button color="success" style={{ width: '100%'}}>Kembali ke Data Anak</Button><br></br>
                         <Button color="danger" style={{ width: '100%'}} className="mt-3">Kembali</Button>
                     </div>
+                    
                 </div>
                 <div style={{ width: '60%'}} className="m-3 text-center">
                     <HasilPemeriksaan/>

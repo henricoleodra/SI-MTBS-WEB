@@ -18,14 +18,28 @@ let outlineColor = {
 
 const Diare3 = (props) => {
     const history = useHistory();
-    const useDispatch = useDispatch();
+    const dispatch = useDispatch();
     const ansDiare = useSelector(state=> state.ansDiare);
     let[diare_isNotMinum, set_diare_isNotMinum] = useState(ansDiare.diare_isNotMinum);
     let[diare_kulitPerutLambat, set_diare_kulitPerutLambat]=useState(ansDiare.diare_kulitPerutLambat);
     const handleSubmit = event =>{
         event.preventDefault();
-        dispatchEvent(AnsDiareChange('#', diare_isNotMinum));
-        dispatchEvent(AnsDiareChange('#', diare_kulitPerutLambat));
+        
+        if(diare_isNotMinum === 1){
+            dispatch(AnsDiareChange('TIDAK_MINUM', diare_isNotMinum));
+        }else{
+            dispatch(AnsDiareChange('MINUM'), diare_isNotMinum);
+        }
+
+        if(diare_kulitPerutLambat === 'SangatLambat'){
+            dispatch(AnsDiareChange('KULIT_PERUT_SANGAT_LAMBAT', diare_kulitPerutLambat));
+        }else if(diare_kulitPerutLambat === 'Lambat'){
+            dispatch(AnsDiareChange('KULIT_PERUT_LAMBAT', diare_kulitPerutLambat));
+        }else{
+            dispatch(AnsDiareChange('KULIT_PERUT_LAMBAT', diare_kulitPerutLambat));
+        }
+        
+        dispatch(AnsDiareChange('Minum', diare_kulitPerutLambat));
         axios.post(`/Diare/3`,{
             diare_isNotMinum: diare_isNotMinum,
             diare_kulitPerutLambat: diare_kulitPerutLambat

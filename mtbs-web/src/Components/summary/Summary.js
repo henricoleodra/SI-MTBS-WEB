@@ -125,7 +125,7 @@ const Summary = () => {
         <Col className="mr-0 pr-0 pl-0">
           <div className="mb-4">
             <h2>
-              <Badge href="#" className="p-3 border-glow w-100"color="danger" hidden="true" pill>
+              <Badge href="#" className="p-3" color="danger" style={{width: "270px"}} hidden={klasifikasiTBU.tbu_status != "danger" && klasifikasiBatuk.bsb_status != "danger" && klasifikasiDiare.diare_status != "danger"} pill>
                 Rujuk Segera
                 <FontAwesomeIcon icon={faExclamationTriangle} className="ml-3"/>
               </Badge>

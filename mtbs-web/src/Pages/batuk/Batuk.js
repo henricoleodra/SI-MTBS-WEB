@@ -24,6 +24,7 @@ const Batuk = (props) => {
     const history = useHistory();
     const dispatch = useDispatch();
     const ansBatuk = useSelector(state => state.ansBatuk);
+    const klasifikasiBatuk = useSelector(state => state.klasifikasiBatuk);
     const dataAnak = useSelector(state => state.dataAnak);
     let[bsb_lamaHari, set_bsb_lamaHari] = useState(ansBatuk.bsb_lamaHari);
     let[bsb_jumlahNafas, set_bsb_jumlahNafas] = useState(ansBatuk.bsb_jumlahNafas);
@@ -47,11 +48,28 @@ const Batuk = (props) => {
             bsb_tarikanDindingDada: bsb_tarikanDindingDada
         })
         .then(res => {
-          dispatch(KlasifikasiBatukChange('BATUK_KLASIFIKASI', res.data.hasilKlasifkasi));
-          dispatch(KlasifikasiBatukChange('BATUK_STATUS', res.data.statusKlasifikasi));
+            if(klasifikasiBatuk.bsb_status != null){
+                if(res.data.statusKlasifikasi === "danger"){
+                    dispatch(KlasifikasiBatukChange('BATUK_KLASIFIKASI', res.data.hasilKlasifkasi));
+                    dispatch(KlasifikasiBatukChange('BATUK_STATUS', res.data.statusKlasifikasi));
+                }
+                else{
+                    if(klasifikasiBatuk.bsb_status != "danger"){
+                        if(res.data.statusKlasifikasi === "warning" ){
+                            dispatch(KlasifikasiBatukChange('BATUK_KLASIFIKASI', res.data.hasilKlasifkasi));
+                            dispatch(KlasifikasiBatukChange('BATUK_STATUS', res.data.statusKlasifikasi));
+                        }
+                    }
+                }
+            }
+            else{
+                dispatch(KlasifikasiBatukChange('BATUK_KLASIFIKASI', res.data.hasilKlasifkasi));
+                dispatch(KlasifikasiBatukChange('BATUK_STATUS', res.data.statusKlasifikasi));
+            }      
+            
         })
         .catch(err=>{
-          console.log(err);
+            console.log(err);
         });
         history.push("Batuk2");
         

@@ -38,14 +38,14 @@ const SideBar = (props) => {
         },
         {
             'title' : 'Batuk',
-            'link' : 'Batuk1',
+            'link' : 'BatukYaTidak',
             'active' : url==='BatukYaTidak' || url==='Batuk',
             'color' : (klasifikasiBatuk.bsb_status===null ? 'dark' : klasifikasiBatuk.bsb_status ),
             'disabled' : compStatus.batuk
         },
         {
             'title' : 'Diare',
-            'link' : 'Diare1',
+            'link' : 'DiareYaTidak',
             'active' : url==='DiareYaTidak' || url==='Diare',
             'color' : (klasifikasiDiare.diare_status===null ? 'dark' : klasifikasiDiare.diare_status ),
             'disabled' : compStatus.diare

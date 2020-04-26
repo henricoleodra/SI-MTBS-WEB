@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button, InputGroup, InputGroupText, InputGroupAddon, Row, Col} from "reactstrap";
+import { Link, useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button, Row, Col} from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
 import '../../Assets/style/style.css';
+
+// Actions
+import { KlasifikasiBatukChange, AnsBatukChange } from '../../Actions';
 
 let outlineColor = {
     borderColor : '#41E8B3'
@@ -16,8 +20,36 @@ let bgColor ={
 }
 
 const Batuk = (props) => {
+    const history = useHistory();
+    const dispatch = useDispatch();
+    const ansBatuk = useSelector(state => state.ansBatuk);
+    let [bsb, setBsb] = useState(ansBatuk.bsb);
+    
+    const handleBatuk = event =>{
+        if(event.target.value == 1){
+            setBsb(true);
+        }
+        else{
+            setBsb(false);
+        }
+    }
+
+    const handleSubmit = event =>{
+        event.preventDefault();
+        if(bsb == true){
+            dispatch(AnsBatukChange('BATUK', bsb));
+            history.push("Batuk1");
+        }
+        else{
+            dispatch(AnsBatukChange('BATUK', bsb));
+            dispatch(KlasifikasiBatukChange('BATUK_KLASIFIKASI', ""));
+            dispatch(KlasifikasiBatukChange('BATUK_STATUS', "success"));
+            history.push("DiareYaTidak");
+        }
+    }
+
     return(
-        <Form>
+        <Form onSubmit={handleSubmit}>
             <div className="w-100">
                 <div className="col-12">
                     <div className="mt-2">
@@ -43,7 +75,7 @@ const Batuk = (props) => {
                                     <Col sm="3">
                                         <FormGroup className="d-inline pr-2">  
                                             <Label className="rdoBtn">Ya
-                                            <Input type="radio" name="radio1"/>
+                                            <Input type="radio" name="radio1" value={1} onChange={handleBatuk} checked={bsb ===  true}/>
                                             <span style={{left:"20px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>
@@ -54,7 +86,7 @@ const Batuk = (props) => {
                                     <Col sm="3">
                                         <FormGroup className="d-inline">
                                             <Label className="rdoBtn">Tidak
-                                            <Input type="radio" name="radio1"/>
+                                            <Input type="radio" name="radio1" value={2} onChange={handleBatuk} checked={bsb ===  false} />
                                             <span style={{left:"0px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>
@@ -71,7 +103,7 @@ const Batuk = (props) => {
                     <Link to="TandaBahayaUmum1" style={{textDecoration: "none"}}><Button block style={{width: "250px", height : "60px"}} color="danger"><FontAwesomeIcon icon={faChevronLeft}/> Pemeriksaan Tanda Bahaya Umum</Button></Link>
                 </Col>
                 <Col sm="4">
-                    <Link to="Batuk1" style={{textDecoration: "none"}}><Button block style={{width: "250px", height : "60px"}} color="success">Berikutnya  <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
+                    <Button type="submit" block style={{width: "250px", height : "60px"}} color="success">Berikutnya  <FontAwesomeIcon icon={faChevronRight}/></Button>
                 </Col>
             </Row>
         </div>

@@ -94,14 +94,14 @@ const diare3 = async function(req, res, next) {
     }
     else if(berat > 1){
         const ans = {
-            hasilKlasifkasi : 'Diare Dehidrasi Berat',
+            hasilKlasifikasi : 'Diare Dehidrasi Berat',
             statusKlasifikasi: 'danger',
         }
         res.json(ans);
     }
     else if(ringan > 1){
         const ans = {
-            hasilKlasifkasi : 'Diare Dehidrasi Ringan/Sedang',
+            hasilKlasifikasi : 'Diare Dehidrasi Ringan/Sedang',
             statusKlasifikasi: 'warning',
         }
         res.json(ans);

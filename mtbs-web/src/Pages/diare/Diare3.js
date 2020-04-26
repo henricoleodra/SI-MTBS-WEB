@@ -23,22 +23,9 @@ const Diare3 = (props) => {
     let[diare_kulitPerutLambat, set_diare_kulitPerutLambat]=useState(ansDiare.diare_kulitPerutLambat);
     const handleSubmit = event =>{
         event.preventDefault();
-        
-        if(diare_isNotMinum === 1){
-            dispatch(AnsDiareChange('TIDAK_MINUM', diare_isNotMinum));
-        }else{
-            dispatch(AnsDiareChange('MINUM'), diare_isNotMinum);
-        }
+        dispatch(AnsDiareChange('TIDAK_MINUM', diare_isNotMinum));
+        dispatch(AnsDiareChange('KULIT_PERUT_LAMBAT', diare_kulitPerutLambat));
 
-        if(diare_kulitPerutLambat === 'SangatLambat'){
-            dispatch(AnsDiareChange('KULIT_PERUT_SANGAT_LAMBAT', diare_kulitPerutLambat));
-        }else if(diare_kulitPerutLambat === 'Lambat'){
-            dispatch(AnsDiareChange('KULIT_PERUT_LAMBAT', diare_kulitPerutLambat));
-        }else{
-            dispatch(AnsDiareChange('KULIT_PERUT_LAMBAT', diare_kulitPerutLambat));
-        }
-        
-        dispatch(AnsDiareChange('Minum', diare_kulitPerutLambat));
         axios.post(`/Diare/3`,{
             diare_berapaLama: ansDiare.diare_berapaLama,
             diare_tinjaBerdarah: ansDiare.diare_tinjaBerdarah,
@@ -50,6 +37,7 @@ const Diare3 = (props) => {
         })
         .then(res =>{
             dispatch(KlasifikasiDiareChange('DIARE_KLASIFIKASI', res.data.hasilKlasifikasi));
+            console.log(res.data.hasilKlasifikasi);
             dispatch(KlasifikasiDiareChange('DIARE_STATUS', res.data.statusKlasifikasi));
         })
         .catch(err=>{
@@ -77,7 +65,7 @@ const Diare3 = (props) => {
     }
 
     return(
-        <Form id="formDiare1" onSubmit={handleSubmit}>
+        <Form id="formDiare3" onSubmit={handleSubmit}>
             <div className="w-100">
                 <div className="col-12">
                 <div className="d-flex justify-content-center mt-3">
@@ -118,7 +106,7 @@ const Diare3 = (props) => {
                                     <Col sm="5">
                                         <FormGroup className="d-inline">
                                             <Label className="rdoBtn" style={{ fontSize: "18px"}}>Haus, minum dengan lahap
-                                            <Input type="radio" value={2} onChange={handleAnswer1} checked={diare_isNotMinum === false} name="radio1"/> 
+                                            <Input type="radio" value={2} onChange={handleAnswer1} checked={diare_isNotMinum === false} name="radio1" required/> 
                                             <span style={{top:"1px", left:"-25px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>

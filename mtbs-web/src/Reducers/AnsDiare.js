@@ -5,8 +5,6 @@ const initState = {
     diare_rewelMudahMarah : null,
     diare_isMataCekung : null,
     diare_isNotMinum : null,
-    diare_isMinum : null,
-    diare_kulitPerutSangatLambat : null,
     diare_kulitPerutLambat : null
 }
 
@@ -35,14 +33,6 @@ const ansDiareReducer = (state = initState, action) => {
         case 'TIDAK_MINUM':
             return Object.assign({}, state, {
                 diare_isNotMinum : action.answer
-            });
-        case 'MINUM':
-            return Object.assign({}, state, {
-                diare_isMinum : action.answer
-            });
-        case 'KULIT_PERUT_SANGAT_LAMBAT':
-            return Object.assign({}, state, {
-                diare_kulitPerutSangatLambat : action.answer
             });
         case 'KULIT_PERUT_LAMBAT':
             return Object.assign({}, state, {

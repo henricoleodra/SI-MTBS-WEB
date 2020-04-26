@@ -105,7 +105,7 @@ const Diare2 = (props) => {
                                 />
                                 <div className="d-flex flex-column justify-content-around pt-2">
                                     <div className="">
-                                        <h6>Letargis / tidak sadar</h6>
+                                        <h5>Letargis / tidak sadar</h5>
                                         <Row className="limitCol "> 
                                             <Col  sm="3">
                                             
@@ -133,7 +133,7 @@ const Diare2 = (props) => {
                                     </div>
                                     <br></br>
                                     <div className="">
-                                        <h6>Rewel / mudah marah</h6>
+                                        <h5>Rewel / mudah marah</h5>
                                         <Row className="limitCol "> 
                                             <Col  sm="3">
                                             

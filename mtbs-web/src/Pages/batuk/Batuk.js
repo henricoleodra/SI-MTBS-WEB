@@ -66,7 +66,6 @@ const Batuk = (props) => {
                 dispatch(KlasifikasiBatukChange('BATUK_KLASIFIKASI', res.data.hasilKlasifkasi));
                 dispatch(KlasifikasiBatukChange('BATUK_STATUS', res.data.statusKlasifikasi));
             }      
-            
         })
         .catch(err=>{
             console.log(err);

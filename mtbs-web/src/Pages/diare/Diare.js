@@ -25,6 +25,7 @@ const Diare = (props) => {
     const history = useHistory();
     const dispatch = useDispatch();
     const ansDiare = useSelector(state => state.ansDiare);
+    const klasifikasiDiare = useSelector(state => state.klasifikasiDiare);
     let[diare_berapaLama, set_diare_berapaLama] = useState(ansDiare.diare_berapaLama);
     let[diare_tinjaBerdarah, set_diare_tinjaBerdarah] = useState(ansDiare.diare_tinjaBerdarah);
 
@@ -37,8 +38,24 @@ const Diare = (props) => {
             diare_tinjaBerdarah: diare_tinjaBerdarah
         })
         .then(res => {
-          dispatch(KlasifikasiDiareChange('DIARE_KLASIFIKASI', res.data.hasilKlasifkasi));
-          dispatch(KlasifikasiDiareChange('DIARE_STATUS', res.data.statusKlasifikasi));
+            if(klasifikasiDiare.diare_klasifikasi != null){
+                if(res.data.statusKlasifikasi === "danger"){
+                    dispatch(KlasifikasiDiareChange('DIARE_KLASIFIKASI', res.data.hasilKlasifkasi));
+                    dispatch(KlasifikasiDiareChange('DIARE_STATUS', res.data.statusKlasifikasi));
+                }
+                else{
+                    if(klasifikasiDiare.diare_klasifikasi != "danger"){
+                        if(res.data.statusKlasifikasi === "warning" ){
+                            dispatch(KlasifikasiDiareChange('DIARE_KLASIFIKASI', res.data.hasilKlasifkasi));
+                            dispatch(KlasifikasiDiareChange('DIARE_STATUS', res.data.statusKlasifikasi));
+                        }
+                    }
+                }
+            }
+            else{
+                dispatch(KlasifikasiDiareChange('DIARE_KLASIFIKASI', res.data.hasilKlasifkasi));
+                dispatch(KlasifikasiDiareChange('DIARE_STATUS', res.data.statusKlasifikasi));
+            }    
         })
         .catch(err=>{
           console.log(err);

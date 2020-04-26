@@ -20,6 +20,7 @@ const Diare2 = (props) => {
     const history = useHistory();
     const dispatch = useDispatch();
     const ansDiare = useSelector(state => state.ansDiare);
+    const klasifikasiDiare = useSelector(state => state.klasifikasiDiare);
     let[diare_isAnakTidakSadar, set_diare_isAnakTidakSadar] = useState(ansDiare.diare_isAnakTidakSadar);
     let[diare_rewelMudahMarah, set_diare_rewelMudahMarah] = useState(ansDiare.diare_rewelMudahMarah);
     let[diare_isMataCekung, set_diare_isMataCekung] = useState(ansDiare.diare_isMataCekung);
@@ -37,8 +38,24 @@ const Diare2 = (props) => {
             diare_isMataCekung: diare_isMataCekung
         })
         .then(res => {
-            dispatch(KlasifikasiDiareChange('DIARE_KLASIFIKASI', res.data.hasilKlasifkasi));
-            dispatch(KlasifikasiDiareChange('DIARE_STATUS', res.data.statusKlasifikasi));
+            if(klasifikasiDiare.diare_klasifikasi != null){
+                if(res.data.statusKlasifikasi === "danger"){
+                    dispatch(KlasifikasiDiareChange('DIARE_KLASIFIKASI', res.data.hasilKlasifkasi));
+                    dispatch(KlasifikasiDiareChange('DIARE_STATUS', res.data.statusKlasifikasi));
+                }
+                else{
+                    if(klasifikasiDiare.diare_klasifikasi != "danger"){
+                        if(res.data.statusKlasifikasi === "warning" ){
+                            dispatch(KlasifikasiDiareChange('DIARE_KLASIFIKASI', res.data.hasilKlasifkasi));
+                            dispatch(KlasifikasiDiareChange('DIARE_STATUS', res.data.statusKlasifikasi));
+                        }
+                    }
+                }
+            }
+            else{
+                dispatch(KlasifikasiDiareChange('DIARE_KLASIFIKASI', res.data.hasilKlasifkasi));
+                dispatch(KlasifikasiDiareChange('DIARE_STATUS', res.data.statusKlasifikasi));
+            }    
         })
         .catch(err=>{
             console.log(err);

@@ -240,7 +240,7 @@ const TandaBahayaUmum = (props) => {
           
           <Row className="justify-content-between px-5 py-0">
             <Col sm="4">
-              <Link to="#" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Data Anak</Button></Link>
+              <Link to="../IsiDataAnak1" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Data Anak</Button></Link>
             </Col>
             <Col sm="4">
               <Button type="submit" color="success" block>Berikutnya  <FontAwesomeIcon icon={faChevronRight}/></Button>

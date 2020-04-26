@@ -20,6 +20,7 @@ const TandaBahayaUmum = (props) => {
   const history = useHistory();
   const dispatch = useDispatch();
   const ansTBU = useSelector(state => state.ansTBU);
+  const klasifikasiTBU = useSelector(state => state.klasifikasiTBU);
   let[tbu_tidakBisaMinum, set_tbu_tidakBisaMinum] = useState(ansTBU.tbu_tidakBisaMinum);
   let[tbu_muntah, set_tbu_muntah] = useState(ansTBU.tbu_muntah);
   let[tbu_kejang, set_tbu_kejang] = useState(ansTBU.tbu_kejang);
@@ -39,8 +40,22 @@ const TandaBahayaUmum = (props) => {
       tbu_gelisah: tbu_gelisah
     })
     .then(res => {
-      dispatch(KlasifikasiTBUChange('TBU_KLASIFIKASI', res.data.hasilKlasifkasi));
-      dispatch(KlasifikasiTBUChange('TBU_STATUS', res.data.statusKlasifikasi));
+      if(klasifikasiTBU.tbu_status != null){
+        if(res.data.statusKlasifikasi === "danger"){
+          dispatch(KlasifikasiTBUChange('TBU_KLASIFIKASI', res.data.hasilKlasifkasi));
+          dispatch(KlasifikasiTBUChange('TBU_STATUS', res.data.statusKlasifikasi));
+        }
+        else{
+          if(klasifikasiTBU.tbu_status != "danger"){
+            dispatch(KlasifikasiTBUChange('TBU_KLASIFIKASI', res.data.hasilKlasifkasi));
+            dispatch(KlasifikasiTBUChange('TBU_STATUS', res.data.statusKlasifikasi));
+          }
+        }
+      }
+      else{
+        dispatch(KlasifikasiTBUChange('TBU_KLASIFIKASI', res.data.hasilKlasifkasi));
+        dispatch(KlasifikasiTBUChange('TBU_STATUS', res.data.statusKlasifikasi));
+      }      
     })
     .catch(err=>{
       console.log(err);

@@ -4,8 +4,8 @@ import AnsTBUReducer from './AnsTBU';
 import KlasifikasiTBUReducer from './KlasifikasiTBU';
 import AnsBatukReducer from './AnsBatuk';
 import KlasifikasiBatukReducer from './KlasifikasiBatuk';
-import AnsDiareReducer from './AnsBatuk';
-import KlasifikasiDiareReducer from './KlasifikasiBatuk';
+import AnsDiareReducer from './AnsDiare';
+import KlasifikasiDiareReducer from './KlasifikasiDiare';
 import DataAnakReducer from './DataAnak';
 
 

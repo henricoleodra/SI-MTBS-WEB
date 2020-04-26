@@ -154,7 +154,7 @@ const Diare3 = (props) => {
                                     <Col sm="12">
                                         <FormGroup className="d-inline">
                                             <Label className="rdoBtn">
-                                                <Col sm="6" style={{left:"-11px"}}>Normal</Col>
+                                                <Col sm="6" style={{left:"-13px"}}>Normal</Col>
                                                 <Input type="radio" name="radio2" value={'Normal'} onChange={handleAnswer2} checked={diare_kulitPerutLambat === 'Normal'}/> 
                                                 <span style={{left:"70px"}} className="checkmark"></span>
                                             </Label>

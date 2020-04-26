@@ -40,6 +40,11 @@ const Diare3 = (props) => {
         
         dispatch(AnsDiareChange('Minum', diare_kulitPerutLambat));
         axios.post(`/Diare/3`,{
+            diare_berapaLama: ansDiare.diare_berapaLama,
+            diare_tinjaBerdarah: ansDiare.diare_tinjaBerdarah,
+            diare_isAnakTidakSadar: ansDiare.diare_isAnakTidakSadar,
+            diare_rewelMudahMarah: ansDiare.diare_rewelMudahMarah,
+            diare_isMataCekung: ansDiare.diare_isMataCekung,
             diare_isNotMinum: diare_isNotMinum,
             diare_kulitPerutLambat: diare_kulitPerutLambat
         })

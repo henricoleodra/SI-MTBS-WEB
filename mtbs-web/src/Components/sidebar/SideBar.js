@@ -115,7 +115,6 @@ const SideBar = (props) => {
         },
       ];
     let jenisKelamin = (dataAnak.jenisKelamin === true ? "Laki-laki" : "Perempuan");
-    let umur = (Math.floor(dataAnak.umurAnak/30) < 12 ? Math.floor(dataAnak.umurAnak/30) + " Bulan" : Math.floor(Math.floor(dataAnak.umurAnak/30)/12) + " Tahun");
     const renderSideBar = sidebar.map((curr, index) => {
     return(
         <SideBarItem key={"sidebar" + index} title={curr.title} link={curr.link} active={curr.active} color={curr.color} disabled={curr.disabled}/>
@@ -173,11 +172,11 @@ const SideBar = (props) => {
                         <div><Label style={bold}>Nama Ibu :</Label> {dataAnak.namaIbu}</div>
                         <div><Label style={bold}>Jenis Kelamin :</Label> {jenisKelamin}</div>
                         <div><Label style={bold}>Tanggal Lahir: </Label> {dataAnak.tglLahir}</div>
+                        <div><Label style={bold}>Umur: </Label> {dataAnak.displayUmurAnak}</div>
                         <div><Label style={bold}>Suhu: </Label> {dataAnak.suhuAnak} °C</div>
                     </div>
-                    <hr style={{backgroundColor: '#41E8B3', width: 1, height: "15vh"}} className="ml-5 mr-5"/>
+                    <hr style={{backgroundColor: '#41E8B3', width: 1, height: "20vh"}} className="ml-5 mr-5"/>
                     <div className="ml-0">
-                        <div><Label style={bold}>Umur: </Label> {umur}</div>
                         <div><Label style={bold}>Berat Badan: </Label> {dataAnak.beratAnak} Kg</div>
                         <div><Label style={bold}>Tinggi Badan: </Label> {dataAnak.tinggiAnak} cm</div>
                         <div><Label style={bold}>Keluhan Anak: </Label> {dataAnak.keluhanAwal}</div>

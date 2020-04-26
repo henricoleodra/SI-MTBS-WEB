@@ -60,6 +60,17 @@ const IsiDataAnak1 = () =>{
         var tmpCurDate = new Date();
         var tmpTanggalLahir = new Date(tglLahir);
         var differenceInDays =  Math.floor((tmpCurDate.getTime()-tmpTanggalLahir.getTime()) / (1000 * 3600 * 24));
+        var month = Math.floor(differenceInDays/30);
+        if(month >=12){
+            var year = Math.floor(month/12);
+            var tmpMonth = month%12;
+            var umur = year + " tahun " + tmpMonth + " bulan"; 
+            dispatch(DataAnakChange('DISPLAY_UMUR_ANAK', umur)); 
+        }
+        else{
+            var umur = month + " bulan";
+            dispatch(DataAnakChange('DISPLAY_UMUR_ANAK', umur)); 
+        }
         dispatch(DataAnakChange('UMUR_ANAK', differenceInDays));
         dispatch(DataAnakChange('TANGGAL_KUNJUNGAN', tmpCurDate));
         dispatch(DataAnakChange('KUNJUNGAN_PERTAMA', true));

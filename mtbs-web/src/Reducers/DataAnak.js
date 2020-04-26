@@ -5,6 +5,7 @@ const initState = {
     tglLahir : "",
     alamatAnak : "",
     umurAnak : "",
+    displayUmurAnak : "",
     suhuAnak : "",
     beratAnak : "",
     tinggiAnak : "",
@@ -52,6 +53,10 @@ const dataAnakReducer = (state = initState, action) => {
         case 'UMUR_ANAK':
             return Object.assign({}, state, {
                 umurAnak : action.answer
+            });
+        case 'DISPLAY_UMUR_ANAK':
+            return Object.assign({}, state, {
+                displayUmurAnak : action.answer
             });
         case 'KUNJUNGAN_KE':
             return Object.assign({}, state, {

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Badge } from 'reactstrap';
+import { Badge, Row,Col } from 'reactstrap';
 import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExclamationTriangle} from '@fortawesome/free-solid-svg-icons';
@@ -121,17 +121,22 @@ const Summary = () => {
 
   return(
     <div className="w-100">
-      <div className="mb-4">
-        <h2>
-          <Badge href="#" className="p-3 border-glow w-100" color="danger" pill>
-            Rujuk Segera
-            <FontAwesomeIcon icon={faExclamationTriangle} className="ml-3"/>
-          </Badge>
-        </h2>
+      <Row className="w-100 mr-0 ml-0 mt-0 mb-0" style={{top:"0px"}}>
+        <Col className="mr-0 pr-0 pl-0">
+          <div className="mb-4">
+            <h2>
+              <Badge href="#" className="p-3 border-glow w-100"color="danger" hidden="true" pill>
+                Rujuk Segera
+                <FontAwesomeIcon icon={faExclamationTriangle} className="ml-3"/>
+              </Badge>
+            </h2>
+          </div>
+        </Col>
+      </Row>
+      <div className="" style={{width:"270px",top:"82px", position:"absolute"}}>
+        {renderSummary}
       </div>
-
-      {renderSummary}
-
+      
     </div>
   );
 };

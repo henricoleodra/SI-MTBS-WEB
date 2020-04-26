@@ -55,14 +55,14 @@ const Diare3 = (props) => {
         .catch(err=>{
             console.log(err);
         });
-        history.pushState("DemamYaTidak");
+        history.push("DemamYaTidak");
     }
 
     const handleAnswer1 = event =>{
         if(event.target.value == 1){
             set_diare_isNotMinum(true);
         }else{
-            set_diare_kulitPerutLambat(false);
+            set_diare_isNotMinum(false);
         }
     }
 

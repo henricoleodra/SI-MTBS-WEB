@@ -23,6 +23,7 @@ const Diare2 = (props) => {
     let[diare_isAnakTidakSadar, set_diare_isAnakTidakSadar] = useState(ansDiare.diare_isAnakTidakSadar);
     let[diare_rewelMudahMarah, set_diare_rewelMudahMarah] = useState(ansDiare.diare_rewelMudahMarah);
     let[diare_isMataCekung, set_diare_isMataCekung] = useState(ansDiare.diare_isMataCekung);
+
     const handleSubmit = event =>{
         event.preventDefault();
         dispatch(AnsDiareChange('ANAK_TIDAK_SADAR', diare_isAnakTidakSadar));
@@ -124,7 +125,7 @@ const Diare2 = (props) => {
                                             <Col sm="3">
                                             <FormGroup className="d-inline">
                                                 <Label className="rdoBtn">Tidak
-                                                <Input type="radio" name="radio1"  value={2} onChange={handleAnswer1} checked={diare_isAnakTidakSadar === false}/> 
+                                                <Input type="radio" name="radio1"  value={2} onChange={handleAnswer1} checked={diare_isAnakTidakSadar === false} required/> 
                                                 <span style={{left:"0px"}} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>
@@ -152,7 +153,7 @@ const Diare2 = (props) => {
                                             <Col sm="3">
                                             <FormGroup className="d-inline">
                                                 <Label className="rdoBtn">Tidak
-                                                <Input type="radio" name="radio2" value={2} onChange={handleAnswer2} checked={diare_rewelMudahMarah === false}/> 
+                                                <Input type="radio" name="radio2" value={2} onChange={handleAnswer2} checked={diare_rewelMudahMarah === false} required/> 
                                                 <span style={{left:"0px"}} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>
@@ -184,7 +185,7 @@ const Diare2 = (props) => {
                                     <Col sm="3">
                                     <FormGroup className="d-inline">
                                         <Label className="rdoBtn">Tidak
-                                        <Input type="radio" name="radio3"  value={2} onChange={handleAnswer3} checked={diare_isMataCekung === false}/> 
+                                        <Input type="radio" name="radio3"  value={2} onChange={handleAnswer3} checked={diare_isMataCekung === false} required/> 
                                         <span style={{left:"0px"}} className="checkmark"></span>
                                         </Label>
                                     </FormGroup>

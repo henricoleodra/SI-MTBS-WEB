@@ -7,8 +7,7 @@ import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid
 import axios from 'axios';
 
 // Actions
-import { KlasifikasiBatukChange, AnsBatukChange } from '../../Actions';
-import { compStatusChange } from '../../Actions';
+import { KlasifikasiBatukChange, AnsBatukChange, compStatusChange} from '../../Actions';
 
 import '../../Assets/style/style.css';
 
@@ -47,8 +46,8 @@ const Batuk2 = (props) =>{
         .catch(err=>{
         console.log(err);
         });
-        history.push("DiareYaTidak"); 
         dispatch(compStatusChange('DIARE'));
+        history.push("DiareYaTidak"); 
     }
 
     const handleAnswer1 = event =>{

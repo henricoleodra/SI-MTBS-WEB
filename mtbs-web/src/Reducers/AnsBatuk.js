@@ -12,7 +12,7 @@ const ansBatukReducer = (state = initState, action) => {
     switch(action.type){
         case 'BATUK':
             return Object.assign({}, state, {
-                bsb_lamaHari : action.answer
+                bsb : action.answer
             });
         case 'LAMA_HARI':
             return Object.assign({}, state, {

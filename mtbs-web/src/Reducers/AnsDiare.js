@@ -1,4 +1,5 @@
 const initState = {
+    diare : null,
     diare_berapaLama : null,
     diare_tinjaBerdarah : null,
     diare_isAnakTidakSadar : null,
@@ -10,6 +11,10 @@ const initState = {
 
 const ansDiareReducer = (state = initState, action) => {
     switch(action.type){
+        case 'DIARE':
+            return Object.assign({}, state, {
+                diare : action.answer
+            });
         case 'BERAPA_LAMA':
             return Object.assign({}, state, {
                 diare_berapaLama : action.answer

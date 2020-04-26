@@ -8,7 +8,7 @@ import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons
 import '../../Assets/style/style.css';
 
 // Actions
-import { KlasifikasiBatukChange, AnsBatukChange } from '../../Actions';
+import { KlasifikasiBatukChange, AnsBatukChange, compStatusChange } from '../../Actions';
 
 let outlineColor = {
     borderColor : '#41E8B3'
@@ -37,6 +37,10 @@ const Batuk = (props) => {
     const handleSubmit = event =>{
         event.preventDefault();
         if(bsb == true){
+            if(ansBatuk.bsb === false){
+                dispatch(KlasifikasiBatukChange('BATUK_KLASIFIKASI', ""));
+                dispatch(KlasifikasiBatukChange('BATUK_STATUS', null));
+            }
             dispatch(AnsBatukChange('BATUK', bsb));
             history.push("Batuk1");
         }
@@ -46,6 +50,7 @@ const Batuk = (props) => {
             dispatch(KlasifikasiBatukChange('BATUK_STATUS', "success"));
             history.push("DiareYaTidak");
         }
+        dispatch(compStatusChange('DIARE'));
     }
 
     return(

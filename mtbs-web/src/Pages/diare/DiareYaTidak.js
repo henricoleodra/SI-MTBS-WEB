@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button, InputGroup, InputGroupText, InputGroupAddon, Row, Col} from "reactstrap";
+import { Link, useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button, Row, Col} from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import '../../Assets/style/style.css';
+
+// Actions
+import { KlasifikasiDiareChange, AnsDiareChange, compStatusChange } from '../../Actions';
 
 let outlineColor = {
     borderColor : '#41E8B3'
@@ -15,8 +19,40 @@ let bgColor ={
 }
 
 const Diare = (props) => {
+    const history = useHistory();
+    const dispatch = useDispatch();
+    const ansDiare = useSelector(state => state.ansDiare);
+    let [diare, setDiare] = useState(ansDiare.diare);
+    
+    const handleDiare = event =>{
+        if(event.target.value == 1){
+            setDiare(true);
+        }
+        else{
+            setDiare(false);
+        }
+    }
+
+    const handleSubmit = event =>{
+        event.preventDefault();
+        if(diare == true){
+            if(ansDiare.diare === false){
+                dispatch(KlasifikasiDiareChange('DIARE_KLASIFIKASI', ""));
+                dispatch(KlasifikasiDiareChange('DIARE_STATUS', null));
+            }
+            dispatch(AnsDiareChange('DIARE', diare));
+            history.push("Diare1");
+        }
+        else{
+            dispatch(AnsDiareChange('DIARE', diare));
+            dispatch(KlasifikasiDiareChange('DIARE_KLASIFIKASI', ""));
+            dispatch(KlasifikasiDiareChange('DIARE_STATUS', "success"));
+            history.push("DemamYaTidak");
+        }
+        dispatch(compStatusChange('DEMAM'));
+    }
     return(
-        <Form>
+        <Form onSubmit={handleSubmit}>
             <div className="w-100">
                 <div className="col-12">
                     <div className="mt-2">
@@ -41,7 +77,7 @@ const Diare = (props) => {
                                     <Col sm="3">
                                         <FormGroup className="d-inline pr-2">  
                                             <Label className="rdoBtn">Ya
-                                            <Input type="radio" name="radio1"/>
+                                            <Input type="radio" name="radio1" value={1} onChange={handleDiare}/>
                                             <span style={{left:"20px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>
@@ -52,7 +88,7 @@ const Diare = (props) => {
                                     <Col sm="3">
                                         <FormGroup className="d-inline">
                                             <Label className="rdoBtn">Tidak
-                                            <Input type="radio" name="radio1"/>
+                                            <Input type="radio" name="radio1" value={2} onChange={handleDiare}/>
                                             <span style={{left:"0px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>
@@ -65,10 +101,10 @@ const Diare = (props) => {
             </div>
             <Row className="justify-content-between px-5 py-0">
                 <Col sm="4">
-                    <Link to="Batuk1" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Pemeriksaan Batuk</Button></Link>
+                    <Link to="BatukYaTidak" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Pemeriksaan Batuk</Button></Link>
                 </Col>
                 <Col sm="4">
-                    <Link to="Diare1" style={{textDecoration: "none"}}><Button color="success" block>Selanjutnya <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
+                    <Button color="success" block>Selanjutnya <FontAwesomeIcon icon={faChevronRight}/></Button>
                 </Col>
             </Row>
         </div>

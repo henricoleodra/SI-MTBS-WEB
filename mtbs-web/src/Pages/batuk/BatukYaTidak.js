@@ -48,9 +48,9 @@ const Batuk = (props) => {
             dispatch(AnsBatukChange('BATUK', bsb));
             dispatch(KlasifikasiBatukChange('BATUK_KLASIFIKASI', ""));
             dispatch(KlasifikasiBatukChange('BATUK_STATUS', "success"));
+            dispatch(compStatusChange('DIARE'));
             history.push("DiareYaTidak");
         }
-        dispatch(compStatusChange('DIARE'));
     }
 
     return(

@@ -47,9 +47,9 @@ const Diare = (props) => {
             dispatch(AnsDiareChange('DIARE', diare));
             dispatch(KlasifikasiDiareChange('DIARE_KLASIFIKASI', ""));
             dispatch(KlasifikasiDiareChange('DIARE_STATUS', "success"));
+            dispatch(compStatusChange('DEMAM'));
             history.push("DemamYaTidak");
         }
-        dispatch(compStatusChange('DEMAM'));
     }
     return(
         <Form onSubmit={handleSubmit}>

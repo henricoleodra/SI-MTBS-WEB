@@ -3,7 +3,11 @@ const initState = {
     namaIbu : "",
     jenisKelamin : null,
     tglLahir : "",
+    provinsiAnak : null,
     alamatAnak : "",
+    rtrwAnak : "",
+    kelDesAnak : "",
+    kotKecAnak : "",
     umurAnak : "",
     displayUmurAnak : "",
     suhuAnak : "",
@@ -34,9 +38,25 @@ const dataAnakReducer = (state = initState, action) => {
             return Object.assign({}, state, {
                 tglLahir : action.answer
             });
+        case 'PROVINSI':
+            return Object.assign({}, state, {
+                provinsiAnak : action.answer
+            });
         case 'ALAMAT_ANAK':
             return Object.assign({}, state, {
                 alamatAnak : action.answer
+            });
+        case 'RT_RW':
+                return Object.assign({}, state, {
+                    rtrwAnak : action.answer
+            });
+        case 'KELURAHAN_DESA':
+            return Object.assign({}, state, {
+                kelDesAnak : action.answer
+            });
+        case 'KOTA_KECAMATAN':
+            return Object.assign({}, state, {
+                kotKecAnak : action.answer
             });
         case 'SUHU_ANAK':
             return Object.assign({}, state, {

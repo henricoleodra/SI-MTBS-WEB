@@ -133,7 +133,7 @@ const HIV2 = (props) =>{
                                             <Col sm="3">
                                                 <FormGroup className="d-inline pr-2">  
                                                     <Label className="rdoBtn">Ya
-                                                    <Input type="radio" name="radio1" value={1} onChange={handleAnswer1} checked={hiv_kerabatTerdiagnosis === true}/>
+                                                    <Input type="radio" name="radio1" value={1} onChange={handleAnswer1} checked={hiv_kerabatTerdiagnosis === true} required/>
                                                     <span style={{left:"20px"}} className="checkmark"></span>
                                                     </Label>
                                                 </FormGroup>
@@ -144,7 +144,7 @@ const HIV2 = (props) =>{
                                             <Col sm="3">
                                                 <FormGroup className="d-inline">
                                                     <Label className="rdoBtn">Tidak
-                                                    <Input type="radio" name="radio1" value={2} onChange={handleAnswer1} checked={hiv_kerabatTerdiagnosis === true}/>
+                                                    <Input type="radio" name="radio1" value={2} onChange={handleAnswer1} checked={hiv_kerabatTerdiagnosis === false} required/>
                                                     <span style={{left:"6px"}} className="checkmark"></span>
                                                     </Label>
                                                 </FormGroup>
@@ -160,7 +160,7 @@ const HIV2 = (props) =>{
                                             <Col sm="3">
                                                 <FormGroup className="d-inline pr-2">  
                                                     <Label className="rdoBtn">Ya
-                                                    <Input type="radio" name="radio2" value={1} onChange={handleAnswer2} checked={hiv_kerabatMeninggal === true}/>
+                                                    <Input type="radio" name="radio2" value={1} onChange={handleAnswer2} checked={hiv_kerabatMeninggal === true} required/>
                                                     <span style={{left:"20px"}} className="checkmark"></span>
                                                     </Label>
                                                 </FormGroup>
@@ -171,7 +171,7 @@ const HIV2 = (props) =>{
                                             <Col sm="3">
                                                 <FormGroup className="d-inline">
                                                     <Label className="rdoBtn">Tidak
-                                                    <Input type="radio" name="radio2" value={2} onChange={handleAnswer2} checked={hiv_kerabatMeninggal === true}/>
+                                                    <Input type="radio" name="radio2" value={2} onChange={handleAnswer2} checked={hiv_kerabatMeninggal === false} required/>
                                                     <span style={{left:"6px"}} className="checkmark"></span>
                                                     </Label>
                                                 </FormGroup>
@@ -191,7 +191,7 @@ const HIV2 = (props) =>{
                                     <Col sm="3">
                                         <FormGroup className="d-inline pr-2">  
                                             <Label className="rdoBtn">Ya
-                                            <Input type="radio" name="radio3" value={1} onChange={handleAnswer3} checked={hiv_masihDapatASI === true}/>
+                                            <Input type="radio" name="radio3" value={1} onChange={handleAnswer3} checked={hiv_masihDapatASI === true} required/>
                                             <span style={{left:"20px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>
@@ -202,7 +202,7 @@ const HIV2 = (props) =>{
                                     <Col sm="3">
                                         <FormGroup className="d-inline">
                                             <Label className="rdoBtn">Tidak
-                                            <Input type="radio" name="radio3" value={2} onChange={handleAnswer3} checked={hiv_masihDapatASI === true}/>
+                                            <Input type="radio" name="radio3" value={2} onChange={handleAnswer3} checked={hiv_masihDapatASI === false} required/>
                                             <span style={{left:"6px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>

@@ -59,7 +59,7 @@ const HIV = (props) =>{
         .catch(err=>{
             console.log(err);
         });
-        history.push("Imunisasi"); 
+        history.push("Imunisasi1"); 
     }
 
     const handleAnswer1 = event =>{

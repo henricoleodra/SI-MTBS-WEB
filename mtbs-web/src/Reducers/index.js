@@ -29,7 +29,7 @@ const rootReducer = combineReducers({
     ansAnemia : AnsAnemiaReducer,
     klasifikasiAnemia : KlasifikasiAnemiaReducer,
     ansHIV : AnsHIVReducer,
-    klasifikasiHIV : KlasifikasiHIVReducer,
+    klasifikasiHIV : KlasifikasiHIVReducer
 });
 
 export default rootReducer;

@@ -68,7 +68,7 @@ const HIV = (props) =>{
         .catch(err=>{
             console.log(err);
         });
-        history.push("HIV2"); 
+        //history.push("HIV2"); 
     }
 
     const handleAnswer1 = event =>{

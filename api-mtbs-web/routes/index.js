@@ -4,6 +4,7 @@ const tandabahayaumum = require('../controllers/tandabahayaumum');
 const batuk = require('../controllers/batuk');
 const diare = require('../controllers/diare');
 const anemia = require('../controllers/anemia');
+const hiv = require('../controllers/hiv');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -22,5 +23,9 @@ router.post(`/Diare/2`,diare.diare2);
 router.post(`/Diare/3`,diare.diare3);
 //Anemia
 router.post(`/Anemia`,anemia.anemia);
+//HIV
+router.post(`/HIV/1`,hiv.hiv1);
+router.post(`/HIV/2`,hiv.hiv2);
+router.post(`/HIV/3`,hiv.hiv3);
 
 module.exports = router;

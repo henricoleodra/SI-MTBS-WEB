@@ -135,11 +135,10 @@ const Batuk2 = (props) =>{
             </div>
             <Row className="justify-content-between px-5 py-0">
                 <Col sm="4">
-                    <Link to="Batuk1" style={{textDecoration: "none"}}><Button block style={{width: "250px", height : "60px"}} color="danger" ><FontAwesomeIcon icon={faChevronLeft}/> Pemeriksaan Tanda Bahaya Umum</Button></Link>
+                    <Link to="Batuk1" style={{textDecoration: "none"}}><Button block color="danger" ><FontAwesomeIcon icon={faChevronLeft}/> Sebelumnya</Button></Link>
                 </Col>
                 <Col sm="4">
-                    {/* <Link to="DiareYaTidak" style={{textDecoration: "none"}}><Button block style={{width: "250px", height : "60px"}} color="success" onClick={() => dispatch(compStatusChange('DIARE'))}>Pemeriksaan Diare   <FontAwesomeIcon icon={faChevronRight}/></Button></Link> */}
-                    <Button type="submit" color="success" block>Pemeriksaan Diare  <FontAwesomeIcon icon={faChevronRight}/></Button>
+                   <Button type="submit" color="success" block>Pemeriksaan Diare <FontAwesomeIcon icon={faChevronRight}/></Button>
                 </Col>
             </Row>
         </div>

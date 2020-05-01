@@ -49,7 +49,7 @@ const handleSubmit = event =>{
         dispatch(KlasifikasiTelingaChange('TELINGA_KLASIFIKASI', ""));
         dispatch(KlasifikasiTelingaChange('TELINGA_STATUS', "success"));
         dispatch(compStatusChange('GIZI'));
-        history.push("Gizi1");
+        history.push("Gizi");
     }
 }
 

@@ -34,24 +34,24 @@ const Batuk = (props) => {
         }
     }
 
-    const handleSubmit = event =>{
-        event.preventDefault();
-        if(bsb == true){
-            if(ansBatuk.bsb === false){
-                dispatch(KlasifikasiBatukChange('BATUK_KLASIFIKASI', ""));
-                dispatch(KlasifikasiBatukChange('BATUK_STATUS', null));
-            }
-            dispatch(AnsBatukChange('BATUK', bsb));
-            history.push("Batuk1");
-        }
-        else{
-            dispatch(AnsBatukChange('BATUK', bsb));
+const handleSubmit = event =>{
+    event.preventDefault();
+    if(bsb == true){
+        if(ansBatuk.bsb === false){
             dispatch(KlasifikasiBatukChange('BATUK_KLASIFIKASI', ""));
-            dispatch(KlasifikasiBatukChange('BATUK_STATUS', "success"));
-            dispatch(compStatusChange('DIARE'));
-            history.push("DiareYaTidak");
+            dispatch(KlasifikasiBatukChange('BATUK_STATUS', null));
         }
+        dispatch(AnsBatukChange('BATUK', bsb));
+        history.push("Batuk1");
     }
+    else{
+        dispatch(AnsBatukChange('BATUK', bsb));
+        dispatch(KlasifikasiBatukChange('BATUK_KLASIFIKASI', ""));
+        dispatch(KlasifikasiBatukChange('BATUK_STATUS', "success"));
+        dispatch(compStatusChange('DIARE'));
+        history.push("DiareYaTidak");
+    }
+}
 
     return(
         <Form onSubmit={handleSubmit}>
@@ -80,7 +80,7 @@ const Batuk = (props) => {
                                     <Col sm="3">
                                         <FormGroup className="d-inline pr-2">  
                                             <Label className="rdoBtn">Ya
-                                            <Input type="radio" name="radio1" value={1} onChange={handleBatuk} checked={bsb ===  true}/>
+                                            <Input type="radio" name="radio1" value={1} onChange={handleBatuk} checked={bsb ===  true} required/>
                                             <span style={{left:"20px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>

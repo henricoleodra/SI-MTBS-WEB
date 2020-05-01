@@ -76,7 +76,7 @@ const Gizi = (props) => {
                 </div>
                 <Row className="justify-content-between px-5 py-3">
                     <Col sm="4">
-                        <Link to="Telinga1" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Pemeriksaan Telinga</Button></Link>
+                        <Link to="TelingaYaTidak" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Pemeriksaan Telinga</Button></Link>
                     </Col>
                     <Col sm="4">
                         <Link to="Gizi2" style={{textDecoration: "none"}}><Button color="success" block >Selanjutnya <FontAwesomeIcon icon={faChevronRight}/></Button></Link>

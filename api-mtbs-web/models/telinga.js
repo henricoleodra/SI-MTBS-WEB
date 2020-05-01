@@ -5,20 +5,14 @@
 // lebih besar sama dengan 14 hari ->Telinga Kuning
 // Tidak ada nyeri -> Telinga aman
 
-const klasifikasiTelinga = (telinga) =>{
-    if(telinga == 'pembengkakanTelinga'){
-        const ans = {
-            hasilKlasifikasi : 'Mastoiditis',
-            statusKlasifikasi : 'danger',
-        }
-        return ans;
-    }
-    else if(telinga == 'nyeriTelinga' || telinga == 'rasaPenuhDiTelinga' || telinga == 'tampakCairan'){
+const klasifikasiTelinga = (nyeriTelinga, penuh, tampakCairan, lebihBesarSamaDengan14Hari) =>{
+
+    if(nyeriTelinga || penuh || tampakCairan){
         const ans = {
             hasilKlasifikasi : 'Infeksi Telinga Akut',
             statusKlasifikasi : 'warning',
         }
-        if(telinga == 'lebihBesarSamaDengan14Hari'){
+        if(lebihBesarSamaDengan14Hari >= 14){
             const ans1 = {
                 hasilKlasifikasi : 'Infeksi Telinga Kronis',
                 statusKlasifikasi : 'warning',
@@ -29,7 +23,31 @@ const klasifikasiTelinga = (telinga) =>{
     }
     else{
         const ans = {
-            hasilKlasifikasi : 'Tidak Ada Infeksi Telinga',
+            // hasilKlasifikasi : 'Tidak Ada Infeksi Telinga',
+            hasilKlasifikasi : '',
+            statusKlasifikasi : 'success',
+        }
+        return ans;
+    }
+};
+
+const klasifikasiTelinga2 = (lihatCairan, pembengkakanTelinga) =>{
+    if(pembengkakanTelinga){
+        const ans = {
+            hasilKlasifikasi : 'Mastoiditis',
+            statusKlasifikasi : 'danger',
+        }
+        return ans;
+    }else if(lihatCairan){
+        const ans = {
+            hasilKlasifikasi : 'Infeksi Telinga Akut',
+            statusKlasifikasi : 'warning',
+        }
+        return ans;
+    }else{
+        const ans = {
+            // hasilKlasifikasi : 'Tidak Ada Infeksi Telinga',
+            hasilKlasifikasi : '',
             statusKlasifikasi : 'success',
         }
         return ans;
@@ -37,5 +55,6 @@ const klasifikasiTelinga = (telinga) =>{
 };
 
 module.exports = {
-    klasifikasiTelinga
+    klasifikasiTelinga,
+    klasifikasiTelinga2
 };

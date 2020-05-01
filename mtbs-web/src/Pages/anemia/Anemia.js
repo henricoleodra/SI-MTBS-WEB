@@ -32,15 +32,13 @@ const Anemia = (props) =>{
             anemia_isPucat : anemia_isPucat
         })
         .then(res => {
-            console.log(res.data.hasilKlasifkasi);
-            console.log(res.data.statusKlasifikasi);
             dispatch(KlasifikasiAnemiaChange('ANEMIA_KLASIFIKASI', res.data.hasilKlasifkasi));
             dispatch(KlasifikasiAnemiaChange('ANEMIA_STATUS', res.data.statusKlasifikasi));
         })
         .catch(err=>{
             console.log(err);
         });
-        // history.push("HIV1");
+        history.push("HIV1");
     }
 
     return(
@@ -71,7 +69,7 @@ const Anemia = (props) =>{
                                     <Col  sm="4">
                                         <FormGroup className="d-inline">
                                             <Label className="rdoBtn">Sangat pucat
-                                            <Input type="radio" name="radio1" value={'sangatPucat'} onChange={handlePucat}/>
+                                            <Input type="radio" name="radio1" value={'sangatPucat'} onChange={handlePucat} checked={anemia_isPucat === 'sangatPucat'} required/>
                                             <span style={{left:"0px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>
@@ -80,7 +78,7 @@ const Anemia = (props) =>{
                                     <Col sm="4">
                                         <FormGroup className="d-inline pr-2">  
                                             <Label className="rdoBtn">Agak pucat
-                                            <Input type="radio" name="radio1" value={'agakPucat'} onChange={handlePucat}/>
+                                            <Input type="radio" name="radio1" value={'agakPucat'} onChange={handlePucat} checked={anemia_isPucat === 'agakPucat'}/>
                                             <span style={{left:"7px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>
@@ -89,7 +87,7 @@ const Anemia = (props) =>{
                                     <Col sm="4">
                                         <FormGroup className="d-inline">
                                             <Label className="rdoBtn">Normal
-                                            <Input type="radio" name="radio1" value={'normal'} onChange={handlePucat}/>
+                                            <Input type="radio" name="radio1" value={'normal'} onChange={handlePucat} checked={anemia_isPucat === 'normal'}/>
                                             <span style={{left:"25px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>

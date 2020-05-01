@@ -176,7 +176,7 @@ const HIV = (props) =>{
                                                 <InputGroupAddon addonType="append" >
                                                     <InputGroupText style={bgColor}>Tahun</InputGroupText>
                                                 </InputGroupAddon>
-                                                <Input type="number" min="0" value={hiv_waktuTes} onChange={handleAnswer2}/>
+                                                <Input type="number" min="0" value={hiv_waktuTes} onChange={handleAnswer2} required/>
                                             </InputGroup>         
                                         </div> 
                                     </div>

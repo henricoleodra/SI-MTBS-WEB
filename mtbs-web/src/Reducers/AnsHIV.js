@@ -1,7 +1,7 @@
 const initState = {
     hiv : null,
     hiv_pernahTes : null,
-    hiv_waktuTes : null,
+    hiv_waktuTes : "",
     hiv_hasilTes : null,
     hiv_ibuPernahTes : null,
     hiv_ibuWaktuTes : null,

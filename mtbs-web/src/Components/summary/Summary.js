@@ -71,13 +71,13 @@ const Summary = () => {
       'title' : 'Anemia',
       'text' : (klasifikasiAnemia.anemia_klasifikasi===null ? '' : klasifikasiAnemia.anemia_klasifikasi),
       'color' : (klasifikasiAnemia.anemia_status===null ? 'dark' : klasifikasiAnemia.anemia_status),
-      'disabled' : compStatus.anemia
+      'disabled' : false
     },
     {
       'title' : 'HIV',
-      'text' : (klasifikasiHIV.hiv_klasifikasi===null ? '' : klasifikasiHIV.hiv_klasifikasi),
+      'text' : (klasifikasiHIV.hiv_klasifikasi===null ? 'hello' : klasifikasiHIV.hiv_klasifikasi),
       'color' : (klasifikasiHIV.hiv_status===null ? 'dark' : klasifikasiHIV.hiv_status),
-      'disabled' : compStatus.hiv
+      'disabled' : false
     },
     {
       'title' : 'Imunisasi',

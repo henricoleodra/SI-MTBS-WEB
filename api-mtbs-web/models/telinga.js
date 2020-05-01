@@ -55,6 +55,6 @@ const klasifikasiTelinga2 = (lihatCairan, pembengkakanTelinga) =>{
 };
 
 module.exports = {
-    klasifikasiTelinga,
+    klasifikasiTelinga1,
     klasifikasiTelinga2
 };

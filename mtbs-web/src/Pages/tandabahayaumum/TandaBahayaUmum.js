@@ -243,7 +243,7 @@ const TandaBahayaUmum = (props) => {
               <Link to="../IsiDataAnak1" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Data Anak</Button></Link>
             </Col>
             <Col sm="4">
-              <Button type="submit" color="success" block>Berikutnya  <FontAwesomeIcon icon={faChevronRight}/></Button>
+              <Button type="submit" color="success" block>Selanjutnya <FontAwesomeIcon icon={faChevronRight}/></Button>
             </Col>
           </Row>
         </div>

@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button, InputGroup, InputGroupText, InputGroupAddon, Row, Col} from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { useDispatch, useSelector } from 'react-redux';
+import axios from 'axios';
+
+// Actions
+import { KlasifikasiHIVChange, AnsHIVChange } from '../../Actions';
 
 import '../../Assets/style/style.css';
 
@@ -16,8 +21,54 @@ let bgColor ={
 }
 
 const HIV = (props) =>{
+    const history = useHistory();
+    const dispatch = useDispatch();
+    const ansHIV = useSelector(state => state.ansHIV);
+    const klasifikasiHIV = useSelector(state => state.klasifikasiHIV);
+    let[hiv_pernahTes, set_hiv_pernahTes] = useState(ansHIV.set_hiv_pernahTes);
+    let[hiv_waktuTes, set_hiv_waktuTes] = useState(ansHIV.set_hiv_waktuTes);
+    let[hiv_hasilTes, set_hiv_hasilTes] = useState(ansHIV.set_hiv_hasilTes);
+    let[hiv_ibuPernahTes, set_hiv_ibuPernahTes] = useState(ansHIV.set_hiv_ibuPernahTes);
+    let[hiv_ibuHasilTes, set_hiv_ibuHasilTes] = useState(ansHIV.hiv_ibuHasilTes);
+
+    const handleAnswer1 = event =>{
+        if(event.target.value == 1){
+            set_hiv_pernahTes(true);
+        }else if(event.target.value == 2){
+            set_hiv_pernahTes(false);
+        }
+    }
+
+    const handleAnswer2 = event =>{
+        set_hiv_waktuTes(event.target.value);
+    }
+
+    const handleAnswer3 = event =>{
+        if(event.target.value == 1){
+            set_hiv_hasilTes(true);
+        }else if(event.target.value == 2){
+            set_hiv_hasilTes(false);
+        }
+    }
+
+    const handleAnswer4 = event =>{
+        if(event.target.value == 1){
+            set_hiv_ibuPernahTes(true);
+        }else if(event.target.value == 2){
+            set_hiv_ibuPernahTes(false);
+        }
+    }
+
+    const handleAnswer5 = event =>{
+        if(event.target.value == 1){
+            set_hiv_ibuHasilTes(true);
+        }else if(event.target.value == 2){
+            set_hiv_ibuHasilTes(false);
+        }
+    }
+
     return(
-        <Form>
+        <Form id="formHIV1" className="">
             <div className="w-100">
                 <div className="col-12">
                 <div className="d-flex justify-content-center mt-3">
@@ -53,7 +104,7 @@ const HIV = (props) =>{
                                     <Col sm="3">
                                     <FormGroup className="d-inline pr-2">  
                                         <Label className="rdoBtn">Ya
-                                        <Input type="radio" name="radio1"/>
+                                        <Input type="radio" name="radio1" value={1} onChange={handleAnswer1} checked={hiv_pernahTes === true} required/>
                                         <span style={{left:"20px"}} className="checkmark"></span>
                                         </Label>
                                     </FormGroup>
@@ -64,7 +115,7 @@ const HIV = (props) =>{
                                     <Col sm="3">
                                     <FormGroup className="d-inline">
                                         <Label className="rdoBtn">Tidak
-                                        <Input type="radio" name="radio1"/>
+                                        <Input type="radio" name="radio1" value={2} onChange={handleAnswer1} checked={hiv_pernahTes === false} required/>
                                         <span style={{left:"0px"}} className="checkmark"></span>
                                         </Label>
                                     </FormGroup>
@@ -85,7 +136,7 @@ const HIV = (props) =>{
                                                 <InputGroupAddon addonType="append" >
                                                     <InputGroupText style={bgColor}>Tahun</InputGroupText>
                                                 </InputGroupAddon>
-                                                <Input type="number" min="0"/>
+                                                <Input type="number" min="0" value={hiv_waktuTes} onChange={handleAnswer2}/>
                                             </InputGroup>         
                                         </div> 
                                     </div>
@@ -95,7 +146,7 @@ const HIV = (props) =>{
                                             <Col sm="">
                                                 <FormGroup className="d-inline ">  
                                                     <Label className="rdoBtn"style={{left:"-30px"}}>Ya
-                                                    <Input type="radio" name="radio2" />
+                                                    <Input type="radio" name="radio2" value={1} onChange={handleAnswer3} checked={hiv_hasilTes === true} required/>
                                                     <span style={{left:"-30px"}} className="checkmark"></span>
                                                     </Label>
                                                 </FormGroup>
@@ -103,7 +154,7 @@ const HIV = (props) =>{
                                             <Col sm="">
                                                 <FormGroup className="d-inline">
                                                     <Label className="rdoBtn" >Tidak
-                                                    <Input type="radio" name="radio2"/>
+                                                    <Input type="radio" name="radio2" value={2} onChange={handleAnswer3} checked={hiv_hasilTes === false} required/>
                                                     <span style={{left:"-30px"}} className="checkmark"></span>
                                                     </Label>
                                                 </FormGroup>
@@ -123,7 +174,7 @@ const HIV = (props) =>{
                                     <Col sm="3">
                                     <FormGroup className="d-inline pr-2">  
                                         <Label className="rdoBtn">Ya
-                                        <Input type="radio" name="radio3"/>
+                                        <Input type="radio" name="radio3" value={1} onChange={handleAnswer4} checked={hiv_ibuPernahTes === true} required/>
                                         <span style={{left:"20px"}} className="checkmark"></span>
                                         </Label>
                                     </FormGroup>
@@ -134,7 +185,7 @@ const HIV = (props) =>{
                                     <Col sm="3">
                                     <FormGroup className="d-inline">
                                         <Label className="rdoBtn">Tidak
-                                        <Input type="radio" name="radio3"/>
+                                        <Input type="radio" name="radio3" value={2} onChange={handleAnswer4} checked={hiv_ibuPernahTes === false} required/>
                                         <span style={{left:"0px"}} className="checkmark"></span>
                                         </Label>
                                     </FormGroup>
@@ -148,7 +199,7 @@ const HIV = (props) =>{
                                     <Col sm="3">
                                     <FormGroup className="d-inline pr-2">  
                                         <Label className="rdoBtn">Ya
-                                        <Input type="radio" name="radio4"/>
+                                        <Input type="radio" name="radio4" value={1} onChange={handleAnswer5} checked={hiv_ibuHasilTes === true} required/>
                                         <span style={{left:"20px"}} className="checkmark"></span>
                                         </Label>
                                     </FormGroup>
@@ -159,7 +210,7 @@ const HIV = (props) =>{
                                     <Col sm="3">
                                     <FormGroup className="d-inline">
                                         <Label className="rdoBtn">Tidak
-                                        <Input type="radio" name="radio4"/>
+                                        <Input type="radio" name="radio4" value={2} onChange={handleAnswer5} checked={hiv_ibuHasilTes === false} required/>
                                         <span style={{left:"0px"}} className="checkmark"></span>
                                         </Label>
                                     </FormGroup>

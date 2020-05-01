@@ -61,6 +61,22 @@ export const KlasifikasiDiareChange = (comp, ans) =>{
     }
 }
 
+//ANSWER Telinga
+export const AnsTelingaChange = (comp, ans) => {
+    return{
+        type : comp,
+        answer : ans
+    }
+}
+
+//KLASIFIKASI Telinga
+export const KlasifikasiTelingaChange = (comp, ans) =>{
+    return{
+        type : comp,
+        answer : ans
+    }
+}
+
 // ANSWER Anemia
 export const AnsAnemiaChange = (comp, ans) => {
     return{
@@ -71,6 +87,22 @@ export const AnsAnemiaChange = (comp, ans) => {
 
 // KLASIFIKASI Anemia
 export const KlasifikasiAnemiaChange = (comp, ans) =>{
+    return{
+        type : comp,
+        answer : ans
+    }
+}
+
+//ANSWER HIV
+export const AnsHIVChange = (comp, ans) => {
+    return{
+        type : comp,
+        answer : ans
+    }
+}
+
+//KLASIFIKASI HIV
+export const KlasifikasiHIVChange = (comp, ans) =>{
     return{
         type : comp,
         answer : ans

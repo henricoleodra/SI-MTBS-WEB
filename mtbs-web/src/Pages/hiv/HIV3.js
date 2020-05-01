@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button, Row, Col} from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { useDispatch, useSelector } from 'react-redux';
+import axios from 'axios';
+
+// Actions
+import { KlasifikasiHIVChange, AnsHIVChange } from '../../Actions';
 
 import '../../Assets/style/style.css';
 
@@ -11,8 +16,22 @@ let outlineColor = {
 }
 
 const HIV = (props) =>{
+    const history = useHistory();
+    const dispatch = useDispatch();
+    const ansHIV = useSelector(state => state.ansHIV);
+    const klasifikasiHIV = useSelector(state => state.klasifikasiHIV);
+    let[hiv_bercakPutih, set_hiv_bercakPutih] = useState(ansHIV.hiv_bercakPutih);
+
+    const handleAnswer1 = event =>{
+        if(event.target.value == 1){
+            set_hiv_bercakPutih(true);
+        }else if(event.target.value == 2){
+            set_hiv_bercakPutih(false);
+        }
+    }
+
     return(
-        <Form>
+        <Form id="formHIV3" className="">
             <div className="w-100">
                 <div className="col-12">
                     <div className="d-flex justify-content-center mt-3">
@@ -50,7 +69,7 @@ const HIV = (props) =>{
                                         <Col sm="3">
                                         <FormGroup className="d-inline pr-2">  
                                             <Label className="rdoBtn">Ya
-                                            <Input type="radio" name="radio1"/>
+                                            <Input type="radio" name="radio1" value={1} onChange={handleAnswer1} checked={hiv_bercakPutih === true} required/>
                                             <span style={{left:"20px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>
@@ -61,7 +80,7 @@ const HIV = (props) =>{
                                         <Col sm="3">
                                         <FormGroup className="d-inline">
                                             <Label className="rdoBtn">Tidak
-                                            <Input type="radio" name="radio1"/>
+                                            <Input type="radio" name="radio1" value={2} onChange={handleAnswer1} checked={hiv_bercakPutih === false} required/>
                                             <span style={{left:"6px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>

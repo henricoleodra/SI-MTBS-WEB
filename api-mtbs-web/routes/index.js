@@ -3,6 +3,7 @@ var router = express.Router();
 const tandabahayaumum = require('../controllers/tandabahayaumum');
 const batuk = require('../controllers/batuk');
 const diare = require('../controllers/diare');
+const anemia = require('../controllers/anemia');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -19,5 +20,7 @@ router.post('/Batuk/2', batuk.batuk2);
 router.post(`/Diare/1`,diare.diare1);
 router.post(`/Diare/2`,diare.diare2);
 router.post(`/Diare/3`,diare.diare3);
+//Anemia
+router.post(`/Anemia`,anemia.anemia);
 
 module.exports = router;

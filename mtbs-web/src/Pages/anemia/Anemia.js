@@ -1,18 +1,50 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button, Row, Col} from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import axios from 'axios';
 
 import '../../Assets/style/style.css';
+
+// ACTIONS 
+import { KlasifikasiAnemiaChange, AnsAnemiaChange } from '../../Actions';
 
 let outlineColor = {
     borderColor : '#41E8B3'
 }
 
 const Anemia = (props) =>{
+    const history = useHistory();
+    const dispatch = useDispatch();
+    const ansAnemia = useSelector(state => state.ansAnemia);
+    let [anemia_isPucat, set_anemia_isPucat] = useState(ansAnemia.anemia_isPucat);
+
+    const handlePucat = event =>{
+        set_anemia_isPucat(event.target.value);
+    }
+
+    const handleSubmit = event =>{
+        event.preventDefault();
+        dispatch(AnsAnemiaChange('PUCAT', anemia_isPucat));
+        axios.post(`/Anemia`, {
+            anemia_isPucat : anemia_isPucat
+        })
+        .then(res => {
+            console.log(res.data.hasilKlasifkasi);
+            console.log(res.data.statusKlasifikasi);
+            dispatch(KlasifikasiAnemiaChange('ANEMIA_KLASIFIKASI', res.data.hasilKlasifkasi));
+            dispatch(KlasifikasiAnemiaChange('ANEMIA_STATUS', res.data.statusKlasifikasi));
+        })
+        .catch(err=>{
+            console.log(err);
+        });
+        // history.push("HIV1");
+    }
+
     return(
-        <Form>
+        <Form onSubmit={handleSubmit}>
             <div className="w-100">
                 <div className="col-12">
                 <div className="d-flex justify-content-center mt-3">
@@ -39,7 +71,7 @@ const Anemia = (props) =>{
                                     <Col  sm="4">
                                         <FormGroup className="d-inline">
                                             <Label className="rdoBtn">Sangat pucat
-                                            <Input type="radio" name="radio1"/>
+                                            <Input type="radio" name="radio1" value={'sangatPucat'} onChange={handlePucat}/>
                                             <span style={{left:"0px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>
@@ -48,7 +80,7 @@ const Anemia = (props) =>{
                                     <Col sm="4">
                                         <FormGroup className="d-inline pr-2">  
                                             <Label className="rdoBtn">Agak pucat
-                                            <Input type="radio" name="radio1"/>
+                                            <Input type="radio" name="radio1" value={'agakPucat'} onChange={handlePucat}/>
                                             <span style={{left:"7px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>
@@ -57,18 +89,12 @@ const Anemia = (props) =>{
                                     <Col sm="4">
                                         <FormGroup className="d-inline">
                                             <Label className="rdoBtn">Normal
-                                            <Input type="radio" name="radio1"/>
+                                            <Input type="radio" name="radio1" value={'normal'} onChange={handlePucat}/>
                                             <span style={{left:"25px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>
                                     </Col>
                                 </Row>
-                                {/* <FormGroup check className="d-inline">
-                                    <Label>
-                                        <Input type="radio" name="radio1"/>{''}
-                                        Tidak pucat
-                                    </Label>
-                                </FormGroup> */}
                             </CardBody>
                         </Card>
                     </Row>
@@ -80,7 +106,7 @@ const Anemia = (props) =>{
                     <Link to="Gizi1" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/>Pemeriksaan Gizi</Button></Link>
                 </Col>
                 <Col sm="4">
-                    <Link to="HIV1" style={{textDecoration: "none"}}><Button color="success" block>Pemeriksaan HIV <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
+                    <Button color="success" type="submit" block>Pemeriksaan HIV <FontAwesomeIcon icon={faChevronRight}/></Button>
                 </Col>
             </Row>
         </div>

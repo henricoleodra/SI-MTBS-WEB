@@ -22,39 +22,39 @@ const ansHIVReducer = (state = initState, action) => {
             return Object.assign({}, state, { 
                 hiv_pernahTes : action.answer
             });
-        case 'PERNAH_TES':
+        case 'WAKTU_TES':
             return Object.assign({}, state, { 
                 hiv_waktuTes : action.answer
             });
-        case 'PERNAH_TES':
+        case 'HASIL_TES':
             return Object.assign({}, state, { 
                 hiv_hasilTes : action.answer
             });
-        case 'PERNAH_TES':
+        case 'IBU_PERNAH_TES':
             return Object.assign({}, state, { 
                 hiv_ibuPernahTes : action.answer
             });
-        case 'PERNAH_TES':
+        case 'IBU_WAKTU_TES':
             return Object.assign({}, state, { 
                 hiv_ibuWaktuTes : action.answer
             });
-        case 'PERNAH_TES':
+        case 'IBU_HASIL_TES':
             return Object.assign({}, state, { 
                 hiv_ibuHasilTes : action.answer
             });
-        case 'PERNAH_TES':
+        case 'MASIH_DAPAT_ASI':
             return Object.assign({}, state, { 
                 hiv_masihDapatASI : action.answer
             });
-        case 'PERNAH_TES':
+        case 'BERCAK_PUTIH':
             return Object.assign({}, state, { 
                 hiv_bercakPutih : action.answer
             });
-        case 'PERNAH_TES':
+        case 'KERABAT_TERDIAGNOSIS':
             return Object.assign({}, state, { 
                 hiv_kerabatTerdiagnosis : action.answer
             });
-        case 'PERNAH_TES':
+        case 'KERABAT_MENINGGAL':
             return Object.assign({}, state, { 
                 hiv_kerabatMeninggal : action.answer
             });

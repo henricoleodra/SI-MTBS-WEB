@@ -31,14 +31,14 @@ const klasifkasiHIV2 = (pernahTes, hasilTes, ibuPernahTes, ibuHasilTes, kerabatT
         }
         return ans;
     }
-    else if(ibuPernahTes && ibuHasilTes || kerabatTerdiagnosis){
+    else if((ibuPernahTes && ibuHasilTes) || kerabatTerdiagnosis || kerabatMeninggal){
         const ans = {
             hasilKlasifkasi : 'Diduga terinfeksi HIV',
             statusKlasifikasi: 'danger',
         }
         return ans;
     }
-    else if((ibuPernahTes && ibuHasilTes) && (masihDapatASI || kerabatMeninggal)){
+    else if((ibuPernahTes && ibuHasilTes) && (masihDapatASI || pernahTes==false)){
         const ans = {
             hasilKlasifkasi : 'Terpajan HIV',
             statusKlasifikasi: 'danger',

@@ -3,7 +3,7 @@ const initState = {
     hiv_status : null,
 }
 
-const KlasifikasiBatukReducer = (state = initState, action) => {
+const KlasifikasiHIVReducer = (state = initState, action) => {
     switch(action.type){
         case 'HIV_KLASIFIKASI':
             return Object.assign({}, state, {
@@ -17,3 +17,5 @@ const KlasifikasiBatukReducer = (state = initState, action) => {
             return state;
     }
 }
+
+export default KlasifikasiHIVReducer;

@@ -28,27 +28,29 @@ const SideBar = (props) => {
     const klasifikasiBatuk = useSelector(state => state.klasifikasiBatuk);
     const dataAnak = useSelector(state => state.dataAnak)
     const klasifikasiDiare = useSelector(state => state.klasifikasiDiare);
+    const klasifikasiTelinga = useSelector(state => state.klasifikasiTelinga);
     const klasifikasiAnemia = useSelector(state => state.klasifikasiAnemia);
+    const klasifikasiHIV = useSelector(state => state.klasifikasiHIV);
     let sidebar = [
         {
             'title' : 'Tanda Bahaya Umum',
             'link' : 'TandaBahayaUmum1',
             'active' : url==='TandaBahayaUmum',
-            'color' : (klasifikasiTBU.tbu_status===null ? 'dark' : klasifikasiTBU.tbu_status ),
+            'color' : (klasifikasiTBU.tbu_status===null ? 'dark' : klasifikasiTBU.tbu_status),
             'disabled' : compStatus.tandabahayaumum
         },
         {
             'title' : 'Batuk',
             'link' : 'BatukYaTidak',
             'active' : url==='BatukYaTidak' || url==='Batuk',
-            'color' : (klasifikasiBatuk.bsb_status===null ? 'dark' : klasifikasiBatuk.bsb_status ),
+            'color' : (klasifikasiBatuk.bsb_status===null ? 'dark' : klasifikasiBatuk.bsb_status),
             'disabled' : compStatus.batuk
         },
         {
             'title' : 'Diare',
             'link' : 'DiareYaTidak',
             'active' : url==='DiareYaTidak' || url==='Diare',
-            'color' : (klasifikasiDiare.diare_status===null ? 'dark' : klasifikasiDiare.diare_status ),
+            'color' : (klasifikasiDiare.diare_status===null ? 'dark' : klasifikasiDiare.diare_status),
             'disabled' : compStatus.diare
         },
         {
@@ -62,7 +64,7 @@ const SideBar = (props) => {
             'title' : 'Telinga',
             'link' : 'Telinga1',
             'active' : url==='TelingaYaTidak' || url==='Telinga',
-            'color' : 'dark',
+            'color' : (klasifikasiTelinga.telinga_status===null ? 'dark' : klasifikasiTelinga.telinga_status),
             'disabled' : compStatus.telinga
         },
         {
@@ -76,14 +78,14 @@ const SideBar = (props) => {
             'title' : 'Anemia',
             'link' : 'Anemia',
             'active' : url==='Anemia',
-            'color' : (klasifikasiAnemia.anemia_status===null ? 'dark' : klasifikasiAnemia.anemia_status ),
+            'color' : (klasifikasiAnemia.anemia_status===null ? 'dark' : klasifikasiAnemia.anemia_status),
             'disabled' : compStatus.anemia
         },
         {
             'title' : 'HIV',
             'link' : 'HIV1',
             'active' : url==='HIV',
-            'color' : 'dark',
+            'color' : (klasifikasiHIV.hiv_status===null ? 'dark' : klasifikasiHIV.hiv_status),
             'disabled' : compStatus.hiv
         },
         {

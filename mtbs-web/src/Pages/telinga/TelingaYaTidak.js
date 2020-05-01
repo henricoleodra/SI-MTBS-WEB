@@ -3,7 +3,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button, InputGroup, InputGroupText, InputGroupAddon, Row, Col} from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
 import '../../Assets/style/style.css';
 
@@ -19,43 +19,41 @@ let bgColor ={
     color: 'white'
 }
 
-const Telinga = (props) => {
+const TelingaYaTidak = (props) => {
     const history = useHistory();
     const dispatch = useDispatch();
     const ansTelinga = useSelector(state => state.ansTelinga);
     let [telinga, setTelinga] = useState(ansTelinga.telinga);
-
+    
     const handleTelinga = event =>{
         if(event.target.value == 1){
             setTelinga(true);
-        }else{
-            setTelinga(false);
-        }         
-    }
-
-
-const handleSubmit = event =>{
-    event.preventDefault();
-    if(telinga == true){
-        if(ansTelinga.telinga === false){
-            dispatch(KlasifikasiTelingaChange('TELINGA_KLASIFIKASI', ""));
-            dispatch(KlasifikasiTelingaChange('TELINGA_STATUS', null));
         }
-        dispatch(AnsTelingaChange('TELINGA', telinga));
-        history.push("Telinga1");
+        else{
+            setTelinga(false);
+        }
     }
-    else{
-        dispatch(AnsTelingaChange('TELINGA', telinga));
-        dispatch(KlasifikasiTelingaChange('TELINGA_KLASIFIKASI', ""));
-        dispatch(KlasifikasiTelingaChange('TELINGA_STATUS', "success"));
-        dispatch(compStatusChange('GIZI'));
-        history.push("Gizi1");
+
+    const handleSubmit = event =>{
+        event.preventDefault();
+        if(telinga == true){
+            if(ansTelinga.telinga === false){
+                dispatch(KlasifikasiTelingaChange('TELINGA_KLASIFIKASI', ""));
+                dispatch(KlasifikasiTelingaChange('TELINGA_STATUS', null));
+            }
+            dispatch(AnsTelingaChange('TELINGA', telinga));
+            history.push("Telinga1");
+        }
+        else{
+            dispatch(AnsTelingaChange('TELINGA', telinga));
+            dispatch(KlasifikasiTelingaChange('TELINGA_KLASIFIKASI', ""));
+            dispatch(KlasifikasiTelingaChange('TELINGA_STATUS', "success"));
+            dispatch(compStatusChange('GIZI'));
+            history.push("Gizi1");
+        }
     }
-}
-
-
     return(
-        <Form>
+        <Form onSubmit={handleSubmit}>
             <div className="w-100">
                 <div className="col-12">
                     <div className="mt-2">
@@ -80,7 +78,7 @@ const handleSubmit = event =>{
                                         <Col sm="3">
                                             <FormGroup className="d-inline pr-2">  
                                                 <Label className="rdoBtn">Ya
-                                                <Input type="radio" name="radio1" value={1} onChange={handleTelinga} checked={telinga === true } required/>
+                                                <Input type="radio" name="radio1" value={1} onChange={handleTelinga} checked={telinga === true} required />
                                                 <span style={{left:"20px"}} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>
@@ -91,7 +89,7 @@ const handleSubmit = event =>{
                                         <Col sm="3">
                                             <FormGroup className="d-inline">
                                                 <Label className="rdoBtn">Tidak
-                                                <Input type="radio" name="radio1" value={2} onChange={handleTelinga} checked={telinga === false}/>
+                                                <Input type="radio" name="radio1" value={2} onChange={handleTelinga} checked={telinga === false} />
                                                 <span style={{left:"0px"}} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>
@@ -115,4 +113,4 @@ const handleSubmit = event =>{
     );
 }
 
-export default Telinga
+export default TelingaYaTidak

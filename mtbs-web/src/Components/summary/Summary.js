@@ -26,7 +26,9 @@ const Summary = () => {
   const klasifikasiTBU = useSelector(state => state.klasifikasiTBU);
   const klasifikasiBatuk = useSelector(state => state.klasifikasiBatuk);
   const klasifikasiDiare = useSelector(state => state.klasifikasiDiare);
+  const klasifikasiTelinga = useSelector(state => state.klasifikasiTelinga);
   const klasifikasiAnemia = useSelector(state => state.klasifikasiAnemia);
+  const klasifikasiHIV = useSelector(state => state.klasifikasiHIV);
 
   let summary = [
     {
@@ -38,13 +40,13 @@ const Summary = () => {
     {
       'title' : 'Batuk',
       'text' : (klasifikasiBatuk.bsb_klasifikasi===null ? '' : klasifikasiBatuk.bsb_klasifikasi),
-      'color' : (klasifikasiBatuk.bsb_status===null ? 'dark' : klasifikasiBatuk.bsb_status ),
+      'color' : (klasifikasiBatuk.bsb_status===null ? 'dark' : klasifikasiBatuk.bsb_status),
       'disabled' : compStatus.batuk
     },
     {
       'title' : 'Diare',
       'text' : (klasifikasiDiare.diare_klasifikasi===null ? '' : klasifikasiDiare.diare_klasifikasi),
-      'color' : (klasifikasiDiare.diare_status===null ? 'dark' : klasifikasiDiare.diare_status ),
+      'color' : (klasifikasiDiare.diare_status===null ? 'dark' : klasifikasiDiare.diare_status),
       'disabled' : compStatus.diare
     },
     {
@@ -55,8 +57,8 @@ const Summary = () => {
     },
     {
       'title' : 'Telinga',
-      'text' : 'Penyakit Telinga',
-      'color' : 'dark',
+      'text' : (klasifikasiTelinga.telinga_klasifikasi===null ? '' : klasifikasiTelinga.telinga_klasifikasi),
+      'color' : (klasifikasiTelinga.telinga_status===null ? 'dark' : klasifikasiTelinga.telinga_status),
       'disabled' : compStatus.telinga
     },
     {
@@ -68,13 +70,13 @@ const Summary = () => {
     {
       'title' : 'Anemia',
       'text' : (klasifikasiAnemia.anemia_klasifikasi===null ? '' : klasifikasiAnemia.anemia_klasifikasi),
-      'color' : (klasifikasiAnemia.anemia_status===null ? 'dark' : klasifikasiAnemia.anemia_status ),
+      'color' : (klasifikasiAnemia.anemia_status===null ? 'dark' : klasifikasiAnemia.anemia_status),
       'disabled' : compStatus.anemia
     },
     {
       'title' : 'HIV',
-      'text' : 'Penyakit HIV',
-      'color' : 'dark',
+      'text' : (klasifikasiHIV.hiv_klasifikasi===null ? '' : klasifikasiHIV.hiv_klasifikasi),
+      'color' : (klasifikasiHIV.hiv_status===null ? 'dark' : klasifikasiHIV.hiv_status),
       'disabled' : compStatus.hiv
     },
     {

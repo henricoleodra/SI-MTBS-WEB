@@ -144,7 +144,7 @@ const HIV2 = (props) =>{
                                             <Col sm="3">
                                                 <FormGroup className="d-inline">
                                                     <Label className="rdoBtn">Tidak
-                                                    <Input type="radio" name="radio1" value={2} onChange={handleAnswer1} checked={hiv_kerabatTerdiagnosis === false} required/>
+                                                    <Input type="radio" name="radio1" value={2} onChange={handleAnswer1} checked={hiv_kerabatTerdiagnosis === false} />
                                                     <span style={{left:"6px"}} className="checkmark"></span>
                                                     </Label>
                                                 </FormGroup>
@@ -171,7 +171,7 @@ const HIV2 = (props) =>{
                                             <Col sm="3">
                                                 <FormGroup className="d-inline">
                                                     <Label className="rdoBtn">Tidak
-                                                    <Input type="radio" name="radio2" value={2} onChange={handleAnswer2} checked={hiv_kerabatMeninggal === false} required/>
+                                                    <Input type="radio" name="radio2" value={2} onChange={handleAnswer2} checked={hiv_kerabatMeninggal === false} />
                                                     <span style={{left:"6px"}} className="checkmark"></span>
                                                     </Label>
                                                 </FormGroup>
@@ -202,7 +202,7 @@ const HIV2 = (props) =>{
                                     <Col sm="3">
                                         <FormGroup className="d-inline">
                                             <Label className="rdoBtn">Tidak
-                                            <Input type="radio" name="radio3" value={2} onChange={handleAnswer3} checked={hiv_masihDapatASI === false} required/>
+                                            <Input type="radio" name="radio3" value={2} onChange={handleAnswer3} checked={hiv_masihDapatASI === false} />
                                             <span style={{left:"6px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>
@@ -215,10 +215,10 @@ const HIV2 = (props) =>{
             </div>
             <Row className="justify-content-between px-5 py-0">
                 <Col sm="4">
-                <Link to="HIV1" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/>Sebelumnya</Button></Link>
+                    <Link to="HIV1" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/>Sebelumnya</Button></Link>
                 </Col>
                 <Col sm="4">
-                <Link to="HIV3" style={{textDecoration: "none"}}><Button color="success" block>Selanjutnya<FontAwesomeIcon icon={faChevronRight}/></Button></Link>
+                    <Button color="success" type="submit" block>Selanjutnya <FontAwesomeIcon icon={faChevronRight}/></Button>
                 </Col>
             </Row>
         </div>

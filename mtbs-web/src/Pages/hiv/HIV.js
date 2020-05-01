@@ -25,10 +25,10 @@ const HIV = (props) =>{
     const dispatch = useDispatch();
     const ansHIV = useSelector(state => state.ansHIV);
     const klasifikasiHIV = useSelector(state => state.klasifikasiHIV);
-    let[hiv_pernahTes, set_hiv_pernahTes] = useState(ansHIV.set_hiv_pernahTes);
-    let[hiv_waktuTes, set_hiv_waktuTes] = useState(ansHIV.set_hiv_waktuTes);
-    let[hiv_hasilTes, set_hiv_hasilTes] = useState(ansHIV.set_hiv_hasilTes);
-    let[hiv_ibuPernahTes, set_hiv_ibuPernahTes] = useState(ansHIV.set_hiv_ibuPernahTes);
+    let[hiv_pernahTes, set_hiv_pernahTes] = useState(ansHIV.hiv_pernahTes);
+    let[hiv_waktuTes, set_hiv_waktuTes] = useState(ansHIV.hiv_waktuTes);
+    let[hiv_hasilTes, set_hiv_hasilTes] = useState(ansHIV.hiv_hasilTes);
+    let[hiv_ibuPernahTes, set_hiv_ibuPernahTes] = useState(ansHIV.hiv_ibuPernahTes);
     let[hiv_ibuHasilTes, set_hiv_ibuHasilTes] = useState(ansHIV.hiv_ibuHasilTes);
 
     const handleSubmit = event => {
@@ -68,7 +68,7 @@ const HIV = (props) =>{
         .catch(err=>{
             console.log(err);
         });
-        //history.push("HIV2"); 
+        history.push("HIV2"); 
     }
 
     const handleAnswer1 = event =>{
@@ -108,7 +108,7 @@ const HIV = (props) =>{
     }
 
     return(
-        <Form id="formHIV1" className="" onSubmit={handleSubmit}>
+        <Form id="formHIV1" onSubmit={handleSubmit}>
             <div className="w-100">
                 <div className="col-12">
                 <div className="d-flex justify-content-center mt-3">
@@ -155,7 +155,7 @@ const HIV = (props) =>{
                                     <Col sm="3">
                                     <FormGroup className="d-inline">
                                         <Label className="rdoBtn">Tidak
-                                        <Input type="radio" name="radio1" value={2} onChange={handleAnswer1} checked={hiv_pernahTes === false} required/>
+                                        <Input type="radio" name="radio1" value={2} onChange={handleAnswer1} checked={hiv_pernahTes === false} />
                                         <span style={{left:"0px"}} className="checkmark"></span>
                                         </Label>
                                     </FormGroup>
@@ -194,7 +194,7 @@ const HIV = (props) =>{
                                             <Col sm="">
                                                 <FormGroup className="d-inline">
                                                     <Label className="rdoBtn" >Tidak
-                                                    <Input type="radio" name="radio2" value={2} onChange={handleAnswer3} checked={hiv_hasilTes === false} required/>
+                                                    <Input type="radio" name="radio2" value={2} onChange={handleAnswer3} checked={hiv_hasilTes === false} />
                                                     <span style={{left:"-30px"}} className="checkmark"></span>
                                                     </Label>
                                                 </FormGroup>
@@ -225,7 +225,7 @@ const HIV = (props) =>{
                                     <Col sm="3">
                                     <FormGroup className="d-inline">
                                         <Label className="rdoBtn">Tidak
-                                        <Input type="radio" name="radio3" value={2} onChange={handleAnswer4} checked={hiv_ibuPernahTes === false} required/>
+                                        <Input type="radio" name="radio3" value={2} onChange={handleAnswer4} checked={hiv_ibuPernahTes === false} />
                                         <span style={{left:"0px"}} className="checkmark"></span>
                                         </Label>
                                     </FormGroup>
@@ -250,7 +250,7 @@ const HIV = (props) =>{
                                     <Col sm="3">
                                     <FormGroup className="d-inline">
                                         <Label className="rdoBtn">Tidak
-                                        <Input type="radio" name="radio4" value={2} onChange={handleAnswer5} checked={hiv_ibuHasilTes === false} required/>
+                                        <Input type="radio" name="radio4" value={2} onChange={handleAnswer5} checked={hiv_ibuHasilTes === false} />
                                         <span style={{left:"0px"}} className="checkmark"></span>
                                         </Label>
                                     </FormGroup>
@@ -266,7 +266,7 @@ const HIV = (props) =>{
                     <Link to="Anemia" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/>Sebelumnya</Button></Link>
                 </Col>
                 <Col sm="4">
-                    <Link to="HIV2" style={{textDecoration: "none"}}><Button color="success" block>Pemeriksaan Imunisasi<FontAwesomeIcon icon={faChevronRight}/></Button></Link>
+                    <Button color="success" type="submit" block>Selanjutnya <FontAwesomeIcon icon={faChevronRight}/></Button>
                 </Col>
             </Row>
         </div>

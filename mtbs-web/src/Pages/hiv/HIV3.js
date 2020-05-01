@@ -137,7 +137,7 @@ const HIV = (props) =>{
                     <Link to="HIV2" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/>Sebelumnya</Button></Link>
                     </Col>
                     <Col sm="4">
-                    <Link to="Imunisasi1" style={{textDecoration: "none"}}><Button color="success" block>Pemeriksaan Imunisasi<FontAwesomeIcon icon={faChevronRight}/></Button></Link>
+                        <Button color="success" type="submit" block>Pemeriksaan Imunisasi<FontAwesomeIcon icon={faChevronRight}/></Button>
                     </Col>
                 </Row>
             </div>

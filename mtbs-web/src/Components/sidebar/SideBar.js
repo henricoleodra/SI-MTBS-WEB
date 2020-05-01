@@ -28,6 +28,7 @@ const SideBar = (props) => {
     const klasifikasiBatuk = useSelector(state => state.klasifikasiBatuk);
     const dataAnak = useSelector(state => state.dataAnak)
     const klasifikasiDiare = useSelector(state => state.klasifikasiDiare);
+    const klasifikasiAnemia = useSelector(state => state.klasifikasiAnemia);
     let sidebar = [
         {
             'title' : 'Tanda Bahaya Umum',
@@ -75,7 +76,7 @@ const SideBar = (props) => {
             'title' : 'Anemia',
             'link' : 'Anemia',
             'active' : url==='Anemia',
-            'color' : 'dark',
+            'color' : (klasifikasiAnemia.anemia_status===null ? 'dark' : klasifikasiAnemia.anemia_status ),
             'disabled' : compStatus.anemia
         },
         {

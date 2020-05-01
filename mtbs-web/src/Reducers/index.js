@@ -10,6 +10,8 @@ import AnsTelingaReducer from './AnsTelinga';
 import KlasifikasiTelingaReducer from './KlasifikasiTelinga';
 import AnsAnemiaReducer from './AnsAnemia';
 import KlasifikasiAnemiaReducer from './KlasifikasiAnemia';
+import AnsHIVReducer from './AnsHIV';
+import KlasifikasiHIVReducer from './KlasifikasiHIV';
 import DataAnakReducer from './DataAnak';
 
 
@@ -26,6 +28,8 @@ const rootReducer = combineReducers({
     klasifikasiTelinga : KlasifikasiTelingaReducer,
     ansAnemia : AnsAnemiaReducer,
     klasifikasiAnemia : KlasifikasiAnemiaReducer,
+    ansHIV : AnsHIVReducer,
+    klasifikasiHIV : KlasifikasiHIVReducer,
 });
 
 export default rootReducer;

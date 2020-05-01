@@ -108,7 +108,7 @@ const Batuk = (props) => {
                     <Link to="TandaBahayaUmum1" style={{textDecoration: "none"}}><Button block style={{width: "250px", height : "60px"}} color="danger"><FontAwesomeIcon icon={faChevronLeft}/> Pemeriksaan Tanda Bahaya Umum</Button></Link>
                 </Col>
                 <Col sm="4">
-                    <Button type="submit" block style={{width: "250px", height : "60px"}} color="success">Berikutnya  <FontAwesomeIcon icon={faChevronRight}/></Button>
+                    <Button type="submit" block style={{width: "250px", height : "60px"}} color="success">Selanjutnya <FontAwesomeIcon icon={faChevronRight}/></Button>
                 </Col>
             </Row>
         </div>

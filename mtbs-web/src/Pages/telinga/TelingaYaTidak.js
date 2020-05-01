@@ -52,19 +52,6 @@ const TelingaYaTidak = (props) => {
             history.push("Gizi1");
         }
     }
-<<<<<<< HEAD
-=======
-    else{
-        dispatch(AnsTelingaChange('TELINGA', telinga));
-        dispatch(KlasifikasiTelingaChange('TELINGA_KLASIFIKASI', ""));
-        dispatch(KlasifikasiTelingaChange('TELINGA_STATUS', "success"));
-        dispatch(compStatusChange('GIZI'));
-        history.push("Gizi");
-    }
-}
-
-
->>>>>>> master
     return(
         <Form onSubmit={handleSubmit}>
             <div className="w-100">

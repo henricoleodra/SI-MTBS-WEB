@@ -31,6 +31,46 @@ const HIV = (props) =>{
     let[hiv_ibuPernahTes, set_hiv_ibuPernahTes] = useState(ansHIV.set_hiv_ibuPernahTes);
     let[hiv_ibuHasilTes, set_hiv_ibuHasilTes] = useState(ansHIV.hiv_ibuHasilTes);
 
+    const handleSubmit = event => {
+        event.preventDefault();
+        dispatch(AnsHIVChange('PERNAH_TES', hiv_pernahTes));
+        dispatch(AnsHIVChange('WAKTU_TES', hiv_waktuTes));
+        dispatch(AnsHIVChange('HASIL_TES', hiv_hasilTes));
+        dispatch(AnsHIVChange('IBU_PERNAH_TES', hiv_ibuPernahTes));
+        dispatch(AnsHIVChange('IBU_HASIL_TES', hiv_ibuHasilTes));
+        axios.post(`/HIV/1`, {
+            hiv_pernahTes: hiv_pernahTes,
+            hiv_waktuTes: hiv_waktuTes,
+            hiv_hasilTes: hiv_hasilTes,
+            hiv_ibuPernahTes: hiv_ibuPernahTes,
+            hiv_ibuHasilTes: hiv_ibuHasilTes
+        })
+        .then(res => {
+            if(klasifikasiHIV.hiv_klasifikasi != null){
+                if(res.data.statusKlasifikasi === "danger"){
+                    dispatch(KlasifikasiHIVChange('HIV_KLASIFIKASI', res.data.hasilKlasifkasi));
+                    dispatch(KlasifikasiHIVChange('HIV_STATUS', res.data.statusKlasifikasi));
+                }
+                else{
+                    if(klasifikasiHIV.hiv_klasifikasi != "danger"){
+                        if(res.data.statusKlasifikasi === "warning" ){
+                            dispatch(KlasifikasiHIVChange('HIV_KLASIFIKASI', res.data.hasilKlasifkasi));
+                            dispatch(KlasifikasiHIVChange('HIV_STATUS', res.data.statusKlasifikasi));
+                        }
+                    }
+                }
+            }
+            else{
+                dispatch(KlasifikasiHIVChange('HIV_KLASIFIKASI', res.data.hasilKlasifikasi));
+                dispatch(KlasifikasiHIVChange('HIV_STATUS', res.data.statusKlasifikasi));
+            }
+        })
+        .catch(err=>{
+            console.log(err);
+        });
+        history.push("HIV2"); 
+    }
+
     const handleAnswer1 = event =>{
         if(event.target.value == 1){
             set_hiv_pernahTes(true);
@@ -68,7 +108,7 @@ const HIV = (props) =>{
     }
 
     return(
-        <Form id="formHIV1" className="">
+        <Form id="formHIV1" className="" onSubmit={handleSubmit}>
             <div className="w-100">
                 <div className="col-12">
                 <div className="d-flex justify-content-center mt-3">

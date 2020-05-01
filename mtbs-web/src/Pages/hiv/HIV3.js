@@ -22,6 +22,46 @@ const HIV = (props) =>{
     const klasifikasiHIV = useSelector(state => state.klasifikasiHIV);
     let[hiv_bercakPutih, set_hiv_bercakPutih] = useState(ansHIV.hiv_bercakPutih);
 
+    const handleSubmit = event => {
+        event.preventDefault();
+        dispatch(AnsHIVChange('BERCAK_PUTIH', hiv_bercakPutih));
+        axios.post(`/HIV/3`, {
+            hiv_pernahTes: ansHIV.hiv_pernahTes,
+            hiv_waktuTes: ansHIV.hiv_waktuTes,
+            hiv_hasilTes: ansHIV.hiv_hasilTes,
+            hiv_ibuPernahTes: ansHIV.hiv_ibuPernahTes,
+            hiv_ibuHasilTes: ansHIV.hiv_ibuHasilTes,
+            hiv_kerabatTerdiagnosis: ansHIV.hiv_kerabatTerdiagnosis,
+            hiv_kerabatMeninggal: ansHIV.hiv_kerabatMeninggal,
+            hiv_masihDapatASI: ansHIV.hiv_masihDapatASI,
+            hiv_bercakPutih: hiv_bercakPutih
+        })
+        .then(res => {
+            if(klasifikasiHIV.hiv_klasifikasi != null){
+                if(res.data.statusKlasifikasi === "danger"){
+                    dispatch(KlasifikasiHIVChange('HIV_KLASIFIKASI', res.data.hasilKlasifkasi));
+                    dispatch(KlasifikasiHIVChange('HIV_STATUS', res.data.statusKlasifikasi));
+                }
+                else{
+                    if(klasifikasiHIV.hiv_klasifikasi != "danger"){
+                        if(res.data.statusKlasifikasi === "warning" ){
+                            dispatch(KlasifikasiHIVChange('HIV_KLASIFIKASI', res.data.hasilKlasifkasi));
+                            dispatch(KlasifikasiHIVChange('HIV_STATUS', res.data.statusKlasifikasi));
+                        }
+                    }
+                }
+            }
+            else{
+                dispatch(KlasifikasiHIVChange('HIV_KLASIFIKASI', res.data.hasilKlasifikasi));
+                dispatch(KlasifikasiHIVChange('HIV_STATUS', res.data.statusKlasifikasi));
+            }
+        })
+        .catch(err=>{
+            console.log(err);
+        });
+        history.push("Imunisasi"); 
+    }
+
     const handleAnswer1 = event =>{
         if(event.target.value == 1){
             set_hiv_bercakPutih(true);
@@ -31,7 +71,7 @@ const HIV = (props) =>{
     }
 
     return(
-        <Form id="formHIV3" className="">
+        <Form id="formHIV3" className="" onsubmit={handleSubmit}>
             <div className="w-100">
                 <div className="col-12">
                     <div className="d-flex justify-content-center mt-3">

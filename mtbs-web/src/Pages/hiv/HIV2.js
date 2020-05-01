@@ -19,6 +19,7 @@ const HIV2 = (props) =>{
     const history = useHistory();
     const dispatch = useDispatch();
     const ansHIV = useSelector(state => state.ansHIV);
+    const klasifikasiHIV = useSelector(state => state.klasifikasiHIV);
     let[hiv_kerabatTerdiagnosis, set_hiv_kerabatTerdiagnosis] = useState(ansHIV.hiv_kerabatTerdiagnosis);
     let[hiv_kerabatMeninggal, set_hiv_kerabatMeninggal] = useState(ansHIV.hiv_kerabatMeninggal);
     let[hiv_masihDapatASI, set_hiv_masihDapatASI] = useState(ansHIV.hiv_masihDapatASI);
@@ -39,8 +40,24 @@ const HIV2 = (props) =>{
             hiv_masihDapatASI: hiv_masihDapatASI
         })
         .then(res => {
-            dispatch(KlasifikasiHIVChange('HIV_KLASIFIKASI', res.data.hasilKlasifikasi));
-            dispatch(KlasifikasiHIVChange('HIV_STATUS', res.data.statusKlasifikasi));
+            if(klasifikasiHIV.hiv_klasifikasi != null){
+                if(res.data.statusKlasifikasi === "danger"){
+                    dispatch(KlasifikasiHIVChange('HIV_KLASIFIKASI', res.data.hasilKlasifkasi));
+                    dispatch(KlasifikasiHIVChange('HIV_STATUS', res.data.statusKlasifikasi));
+                }
+                else{
+                    if(klasifikasiHIV.hiv_klasifikasi != "danger"){
+                        if(res.data.statusKlasifikasi === "warning" ){
+                            dispatch(KlasifikasiHIVChange('HIV_KLASIFIKASI', res.data.hasilKlasifkasi));
+                            dispatch(KlasifikasiHIVChange('HIV_STATUS', res.data.statusKlasifikasi));
+                        }
+                    }
+                }
+            }
+            else{
+                dispatch(KlasifikasiHIVChange('HIV_KLASIFIKASI', res.data.hasilKlasifikasi));
+                dispatch(KlasifikasiHIVChange('HIV_STATUS', res.data.statusKlasifikasi));
+            }
         })
         .catch(err=>{
             console.log(err);

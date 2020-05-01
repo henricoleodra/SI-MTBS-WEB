@@ -9,7 +9,7 @@ import axios from 'axios';
 import '../../Assets/style/style.css';
 
 // ACTIONS 
-import { KlasifikasiAnemiaChange, AnsAnemiaChange } from '../../Actions';
+import { KlasifikasiAnemiaChange, AnsAnemiaChange, compStatusChange } from '../../Actions';
 
 let outlineColor = {
     borderColor : '#41E8B3'
@@ -38,6 +38,7 @@ const Anemia = (props) =>{
         .catch(err=>{
             console.log(err);
         });
+        dispatch(compStatusChange('HIV'));
         history.push("HIV1");
     }
 

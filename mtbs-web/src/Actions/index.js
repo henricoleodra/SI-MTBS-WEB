@@ -60,3 +60,19 @@ export const KlasifikasiDiareChange = (comp, ans) =>{
         answer : ans
     }
 }
+
+// ANSWER Anemia
+export const AnsAnemiaChange = (comp, ans) => {
+    return{
+        type : comp,
+        answer : ans
+    }
+}
+
+// KLASIFIKASI Anemia
+export const KlasifikasiAnemiaChange = (comp, ans) =>{
+    return{
+        type : comp,
+        answer : ans
+    }
+}

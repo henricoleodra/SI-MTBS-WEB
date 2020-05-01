@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button, InputGroup, InputGroupText, InputGroupAddon, Row, Col} from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
 import '../../Assets/style/style.css';
+
+// Actions
+import { KlasifikasiTelingaChange, AnsTelingaChange, compStatusChange } from '../../Actions';
 
 let outlineColor = {
     borderColor : '#41E8B3'
@@ -15,7 +19,41 @@ let bgColor ={
     color: 'white'
 }
 
-const Diare = (props) => {
+const Telinga = (props) => {
+    const history = useHistory();
+    const dispatch = useDispatch();
+    const ansTelinga = useSelector(state => state.ansTelinga);
+    let [telinga, setTelinga] = useState(ansTelinga.telinga);
+
+    const handleTelinga = event =>{
+        if(event.target.value == 1){
+            setTelinga(true);
+        }else{
+            setTelinga(false);
+        }         
+    }
+
+
+const handleSubmit = event =>{
+    event.preventDefault();
+    if(telinga == true){
+        if(ansTelinga.telinga === false){
+            dispatch(KlasifikasiTelingaChange('TELINGA_KLASIFIKASI', ""));
+            dispatch(KlasifikasiTelingaChange('TELINGA_STATUS', null));
+        }
+        dispatch(AnsTelingaChange('TELINGA', telinga));
+        history.push("Telinga1");
+    }
+    else{
+        dispatch(AnsTelingaChange('TELINGA', telinga));
+        dispatch(KlasifikasiTelingaChange('TELINGA_KLASIFIKASI', ""));
+        dispatch(KlasifikasiTelingaChange('TELINGA_STATUS', "success"));
+        dispatch(compStatusChange('GIZI'));
+        history.push("Gizi1");
+    }
+}
+
+
     return(
         <Form>
             <div className="w-100">
@@ -42,7 +80,7 @@ const Diare = (props) => {
                                         <Col sm="3">
                                             <FormGroup className="d-inline pr-2">  
                                                 <Label className="rdoBtn">Ya
-                                                <Input type="radio" name="radio1" value={1} /**onChange={} checked={}**/ />
+                                                <Input type="radio" name="radio1" value={1} onChange={handleTelinga} checked={telinga === true } required/>
                                                 <span style={{left:"20px"}} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>
@@ -53,7 +91,7 @@ const Diare = (props) => {
                                         <Col sm="3">
                                             <FormGroup className="d-inline">
                                                 <Label className="rdoBtn">Tidak
-                                                <Input type="radio" name="radio1" value={2} /**onChange={} checked={}**/ />
+                                                <Input type="radio" name="radio1" value={2} onChange={handleTelinga} checked={telinga === false}/>
                                                 <span style={{left:"0px"}} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>
@@ -77,4 +115,4 @@ const Diare = (props) => {
     );
 }
 
-export default Diare
+export default Telinga

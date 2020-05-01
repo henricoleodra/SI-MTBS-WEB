@@ -25,7 +25,7 @@ const Batuk2 = (props) =>{
     const dispatch = useDispatch();
     const ansBatuk = useSelector(state => state.ansBatuk);
     let[bsb_wheezing, set_bsb_wheezing] = useState(ansBatuk.bsb_wheezing);
-    let[bsb_saturasiOksigen, set_bsb_saturasiOksigen] = useState(ansBatuk.set_bsb_saturasiOksigen);
+    let[bsb_saturasiOksigen, set_bsb_saturasiOksigen] = useState(ansBatuk.bsb_saturasiOksigen);
 
     const handleSubmit = event =>{
         event.preventDefault();

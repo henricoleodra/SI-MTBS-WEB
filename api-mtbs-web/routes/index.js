@@ -3,7 +3,7 @@ var router = express.Router();
 const tandabahayaumum = require('../controllers/tandabahayaumum');
 const batuk = require('../controllers/batuk');
 const diare = require('../controllers/diare');
-const telinga = require('../controllers/telinga');
+// const telinga = require('../controllers/telinga');
 const anemia = require('../controllers/anemia');
 const hiv = require('../controllers/hiv');
 
@@ -23,8 +23,8 @@ router.post(`/Diare/1`,diare.diare1);
 router.post(`/Diare/2`,diare.diare2);
 router.post(`/Diare/3`,diare.diare3);
 //Telinga
-router.post(`/Telinga/1`,telinga.telinga1);
-router.post(`/Telinga/2`,telinga.telinga2);
+// router.post(`/Telinga/1`,telinga.telinga1);
+// router.post(`/Telinga/2`,telinga.telinga2);
 //Anemia
 router.post(`/Anemia`,anemia.anemia);
 //HIV

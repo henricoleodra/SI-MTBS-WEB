@@ -32,53 +32,77 @@ const Telinga = (props) =>{
                     }}
                     />
                 </div>
-                <div style={{minHeight: "500px"}}>
+                <div style={{minHeight: "475px"}}>
                     <Row className="justify-content-center">
                         <Card style={outlineColor} className="text-center w-75 mt-3">
                             <CardBody>
                                 <CardTitle className="h5"><b>Lihat! </b>Ada cairan/nanah keluar dari telinga</CardTitle>
-                                <FormGroup check className="d-inline pr-2">
-                                    <Label>
-                                        <Input type="radio" name="radio1"/>{''}
-                                        Ya
-                                    </Label>
-                                </FormGroup>
-                                <FormGroup check className="d-inline">
-                                    <Label>
-                                        <Input type="radio" name="radio1"/>{''}
-                                        Tidak
-                                    </Label>
-                                </FormGroup>
+                                <Row className="limitCol "> 
+                                    <Col  sm="3">
+                                    
+                                    </Col>
+                                    <Col sm="3">
+                                        <FormGroup className="d-inline pr-2">  
+                                            <Label className="rdoBtn">Ya
+                                            <Input type="radio" name="radio1" /**value={1} onChange={handleAnswer1} checked={tbu_tidakBisaMinum === true}**/ required/>
+                                            <span style={{left:"20px"}} className="checkmark"></span>
+                                            </Label>
+                                        </FormGroup>
+                                    </Col>
+                                    <Col sm="1">
+                                    
+                                    </Col>
+                                    <Col sm="3">
+                                        <FormGroup className="d-inline">
+                                            <Label className="rdoBtn">Tidak
+                                            <Input type="radio" name="radio1" /**value={2} onChange={handleAnswer1} checked={tbu_tidakBisaMinum === false}**/ /> 
+                                            <span style={{left:"0px"}} className="checkmark"></span>
+                                            </Label>
+                                        </FormGroup>    
+                                    </Col>
+                                </Row>
                             </CardBody>
                         </Card>
                         <Card style={outlineColor} className="text-center w-75 mt-3">
                             <CardBody>
                                 <CardTitle className="h5"><b>Raba! </b>Ada pembengkakan yang nyeri di belakang telinga</CardTitle>
-                                <FormGroup check className="d-inline pr-2">
-                                    <Label>
-                                        <Input type="radio" name="radio2"/>{''}
-                                        Ya
-                                    </Label>
-                                </FormGroup>
-                                <FormGroup check className="d-inline">
-                                    <Label>
-                                        <Input type="radio" name="radio2"/>{''}
-                                        Tidak
-                                    </Label>
-                                </FormGroup>
+                                <Row className="limitCol "> 
+                                    <Col  sm="3">
+                                    
+                                    </Col>
+                                    <Col sm="3">
+                                        <FormGroup className="d-inline pr-2">  
+                                            <Label className="rdoBtn">Ya
+                                            <Input type="radio" name="radio2" /**value={1} onChange={handleAnswer1} checked={tbu_tidakBisaMinum === true}**/ required/>
+                                            <span style={{left:"20px"}} className="checkmark"></span>
+                                            </Label>
+                                        </FormGroup>
+                                    </Col>
+                                    <Col sm="1">
+                                    
+                                    </Col>
+                                    <Col sm="3">
+                                        <FormGroup className="d-inline">
+                                            <Label className="rdoBtn">Tidak
+                                            <Input type="radio" name="radio2" /**value={2} onChange={handleAnswer1} checked={tbu_tidakBisaMinum === false}**/ /> 
+                                            <span style={{left:"0px"}} className="checkmark"></span>
+                                            </Label>
+                                        </FormGroup>    
+                                    </Col>
+                                </Row>
                             </CardBody>
                         </Card>
                     </Row>
                 </div>
             </div>
-            <Row className="justify-content-between px-5 py-3">
-            <Col sm="4">
-              <Link to="Telinga1" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Sebelumnya</Button></Link>
-            </Col>
-            <Col sm="4">
-              <Link to="Gizi1" style={{textDecoration: "none"}}><Button color="success" block >Pemeriksaan Gizi <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
-            </Col>
-          </Row>
+            <Row className="justify-content-between px-5 py-0">
+                <Col sm="4">
+                    <Link to="Telinga1" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Sebelumnya</Button></Link>
+                </Col>
+                <Col sm="4">
+                    <Button type="submit" color="success" block>Pemeriksaan Gizi <FontAwesomeIcon icon={faChevronRight}/></Button>
+                </Col>
+            </Row>
         </div>
         </Form>
     );

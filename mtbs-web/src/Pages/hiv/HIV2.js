@@ -87,7 +87,7 @@ const HIV2 = (props) =>{
     }
 
     return(
-        <Form onsubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit}>
             <div className="w-100">
                 <div className="col-12">
                 <div className="d-flex justify-content-center mt-3">

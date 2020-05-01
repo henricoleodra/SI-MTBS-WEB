@@ -5,7 +5,7 @@
 // lebih besar sama dengan 14 hari ->Telinga Kuning
 // Tidak ada nyeri -> Telinga aman
 
-const klasifikasiTelinga = (nyeriTelinga, penuh, tampakCairan, lebihBesarSamaDengan14Hari) =>{
+const klasifikasiTelinga1 = (nyeriTelinga, penuh, tampakCairan, lebihBesarSamaDengan14Hari) =>{
 
     if(nyeriTelinga || penuh || tampakCairan){
         const ans = {

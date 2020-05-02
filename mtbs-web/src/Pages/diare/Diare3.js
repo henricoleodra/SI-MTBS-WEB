@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 
 // Actions
-import { KlasifikasiDiareChange, AnsDiareChange } from '../../Actions';
+import { KlasifikasiDiareChange, AnsDiareChange, compStatusChange } from '../../Actions';
 
 import '../../Assets/style/style.css';
 
@@ -21,46 +21,44 @@ const Diare3 = (props) => {
     const ansDiare = useSelector(state=> state.ansDiare);
     let[diare_isNotMinum, set_diare_isNotMinum] = useState(ansDiare.diare_isNotMinum);
     let[diare_kulitPerutLambat, set_diare_kulitPerutLambat]=useState(ansDiare.diare_kulitPerutLambat);
+    
     const handleSubmit = event =>{
         event.preventDefault();
-        dispatch(AnsDiareChange('TIDAK_MINUM', diare_isNotMinum));
-        dispatch(AnsDiareChange('KULIT_PERUT_LAMBAT', diare_kulitPerutLambat));
-
-        axios.post(`/Diare/3`,{
-            diare_berapaLama: ansDiare.diare_berapaLama,
-            diare_tinjaBerdarah: ansDiare.diare_tinjaBerdarah,
-            diare_isAnakTidakSadar: ansDiare.diare_isAnakTidakSadar,
-            diare_rewelMudahMarah: ansDiare.diare_rewelMudahMarah,
-            diare_isMataCekung: ansDiare.diare_isMataCekung,
-            diare_isNotMinum: diare_isNotMinum,
-            diare_kulitPerutLambat: diare_kulitPerutLambat
+        axios.post(`/Diare/3`, {
+            ansDiare : ansDiare
         })
-        .then(res =>{
-            dispatch(KlasifikasiDiareChange('DIARE_KLASIFIKASI', res.data.hasilKlasifikasi));
-            console.log(res.data.hasilKlasifikasi);
+        .then(res => {
+            dispatch(KlasifikasiDiareChange('DIARE_KLASIFIKASI', res.data.hasilKlasifkasi));
             dispatch(KlasifikasiDiareChange('DIARE_STATUS', res.data.statusKlasifikasi));
         })
         .catch(err=>{
-            console.log(err);
-        });
+          console.log(err);
+        }); 
+        dispatch(KlasifikasiDiareChange('DIARE_3', true));
+        dispatch(compStatusChange('DEMAM'));
         history.push("DemamYaTidak");
     }
 
     const handleAnswer1 = event =>{
         if(event.target.value == 1){
             set_diare_isNotMinum(true);
+            dispatch(AnsDiareChange('TIDAK_MINUM', true));
         }else{
             set_diare_isNotMinum(false);
+            dispatch(AnsDiareChange('TIDAK_MINUM', true));
         }
     }
 
     const handleAnswer2 = event =>{
         if(event.target.value ==='SangatLambat'){
             set_diare_kulitPerutLambat('SangatLambat');
+            dispatch(AnsDiareChange('KULIT_PERUT_LAMBAT', 'SangatLambat'));
         }else if(event.target.value ==='Lambat'){
             set_diare_kulitPerutLambat('Lambat');
+            dispatch(AnsDiareChange('KULIT_PERUT_LAMBAT', 'Lambat'));
         }else{
             set_diare_kulitPerutLambat('Normal');
+            dispatch(AnsDiareChange('KULIT_PERUT_LAMBAT', 'Normal'));
         }
     }
 

@@ -31,47 +31,57 @@ const Diare = (props) => {
 
     const handleSubmit = event =>{
         event.preventDefault();
-        dispatch(AnsDiareChange('BERAPA_LAMA', diare_berapaLama));
-        dispatch(AnsDiareChange('TINJA_BERDARAH', diare_tinjaBerdarah));
-        axios.post(`/Diare/1`, {
-            diare_berapaLama: diare_berapaLama,
-            diare_tinjaBerdarah: diare_tinjaBerdarah
-        })
-        .then(res => {
-            if(klasifikasiDiare.diare_klasifikasi != null){
-                if(res.data.statusKlasifikasi === "danger"){
-                    dispatch(KlasifikasiDiareChange('DIARE_KLASIFIKASI', res.data.hasilKlasifkasi));
-                    dispatch(KlasifikasiDiareChange('DIARE_STATUS', res.data.statusKlasifikasi));
-                }
-                else{
-                    if(klasifikasiDiare.diare_klasifikasi != "danger"){
-                        if(res.data.statusKlasifikasi === "warning" ){
-                            dispatch(KlasifikasiDiareChange('DIARE_KLASIFIKASI', res.data.hasilKlasifkasi));
-                            dispatch(KlasifikasiDiareChange('DIARE_STATUS', res.data.statusKlasifikasi));
-                        }
-                    }
-                }
-            }
-            else{
+        if(klasifikasiDiare.diare_3 === true){
+            axios.post(`/Diare/3`, {
+                ansDiare : ansDiare
+            })
+            .then(res => {
                 dispatch(KlasifikasiDiareChange('DIARE_KLASIFIKASI', res.data.hasilKlasifkasi));
                 dispatch(KlasifikasiDiareChange('DIARE_STATUS', res.data.statusKlasifikasi));
-            }    
-        })
-        .catch(err=>{
-          console.log(err);
-        });
-        history.push("Diare2");     
+            })
+            .catch(err=>{
+              console.log(err);
+            }); 
+        }
+        else if(klasifikasiDiare.diare_2 === true){
+            axios.post(`/Diare/2`, {
+                ansDiare : ansDiare
+            })
+            .then(res => {
+                dispatch(KlasifikasiDiareChange('DIARE_KLASIFIKASI', res.data.hasilKlasifkasi));
+                dispatch(KlasifikasiDiareChange('DIARE_STATUS', res.data.statusKlasifikasi));
+            })
+            .catch(err=>{
+              console.log(err);
+            }); 
+        }
+        else{
+            axios.post(`/Diare/1`, {
+                ansDiare : ansDiare
+            })
+            .then(res => {
+                dispatch(KlasifikasiDiareChange('DIARE_KLASIFIKASI', res.data.hasilKlasifkasi));
+                dispatch(KlasifikasiDiareChange('DIARE_STATUS', res.data.statusKlasifikasi));
+            })
+            .catch(err=>{
+              console.log(err);
+            }); 
+        }
+        history.push("Diare2");
     }
 
     const handleAnswer1 = event =>{
         set_diare_berapaLama(event.target.value);
+        dispatch(AnsDiareChange('BERAPA_LAMA', event.target.value));
     }
 
     const handleAnswer2 = event =>{
         if(event.target.value == 1){
             set_diare_tinjaBerdarah(true);
+            dispatch(AnsDiareChange('TINJA_BERDARAH', true));
         }else if(event.target.value == 2){
             set_diare_tinjaBerdarah(false);
+            dispatch(AnsDiareChange('TINJA_BERDARAH', false));
         }
     }
 

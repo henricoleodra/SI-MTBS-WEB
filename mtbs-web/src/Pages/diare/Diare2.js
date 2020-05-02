@@ -27,60 +27,58 @@ const Diare2 = (props) => {
 
     const handleSubmit = event =>{
         event.preventDefault();
-        dispatch(AnsDiareChange('ANAK_TIDAK_SADAR', diare_isAnakTidakSadar));
-        dispatch(AnsDiareChange('REWEL_MUDAH_MARAH', diare_rewelMudahMarah));
-        dispatch(AnsDiareChange('MATA_CEKUNG', diare_isMataCekung));
-        axios.post(`/Diare/2`, {
-            diare_berapaLama: ansDiare.diare_berapaLama,
-            diare_tinjaBerdarah: ansDiare.diare_tinjaBerdarah,
-            diare_isAnakTidakSadar: diare_isAnakTidakSadar,
-            diare_rewelMudahMarah: diare_rewelMudahMarah,
-            diare_isMataCekung: diare_isMataCekung
-        })
-        .then(res => {
-            if(klasifikasiDiare.diare_klasifikasi != null){
-                if(res.data.statusKlasifikasi === "danger"){
-                    dispatch(KlasifikasiDiareChange('DIARE_KLASIFIKASI', res.data.hasilKlasifkasi));
-                    dispatch(KlasifikasiDiareChange('DIARE_STATUS', res.data.statusKlasifikasi));
-                }
-                else{
-                    if(klasifikasiDiare.diare_klasifikasi != "danger"){
-                        if(res.data.statusKlasifikasi === "warning" ){
-                            dispatch(KlasifikasiDiareChange('DIARE_KLASIFIKASI', res.data.hasilKlasifkasi));
-                            dispatch(KlasifikasiDiareChange('DIARE_STATUS', res.data.statusKlasifikasi));
-                        }
-                    }
-                }
-            }
-            else{
+        if(klasifikasiDiare.diare_3 === true){
+            axios.post(`/Diare/3`, {
+                ansDiare : ansDiare
+            })
+            .then(res => {
                 dispatch(KlasifikasiDiareChange('DIARE_KLASIFIKASI', res.data.hasilKlasifkasi));
                 dispatch(KlasifikasiDiareChange('DIARE_STATUS', res.data.statusKlasifikasi));
-            }    
-        })
-        .catch(err=>{
-            console.log(err);
-        });
+            })
+            .catch(err=>{
+              console.log(err);
+            }); 
+        }
+        else{
+            axios.post(`/Diare/2`, {
+                ansDiare : ansDiare
+            })
+            .then(res => {
+                dispatch(KlasifikasiDiareChange('DIARE_KLASIFIKASI', res.data.hasilKlasifkasi));
+                dispatch(KlasifikasiDiareChange('DIARE_STATUS', res.data.statusKlasifikasi));
+            })
+            .catch(err=>{
+              console.log(err);
+            }); 
+        }
+        dispatch(KlasifikasiDiareChange('DIARE_2', true));
         history.push("Diare3");    
     }
     const handleAnswer1 = event =>{
         if(event.target.value == 1){
             set_diare_isAnakTidakSadar(true);
+            dispatch(AnsDiareChange('ANAK_TIDAK_SADAR', true));
         }else if(event.target.value == 2){
             set_diare_isAnakTidakSadar(false);
+            dispatch(AnsDiareChange('ANAK_TIDAK_SADAR', false));
         }
     }
     const handleAnswer2 = event =>{
         if(event.target.value == 1){
             set_diare_rewelMudahMarah(true);
+            dispatch(AnsDiareChange('REWEL_MUDAH_MARAH', true));
         }else if(event.target.value == 2){
             set_diare_rewelMudahMarah(false);
+            dispatch(AnsDiareChange('REWEL_MUDAH_MARAH', false));
         }
     }
     const handleAnswer3 = event =>{
         if(event.target.value == 1){
             set_diare_isMataCekung(true);
+            dispatch(AnsDiareChange('MATA_CEKUNG', true));
         }else if(event.target.value == 2){
             set_diare_isMataCekung(false);
+            dispatch(AnsDiareChange('MATA_CEKUNG', false));
         }
     }
 

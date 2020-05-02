@@ -28,7 +28,7 @@ const Diare3 = (props) => {
             ansDiare : ansDiare
         })
         .then(res => {
-            dispatch(KlasifikasiDiareChange('DIARE_KLASIFIKASI', res.data.hasilKlasifkasi));
+            dispatch(KlasifikasiDiareChange('DIARE_KLASIFIKASI', res.data.hasilKlasifikasi));
             dispatch(KlasifikasiDiareChange('DIARE_STATUS', res.data.statusKlasifikasi));
         })
         .catch(err=>{
@@ -45,7 +45,7 @@ const Diare3 = (props) => {
             dispatch(AnsDiareChange('TIDAK_MINUM', true));
         }else{
             set_diare_isNotMinum(false);
-            dispatch(AnsDiareChange('TIDAK_MINUM', true));
+            dispatch(AnsDiareChange('TIDAK_MINUM', false));
         }
     }
 

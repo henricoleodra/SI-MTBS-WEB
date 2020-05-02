@@ -1,14 +1,14 @@
 const klasifikasiDiare1 = (ansDiare) =>{
     if(ansDiare.diare_tinjaBerdarah){
         const ans = {
-            hasilKlasifkasi : 'Disentri',
+            hasilKlasifikasi : 'Disentri',
             statusKlasifikasi: 'warning',
         }
         return ans;
     }
     else{
         const ans = {
-            hasilKlasifkasi : '',
+            hasilKlasifikasi : '',
             statusKlasifikasi: 'success'
         }
         return ans;
@@ -18,28 +18,28 @@ const klasifikasiDiare1 = (ansDiare) =>{
 const klasifikasiDiare2 = (ansDiare) =>{
     if(ansDiare.diare_tinjaBerdarah){
         const ans = {
-            hasilKlasifkasi : 'Disentri',
+            hasilKlasifikasi : 'Disentri',
             statusKlasifikasi: 'warning',
         }
         return ans;
     }
     else if(ansDiare.diare_isAnakTidakSadar && ansDiare.diare_isMataCekung){
         const ans = {
-            hasilKlasifkasi : 'Diare Dehidrasi Berat',
+            hasilKlasifikasi : 'Diare Dehidrasi Berat',
             statusKlasifikasi: 'danger',
         }
         return ans;
     }
     else if(ansDiare.diare_rewelMudahMarah && ansDiare.diare_isMataCekung){
         const ans = {
-            hasilKlasifkasi : 'Diare Dehidrasi Ringan/Sedang',
+            hasilKlasifikasi : 'Diare Dehidrasi Ringan/Sedang',
             statusKlasifikasi: 'warning',
         }
         return ans;
     }
     else{
         const ans = {
-            hasilKlasifkasi : '',
+            hasilKlasifikasi : 'Diare Tanpa Dehidrasi',
             statusKlasifikasi: 'success'
         }
         return ans;
@@ -73,7 +73,7 @@ const klasifikasiDiare3 = (ansDiare) =>{
     }
     if(ansDiare.diare_tinjaBerdarah){
         const ans = {
-            hasilKlasifkasi : 'Disentri',
+            hasilKlasifikasi : 'Disentri',
             statusKlasifikasi: 'warning',
         }
         return ans;
@@ -81,14 +81,14 @@ const klasifikasiDiare3 = (ansDiare) =>{
     else if(ansDiare.diare_berapaLama > 13){
         if(ansDiare.diare_isNotMinum){
             const ans = {
-                hasilKlasifkasi : 'Diare Persisten Berat',
+                hasilKlasifikasi : 'Diare Persisten Berat',
                 statusKlasifikasi: 'danger',
             }
             return ans;
         }
         else{
             const ans = {
-                hasilKlasifkasi : 'Diare Persisten',
+                hasilKlasifikasi : 'Diare Persisten',
                 statusKlasifikasi: 'warning',
             }
             return ans;
@@ -110,7 +110,7 @@ const klasifikasiDiare3 = (ansDiare) =>{
     }
     else{
         const ans = {
-            hasilKlasifkasi : '',
+            hasilKlasifikasi : 'Diare Tanpa Dehidrasi',
             statusKlasifikasi: 'success'
         }
         return ans;

@@ -1,8 +1,14 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button, Row, Col} from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { useDispatch, useSelector } from 'react-redux';
+import axios from 'axios';
+
+import '../../Assets/style/style.css';
+// Actions
+import { KlasifikasiTelingaChange, AnsTelingaChange, compStatusChange } from '../../Actions';
 
 
 let outlineColor = {
@@ -10,8 +16,68 @@ let outlineColor = {
 }
 
 const Telinga = (props) =>{
+
+    const history = useHistory();
+    const disptach = useDispatch();
+    const ansTelinga = useSelector(state =>state.ansTelinga);
+    const klasifikasiTelinga = useSelector(state => state.KlasifikasiTelinga);
+    let[telinga_cekKeluarNanah, set_telinga_cekKeluarNanah] = useState(ansTelinga.telinga_cekKeluarNanah); 
+    let[telinga_isBengkak, set_telinga_isBengkak] = useState(ansTelinga.telinga_isBengkak);
+
+    const handleSubmit = event =>{
+        event.preventDefault();
+        disptach(AnsTelingaChange('CEK_KELUAR_NANAH'),telinga_cekKeluarNanah);
+        disptach(AnsTelingaChange('BENGKAK'), telinga_isBengkak);
+        axios.post(`/Telinga/2`,{
+            telinga_cekKeluarNanah : telinga_cekKeluarNanah,
+            telinga_isBengkak : telinga_isBengkak,
+        })
+        .then(res => {
+            if(klasifikasiTelinga.telinga_status != null){
+                if(res.data.statusKlasifikasi === "danger"){
+                    disptach(KlasifikasiTelingaChange('TELINGA_KLASIFIKASI', res.data.hasilKlasifikasi));
+                    disptach(KlasifikasiTelingaChange('TELINGA_STATUS', res.data.statusKlasifikasi));
+                }
+                else{
+                    if(klasifikasiTelinga.telinga_status != "danger"){
+                        if(res.data.statusKlasifikasi === "warning"){
+                            disptach(KlasifikasiTelingaChange('TELINGA_KLASIFIKASI', res.data.hasilKlasifikasi));
+                            disptach(KlasifikasiTelingaChange('TELINGA_STATUS', res.data.statusKlasifikasi));
+                        }
+                    }
+                }
+            }
+            else{
+                disptach(KlasifikasiTelingaChange('TELINGA_KLASIFIKASI', res.data.hasilKlasifikasi));
+                disptach(KlasifikasiTelingaChange('TELINGA_STATUS', res.data.statusKlasifikasi));
+            }
+        })
+        .catch(err => {
+            console.log(err);
+        });
+        history.push("Gizi1");
+    }
+
+    const handleAnswer1 = event => {
+        if(event.target.value == 1){
+            set_telinga_cekKeluarNanah(true);
+        }else{
+            set_telinga_cekKeluarNanah(false);
+        }
+        console.log(telinga_cekKeluarNanah);
+    }
+
+    const handleAnswer2 = event => {
+        if(event.target.value == 1){
+            set_telinga_isBengkak(true);
+        }else{
+            set_telinga_isBengkak(false);
+        }
+        console.log(telinga_isBengkak);
+    }
+
     return(
-        <Form>
+        <Form onSubmit={handleSubmit}>
             <div className="w-100">
                 <div className="col-12">
                 <div className="d-flex justify-content-center mt-3">
@@ -44,7 +110,7 @@ const Telinga = (props) =>{
                                     <Col sm="3">
                                         <FormGroup className="d-inline pr-2">  
                                             <Label className="rdoBtn">Ya
-                                            <Input type="radio" name="radio1" /**value={1} onChange={handleAnswer1} checked={tbu_tidakBisaMinum === true}**/ required/>
+                                            <Input type="radio" name="radio1" value={1} onChange={handleAnswer1} checked={telinga_cekKeluarNanah === true} required/>
                                             <span style={{left:"20px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>
@@ -55,7 +121,7 @@ const Telinga = (props) =>{
                                     <Col sm="3">
                                         <FormGroup className="d-inline">
                                             <Label className="rdoBtn">Tidak
-                                            <Input type="radio" name="radio1" /**value={2} onChange={handleAnswer1} checked={tbu_tidakBisaMinum === false}**/ /> 
+                                            <Input type="radio" name="radio1" value={2} onChange={handleAnswer1} checked={telinga_cekKeluarNanah === false} /> 
                                             <span style={{left:"0px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>    
@@ -73,7 +139,7 @@ const Telinga = (props) =>{
                                     <Col sm="3">
                                         <FormGroup className="d-inline pr-2">  
                                             <Label className="rdoBtn">Ya
-                                            <Input type="radio" name="radio2" /**value={1} onChange={handleAnswer1} checked={tbu_tidakBisaMinum === true}**/ required/>
+                                            <Input type="radio" name="radio2" value={1} onChange={handleAnswer2} checked={telinga_isBengkak === true} required/>
                                             <span style={{left:"20px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>
@@ -84,7 +150,7 @@ const Telinga = (props) =>{
                                     <Col sm="3">
                                         <FormGroup className="d-inline">
                                             <Label className="rdoBtn">Tidak
-                                            <Input type="radio" name="radio2" /**value={2} onChange={handleAnswer1} checked={tbu_tidakBisaMinum === false}**/ /> 
+                                            <Input type="radio" name="radio2" value={2} onChange={handleAnswer2} checked={telinga_isBengkak === false} /> 
                                             <span style={{left:"0px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>    

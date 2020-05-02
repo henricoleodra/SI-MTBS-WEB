@@ -252,9 +252,9 @@ const Telinga = (props) =>{
                                     <h5>Jika ya, berapa lama?</h5>
                                     <div className="w-100 d-flex justify-content-center">
                                         <InputGroup className="w-50">
-                                            <Input type="number" min="0"/>
+                                            <Input type="number" min="0" value={telinga_nanahLamaHari} onChange={handleAnswer4} />
                                             <InputGroupAddon addonType="append" >
-                                                <InputGroupText type="number" min="0" value={telinga_nanahLamaHari} onChange={handleAnswer4} style={bgColor}>Hari</InputGroupText>
+                                                <InputGroupText style={bgColor}>Hari</InputGroupText>
                                             </InputGroupAddon>
                                         </InputGroup>         
                                     </div> 

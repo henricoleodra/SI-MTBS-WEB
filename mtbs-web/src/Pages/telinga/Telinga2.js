@@ -74,8 +74,10 @@ const Telinga = (props) =>{
     const handleAnswer1 = event => {
         if(event.target.value == 1){
             set_telinga_cekKeluarNanah(true);
+            disptach(AnsTelingaChange('CEK_KELUAR_NANAH'),true);
         }else{
             set_telinga_cekKeluarNanah(false);
+            disptach(AnsTelingaChange('CEK_KELUAR_NANAH'),false);
         }
         console.log(telinga_cekKeluarNanah);
     }
@@ -83,8 +85,10 @@ const Telinga = (props) =>{
     const handleAnswer2 = event => {
         if(event.target.value == 1){
             set_telinga_isBengkak(true);
+            disptach(AnsTelingaChange('BENGKAK'), true);
         }else{
             set_telinga_isBengkak(false);
+            disptach(AnsTelingaChange('BENGKAK'), false);
         }
         console.log(telinga_isBengkak);
     }

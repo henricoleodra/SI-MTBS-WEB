@@ -25,37 +25,6 @@ const Telinga2 = (props) =>{
 
     const handleSubmit = event =>{
         event.preventDefault();
-        // disptach(AnsTelingaChange('CEK_KELUAR_NANAH'),telinga_cekKeluarNanah);
-        // disptach(AnsTelingaChange('BENGKAK'), telinga_isBengkak);
-        // axios.post(`/Telinga/2`,{
-        //     telinga_cekKeluarNanah : telinga_cekKeluarNanah,
-        //     telinga_isBengkak : telinga_isBengkak,
-        // })
-        // .then(res => {
-        //     if(klasifikasiTelinga.telinga_status != null){
-        //         if(res.data.statusKlasifikasi === "danger"){
-        //             disptach(KlasifikasiTelingaChange('TELINGA_KLASIFIKASI', res.data.hasilKlasifikasi));
-        //             disptach(KlasifikasiTelingaChange('TELINGA_STATUS', res.data.statusKlasifikasi));
-        //         }
-        //         else{
-        //             if(klasifikasiTelinga.telinga_status != "danger"){
-        //                 if(res.data.statusKlasifikasi === "warning"){
-        //                     disptach(KlasifikasiTelingaChange('TELINGA_KLASIFIKASI', res.data.hasilKlasifikasi));
-        //                     disptach(KlasifikasiTelingaChange('TELINGA_STATUS', res.data.statusKlasifikasi));
-        //                 }
-        //             }
-        //         }
-        //     }
-        //     else{
-        //         disptach(KlasifikasiTelingaChange('TELINGA_KLASIFIKASI', res.data.hasilKlasifikasi));
-        //         disptach(KlasifikasiTelingaChange('TELINGA_STATUS', res.data.statusKlasifikasi));
-        //     }
-        // })
-        // .catch(err => {
-        //     console.log(err);
-        // });
-        // history.push("Gizi1");
-
         axios.post(`/Telinga/2`, {
             ansTelinga : ansTelinga
         })

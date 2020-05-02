@@ -1,12 +1,12 @@
-const klasifkasiHIV1 = (pernahTes, hasilTes, ibuPernahTes, ibuHasilTes) =>{
-    if(pernahTes && hasilTes){
+const klasifkasiHIV1 = (ansHIV) =>{
+    if(ansHIV.pernahTes && ansHIV.hasilTes){
         const ans = {
             hasilKlasifikasi : 'Infeksi HIV Terkonfirmasi',
             statusKlasifikasi: 'danger',
         }
         return ans;
     }
-    else if(ibuPernahTes && ibuHasilTes){
+    else if(ansHIV.ibuPernahTes && ansHIV.ibuHasilTes){
         const ans = {
             hasilKlasifikasi : 'Diduga terinfeksi HIV',
             statusKlasifikasi: 'danger',
@@ -23,16 +23,16 @@ const klasifkasiHIV1 = (pernahTes, hasilTes, ibuPernahTes, ibuHasilTes) =>{
     
 };
 
-const klasifkasiHIV2 = (pernahTes, hasilTes, ibuPernahTes, ibuHasilTes, kerabatTerdiagnosis, kerabatMeninggal, masihDapatASI) =>{
-    if(pernahTes && hasilTes){
+const klasifkasiHIV2 = (ansHIV) =>{
+    if(ansHIV.pernahTes && ansHIV.hasilTes){
         const ans = {
             hasilKlasifikasi : 'Infeksi HIV Terkonfirmasi',
             statusKlasifikasi: 'danger',
         }
         return ans;
     }
-    else if(ibuPernahTes && ibuHasilTes){
-        if(kerabatTerdiagnosis || kerabatMeninggal){
+    else if(ansHIV.ibuPernahTes && ansHIV.ibuHasilTes){
+        if(ansHIV.kerabatTerdiagnosis || ansHIV.kerabatMeninggal){
             const ans = {
                 hasilKlasifikasi : 'Diduga terinfeksi HIV',
                 statusKlasifikasi: 'danger',
@@ -40,8 +40,8 @@ const klasifkasiHIV2 = (pernahTes, hasilTes, ibuPernahTes, ibuHasilTes, kerabatT
             return ans;
         }
     }
-    else if(ibuPernahTes && ibuHasilTes){
-        if(masihDapatASI || pernahTes==false){
+    else if(ansHIV.ibuPernahTes && ansHIV.ibuHasilTes){
+        if(ansHIV.masihDapatASI || ansHIV.pernahTes==false){
             const ans = {
                 hasilKlasifikasi : 'Terpajan HIV',
                 statusKlasifikasi: 'danger',

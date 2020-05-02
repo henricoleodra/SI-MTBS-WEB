@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 
 // Actions
-import { KlasifikasiHIVChange, AnsHIVChange } from '../../Actions';
+import { KlasifikasiHIVChange, AnsHIVChange} from '../../Actions';
 
 import '../../Assets/style/style.css';
 
@@ -31,79 +31,89 @@ const HIV = (props) =>{
     let[hiv_ibuPernahTes, set_hiv_ibuPernahTes] = useState(ansHIV.hiv_ibuPernahTes);
     let[hiv_ibuHasilTes, set_hiv_ibuHasilTes] = useState(ansHIV.hiv_ibuHasilTes);
 
-    const handleSubmit = event => {
+    const handleSubmit = event =>{
         event.preventDefault();
-        dispatch(AnsHIVChange('PERNAH_TES', hiv_pernahTes));
-        dispatch(AnsHIVChange('WAKTU_TES', hiv_waktuTes));
-        dispatch(AnsHIVChange('HASIL_TES', hiv_hasilTes));
-        dispatch(AnsHIVChange('IBU_PERNAH_TES', hiv_ibuPernahTes));
-        dispatch(AnsHIVChange('IBU_HASIL_TES', hiv_ibuHasilTes));
-        axios.post(`/HIV/1`, {
-            hiv_pernahTes: hiv_pernahTes,
-            hiv_waktuTes: hiv_waktuTes,
-            hiv_hasilTes: hiv_hasilTes,
-            hiv_ibuPernahTes: hiv_ibuPernahTes,
-            hiv_ibuHasilTes: hiv_ibuHasilTes
-        })
-        .then(res => {
-            if(klasifikasiHIV.hiv_klasifikasi != null){
-                if(res.data.statusKlasifikasi === "danger"){
-                    dispatch(KlasifikasiHIVChange('HIV_KLASIFIKASI', res.data.hasilKlasifkasi));
-                    dispatch(KlasifikasiHIVChange('HIV_STATUS', res.data.statusKlasifikasi));
-                }
-                else{
-                    if(klasifikasiHIV.hiv_klasifikasi != "danger"){
-                        if(res.data.statusKlasifikasi === "warning" ){
-                            dispatch(KlasifikasiHIVChange('HIV_KLASIFIKASI', res.data.hasilKlasifkasi));
-                            dispatch(KlasifikasiHIVChange('HIV_STATUS', res.data.statusKlasifikasi));
-                        }
-                    }
-                }
-            }
-            else{
+        if(klasifikasiHIV.hiv_3 === true){
+            axios.post(`/HIV/3`, {
+                ansHIV : ansHIV
+            })
+            .then(res => {
                 dispatch(KlasifikasiHIVChange('HIV_KLASIFIKASI', res.data.hasilKlasifikasi));
                 dispatch(KlasifikasiHIVChange('HIV_STATUS', res.data.statusKlasifikasi));
-            }
-        })
-        .catch(err=>{
-            console.log(err);
-        });
-        history.push("HIV2"); 
+            })
+            .catch(err=>{
+              console.log(err);
+            }); 
+        }
+        else if(klasifikasiHIV.hiv_2 === true){
+            axios.post(`/HIV/2`, {
+                ansHIV : ansHIV
+            })
+            .then(res => {
+                dispatch(KlasifikasiHIVChange('HIV_KLASIFIKASI', res.data.hasilKlasifikasi));
+                dispatch(KlasifikasiHIVChange('HIV_STATUS', res.data.statusKlasifikasi));
+            })
+            .catch(err=>{
+              console.log(err);
+            }); 
+        }
+        else{
+            axios.post(`/HIV/1`, {
+                ansHIV : ansHIV
+            })
+            .then(res => {
+                dispatch(KlasifikasiHIVChange('HIV_KLASIFIKASI', res.data.hasilKlasifikasi));
+                dispatch(KlasifikasiHIVChange('HIV_STATUS', res.data.statusKlasifikasi));
+            })
+            .catch(err=>{
+              console.log(err);
+            }); 
+        }
+        history.push("HIV2");
     }
 
     const handleAnswer1 = event =>{
         if(event.target.value == 1){
             set_hiv_pernahTes(true);
+            dispatch(AnsHIVChange('PERNAH_TES', true));
         }else if(event.target.value == 2){
             set_hiv_pernahTes(false);
+            dispatch(AnsHIVChange('PERNAH_TES', false));
         }
     }
 
     const handleAnswer2 = event =>{
         set_hiv_waktuTes(event.target.value);
+        dispatch(AnsHIVChange('WAKTU_TES', event.target.value));
     }
 
     const handleAnswer3 = event =>{
         if(event.target.value == 1){
             set_hiv_hasilTes(true);
+            dispatch(AnsHIVChange('HASIL_TES', true));
         }else if(event.target.value == 2){
             set_hiv_hasilTes(false);
+            dispatch(AnsHIVChange('HASIL_TES', false));
         }
     }
 
     const handleAnswer4 = event =>{
         if(event.target.value == 1){
             set_hiv_ibuPernahTes(true);
+            dispatch(AnsHIVChange('IBU_PERNAH_TES', true));
         }else if(event.target.value == 2){
             set_hiv_ibuPernahTes(false);
+            dispatch(AnsHIVChange('IBU_PERNAH_TES', false));
         }
     }
 
     const handleAnswer5 = event =>{
         if(event.target.value == 1){
             set_hiv_ibuHasilTes(true);
+            dispatch(AnsHIVChange('IBU_HASIL_TES', true));
         }else if(event.target.value == 2){
             set_hiv_ibuHasilTes(false);
+            dispatch(AnsHIVChange('IBU_HASIL_TES', false));
         }
     }
 

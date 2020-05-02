@@ -24,65 +24,60 @@ const HIV2 = (props) =>{
     let[hiv_kerabatMeninggal, set_hiv_kerabatMeninggal] = useState(ansHIV.hiv_kerabatMeninggal);
     let[hiv_masihDapatASI, set_hiv_masihDapatASI] = useState(ansHIV.hiv_masihDapatASI);
 
-    const handleSubmit = event => {
+    const handleSubmit = event =>{
         event.preventDefault();
-        dispatch(AnsHIVChange('KERABAT_TERDIAGNOSIS', hiv_kerabatTerdiagnosis));
-        dispatch(AnsHIVChange('KERABAT_MENINGGAL', hiv_kerabatMeninggal));
-        dispatch(AnsHIVChange('MASIH_DAPAT_ASI', hiv_masihDapatASI));
-        axios.post(`/HIV/2`, {
-            hiv_pernahTes: ansHIV.hiv_pernahTes,
-            hiv_waktuTes: ansHIV.hiv_waktuTes,
-            hiv_hasilTes: ansHIV.hiv_hasilTes,
-            hiv_ibuPernahTes: ansHIV.hiv_ibuPernahTes,
-            hiv_ibuHasilTes: ansHIV.hiv_ibuHasilTes,
-            hiv_kerabatTerdiagnosis: hiv_kerabatTerdiagnosis,
-            hiv_kerabatMeninggal: hiv_kerabatMeninggal,
-            hiv_masihDapatASI: hiv_masihDapatASI
-        })
-        .then(res => {
-            if(klasifikasiHIV.hiv_klasifikasi != null){
-                if(res.data.statusKlasifikasi === "danger"){
-                    dispatch(KlasifikasiHIVChange('HIV_KLASIFIKASI', res.data.hasilKlasifkasi));
-                    dispatch(KlasifikasiHIVChange('HIV_STATUS', res.data.statusKlasifikasi));
-                }
-                else{
-                    if(klasifikasiHIV.hiv_klasifikasi != "danger"){
-                        if(res.data.statusKlasifikasi === "warning" ){
-                            dispatch(KlasifikasiHIVChange('HIV_KLASIFIKASI', res.data.hasilKlasifkasi));
-                            dispatch(KlasifikasiHIVChange('HIV_STATUS', res.data.statusKlasifikasi));
-                        }
-                    }
-                }
-            }
-            else{
+        if(klasifikasiHIV.hiv_3 === true){
+            axios.post(`/HIV/3`, {
+                ansHIV : ansHIV
+            })
+            .then(res => {
                 dispatch(KlasifikasiHIVChange('HIV_KLASIFIKASI', res.data.hasilKlasifikasi));
                 dispatch(KlasifikasiHIVChange('HIV_STATUS', res.data.statusKlasifikasi));
-            }
-        })
-        .catch(err=>{
-            console.log(err);
-        });
-        history.push("HIV3"); 
+            })
+            .catch(err=>{
+              console.log(err);
+            }); 
+        }
+        else{
+            axios.post(`/HIV/2`, {
+                ansHIV : ansHIV
+            })
+            .then(res => {
+                dispatch(KlasifikasiHIVChange('HIV_KLASIFIKASI', res.data.hasilKlasifikasi));
+                dispatch(KlasifikasiHIVChange('HIV_STATUS', res.data.statusKlasifikasi));
+            })
+            .catch(err=>{
+              console.log(err);
+            }); 
+        }
+        dispatch(KlasifikasiHIVChange('HIV_2', true));
+        history.push("HIV3");    
     }
     const handleAnswer1 = event =>{
         if(event.target.value == 1){
             set_hiv_kerabatTerdiagnosis(true);
+            dispatch(AnsHIVChange('KERABAT_TERDIAGNOSIS', true));
         }else if(event.target.value == 2){
             set_hiv_kerabatTerdiagnosis(false);
+            dispatch(AnsHIVChange('KERABAT_TERDIAGNOSIS', false));
         }
     }
     const handleAnswer2 = event =>{
         if(event.target.value == 1){
             set_hiv_kerabatMeninggal(true);
+            dispatch(AnsHIVChange('KERABAT_MENINGGAL', true));
         }else if(event.target.value == 2){
             set_hiv_kerabatMeninggal(false);
+            dispatch(AnsHIVChange('KERABAT_MENINGGAL', false));
         }
     }
     const handleAnswer3 = event =>{
         if(event.target.value == 1){
             set_hiv_masihDapatASI(true);
+            dispatch(AnsHIVChange('MASIH_DAPAT_ASI', true));
         }else if(event.target.value == 2){
             set_hiv_masihDapatASI(false);
+            dispatch(AnsHIVChange('MASIH_DAPAT_ASI', false));
         }
     }
 

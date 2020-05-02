@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 
 // Actions
-import { KlasifikasiHIVChange, AnsHIVChange } from '../../Actions';
+import { KlasifikasiHIVChange, AnsHIVChange, compStatusChange  } from '../../Actions';
 
 import '../../Assets/style/style.css';
 
@@ -19,54 +19,32 @@ const HIV = (props) =>{
     const history = useHistory();
     const dispatch = useDispatch();
     const ansHIV = useSelector(state => state.ansHIV);
-    const klasifikasiHIV = useSelector(state => state.klasifikasiHIV);
     let[hiv_bercakPutih, set_hiv_bercakPutih] = useState(ansHIV.hiv_bercakPutih);
 
-    const handleSubmit = event => {
+    const handleSubmit = event =>{
         event.preventDefault();
-        dispatch(AnsHIVChange('BERCAK_PUTIH', hiv_bercakPutih));
         axios.post(`/HIV/3`, {
-            hiv_pernahTes: ansHIV.hiv_pernahTes,
-            hiv_waktuTes: ansHIV.hiv_waktuTes,
-            hiv_hasilTes: ansHIV.hiv_hasilTes,
-            hiv_ibuPernahTes: ansHIV.hiv_ibuPernahTes,
-            hiv_ibuHasilTes: ansHIV.hiv_ibuHasilTes,
-            hiv_kerabatTerdiagnosis: ansHIV.hiv_kerabatTerdiagnosis,
-            hiv_kerabatMeninggal: ansHIV.hiv_kerabatMeninggal,
-            hiv_masihDapatASI: ansHIV.hiv_masihDapatASI,
-            hiv_bercakPutih: hiv_bercakPutih
+            ansHIV : ansHIV
         })
         .then(res => {
-            if(klasifikasiHIV.hiv_klasifikasi != null){
-                if(res.data.statusKlasifikasi === "danger"){
-                    dispatch(KlasifikasiHIVChange('HIV_KLASIFIKASI', res.data.hasilKlasifkasi));
-                    dispatch(KlasifikasiHIVChange('HIV_STATUS', res.data.statusKlasifikasi));
-                }
-                else{
-                    if(klasifikasiHIV.hiv_klasifikasi != "danger"){
-                        if(res.data.statusKlasifikasi === "warning" ){
-                            dispatch(KlasifikasiHIVChange('HIV_KLASIFIKASI', res.data.hasilKlasifkasi));
-                            dispatch(KlasifikasiHIVChange('HIV_STATUS', res.data.statusKlasifikasi));
-                        }
-                    }
-                }
-            }
-            else{
-                dispatch(KlasifikasiHIVChange('HIV_KLASIFIKASI', res.data.hasilKlasifikasi));
-                dispatch(KlasifikasiHIVChange('HIV_STATUS', res.data.statusKlasifikasi));
-            }
+            dispatch(KlasifikasiHIVChange('HIV_KLASIFIKASI', res.data.hasilKlasifikasi));
+            dispatch(KlasifikasiHIVChange('HIV_STATUS', res.data.statusKlasifikasi));
         })
         .catch(err=>{
-            console.log(err);
-        });
-        history.push("Imunisasi1"); 
+          console.log(err);
+        }); 
+        dispatch(KlasifikasiHIVChange('HIV_3', true));
+        dispatch(compStatusChange('IMUNISASI'));
+        history.push("Imunisasi1");
     }
 
     const handleAnswer1 = event =>{
         if(event.target.value == 1){
             set_hiv_bercakPutih(true);
+            dispatch(AnsHIVChange('BERCAK_PUTIH', true));
         }else if(event.target.value == 2){
             set_hiv_bercakPutih(false);
+            dispatch(AnsHIVChange('BERCAK_PUTIH', false));
         }
     }
 

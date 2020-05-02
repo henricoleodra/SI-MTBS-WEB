@@ -1,6 +1,6 @@
 const klasifikasiTelinga = require('../models/telinga');
 
-const telinga = async function(req, res, next){
+const telinga1 = async function(req, res, next){
     // kamu lihat front end di folder reducer, AnsTelinga
     const klasTelinga = await klasifikasiTelinga.klasifikasiTelinga1(req.body.telinga_isNyeri, 
         req.body.telinga_isPenuh, 
@@ -26,6 +26,6 @@ const telinga2 = async function(req, res, next){
 };
 
 module.exports = {
-    telinga,
+    telinga1,
     telinga2
 };

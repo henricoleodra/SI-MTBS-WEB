@@ -23,8 +23,8 @@ const klasifikasiTelinga1 = (nyeriTelinga, penuh, tampakCairan, lebihBesarSamaDe
     }
     else{
         const ans = {
-            // hasilKlasifikasi : 'Tidak Ada Infeksi Telinga',
-            hasilKlasifikasi : '',
+            hasilKlasifikasi : 'Tidak Ada Infeksi Telinga',
+            // hasilKlasifikasi : '',
             statusKlasifikasi : 'success',
         }
         return ans;
@@ -46,8 +46,8 @@ const klasifikasiTelinga2 = (lihatCairan, pembengkakanTelinga) =>{
         return ans;
     }else{
         const ans = {
-            // hasilKlasifikasi : 'Tidak Ada Infeksi Telinga',
-            hasilKlasifikasi : '',
+            hasilKlasifikasi : 'Tidak Ada Infeksi Telinga',
+            // hasilKlasifikasi : '',
             statusKlasifikasi : 'success',
         }
         return ans;

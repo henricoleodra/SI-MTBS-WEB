@@ -5,14 +5,14 @@
 // lebih besar sama dengan 14 hari ->Telinga Kuning
 // Tidak ada nyeri -> Telinga aman
 
-const klasifikasiTelinga1 = (nyeriTelinga, penuh, tampakCairan, lebihBesarSamaDengan14Hari) =>{
+const klasifikasiTelinga1 = (ansTelinga) =>{
 
-    if(nyeriTelinga || penuh || tampakCairan){
+    if(ansTelinga.telinga_isNyeri || ansTelinga.telinga_isPenuh || ansTelinga.telinga_isNanah){
         const ans = {
             hasilKlasifikasi : 'Infeksi Telinga Akut',
             statusKlasifikasi : 'warning',
         }
-        if(lebihBesarSamaDengan14Hari >= 14){
+        if(ansTelinga.telinga_nanahLamaHari >= 14){
             const ans1 = {
                 hasilKlasifikasi : 'Infeksi Telinga Kronis',
                 statusKlasifikasi : 'warning',
@@ -31,14 +31,14 @@ const klasifikasiTelinga1 = (nyeriTelinga, penuh, tampakCairan, lebihBesarSamaDe
     }
 };
 
-const klasifikasiTelinga2 = (lihatCairan, pembengkakanTelinga) =>{
-    if(pembengkakanTelinga){
+const klasifikasiTelinga2 = (ansTelinga) =>{
+    if(ansTelinga.telinga_isBengkak){
         const ans = {
             hasilKlasifikasi : 'Mastoiditis',
             statusKlasifikasi : 'danger',
         }
         return ans;
-    }else if(lihatCairan){
+    }else if(ansTelinga.telinga_cekKeluarNanah){
         const ans = {
             hasilKlasifikasi : 'Infeksi Telinga Akut',
             statusKlasifikasi : 'warning',

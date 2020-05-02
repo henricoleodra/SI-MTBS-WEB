@@ -31,43 +31,6 @@ const Telinga = (props) =>{
 
     const handleSubmit = event =>{
         event.preventDefault();
-        // dispatch(AnsTelingaChange('NYERI', telinga_isNyeri));
-        // dispatch(AnsTelingaChange('PENUH', telinga_isPenuh));
-        // dispatch(AnsTelingaChange('NANAH', telinga_isNanah));
-        // dispatch(AnsTelingaChange('NANAH_LAMA_HARI', telinga_nanahLamaHari));
-    //     axios.post(`/Telinga/2`, {
-    //         telinga_isNyeri: telinga_isNyeri,
-    //         telinga_isPenuh: telinga_isPenuh,
-    //         telinga_isNanah: telinga_isNanah,
-    //         telinga_nanahLamaHari: telinga_nanahLamaHari
-    //     })
-    //     .then(res => {
-    //         if(klasifikasiTelinga.telinga_status != null){
-    //             if(res.data.statusKlasifikasi === "danger"){
-    //                 dispatch(KlasifikasiTelingaChange('TELINGA_KLASIFIKASI', res.data.hasilKlasifkasi));
-    //                 dispatch(KlasifikasiTelingaChange('TELINGA_STATUS', res.data.statusKlasifikasi));
-    //             }
-    //             else{
-    //                 if(klasifikasiTelinga.telinga_status != "danger"){
-    //                     if(res.data.statusKlasifikasi === "warning" ){
-    //                         dispatch(KlasifikasiTelingaChange('TELINGA_KLASIFIKASI', res.data.hasilKlasifkasi));
-    //                         dispatch(KlasifikasiTelingaChange('TELINGA_STATUS', res.data.statusKlasifikasi));
-    //                     }
-    //                 }
-    //             }
-    //         }
-    //         else{
-    //             dispatch(KlasifikasiTelingaChange('TELINGA_KLASIFIKASI', res.data.hasilKlasifkasi));
-    //             dispatch(KlasifikasiTelingaChange('TELINGA_STATUS', res.data.statusKlasifikasi));
-    //         }      
-    //     })
-    //     .catch(err=>{
-    //         console.log(err);
-    //     });
-    //     history.push("Telinga2");
-        
-    // }
-
         if(klasifikasiTelinga.telinga_2 === true){
             axios.post(`/Telinga/2`,{
                 ansTelinga : ansTelinga
@@ -254,7 +217,7 @@ const Telinga = (props) =>{
                                     <h5>Jika ya, berapa lama?</h5>
                                     <div className="w-100 d-flex justify-content-center">
                                         <InputGroup className="w-50">
-                                            <Input type="number" min="0" value={telinga_nanahLamaHari} onChange={handleAnswer4} />
+                                            <Input type="number" min="0" value={telinga_nanahLamaHari} onChange={handleAnswer4} disabled={(telinga_isNanah === null || telinga_isNanah === false)}/>
                                             <InputGroupAddon addonType="append" >
                                                 <InputGroupText style={bgColor}>Hari</InputGroupText>
                                             </InputGroupAddon>

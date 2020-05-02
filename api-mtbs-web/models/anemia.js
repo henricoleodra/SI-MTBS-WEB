@@ -1,7 +1,3 @@
-// Sangat Pucat -> Anemia Berat Merah
-// Agak Pucat -> Anemia Kuning
-// Normal -> Tidak Anemia
-
 const klasifkasiAnemia = (anemia) =>{
     if(anemia == "sangatPucat"){
         const ans = {

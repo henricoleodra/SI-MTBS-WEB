@@ -33,69 +33,62 @@ const Batuk = (props) => {
 
     const handleSubmit = event =>{
         event.preventDefault();
-        dispatch(AnsBatukChange('LAMA_HARI', bsb_lamaHari));
-        dispatch(AnsBatukChange('JUMLAH_NAFAS', bsb_jumlahNafas));
-        dispatch(AnsBatukChange('NAFAS_CEPAT', bsb_nafasCepat));
-        dispatch(AnsBatukChange('TARIKAN_DINDING_DADA', bsb_tarikanDindingDada));
-        console.log(bsb_lamaHari);
-        console.log(bsb_jumlahNafas);
-        console.log(bsb_nafasCepat);
-        console.log(bsb_tarikanDindingDada);
-        axios.post(`/Batuk/1`, {
-            bsb_lamaHari: bsb_lamaHari,
-            bsb_jumlahNafas: bsb_jumlahNafas,
-            bsb_nafasCepat: bsb_nafasCepat,
-            bsb_tarikanDindingDada: bsb_tarikanDindingDada
-        })
-        .then(res => {
-            if(klasifikasiBatuk.bsb_status != null){
-                if(res.data.statusKlasifikasi === "danger"){
-                    dispatch(KlasifikasiBatukChange('BATUK_KLASIFIKASI', res.data.hasilKlasifkasi));
-                    dispatch(KlasifikasiBatukChange('BATUK_STATUS', res.data.statusKlasifikasi));
-                }
-                else{
-                    if(klasifikasiBatuk.bsb_status != "danger"){
-                        if(res.data.statusKlasifikasi === "warning" ){
-                            dispatch(KlasifikasiBatukChange('BATUK_KLASIFIKASI', res.data.hasilKlasifkasi));
-                            dispatch(KlasifikasiBatukChange('BATUK_STATUS', res.data.statusKlasifikasi));
-                        }
-                    }
-                }
-            }
-            else{
+        if(klasifikasiBatuk.bsb_2 === true){
+            axios.post(`/Batuk/2`, {
+                ansBatuk : ansBatuk
+            })
+            .then(res => {
                 dispatch(KlasifikasiBatukChange('BATUK_KLASIFIKASI', res.data.hasilKlasifkasi));
                 dispatch(KlasifikasiBatukChange('BATUK_STATUS', res.data.statusKlasifikasi));
-            }      
-        })
-        .catch(err=>{
-            console.log(err);
-        });
+            })
+            .catch(err=>{
+                console.log(err);
+            });
+        }
+        else{
+            axios.post(`/Batuk/1`, {
+                ansBatuk : ansBatuk
+            })
+            .then(res => {
+                dispatch(KlasifikasiBatukChange('BATUK_KLASIFIKASI', res.data.hasilKlasifkasi));
+                dispatch(KlasifikasiBatukChange('BATUK_STATUS', res.data.statusKlasifikasi));
+            })
+            .catch(err=>{
+                console.log(err);
+            });
+        }
         history.push("Batuk2");
         
     }
 
     const handleAnswer1 = event =>{
         set_bsb_lamaHari(event.target.value);
+        dispatch(AnsBatukChange('LAMA_HARI', event.target.value));
     }
 
     const handleAnswer2 = event =>{
         let tmpUmurHari = dataAnak.umurAnak;
         let umur = Math.floor(tmpUmurHari/30);
         set_bsb_jumlahNafas(event.target.value);
+        dispatch(AnsBatukChange('JUMLAH_NAFAS', event.target.value));
         if(umur<12){
             if(event.target.value>50){
                 set_bsb_nafasCepat(true);
+                dispatch(AnsBatukChange('NAFAS_CEPAT', true));
             }
             else{
-                set_bsb_nafasCepat(false);   
+                set_bsb_nafasCepat(false);
+                dispatch(AnsBatukChange('NAFAS_CEPAT', false));   
             }
         }
         else{
             if(event.target.value>40){
                 set_bsb_nafasCepat(true);
+                dispatch(AnsBatukChange('NAFAS_CEPAT', true));
             }
             else{
                 set_bsb_nafasCepat(false);   
+                dispatch(AnsBatukChange('NAFAS_CEPAT', false));
             }
         }
     }
@@ -103,10 +96,11 @@ const Batuk = (props) => {
     const handleAnswer3 = event =>{
         if(event.target.value == 1){
             set_bsb_tarikanDindingDada(true);
+            dispatch(AnsBatukChange('TARIKAN_DINDING_DADA', true));
         }else if(event.target.value == 2){
             set_bsb_tarikanDindingDada(false);
+            dispatch(AnsBatukChange('TARIKAN_DINDING_DADA', false));
         }
-        console.log(bsb_tarikanDindingDada);
     }
 
     return(
@@ -157,19 +151,6 @@ const Batuk = (props) => {
                                             </InputGroupAddon>
                                         </InputGroup>         
                                 </div>     
-                                {/* <h5>Nafas cepat?</h5>
-                                <FormGroup check className="d-inline pr-2">
-                                    <Label>
-                                        <Input type="radio" name="radio1"/>{''}
-                                        Ya
-                                    </Label>
-                                </FormGroup>
-                                <FormGroup check className="d-inline">
-                                    <Label>
-                                        <Input type="radio" name="radio1"/>{''}
-                                        Tidak
-                                    </Label>
-                                </FormGroup> */}
                             </CardBody>
                         </Card>
                         <Card style={outlineColor} className="text-center w-75 mt-3">

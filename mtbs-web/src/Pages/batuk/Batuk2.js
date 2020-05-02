@@ -29,23 +29,17 @@ const Batuk2 = (props) =>{
 
     const handleSubmit = event =>{
         event.preventDefault();
-        dispatch(AnsBatukChange('WHEEZING', bsb_wheezing));
-        dispatch(AnsBatukChange('SATURASI_OKSIGEN', bsb_saturasiOksigen));
         axios.post(`/Batuk/2`, {
-            bsb_lamaHari: ansBatuk.bsb_lamaHari,
-            bsb_jumlahNafas: ansBatuk.bsb_jumlahNafas,
-            bsb_nafasCepat: ansBatuk.bsb_nafasCepat,
-            bsb_tarikanDindingDada: ansBatuk.bsb_tarikanDindingDada,
-            bsb_wheezing: bsb_wheezing,
-            bsb_saturasiOksigen: bsb_saturasiOksigen
+            ansBatuk : ansBatuk
         })
         .then(res => {
-        dispatch(KlasifikasiBatukChange('BATUK_KLASIFIKASI', res.data.hasilKlasifkasi));
-        dispatch(KlasifikasiBatukChange('BATUK_STATUS', res.data.statusKlasifikasi));
+            dispatch(KlasifikasiBatukChange('BATUK_KLASIFIKASI', res.data.hasilKlasifkasi));
+            dispatch(KlasifikasiBatukChange('BATUK_STATUS', res.data.statusKlasifikasi));
         })
         .catch(err=>{
-        console.log(err);
+            console.log(err);
         });
+        dispatch(KlasifikasiBatukChange('BATUK_2', true));
         dispatch(compStatusChange('DIARE'));
         history.push("DiareYaTidak"); 
     }
@@ -53,15 +47,16 @@ const Batuk2 = (props) =>{
     const handleAnswer1 = event =>{
         if(event.target.value == 1){
             set_bsb_wheezing(true);
+            dispatch(AnsBatukChange('WHEEZING', true));
         }else if(event.target.value == 2){
             set_bsb_wheezing(false);
+            dispatch(AnsBatukChange('WHEEZING', false));
         }
-        console.log(bsb_wheezing);
     }
 
     const handleAnswer2 = event =>{
         set_bsb_saturasiOksigen(event.target.value);
-        console.log(bsb_saturasiOksigen)
+        dispatch(AnsBatukChange('SATURASI_OKSIGEN', event.target.value));
     }
 
     return(

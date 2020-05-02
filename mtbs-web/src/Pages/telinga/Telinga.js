@@ -31,48 +31,78 @@ const Telinga = (props) =>{
 
     const handleSubmit = event =>{
         event.preventDefault();
-        dispatch(AnsTelingaChange('NYERI', telinga_isNyeri));
-        dispatch(AnsTelingaChange('PENUH', telinga_isPenuh));
-        dispatch(AnsTelingaChange('NANAH', telinga_isNanah));
-        dispatch(AnsTelingaChange('NANAH_LAMA_HARI', telinga_nanahLamaHari));
-        axios.post(`/Telinga/1`, {
-            telinga_isNyeri: telinga_isNyeri,
-            telinga_isPenuh: telinga_isPenuh,
-            telinga_isNanah: telinga_isNanah,
-            telinga_nanahLamaHari: telinga_nanahLamaHari
-        })
-        .then(res => {
-            if(klasifikasiTelinga.telinga_status != null){
-                if(res.data.statusKlasifikasi === "danger"){
-                    dispatch(KlasifikasiTelingaChange('TELINGA_KLASIFIKASI', res.data.hasilKlasifkasi));
-                    dispatch(KlasifikasiTelingaChange('TELINGA_STATUS', res.data.statusKlasifikasi));
-                }
-                else{
-                    if(klasifikasiTelinga.telinga_status != "danger"){
-                        if(res.data.statusKlasifikasi === "warning" ){
-                            dispatch(KlasifikasiTelingaChange('TELINGA_KLASIFIKASI', res.data.hasilKlasifkasi));
-                            dispatch(KlasifikasiTelingaChange('TELINGA_STATUS', res.data.statusKlasifikasi));
-                        }
-                    }
-                }
-            }
-            else{
-                dispatch(KlasifikasiTelingaChange('TELINGA_KLASIFIKASI', res.data.hasilKlasifkasi));
-                dispatch(KlasifikasiTelingaChange('TELINGA_STATUS', res.data.statusKlasifikasi));
-            }      
-        })
-        .catch(err=>{
-            console.log(err);
-        });
-        history.push("Telinga2");
+        // dispatch(AnsTelingaChange('NYERI', telinga_isNyeri));
+        // dispatch(AnsTelingaChange('PENUH', telinga_isPenuh));
+        // dispatch(AnsTelingaChange('NANAH', telinga_isNanah));
+        // dispatch(AnsTelingaChange('NANAH_LAMA_HARI', telinga_nanahLamaHari));
+    //     axios.post(`/Telinga/2`, {
+    //         telinga_isNyeri: telinga_isNyeri,
+    //         telinga_isPenuh: telinga_isPenuh,
+    //         telinga_isNanah: telinga_isNanah,
+    //         telinga_nanahLamaHari: telinga_nanahLamaHari
+    //     })
+    //     .then(res => {
+    //         if(klasifikasiTelinga.telinga_status != null){
+    //             if(res.data.statusKlasifikasi === "danger"){
+    //                 dispatch(KlasifikasiTelingaChange('TELINGA_KLASIFIKASI', res.data.hasilKlasifkasi));
+    //                 dispatch(KlasifikasiTelingaChange('TELINGA_STATUS', res.data.statusKlasifikasi));
+    //             }
+    //             else{
+    //                 if(klasifikasiTelinga.telinga_status != "danger"){
+    //                     if(res.data.statusKlasifikasi === "warning" ){
+    //                         dispatch(KlasifikasiTelingaChange('TELINGA_KLASIFIKASI', res.data.hasilKlasifkasi));
+    //                         dispatch(KlasifikasiTelingaChange('TELINGA_STATUS', res.data.statusKlasifikasi));
+    //                     }
+    //                 }
+    //             }
+    //         }
+    //         else{
+    //             dispatch(KlasifikasiTelingaChange('TELINGA_KLASIFIKASI', res.data.hasilKlasifkasi));
+    //             dispatch(KlasifikasiTelingaChange('TELINGA_STATUS', res.data.statusKlasifikasi));
+    //         }      
+    //     })
+    //     .catch(err=>{
+    //         console.log(err);
+    //     });
+    //     history.push("Telinga2");
         
+    // }
+
+        if(klasifikasiTelinga.telinga_2 === true){
+            axios.post(`/Teliga/2`,{
+                ansTelinga : ansTelinga
+            })
+            .then(res =>{
+                dispatch(KlasifikasiTelingaChange('TELINGA_KLASIFIKASI', res.data.hasilKlasifikasi));
+                dispatch(KlasifikasiTelingaChange('TELINGA_STATUS', res.data.statusKlasifikasi));
+            })
+            .catch(err => {
+                console.log(err);
+            });
+        }else{
+            axios.post(`/Telinga/1`, {
+                ansTelinga : ansTelinga
+            })
+            .then(res =>{
+                dispatch(KlasifikasiTelingaChange('TELINGA_KLASIFIKASI', res.data.hasilKlasifikasi));
+                dispatch(KlasifikasiTelingaChange('TELINGA_STATUS', res.data.statusKlasifikasi));
+            })
+            .catch(err =>{
+                console.log(err);
+            });
+        }
+        history.push("Telinga2");
     }
 
+        // dispatch(AnsTelingaChange('NANAH', telinga_isNanah));
+        // dispatch(AnsTelingaChange('NANAH_LAMA_HARI', telinga_nanahLamaHari));
     const handleAnswer1 = event =>{
         if(event.target.value == 1){
             set_telinga_isNyeri(true);
+            dispatch(AnsTelingaChange('NYERI', true));
         }else{
             set_telinga_isNyeri(false);
+            dispatch(AnsTelingaChange('NYERI', false));
         }
         console.log(telinga_isNyeri);
     }
@@ -80,8 +110,10 @@ const Telinga = (props) =>{
     const handleAnswer2 = event =>{
         if(event.target.value == 1){
             set_telinga_isPenuh(true);
+            dispatch(AnsTelingaChange('PENUH', true));
         }else{
             set_telinga_isPenuh(false);
+            dispatch(AnsTelingaChange('PENUH', false));
         }
         console.log(telinga_isPenuh);
     }
@@ -89,8 +121,10 @@ const Telinga = (props) =>{
     const handleAnswer3 = event =>{
         if(event.target.value == 1){
             set_telinga_isNanah(true);
+            dispatch(AnsTelingaChange('NANAH', true));
         }else{
             set_telinga_isNanah(false);
+            dispatch(AnsTelingaChange('NANAH', false));
         }
         console.log(telinga_isNanah);
     }

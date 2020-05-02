@@ -31,19 +31,23 @@ const klasifkasiHIV2 = (pernahTes, hasilTes, ibuPernahTes, ibuHasilTes, kerabatT
         }
         return ans;
     }
-    else if((ibuPernahTes && ibuHasilTes) || kerabatTerdiagnosis || kerabatMeninggal){
-        const ans = {
-            hasilKlasifikasi : 'Diduga terinfeksi HIV',
-            statusKlasifikasi: 'danger',
+    else if(ibuPernahTes && ibuHasilTes){
+        if(kerabatTerdiagnosis || kerabatMeninggal){
+            const ans = {
+                hasilKlasifikasi : 'Diduga terinfeksi HIV',
+                statusKlasifikasi: 'danger',
+            }
+            return ans;
         }
-        return ans;
     }
-    else if((ibuPernahTes && ibuHasilTes) && (masihDapatASI || pernahTes==false)){
-        const ans = {
-            hasilKlasifikasi : 'Terpajan HIV',
-            statusKlasifikasi: 'danger',
-        }
-        return ans;
+    else if(ibuPernahTes && ibuHasilTes){
+        if(masihDapatASI || pernahTes==false){
+            const ans = {
+                hasilKlasifikasi : 'Terpajan HIV',
+                statusKlasifikasi: 'danger',
+            }
+            return ans;
+        }   
     }
     else{
         const ans = {

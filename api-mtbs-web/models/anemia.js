@@ -1,12 +1,12 @@
-const klasifkasiAnemia = (anemia) =>{
-    if(anemia == "sangatPucat"){
+const klasifikasiAnemia = (ansAnemia) =>{
+    if(ansAnemia.anemia_isPucat == "sangatPucat"){
         const ans = {
             hasilKlasifkasi : 'Anemia Berat',
             statusKlasifikasi: 'danger',
         }
         return ans;
     }
-    else if(anemia == "agakPucat"){
+    else if(ansAnemia.anemia_isPucat == "agakPucat"){
         const ans = {
             hasilKlasifkasi : 'Anemia',
             statusKlasifikasi: 'warning',
@@ -24,5 +24,5 @@ const klasifkasiAnemia = (anemia) =>{
 };
 
 module.exports = {
-    klasifkasiAnemia
+    klasifikasiAnemia
 };

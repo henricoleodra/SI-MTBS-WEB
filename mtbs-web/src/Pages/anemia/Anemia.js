@@ -23,13 +23,13 @@ const Anemia = (props) =>{
 
     const handlePucat = event =>{
         set_anemia_isPucat(event.target.value);
+        dispatch(AnsAnemiaChange('PUCAT', event.target.value));
     }
 
     const handleSubmit = event =>{
         event.preventDefault();
-        dispatch(AnsAnemiaChange('PUCAT', anemia_isPucat));
         axios.post(`/Anemia`, {
-            anemia_isPucat : anemia_isPucat
+            ansAnemia : ansAnemia
         })
         .then(res => {
             dispatch(KlasifikasiAnemiaChange('ANEMIA_KLASIFIKASI', res.data.hasilKlasifkasi));

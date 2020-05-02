@@ -10,7 +10,6 @@ import '../../Assets/style/style.css';
 // Actions
 import { KlasifikasiTelingaChange, AnsTelingaChange, compStatusChange } from '../../Actions';
 
-
 let outlineColor = {
     borderColor : '#41E8B3'
 }
@@ -20,42 +19,56 @@ const Telinga = (props) =>{
     const history = useHistory();
     const disptach = useDispatch();
     const ansTelinga = useSelector(state =>state.ansTelinga);
-    const klasifikasiTelinga = useSelector(state => state.KlasifikasiTelinga);
+    // const klasifikasiTelinga = useSelector(state => state.KlasifikasiTelinga);
     let[telinga_cekKeluarNanah, set_telinga_cekKeluarNanah] = useState(ansTelinga.telinga_cekKeluarNanah); 
     let[telinga_isBengkak, set_telinga_isBengkak] = useState(ansTelinga.telinga_isBengkak);
 
     const handleSubmit = event =>{
         event.preventDefault();
-        disptach(AnsTelingaChange('CEK_KELUAR_NANAH'),telinga_cekKeluarNanah);
-        disptach(AnsTelingaChange('BENGKAK'), telinga_isBengkak);
-        axios.post(`/Telinga/2`,{
-            telinga_cekKeluarNanah : telinga_cekKeluarNanah,
-            telinga_isBengkak : telinga_isBengkak,
+        // disptach(AnsTelingaChange('CEK_KELUAR_NANAH'),telinga_cekKeluarNanah);
+        // disptach(AnsTelingaChange('BENGKAK'), telinga_isBengkak);
+        // axios.post(`/Telinga/2`,{
+        //     telinga_cekKeluarNanah : telinga_cekKeluarNanah,
+        //     telinga_isBengkak : telinga_isBengkak,
+        // })
+        // .then(res => {
+        //     if(klasifikasiTelinga.telinga_status != null){
+        //         if(res.data.statusKlasifikasi === "danger"){
+        //             disptach(KlasifikasiTelingaChange('TELINGA_KLASIFIKASI', res.data.hasilKlasifikasi));
+        //             disptach(KlasifikasiTelingaChange('TELINGA_STATUS', res.data.statusKlasifikasi));
+        //         }
+        //         else{
+        //             if(klasifikasiTelinga.telinga_status != "danger"){
+        //                 if(res.data.statusKlasifikasi === "warning"){
+        //                     disptach(KlasifikasiTelingaChange('TELINGA_KLASIFIKASI', res.data.hasilKlasifikasi));
+        //                     disptach(KlasifikasiTelingaChange('TELINGA_STATUS', res.data.statusKlasifikasi));
+        //                 }
+        //             }
+        //         }
+        //     }
+        //     else{
+        //         disptach(KlasifikasiTelingaChange('TELINGA_KLASIFIKASI', res.data.hasilKlasifikasi));
+        //         disptach(KlasifikasiTelingaChange('TELINGA_STATUS', res.data.statusKlasifikasi));
+        //     }
+        // })
+        // .catch(err => {
+        //     console.log(err);
+        // });
+        // history.push("Gizi1");
+
+        axios.post(`/Telinga/2`, {
+            ansTelinga : ansTelinga
         })
-        .then(res => {
-            if(klasifikasiTelinga.telinga_status != null){
-                if(res.data.statusKlasifikasi === "danger"){
-                    disptach(KlasifikasiTelingaChange('TELINGA_KLASIFIKASI', res.data.hasilKlasifikasi));
-                    disptach(KlasifikasiTelingaChange('TELINGA_STATUS', res.data.statusKlasifikasi));
-                }
-                else{
-                    if(klasifikasiTelinga.telinga_status != "danger"){
-                        if(res.data.statusKlasifikasi === "warning"){
-                            disptach(KlasifikasiTelingaChange('TELINGA_KLASIFIKASI', res.data.hasilKlasifikasi));
-                            disptach(KlasifikasiTelingaChange('TELINGA_STATUS', res.data.statusKlasifikasi));
-                        }
-                    }
-                }
-            }
-            else{
-                disptach(KlasifikasiTelingaChange('TELINGA_KLASIFIKASI', res.data.hasilKlasifikasi));
-                disptach(KlasifikasiTelingaChange('TELINGA_STATUS', res.data.statusKlasifikasi));
-            }
+        .then(res =>{
+            disptach(KlasifikasiTelingaChange('TELINGA_KLASIFIKASI', res.data.hasilKlasifikasi));
+            disptach(KlasifikasiTelingaChange('TELINGA_STATUS', res.data.statusKlasifikasi));
         })
-        .catch(err => {
+        .catch(err =>{
             console.log(err);
-        });
+        })
+        disptach(KlasifikasiTelingaChange('TELINGA_2', true));
         history.push("Gizi1");
+        disptach(compStatusChange('GIZI'));
     }
 
     const handleAnswer1 = event => {

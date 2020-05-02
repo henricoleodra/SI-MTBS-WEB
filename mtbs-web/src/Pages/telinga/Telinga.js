@@ -69,7 +69,7 @@ const Telinga = (props) =>{
     // }
 
         if(klasifikasiTelinga.telinga_2 === true){
-            axios.post(`/Teliga/2`,{
+            axios.post(`/Telinga/2`,{
                 ansTelinga : ansTelinga
             })
             .then(res =>{

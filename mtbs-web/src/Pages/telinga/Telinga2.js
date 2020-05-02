@@ -14,12 +14,12 @@ let outlineColor = {
     borderColor : '#41E8B3'
 }
 
-const Telinga = (props) =>{
+const Telinga2 = (props) =>{
 
     const history = useHistory();
     const disptach = useDispatch();
     const ansTelinga = useSelector(state =>state.ansTelinga);
-    // const klasifikasiTelinga = useSelector(state => state.KlasifikasiTelinga);
+    const klasifikasiTelinga = useSelector(state => state.KlasifikasiTelinga);
     let[telinga_cekKeluarNanah, set_telinga_cekKeluarNanah] = useState(ansTelinga.telinga_cekKeluarNanah); 
     let[telinga_isBengkak, set_telinga_isBengkak] = useState(ansTelinga.telinga_isBengkak);
 
@@ -191,4 +191,4 @@ const Telinga = (props) =>{
     );
 }
 
-export default Telinga;
+export default Telinga2;

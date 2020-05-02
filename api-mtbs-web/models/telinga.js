@@ -38,7 +38,15 @@ const klasifikasiTelinga2 = (ansTelinga) =>{
             statusKlasifikasi : 'danger',
         }
         return ans;
-    }else if(ansTelinga.telinga_cekKeluarNanah){
+    }else if(ansTelinga.telinga_isNyeri || ansTelinga.telinga_isPenuh || ansTelinga.telinga_isNanah || ansTelinga.telinga_cekKeluarNanah){
+        if(ansTelinga.telinga_nanahLamaHari >= 14){
+            const ans1 = {
+                hasilKlasifikasi : 'Infeksi Telinga Kronis',
+                statusKlasifikasi : 'warning',
+            }
+            return ans1;
+        }
+        
         const ans = {
             hasilKlasifikasi : 'Infeksi Telinga Akut',
             statusKlasifikasi : 'warning',

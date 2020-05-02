@@ -17,9 +17,9 @@ let outlineColor = {
 const Telinga2 = (props) =>{
 
     const history = useHistory();
-    const disptach = useDispatch();
-    const ansTelinga = useSelector(state =>state.ansTelinga);
-    const klasifikasiTelinga = useSelector(state => state.KlasifikasiTelinga);
+    const dispatch = useDispatch();
+    const ansTelinga = useSelector(state => state.ansTelinga);
+    const klasifikasiTelinga = useSelector(state => state.klasifikasiTelinga);
     let[telinga_cekKeluarNanah, set_telinga_cekKeluarNanah] = useState(ansTelinga.telinga_cekKeluarNanah); 
     let[telinga_isBengkak, set_telinga_isBengkak] = useState(ansTelinga.telinga_isBengkak);
 
@@ -60,24 +60,24 @@ const Telinga2 = (props) =>{
             ansTelinga : ansTelinga
         })
         .then(res =>{
-            disptach(KlasifikasiTelingaChange('TELINGA_KLASIFIKASI', res.data.hasilKlasifikasi));
-            disptach(KlasifikasiTelingaChange('TELINGA_STATUS', res.data.statusKlasifikasi));
+            dispatch(KlasifikasiTelingaChange('TELINGA_KLASIFIKASI', res.data.hasilKlasifikasi));
+            dispatch(KlasifikasiTelingaChange('TELINGA_STATUS', res.data.statusKlasifikasi));
         })
         .catch(err =>{
             console.log(err);
         })
-        disptach(KlasifikasiTelingaChange('TELINGA_2', true));
+        dispatch(KlasifikasiTelingaChange('TELINGA_2', true));
         history.push("Gizi1");
-        disptach(compStatusChange('GIZI'));
+        dispatch(compStatusChange('GIZI'));
     }
 
     const handleAnswer1 = event => {
         if(event.target.value == 1){
             set_telinga_cekKeluarNanah(true);
-            disptach(AnsTelingaChange('CEK_KELUAR_NANAH'),true);
+            dispatch(AnsTelingaChange('CEK_KELUAR_NANAH'),true);
         }else{
             set_telinga_cekKeluarNanah(false);
-            disptach(AnsTelingaChange('CEK_KELUAR_NANAH'),false);
+            dispatch(AnsTelingaChange('CEK_KELUAR_NANAH'),false);
         }
         console.log(telinga_cekKeluarNanah);
     }
@@ -85,10 +85,10 @@ const Telinga2 = (props) =>{
     const handleAnswer2 = event => {
         if(event.target.value == 1){
             set_telinga_isBengkak(true);
-            disptach(AnsTelingaChange('BENGKAK'), true);
+            dispatch(AnsTelingaChange('BENGKAK'), true);
         }else{
             set_telinga_isBengkak(false);
-            disptach(AnsTelingaChange('BENGKAK'), false);
+            dispatch(AnsTelingaChange('BENGKAK'), false);
         }
         console.log(telinga_isBengkak);
     }

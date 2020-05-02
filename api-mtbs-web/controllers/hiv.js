@@ -7,6 +7,7 @@ const hiv1 = async function(req, res, next) {
         statusKlasifikasi: klasHIV.statusKlasifikasi,
     }
     res.json(ans);
+    // console.log(req.body.ansHIV);
 };
 
 const hiv2 = async function(req, res, next) {

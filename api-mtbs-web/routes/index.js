@@ -3,7 +3,7 @@ var router = express.Router();
 const tandabahayaumum = require('../controllers/tandabahayaumum');
 const batuk = require('../controllers/batuk');
 const diare = require('../controllers/diare');
- const telinga = require('../controllers/telinga');
+const telinga = require('../controllers/telinga');
 const anemia = require('../controllers/anemia');
 const hiv = require('../controllers/hiv');
 

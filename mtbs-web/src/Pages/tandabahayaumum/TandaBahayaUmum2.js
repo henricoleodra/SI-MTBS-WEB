@@ -28,19 +28,8 @@ const TandaBahayaUmum2 = (props) => {
   
   const handleSubmit = event =>{
     event.preventDefault();
-    dispatch(AnsTBUChange('LETARGIS', tbu_letargis));
-    dispatch(AnsTBUChange('STRIDOR', tbu_stridor));
-    dispatch(AnsTBUChange('SIANOSIS', tbu_sianosis));
-    dispatch(AnsTBUChange('PUCAT_DINGIN', tbu_pucatDingin));
     axios.post(`/TBU/2`, {
-      tbu_tidakBisaMinum: ansTBU.tbu_tidakBisaMinum,
-      tbu_muntah: ansTBU.tbu_muntah,
-      tbu_kejang: ansTBU.tbu_kejang,
-      tbu_gelisah: ansTBU.tbu_gelisah,
-      tbu_letargis: tbu_letargis,
-      tbu_stridor: tbu_stridor,
-      tbu_sianosis: tbu_sianosis,
-      tbu_pucatDingin: tbu_pucatDingin
+      ansTBU : ansTBU
     })
     .then(res => {
       dispatch(KlasifikasiTBUChange('TBU_KLASIFIKASI', res.data.hasilKlasifkasi));
@@ -49,6 +38,7 @@ const TandaBahayaUmum2 = (props) => {
     .catch(err=>{
       console.log(err);
     });
+    dispatch(KlasifikasiTBUChange('TBU_2', true));
     history.push("BatukYaTidak"); 
     dispatch(compStatusChange('BATUK'));
   }
@@ -56,32 +46,40 @@ const TandaBahayaUmum2 = (props) => {
   const handleAnswer1 = event =>{
     if(event.target.value == 1){
       set_tbu_letargis(true);
+      dispatch(AnsTBUChange('LETARGIS', true));
     }else{
       set_tbu_letargis(false);
+      dispatch(AnsTBUChange('LETARGIS', false));
     }
   }
 
   const handleAnswer2 = event =>{
     if(event.target.value == 1){
       set_tbu_stridor(true);
+      dispatch(AnsTBUChange('STRIDOR', true));
     }else{
       set_tbu_stridor(false);
+      dispatch(AnsTBUChange('STRIDOR', false));
     }
   }
 
   const handleAnswer3 = event =>{
     if(event.target.value == 1){
       set_tbu_sianosis(true);
+      dispatch(AnsTBUChange('SIANOSIS', true));
     }else{
       set_tbu_sianosis(false);
+      dispatch(AnsTBUChange('SIANOSIS', false));
     }
   }
 
   const handleAnswer4 = event =>{
     if(event.target.value == 1){
       set_tbu_pucatDingin(true);
+      dispatch(AnsTBUChange('PUCAT_DINGIN', true));
     }else{
       set_tbu_pucatDingin(false);
+      dispatch(AnsTBUChange('PUCAT_DINGIN', false));
     }
   }
 

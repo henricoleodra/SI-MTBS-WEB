@@ -29,69 +29,70 @@ const TandaBahayaUmum = (props) => {
 
   const handleSubmit = event =>{
     event.preventDefault();
-    dispatch(AnsTBUChange('TIDAK_BISA_MINUM', tbu_tidakBisaMinum));
-    dispatch(AnsTBUChange('MUNTAH', tbu_muntah));
-    dispatch(AnsTBUChange('KEJANG', tbu_kejang));
-    dispatch(AnsTBUChange('GELISAH', tbu_gelisah));
-    axios.post(`/TBU/1`, {
-      tbu_tidakBisaMinum: tbu_tidakBisaMinum,
-      tbu_muntah: tbu_muntah,
-      tbu_kejang: tbu_kejang,
-      tbu_gelisah: tbu_gelisah
-    })
-    .then(res => {
-      if(klasifikasiTBU.tbu_status != null){
-        if(res.data.statusKlasifikasi === "danger"){
-          dispatch(KlasifikasiTBUChange('TBU_KLASIFIKASI', res.data.hasilKlasifkasi));
-          dispatch(KlasifikasiTBUChange('TBU_STATUS', res.data.statusKlasifikasi));
-        }
-        else{
-          if(klasifikasiTBU.tbu_status != "danger"){
-            dispatch(KlasifikasiTBUChange('TBU_KLASIFIKASI', res.data.hasilKlasifkasi));
-            dispatch(KlasifikasiTBUChange('TBU_STATUS', res.data.statusKlasifikasi));
-          }
-        }
-      }
-      else{
+    if(klasifikasiTBU.tbu_2 === true){
+      axios.post(`/TBU/2`, {
+        ansTBU : ansTBU
+      })
+      .then(res => {
         dispatch(KlasifikasiTBUChange('TBU_KLASIFIKASI', res.data.hasilKlasifkasi));
         dispatch(KlasifikasiTBUChange('TBU_STATUS', res.data.statusKlasifikasi));
-      }      
-    })
-    .catch(err=>{
-      console.log(err);
-    });
+      })
+      .catch(err=>{
+        console.log(err);
+      });
+    }
+    else{
+      axios.post(`/TBU/1`, {
+        ansTBU : ansTBU
+      })
+      .then(res => {
+        dispatch(KlasifikasiTBUChange('TBU_KLASIFIKASI', res.data.hasilKlasifkasi));
+        dispatch(KlasifikasiTBUChange('TBU_STATUS', res.data.statusKlasifikasi));
+      })
+      .catch(err=>{
+        console.log(err);
+      });
+    }
     history.push("TandaBahayaUmum2"); 
   }
 
   const handleAnswer1 = event =>{
     if(event.target.value == 1){
       set_tbu_tidakBisaMinum(true);
+      dispatch(AnsTBUChange('TIDAK_BISA_MINUM', true));
     }else if(event.target.value == 2){
       set_tbu_tidakBisaMinum(false);
+      dispatch(AnsTBUChange('TIDAK_BISA_MINUM', false));
     }
   }
 
   const handleAnswer2 = event =>{
     if(event.target.value == 1){
       set_tbu_muntah(true);
+      dispatch(AnsTBUChange('MUNTAH', true));
     }else if(event.target.value == 2){
       set_tbu_muntah(false);
+      dispatch(AnsTBUChange('MUNTAH', false));
     }
   }
 
   const handleAnswer3 = event =>{
     if(event.target.value == 1){
       set_tbu_kejang(true);
+      dispatch(AnsTBUChange('KEJANG', true));
     }else if(event.target.value == 2){
       set_tbu_kejang(false);
+      dispatch(AnsTBUChange('KEJANG', false));
     }
   }
 
   const handleAnswer4 = event =>{
     if(event.target.value == 1){
       set_tbu_gelisah(true);
+      dispatch(AnsTBUChange('GELISAH', true));
     }else if(event.target.value == 2){
       set_tbu_gelisah(false);
+      dispatch(AnsTBUChange('GELISAH', false));
     }
   }
 

@@ -1,35 +1,22 @@
+const klasifikasiTBU = require('../models/tandabahayaumum');
+
 const tandaBahayaUmum1 = async function(req, res, next) {
-    if(req.body.tbu_tidakBisaMinum || req.body.tbu_muntah || req.body.tbu_kejang || req.body.tbu_gelisah){
-        const ans = {
-            hasilKlasifkasi : 'Penyakit sangat berat',
-            statusKlasifikasi: 'danger',
-        }
-        res.json(ans);
+    const klasTBU = await klasifikasiTBU.klasifikasiTBU1(req.body.ansTBU);
+    const ans = {
+        hasilKlasifkasi : klasTBU.hasilKlasifkasi,
+        statusKlasifikasi: klasTBU.statusKlasifikasi,
     }
-    else{
-        const ans = {
-            hasilKlasifkasi : '',
-            statusKlasifikasi: 'success'
-        }
-        res.json(ans);
-    }
+    res.json(ans);
+    
 };
 
 const tandaBahayaUmum2 = async function(req, res, next){
-    if(req.body.tbu_tidakBisaMinum || req.body.tbu_muntah || req.body.tbu_kejang || req.body.tbu_gelisah || req.body.tbu_letargis || req.body.tbu_stridor || req.body.tbu_sianosis || req.body.tbu_pucatDingin){
-        const ans = {
-            hasilKlasifkasi : 'Penyakit sangat berat',
-            statusKlasifikasi: 'danger',
-        }
-        res.json(ans);
+    const klasTBU = await klasifikasiTBU.klasifikasiTBU2(req.body.ansTBU);
+    const ans = {
+        hasilKlasifkasi : klasTBU.hasilKlasifkasi,
+        statusKlasifikasi: klasTBU.statusKlasifikasi,
     }
-    else{
-        const ans = {
-            hasilKlasifkasi : '',
-            statusKlasifikasi: 'success'
-        }
-        res.json(ans);
-    }
+    res.json(ans);
 }
 
 

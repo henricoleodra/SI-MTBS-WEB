@@ -132,9 +132,11 @@ const Telinga = (props) =>{
     const handleAnswer4 = event =>{
 
         if(event.target.value >= 14){
-            set_telinga_isNanah(true);
+            set_telinga_nanahLamaHari(event.target.value);
+            dispatch(AnsTelingaChange('NANAH_LAMA_HARI', event.target.value));
         }else{
-            set_telinga_isNanah(false);
+            set_telinga_nanahLamaHari(event.target.value);
+            dispatch(AnsTelingaChange('NANAH_LAMA_HARI', event.target.value));
         }
         console.log(telinga_nanahLamaHari);
     }

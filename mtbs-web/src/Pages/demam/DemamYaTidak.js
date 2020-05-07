@@ -17,7 +17,7 @@ let bgColor ={
 
 const Demam = (props) => {
     return(
-        <Form>
+        <Form /**onSubmit={handleSubmit}**/>
             <div className="w-100">
                 <div className="col-12">
                     <div className="mt-2">

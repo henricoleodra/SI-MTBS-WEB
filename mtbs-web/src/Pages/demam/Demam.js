@@ -83,7 +83,7 @@ const Demam = (props) => {
                                             <FormGroup className="d-inline">
                                                 <Label className="rdoBtn" style={{left:"12px"}}>Suhu >= 37.5 derajat Celcius
                                                 <Input type="radio" name="radio1" /**value={2} onChange={handleAnswer1} checked={tbu_letargis === false}**/ /> 
-                                                <span style={{left:"-18px"}} className="checkmark"></span>
+                                                <span style={{left:"-20px"}} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>
                                         </Col>

@@ -122,7 +122,7 @@ const Demam = (props) => {
                                         <Col sm="3">
                                             <FormGroup className="d-inline">
                                                 <Label className="rdoBtn">Tidak
-                                                <Input type="radio" name="radio2    " /**value={2} onChange={handleAnswer2} checked={tbu_letargis === false}**/ /> 
+                                                <Input type="radio" name="radio2" /**value={2} onChange={handleAnswer2} checked={tbu_letargis === false}**/ /> 
                                                 <span style={{left:"0px"}} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>

@@ -122,11 +122,7 @@ const Demam = (props) => {
                                         <Col sm="3">
                                             <FormGroup className="d-inline">
                                                 <Label className="rdoBtn">Tidak
-<<<<<<< refs/remotes/origin/master
                                                 <Input type="radio" name="radio2" /**value={2} onChange={handleAnswer2} checked={tbu_letargis === false}**/ /> 
-=======
-                                                <Input type="radio" name="radio2    " /**value={2} onChange={handleAnswer2} checked={tbu_letargis === false}**/ /> 
->>>>>>> [UPDATE]Memperbaiki radio button dan NOT YET
                                                 <span style={{left:"0px"}} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>

@@ -56,10 +56,10 @@ const Demam = (props) => {
                                 height: 5
                             }}
                         />
-                        <p className="text-center"><b>Jika Daerah Non Endemis</b>, tanyakan riwayat bepergian ke daerah endemis
-                        malaria dalam 2 minggu terakhir adn tentukan daerah endemis sesuai tempat yang dikunjungi</p>
+                        {/* <p className="text-center"><b>Jika Daerah Non Endemis</b>, tanyakan riwayat bepergian ke daerah endemis
+                        malaria dalam 2 minggu terakhir adn tentukan daerah endemis sesuai tempat yang dikunjungi</p> */}
                     </div>
-                    <div style={{minHeight: "410px"}}>
+                    <div style={{minHeight: "475px"}}>
                         <Row className="justify-content-around">
                             <Card style={outlineColor} className="text-center w-75" >
                                 <CardBody>
@@ -71,7 +71,33 @@ const Demam = (props) => {
                                             height: 1
                                         }}
                                     />
-                                    <div>
+                                    <h6>Ruam kemerahan di kulit yang meyeluruh DAN 
+                                        anak mengalami batuk / pilek / mata merah</h6>
+                                    <Row className="limitCol "> 
+                                        <Col  sm="3">
+                                        
+                                        </Col>
+                                        <Col sm="3">
+                                            <FormGroup className="d-inline pr-2">  
+                                                <Label className="rdoBtn">Ya
+                                                <Input type="radio" name="radio1" /**value={1} onChange={handleAnswer1} checked={tbu_letargis === true}**/ required/>
+                                                <span style={{left:"20px"}} className="checkmark"></span>
+                                                </Label>
+                                            </FormGroup>
+                                        </Col>
+                                        <Col sm="1">
+                                        
+                                        </Col>
+                                        <Col sm="3">
+                                            <FormGroup className="d-inline">
+                                                <Label className="rdoBtn">Tidak
+                                                <Input type="radio" name="radio1" /**value={2} onChange={handleAnswer1} checked={tbu_letargis === false}**/ /> 
+                                                <span style={{left:"0px"}} className="checkmark"></span>
+                                                </Label>
+                                            </FormGroup>
+                                        </Col>
+                                    </Row>
+                                    {/* <div>
                                         <h6>Ruam kemerahan di kulit yang meyeluruh</h6>
                                         <Row className="limitCol "> 
                                             <Col  sm="3">
@@ -80,7 +106,7 @@ const Demam = (props) => {
                                             <Col sm="3">
                                                 <FormGroup className="d-inline pr-2">  
                                                     <Label className="rdoBtn">Ya
-                                                    <Input type="radio" name="radio1" /**value={1} onChange={handleAnswer1} checked={tbu_letargis === true}**/ required/>
+                                                    <Input type="radio" name="radio1" value={1} onChange={handleAnswer1} checked={tbu_letargis === true} required/>
                                                     <span style={{left:"20px"}} className="checkmark"></span>
                                                     </Label>
                                                 </FormGroup>
@@ -91,7 +117,7 @@ const Demam = (props) => {
                                             <Col sm="3">
                                                 <FormGroup className="d-inline">
                                                     <Label className="rdoBtn">Tidak
-                                                    <Input type="radio" name="radio1" /**value={2} onChange={handleAnswer1} checked={tbu_letargis === false}**/ /> 
+                                                    <Input type="radio" name="radio1" value={2} onChange={handleAnswer1} checked={tbu_letargis === false} /> 
                                                     <span style={{left:"0px"}} className="checkmark"></span>
                                                     </Label>
                                                 </FormGroup>
@@ -114,7 +140,7 @@ const Demam = (props) => {
                                             <Col sm="3">
                                                 <FormGroup className="d-inline pr-2">  
                                                     <Label className="rdoBtn">Ya
-                                                    <Input type="radio" name="radio2" /**value={1} onChange={handleAnswer2} checked={tbu_letargis === true}**/ required/>
+                                                    <Input type="radio" name="radio2" value={1} onChange={handleAnswer2} checked={tbu_letargis === true} required/>
                                                     <span style={{left:"20px"}} className="checkmark"></span>
                                                     </Label>
                                                 </FormGroup>
@@ -125,13 +151,13 @@ const Demam = (props) => {
                                             <Col sm="3">
                                                 <FormGroup className="d-inline">
                                                     <Label className="rdoBtn">Tidak
-                                                    <Input type="radio" name="radio2" /**value={2} onChange={handleAnswer2} checked={tbu_letargis === false}**/ /> 
+                                                    <Input type="radio" name="radio2" value={2} onChange={handleAnswer2} checked={tbu_letargis === false} /> 
                                                     <span style={{left:"0px"}} className="checkmark"></span>
                                                     </Label>
                                                 </FormGroup>
                                             </Col>
                                         </Row>
-                                    </div>
+                                    </div> */}
 
                                 </CardBody>
                             </Card>

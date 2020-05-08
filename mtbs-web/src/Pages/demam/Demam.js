@@ -59,14 +59,14 @@ const Demam = (props) => {
                     </div>
                     <div style={{minHeight: "475px"}}>
                         <Row className="justify-content-around">
-                            <Card style={outlineColor} className="text-center w-75" >
+                            {/* <Card style={outlineColor} className="text-center w-75" >
                                 <CardBody>
                                     <CardTitle className="h5"><b>Tanyakan dan periksa!</b></CardTitle>
                                     <Row className="limitCol "> 
                                         <Col sm="3">
                                             <FormGroup className="d-inline pr-2">  
                                                 <Label className="rdoBtn" style={{left:"12px"}}>Anamnesis
-                                                <Input type="radio" name="radio1" /**value={1} onChange={handleAnswer1} checked={tbu_letargis === true} **/required/>
+                                                <Input type="radio" name="radio1" value={1} onChange={handleAnswer1} checked={tbu_letargis === true} required/>
                                                 <span style={{left:"-15px"}} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>
@@ -74,7 +74,7 @@ const Demam = (props) => {
                                         <Col sm="3">
                                             <FormGroup className="d-inline">
                                                 <Label className="rdoBtn" style={{left:"9px"}}>Teraba panas
-                                                <Input type="radio" name="radio1" /**value={2} onChange={handleAnswer1} checked={tbu_letargis === false}**/ /> 
+                                                <Input type="radio" name="radio1" value={2} onChange={handleAnswer1} checked={tbu_letargis === false} /> 
                                                 <span style={{left:"-23px"}} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>
@@ -82,17 +82,20 @@ const Demam = (props) => {
                                         <Col sm="6">
                                             <FormGroup className="d-inline">
                                                 <Label className="rdoBtn" style={{left:"12px"}}>Suhu >= 37.5 derajat Celcius
-                                                <Input type="radio" name="radio1" /**value={2} onChange={handleAnswer1} checked={tbu_letargis === false}**/ /> 
+                                                <Input type="radio" name="radio1" value={2} onChange={handleAnswer1} checked={tbu_letargis === false} /> 
                                                 <span style={{left:"-18px"}} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>
                                         </Col>
                                     </Row>
                                 </CardBody>
-                            </Card>
+                            </Card> */}
+                            {/* <p className="text-center"><b>Jika Daerah Non Endemis</b>, tanyakan riwayat bepergian ke daerah endemis
+                            malaria dalam 2 minggu terakhir dan tentukan daerah endemis sesuai tempat yang dikunjungi</p> */}
                             <Card style={outlineColor} className="text-center w-75 mt-3" >
                                 <CardBody>
-                                    <CardTitle className="h5"><b>Periksa! </b>Tentukan daerah endemis malaria</CardTitle>
+                                    <CardTitle className="h5"><b>Tanyakan! </b>Apakah anak pernah berpergian ke daerah endemis dalam 2 minggu terakhir ini? 
+                                    Jika "Ya", tentukan jenis tipe endemis dari daerah tersebut</CardTitle>
                                     <Row className="limitCol "> 
                                         <Col sm="1">
                                             
@@ -129,6 +132,46 @@ const Demam = (props) => {
                                     </Row>
                                 </CardBody>
                             </Card>
+
+                            {/* <Card style={outlineColor} className="text-center w-75 mt-3" >
+                                <CardBody>
+                                    <CardTitle className="h5"><b>Periksa! </b>Tentukan daerah endemis malaria</CardTitle>
+                                    <Row className="limitCol "> 
+                                        <Col sm="1">
+                                            
+                                        </Col>
+                                        <Col sm="3">
+                                            <FormGroup className="d-inline pr-2">  
+                                                <Label className="rdoBtn" style={{left:"10px"}}>Tinggi
+                                                <Input type="radio" name="radio2" value={1} onChange={handleAnswer1} checked={tbu_letargis === true} required/>
+                                                <span style={{left:"6px"}} className="checkmark"></span>
+                                                </Label>
+                                            </FormGroup>
+                                        </Col>
+
+                                        <Col sm="3">
+                                            <FormGroup className="d-inline">
+                                                <Label className="rdoBtn" style={{left:"10px"}}>Rendah
+                                                <Input type="radio" name="radio2" value={2} onChange={handleAnswer1} checked={tbu_letargis === false} /> 
+                                                <span style={{left:"-1px"}} className="checkmark"></span>
+                                                </Label>
+                                            </FormGroup>
+                                        </Col>
+
+                                        <Col sm="4">
+                                            <FormGroup className="d-inline">
+                                                <Label className="rdoBtn" style={{left:"10px"}}>Non Endemis 
+                                                <Input type="radio" name="radio2" value={2} onChange={handleAnswer1} checked={tbu_letargis === false} /> 
+                                                <span style={{left:"-1px"}} className="checkmark"></span>
+                                                </Label>
+                                            </FormGroup>
+                                        </Col>
+                                        <Col sm="1">
+                                            
+                                        </Col>
+                                    </Row>
+                                </CardBody>
+                            </Card> */}
                         </Row>
                     </div>
                 </div>

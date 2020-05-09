@@ -35,9 +35,6 @@ const Demam = (props) => {
                             <FontAwesomeIcon icon={faCircle} className="text-muted" />
                         </div>
                         <div className="p-2">
-                            <FontAwesomeIcon icon={faCircle} className="text-muted" />
-                        </div>
-                        <div className="p-2">
                             <FontAwesomeIcon icon={faCircle} style={{ color: '#41E8B3' }} />
                         </div>
                         <div className="p-2">
@@ -185,7 +182,7 @@ const Demam = (props) => {
                 </div>
                 <Row className="justify-content-between px-5 py-0">
                     <Col sm="4">
-                        <Link to="Demam7" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Sebelumnya</Button></Link>
+                        <Link to="Demam6" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Sebelumnya</Button></Link>
                     </Col>
                     <Col sm="4">
                         <Button type="submit" color="success" block >Selanjutnya <FontAwesomeIcon icon={faChevronRight}/></Button>

@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { FormGroup, Label, Input, Form, Card, CardBody, CardTitle, Button, Row, Col } from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+
+// Actions
+import { KlasifikasiDemamChange, AnsDemamChange } from '../../Actions';
 
 import '../../Assets/style/style.css';
 
@@ -11,8 +16,83 @@ var outlineColor = {
 }
 
 const Demam = (props) => {
+
+    const history = useHistory();
+    const dispatch = useDispatch();
+    const ansDemam = useSelector(state => state.ansDemam);
+    let [demam_isLukaMulut, set_demam_isLukaMulut] = useState(ansDemam.demam_isLukaMulut);
+    let [demam_descLukaMulutLuas, set_demam_descLukaMulutLuas] = useState(ansDemam.demam_descLukaMulutLuas);
+    let [demam_descLukaMulutDalam, set_demam_descLukaMulutDalam] = useState(ansDemam.demam_descLukaMulutDalam);
+    let [demam_nanahDiMata, set_demam_nanahDiMata] = useState(ansDemam.demam_nanahDiMata);
+    let [demam_korneaKeruh, set_demam_korneaKeruh] = useState(ansDemam.demam_korneaKeruh);
+
+    const handleSubmit = event => {
+        event.preventDefault();
+        axios.post(`/Demam`, {
+            ansDemam: ansDemam
+        })
+            .then(res => {
+                dispatchEvent(KlasifikasiDemamChange('DEMAM_KLASIFIKASI', res.data.hasilKlasifikasi));
+                dispatchEvent(KlasifikasiDemamChange('DEMAM_STATUS', res.data.statusKlasifikasi));
+            })
+            .catch(err => {
+                console.log(err);
+            });
+        history.push("Demam6");
+    }
+
+    const handleAnswer1 = event => {
+        if (event.target.value == 1) {
+            set_demam_isLukaMulut(true);
+            dispatch(AnsDemamChange('LUKA_MULUT', true));
+        } else if (event.target.value == 2) {
+            set_demam_isLukaMulut(false);
+            dispatch(AnsDemamChange('LUKA_MULUT', false));
+        }
+    }
+
+    const handleAnswer2 = event => {
+        if (event.target.value == 1) {
+            set_demam_descLukaMulutLuas(true);
+            dispatch(AnsDemamChange('DECS_LUKA_MULUT_LUAS', true));
+        } else if (event.target.value == 2) {
+            set_demam_descLukaMulutLuas(false);
+            dispatch(AnsDemamChange('DECS_LUKA_MULUT_LUAS', false));
+        }
+    }
+
+    const handleAnswer3 = event => {
+        if (event.target.value == 1) {
+            set_demam_descLukaMulutDalam(true);
+            dispatch(AnsDemamChange('DECS_LUKA_MULUT_DALAM', true));
+        } else if (event.target.value == 2) {
+            set_demam_descLukaMulutDalam(false);
+            dispatch(AnsDemamChange('DECS_LUKA_MULUT_DALAM', false));
+        }
+    }
+
+    const handleAnswer4 = event => {
+        if (event.target.value == 1) {
+            set_demam_nanahDiMata(true);
+            dispatch(AnsDemamChange('NANAH_DI_MATA', true));
+        } else if (event.target.value == 2) {
+            set_demam_nanahDiMata(false);
+            dispatch(AnsDemamChange('NANAH_DI_MATA', false));
+        }
+    }
+
+    const handleAnswer5 = event => {
+        if (event.target.value == 1) {
+            set_demam_korneaKeruh(true);
+            dispatch(AnsDemamChange('KORNEA_KERUH', true));
+        } else if (event.target.value == 2) {
+            set_demam_korneaKeruh(false);
+            dispatch(AnsDemamChange('KORNEA_KERUH', false));
+        }
+    }
+
     return (
-        <Form /**onSubmit={handleSubmit}**/>
+        <Form onSubmit={handleSubmit}>
             <div className="w-100">
                 <div className="col-12">
                     <div className="d-flex justify-content-center mt-3">
@@ -27,9 +107,6 @@ const Demam = (props) => {
                         </div>
                         <div className="p-2">
                             <FontAwesomeIcon icon={faCircle} className="text-muted" />
-                        </div>
-                        <div className="p-2">
-                            <FontAwesomeIcon icon={faCircle}  className="text-muted" />
                         </div>
                         <div className="p-2">
                             <FontAwesomeIcon icon={faCircle} style={{ color: '#41E8B3' }} />
@@ -70,7 +147,7 @@ const Demam = (props) => {
                                         <Col sm="3">
                                             <FormGroup className="d-inline pr-2">  
                                                 <Label className="rdoBtn">Ya
-                                                <Input type="radio" name="radio1" /**value={1} onChange={handleAnswer1} checked={tbu_letargis === true}**/ required/>
+                                                <Input type="radio" name="radio1" value={1} onChange={handleAnswer1} checked={demam_isLukaMulut === true} required/>
                                                 <span style={{left:"20px"}} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>
@@ -81,7 +158,7 @@ const Demam = (props) => {
                                         <Col sm="3">
                                             <FormGroup className="d-inline">
                                                 <Label className="rdoBtn">Tidak
-                                                <Input type="radio" name="radio1" /**value={2} onChange={handleAnswer1} checked={tbu_letargis === false}**/ /> 
+                                                <Input type="radio" name="radio1" value={2} onChange={handleAnswer1} checked={demam_isLukaMulut === false} /> 
                                                 <span style={{left:"5px"}} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>
@@ -96,7 +173,7 @@ const Demam = (props) => {
                                             <Col sm="3">
                                                 <FormGroup className="d-inline pr-2">  
                                                     <Label style={{left:"14px"}} className="chckBtn">Dalam
-                                                    <Input type="checkbox" name="checkBox1" /**value={1} onChange={handleAnswer1} checked={tbu_letargis === true}**/ required/>
+                                                    <Input type="checkbox" name="checkBox1" value={1} onChange={handleAnswer2} checked={demam_descLukaMulutLuas === true} required/>
                                                     <span style={{left:"3px"}} className="checkmarkBox"></span>
                                                     </Label>
                                                 </FormGroup>
@@ -107,7 +184,7 @@ const Demam = (props) => {
                                             <Col sm="3">
                                                 <FormGroup className="d-inline">
                                                     <Label style={{left:"-7px"}} className="chckBtn">Luas
-                                                    <Input type="checkbox" name="checkBox1" /**value={2} onChange={handleAnswer1} checked={tbu_letargis === false}**/ /> 
+                                                    <Input type="checkbox" name="checkBox1" value={2} onChange={handleAnswer3} checked={demam_descLukaMulutDalam === false} /> 
                                                     <span style={{left:"12px"}} className="checkmarkBox"></span>
                                                     </Label>
                                                 </FormGroup>
@@ -126,7 +203,7 @@ const Demam = (props) => {
                                         <Col sm="3">
                                             <FormGroup className="d-inline pr-2">  
                                                 <Label className="rdoBtn">Ya
-                                                <Input type="radio" name="radio3" /**value={1} onChange={handleAnswer1} checked={tbu_letargis === true}**/ required/>
+                                                <Input type="radio" name="radio3" value={1} onChange={handleAnswer4} checked={demam_nanahDiMata === true} required/>
                                                 <span style={{left:"20px"}} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>
@@ -137,7 +214,7 @@ const Demam = (props) => {
                                         <Col sm="3">
                                             <FormGroup className="d-inline">
                                                 <Label className="rdoBtn">Tidak
-                                                <Input type="radio" name="radio3" /**value={2} onChange={handleAnswer1} checked={tbu_letargis === false}**/ /> 
+                                                <Input type="radio" name="radio3" value={2} onChange={handleAnswer4} checked={demam_nanahDiMata === false} /> 
                                                 <span style={{left:"5px"}} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>
@@ -155,7 +232,7 @@ const Demam = (props) => {
                                         <Col sm="3">
                                             <FormGroup className="d-inline pr-2">  
                                                 <Label className="rdoBtn">Ya
-                                                <Input type="radio" name="radio4" /**value={1} onChange={handleAnswer1} checked={tbu_letargis === true}**/ required/>
+                                                <Input type="radio" name="radio4" value={1} onChange={handleAnswer5} checked={demam_korneaKeruh === true}required/>
                                                 <span style={{left:"20px"}} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>
@@ -166,7 +243,7 @@ const Demam = (props) => {
                                         <Col sm="3">
                                             <FormGroup className="d-inline">
                                                 <Label className="rdoBtn">Tidak
-                                                <Input type="radio" name="radio4" /**value={2} onChange={handleAnswer1} checked={tbu_letargis === false}**/ /> 
+                                                <Input type="radio" name="radio4" value={2} onChange={handleAnswer5} checked={demam_korneaKeruh === false} /> 
                                                 <span style={{left:"5px"}} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>
@@ -179,7 +256,7 @@ const Demam = (props) => {
                 </div>
                 <Row className="justify-content-between px-5 py-0">
                     <Col sm="4">
-                        <Link to="Demam5" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Sebelumnya</Button></Link>
+                        <Link to="Demam4" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Sebelumnya</Button></Link>
                     </Col>
                     <Col sm="4">
                         <Button type="submit" color="success" block >Selanjutnya <FontAwesomeIcon icon={faChevronRight}/></Button>

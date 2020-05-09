@@ -101,7 +101,7 @@ const PemberianMakanan = (props) =>{
                                         <Col sm="3">
                                         <FormGroup className="d-inline pr-2">  
                                             <Label className="rdoBtn">Ya
-                                            <Input type="radio" name="radio1"/>
+                                            <Input type="radio" name="radio2"/>
                                             <span style={{left:"20px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>
@@ -112,7 +112,7 @@ const PemberianMakanan = (props) =>{
                                         <Col sm="3">
                                         <FormGroup className="d-inline">
                                             <Label className="rdoBtn">Tidak
-                                            <Input type="radio" name="radio1"/>
+                                            <Input type="radio" name="radio2"/>
                                             <span style={{left:"0px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>

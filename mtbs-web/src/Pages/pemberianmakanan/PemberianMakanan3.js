@@ -44,7 +44,7 @@ const PemberianMakanan = (props) =>{
                     />
                     <p className="text-center">Jika anak <b>GIZI KURUS</b></p>
                 </div>
-                <div style={{minHeight: "500px"}}>
+                <div style={{minHeight: "475px"}}>
                     <Row className="justify-content-center">
                         <Card style={outlineColor} className="text-center w-75 mt-3">
                             <CardBody>
@@ -62,18 +62,28 @@ const PemberianMakanan = (props) =>{
                         <Card style={outlineColor} className="text-center w-75 mt-3">
                             <CardBody>
                                 <CardTitle className="h5"><b>Tanyakan! </b>Apakah anak mendapat makanan tersendiri?</CardTitle>
-                                <FormGroup check className="d-inline pr-2">
-                                    <Label>
-                                        <Input type="radio" name="radio1"/>{''}
-                                        Ya
-                                    </Label>
-                                </FormGroup>
-                                <FormGroup check className="d-inline">
-                                    <Label>
-                                        <Input type="radio" name="radio1"/>{''}
-                                        Tidak
-                                    </Label>
-                                </FormGroup>
+                                <Row className="limitCol">
+                                    <Col sm="3">
+                                    </Col>
+                                    <Col sm="3">
+                                        <FormGroup className="d-inline pr-2">  
+                                            <Label className="rdoBtn">Ya
+                                            <Input type="radio" name="radio1" /**value={1} onChange={handleAnswer1} checked={tbu_letargis === true}**/ required/>
+                                            <span style={{left:"20px"}} className="checkmark"></span>
+                                            </Label>
+                                        </FormGroup>
+                                    </Col>
+                                    <Col sm="1">
+                                    </Col>
+                                    <Col sm="3">
+                                        <FormGroup className="d-inline">
+                                            <Label className="rdoBtn">Tidak
+                                            <Input type="radio" name="radio1" /**value={2} onChange={handleAnswer1} checked={tbu_letargis === false}**/ /> 
+                                            <span style={{left:"0px"}} className="checkmark"></span>
+                                            </Label>
+                                        </FormGroup>
+                                    </Col>
+                                </Row>
                             </CardBody>
                         </Card>
                         <Card style={outlineColor} className="text-center w-75 mt-3">

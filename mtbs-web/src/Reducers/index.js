@@ -7,7 +7,7 @@ import KlasifikasiBatukReducer from './KlasifikasiBatuk';
 import AnsDiareReducer from './AnsDiare';
 import KlasifikasiDiareReducer from './KlasifikasiDiare';
 import AnsDemamReducer from './AnsDemam';
-import KlasifikasiDemamReducer from './KlasifikasiDemam';
+import KlasifikasiDemamReducer from './KlasifikasiDemam';   
 import AnsTelingaReducer from './AnsTelinga';
 import KlasifikasiTelingaReducer from './KlasifikasiTelinga';
 import AnsAnemiaReducer from './AnsAnemia';
@@ -27,6 +27,8 @@ const rootReducer = combineReducers({
     klasifikasiBatuk : KlasifikasiBatukReducer,
     ansDiare : AnsDiareReducer,
     klasifikasiDiare : KlasifikasiDiareReducer,
+    ansDemam : AnsDemamReducer,
+    klasifikasiDemam : KlasifikasiDemamReducer,
     ansTelinga : AnsTelingaReducer,
     klasifikasiTelinga : KlasifikasiTelingaReducer,
     ansAnemia : AnsAnemiaReducer,

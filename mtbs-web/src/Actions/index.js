@@ -61,6 +61,22 @@ export const KlasifikasiDiareChange = (comp, ans) =>{
     }
 }
 
+// ANSWER Demam
+export const AnsDemamChange = (comp, ans) => {
+    return{
+        type : comp,
+        answer : ans
+    }
+}
+
+// KLASIFIKASI Demam
+export const KlasifikasiDemamChange = (comp, ans) =>{
+    return{
+        type : comp,
+        answer : ans
+    }
+}
+
 //ANSWER Telinga
 export const AnsTelingaChange = (comp, ans) => {
     return{

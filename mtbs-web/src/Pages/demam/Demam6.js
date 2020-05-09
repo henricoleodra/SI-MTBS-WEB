@@ -98,7 +98,10 @@ const Demam = (props) => {
                             <FontAwesomeIcon icon={faCircle} className="text-muted" />
                         </div>
                         <div className="p-2">
-                            <FontAwesomeIcon icon={faCircle}  className="text-muted" />
+                            <FontAwesomeIcon icon={faCircle} className="text-muted" />
+                        </div>
+                        <div className="p-2">
+                            <FontAwesomeIcon icon={faCircle} className="text-muted" />
                         </div>
                         <div className="p-2">
                             <FontAwesomeIcon icon={faCircle} style={{ color: '#41E8B3' }} />
@@ -112,12 +115,9 @@ const Demam = (props) => {
                         <div className="p-2">
                             <FontAwesomeIcon icon={faCircle} className="text-muted" />
                         </div>
-                        <div className="p-2">
-                            <FontAwesomeIcon icon={faCircle} className="text-muted" />
-                        </div>
                     </div>
                     <div className="mt-2">
-                        <h3 className="text-center font-weight-bold">Campak dalam 3 Bulan Terakhir</h3>
+                        <h3 className="text-center font-weight-bold">Demam sudah 2-7 hari</h3>
                         <hr
                             style={{
                                 color: "#41E8B3",
@@ -125,13 +125,13 @@ const Demam = (props) => {
                                 height: 5
                             }}
                         />
-                        {/* <p className="text-center"><b>Jika anak sakit campak saat ini atau dalam 3 bulan terakhir</b></p> */}
+                        {/* <p className="text-center"><b>Jika demam 2 hari sampai dengan 7 hari, tanya dan periksa</b></p> */}
                     </div>
                     <div style={{minHeight: "475px"}}>
                         <Row className="justify-content-around">
                             <Card style={outlineColor} className="text-center w-75 mt-3" >
                                 <CardBody>
-                                    <CardTitle className="h5"><b>Lihat! </b>Adanya luka di mulut</CardTitle>
+                                    <CardTitle className="h5"><b>Tanyakan! </b>Apakah demam mendadak tinggi dan terus menerus?</CardTitle>
                                     <Row className="limitCol "> 
                                         <Col  sm="3">
                                         
@@ -187,7 +187,7 @@ const Demam = (props) => {
                             </Card>
                             <Card style={outlineColor} className="text-center w-75 mt-3" >
                                 <CardBody>
-                                    <CardTitle className="h5"><b>Lihat! </b>Adanya nanah di mata</CardTitle>
+                                    <CardTitle className="h5"><b>Tanyakan! </b>Apakah nyeri ulu hati atau gelisah?</CardTitle>
                                     <Row className="limitCol "> 
                                         <Col  sm="3">
                                         
@@ -206,7 +206,7 @@ const Demam = (props) => {
                                         <Col sm="3">
                                             <FormGroup className="d-inline">
                                                 <Label className="rdoBtn">Tidak
-                                                <Input type="radio" name="radio3" /**value={2} onChange={handleAnswer3} checked={demam_nanahDiMata === false}**/ /> 
+                                                <Input type="radio" name="radio2" /**value={2} onChange={handleAnswer1} checked={tbu_letargis === false}**/ /> 
                                                 <span style={{left:"5px"}} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>
@@ -216,7 +216,7 @@ const Demam = (props) => {
                             </Card>
                             <Card style={outlineColor} className="text-center w-75 mt-3" >
                                 <CardBody>
-                                    <CardTitle className="h5"><b>Lihat! </b>Adanya kekeruhan di kornea</CardTitle>
+                                    <CardTitle className="h5"><b>Tanyakan! </b>Apakah badan anak dingin?</CardTitle>
                                     <Row className="limitCol "> 
                                         <Col  sm="3">
                                         
@@ -248,7 +248,7 @@ const Demam = (props) => {
                 </div>
                 <Row className="justify-content-between px-5 py-0">
                     <Col sm="4">
-                        <Link to="Demam5" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Sebelumnya</Button></Link>
+                        <Link to="Demam6" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Sebelumnya</Button></Link>
                     </Col>
                     <Col sm="4">
                         <Button type="submit" color="success" block >Selanjutnya <FontAwesomeIcon icon={faChevronRight}/></Button>

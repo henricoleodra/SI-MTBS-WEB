@@ -19,17 +19,18 @@ import Diare3 from './../diare/Diare3';
 import DemamYaTidak from './../demam/DemamYaTidak';
 import DemamDaerah from './../demam/DemamDaerah';
 import DemamKonfirmasiDaerah from './../demam/DemamKonfirmasiDaerah';
+import DemamPerhatian from './../demam/DemamPerhatian';
+import Demam1 from './../demam/Demam1';
 import Demam2 from './../demam/Demam2';
 import Demam3 from './../demam/Demam3';
 import Demam4 from './../demam/Demam4';
-import Demam5 from './../demam/Demam5';
 //campak
-import Demam6 from './../demam/Demam6';
+import Demam5 from './../demam/Demam5';
 //DBD
+import Demam6 from './../demam/Demam6';
 import Demam7 from './../demam/Demam7';
 import Demam8 from './../demam/Demam8';
 import Demam9 from './../demam/Demam9';
-import Demam10 from './../demam/Demam10';
 import TelingaYaTidak from './../telinga/TelingaYaTidak';
 import Telinga from './../telinga/Telinga';
 import Telinga2 from './../telinga/Telinga2';
@@ -98,6 +99,10 @@ function MTBS(props){
                         return <DemamDaerah/>;
                     case `/MTBS/DemamKonfirmasiDaerah` :
                         return <DemamKonfirmasiDaerah/>;
+                    case `/MTBS/DemamPerhatian` :
+                        return <DemamPerhatian/>;
+                    case `/MTBS/Demam1` :
+                        return <Demam1/>;
                     case `/MTBS/Demam2` :
                         return <Demam2/>;
                     case `/MTBS/Demam3` :
@@ -114,8 +119,6 @@ function MTBS(props){
                         return <Demam8/>;
                     case `/MTBS/Demam9` :
                         return <Demam9/>;
-                    case `/MTBS/Demam10` :
-                        return <Demam10/>;
                     case `/MTBS/TelingaYaTidak`:
                         return <TelingaYaTidak/>;
                     case `/MTBS/Telinga1`:

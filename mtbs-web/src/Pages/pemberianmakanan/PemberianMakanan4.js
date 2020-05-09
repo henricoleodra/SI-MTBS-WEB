@@ -39,7 +39,7 @@ const PemberianMakanan = (props) =>{
                     />
                     <p className="text-center">Jika anak <b>GIZI KURUS</b></p>
                 </div>
-                <div style={{minHeight: "500px"}}>
+                <div style={{minHeight: "475px"}}>
                     <Row className="justify-content-center">
                         <Card style={outlineColor} className="text-center w-75 mt-3">
                             <CardBody>

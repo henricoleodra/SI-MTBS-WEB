@@ -79,6 +79,10 @@ const HIV = (props) =>{
         }else if(event.target.value == 2){
             set_hiv_pernahTes(false);
             dispatch(AnsHIVChange('PERNAH_TES', false));
+            set_hiv_waktuTes("");
+            dispatch(AnsHIVChange('WAKTU_TES', ""));
+            set_hiv_hasilTes(null);
+            dispatch(AnsHIVChange('HASIL_TES', null));
         }
     }
 
@@ -186,7 +190,7 @@ const HIV = (props) =>{
                                                 <InputGroupAddon addonType="append" >
                                                     <InputGroupText style={bgColor}>Tahun</InputGroupText>
                                                 </InputGroupAddon>
-                                                <Input type="number" min="0" value={hiv_waktuTes} onChange={handleAnswer2} required/>
+                                                <Input type="number" min="0" value={hiv_waktuTes} onChange={handleAnswer2} disabled={(hiv_pernahTes === null || hiv_pernahTes === false)} required/>
                                             </InputGroup>         
                                         </div> 
                                     </div>
@@ -196,7 +200,7 @@ const HIV = (props) =>{
                                             <Col sm="">
                                                 <FormGroup className="d-inline ">  
                                                     <Label className="rdoBtn"style={{left:"-30px"}}>Ya
-                                                    <Input type="radio" name="radio2" value={1} onChange={handleAnswer3} checked={hiv_hasilTes === true} required/>
+                                                    <Input type="radio" name="radio2" value={1} onChange={handleAnswer3} checked={hiv_hasilTes === true} disabled={(hiv_pernahTes === null || hiv_pernahTes === false)} required/>
                                                     <span style={{left:"-30px"}} className="checkmark"></span>
                                                     </Label>
                                                 </FormGroup>
@@ -204,7 +208,7 @@ const HIV = (props) =>{
                                             <Col sm="">
                                                 <FormGroup className="d-inline">
                                                     <Label className="rdoBtn" >Tidak
-                                                    <Input type="radio" name="radio2" value={2} onChange={handleAnswer3} checked={hiv_hasilTes === false} />
+                                                    <Input type="radio" name="radio2" value={2} onChange={handleAnswer3} checked={hiv_hasilTes === false} disabled={(hiv_pernahTes === null || hiv_pernahTes === false)} />
                                                     <span style={{left:"-30px"}} className="checkmark"></span>
                                                     </Label>
                                                 </FormGroup>

@@ -88,19 +88,15 @@ const Telinga = (props) =>{
         }else{
             set_telinga_isNanah(false);
             dispatch(AnsTelingaChange('NANAH', false));
+            set_telinga_nanahLamaHari("");
+            dispatch(AnsTelingaChange('NANAH_LAMA_HARI', ""));
         }
         console.log(telinga_isNanah);
     }
 
     const handleAnswer4 = event =>{
-
-        if(event.target.value >= 14){
-            set_telinga_nanahLamaHari(event.target.value);
-            dispatch(AnsTelingaChange('NANAH_LAMA_HARI', event.target.value));
-        }else{
-            set_telinga_nanahLamaHari(event.target.value);
-            dispatch(AnsTelingaChange('NANAH_LAMA_HARI', event.target.value));
-        }
+        set_telinga_nanahLamaHari(event.target.value);
+        dispatch(AnsTelingaChange('NANAH_LAMA_HARI', event.target.value));
         console.log(telinga_nanahLamaHari);
     }
 

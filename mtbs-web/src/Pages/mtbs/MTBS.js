@@ -16,8 +16,9 @@ import DiareYaTidak from './../diare/DiareYaTidak';
 import Diare from './../diare/Diare';
 import Diare2 from './../diare/Diare2';
 import Diare3 from './../diare/Diare3';
-import DemamYaTidak from './../demam/DemamYaTidak'
-import Demam from './../demam/Demam';
+import DemamYaTidak from './../demam/DemamYaTidak';
+import DemamDaerah from './../demam/DemamDaerah';
+import DemamKonfirmasiDaerah from './../demam/DemamKonfirmasiDaerah';
 import Demam2 from './../demam/Demam2';
 import Demam3 from './../demam/Demam3';
 import Demam4 from './../demam/Demam4';
@@ -93,8 +94,10 @@ function MTBS(props){
                         return <Diare3/>;
                     case `/MTBS/DemamYaTidak`:
                         return <DemamYaTidak/>;
-                    case `/MTBS/Demam1` :
-                        return <Demam/>;
+                    case `/MTBS/DemamDaerah`:
+                        return <DemamDaerah/>;
+                    case `/MTBS/DemamKonfirmasiDaerah` :
+                        return <DemamKonfirmasiDaerah/>;
                     case `/MTBS/Demam2` :
                         return <Demam2/>;
                     case `/MTBS/Demam3` :

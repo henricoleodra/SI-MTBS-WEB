@@ -56,7 +56,7 @@ const SideBar = (props) => {
         {
             'title' : 'Demam',
             'link' : 'Demam1',
-            'active' : url==='DemamYaTidak' || url==='Demam',
+            'active' : url==='DemamYaTidak' || url==='DemamDaerah' || url==='DemamKonfirmasiDaerah' || url==='Demam',
             'color' : 'dark',
             'disabled' : compStatus.demam
         },

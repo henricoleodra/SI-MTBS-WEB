@@ -18,7 +18,7 @@ const Vitamina = (props) => {
                 <div className="d-flex justify-content-center mt-3">
                     <div className="p-2">
                         <FontAwesomeIcon icon={faCircle} style={{color: '#41E8B3'}}/>
-                    </div> 
+                    </div>
                 </div>
                 <div className="mt-2">
                     <h3 className="text-center font-weight-bold">Pemberian Vitamin A</h3>
@@ -30,34 +30,49 @@ const Vitamina = (props) => {
                     }}
                     />
                 </div>
-                <div style={{minHeight: "455px"}}>
+                <div style={{minHeight: "510px"}}>
                     <Row className="justify-content-center">
-                        <Card style={outlineColor} className="text-center w-75 mt-3">
-                            <CardBody>
+                    <Card style={outlineColor} className="text-center w-75">
+                            <CardBody className="d-flex justify-content-center flex-column">
                                 <CardTitle className="h5">Dibutuhkan suplemen vitamin A</CardTitle>
-                                <FormGroup check className="d-inline pr-2">
-                                    <Label cek>
-                                        <Input type="radio" name="radio3"/>{''}
-                                        Ya
-                                    </Label>
-                                </FormGroup>
-                                <FormGroup check className="d-inline">
-                                    <Label cek>
-                                        <Input type="radio" name="radio3"/>{''}
-                                        Tidak
-                                    </Label>
-                                </FormGroup>
+                                
+                                <Row className="limitCol "> 
+                                    <Col  sm="3">
+                                    
+                                    </Col>
+                                    <Col sm="3">
+                                        <FormGroup className="d-inline pr-2">  
+                                            <Label className="rdoBtn">Ya
+                                            <Input type="radio" name="radio1"/>
+                                            <span style={{left:"20px"}} className="checkmark"></span>
+                                            </Label>
+                                        </FormGroup>
+                                    </Col>
+                                    <Col sm="1">
+                                    
+                                    </Col>
+                                    <Col sm="3">
+                                        <FormGroup className="d-inline">
+                                            <Label className="rdoBtn">Tidak
+                                            <Input type="radio" name="radio1"/>
+                                            <span style={{left:"0px"}} className="checkmark"></span>
+                                            </Label>
+                                        </FormGroup>
+                                    </Col>
+                                </Row>              
                             </CardBody>
+
                         </Card>
                     </Row>
                 </div>
             </div>
+
             <Row className="justify-content-between px-5 py-0">
                 <Col sm="4">
-                    <Link to="Imunisasi1" style={{textDecoration: "none"}}><Button style={{width: "250px", height : "60px"}} color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Pemeriksaan Imunisasi</Button></Link>
+                    <Link to="Imunisasi1" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/>Pemeriksaan HIV</Button></Link>
                 </Col>
                 <Col sm="4">
-                    <Button type="KeluhanLain" style={{width: "250px", height : "60px"}} color="success" block >Pemeriksaan Keluhan Lain <FontAwesomeIcon icon={faChevronRight}/></Button>
+                    <Button color="success" type="submit" block>Pemeriksaan Keluhan Lain <FontAwesomeIcon icon={faChevronRight}/></Button>
                 </Col>
             </Row>
         </div>

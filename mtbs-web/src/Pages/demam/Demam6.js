@@ -29,7 +29,10 @@ const Demam = (props) => {
                             <FontAwesomeIcon icon={faCircle} className="text-muted" />
                         </div>
                         <div className="p-2">
-                            <FontAwesomeIcon icon={faCircle}  className="text-muted" />
+                            <FontAwesomeIcon icon={faCircle} className="text-muted" />
+                        </div>
+                        <div className="p-2">
+                            <FontAwesomeIcon icon={faCircle} className="text-muted" />
                         </div>
                         <div className="p-2">
                             <FontAwesomeIcon icon={faCircle} style={{ color: '#41E8B3' }} />
@@ -43,12 +46,9 @@ const Demam = (props) => {
                         <div className="p-2">
                             <FontAwesomeIcon icon={faCircle} className="text-muted" />
                         </div>
-                        <div className="p-2">
-                            <FontAwesomeIcon icon={faCircle} className="text-muted" />
-                        </div>
                     </div>
                     <div className="mt-2">
-                        <h3 className="text-center font-weight-bold">Campak dalam 3 Bulan Terakhir</h3>
+                        <h3 className="text-center font-weight-bold">Demam sudah 2-7 hari</h3>
                         <hr
                             style={{
                                 color: "#41E8B3",
@@ -56,13 +56,13 @@ const Demam = (props) => {
                                 height: 5
                             }}
                         />
-                        {/* <p className="text-center"><b>Jika anak sakit campak saat ini atau dalam 3 bulan terakhir</b></p> */}
+                        {/* <p className="text-center"><b>Jika demam 2 hari sampai dengan 7 hari, tanya dan periksa</b></p> */}
                     </div>
                     <div style={{minHeight: "475px"}}>
                         <Row className="justify-content-around">
                             <Card style={outlineColor} className="text-center w-75 mt-3" >
                                 <CardBody>
-                                    <CardTitle className="h5"><b>Lihat! </b>Adanya luka di mulut</CardTitle>
+                                    <CardTitle className="h5"><b>Tanyakan! </b>Apakah demam mendadak tinggi dan terus menerus?</CardTitle>
                                     <Row className="limitCol "> 
                                         <Col  sm="3">
                                         
@@ -87,38 +87,40 @@ const Demam = (props) => {
                                             </FormGroup>
                                         </Col>
                                     </Row>
-                                    <div>
-                                        <h6><b>Lihat dan Amati!</b> Apakah luka luas atau dalam ?(bisa dipilih keduanya)</h6>
-                                        <Row className="limitCol "> 
-                                            <Col  sm="3">
-                                            
-                                            </Col>
-                                            <Col sm="3">
-                                                <FormGroup className="d-inline pr-2">  
-                                                    <Label style={{left:"14px"}} className="chckBtn">Dalam
-                                                    <Input type="checkbox" name="checkBox1" /**value={1} onChange={handleAnswer1} checked={tbu_letargis === true}**/ required/>
-                                                    <span style={{left:"3px"}} className="checkmarkBox"></span>
-                                                    </Label>
-                                                </FormGroup>
-                                            </Col>
-                                            <Col sm="1">
-                                            
-                                            </Col>
-                                            <Col sm="3">
-                                                <FormGroup className="d-inline">
-                                                    <Label style={{left:"-7px"}} className="chckBtn">Luas
-                                                    <Input type="checkbox" name="checkBox1" /**value={2} onChange={handleAnswer1} checked={tbu_letargis === false}**/ /> 
-                                                    <span style={{left:"12px"}} className="checkmarkBox"></span>
-                                                    </Label>
-                                                </FormGroup>
-                                            </Col>
-                                        </Row>
-                                    </div>
                                 </CardBody>
                             </Card>
                             <Card style={outlineColor} className="text-center w-75 mt-3" >
                                 <CardBody>
-                                    <CardTitle className="h5"><b>Lihat! </b>Adanya nanah di mata</CardTitle>
+                                    <CardTitle className="h5"><b>Tanyakan! </b>Apakah nyeri ulu hati atau gelisah?</CardTitle>
+                                    <Row className="limitCol "> 
+                                        <Col  sm="3">
+                                        
+                                        </Col>
+                                        <Col sm="3">
+                                            <FormGroup className="d-inline pr-2">  
+                                                <Label className="rdoBtn">Ya
+                                                <Input type="radio" name="radio2" /**value={1} onChange={handleAnswer1} checked={tbu_letargis === true}**/ required/>
+                                                <span style={{left:"20px"}} className="checkmark"></span>
+                                                </Label>
+                                            </FormGroup>
+                                        </Col>
+                                        <Col sm="1">
+                                        
+                                        </Col>
+                                        <Col sm="3">
+                                            <FormGroup className="d-inline">
+                                                <Label className="rdoBtn">Tidak
+                                                <Input type="radio" name="radio2" /**value={2} onChange={handleAnswer1} checked={tbu_letargis === false}**/ /> 
+                                                <span style={{left:"5px"}} className="checkmark"></span>
+                                                </Label>
+                                            </FormGroup>
+                                        </Col>
+                                    </Row>
+                                </CardBody>
+                            </Card>
+                            <Card style={outlineColor} className="text-center w-75 mt-3" >
+                                <CardBody>
+                                    <CardTitle className="h5"><b>Tanyakan! </b>Apakah badan anak dingin?</CardTitle>
                                     <Row className="limitCol "> 
                                         <Col  sm="3">
                                         
@@ -145,41 +147,12 @@ const Demam = (props) => {
                                     </Row>
                                 </CardBody>
                             </Card>
-                            <Card style={outlineColor} className="text-center w-75 mt-3" >
-                                <CardBody>
-                                    <CardTitle className="h5"><b>Lihat! </b>Adanya kekeruhan di kornea</CardTitle>
-                                    <Row className="limitCol "> 
-                                        <Col  sm="3">
-                                        
-                                        </Col>
-                                        <Col sm="3">
-                                            <FormGroup className="d-inline pr-2">  
-                                                <Label className="rdoBtn">Ya
-                                                <Input type="radio" name="radio4" /**value={1} onChange={handleAnswer1} checked={tbu_letargis === true}**/ required/>
-                                                <span style={{left:"20px"}} className="checkmark"></span>
-                                                </Label>
-                                            </FormGroup>
-                                        </Col>
-                                        <Col sm="1">
-                                        
-                                        </Col>
-                                        <Col sm="3">
-                                            <FormGroup className="d-inline">
-                                                <Label className="rdoBtn">Tidak
-                                                <Input type="radio" name="radio4" /**value={2} onChange={handleAnswer1} checked={tbu_letargis === false}**/ /> 
-                                                <span style={{left:"5px"}} className="checkmark"></span>
-                                                </Label>
-                                            </FormGroup>
-                                        </Col>
-                                    </Row>
-                                </CardBody>
-                            </Card>
                         </Row>
                     </div>
                 </div>
                 <Row className="justify-content-between px-5 py-0">
                     <Col sm="4">
-                        <Link to="Demam5" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Sebelumnya</Button></Link>
+                        <Link to="Demam6" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Sebelumnya</Button></Link>
                     </Col>
                     <Col sm="4">
                         <Button type="submit" color="success" block >Selanjutnya <FontAwesomeIcon icon={faChevronRight}/></Button>

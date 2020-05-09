@@ -41,10 +41,10 @@ const Demam = (props) => {
                             <FontAwesomeIcon icon={faCircle} className="text-muted" />
                         </div>
                         <div className="p-2">
-                            <FontAwesomeIcon icon={faCircle} style={{ color: '#41E8B3' }} />
+                            <FontAwesomeIcon icon={faCircle} className="text-muted" />
                         </div>
                         <div className="p-2">
-                            <FontAwesomeIcon icon={faCircle} className="text-muted" />
+                            <FontAwesomeIcon icon={faCircle} style={{ color: '#41E8B3' }} />
                         </div>
                     </div>
                     <div className="mt-2">
@@ -62,16 +62,24 @@ const Demam = (props) => {
                         <Row className="justify-content-around">
                             <Card style={outlineColor} className="text-center w-75 mt-3" >
                                 <CardBody>
-                                    <CardTitle className="h5"><b>Tanyakan! </b>Apakah di sekitar anda ada yang terinfeksi DBD?</CardTitle>
+                                    <CardTitle className="h5">Jika petekie sedikit DAN tidak ada tanda lain dari DBD, lakukan uji torniket, jika mungkin</CardTitle>
+                                    <hr
+                                        style={{
+                                            color: "#41E8B3",
+                                            backgroundColor: "#41E8B3",
+                                            height: 1
+                                        }}
+                                    />
+                                    <h5>Hasil Uji Torniket</h5>
                                     <Row className="limitCol "> 
                                         <Col  sm="3">
                                         
                                         </Col>
                                         <Col sm="3">
                                             <FormGroup className="d-inline pr-2">  
-                                                <Label className="rdoBtn">Ya
+                                                <Label className="rdoBtn">Positif
                                                 <Input type="radio" name="radio1" /**value={1} onChange={handleAnswer1} checked={tbu_letargis === true}**/ required/>
-                                                <span style={{left:"20px"}} className="checkmark"></span>
+                                                <span style={{left:"6px"}} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>
                                         </Col>
@@ -80,9 +88,9 @@ const Demam = (props) => {
                                         </Col>
                                         <Col sm="3">
                                             <FormGroup className="d-inline">
-                                                <Label className="rdoBtn">Tidak
+                                                <Label className="rdoBtn">Negatif
                                                 <Input type="radio" name="radio1" /**value={2} onChange={handleAnswer1} checked={tbu_letargis === false}**/ /> 
-                                                <span style={{left:"5px"}} className="checkmark"></span>
+                                                <span style={{left:"0px"}} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>
                                         </Col>
@@ -91,61 +99,8 @@ const Demam = (props) => {
                             </Card>
                             <Card style={outlineColor} className="text-center w-75 mt-3" >
                                 <CardBody>
-                                    <CardTitle className="h5"><b>Periksa! </b>Tanda-tanda syok : Ujung ekstremitas teraba dingin DAN 
-                                    nadi sangat lemah atau tidak teraba</CardTitle>
-                                    <Row className="limitCol "> 
-                                        <Col  sm="3">
-                                        
-                                        </Col>
-                                        <Col sm="3">
-                                            <FormGroup className="d-inline pr-2">  
-                                                <Label className="rdoBtn">Ya
-                                                <Input type="radio" name="radio2" /**value={1} onChange={handleAnswer1} checked={tbu_letargis === true}**/ required/>
-                                                <span style={{left:"20px"}} className="checkmark"></span>
-                                                </Label>
-                                            </FormGroup>
-                                        </Col>
-                                        <Col sm="1">
-                                        
-                                        </Col>
-                                        <Col sm="3">
-                                            <FormGroup className="d-inline">
-                                                <Label className="rdoBtn">Tidak
-                                                <Input type="radio" name="radio2" /**value={2} onChange={handleAnswer1} checked={tbu_letargis === false}**/ /> 
-                                                <span style={{left:"5px"}} className="checkmark"></span>
-                                                </Label>
-                                            </FormGroup>
-                                        </Col>
-                                    </Row>
-                                </CardBody>
-                            </Card>
-                            <Card style={outlineColor} className="text-center w-75 mt-3" >
-                                <CardBody>
-                                    <CardTitle className="h5"><b>Lihat! </b>Adanay perdarahan dari hidung/gusi atau bintik perdarahan di kulit (petekie)</CardTitle>
-                                    <Row className="limitCol "> 
-                                        <Col  sm="3">
-                                        
-                                        </Col>
-                                        <Col sm="3">
-                                            <FormGroup className="d-inline pr-2">  
-                                                <Label className="rdoBtn">Ya
-                                                <Input type="radio" name="radio3" /**value={1} onChange={handleAnswer1} checked={tbu_letargis === true}**/ required/>
-                                                <span style={{left:"20px"}} className="checkmark"></span>
-                                                </Label>
-                                            </FormGroup>
-                                        </Col>
-                                        <Col sm="1">
-                                        
-                                        </Col>
-                                        <Col sm="3">
-                                            <FormGroup className="d-inline">
-                                                <Label className="rdoBtn">Tidak
-                                                <Input type="radio" name="radio3" /**value={2} onChange={handleAnswer1} checked={tbu_letargis === false}**/ /> 
-                                                <span style={{left:"5px"}} className="checkmark"></span>
-                                                </Label>
-                                            </FormGroup>
-                                        </Col>
-                                    </Row>
+                                    <CardTitle className="h5">Jika, petekie sedikit TANPA tanda lain dari DBD DAN uji torniket tidak dapat
+                                    dilakukan, klasifikasikan sebagai DBD</CardTitle>
                                 </CardBody>
                             </Card>
                         </Row>
@@ -153,7 +108,7 @@ const Demam = (props) => {
                 </div>
                 <Row className="justify-content-between px-5 py-0">
                     <Col sm="4">
-                        <Link to="Demam8" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Sebelumnya</Button></Link>
+                        <Link to="Demam9" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Sebelumnya</Button></Link>
                     </Col>
                     <Col sm="4">
                         <Button type="submit" color="success" block >Selanjutnya <FontAwesomeIcon icon={faChevronRight}/></Button>

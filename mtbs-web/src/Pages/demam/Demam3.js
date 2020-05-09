@@ -23,10 +23,10 @@ const Demam = (props) => {
                             <FontAwesomeIcon icon={faCircle} className="text-muted" />
                         </div>
                         <div className="p-2">
-                            <FontAwesomeIcon icon={faCircle} style={{ color: '#41E8B3' }} />
+                            <FontAwesomeIcon icon={faCircle} className="text-muted" />
                         </div>
                         <div className="p-2">
-                            <FontAwesomeIcon icon={faCircle} className="text-muted" />
+                            <FontAwesomeIcon icon={faCircle} style={{ color: '#41E8B3' }} />
                         </div>
                         <div className="p-2">
                             <FontAwesomeIcon icon={faCircle} className="text-muted" />
@@ -60,81 +60,113 @@ const Demam = (props) => {
                         malaria dalam 2 minggu terakhir adn tentukan daerah endemis sesuai tempat yang dikunjungi</p> */}
                     </div>
                     <div style={{minHeight: "475px"}}>
-                    <Row className="justify-content-around">
-                        <Card style={outlineColor} className="text-center w-75 mt-3">
-                            <CardBody>
-                                <CardTitle className="h5"><b>Tanyakan! </b>Apakah anak sakit campak dalam 3 bulan terakhir?</CardTitle>
-                                <Row className="limitCol "> 
-                                    <Col  sm="3">
-                                    
-                                    </Col>
-                                    <Col sm="3">
-                                        <FormGroup className="d-inline pr-2">  
-                                            <Label className="rdoBtn">Ya
-                                            <Input type="radio" name="radio1" /**value={1} onChange={handleAnswer1} checked={tbu_letargis === true}**/ required/>
-                                            <span style={{left:"20px"}} className="checkmark"></span>
-                                            </Label>
-                                        </FormGroup>
-                                    </Col>
-                                    <Col sm="1">
-                                    
-                                    </Col>
-                                    <Col sm="3">
-                                        <FormGroup className="d-inline">
-                                            <Label className="rdoBtn">Tidak
-                                            <Input type="radio" name="radio1" /**value={2} onChange={handleAnswer1} checked={tbu_letargis === false}**/ /> 
-                                            <span style={{left:"0px"}} className="checkmark"></span>
-                                            </Label>
-                                        </FormGroup>
-                                    </Col>
-                                </Row>
-                            </CardBody>
-                        </Card>
+                        <Row className="justify-content-around">
+                            <Card style={outlineColor} className="text-center w-75" >
+                                <CardBody>
+                                    <CardTitle className="h5"><b>Lihat! </b>Adanya tanda-tanda Campak saat ini</CardTitle>
+                                    <hr
+                                        style={{
+                                            color: "#41E8B3",
+                                            backgroundColor: "#41E8B3",
+                                            height: 1
+                                        }}
+                                    />
+                                    <h6>Ruam kemerahan di kulit yang meyeluruh DAN 
+                                        anak mengalami batuk / pilek / mata merah</h6>
+                                    <Row className="limitCol "> 
+                                        <Col  sm="3">
+                                        
+                                        </Col>
+                                        <Col sm="3">
+                                            <FormGroup className="d-inline pr-2">  
+                                                <Label className="rdoBtn">Ya
+                                                <Input type="radio" name="radio1" /**value={1} onChange={handleAnswer1} checked={tbu_letargis === true}**/ required/>
+                                                <span style={{left:"20px"}} className="checkmark"></span>
+                                                </Label>
+                                            </FormGroup>
+                                        </Col>
+                                        <Col sm="1">
+                                        
+                                        </Col>
+                                        <Col sm="3">
+                                            <FormGroup className="d-inline">
+                                                <Label className="rdoBtn">Tidak
+                                                <Input type="radio" name="radio1" /**value={2} onChange={handleAnswer1} checked={tbu_letargis === false}**/ /> 
+                                                <span style={{left:"0px"}} className="checkmark"></span>
+                                                </Label>
+                                            </FormGroup>
+                                        </Col>
+                                    </Row>
+                                    {/* <div>
+                                        <h6>Ruam kemerahan di kulit yang meyeluruh</h6>
+                                        <Row className="limitCol "> 
+                                            <Col  sm="3">
+                                            
+                                            </Col>
+                                            <Col sm="3">
+                                                <FormGroup className="d-inline pr-2">  
+                                                    <Label className="rdoBtn">Ya
+                                                    <Input type="radio" name="radio1" value={1} onChange={handleAnswer1} checked={tbu_letargis === true} required/>
+                                                    <span style={{left:"20px"}} className="checkmark"></span>
+                                                    </Label>
+                                                </FormGroup>
+                                            </Col>
+                                            <Col sm="1">
+                                            
+                                            </Col>
+                                            <Col sm="3">
+                                                <FormGroup className="d-inline">
+                                                    <Label className="rdoBtn">Tidak
+                                                    <Input type="radio" name="radio1" value={2} onChange={handleAnswer1} checked={tbu_letargis === false} /> 
+                                                    <span style={{left:"0px"}} className="checkmark"></span>
+                                                    </Label>
+                                                </FormGroup>
+                                            </Col>
+                                        </Row>
+                                    </div>
+                                    <hr
+                                        style={{
+                                            color: "#41E8B3",
+                                            backgroundColor: "#41E8B3",
+                                            height: 1
+                                        }}
+                                    />
+                                    <div>
+                                        <h6>Terdapat salah satu tanda berikut: batuk, pilek, mata merah</h6>
+                                        <Row className="limitCol "> 
+                                            <Col  sm="3">
+                                            
+                                            </Col>
+                                            <Col sm="3">
+                                                <FormGroup className="d-inline pr-2">  
+                                                    <Label className="rdoBtn">Ya
+                                                    <Input type="radio" name="radio2" value={1} onChange={handleAnswer2} checked={tbu_letargis === true} required/>
+                                                    <span style={{left:"20px"}} className="checkmark"></span>
+                                                    </Label>
+                                                </FormGroup>
+                                            </Col>
+                                            <Col sm="1">
+                                            
+                                            </Col>
+                                            <Col sm="3">
+                                                <FormGroup className="d-inline">
+                                                    <Label className="rdoBtn">Tidak
+                                                    <Input type="radio" name="radio2" value={2} onChange={handleAnswer2} checked={tbu_letargis === false} /> 
+                                                    <span style={{left:"0px"}} className="checkmark"></span>
+                                                    </Label>
+                                                </FormGroup>
+                                            </Col>
+                                        </Row>
+                                    </div> */}
 
-                        <Card style={outlineColor} className="text-center w-75 mt-3">
-                            <CardBody>
-                                <CardTitle className="h5"><b>Lihat dan Periksa! </b>Adanya kaku kuduk</CardTitle>
-                                <Row className="limitCol "> 
-                                    <Col  sm="3">
-                                    
-                                    </Col>
-                                    <Col sm="3">
-                                        <FormGroup className="d-inline pr-2">  
-                                            <Label className="rdoBtn">Ya
-                                            <Input type="radio" name="radio2" /**value={1} onChange={handleAnswer2} checked={tbu_letargis === true}**/ required/>
-                                            <span style={{left:"20px"}} className="checkmark"></span>
-                                            </Label>
-                                        </FormGroup>
-                                    </Col>
-                                    <Col sm="1">
-                                    
-                                    </Col>
-                                    <Col sm="3">
-                                        <FormGroup className="d-inline">
-                                            <Label className="rdoBtn">Tidak
-                                            <Input type="radio" name="radio2" /**value={2} onChange={handleAnswer2} checked={tbu_letargis === false}**/ /> 
-                                            <span style={{left:"0px"}} className="checkmark"></span>
-                                            </Label>
-                                        </FormGroup>
-                                    </Col>
-                                </Row>
-                            </CardBody>
-                        </Card>
-
-                        <Card style={outlineColor} className="text-center w-75 mt-3">
-                            <CardBody>
-                                <CardTitle className="h5"><b>Lihat! </b>Adanya penyebab lain dari demam</CardTitle>
-                                <FormGroup check className="d-inline pr-2">
-                                        <Input type="textarea"/>
-                                </FormGroup>
-                            </CardBody>
-                        </Card>
-                    </Row>
+                                </CardBody>
+                            </Card>
+                        </Row>
                     </div>
                 </div>
                 <Row className="justify-content-between px-5 py-0">
                     <Col sm="4">
-                        <Link to="Demam2" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Sebelumnya</Button></Link>
+                        <Link to="Demam3" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Sebelumnya</Button></Link>
                     </Col>
                     <Col sm="4">
                         <Button type="submit" color="success" block >Selanjutnya <FontAwesomeIcon icon={faChevronRight}/></Button>

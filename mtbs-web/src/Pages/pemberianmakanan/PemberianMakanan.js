@@ -4,6 +4,7 @@ import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button, InputG
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
+import '../../Assets/style/style.css';
 
 let outlineColor = {
     borderColor : '#41E8B3'
@@ -46,21 +47,35 @@ const PemberianMakanan = (props) =>{
                 </div>
                 <div style={{minHeight: "500px"}}>
                     <Row className="justify-content-center">
-                        <Card style={outlineColor} className="text-center w-75 mt-3">
+                        <Card style={outlineColor} className="text-center w-75" >
                             <CardBody>
                                 <CardTitle className="h5"><b>Tanyakan! </b>Apakah ibu menyusui anak?</CardTitle>
-                                <FormGroup check className="d-inline pr-2">
-                                    <Label>
-                                        <Input type="radio" name="radio1"/>{''}
-                                        Ya
-                                    </Label>
-                                </FormGroup>
-                                <FormGroup check className="d-inline">
-                                    <Label>
-                                        <Input type="radio" name="radio1"/>{''}
-                                        Tidak
-                                    </Label>
-                                </FormGroup>
+                                <div>
+                                    <Row className="limitCol "> 
+                                        <Col  sm="3">
+                                        
+                                        </Col>
+                                        <Col sm="3">
+                                            <FormGroup className="d-inline pr-2">  
+                                                <Label className="rdoBtn">Ya
+                                                <Input type="radio" name="radio1"/>
+                                                <span style={{left:"20px"}} className="checkmark"></span>
+                                                </Label>
+                                            </FormGroup>
+                                        </Col>
+                                        <Col sm="1">
+                                        
+                                        </Col>
+                                        <Col sm="3">
+                                            <FormGroup className="d-inline">
+                                                <Label className="rdoBtn">Tidak
+                                                <Input type="radio" name="radio1"/> 
+                                                <span style={{left:"0px"}} className="checkmark"></span>
+                                                </Label>
+                                            </FormGroup>
+                                        </Col>
+                                    </Row>
+                                </div>  
                                 <hr
                                     style={{
                                         color: "#41E8B3",
@@ -68,36 +83,43 @@ const PemberianMakanan = (props) =>{
                                         height: 1
                                     }}
                                 />
-                                <div className="d-flex flex-column justify-content-around pt-2">
-                                    <div className="">                         
-                                        <div className="w-100 d-flex flex-column">
-                                            <h6>Jika Ya, berapa kali sehari ?</h6>
-                                            <div className="d-flex justify-content-center">
-                                                <InputGroup className="w-50">
-                                                    <Input type="number" min="0"/>
-                                                    <InputGroupAddon addonType="append" >
-                                                        <InputGroupText style={bgColor}>Kali</InputGroupText>
-                                                    </InputGroupAddon>
-                                                </InputGroup> 
-                                            </div>                 
-                                        </div> 
-                                    </div>
-                                    <div className="mt-2">
-                                        <h6>Apakah menyusui juga di malam hari?</h6>
-                                        <FormGroup check className="d-inline pr-2">
-                                            <Label>
-                                                <Input type="radio" name="radio2"/>{''}
-                                                Ya
-                                            </Label>
-                                        </FormGroup>
-                                        <FormGroup check className="d-inline">
-                                            <Label>
-                                                <Input type="radio" name="radio2"/>{''}
-                                                Tidak
-                                            </Label>
-                                        </FormGroup>
-                                    </div>
+                                <h6>Jika ya, berapa kali sehari?</h6>
+                                <div className="w-100 d-flex justify-content-center">
+                                    <InputGroup className="w-25">
+                                        <Input type="number" min="0"/>
+                                        <InputGroupAddon addonType="append" >
+                                            <InputGroupText style={bgColor}>Kali</InputGroupText>
+                                        </InputGroupAddon>
+                                    </InputGroup>         
                                 </div>
+                                <h6>Apakah menyusui juga di malam hari? </h6>
+                                <div>
+                                    <Row className="limitCol "> 
+                                        <Col  sm="3">
+                                        
+                                        </Col>
+                                        <Col sm="3">
+                                        <FormGroup className="d-inline pr-2">  
+                                            <Label className="rdoBtn">Ya
+                                            <Input type="radio" name="radio1"/>
+                                            <span style={{left:"20px"}} className="checkmark"></span>
+                                            </Label>
+                                        </FormGroup>
+                                        </Col>
+                                        <Col sm="1">
+                                        
+                                        </Col>
+                                        <Col sm="3">
+                                        <FormGroup className="d-inline">
+                                            <Label className="rdoBtn">Tidak
+                                            <Input type="radio" name="radio1"/>
+                                            <span style={{left:"0px"}} className="checkmark"></span>
+                                            </Label>
+                                        </FormGroup>
+                                        </Col>
+                                    </Row>
+                                </div>
+
                             </CardBody>
                         </Card>
                     </Row>

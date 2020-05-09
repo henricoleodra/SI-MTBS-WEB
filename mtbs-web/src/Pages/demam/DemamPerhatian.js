@@ -1,19 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { Form, Card, CardBody, CardTitle, CardText, Button, Row, Col} from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronLeft, faChevronRight, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
 
 import '../../Assets/style/style.css';
-
-let outlineColor = {
-    borderColor : '#41E8B3'
-}
-
-let bgColor ={
-    backgroundColor : '#41E8B3',
-    color: 'white'
-}
 
 const DemamPerhatian = (props) => {
     return(
@@ -36,7 +27,7 @@ const DemamPerhatian = (props) => {
                     <Link to="DemamDaerah" style={{textDecoration: "none"}}><Button block color="danger"><FontAwesomeIcon icon={faChevronLeft}/> Sebelumnya</Button></Link>
                 </Col>
                 <Col sm="4">
-                    <Button type="submit" block color="success">Selanjutnya <FontAwesomeIcon icon={faChevronRight}/></Button>
+                    <Link to="Demam1" style={{textDecoration: "none"}}><Button block color="success">Selanjutnya <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
                 </Col>
             </Row>
         </Form>

@@ -11,7 +11,7 @@ var outlineColor = {
 
 const Gizi2 = (props) => {
     return (
-        <Form>
+        <Form /**onSubmit={handleSubmit}**/>
             <div className="w-100">
                 <div className="col-12">
                     <div className="d-flex justify-content-center mt-3">
@@ -35,13 +35,13 @@ const Gizi2 = (props) => {
                         }}
                     />
                     </div>
-                    <div style={{minHeight: "500px"}}>
+                    <div style={{minHeight: "475px"}}>
                         <Row className="justify-content-center">
-                            <Card style={outlineColor} className="text-center w-75" >
+                            <Card style={outlineColor} className="text-center w-75 mt-3" >
                                 <CardBody>
                                     <CardTitle className="h5"><b>Tentukan! </b>Berat badan(BB) menurut Panjang Badan(PB) / Tinggi Badan(TB)</CardTitle>
-                                    <FormGroup check className="mt-3">
-                                        BB menurut PB / TB :<Input type="number"/>
+                                    {/* <FormGroup check className="mt-3">
+                                        BB menurut PB / TB :<Input type="number" required/>
                                     </FormGroup>
                                 </CardBody>
                             </Card>
@@ -49,8 +49,39 @@ const Gizi2 = (props) => {
                                 <CardBody>
                                     <CardTitle className="h5"><b>Tentukan! </b>Lingkar lengan atas(LiLA) untuk anak umur 6 bulan / lebih</CardTitle>
                                     <FormGroup check className="mt-3">
-                                        LiLA :<Input type="number"/>
-                                    </FormGroup>
+                                        LiLA :<Input type="number" required/>
+                                    </FormGroup> */}
+                                    <Row>
+                                        <Col sm="2">
+                                                
+                                        </Col>
+                                        <Col sm="8">
+                                            <FormGroup check className="mt-3">
+                                                BB menurut PB / TB :<Input type="number" required/>
+                                            </FormGroup>
+                                        </Col>
+                                        <Col sm="2">
+                                            
+                                        </Col>
+                                    </Row>
+                                </CardBody>
+                            </Card>
+                            <Card style={outlineColor} className="text-center w-75 mt-3" >
+                                <CardBody>
+                                    <CardTitle className="h5"><b>Tentukan! </b>Lingkar lengan atas(LiLA) untuk anak umur 6 bulan / lebih</CardTitle>
+                                    <Row>
+                                        <Col sm="2">
+                                                
+                                        </Col>
+                                        <Col sm="8">
+                                            <FormGroup check className="mt-3">
+                                                LiLA :<Input type="number" required/>
+                                            </FormGroup>
+                                        </Col>
+                                        <Col sm="2">
+                                            
+                                        </Col>
+                                    </Row>
                                 </CardBody>
                             </Card>
                         </Row>
@@ -61,7 +92,7 @@ const Gizi2 = (props) => {
                         <Link to="Gizi1" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Sebelumnya</Button></Link>
                     </Col>
                     <Col sm="4">
-                        <Link to="Gizi3" style={{textDecoration: "none"}}><Button color="success" block >Selanjutnya <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
+                        <Button type="submit" color="success" block >Selanjutnya <FontAwesomeIcon icon={faChevronRight}/></Button>
                     </Col>
                 </Row>
             </div>

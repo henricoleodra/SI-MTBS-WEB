@@ -11,7 +11,7 @@ var outlineColor = {
 
 const Gizi3 = (props) => {
     return (
-        <Form>
+        <Form /**onSubmit={handleSubmit}**/>
             <div className="w-100">
                 <div className="col-12">
                     <div className="d-flex justify-content-center mt-3">
@@ -35,9 +35,9 @@ const Gizi3 = (props) => {
                         }}
                     />
                     </div>
-                    <div style={{minHeight: "500px"}}>
+                    <div style={{minHeight: "475px"}}>
                         <Row className="justify-content-center">
-                            <Card style={outlineColor} className="text-center w-75" >
+                            <Card style={outlineColor} className="text-center w-75 mt-3" >
                                 <CardBody>
                                     <CardTitle className="h5">Jika BB menurut PB/TB lebih kecil -3SD ATAU Lingkar Lengan Atas dibawah 11.5 cm, periksa komplikasi medis</CardTitle>
                                     <hr
@@ -51,30 +51,31 @@ const Gizi3 = (props) => {
                                         <div className="d-line">
                                             <h6>Apakah anda tanda bahaya umum?</h6>
                                             <FormGroup check className="d-inline pr-2">
-                                                <Label cek>
-                                                    <Input type="radio" name="radio3"/>{''}
-                                                    Ya
+                                                <Label className="rdoBtn">Ya
+                                                <Input type="radio" name="radio5" /**value={1} onChange={handleAnswer1} checked={tbu_letargis === true}**/ required/>
+                                                <span style={{left:"20px"}} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>
                                             <FormGroup check className="d-inline">
-                                                <Label cek>
-                                                    <Input type="radio" name="radio3"/>{''}
-                                                    Tidak
+                                                <Label className="rdoBtn">Tidak
+                                                <Input type="radio" name="radio5" /**value={1} onChange={handleAnswer1} checked={tbu_letargis === true}**/ required/>
+                                                <span style={{left:"20px"}} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>
+                                                
                                         </div>
                                         <div className="d-line">
                                             <h6>Apakah ada klasifikasi berat?</h6>
                                             <FormGroup check className="d-inline pr-2">
-                                                <Label cek>
-                                                    <Input type="radio" name="radio4"/>{''}
-                                                    Ya
+                                                <Label className="rdoBtn">Ya
+                                                <Input type="radio" name="radio5" /**value={1} onChange={handleAnswer1} checked={tbu_letargis === true}**/ required/>
+                                                <span style={{left:"20px"}} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>
                                             <FormGroup check className="d-inline">
-                                                <Label cek>
-                                                    <Input type="radio" name="radio4"/>{''}
-                                                    Tidak
+                                                <Label className="rdoBtn">Tidak
+                                                <Input type="radio" name="radio5" /**value={1} onChange={handleAnswer1} checked={tbu_letargis === true}**/ required/>
+                                                <span style={{left:"20px"}} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>
                                         </div>
@@ -89,18 +90,28 @@ const Gizi3 = (props) => {
                                     <div className="d-line">
                                             <h5>Jika tidak ada komplikasi media, nilai pemberian ASI pad aanak umur lebih kecil dari 6 bulan</h5>
                                             <h5>Apakah anaka memiliki masalah pemberian ASI?</h5>
-                                            <FormGroup check className="d-inline pr-2">
-                                                <Label cek>
-                                                    <Input type="radio" name="radio5"/>{''}
-                                                    Ya
-                                                </Label>
-                                            </FormGroup>
-                                            <FormGroup check className="d-inline">
-                                                <Label cek>
-                                                    <Input type="radio" name="radio5"/>{''}
-                                                    Tidak
-                                                </Label>
-                                            </FormGroup>
+                                            <Row className="limitCol">
+                                                <Col sm="3">
+                                                </Col>
+                                                <Col sm="3">
+                                                    <FormGroup className="d-inline pr-2">  
+                                                        <Label className="rdoBtn">Ya
+                                                        <Input type="radio" name="radio6" /**value={1} onChange={handleAnswer1} checked={tbu_letargis === true}**/ required/>
+                                                        <span style={{left:"20px"}} className="checkmark"></span>
+                                                        </Label>
+                                                    </FormGroup>
+                                                </Col>
+                                                <Col sm="1">
+                                                </Col>
+                                                <Col sm="3">
+                                                    <FormGroup className="d-inline">
+                                                        <Label className="rdoBtn">Tidak
+                                                        <Input type="radio" name="radio6" /**value={2} onChange={handleAnswer1} checked={tbu_letargis === false}**/ /> 
+                                                        <span style={{left:"0px"}} className="checkmark"></span>
+                                                        </Label>
+                                                    </FormGroup>
+                                                </Col>
+                                            </Row>
                                         </div>
                                 </CardBody>
                             </Card>
@@ -112,7 +123,7 @@ const Gizi3 = (props) => {
                         <Link to="Gizi2" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Sebelumnya</Button></Link>
                     </Col>
                     <Col sm="4">
-                        <Link to="Anemia" style={{textDecoration: "none"}}><Button color="success" block >Pemeriksaan Anemia <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
+                        <Button type="submit" color="success" block >Pemeriksaan Anemia <FontAwesomeIcon icon={faChevronRight}/></Button>
                     </Col>
                 </Row>
             </div>

@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory   } from 'react-router-dom';
 import { FormGroup, Label, Input, Form, Card, CardBody, CardTitle, Button, InputGroup, InputGroupText, InputGroupAddon, Row, Col } from "reactstrap";
+import { useDispatch, useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import axios from 'axios';
+
+// Actions
+import{ KlasifikasiDemamChange, AnsDemamChange } from '../../Actions';
 
 import '../../Assets/style/style.css';
 
@@ -16,8 +21,50 @@ let bgColor ={
 }
 
 const Demam = (props) => {
+    const history = useHistory();
+    const dispatch = useDispatch();
+    const ansDemam = useSelector(state => state.ansDemam);
+    // const klasifikasiDemam = useSelector(state => state.klasifikasiDemam);
+    let[demam_isDemamSetiapHari, set_demam_isDemamSetiapHari] = useState(ansDemam.demam_isDemamSetiapHari);
+    let[demam_pernahMalaria, set_demam_pernahMalaria] = useState(ansDemam.demam_pernahMalaria);
+    
+    const handleSubmit = event =>{
+        event.preventDefault();
+        axios.post(`/Demam`,{
+            ansDemam : ansDemam
+        })
+        .then( res => {
+            dispatchEvent(KlasifikasiDemamChange('DEMAM_KLASIFIKASI', res.data.hasilKlasifikasi));
+            dispatchEvent(KlasifikasiDemamChange('DEMAM_STATUS', res.data.statusKlasifikasi));
+        })
+        .catch(err =>{
+            console.log(err);
+        });
+        history.push("Demam2");
+    }
+
+    const handleAnswer2 = event =>{
+        if(event.target.value == 1){
+            set_demam_isDemamSetiapHari(true);
+            dispatch(AnsDemamChange('DEMAM_SETIAP_HARI', true));
+        }else if(event.target.value == 2){
+            set_demam_isDemamSetiapHari(false);
+            dispatch(AnsDemamChange('DEMAM_SETIAP_HARI', false));
+        }
+    }
+
+    const handleAnswer3 = event =>{
+        if(event.target.value == 1){
+            set_demam_pernahMalaria(true);
+            dispatch(AnsDemamChange('MALARIA', true));
+        }else if(event.target.value == 2){
+            set_demam_pernahMalaria(false);
+            dispatch(AnsDemamChange('MALARIA', false));
+        }
+    }
+
     return (
-        <Form /**onSubmit={handleSubmit}**/>
+        <Form onSubmit={handleSubmit}>
             <div className="w-100">
                 <div className="col-12">
                     <div className="d-flex justify-content-center mt-3">
@@ -26,9 +73,6 @@ const Demam = (props) => {
                         </div>
                         <div className="p-2">
                             <FontAwesomeIcon icon={faCircle} style={{ color: '#41E8B3' }} />
-                        </div>
-                        <div className="p-2">
-                            <FontAwesomeIcon icon={faCircle} className="text-muted" />
                         </div>
                         <div className="p-2">
                             <FontAwesomeIcon icon={faCircle} className="text-muted" />
@@ -91,7 +135,7 @@ const Demam = (props) => {
                                         <Col sm="3">
                                             <FormGroup className="d-inline pr-2">
                                                 <Label className="rdoBtn">Ya
-                                                <Input type="radio" name="radio1" /**value={1} onChange={handleAnswer1} checked={tbu_letargis === true}**/ required />
+                                                <Input type="radio" name="radio1" value={1} onChange={handleAnswer2} checked={demam_isDemamSetiapHari === true} required />
                                                     <span style={{ left: "20px" }} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>
@@ -102,7 +146,7 @@ const Demam = (props) => {
                                         <Col sm="3">
                                             <FormGroup className="d-inline">
                                                 <Label className="rdoBtn">Tidak
-                                                <Input type="radio" name="radio1" /**value={2} onChange={handleAnswer1} checked={tbu_letargis === false}**/ />
+                                                <Input type="radio" name="radio1" value={2} onChange={handleAnswer2} checked={demam_isDemamSetiapHari === false} />
                                                     <span style={{ left: "0px" }} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>
@@ -121,7 +165,7 @@ const Demam = (props) => {
                                         <Col sm="3">
                                             <FormGroup className="d-inline pr-2">
                                                 <Label className="rdoBtn">Ya
-                                                <Input type="radio" name="radio2" /**value={1} onChange={handleAnswer2} checked={tbu_letargis === true}**/ required />
+                                                <Input type="radio" name="radio2" value={1} onChange={handleAnswer3} checked={demam_pernahMalaria === true} required />
                                                     <span style={{ left: "20px" }} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>
@@ -132,7 +176,7 @@ const Demam = (props) => {
                                         <Col sm="3">
                                             <FormGroup className="d-inline">
                                                 <Label className="rdoBtn">Tidak
-                                                <Input type="radio" name="radio2" /**value={2} onChange={handleAnswer2} checked={tbu_letargis === false}**/ />
+                                                <Input type="radio" name="radio2" value={2} onChange={handleAnswer3} checked={demam_pernahMalaria === false} />
                                                     <span style={{ left: "0px" }} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>

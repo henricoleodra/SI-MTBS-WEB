@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory  } from 'react-router-dom';
 import { FormGroup, Label, Input, Form, Card, CardBody, CardTitle, Button, Row, Col } from "reactstrap";
+import { useDispatch, useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import axios from 'axios';
+
+// Actions
+import{ KlasifikasiDemamChange, AnsDemamChange } from '../../Actions';
 
 import '../../Assets/style/style.css';
 
@@ -11,14 +16,64 @@ var outlineColor = {
 }
 
 const Demam = (props) => {
+    const history = useHistory();
+    const dispatch = useDispatch();
+    const ansDemam = useSelector(state => state.ansDemam);
+    // const klasifikasiDemam = useSelector(state => state.klasifikasiDemam);
+    let[demam_nearIsDBD, set_demam_nearIsDBD] = useState(ansDemam.demam_nearIsDBD);
+    let[demam_isEkstremitasDingin, set_demam_isEkstremitasDingin] = useState(ansDemam.demam_isEkstremitasDingin);
+    let[demam_darahHidungGusiKulit, set_demam_darahHidungGusiKulit] = useState(ansDemam.demam_darahHidungGusiKulit);
+    
+    const handleSubmit = event =>{
+        event.preventDefault();
+        axios.post(`/Demam`,{
+            ansDemam : ansDemam
+        })
+        .then( res => {
+            dispatchEvent(KlasifikasiDemamChange('DEMAM_KLASIFIKASI', res.data.hasilKlasifikasi));
+            dispatchEvent(KlasifikasiDemamChange('DEMAM_STATUS', res.data.statusKlasifikasi));
+        })
+        .catch(err =>{
+            console.log(err);
+        });
+        history.push("Demam9");
+    }
+
+    const handleAnswer1 = event =>{
+        if(event.target.value == 1){
+            set_demam_nearIsDBD(true);
+            dispatch(AnsDemamChange('NEAR_DBD', true));
+        }else if(event.target.value == 2){
+            set_demam_nearIsDBD(false);
+            dispatch(AnsDemamChange('NEAR_DBD', false));
+        }
+    }
+
+    const handleAnswer2 = event =>{
+        if(event.target.value == 1){
+            set_demam_isEkstremitasDingin(true);
+            dispatch(AnsDemamChange('EKSTREMITAS_DINGIN', true));
+        }else if(event.target.value == 2){
+            set_demam_isEkstremitasDingin(false);
+            dispatch(AnsDemamChange('EKSTREMITAS_DINGIN', false));
+        }
+    }
+
+    const handleAnswer3 = event =>{
+        if(event.target.value == 1){
+            set_demam_darahHidungGusiKulit(true);
+            dispatch(AnsDemamChange('DARAH_HIDUNG_GUSI_KULIT', true));
+        }else if(event.target.value == 2){
+            set_demam_darahHidungGusiKulit(false);
+            dispatch(AnsDemamChange('DARAH_HIDUNG_GUSI_KULIT', false));
+        }
+    }
+
     return (
-        <Form /**onSubmit={handleSubmit}**/>
+        <Form onSubmit={handleSubmit}>
             <div className="w-100">
                 <div className="col-12">
                     <div className="d-flex justify-content-center mt-3">
-                        <div className="p-2">
-                            <FontAwesomeIcon icon={faCircle} className="text-muted" />
-                        </div>
                         <div className="p-2">
                             <FontAwesomeIcon icon={faCircle} className="text-muted" />
                         </div>
@@ -70,7 +125,7 @@ const Demam = (props) => {
                                         <Col sm="3">
                                             <FormGroup className="d-inline pr-2">  
                                                 <Label className="rdoBtn">Ya
-                                                <Input type="radio" name="radio1" /**value={1} onChange={handleAnswer1} checked={tbu_letargis === true}**/ required/>
+                                                <Input type="radio" name="radio1" value={1} onChange={handleAnswer1} checked={demam_nearIsDBD === true} required/>
                                                 <span style={{left:"20px"}} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>
@@ -81,7 +136,7 @@ const Demam = (props) => {
                                         <Col sm="3">
                                             <FormGroup className="d-inline">
                                                 <Label className="rdoBtn">Tidak
-                                                <Input type="radio" name="radio1" /**value={2} onChange={handleAnswer1} checked={tbu_letargis === false}**/ /> 
+                                                <Input type="radio" name="radio1" value={2} onChange={handleAnswer1} checked={demam_nearIsDBD === false} /> 
                                                 <span style={{left:"5px"}} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>
@@ -100,7 +155,7 @@ const Demam = (props) => {
                                         <Col sm="3">
                                             <FormGroup className="d-inline pr-2">  
                                                 <Label className="rdoBtn">Ya
-                                                <Input type="radio" name="radio2" /**value={1} onChange={handleAnswer1} checked={tbu_letargis === true}**/ required/>
+                                                <Input type="radio" name="radio2" value={1} onChange={handleAnswer2} checked={demam_isEkstremitasDingin === true} required/>
                                                 <span style={{left:"20px"}} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>
@@ -111,7 +166,7 @@ const Demam = (props) => {
                                         <Col sm="3">
                                             <FormGroup className="d-inline">
                                                 <Label className="rdoBtn">Tidak
-                                                <Input type="radio" name="radio2" /**value={2} onChange={handleAnswer1} checked={tbu_letargis === false}**/ /> 
+                                                <Input type="radio" name="radio2" value={2} onChange={handleAnswer2} checked={demam_isEkstremitasDingin === false} /> 
                                                 <span style={{left:"5px"}} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>
@@ -129,7 +184,7 @@ const Demam = (props) => {
                                         <Col sm="3">
                                             <FormGroup className="d-inline pr-2">  
                                                 <Label className="rdoBtn">Ya
-                                                <Input type="radio" name="radio3" /**value={1} onChange={handleAnswer1} checked={tbu_letargis === true}**/ required/>
+                                                <Input type="radio" name="radio3" value={1} onChange={handleAnswer3} checked={demam_darahHidungGusiKulit === true} required/>
                                                 <span style={{left:"20px"}} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>
@@ -140,7 +195,7 @@ const Demam = (props) => {
                                         <Col sm="3">
                                             <FormGroup className="d-inline">
                                                 <Label className="rdoBtn">Tidak
-                                                <Input type="radio" name="radio3" /**value={2} onChange={handleAnswer1} checked={tbu_letargis === false}**/ /> 
+                                                <Input type="radio" name="radio3" value={2} onChange={handleAnswer3} checked={demam_darahHidungGusiKulit === false} /> 
                                                 <span style={{left:"5px"}} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>

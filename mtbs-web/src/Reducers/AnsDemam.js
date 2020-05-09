@@ -1,9 +1,9 @@
 const initState = {
-    demam : null,
-    demam_isDaerahEndemis : null,
-    demam_isBerkunjungDaerahEndemis : null,
-    demam_lamaDiDaerahEndemis : "",
-    demam_isDemamSetiapHari : null,
+    demam: null,
+    demam_isDaerahEndemis: null,
+    demam_isBerkunjungDaerahEndemis: null,
+    demam_lamaDiDaerahEndemis: "",
+    demam_isDemamSetiapHari: null,
     demam_pernahMalaria: null,
     demam_isCampak3Bulan: null,
     demam_kudukKaku: null,
@@ -33,118 +33,122 @@ const initState = {
 }
 
 const ansDemamReducer = (state = initState, action) => {
-    switch(action.type){
+    switch (action.type) {
         case 'DEMAM':
             return Object.assign({}, state, {
-                demam : action.answer
+                demam: action.answer
             });
         case 'DAERAH_ENDEMIS':
             return Object.assign({}, state, {
-                demam_isDaerahEndemis : action.answer
+                demam_isDaerahEndemis: action.answer
             });
         case 'BERKUNJUNG_DAERAH_ENDEMIS':
             return Object.assign({}, state, {
-                demam_isBerkunjungDaerahEndemis : action.answer
+                demam_isBerkunjungDaerahEndemis: action.answer
             });
         case 'LAMA_DAERAH_ENDEMIS':
             return Object.assign({}, state, {
-                demam_lamaDiDaerahEndemis : action.answer
+                demam_lamaDiDaerahEndemis: action.answer
             });
         case 'DEMAM_SETIAP_HARI':
             return Object.assign({}, state, {
-                demam_isDemamSetiapHari : action.answer
+                demam_isDemamSetiapHari: action.answer
             });
         case 'MALARIA':
             return Object.assign({}, state, {
-                demam_pernahMalaria : action.answer
+                demam_pernahMalaria: action.answer
             });
         case 'CAMPAK_TIGA_BULAN':
             return Object.assign({}, state, {
-                demam_isCampak3Bulan : action.answer
+                demam_isCampak3Bulan: action.answer
             });
         case 'KUDUK_KAKU':
             return Object.assign({}, state, {
-                demam_kudukKaku : action.answer
+                demam_kudukKaku: action.answer
             });
         case 'SEBAB_LAIN':
             return Object.assign({}, state, {
-                demam_sebabLain : action.answer
+                demam_sebabLain: action.answer
             });
         case 'RUAM_KEMERAHAN':
             return Object.assign({}, state, {
-                demam_ruamKemerahan : action.answer
+                demam_ruamKemerahan: action.answer
             });
         case 'TANDA_LAIN':
             return Object.assign({}, state, {
-                demam_tandaLain : action.answer
+                demam_tandaLain: action.answer
             });
         case 'TINDAKAN_HASIL_RDT':
             return Object.assign({}, state, {
-                demam_tindakanPengobatan_hasilRDT : action.answer
+                demam_tindakanPengobatan_hasilRDT: action.answer
             });
         case 'LUKA_MULUT':
             return Object.assign({}, state, {
-                demam_isLukaMulut : action.answer
+                demam_isLukaMulut: action.answer
             });
-        case 'DECS_LUKA_MULUT':
+        case 'DECS_LUKA_MULUT_LUAS':
             return Object.assign({}, state, {
-                demam_descLukaMulut : action.answer
+                demam_descLukaMulutLuas: action.answer
+            });
+        case 'DECS_LUKA_MULUT_DALAM':
+            return Object.assign({}, state, {
+                demam_descLukaMulutDalam: action.answer
             });
         case 'NANAH_DI_MATA':
             return Object.assign({}, state, {
-                demam_nanahDiMata : action.answer
+                demam_nanahDiMata: action.answer
             });
         case 'KORNEA_KERUH':
             return Object.assign({}, state, {
-                demam_korneaKeruh : action.answer
+                demam_korneaKeruh: action.answer
             });
         case 'TINGGI_MENERUS':
             return Object.assign({}, state, {
-                demam_isTinggiMenerus : action.answer
+                demam_isTinggiMenerus: action.answer
             });
         case 'NYERI_ULU_GELISAH':
             return Object.assign({}, state, {
-                demam_isNyeriUluOrGelisah : action.answer
+                demam_isNyeriUluOrGelisah: action.answer
             });
         case 'BADAN_DINGIN':
             return Object.assign({}, state, {
-                demam_isBadanDingin : action.answer
+                demam_isBadanDingin: action.answer
             });
         case 'ANAK_MUNTAH':
             return Object.assign({}, state, {
-                demam_anakMuntah : action.answer
+                demam_anakMuntah: action.answer
             });
         case 'SERING_MUNTAH':
             return Object.assign({}, state, {
-                demam_anakSeringMuntah : action.answer
+                demam_anakSeringMuntah: action.answer
             });
         case 'MUNTAH_DARAH_KOPI':
             return Object.assign({}, state, {
-                demam_muntahLikeDarahOrKopi : action.answer
+                demam_muntahLikeDarahOrKopi: action.answer
             });
         case 'BERAK_HITAM':
             return Object.assign({}, state, {
-                demam_berakBerwarnaHitam : action.answer
+                demam_berakBerwarnaHitam: action.answer
             });
         case 'NEAR_DBD':
             return Object.assign({}, state, {
-                demam_nearIsDBD : action.answer
+                demam_nearIsDBD: action.answer
             });
         case 'EKSTREMITAS_DINGIN':
             return Object.assign({}, state, {
-                demam_isEkstremitasDingin : action.answer
+                demam_isEkstremitasDingin: action.answer
             });
         case 'NADI_LEMAH':
             return Object.assign({}, state, {
-                demam_isNadiLemah : action.answer
+                demam_isNadiLemah: action.answer
             });
         case 'DARAH_HIDUNG_GUSI_KULIT':
             return Object.assign({}, state, {
-                demam_darahHidungGusiKulit : action.answer
+                demam_darahHidungGusiKulit: action.answer
             });
         case 'UJI_TORNIKET':
             return Object.assign({}, state, {
-                demam_hasilUjiTorniket : action.answer
+                demam_hasilUjiTorniket: action.answer
             });
         default:
             return state;

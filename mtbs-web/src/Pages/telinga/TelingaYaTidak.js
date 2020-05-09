@@ -102,7 +102,7 @@ const TelingaYaTidak = (props) => {
             </div>
             <Row className="justify-content-between px-5 py-0">
                 <Col sm="4">
-                    <Link to="Demam1" style={{textDecoration: "none"}}><Button block color="danger"><FontAwesomeIcon icon={faChevronLeft}/> Pemeriksaan Demam</Button></Link>
+                    <Link to="DemamYaTidak" style={{textDecoration: "none"}}><Button block color="danger"><FontAwesomeIcon icon={faChevronLeft}/> Pemeriksaan Demam</Button></Link>
                 </Col>
                 <Col sm="4">
                     <Button type="submit" block color="success">Selanjutnya <FontAwesomeIcon icon={faChevronRight}/></Button>

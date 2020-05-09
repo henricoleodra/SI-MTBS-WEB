@@ -1,6 +1,7 @@
 const initState = {
     demam : null,
     demam_isDaerahEndemis : null,
+    demam_isBerkunjungDaerahEndemis : null,
     demam_lamaDiDaerahEndemis : "",
     demam_isDemamSetiapHari : null,
     demam_pernahMalaria: null,
@@ -40,6 +41,10 @@ const ansDemamReducer = (state = initState, action) => {
         case 'DAERAH_ENDEMIS':
             return Object.assign({}, state, {
                 demam_isDaerahEndemis : action.answer
+            });
+        case 'BERKUNJUNG_DAERAH_ENDEMIS':
+            return Object.assign({}, state, {
+                demam_isBerkunjungDaerahEndemis : action.answer
             });
         case 'LAMA_DAERAH_ENDEMIS':
             return Object.assign({}, state, {

@@ -28,6 +28,7 @@ const SideBar = (props) => {
     const klasifikasiBatuk = useSelector(state => state.klasifikasiBatuk);
     const dataAnak = useSelector(state => state.dataAnak)
     const klasifikasiDiare = useSelector(state => state.klasifikasiDiare);
+    const klasifikasiDemam = useSelector(state => state.klasifikasiDemam);
     const klasifikasiTelinga = useSelector(state => state.klasifikasiTelinga);
     const klasifikasiAnemia = useSelector(state => state.klasifikasiAnemia);
     const klasifikasiHIV = useSelector(state => state.klasifikasiHIV);
@@ -57,7 +58,7 @@ const SideBar = (props) => {
             'title' : 'Demam',
             'link' : 'Demam1',
             'active' : url==='DemamYaTidak' || url==='DemamDaerah' || url==='DemamKonfirmasiDaerah' || url==='DemamPerhatian' || url==='Demam',
-            'color' : 'dark',
+            'color' : (klasifikasiDemam.demam_status===null ? 'dark' : klasifikasiDemam.demam_status),
             'disabled' : compStatus.demam
         },
         {

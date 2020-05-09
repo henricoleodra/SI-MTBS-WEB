@@ -26,6 +26,7 @@ const Summary = () => {
   const klasifikasiTBU = useSelector(state => state.klasifikasiTBU);
   const klasifikasiBatuk = useSelector(state => state.klasifikasiBatuk);
   const klasifikasiDiare = useSelector(state => state.klasifikasiDiare);
+  const klasifikasiDemam = useSelector(state => state.klasifikasiDemam);
   const klasifikasiTelinga = useSelector(state => state.klasifikasiTelinga);
   const klasifikasiAnemia = useSelector(state => state.klasifikasiAnemia);
   const klasifikasiHIV = useSelector(state => state.klasifikasiHIV);
@@ -51,8 +52,8 @@ const Summary = () => {
     },
     {
       'title' : 'Demam',
-      'text' : 'Penyakit Demam',
-      'color' : 'dark',
+      'text' : (klasifikasiDemam.demam_klasifikasi===null ? '' : klasifikasiDemam.demam_klasifikasi),
+      'color' : (klasifikasiDemam.demam_status===null ? 'dark' : klasifikasiDemam.demam_status),
       'disabled' : compStatus.demam
     },
     {

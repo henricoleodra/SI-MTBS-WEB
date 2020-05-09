@@ -1,23 +1,55 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button, InputGroup, InputGroupText, InputGroupAddon, Row, Col} from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
 import '../../Assets/style/style.css';
+
+// Actions
+import { KlasifikasiDemamChange, AnsDemamChange, compStatusChange, AnsDiareChange } from '../../Actions';
 
 let outlineColor = {
     borderColor : '#41E8B3'
 }
 
-let bgColor ={
-    backgroundColor : '#41E8B3',
-    color: 'white'
-}
-
 const Demam = (props) => {
+    const history = useHistory();
+    const dispatch = useDispatch();
+    const ansDemam = useSelector(state => state.ansDemam);
+    let[demam, setDemam] = useState(ansDemam.demam);
+
+    const handleDemam = event =>{
+        if(event.target.value == 1 ){
+            setDemam(true);
+        }
+        else{
+            setDemam(false);
+        }
+    }
+
+    const handleSubmit = event =>{
+        event.preventDefault();
+        if(demam == true){
+            if(ansDemam.demam === false){
+                dispatch(KlasifikasiDemamChange('DEMAM_KLASIFIKASI', ""));
+                dispatch(KlasifikasiDemamChange('DEMAM_STATUS', null));
+            }
+            dispatch(AnsDemamChange('DEMAM', demam));
+            history.push("DemamDaerah");
+        }
+        else{
+            dispatch(AnsDemamChange('DEMAM', demam));
+            dispatch(KlasifikasiDemamChange('DEMAM_KLASIFIKASI', ""));
+            dispatch(KlasifikasiDemamChange('DEMAM_STATUS', "info"));
+            dispatch(compStatusChange('TELINGA'));
+            history.push("TelingaYaTidak");
+        }
+    }
+
     return(
-        <Form /**onSubmit={handleSubmit}**/>
+        <Form onSubmit={handleSubmit}>
             <div className="w-100">
                 <div className="col-12">
                     <div className="mt-2">
@@ -42,7 +74,7 @@ const Demam = (props) => {
                                     <Col sm="3">
                                         <FormGroup className="d-inline pr-2">  
                                             <Label className="rdoBtn">Ya
-                                            <Input type="radio" name="radio1" /**value={1} onChange={handleTelinga} checked={telinga === true}**/ required />
+                                            <Input type="radio" name="radio1" value={1} onChange={handleDemam} checked={demam === true} required />
                                             <span style={{left:"20px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>
@@ -53,7 +85,7 @@ const Demam = (props) => {
                                     <Col sm="3">
                                         <FormGroup className="d-inline">
                                             <Label className="rdoBtn">Tidak
-                                            <Input type="radio" name="radio1" /**value={2} onChange={handleTelinga} checked={telinga === false}**/ />
+                                            <Input type="radio" name="radio1" value={2} onChange={handleDemam} checked={demam === false} />
                                             <span style={{left:"0px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>

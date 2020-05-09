@@ -1,18 +1,46 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { FormGroup, Label, Input, Form, Card, CardBody, CardTitle, Button, Row, Col } from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircle, faChevronLeft, faChevronRight} from '@fortawesome/free-solid-svg-icons'
+import { faChevronLeft, faChevronRight} from '@fortawesome/free-solid-svg-icons'
 
 import '../../Assets/style/style.css';
+
+// Actions
+import { AnsDemamChange } from '../../Actions';
 
 var outlineColor = {
     borderColor: '#41E8B3'
 }
 
 const DemamKonfirmasiDaerah = (props) => {
+    const history = useHistory();
+    const dispatch = useDispatch();
+    const ansDemam = useSelector(state => state.ansDemam);
+    let [demam_isBerkunjungDaerahEndemis, set_demam_isBerkunjungDaerahEndemis] = useState(ansDemam.demam_isBerkunjungDaerahEndemis);
+
+    const handleDaerahEndemis = event =>{
+       set_demam_isBerkunjungDaerahEndemis(event.target.value);
+    }
+
+    const handleSubmit = event =>{
+        if(demam_isBerkunjungDaerahEndemis === 'Tinggi'){
+            dispatch(AnsDemamChange('BERKUNJUNG_DAERAH_ENDEMIS', demam_isBerkunjungDaerahEndemis));
+            history.push("DemamPerhatian");
+        }
+        else if(demam_isBerkunjungDaerahEndemis === 'Rendah'){
+            dispatch(AnsDemamChange('BERKUNJUNG_DAERAH_ENDEMIS', demam_isBerkunjungDaerahEndemis));
+            history.push("Demam1");
+        }
+        else{
+            dispatch(AnsDemamChange('BERKUNJUNG_DAERAH_ENDEMIS', demam_isBerkunjungDaerahEndemis));
+            history.push("Demam1");
+        }
+    }
+
     return (
-        <Form /**onSubmit={handleSubmit}**/>
+        <Form onSubmit={handleSubmit}>
             <div className="w-100">
                 <div className="col-12">
                     <div className="mt-2">
@@ -38,7 +66,7 @@ const DemamKonfirmasiDaerah = (props) => {
                                         <Col sm="3">
                                             <FormGroup className="d-inline pr-2">  
                                                 <Label className="rdoBtn" style={{left:"10px"}}>Tinggi
-                                                <Input type="radio" name="radio2" /**value={1} onChange={handleAnswer1} checked={tbu_letargis === true} **/required/>
+                                                <Input type="radio" name="radio2" value={'Tinggi'} onChange={handleDaerahEndemis} checked={demam_isBerkunjungDaerahEndemis === 'Tinggi'} required/>
                                                 <span style={{left:"6px"}} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>
@@ -47,7 +75,7 @@ const DemamKonfirmasiDaerah = (props) => {
                                         <Col sm="3">
                                             <FormGroup className="d-inline">
                                                 <Label className="rdoBtn" style={{left:"10px"}}>Rendah
-                                                <Input type="radio" name="radio2" /**value={2} onChange={handleAnswer1} checked={tbu_letargis === false}**/ /> 
+                                                <Input type="radio" name="radio2" value={'Rendah'} onChange={handleDaerahEndemis} checked={demam_isBerkunjungDaerahEndemis === 'Rendah'} /> 
                                                 <span style={{left:"-1px"}} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>
@@ -56,7 +84,7 @@ const DemamKonfirmasiDaerah = (props) => {
                                         <Col sm="4">
                                             <FormGroup className="d-inline">
                                                 <Label className="rdoBtn" style={{left:"10px"}}>Non Endemis 
-                                                <Input type="radio" name="radio2" /**value={2} onChange={handleAnswer1} checked={tbu_letargis === false}**/ /> 
+                                                <Input type="radio" name="radio2" value={'Non Endemis'} onChange={handleDaerahEndemis} checked={demam_isBerkunjungDaerahEndemis === 'Non Endemis'} /> 
                                                 <span style={{left:"-1px"}} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>

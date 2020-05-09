@@ -96,3 +96,63 @@ html, body {
 .boldFont{
   font-weight: bold;
 }
+
+/* versi checkbox */
+.chckBtn{
+  display: block;
+  position: relative;
+  padding: 0,0,0,0;
+  margin: 0,0,0,0;
+  cursor: pointer;
+  font-size: 20px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* menghilangkan radio button */
+.chckBtn input{
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkmarkBox {
+  position: absolute;
+  top: 5px;
+  padding: 0,0,0,0;
+  margin: 0,0,0,0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 0%;
+}
+
+.checkmarkBox:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.chckBtn:hover input ~ .checkmarkBox{
+  background-color: #ccc;
+}
+
+.chckBtn input:checked ~ .checkmarkBox {
+  background-color: #41E8B3;
+}
+
+
+.chckBtn input:checked ~ .checkmarkBox:after {
+  display: block;
+}
+
+.chckBtn .checkmarkBox:after {
+  top: 5.498px;
+  left: 5.48px;
+  width: 14px;
+  height: 14px;
+  border-radius: 0%;
+  background: white;
+}

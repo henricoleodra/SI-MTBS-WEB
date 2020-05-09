@@ -16,12 +16,39 @@ const Demam = (props) => {
             <div className="w-100">
                 <div className="col-12">
                     <div className="d-flex justify-content-center mt-3">
+                    <div className="p-2">
+                            <FontAwesomeIcon icon={faCircle} className="text-muted" />
+                        </div>
+                        <div className="p-2">
+                            <FontAwesomeIcon icon={faCircle} className="text-muted" />
+                        </div>
+                        <div className="p-2">
+                            <FontAwesomeIcon icon={faCircle} className="text-muted" />
+                        </div>
+                        <div className="p-2">
+                            <FontAwesomeIcon icon={faCircle} className="text-muted" />
+                        </div>
+                        <div className="p-2">
+                            <FontAwesomeIcon icon={faCircle}  className="text-muted" />
+                        </div>
                         <div className="p-2">
                             <FontAwesomeIcon icon={faCircle} style={{ color: '#41E8B3' }} />
                         </div>
+                        <div className="p-2">
+                            <FontAwesomeIcon icon={faCircle} className="text-muted" />
+                        </div>
+                        <div className="p-2">
+                            <FontAwesomeIcon icon={faCircle} className="text-muted" />
+                        </div>
+                        <div className="p-2">
+                            <FontAwesomeIcon icon={faCircle} className="text-muted" />
+                        </div>
+                        <div className="p-2">
+                            <FontAwesomeIcon icon={faCircle} className="text-muted" />
+                        </div>
                     </div>
                     <div className="mt-2">
-                        <h3 className="text-center font-weight-bold">Demam</h3>
+                        <h3 className="text-center font-weight-bold">Campak dalam 3 Bulan Terakhir</h3>
                         <hr
                             style={{
                                 color: "#41E8B3",
@@ -68,9 +95,9 @@ const Demam = (props) => {
                                             </Col>
                                             <Col sm="3">
                                                 <FormGroup className="d-inline pr-2">  
-                                                    <Label style={{left:"14px"}} className="rdoBtn">Dalam
+                                                    <Label style={{left:"14px"}} className="chckBtn">Dalam
                                                     <Input type="checkbox" name="checkBox1" /**value={1} onChange={handleAnswer1} checked={tbu_letargis === true}**/ required/>
-                                                    <span style={{left:"3px"}} className="checkmark"></span>
+                                                    <span style={{left:"3px"}} className="checkmarkBox"></span>
                                                     </Label>
                                                 </FormGroup>
                                             </Col>
@@ -79,9 +106,9 @@ const Demam = (props) => {
                                             </Col>
                                             <Col sm="3">
                                                 <FormGroup className="d-inline">
-                                                    <Label style={{left:"-7px"}} className="rdoBtn">Luas
+                                                    <Label style={{left:"-7px"}} className="chckBtn">Luas
                                                     <Input type="checkbox" name="checkBox1" /**value={2} onChange={handleAnswer1} checked={tbu_letargis === false}**/ /> 
-                                                    <span style={{left:"12px"}} className="checkmark"></span>
+                                                    <span style={{left:"12px"}} className="checkmarkBox"></span>
                                                     </Label>
                                                 </FormGroup>
                                             </Col>

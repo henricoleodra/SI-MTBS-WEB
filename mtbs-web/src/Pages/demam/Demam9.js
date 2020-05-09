@@ -48,7 +48,7 @@ const Demam = (props) => {
                         </div>
                     </div>
                     <div className="mt-2">
-                        <h3 className="text-center font-weight-bold">Demam</h3>
+                        <h3 className="text-center font-weight-bold">Demam sudah 2-7 hari</h3>
                         <hr
                             style={{
                                 color: "#41E8B3",
@@ -56,7 +56,7 @@ const Demam = (props) => {
                                 height: 5
                             }}
                         />
-                        <p className="text-center"><b>Jika demam 2 hari sampai dengan 7 hari, tanya dan periksa</b></p>
+                        {/* <p className="text-center"><b>Jika demam 2 hari sampai dengan 7 hari, tanya dan periksa</b></p> */}
                     </div>
                     <div style={{minHeight: "475px"}}>
                         <Row className="justify-content-around">

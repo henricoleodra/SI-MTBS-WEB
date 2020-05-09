@@ -35,7 +35,7 @@ const Gizi2 = (props) => {
                         }}
                     />
                     </div>
-                    <div style={{minHeight: "475px"}}>
+                    <div style={{minHeight: "440px"}}>
                         <Row className="justify-content-center">
                             <Card style={outlineColor} className="text-center w-75 mt-3" >
                                 <CardBody>

@@ -35,7 +35,7 @@ const Gizi3 = (props) => {
                             }}
                         />
                     </div>
-                    <div style={{ minHeight: "475px" }}>
+                    <div style={{ minHeight: "440px" }}>
                         <Row className="justify-content-center">
                             <Card style={outlineColor} className="text-center w-75 mt-3" >
                                 <CardBody>
@@ -112,7 +112,7 @@ const Gizi3 = (props) => {
                                         }}
                                     />
                                     <div className="d-line">
-                                        <h5>Jika tidak ada komplikasi media, nilai pemberian ASI pad aanak umur lebih kecil dari 6 bulan</h5>
+                                        <h5>Jika tidak ada komplikasi media, nilai pemberian ASI pad anak umur lebih kecil dari 6 bulan</h5>
                                         <h5>Apakah anaka memiliki masalah pemberian ASI?</h5>
                                         <Row className="limitCol">
                                             <Col sm="3">

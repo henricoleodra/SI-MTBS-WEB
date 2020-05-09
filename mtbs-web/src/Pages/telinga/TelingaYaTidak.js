@@ -47,7 +47,7 @@ const TelingaYaTidak = (props) => {
         else{
             dispatch(AnsTelingaChange('TELINGA', telinga));
             dispatch(KlasifikasiTelingaChange('TELINGA_KLASIFIKASI', ""));
-            dispatch(KlasifikasiTelingaChange('TELINGA_STATUS', "success"));
+            dispatch(KlasifikasiTelingaChange('TELINGA_STATUS', "info"));
             dispatch(compStatusChange('GIZI'));
             history.push("Gizi1");
         }

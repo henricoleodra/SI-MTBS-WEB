@@ -47,7 +47,7 @@ const handleSubmit = event =>{
     else{
         dispatch(AnsBatukChange('BATUK', bsb));
         dispatch(KlasifikasiBatukChange('BATUK_KLASIFIKASI', ""));
-        dispatch(KlasifikasiBatukChange('BATUK_STATUS', "success"));
+        dispatch(KlasifikasiBatukChange('BATUK_STATUS', "info"));
         dispatch(compStatusChange('DIARE'));
         history.push("DiareYaTidak");
     }

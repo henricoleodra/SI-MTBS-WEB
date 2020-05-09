@@ -46,7 +46,7 @@ const Diare = (props) => {
         else{
             dispatch(AnsDiareChange('DIARE', diare));
             dispatch(KlasifikasiDiareChange('DIARE_KLASIFIKASI', ""));
-            dispatch(KlasifikasiDiareChange('DIARE_STATUS', "success"));
+            dispatch(KlasifikasiDiareChange('DIARE_STATUS', "info"));
             dispatch(compStatusChange('DEMAM'));
             history.push("DemamYaTidak");
         }

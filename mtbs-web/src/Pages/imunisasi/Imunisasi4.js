@@ -38,7 +38,7 @@ const Imunisasi = (props) =>{
                     }}
                     />
                 </div>
-                <div style={{minHeight: "500px"}}>
+                <div style={{minHeight: "520px"}}>
                     <Row className="justify-content-center">
                         <Card style={outlineColor} className="text-center w-75 mt-3">
                             <CardBody>

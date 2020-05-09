@@ -29,30 +29,40 @@ const TandaBahayaUmum = (props) => {
 
   const handleSubmit = event =>{
     event.preventDefault();
-    if(klasifikasiTBU.tbu_2 === true){
-      axios.post(`/TBU/2`, {
-        ansTBU : ansTBU
-      })
-      .then(res => {
-        dispatch(KlasifikasiTBUChange('TBU_KLASIFIKASI', res.data.hasilKlasifkasi));
-        dispatch(KlasifikasiTBUChange('TBU_STATUS', res.data.statusKlasifikasi));
-      })
-      .catch(err=>{
-        console.log(err);
-      });
-    }
-    else{
-      axios.post(`/TBU/1`, {
-        ansTBU : ansTBU
-      })
-      .then(res => {
-        dispatch(KlasifikasiTBUChange('TBU_KLASIFIKASI', res.data.hasilKlasifkasi));
-        dispatch(KlasifikasiTBUChange('TBU_STATUS', res.data.statusKlasifikasi));
-      })
-      .catch(err=>{
-        console.log(err);
-      });
-    }
+    // if(klasifikasiTBU.tbu_2 === true){
+    //   axios.post(`/TBU/2`, {
+    //     ansTBU : ansTBU
+    //   })
+    //   .then(res => {
+    //     dispatch(KlasifikasiTBUChange('TBU_KLASIFIKASI', res.data.hasilKlasifkasi));
+    //     dispatch(KlasifikasiTBUChange('TBU_STATUS', res.data.statusKlasifikasi));
+    //   })
+    //   .catch(err=>{
+    //     console.log(err);
+    //   });
+    // }
+    // else{
+    //   axios.post(`/TBU/1`, {
+    //     ansTBU : ansTBU
+    //   })
+    //   .then(res => {
+    //     dispatch(KlasifikasiTBUChange('TBU_KLASIFIKASI', res.data.hasilKlasifkasi));
+    //     dispatch(KlasifikasiTBUChange('TBU_STATUS', res.data.statusKlasifikasi));
+    //   })
+    //   .catch(err=>{
+    //     console.log(err);
+    //   });
+    // }
+    axios.post(`/TBU`, {
+      ansTBU : ansTBU
+    })
+    .then(res => {
+      dispatch(KlasifikasiTBUChange('TBU_KLASIFIKASI', res.data.hasilKlasifkasi));
+      dispatch(KlasifikasiTBUChange('TBU_STATUS', res.data.statusKlasifikasi));
+    })
+    .catch(err=>{
+      console.log(err);
+    });
     history.push("TandaBahayaUmum2"); 
   }
 

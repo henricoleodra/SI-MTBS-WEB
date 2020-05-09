@@ -19,7 +19,16 @@ const tandaBahayaUmum2 = async function(req, res, next){
     res.json(ans);
 }
 
+const tandaBahayaUmum = async function(req, res, next){
+    const classTBU = await klasifikasiTBU.klasifikasiTBU2(req.body.ansTBU);
+    const ans = {
+        hasilKlasifkasi : classTBU.hasilKlasifkasi,
+        statusKlasifikasi: classTBU.statusKlasifikasi,
+    }
+    res.json(ans);
+}
+
 
 module.exports = {
-    tandaBahayaUmum1, tandaBahayaUmum2
+    tandaBahayaUmum1, tandaBahayaUmum2, tandaBahayaUmum
 };

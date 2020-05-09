@@ -13,6 +13,7 @@ router.get('/', function(req, res, next) {
 });
 
 //Tanda Bahaya Umum
+router.post('/TBU', tandabahayaumum.tandaBahayaUmum);
 router.post('/TBU/1', tandabahayaumum.tandaBahayaUmum1);
 router.post('/TBU/2', tandabahayaumum.tandaBahayaUmum2);
 //Batuk

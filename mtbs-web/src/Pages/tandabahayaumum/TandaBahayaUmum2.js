@@ -28,7 +28,17 @@ const TandaBahayaUmum2 = (props) => {
   
   const handleSubmit = event =>{
     event.preventDefault();
-    axios.post(`/TBU/2`, {
+    // axios.post(`/TBU/2`, {
+    //   ansTBU : ansTBU
+    // })
+    // .then(res => {
+    //   dispatch(KlasifikasiTBUChange('TBU_KLASIFIKASI', res.data.hasilKlasifkasi));
+    //   dispatch(KlasifikasiTBUChange('TBU_STATUS', res.data.statusKlasifikasi));
+    // })
+    // .catch(err=>{
+    //   console.log(err);
+    // });
+    axios.post(`/TBU`, {
       ansTBU : ansTBU
     })
     .then(res => {

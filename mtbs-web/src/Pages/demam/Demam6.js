@@ -17,34 +17,7 @@ const Demam = (props) => {
                 <div className="col-12">
                     <div className="d-flex justify-content-center mt-3">
                         <div className="p-2">
-                            <FontAwesomeIcon icon={faCircle} className="text-muted" />
-                        </div>
-                        <div className="p-2">
-                            <FontAwesomeIcon icon={faCircle} className="text-muted" />
-                        </div>
-                        <div className="p-2">
-                            <FontAwesomeIcon icon={faCircle} className="text-muted" />
-                        </div>
-                        <div className="p-2">
-                            <FontAwesomeIcon icon={faCircle} className="text-muted" />
-                        </div>
-                        <div className="p-2">
-                            <FontAwesomeIcon icon={faCircle} className="text-muted" />
-                        </div>
-                        <div className="p-2">
                             <FontAwesomeIcon icon={faCircle} style={{ color: '#41E8B3' }} />
-                        </div>
-                        <div className="p-2">
-                            <FontAwesomeIcon icon={faCircle} className="text-muted" />
-                        </div>
-                        <div className="p-2">
-                            <FontAwesomeIcon icon={faCircle} className="text-muted" />
-                        </div>
-                        <div className="p-2">
-                            <FontAwesomeIcon icon={faCircle} className="text-muted" />
-                        </div>
-                        <div className="p-2">
-                            <FontAwesomeIcon icon={faCircle} className="text-muted" />
                         </div>
                     </div>
                     <div className="mt-2">
@@ -56,7 +29,7 @@ const Demam = (props) => {
                                 height: 5
                             }}
                         />
-                        <p className="text-center"><b>Jika anak sakit campak saat ini atau dalam 3 bulan terakhir</b></p>
+                        {/* <p className="text-center"><b>Jika anak sakit campak saat ini atau dalam 3 bulan terakhir</b></p> */}
                     </div>
                     <div style={{minHeight: "475px"}}>
                         <Row className="justify-content-around">

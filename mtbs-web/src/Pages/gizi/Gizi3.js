@@ -68,7 +68,7 @@ const Gizi3 = (props) => {
                                                     <FormGroup className="d-inline pr-2">
                                                         <Label className="rdoBtn" style={{ left: "20px" }}>Ya
                                                             <Input type="radio" name="radio1" /**value={1} onChange={handleTelinga} checked={telinga === true}**/ required />
-                                                            <span style={{ left: "20px" }} className="checkmark"></span>
+                                                            <span style={{ left: "15px" }} className="checkmark"></span>
                                                         </Label>
                                                     </FormGroup>
                                                 </Col>
@@ -76,7 +76,7 @@ const Gizi3 = (props) => {
                                                     <FormGroup className="d-inline">
                                                         <Label className="rdoBtn">Tidak
                                                             <Input type="radio" name="radio1" /**value={2} onChange={handleTelinga} checked={telinga === false}**/ />
-                                                            <span style={{ left: "0px" }} className="checkmark"></span>
+                                                            <span style={{ left: "5px" }} className="checkmark"></span>
                                                         </Label>
                                                     </FormGroup>
                                                 </Col>
@@ -97,7 +97,7 @@ const Gizi3 = (props) => {
                                                     <FormGroup className="d-inline">
                                                         <Label className="rdoBtn" style={{ left: "5px"}}>Tidak
                                                             <Input type="radio" name="radio2" /**value={2} onChange={handleTelinga} checked={telinga === false}**/ />
-                                                            <span style={{ left: "0px" }} className="checkmark"></span>
+                                                            <span style={{ left: "-7px" }} className="checkmark"></span>
                                                         </Label>
                                                     </FormGroup>
                                                 </Col>
@@ -131,7 +131,7 @@ const Gizi3 = (props) => {
                                                 <FormGroup className="d-inline">
                                                     <Label className="rdoBtn">Tidak
                                                         <Input type="radio" name="radio6" /**value={2} onChange={handleAnswer1} checked={tbu_letargis === false}**/ />
-                                                        <span style={{ left: "0px" }} className="checkmark"></span>
+                                                        <span style={{ left: "8px" }} className="checkmark"></span>
                                                     </Label>
                                                 </FormGroup>
                                             </Col>

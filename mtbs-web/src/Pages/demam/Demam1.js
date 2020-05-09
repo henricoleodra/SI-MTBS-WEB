@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useHistory   } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { FormGroup, Label, Input, Form, Card, CardBody, CardTitle, Button, InputGroup, InputGroupText, InputGroupAddon, Row, Col } from "reactstrap";
 import { useDispatch, useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -7,7 +7,7 @@ import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid
 import axios from 'axios';
 
 // Actions
-import{ KlasifikasiDemamChange, AnsDemamChange } from '../../Actions';
+import { KlasifikasiDemamChange, AnsDemamChange } from '../../Actions';
 
 import '../../Assets/style/style.css';
 
@@ -15,8 +15,8 @@ var outlineColor = {
     borderColor: '#41E8B3'
 }
 
-let bgColor ={
-    backgroundColor : '#41E8B3',
+let bgColor = {
+    backgroundColor: '#41E8B3',
     color: 'white'
 }
 
@@ -25,39 +25,39 @@ const Demam = (props) => {
     const dispatch = useDispatch();
     const ansDemam = useSelector(state => state.ansDemam);
     // const klasifikasiDemam = useSelector(state => state.klasifikasiDemam);
-    let[demam_isDemamSetiapHari, set_demam_isDemamSetiapHari] = useState(ansDemam.demam_isDemamSetiapHari);
-    let[demam_pernahMalaria, set_demam_pernahMalaria] = useState(ansDemam.demam_pernahMalaria);
-    
-    const handleSubmit = event =>{
+    let [demam_isDemamSetiapHari, set_demam_isDemamSetiapHari] = useState(ansDemam.demam_isDemamSetiapHari);
+    let [demam_pernahMalaria, set_demam_pernahMalaria] = useState(ansDemam.demam_pernahMalaria);
+
+    const handleSubmit = event => {
         event.preventDefault();
-        axios.post(`/Demam`,{
-            ansDemam : ansDemam
+        axios.post(`/Demam`, {
+            ansDemam: ansDemam
         })
-        .then( res => {
-            dispatchEvent(KlasifikasiDemamChange('DEMAM_KLASIFIKASI', res.data.hasilKlasifikasi));
-            dispatchEvent(KlasifikasiDemamChange('DEMAM_STATUS', res.data.statusKlasifikasi));
-        })
-        .catch(err =>{
-            console.log(err);
-        });
+            .then(res => {
+                dispatchEvent(KlasifikasiDemamChange('DEMAM_KLASIFIKASI', res.data.hasilKlasifikasi));
+                dispatchEvent(KlasifikasiDemamChange('DEMAM_STATUS', res.data.statusKlasifikasi));
+            })
+            .catch(err => {
+                console.log(err);
+            });
         history.push("Demam2");
     }
 
-    const handleAnswer2 = event =>{
-        if(event.target.value == 1){
+    const handleAnswer2 = event => {
+        if (event.target.value == 1) {
             set_demam_isDemamSetiapHari(true);
             dispatch(AnsDemamChange('DEMAM_SETIAP_HARI', true));
-        }else if(event.target.value == 2){
+        } else if (event.target.value == 2) {
             set_demam_isDemamSetiapHari(false);
             dispatch(AnsDemamChange('DEMAM_SETIAP_HARI', false));
         }
     }
 
-    const handleAnswer3 = event =>{
-        if(event.target.value == 1){
+    const handleAnswer3 = event => {
+        if (event.target.value == 1) {
             set_demam_pernahMalaria(true);
             dispatch(AnsDemamChange('MALARIA', true));
-        }else if(event.target.value == 2){
+        } else if (event.target.value == 2) {
             set_demam_pernahMalaria(false);
             dispatch(AnsDemamChange('MALARIA', false));
         }
@@ -69,10 +69,10 @@ const Demam = (props) => {
                 <div className="col-12">
                     <div className="d-flex justify-content-center mt-3">
                         <div className="p-2">
-                            <FontAwesomeIcon icon={faCircle} className="text-muted" />
+                            <FontAwesomeIcon icon={faCircle} style={{ color: '#41E8B3' }} />
                         </div>
                         <div className="p-2">
-                            <FontAwesomeIcon icon={faCircle} style={{ color: '#41E8B3' }} />
+                            <FontAwesomeIcon icon={faCircle} className="text-muted" />
                         </div>
                         <div className="p-2">
                             <FontAwesomeIcon icon={faCircle} className="text-muted" />
@@ -119,8 +119,8 @@ const Demam = (props) => {
                                             <InputGroupAddon addonType="append" >
                                                 <InputGroupText style={bgColor}>Hari</InputGroupText>
                                             </InputGroupAddon>
-                                        </InputGroup>         
-                                    </div>     
+                                        </InputGroup>
+                                    </div>
                                 </CardBody>
                             </Card>
 

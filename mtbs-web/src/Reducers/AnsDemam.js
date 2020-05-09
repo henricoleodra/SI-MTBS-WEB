@@ -1,5 +1,5 @@
 const initState = {
-    demam_isAnakDemam : null,
+    demam : null,
     demam_isDaerahEndemis : null,
     demam_lamaDiDaerahEndemis : "",
     demam_isDemamSetiapHari : null,
@@ -35,7 +35,7 @@ const ansDemamReducer = (state = initState, action) => {
     switch(action.type){
         case 'DEMAM':
             return Object.assign({}, state, {
-                demam_isAnakDemam : action.answer
+                demam : action.answer
             });
         case 'DAERAH_ENDEMIS':
             return Object.assign({}, state, {

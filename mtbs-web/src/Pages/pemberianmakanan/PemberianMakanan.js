@@ -45,7 +45,7 @@ const PemberianMakanan = (props) =>{
                     />
                     <p className="text-center">Jika anak berumur kurang dari 2 tahun atau GIZI KURUS atau ANEMIA <b>DAN</b> anak tidak akan dirujuk segera</p>
                 </div>
-                <div style={{minHeight: "500px"}}>
+                <div style={{minHeight: "475px"}}>
                     <Row className="justify-content-center">
                         <Card style={outlineColor} className="text-center w-75" >
                             <CardBody>

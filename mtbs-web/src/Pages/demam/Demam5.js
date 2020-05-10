@@ -38,7 +38,12 @@ const Demam = (props) => {
             .catch(err => {
                 console.log(err);
             });
-        history.push("Demam6");
+        if(ansDemam.demam_berapaLama >= 2 && ansDemam.demam_berapaLama <=7){
+            history.push("Demam6");
+        }
+        else{
+            history.push("TelingaYaTidak");
+        }
     }
 
     const handleAnswer1 = event => {

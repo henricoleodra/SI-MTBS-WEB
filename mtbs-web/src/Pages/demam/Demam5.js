@@ -52,23 +52,28 @@ const Demam = (props) => {
     }
 
     const handleAnswer2 = event => {
-        if (event.target.value == 1) {
+        if(event.target.checked){
             set_demam_descLukaMulutLuas(true);
             dispatch(AnsDemamChange('DECS_LUKA_MULUT_LUAS', true));
-        } else if (event.target.value == 2) {
+            console.log('mantap');
+        }else{
             set_demam_descLukaMulutLuas(false);
             dispatch(AnsDemamChange('DECS_LUKA_MULUT_LUAS', false));
+            console.log('mantap tidak banget');
         }
     }
 
     const handleAnswer3 = event => {
-        if (event.target.value == 1) {
+        if(event.target.checked){
             set_demam_descLukaMulutDalam(true);
             dispatch(AnsDemamChange('DECS_LUKA_MULUT_DALAM', true));
-        } else if (event.target.value == 2) {
+            console.log('mantap Dalam');
+        }else{
             set_demam_descLukaMulutDalam(false);
             dispatch(AnsDemamChange('DECS_LUKA_MULUT_DALAM', false));
+            console.log('mantap tidak banget Dalam');
         }
+
     }
 
     const handleAnswer4 = event => {
@@ -173,7 +178,7 @@ const Demam = (props) => {
                                             <Col sm="3">
                                                 <FormGroup className="d-inline pr-2">  
                                                     <Label style={{left:"14px"}} className="chckBtn">Dalam
-                                                    <Input type="checkbox" name="checkBox1" disabled={(demam_isLukaMulut === null || demam_isLukaMulut === false)} /**value={1} onChange={handleAnswer2} checked={demam_descLukaMulutLuas === true}**/ required/>
+                                                    <Input type="checkbox" name="checkBox1" disabled={(demam_isLukaMulut === null || demam_isLukaMulut === false)} /**value={1}**/ onChange={handleAnswer2} checked={demam_descLukaMulutLuas === true}/>
                                                     <span style={{left:"3px"}} className="checkmarkBox"></span>
                                                     </Label>
                                                 </FormGroup>
@@ -184,7 +189,7 @@ const Demam = (props) => {
                                             <Col sm="3">
                                                 <FormGroup className="d-inline">
                                                     <Label style={{left:"-7px"}} className="chckBtn">Luas
-                                                    <Input type="checkbox" name="checkBox1" disabled={(demam_isLukaMulut === null || demam_isLukaMulut === false)} /**  value={2} onChange={handleAnswer3} checked={demam_descLukaMulutDalam === false}**/ /> 
+                                                    <Input type="checkbox" name="checkBox1" disabled={(demam_isLukaMulut === null || demam_isLukaMulut === false)} /**  value={2}**/ onChange={handleAnswer3} checked={demam_descLukaMulutDalam === true} /> 
                                                     <span style={{left:"12px"}} className="checkmarkBox"></span>
                                                     </Label>
                                                 </FormGroup>

@@ -83,24 +83,6 @@ const Demam = (props) => {
                         <div className="p-2">
                             <FontAwesomeIcon icon={faCircle} className="text-muted" />
                         </div>
-                        <div className="p-2">
-                            <FontAwesomeIcon icon={faCircle} className="text-muted" />
-                        </div>
-                        <div className="p-2">
-                            <FontAwesomeIcon icon={faCircle} className="text-muted" />
-                        </div>
-                        <div className="p-2">
-                            <FontAwesomeIcon icon={faCircle} className="text-muted" />
-                        </div>
-                        <div className="p-2">
-                            <FontAwesomeIcon icon={faCircle} className="text-muted" />
-                        </div>
-                        <div className="p-2">
-                            <FontAwesomeIcon icon={faCircle} className="text-muted" />
-                        </div>
-                        <div className="p-2">
-                            <FontAwesomeIcon icon={faCircle} className="text-muted" />
-                        </div>
                     </div>
                     <div className="mt-2">
                         <h3 className="text-center font-weight-bold">Demam</h3>
@@ -128,10 +110,8 @@ const Demam = (props) => {
                                         </InputGroup>
                                     </div>
                                 </CardBody>
-                            </Card>
 
-                            <Card style={outlineColor} className="text-center w-75 mt-3">
-                                <CardBody>
+                                <CardBody hidden={demam_berapaLama ==''}>
                                     <CardTitle className="h5"><b>Tanyakan! </b>Jika lebih dari 7 hari, apakah demam terjadi
                                     setiap hari?</CardTitle>
                                     <Row className="limitCol ">
@@ -141,7 +121,7 @@ const Demam = (props) => {
                                         <Col sm="3">
                                             <FormGroup className="d-inline pr-2">
                                                 <Label className="rdoBtn">Ya
-                                                <Input type="radio" name="radio1" value={1} onChange={handleAnswer2} checked={demam_isDemamSetiapHari === true} required />
+                                                <Input type="radio" name="radio1" value={1} onChange={handleAnswer2} checked={demam_berapaLama >= 7} disabled={demam_berapaLama ==''} required />
                                                     <span style={{ left: "20px" }} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>
@@ -152,7 +132,7 @@ const Demam = (props) => {
                                         <Col sm="3">
                                             <FormGroup className="d-inline">
                                                 <Label className="rdoBtn">Tidak
-                                                <Input type="radio" name="radio1" value={2} onChange={handleAnswer2} checked={demam_isDemamSetiapHari === false} />
+                                                <Input type="radio" name="radio1" value={2} onChange={handleAnswer2} checked={demam_berapaLama < 7} />
                                                     <span style={{ left: "0px" }} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>

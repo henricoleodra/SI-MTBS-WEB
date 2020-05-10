@@ -30,8 +30,8 @@ const Demam = (props) => {
             ansDemam: ansDemam
         })
             .then(res => {
-                dispatchEvent(KlasifikasiDemamChange('DEMAM_KLASIFIKASI', res.data.hasilKlasifikasi));
-                dispatchEvent(KlasifikasiDemamChange('DEMAM_STATUS', res.data.statusKlasifikasi));
+                dispatch(KlasifikasiDemamChange('DEMAM_KLASIFIKASI', res.data.hasilKlasifikasi));
+                dispatch(KlasifikasiDemamChange('DEMAM_STATUS', res.data.statusKlasifikasi));
             })
             .catch(err => {
                 console.log(err);

@@ -35,8 +35,8 @@ const Demam = (props) => {
             ansDemam: ansDemam
         })
             .then(res => {
-                dispatchEvent(KlasifikasiDemamChange('DEMAM_KLASIFIKASI', res.data.hasilKlasifikasi));
-                dispatchEvent(KlasifikasiDemamChange('DEMAM_STATUS', res.data.statusKlasifikasi));
+                dispatch(KlasifikasiDemamChange('DEMAM_KLASIFIKASI', res.data.hasilKlasifikasi));
+                dispatch(KlasifikasiDemamChange('DEMAM_STATUS', res.data.statusKlasifikasi));
             })
             .catch(err => {
                 console.log(err);
@@ -176,7 +176,7 @@ const Demam = (props) => {
                 </div>
                 <Row className="justify-content-between px-5 py-0">
                     <Col sm="4">
-                        <Link to="Demam1" style={{ textDecoration: "none" }}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft} /> Sebelumnya</Button></Link>
+                        <Link to="DemamDaerah" style={{ textDecoration: "none" }}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft} /> Sebelumnya</Button></Link>
                     </Col>
                     <Col sm="4">
                         <Button type="submit" color="success" block >Selanjutnya <FontAwesomeIcon icon={faChevronRight} /></Button>

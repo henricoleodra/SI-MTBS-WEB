@@ -25,6 +25,7 @@ const Demam = (props) => {
     const dispatch = useDispatch();
     const ansDemam = useSelector(state => state.ansDemam);
     // const klasifikasiDemam = useSelector(state => state.klasifikasiDemam);
+    let [demam_berapaLama, set_demam_berapaLama] = useState(ansDemam.demam_berapaLama);
     let [demam_isDemamSetiapHari, set_demam_isDemamSetiapHari] = useState(ansDemam.demam_isDemamSetiapHari);
     let [demam_pernahMalaria, set_demam_pernahMalaria] = useState(ansDemam.demam_pernahMalaria);
 
@@ -41,6 +42,11 @@ const Demam = (props) => {
                 console.log(err);
             });
         history.push("Demam2");
+    }
+
+    const handleAnswer1 = event =>{
+        set_demam_berapaLama(event.target.value);
+        dispatch(AnsDemamChange('BERAPA_LAMA', event.target.value));
     }
 
     const handleAnswer2 = event => {
@@ -115,7 +121,7 @@ const Demam = (props) => {
                                     <CardTitle className="h5"><b>Tanyakan! </b>Sudah berapa lama?</CardTitle>
                                     <div className="w-100 d-flex justify-content-center">
                                         <InputGroup className="w-25">
-                                            <Input type="number" min="0" /**value={bsb_lamaHari} onChange={handleAnswer1}**/ />
+                                            <Input type="number" min="0" value={demam_berapaLama} onChange={handleAnswer1} />
                                             <InputGroupAddon addonType="append" >
                                                 <InputGroupText style={bgColor}>Hari</InputGroupText>
                                             </InputGroupAddon>

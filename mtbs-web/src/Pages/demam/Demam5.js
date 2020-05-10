@@ -165,15 +165,15 @@ const Demam = (props) => {
                                         </Col>
                                     </Row>
                                     <div>
-                                        <h6><b>Lihat dan Amati!</b> Apakah luka luas atau dalam ?(bisa dipilih keduanya)</h6>
-                                        <Row className="limitCol "> 
+                                        <h6 hidden={(demam_isLukaMulut === null || demam_isLukaMulut === false)}><b>Lihat dan Amati!</b> Apakah luka luas atau dalam ?(bisa dipilih keduanya)</h6>
+                                        <Row className="limitCol "hidden={(demam_isLukaMulut === null || demam_isLukaMulut === false)}> 
                                             <Col  sm="3">
                                             
                                             </Col>
                                             <Col sm="3">
                                                 <FormGroup className="d-inline pr-2">  
                                                     <Label style={{left:"14px"}} className="chckBtn">Dalam
-                                                    <Input type="checkbox" name="checkBox1" value={1} onChange={handleAnswer2} checked={demam_descLukaMulutLuas === true} required/>
+                                                    <Input type="checkbox" name="checkBox1" disabled={(demam_isLukaMulut === null || demam_isLukaMulut === false)} /**value={1} onChange={handleAnswer2} checked={demam_descLukaMulutLuas === true}**/ required/>
                                                     <span style={{left:"3px"}} className="checkmarkBox"></span>
                                                     </Label>
                                                 </FormGroup>
@@ -184,7 +184,7 @@ const Demam = (props) => {
                                             <Col sm="3">
                                                 <FormGroup className="d-inline">
                                                     <Label style={{left:"-7px"}} className="chckBtn">Luas
-                                                    <Input type="checkbox" name="checkBox1" value={2} onChange={handleAnswer3} checked={demam_descLukaMulutDalam === false} /> 
+                                                    <Input type="checkbox" name="checkBox1" disabled={(demam_isLukaMulut === null || demam_isLukaMulut === false)} /**  value={2} onChange={handleAnswer3} checked={demam_descLukaMulutDalam === false}**/ /> 
                                                     <span style={{left:"12px"}} className="checkmarkBox"></span>
                                                     </Label>
                                                 </FormGroup>

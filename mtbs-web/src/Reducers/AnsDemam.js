@@ -50,6 +50,10 @@ const ansDemamReducer = (state = initState, action) => {
             return Object.assign({}, state, {
                 demam_lamaDiDaerahEndemis: action.answer
             });
+        case 'BERAPA_LAMA':
+            return Object.assign({}, state, {
+                demam_berapaLama: action.answer
+            });
         case 'DEMAM_SETIAP_HARI':
             return Object.assign({}, state, {
                 demam_isDemamSetiapHari: action.answer

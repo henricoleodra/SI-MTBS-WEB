@@ -9,7 +9,7 @@ const classifierDemam = (ansDemam) =>{
                     klasifikasi = 'Penyakit Berat Dengan Demam';
                 }
                 else{
-                    klasifikasi = '\nPenyakit Berat Dengan Demam';
+                    klasifikasi += '\nPenyakit Berat Dengan Demam';
                 }
             }
             else if(ansDemam.demam_hasilRDT != null){
@@ -26,7 +26,7 @@ const classifierDemam = (ansDemam) =>{
                         klasifikasi = 'Malaria';
                     }
                     else{
-                        klasifikasi = '\nMalaria';
+                        klasifikasi += '\nMalaria';
                     }
                 }
                 else if(ansDemam.demam_hasilRDT === false  || demam_sebabLain != ''){
@@ -42,7 +42,7 @@ const classifierDemam = (ansDemam) =>{
                         klasifikasi = 'Demam Mungkin Bukan Malaria';
                     }
                     else{
-                        klasifikasi = '\nDemam Mungkin Bukan Malaria';
+                        klasifikasi += '\nDemam Mungkin Bukan Malaria';
                     }
                 }
             }
@@ -59,7 +59,7 @@ const classifierDemam = (ansDemam) =>{
                     klasifikasi = 'Demam Mungkin Bukan Malaria';
                 }
                 else{
-                    klasifikasi = '\nDemam Mungkin Bukan Malaria';
+                    klasifikasi += '\nDemam Mungkin Bukan Malaria';
                 }
             }
         }
@@ -72,7 +72,7 @@ const classifierDemam = (ansDemam) =>{
                     klasifikasi = 'Penyakit Berat Dengan Demam';
                 }
                 else{
-                    klasifikasi = '\nPenyakit Berat Dengan Demam';
+                    klasifikasi += '\nPenyakit Berat Dengan Demam';
                 }
             }
             else if(ansDemam.klasifikasiTBU === false && ansDemam.demam_kudukKaku === false){
@@ -88,7 +88,7 @@ const classifierDemam = (ansDemam) =>{
                     klasifikasi = 'Demam Bukan Malaria';
                 }
                 else{
-                    klasifikasi = '\nDemam Bukan Malaria';
+                    klasifikasi += '\nDemam Bukan Malaria';
                 }
             }
         }    
@@ -101,7 +101,7 @@ const classifierDemam = (ansDemam) =>{
                     klasifikasi = 'Campak Dengan Komplikasi Berat';
                 }
                 else{
-                    klasifikasi = '\nCampak Dengan Komplikasi Berat';
+                    klasifikasi += '\nCampak Dengan Komplikasi Berat';
                 }
             }
             else if(ansDemam.demam_nanahDiMata === true || ansDemam.demam_isLukaMulut === true){
@@ -117,7 +117,7 @@ const classifierDemam = (ansDemam) =>{
                     klasifikasi = 'Campak Dengan Komplikasi Pada Mata Dan/Atau Mulut';
                 }
                 else{
-                    klasifikasi = '\nCampak Dengan Komplikasi Pada Mata Dan/Atau Mulut';
+                    klasifikasi += '\nCampak Dengan Komplikasi Pada Mata Dan/Atau Mulut';
                 }
             }
         }
@@ -155,7 +155,7 @@ const classifierDemam = (ansDemam) =>{
                 klasifikasi = 'Demam Berdarah Dengue (DBD)';
             }
             else{
-                klasifikasi = '\nDemam Berdarah Dengue (DBD)';
+                klasifikasi += '\nDemam Berdarah Dengue (DBD)';
             }
         }
         else if(tmpMendadakTinggi === true || tmpPendarahan === false || tmpTorniket === false){
@@ -171,7 +171,7 @@ const classifierDemam = (ansDemam) =>{
                 klasifikasi = 'Mungkin DBD';
             }
             else{
-                klasifikasi = '\nMungkin DBD';
+                klasifikasi += '\nMungkin DBD';
             }
         }
         else if(tmpTandaSyok === false && tmpUluHati === false && tmpMuntahMuntah === false && tmpPendarahan === false && tmpTorniket === false && tmpMendadakTinggi === false){
@@ -187,7 +187,7 @@ const classifierDemam = (ansDemam) =>{
                 klasifikasi = 'Demam Mungkin Bukan DBD';
             }
             else{
-                klasifikasi = '\nDemam Mungkin Bukan DBD';
+                klasifikasi += '\nDemam Mungkin Bukan DBD';
             }
         }
     }

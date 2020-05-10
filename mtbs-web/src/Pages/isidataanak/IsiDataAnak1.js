@@ -9,7 +9,7 @@ import { faCalendarDay } from '@fortawesome/free-solid-svg-icons'
 import HeaderTitle from './../../Components/headertitle/HeaderTitle'
 
 // Actions
-import { DataAnakChange } from '../../Actions';
+import { DataAnakChange, AnsDemamChange } from '../../Actions';
 
 // Styles
 import '../../Assets/style/style.css';
@@ -95,6 +95,7 @@ const IsiDataAnak1 = () =>{
             var umur = month + " bulan";
             dispatch(DataAnakChange('DISPLAY_UMUR_ANAK', umur)); 
         }
+        dispatch(AnsDemamChange('UMUR_ANAK', month));
         dispatch(DataAnakChange('UMUR_ANAK', differenceInDays));
         dispatch(DataAnakChange('TANGGAL_KUNJUNGAN', tmpCurDate));
         dispatch(DataAnakChange('KUNJUNGAN_PERTAMA', true));

@@ -9,7 +9,7 @@ import axios from 'axios';
 import '../../Assets/style/style.css';
 
 // Actions
-import { KlasifikasiTBUChange, AnsTBUChange } from '../../Actions';
+import { KlasifikasiTBUChange, AnsTBUChange, AnsDemamChange } from '../../Actions';
 import { compStatusChange } from '../../Actions';
 
 var outlineColor = {
@@ -44,6 +44,12 @@ const TandaBahayaUmum2 = (props) => {
     .then(res => {
       dispatch(KlasifikasiTBUChange('TBU_KLASIFIKASI', res.data.hasilKlasifkasi));
       dispatch(KlasifikasiTBUChange('TBU_STATUS', res.data.statusKlasifikasi));
+      if(res.data.statusKlasifikasi === 'danger'){
+        dispatch(AnsDemamChange('KLASIFIKASI_TBU', true));
+      }
+      else{
+        dispatch(AnsDemamChange('KLASIFIKASI_TBU', false));
+      }
     })
     .catch(err=>{
       console.log(err);

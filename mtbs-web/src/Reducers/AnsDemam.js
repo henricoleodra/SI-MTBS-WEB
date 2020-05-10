@@ -1,8 +1,12 @@
 const initState = {
     demam: null,
+    umurAnak : null,
+    suhuAnak : null,
+    klasifikasiTBU : null,
     demam_isDaerahEndemis: null,
     demam_isBerkunjungDaerahEndemis: null,
     demam_lamaDiDaerahEndemis: "",
+    demam_berapaLama: "",
     demam_isDemamSetiapHari: null,
     demam_pernahMalaria: null,
     demam_isCampak3Bulan: null,
@@ -11,10 +15,12 @@ const initState = {
     demam_ruamKemerahan: null,
     demam_tandaLain: null,
 
+    demam_hasilRDT: null,
     demam_tindakanPengobatan_hasilRDT: null,
 
     demam_isLukaMulut: null,
-    demam_descLukaMulut: null,
+    demam_descLukaMulutLuas: null,
+    demam_descLukaMulutDalam: null,
     demam_nanahDiMata: null,
     demam_korneaKeruh: null,
 
@@ -37,6 +43,18 @@ const ansDemamReducer = (state = initState, action) => {
         case 'DEMAM':
             return Object.assign({}, state, {
                 demam: action.answer
+            });
+        case 'UMUR_ANAK':
+            return Object.assign({}, state, {
+                umurAnak: action.answer
+            });
+        case 'SUHU_ANAK':
+            return Object.assign({}, state, {
+                suhuAnak: action.answer
+            });
+        case 'KLASIFIKASI_TBU':
+            return Object.assign({}, state, {
+                klasifikasiTBU: action.answer
             });
         case 'DAERAH_ENDEMIS':
             return Object.assign({}, state, {
@@ -81,6 +99,10 @@ const ansDemamReducer = (state = initState, action) => {
         case 'TANDA_LAIN':
             return Object.assign({}, state, {
                 demam_tandaLain: action.answer
+            });
+        case 'HASIL_RDT':
+            return Object.assign({}, state, {
+                demam_hasilRDT: action.answer
             });
         case 'TINDAKAN_HASIL_RDT':
             return Object.assign({}, state, {

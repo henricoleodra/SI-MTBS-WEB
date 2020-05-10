@@ -8,7 +8,7 @@ import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons
 import '../../Assets/style/style.css';
 
 // Actions
-import { KlasifikasiDemamChange, AnsDemamChange, compStatusChange, AnsDiareChange } from '../../Actions';
+import { KlasifikasiDemamChange, AnsDemamChange, compStatusChange } from '../../Actions';
 
 let outlineColor = {
     borderColor : '#41E8B3'

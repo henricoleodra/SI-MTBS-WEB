@@ -9,7 +9,7 @@ import { faRunning, faSearch } from '@fortawesome/free-solid-svg-icons'
 import HeaderTitle from './../../Components/headertitle/HeaderTitle'
 
 // Actions
-import { DataAnakChange } from '../../Actions';
+import { DataAnakChange, AnsDemamChange } from '../../Actions';
 
 // Styles
 import '../../Assets/style/style.css';
@@ -66,6 +66,7 @@ const IsiDataAnak2 = () =>{
     const handleSubmit = event =>{
         event.preventDefault();
         dispatch(DataAnakChange('SUHU_ANAK', suhuAnak));
+        dispatch(AnsDemamChange('SUHU_ANAK', suhuAnak));
         dispatch(DataAnakChange('BERAT_ANAK', beratAnak));
         dispatch(DataAnakChange('TINGGI_ANAK', tinggiAnak));
         dispatch(DataAnakChange('KUNJUNGAN_KE', kunjunganKe));

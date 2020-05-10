@@ -6,7 +6,7 @@ const classifierDemam = (ansDemam) =>{
             if(ansDemam.klasifikasiTBU === true || ansDemam.demam_kudukKaku === true){
                 status = 1;
                 if(klasifikasi != null){
-                    klasifikasi = '\nPenyakit Berat Dengan Demam';
+                    klasifikasi = 'Penyakit Berat Dengan Demam';
                 }
                 else{
                     klasifikasi = 'Penyakit Berat Dengan Demam';
@@ -23,7 +23,7 @@ const classifierDemam = (ansDemam) =>{
                         }
                     }
                     if(klasifikasi != null){
-                        klasifikasi = '\nMalaria';
+                        klasifikasi = 'Malaria';
                     }
                     else{
                         klasifikasi = 'Malaria';
@@ -39,7 +39,7 @@ const classifierDemam = (ansDemam) =>{
                         }
                     }
                     if(klasifikasi != null){
-                        klasifikasi = '\nDemam Mungkin Bukan Malaria';
+                        klasifikasi = 'Demam Mungkin Bukan Malaria';
                     }
                     else{
                         klasifikasi = 'Demam Mungkin Bukan Malaria';
@@ -56,7 +56,7 @@ const classifierDemam = (ansDemam) =>{
                     }
                 }
                 if(klasifikasi != null){
-                    klasifikasi = '\nDemam Mungkin Bukan Malaria';
+                    klasifikasi = 'Demam Mungkin Bukan Malaria';
                 }
                 else{
                     klasifikasi = 'Demam Mungkin Bukan Malaria';
@@ -69,7 +69,7 @@ const classifierDemam = (ansDemam) =>{
             if(ansDemam.klasifikasiTBU === true || ansDemam.demam_kudukKaku === true || ansDemam.umurAnak <= 3){
                 status = 1;
                 if(klasifikasi != null){
-                    klasifikasi = '\nPenyakit Berat Dengan Demam';
+                    klasifikasi = 'Penyakit Berat Dengan Demam';
                 }
                 else{
                     klasifikasi = 'Penyakit Berat Dengan Demam';
@@ -85,7 +85,7 @@ const classifierDemam = (ansDemam) =>{
                     }
                 }
                 if(klasifikasi != null){
-                    klasifikasi = '\nDemam Bukan Malaria';
+                    klasifikasi = 'Demam Bukan Malaria';
                 }
                 else{
                     klasifikasi = 'Demam Bukan Malaria';
@@ -93,30 +93,32 @@ const classifierDemam = (ansDemam) =>{
             }
         }    
     }
-    if(demam_ruamKemerahan === true){
-        if(ansDemam.klasifikasiTBU === true || ansDemam.demam_korneaKeruh === true || ( ansDemam.demam_isLukaMulut === true && (ansDemam.demam_descLukaMulutLuas === true || ansDemam.demam_descLukaMulutDalam === true))){
-            status = 1;
-            if(klasifikasi != null){
-                klasifikasi = '\nCampak Dengan Komplikasi Berat';
-            }
-            else{
-                klasifikasi = 'Campak Dengan Komplikasi Berat';
-            }
-        }
-        else if(ansDemam.demam_nanahDiMata === true || ansDemam.demam_isLukaMulut === true){
-            if(status === null){
-                status = 2;
-            }
-            else{
-                if(status != 1){
-                    status = 2;
+    if(ansDemam.demam_ruamKemerahan !=null){
+        if(ansDemam.demam_ruamKemerahan === true){
+            if(ansDemam.klasifikasiTBU === true || ansDemam.demam_korneaKeruh === true || ( ansDemam.demam_isLukaMulut === true && (ansDemam.demam_descLukaMulutLuas === true || ansDemam.demam_descLukaMulutDalam === true))){
+                status = 1;
+                if(klasifikasi != null){
+                    klasifikasi = 'Campak Dengan Komplikasi Berat';
+                }
+                else{
+                    klasifikasi = 'Campak Dengan Komplikasi Berat';
                 }
             }
-            if(klasifikasi != null){
-                klasifikasi = '\nCampak Dengan Komplikasi Pada Mata Dan/Atau Mulut';
-            }
-            else{
-                klasifikasi = 'Campak Dengan Komplikasi Pada Mata Dan/Atau Mulut';
+            else if(ansDemam.demam_nanahDiMata === true || ansDemam.demam_isLukaMulut === true){
+                if(status === null){
+                    status = 2;
+                }
+                else{
+                    if(status != 1){
+                        status = 2;
+                    }
+                }
+                if(klasifikasi != null){
+                    klasifikasi = 'Campak Dengan Komplikasi Pada Mata Dan/Atau Mulut';
+                }
+                else{
+                    klasifikasi = 'Campak Dengan Komplikasi Pada Mata Dan/Atau Mulut';
+                }
             }
         }
     }
@@ -150,7 +152,7 @@ const classifierDemam = (ansDemam) =>{
         if(tmpTandaSyok === true || tmpUluHati === true || tmpMuntahMuntah === true || tmpPendarahan === true || tmpTorniket === true){
             status = 1;
             if(klasifikasi != null){
-                klasifikasi = '\nDemam Berdarah Dengue (DBD)';
+                klasifikasi = 'Demam Berdarah Dengue (DBD)';
             }
             else{
                 klasifikasi = 'Demam Berdarah Dengue (DBD)';
@@ -166,7 +168,7 @@ const classifierDemam = (ansDemam) =>{
                 }
             }
             if(klasifikasi != null){
-                klasifikasi = '\nMungkin DBD';
+                klasifikasi = 'Mungkin DBD';
             }
             else{
                 klasifikasi = 'Mungkin DBD';
@@ -182,7 +184,7 @@ const classifierDemam = (ansDemam) =>{
                 }
             }
             if(klasifikasi != null){
-                klasifikasi = '\nDemam Mungkin Bukan DBD';
+                klasifikasi = 'Demam Mungkin Bukan DBD';
             }
             else{
                 klasifikasi = 'Demam Mungkin Bukan DBD';
@@ -200,7 +202,7 @@ const classifierDemam = (ansDemam) =>{
         resStatus = 'success';
     }
     const ans = {
-        hasilKlasifkasi : klasifikasi,
+        hasilKlasifikasi : klasifikasi,
         statusKlasifikasi: resStatus,    
     }
     return ans;

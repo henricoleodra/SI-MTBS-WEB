@@ -80,9 +80,6 @@ const Demam = (props) => {
                         <div className="p-2">
                             <FontAwesomeIcon icon={faCircle} className="text-muted" />
                         </div>
-                        <div className="p-2">
-                            <FontAwesomeIcon icon={faCircle} className="text-muted" />
-                        </div>
                     </div>
                     <div className="mt-2">
                         <h3 className="text-center font-weight-bold">Demam</h3>

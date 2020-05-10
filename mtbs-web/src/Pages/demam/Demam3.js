@@ -7,7 +7,7 @@ import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 
 // Actions
-import { KlasifikasiDemamChange, AnsDemamChange } from '../../Actions';
+import { AnsDemamChange } from '../../Actions';
 
 
 import '../../Assets/style/style.css';
@@ -24,17 +24,18 @@ const Demam = (props) => {
 
     const handleSubmit = event => {
         event.preventDefault();
-        axios.post(`/Demam`, {
-            ansDemam: ansDemam
-        })
-            .then(res => {
-                dispatch(KlasifikasiDemamChange('DEMAM_KLASIFIKASI', res.data.hasilKlasifikasi));
-                dispatch(KlasifikasiDemamChange('DEMAM_STATUS', res.data.statusKlasifikasi));
-            })
-            .catch(err => {
-                console.log(err);
-            });
-        history.push("Demam4");
+        if(demam_ruamKemerahan === true){
+            history.push("Demam5");
+        }
+        else{
+            if(ansDemam.demam_berapaLama >= 2 && ansDemam.demam_berapaLama <=7){
+                history.push("Demam6");
+            }
+            else{
+                history.push("TelingaYaTidak");
+            }
+        }
+        
     }
 
     const handleAnswer1 = event => {
@@ -45,23 +46,13 @@ const Demam = (props) => {
             set_demam_ruamKemerahan(false);
             dispatch(AnsDemamChange('RUAM_KEMERAHAN', false));
         }
+        
     }
 
     return (
         <Form onSubmit={handleSubmit}>
             <div className="w-100">
                 <div className="col-12">
-                    <div className="d-flex justify-content-center mt-3">
-                        <div className="p-2">
-                            <FontAwesomeIcon icon={faCircle} className="text-muted" />
-                        </div>
-                        <div className="p-2">
-                            <FontAwesomeIcon icon={faCircle} className="text-muted" />
-                        </div>
-                        <div className="p-2">
-                            <FontAwesomeIcon icon={faCircle} style={{ color: '#41E8B3' }} />
-                        </div>
-                    </div>
                     <div className="mt-2">
                         <h3 className="text-center font-weight-bold">Demam</h3>
                         <hr
@@ -74,7 +65,7 @@ const Demam = (props) => {
                         {/* <p className="text-center"><b>Jika Daerah Non Endemis</b>, tanyakan riwayat bepergian ke daerah endemis
                         malaria dalam 2 minggu terakhir adn tentukan daerah endemis sesuai tempat yang dikunjungi</p> */}
                     </div>
-                    <div style={{ minHeight: "475px" }}>
+                    <div style={{ minHeight: "510px" }}>
                         <Row className="justify-content-around">
                             <Card style={outlineColor} className="text-center w-75" >
                                 <CardBody>

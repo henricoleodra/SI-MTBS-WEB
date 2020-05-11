@@ -24,7 +24,9 @@ const SummaryItem = (props) => {
         <Collapse className="w-100 mb-1 boldFont" isOpen={props.isOpen}>
           <Card>
             <CardBody className="pl-2 pr-2 pt-3 pb-3">
-              {props.children}
+              <pre className="m-0">
+                {props.children}
+              </pre>
             </CardBody> 
           </Card>
         </Collapse>

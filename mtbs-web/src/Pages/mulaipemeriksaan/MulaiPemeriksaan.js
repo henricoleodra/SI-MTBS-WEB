@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import { Row, Col, Card, CardTitle, CardImg,  } from 'reactstrap';
-
+import { Row, Col, Card, CardTitle, CardText } from 'reactstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheck, faTimes } from '@fortawesome/free-solid-svg-icons'
 //Import Component
 import HeaderTitle from './../../Components/headertitle/HeaderTitle'
 
@@ -12,20 +13,24 @@ const MulaiPemeriksaan = (props) =>{
             <div className="mt-2">
                 <h3 className="text-center">Apakah Anak sudah pernah melakukan pemeriksaan ?</h3>
             </div>
-            <Row className="justify-content-around mt-3">
+            <Row className="justify-content-end mt-3 ml-0 mr-0" style={{width : "100%"}}>
                 <Col xs="6" >
                     <Link to="PencarianDataAnak" style={{textDecoration: 'none'}}>
                         <Card style={{minHeight: '400px'}} className="bg-success shadow rounded">
-                            <CardImg alt="Ya"/>
-                            <CardTitle className="text-white text-center"><h1>Ya</h1></CardTitle>
+                            <CardText className="d-flex justify-content-center mt-2">
+                                <h1><FontAwesomeIcon icon={faCheck} className="text-white fa-7x"/></h1>
+                            </CardText>
+                            <CardTitle className="text-white text-center"><h1>YA</h1></CardTitle>
                         </Card>
                     </Link>
                 </Col>
                 <Col xs="6" >
                     <Link to="IsiDataAnak1" style={{textDecoration: 'none'}}>
                         <Card style={{minHeight: '400px'}} className="bg-danger shadow rounded">
-                            <CardImg alt="Tidak"/>
-                            <CardTitle className="text-white text-center"><h1>Tidak</h1></CardTitle>
+                            <CardText className="d-flex justify-content-center mt-2">
+                                <h1><FontAwesomeIcon icon={faTimes} className="text-white fa-7x"/></h1>
+                            </CardText>
+                            <CardTitle className="text-white text-center"><h1>TIDAK</h1></CardTitle>
                         </Card>
                     </Link>
                 </Col>

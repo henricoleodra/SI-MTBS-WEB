@@ -56,14 +56,14 @@ const SideBar = (props) => {
         },
         {
             'title' : 'Demam',
-            'link' : 'Demam1',
+            'link' : 'DemamYaTidak',
             'active' : url==='DemamYaTidak' || url==='DemamDaerah' || url==='DemamKonfirmasiDaerah' || url==='DemamPerhatian' || url==='Demam',
             'color' : (klasifikasiDemam.demam_status===null ? 'dark' : klasifikasiDemam.demam_status),
             'disabled' : compStatus.demam
         },
         {
             'title' : 'Telinga',
-            'link' : 'Telinga1',
+            'link' : 'TelingaYaTidak',
             'active' : url==='TelingaYaTidak' || url==='Telinga',
             'color' : (klasifikasiTelinga.telinga_status===null ? 'dark' : klasifikasiTelinga.telinga_status),
             'disabled' : compStatus.telinga

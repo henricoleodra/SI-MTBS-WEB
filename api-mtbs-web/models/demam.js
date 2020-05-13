@@ -5,7 +5,7 @@ const classifierDemam = (ansDemam) =>{
         if(ansDemam.demam_kudukKaku != null){
             if(ansDemam.klasifikasiTBU === true || ansDemam.demam_kudukKaku === true){
                 status = 1;
-                if(klasifikasi != null){
+                if(klasifikasi === null){
                     klasifikasi = 'Penyakit Berat Dengan Demam';
                 }
                 else{
@@ -22,14 +22,14 @@ const classifierDemam = (ansDemam) =>{
                             status = 2;
                         }
                     }
-                    if(klasifikasi != null){
+                    if(klasifikasi === null){
                         klasifikasi = 'Malaria';
                     }
                     else{
                         klasifikasi += '\nMalaria';
                     }
                 }
-                else if(ansDemam.demam_hasilRDT === false  || demam_sebabLain != ''){
+                else if(ansDemam.demam_hasilRDT === false  || ansDemam.demam_sebabLain != ''){
                     if(status === null){
                         status = 3;
                     }
@@ -38,7 +38,7 @@ const classifierDemam = (ansDemam) =>{
                             status = 3;
                         }
                     }
-                    if(klasifikasi != null){
+                    if(klasifikasi === null){
                         klasifikasi = 'Demam Mungkin Bukan Malaria';
                     }
                     else{
@@ -46,7 +46,7 @@ const classifierDemam = (ansDemam) =>{
                     }
                 }
             }
-            else if(demam_sebabLain != ''){
+            else if(ansDemam.demam_sebabLain != ''){
                 if(status === null){
                     status = 3;
                 }
@@ -55,7 +55,7 @@ const classifierDemam = (ansDemam) =>{
                         status = 3;
                     }
                 }
-                if(klasifikasi != null){
+                if(klasifikasi === null){
                     klasifikasi = 'Demam Mungkin Bukan Malaria';
                 }
                 else{
@@ -68,7 +68,7 @@ const classifierDemam = (ansDemam) =>{
         if(ansDemam.demam_kudukKaku != null){
             if(ansDemam.klasifikasiTBU === true || ansDemam.demam_kudukKaku === true || ansDemam.umurAnak <= 3){
                 status = 1;
-                if(klasifikasi != null){
+                if(klasifikasi === null){
                     klasifikasi = 'Penyakit Berat Dengan Demam';
                 }
                 else{
@@ -84,7 +84,7 @@ const classifierDemam = (ansDemam) =>{
                         status = 3;
                     }
                 }
-                if(klasifikasi != null){
+                if(klasifikasi === null){
                     klasifikasi = 'Demam Bukan Malaria';
                 }
                 else{
@@ -97,7 +97,7 @@ const classifierDemam = (ansDemam) =>{
         if(ansDemam.demam_ruamKemerahan === true){
             if(ansDemam.klasifikasiTBU === true || ansDemam.demam_korneaKeruh === true || ( ansDemam.demam_isLukaMulut === true && (ansDemam.demam_descLukaMulutLuas === true || ansDemam.demam_descLukaMulutDalam === true))){
                 status = 1;
-                if(klasifikasi != null){
+                if(klasifikasi === null){
                     klasifikasi = 'Campak Dengan Komplikasi Berat';
                 }
                 else{
@@ -113,7 +113,7 @@ const classifierDemam = (ansDemam) =>{
                         status = 2;
                     }
                 }
-                if(klasifikasi != null){
+                if(klasifikasi === null){
                     klasifikasi = 'Campak Dengan Komplikasi Pada Mata Dan/Atau Mulut';
                 }
                 else{
@@ -123,12 +123,12 @@ const classifierDemam = (ansDemam) =>{
         }
     }
     if(ansDemam.demam_berapaLama >=2){
-        var tmpTandaSyok = false;
-        var tmpUluHati = false;
-        var tmpMuntahMuntah = false;
-        var tmpPendarahan = false;
-        var tmpTorniket = false;
-        var tmpMendadakTinggi = false;
+        var tmpTandaSyok = null;
+        var tmpUluHati = null;
+        var tmpMuntahMuntah = null;
+        var tmpPendarahan = null;
+        var tmpTorniket = null;
+        var tmpMendadakTinggi = null;
 
         if(ansDemam.demam_isEkstremitasDingin != null){
             tmpTandaSyok = ansDemam.demam_isEkstremitasDingin;
@@ -151,7 +151,7 @@ const classifierDemam = (ansDemam) =>{
         
         if(tmpTandaSyok === true || tmpUluHati === true || tmpMuntahMuntah === true || tmpPendarahan === true || tmpTorniket === true){
             status = 1;
-            if(klasifikasi != null){
+            if(klasifikasi === null){
                 klasifikasi = 'Demam Berdarah Dengue (DBD)';
             }
             else{
@@ -167,7 +167,7 @@ const classifierDemam = (ansDemam) =>{
                     status = 2;
                 }
             }
-            if(klasifikasi != null){
+            if(klasifikasi === null){
                 klasifikasi = 'Mungkin DBD';
             }
             else{
@@ -183,7 +183,7 @@ const classifierDemam = (ansDemam) =>{
                     status = 3;
                 }
             }
-            if(klasifikasi != null){
+            if(klasifikasi === null){
                 klasifikasi = 'Demam Mungkin Bukan DBD';
             }
             else{

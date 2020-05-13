@@ -15,7 +15,7 @@ const initState = {
     demam_ruamKemerahan: null,
     demam_tandaLain: null,
 
-    demam_hasilRDT: null,
+    demam_hasilRDT: false,
     demam_tindakanPengobatan_hasilRDT: null,
 
     demam_isLukaMulut: null,

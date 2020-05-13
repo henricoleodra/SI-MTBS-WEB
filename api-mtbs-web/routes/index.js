@@ -21,6 +21,7 @@ router.post('/TBU/2', tandabahayaumum.tandaBahayaUmum2);
 router.post('/Batuk/1', batuk.batuk1);
 router.post('/Batuk/2', batuk.batuk2);
 //Diare
+router.post(`/Diare`,diare.diare);
 router.post(`/Diare/1`,diare.diare1);
 router.post(`/Diare/2`,diare.diare2);
 router.post(`/Diare/3`,diare.diare3);

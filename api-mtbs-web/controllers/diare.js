@@ -27,6 +27,17 @@ const diare3 = async function(req, res, next) {
     res.json(ans);
 };
 
+
+const diare = async function(req, res, next){
+    const classDiare = await klasifikasiDiare.classifierDemam(req.body.ansDiare);
+    const ans = {
+        hasilKlasifikasi : classDiare.hasilKlasifikasi,
+        statusKlasifikasi: classDiare.statusKlasifikasi,
+    }
+    res.json(ans);
+}
+
+
 module.exports = {
-    diare1, diare2, diare3
+    diare1, diare2, diare3, diare
 };

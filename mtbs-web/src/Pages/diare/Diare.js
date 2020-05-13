@@ -31,42 +31,52 @@ const Diare = (props) => {
 
     const handleSubmit = event =>{
         event.preventDefault();
-        if(klasifikasiDiare.diare_3 === true){
-            axios.post(`/Diare/3`, {
-                ansDiare : ansDiare
-            })
-            .then(res => {
-                dispatch(KlasifikasiDiareChange('DIARE_KLASIFIKASI', res.data.hasilKlasifikasi));
-                dispatch(KlasifikasiDiareChange('DIARE_STATUS', res.data.statusKlasifikasi));
-            })
-            .catch(err=>{
-              console.log(err);
-            }); 
-        }
-        else if(klasifikasiDiare.diare_2 === true){
-            axios.post(`/Diare/2`, {
-                ansDiare : ansDiare
-            })
-            .then(res => {
-                dispatch(KlasifikasiDiareChange('DIARE_KLASIFIKASI', res.data.hasilKlasifikasi));
-                dispatch(KlasifikasiDiareChange('DIARE_STATUS', res.data.statusKlasifikasi));
-            })
-            .catch(err=>{
-              console.log(err);
-            }); 
-        }
-        else{
-            axios.post(`/Diare/1`, {
-                ansDiare : ansDiare
-            })
-            .then(res => {
-                dispatch(KlasifikasiDiareChange('DIARE_KLASIFIKASI', res.data.hasilKlasifikasi));
-                dispatch(KlasifikasiDiareChange('DIARE_STATUS', res.data.statusKlasifikasi));
-            })
-            .catch(err=>{
-              console.log(err);
-            }); 
-        }
+        // if(klasifikasiDiare.diare_3 === true){
+        //     axios.post(`/Diare/3`, {
+        //         ansDiare : ansDiare
+        //     })
+        //     .then(res => {
+        //         dispatch(KlasifikasiDiareChange('DIARE_KLASIFIKASI', res.data.hasilKlasifikasi));
+        //         dispatch(KlasifikasiDiareChange('DIARE_STATUS', res.data.statusKlasifikasi));
+        //     })
+        //     .catch(err=>{
+        //       console.log(err);
+        //     }); 
+        // }
+        // else if(klasifikasiDiare.diare_2 === true){
+        //     axios.post(`/Diare/2`, {
+        //         ansDiare : ansDiare
+        //     })
+        //     .then(res => {
+        //         dispatch(KlasifikasiDiareChange('DIARE_KLASIFIKASI', res.data.hasilKlasifikasi));
+        //         dispatch(KlasifikasiDiareChange('DIARE_STATUS', res.data.statusKlasifikasi));
+        //     })
+        //     .catch(err=>{
+        //       console.log(err);
+        //     }); 
+        // }
+        // else{
+        //     axios.post(`/Diare/1`, {
+        //         ansDiare : ansDiare
+        //     })
+        //     .then(res => {
+        //         dispatch(KlasifikasiDiareChange('DIARE_KLASIFIKASI', res.data.hasilKlasifikasi));
+        //         dispatch(KlasifikasiDiareChange('DIARE_STATUS', res.data.statusKlasifikasi));
+        //     })
+        //     .catch(err=>{
+        //       console.log(err);
+        //     }); 
+        // }
+        axios.post(`/Diare`, {
+            ansDiare: ansDiare
+        })
+        .then(res => {
+            dispatch(KlasifikasiDiareChange('DIARE_KLASIFIKASI', res.data.hasilKlasifikasi));
+            dispatch(KlasifikasiDiareChange('DIARE_STATUS', res.data.statusKlasifikasi));
+        })
+        .catch(err => {
+            console.log(err);
+        });
         history.push("Diare2");
     }
 

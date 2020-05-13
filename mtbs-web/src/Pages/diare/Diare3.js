@@ -24,17 +24,27 @@ const Diare3 = (props) => {
     
     const handleSubmit = event =>{
         event.preventDefault();
-        axios.post(`/Diare/3`, {
-            ansDiare : ansDiare
+        // axios.post(`/Diare/3`, {
+        //     ansDiare : ansDiare
+        // })
+        // .then(res => {
+        //     dispatch(KlasifikasiDiareChange('DIARE_KLASIFIKASI', res.data.hasilKlasifikasi));
+        //     dispatch(KlasifikasiDiareChange('DIARE_STATUS', res.data.statusKlasifikasi));
+        // })
+        // .catch(err=>{
+        //   console.log(err);
+        // }); 
+        // dispatch(KlasifikasiDiareChange('DIARE_3', true));
+        axios.post(`/Diare`, {
+            ansDiare: ansDiare
         })
         .then(res => {
             dispatch(KlasifikasiDiareChange('DIARE_KLASIFIKASI', res.data.hasilKlasifikasi));
             dispatch(KlasifikasiDiareChange('DIARE_STATUS', res.data.statusKlasifikasi));
         })
-        .catch(err=>{
-          console.log(err);
-        }); 
-        dispatch(KlasifikasiDiareChange('DIARE_3', true));
+        .catch(err => {
+            console.log(err);
+        });
         dispatch(compStatusChange('DEMAM'));
         history.push("DemamYaTidak");
     }

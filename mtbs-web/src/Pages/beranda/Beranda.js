@@ -10,8 +10,8 @@ import NavBar from './../../Components/navbar/NavBar';
 // import buku from './../../Assets/image/book.png';
 // import baby from './../../Assets/image/baby.png';
 import pemeriksaan from './../../Assets/image/pemeriksaan.png';
-import mtbs from './../../Assets/image/mtbs.png';
-import dataanak from './../../Assets/image/data-anak.png';
+import mtbs from './../../Assets/image/mtbs-Revisi.png';
+import dataanak from './../../Assets/image/data-AnakRevisi.png';
 
 const Beranda = (props) =>{
     return(

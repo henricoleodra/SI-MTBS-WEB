@@ -24,7 +24,7 @@ const Demam = (props) => {
 
     const handleSubmit = event => {
         event.preventDefault();
-        if(demam_ruamKemerahan === true){
+        if(ansDemam.demam_isCampak3Bulan === true){
             history.push("Demam5");
         }
         else{
@@ -53,6 +53,17 @@ const Demam = (props) => {
         <Form onSubmit={handleSubmit}>
             <div className="w-100">
                 <div className="col-12">
+                    <div className="d-flex justify-content-center mt-3">
+                        <div className="p-2">
+                            <FontAwesomeIcon icon={faCircle} className="text-muted" />
+                        </div>
+                        <div className="p-2">
+                            <FontAwesomeIcon icon={faCircle} className="text-muted" />
+                        </div>
+                        <div className="p-2">
+                            <FontAwesomeIcon icon={faCircle} style={{ color: '#41E8B3' }} />
+                        </div>
+                    </div>
                     <div className="mt-2">
                         <h3 className="text-center font-weight-bold">Demam</h3>
                         <hr
@@ -65,7 +76,7 @@ const Demam = (props) => {
                         {/* <p className="text-center"><b>Jika Daerah Non Endemis</b>, tanyakan riwayat bepergian ke daerah endemis
                         malaria dalam 2 minggu terakhir adn tentukan daerah endemis sesuai tempat yang dikunjungi</p> */}
                     </div>
-                    <div style={{ minHeight: "510px" }}>
+                    <div style={{ minHeight: "475px" }}>
                         <Row className="justify-content-around">
                             <Card style={outlineColor} className="text-center w-75" >
                                 <CardBody>

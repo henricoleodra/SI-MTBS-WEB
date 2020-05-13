@@ -198,8 +198,11 @@ const classifierDemam = (ansDemam) =>{
     else if(status === 2){
         resStatus = 'warning';
     }
-    else{
+    else if(status === 3){
         resStatus = 'success';
+    }
+    else{
+        resStatus = 'dark';
     }
     const ans = {
         hasilKlasifikasi : klasifikasi,

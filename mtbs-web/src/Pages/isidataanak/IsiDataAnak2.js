@@ -16,6 +16,11 @@ import '../../Assets/style/style.css';
 
 
 const IsiDataAnak2 = () =>{
+    const date = new Date();
+    const tmpHari = date.getDay();
+    const tmpBulan = date.getMonth();
+    const hari = (tmpHari === 1 ? 'Senin' : tmpHari === 2 ? 'Selasa' : tmpHari === 3 ? 'Rabu' : tmpHari === 4 ? 'Kamis' : tmpHari === 5 ? 'Jumat' : tmpHari === 6 ? 'Sabtu' : 'Minggu');
+    const bulan = (tmpBulan === 1 ? 'Januari' : tmpBulan === 2 ? 'Februari' : tmpBulan === 3 ? 'Maret' : tmpBulan === 4 ? 'April' : tmpBulan === 5 ? 'Mei' : tmpBulan === 6 ? 'Juni' : tmpBulan === 7 ? 'Juli' : tmpBulan === 8 ? 'Agustus' : tmpBulan === 9 ? 'September' : tmpBulan === 10 ? 'Oktober' : tmpBulan === 11 ? 'November' : 'Desember');
     const history = useHistory();
     const dispatch = useDispatch();
     const dataAnak = useSelector(state => state.dataAnak);
@@ -25,6 +30,7 @@ const IsiDataAnak2 = () =>{
     let [kunjunganKe, setKunjunganKe] = useState(dataAnak.kunjunganKe);
     let [pencarianKeluhan, setPencarianKeluhan] = useState("");
     let [keluhanAwal, setKeluhanAwal] = useState(dataAnak.keluhanAwal);
+    let [curDate, setCurDate] = useState(hari + ', ' + date.getDate() + ' ' + bulan + ' ' + date.getFullYear());
 
     const handleSuhuAnak = event =>{
         setSuhuAnak(event.target.value);
@@ -78,6 +84,7 @@ const IsiDataAnak2 = () =>{
     return(
         <div>
             <HeaderTitle title="Isi Data Anak"/>
+            <h4 className="text-center text-muted mt-3">Tanggal Pemeriksaan : {curDate}</h4>
             <div className="d-flex justify-content-center mt-5">
                 <Form className="w-75 justify-content-center" onSubmit={handleSubmit}>
                     <div style={{minHeight : "376px"}}>

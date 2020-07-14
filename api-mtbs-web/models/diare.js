@@ -117,7 +117,7 @@ const klasifikasiDiare3 = (ansDiare) =>{
     }
 };
 
-const classifierDemam = (ansDiare) =>{
+const classifierDiare = (ansDiare) =>{
     var status = null;
     var klasifikasi = null; 
     var berat = 0;
@@ -232,10 +232,10 @@ const classifierDemam = (ansDiare) =>{
                         status = 2;
                     }
                 }
-                if(klasifikasi === null){
+                if(klasifikasi === null && ansDiare.diare_berapaLama >= 14){
                     klasifikasi = 'Diare Persisten';
                 }
-                else{
+                else if(klasifikasi !== null && ansDiare.diare_berapaLama >= 14){
                     klasifikasi += '\nDiare Persisten';
                 }
             }
@@ -263,5 +263,5 @@ const classifierDemam = (ansDiare) =>{
 
 
 module.exports = {
-    klasifikasiDiare1, klasifikasiDiare2, klasifikasiDiare3, classifierDemam
+    klasifikasiDiare1, klasifikasiDiare2, klasifikasiDiare3, classifierDiare
 };

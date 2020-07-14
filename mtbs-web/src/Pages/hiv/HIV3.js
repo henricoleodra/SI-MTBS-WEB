@@ -49,7 +49,7 @@ const HIV = (props) =>{
     }
 
     return(
-        <Form id="formHIV3" className="" onsubmit={handleSubmit}>
+        <Form id="formHIV3" className="" onSubmit={handleSubmit}>
             <div className="w-100">
                 <div className="col-12">
                     <div className="d-flex justify-content-center mt-3">

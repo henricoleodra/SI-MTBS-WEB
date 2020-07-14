@@ -29,7 +29,8 @@ const diare3 = async function(req, res, next) {
 
 
 const diare = async function(req, res, next){
-    const classDiare = await klasifikasiDiare.classifierDemam(req.body.ansDiare);
+    const classDiare = await klasifikasiDiare.classifierDiare(req.body.ansDiare);
+    console.log(req.body.ansDiare);
     const ans = {
         hasilKlasifikasi : classDiare.hasilKlasifikasi,
         statusKlasifikasi: classDiare.statusKlasifikasi,

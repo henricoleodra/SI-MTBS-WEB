@@ -76,7 +76,7 @@ const Summary = () => {
     },
     {
       'title' : 'HIV',
-      'text' : (klasifikasiHIV.hiv_klasifikasi===null ? 'hello' : klasifikasiHIV.hiv_klasifikasi),
+      'text' : (klasifikasiHIV.hiv_klasifikasi===null ? '' : klasifikasiHIV.hiv_klasifikasi),
       'color' : (klasifikasiHIV.hiv_status===null ? 'dark' : klasifikasiHIV.hiv_status),
       'disabled' : compStatus.hiv
     },

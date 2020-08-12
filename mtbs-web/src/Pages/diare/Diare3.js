@@ -12,7 +12,7 @@ import { KlasifikasiDiareChange, AnsDiareChange, compStatusChange } from '../../
 import '../../Assets/style/style.css';
 
 let outlineColor = {
-    borderColor : '#41E8B3'
+    borderColor : '#75C9E6'
 }
 
 const Diare3 = (props) => {
@@ -84,15 +84,15 @@ const Diare3 = (props) => {
                         <FontAwesomeIcon icon={faCircle} className="text-muted"/>
                     </div> 
                     <div className="p-2">
-                        <FontAwesomeIcon icon={faCircle} style={{color: '#41E8B3'}}/>
+                        <FontAwesomeIcon icon={faCircle} style={{color: '#75C9E6'}}/>
                     </div> 
                 </div>
                 <div className="mt-2">
                     <h3 className="text-center font-weight-bold">Diare</h3>
                     <hr
                     style={{
-                        color: "#41E8B3",
-                        backgroundColor: "#41E8B3",
+                        color: "#75C9E6",
+                        backgroundColor: "#75C9E6",
                         height: 5
                     }}
                     />

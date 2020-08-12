@@ -13,7 +13,7 @@ import '../../Assets/style/style.css';
 import { KlasifikasiDiareChange, AnsDiareChange } from '../../Actions';
 
 let outlineColor = {
-    borderColor : '#41E8B3'
+    borderColor : '#75C9E6'
 }
 
 const Diare2 = (props) => {
@@ -101,7 +101,7 @@ const Diare2 = (props) => {
                             <FontAwesomeIcon icon={faCircle} className="text-muted" />
                         </div>
                     <div className="p-2">
-                        <FontAwesomeIcon icon={faCircle} style={{color: '#41E8B3'}}/>
+                        <FontAwesomeIcon icon={faCircle} style={{color: '#75C9E6'}}/>
                     </div> 
                     <div className="p-2">
                         <FontAwesomeIcon icon={faCircle} className="text-muted"/>
@@ -111,8 +111,8 @@ const Diare2 = (props) => {
                     <h3 className="text-center font-weight-bold">Diare</h3>
                     <hr
                     style={{
-                        color: "#41E8B3",
-                        backgroundColor: "#41E8B3",
+                        color: "#75C9E6",
+                        backgroundColor: "#75C9E6",
                         height: 5
                     }}
                     />
@@ -124,8 +124,8 @@ const Diare2 = (props) => {
                                 <CardTitle className="h5"><b>Tanyakan! </b>Keadaan umum anak</CardTitle>
                                 <hr
                                     style={{
-                                        color: "#41E8B3",
-                                        backgroundColor: "#41E8B3",
+                                        color: "#75C9E6",
+                                        backgroundColor: "#75C9E6",
                                         height: 1
                                     }}
                                 />

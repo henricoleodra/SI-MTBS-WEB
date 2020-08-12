@@ -13,7 +13,7 @@ import { KlasifikasiTBUChange, AnsTBUChange, AnsDemamChange } from '../../Action
 import { compStatusChange } from '../../Actions';
 
 var outlineColor = {
-  borderColor : '#41E8B3'
+  borderColor : '#75C9E6'
 }
 
 const TandaBahayaUmum2 = (props) => {
@@ -109,15 +109,15 @@ const TandaBahayaUmum2 = (props) => {
               <FontAwesomeIcon icon={faCircle}  className="text-muted"/>
             </div>
             <div className="p-2">
-              <FontAwesomeIcon icon={faCircle} style={{color: '#41E8B3'}}/>
+              <FontAwesomeIcon icon={faCircle} style={{color: '#75C9E6'}}/>
             </div> 
           </div>
           <div className="mt-2">
             <h3 className="text-center font-weight-bold">Tanda Bahaya Umum</h3>
             <hr
               style={{
-                  color: "#41E8B3",
-                  backgroundColor: "#41E8B3",
+                  color: "#75C9E6",
+                  backgroundColor: "#75C9E6",
                   height: 5
               }}
             />

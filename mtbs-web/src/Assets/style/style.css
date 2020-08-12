@@ -50,7 +50,7 @@ html, body {
 }
 
 .rdoBtn input:checked ~ .checkmark {
-  background-color: #41E8B3;
+  background-color: #007BFF;
 }
 
 .checkmark:after {
@@ -76,7 +76,7 @@ html, body {
   border-right: 5px solid;
   height: 100%;
   padding-right: 20px;
-  border-color: #41E8B3;
+  border-color: #007BFF;
 }
 
 .limitCol{
@@ -140,7 +140,7 @@ html, body {
 }
 
 .chckBtn input:checked ~ .checkmarkBox {
-  background-color: #41E8B3;
+  background-color: #007BFF;
 }
 
 

@@ -7,7 +7,7 @@ import SideBarItem from './sidebarItem/SideBarItem'
 import '../../Assets/style/style.css';
 
 let bgColor = {
-    backgroundColor: '#41E8B3'
+    backgroundColor: '#75C9E6'
 } 
 
 let bold = {
@@ -131,7 +131,7 @@ const SideBar = (props) => {
         <div style={{backgroundColor: '#F8F9FB', minHeight : '100vh'}} className="w-25 p-0">
             <Nav vertical className="w-100">
                 <NavItem>
-                    <NavLink href="#" className="btn btn-light text-left pr-0 pl-0 pt-2 pb-0" id="tindakan" style={{backgroundColor:'#41E8B3'}} onClick={toggle}>
+                    <NavLink href="#" className="btn btn-light text-left pr-0 pl-0 pt-2 pb-0" id="tindakan" style={{backgroundColor:'#75C9E6'}} onClick={toggle}>
                         <Row className="">
                             <Col sm="2" className="mt-1">
                                 <FontAwesomeIcon icon={faBaby} className="fa-3x"/>
@@ -179,7 +179,7 @@ const SideBar = (props) => {
                         <div><Label style={bold}>Umur: </Label> {dataAnak.displayUmurAnak}</div>
                         <div><Label style={bold}>Suhu: </Label> {dataAnak.suhuAnak} °C</div>
                     </div>
-                    <hr style={{backgroundColor: '#41E8B3', width: 1, height: "20vh"}} className="ml-5 mr-5"/>
+                    <hr style={{backgroundColor: '#75C9E6', width: 1, height: "20vh"}} className="ml-5 mr-5"/>
                     <div className="ml-0">
                         <div><Label style={bold}>Berat Badan: </Label> {dataAnak.beratAnak} Kg</div>
                         <div><Label style={bold}>Tinggi Badan: </Label> {dataAnak.tinggiAnak} cm</div>

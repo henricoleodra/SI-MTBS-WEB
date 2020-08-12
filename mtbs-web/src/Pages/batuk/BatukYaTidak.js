@@ -11,11 +11,11 @@ import '../../Assets/style/style.css';
 import { KlasifikasiBatukChange, AnsBatukChange, compStatusChange } from '../../Actions';
 
 let outlineColor = {
-    borderColor : '#41E8B3'
+    borderColor : '#75C9E6'
 }
 
 let bgColor ={
-    backgroundColor : '#41E8B3',
+    backgroundColor : '#75C9E6',
     color: 'white'
 }
 
@@ -61,8 +61,8 @@ const handleSubmit = event =>{
                         <h3 className="text-center font-weight-bold">Batuk / Sukar Bernafas</h3>
                         <hr
                         style={{
-                            color: "#41E8B3",
-                            backgroundColor: "#41E8B3",
+                            color: "#75C9E6",
+                            backgroundColor: "#75C9E6",
                             height: 5
                         }}
                         />

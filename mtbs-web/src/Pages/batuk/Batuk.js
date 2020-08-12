@@ -12,11 +12,11 @@ import { KlasifikasiBatukChange, AnsBatukChange } from '../../Actions';
 import '../../Assets/style/style.css';
 
 let outlineColor = {
-    borderColor : '#41E8B3'
+    borderColor : '#75C9E6'
 }
 
 let bgColor ={
-    backgroundColor : '#41E8B3',
+    backgroundColor : '#75C9E6',
     color: 'white'
 }
 
@@ -109,7 +109,7 @@ const Batuk = (props) => {
                 <div className="col-12">
                 <div className="d-flex justify-content-center mt-3">
                     <div className="p-2">
-                        <FontAwesomeIcon icon={faCircle} style={{color: '#41E8B3'}}/>
+                        <FontAwesomeIcon icon={faCircle} style={{color: '#75C9E6'}}/>
                     </div>
                     <div className="p-2">
                         <FontAwesomeIcon icon={faCircle} className="text-muted"/>
@@ -119,8 +119,8 @@ const Batuk = (props) => {
                     <h3 className="text-center font-weight-bold">Batuk / Sukar Bernafas</h3>
                     <hr
                     style={{
-                        color: "#41E8B3",
-                        backgroundColor: "#41E8B3",
+                        color: "#75C9E6",
+                        backgroundColor: "#75C9E6",
                         height: 5
                     }}
                     />

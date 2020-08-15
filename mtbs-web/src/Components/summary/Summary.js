@@ -31,6 +31,8 @@ const Summary = () => {
   const klasifikasiAnemia = useSelector(state => state.klasifikasiAnemia);
   const klasifikasiHIV = useSelector(state => state.klasifikasiHIV);
   const klasifikasiImunisasi = useSelector(state => state.klasifikasiImunisasi);
+  const klasifikasiVitaminA = useSelector(state => state.klasifikasiVitaminA);
+  const klasifikasiKeluhanLain = useSelector(state => state.klasifikasiKeluhanLain); 
 
   let summary = [
     {
@@ -89,14 +91,14 @@ const Summary = () => {
     },
     {
       'title' : 'Vitamin A',
-      'text' : 'Penyakit Vitamin A',
-      'color' : 'dark',
+      'text' : (klasifikasiVitaminA.vit_klasifikasi===null ? '' : klasifikasiVitaminA.vit_klasifikas),
+      'color' : (klasifikasiVitaminA.vit_status===null ? 'dark' : klasifikasiVitaminA.vit_status),
       'disabled' : compStatus.vitamina
     },
     {
       'title' : 'Keluhan Lain',
-      'text' : 'Penyakit Lainnya',
-      'color' : 'dark',
+      'text' : (klasifikasiKeluhanLain.kel_klasifikasi===null ? '' : klasifikasiKeluhanLain.kel_klasifikas),
+      'color' : (klasifikasiKeluhanLain.kel_status===null ? 'dark' : klasifikasiKeluhanLain.kel_status),
       'disabled' : compStatus.keluhanlain
     },
     {

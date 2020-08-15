@@ -17,6 +17,12 @@ import KlasifikasiHIVReducer from './KlasifikasiHIV';
 import AnsImunisasiReducer from './AnsImunisasi';
 import KlasifikasiImunisasiReducer from './KlasifikasiImunisasi';
 
+import AnsVitaminAReducer from './AnsVitaminA';
+import KlasifikasiVitaminAReducer from './KlasifikasiVitaminA';
+
+import AnsKeluhanLainReducer from './AnsKeluhanLain';
+import KlasifikasiKeluhanLainReducer from './KlasifikasiKeluhanLain';
+
 import DataAnakReducer from './DataAnak';
 
 
@@ -38,7 +44,11 @@ const rootReducer = combineReducers({
     ansHIV : AnsHIVReducer,
     klasifikasiHIV : KlasifikasiHIVReducer,
     ansImunisasi : AnsImunisasiReducer,
-    klasifikasiImunisasi : KlasifikasiImunisasiReducer
+    klasifikasiImunisasi : KlasifikasiImunisasiReducer,
+    ansVitaminA : AnsVitaminAReducer,
+    klasifikasiVitaminA : KlasifikasiVitaminAReducer,
+    ansKeluhanLain : AnsKeluhanLainReducer,
+    klasifikasiKeluhanLain : KlasifikasiKeluhanLainReducer,
 });
 
 export default rootReducer;

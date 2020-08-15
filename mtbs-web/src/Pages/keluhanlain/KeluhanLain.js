@@ -1,17 +1,48 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { FormGroup, Label, Input, Form, Card, CardBody, CardTitle, Button, Row, Col} from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useDispatch, useSelector } from 'react-redux';
 import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
+// Actions
+import { KlasifikasiKeluhanLain, AnsKeluhanLainChange, compStatusChange } from '../../Actions';
 
 let outlineColor = {
-    borderColor : '#41E8B3'
+    borderColor : '#75C9E6'
 }
 
 const Keluhan = (props) =>{
+    const history = useHistory();
+    const dispatch = useDispatch();
+    const ansKeluhanLain = useSelector(state => state.ansKeluhanLain);
+    let[keluhan_adaTidak, set_keluhan_adaTidak] = useState(ansKeluhanLain.keluhan_adaTidak);
+    let[keluhan_isiKeluhan, set_isiKeluhan] = useState(ansKeluhanLain.keluhan_isiKeluhan);
+
+    const handleSubmit = event =>{
+        event.preventDefault();
+        dispatch(KlasifikasiKeluhanLain('KELUHAN_LAIN', true));
+        dispatch(compStatusChange('PEMBERIAN_MAKANAN'));
+        history.push("PemberianMakanan1"); 
+    }
+
+    const handleAnswer1 = event =>{
+        if(event.target.value == 1){
+            set_keluhan_adaTidak(true);
+            dispatch(AnsKeluhanLainChange('ADA_KELUHAN', true));
+        }else if(event.target.value == 2){
+            set_keluhan_adaTidak(false);
+            dispatch(AnsKeluhanLainChange('ADA_KELUHAN', false));
+        }
+    }
+
+    const handleAnswer2 = event => {
+        set_isiKeluhan(event.target.value);
+        dispatch(AnsKeluhanLainChange('ISI_KELUHAN', event.target.value));
+    }
+
     return(
-        <Form>
+        <Form onSubmit={handleSubmit}>
             <div className="w-100">
                 <div className="col-12">
                 <div className="d-flex justify-content-center mt-3">
@@ -42,7 +73,7 @@ const Keluhan = (props) =>{
                                         <Col sm="3">
                                             <FormGroup className="d-inline pr-2">  
                                                 <Label className="rdoBtn">Ya
-                                                <Input type="radio" name="radio1" /**value={1} onChange={handleAnswer1} checked={tbu_letargis === true}**//>
+                                                <Input type="radio" name="radio1" value={1} onChange={handleAnswer1} checked={keluhan_adaTidak === true} required/>
                                                 <span style={{left:"20px"}} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>
@@ -53,7 +84,7 @@ const Keluhan = (props) =>{
                                         <Col sm="3">
                                             <FormGroup className="d-inline">
                                                 <Label className="rdoBtn">Tidak
-                                                <Input type="radio" name="radio1" /**value={2} onChange={handleAnswer1} checked={tbu_letargis === false}**/ /> 
+                                                <Input type="radio" name="radio1" value={2} onChange={handleAnswer1} checked={keluhan_adaTidak === false} /> 
                                                 <span style={{left:"0px"}} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>
@@ -63,7 +94,7 @@ const Keluhan = (props) =>{
 
                                 <div>
                                     <FormGroup check className="d-inline pr-2">
-                                        <Input type="textarea"/>
+                                        <Input type="textarea" value={keluhan_isiKeluhan} onChange={handleAnswer2}/>
                                     </FormGroup>
                                 </div>
 
@@ -75,7 +106,7 @@ const Keluhan = (props) =>{
 
             <Row className="justify-content-between px-5 py-0">
                 <Col sm="4">
-                    <Link to="VitaminA" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/>Pemeriksaan HIV</Button></Link>
+                    <Link to="VitaminA" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/>Pemberian Vitamin A</Button></Link>
                 </Col>
                 <Col sm="4">
                     <Button color="success" type="submit" block>Pemeriksaan Pemberian Makanan <FontAwesomeIcon icon={faChevronRight}/></Button>

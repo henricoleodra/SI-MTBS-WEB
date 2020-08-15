@@ -126,4 +126,4 @@ const PemberianMakanan4 = (props) =>{
     );
 }
 
-export default PemberianMakanan;
+export default PemberianMakanan4;

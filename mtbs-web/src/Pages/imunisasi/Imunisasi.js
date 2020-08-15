@@ -33,6 +33,8 @@ const Imunisasi = (props) =>{
 
     const handleSubmit = event =>{
         event.preventDefault();
+        dispatch(KlasifikasiImunisasiChange('IMUNISASI_KLASIFIKASI',""));
+        dispatch(KlasifikasiImunisasiChange('IMUNISASI_STATUS',"info"));
         history.push("Imunisasi2");
     }
 

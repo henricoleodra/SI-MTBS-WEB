@@ -30,6 +30,7 @@ const Summary = () => {
   const klasifikasiTelinga = useSelector(state => state.klasifikasiTelinga);
   const klasifikasiAnemia = useSelector(state => state.klasifikasiAnemia);
   const klasifikasiHIV = useSelector(state => state.klasifikasiHIV);
+  const klasifikasiImunisasi = useSelector(state => state.klasifikasiImunisasi);
 
   let summary = [
     {
@@ -82,8 +83,8 @@ const Summary = () => {
     },
     {
       'title' : 'Imunisasi',
-      'text' : 'Penyakit Imunisasi',
-      'color' : 'dark',
+      'text' : (klasifikasiImunisasi.imunisasi_klasifikasi===null ? '' : klasifikasiImunisasi.imunisasi_klasifikas),
+      'color' : (klasifikasiImunisasi.imunisasi_status===null ? 'dark' : klasifikasiImunisasi.imunisasi_status),
       'disabled' : compStatus.imunisasi
     },
     {

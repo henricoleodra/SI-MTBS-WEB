@@ -32,6 +32,7 @@ const SideBar = (props) => {
     const klasifikasiTelinga = useSelector(state => state.klasifikasiTelinga);
     const klasifikasiAnemia = useSelector(state => state.klasifikasiAnemia);
     const klasifikasiHIV = useSelector(state => state.klasifikasiHIV);
+    const klasifikasiImunisasi = useSelector(state => state.klasifikasiImunisasi);
     let sidebar = [
         {
             'title' : 'Tanda Bahaya Umum',
@@ -93,7 +94,7 @@ const SideBar = (props) => {
             'title' : 'Imunisasi',
             'link' : 'Imunisasi1',
             'active' : url==='Imunisasi',
-            'color' : 'dark',
+            'color' : (klasifikasiImunisasi.imun_status===null ? 'dark' : klasifikasiImunisasi.demam_status),
             'disabled' : compStatus.imunisasi
         },
         {

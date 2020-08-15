@@ -134,7 +134,7 @@ export const AnsImunisasiChange = (comp, ans) => {
 }
 
 //KLASIFIKASI IMUNISASI
-export const KlasifikasiImunisasi = (comp, ans) =>{
+export const KlasifikasiImunisasiChange = (comp, ans) =>{
     return{
         type : comp,
         answer : ans

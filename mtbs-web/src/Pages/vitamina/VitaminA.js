@@ -17,8 +17,8 @@ var outlineColor = {
 const Vitamina = (props) => {
     const history = useHistory();
     const dispatch = useDispatch();
-    const ansVitamin = useSelector(state => state.ansVitamin);
-    let[vit_dibutuhkanA, set_vit_dibutuhkanA] = useState(ansVitamin.vit_dibutuhkanA);
+    const ansVitaminA = useSelector(state => state.ansVitaminA);
+    let[vit_dibutuhkanA, set_vit_dibutuhkanA] = useState(ansVitaminA.vit_dibutuhkanA);
     
     const handleSubmit = event =>{
         event.preventDefault();

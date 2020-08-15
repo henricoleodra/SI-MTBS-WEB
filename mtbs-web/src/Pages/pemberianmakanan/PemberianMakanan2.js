@@ -60,7 +60,7 @@ const PemberianMakanan = (props) =>{
     }
 
     return(
-        <Form>
+        <Form onSubmit={handleSubmit}>
             <div className="w-100">
                 <div className="col-12">
                 <div className="d-flex justify-content-center mt-3">
@@ -127,14 +127,14 @@ const PemberianMakanan = (props) =>{
                                         <div className="d-line">
                                             <h6>Jika Ya, makanan atau minuman apa?</h6>
                                             <FormGroup check className="d-inline pr-2">
-                                                <Input type="textarea" name="makanan_lainnya_keterangan" value={makanan_lainnya_keterangan} onChange={handleAnswerLainnya_keterangan} required/>
+                                                <Input type="textarea" name="makanan_lainnya_keterangan" value={makanan_lainnya_keterangan} onChange={handleAnswerLainnya_keterangan} required={makanan_lainnya == 'Ya'}/>
                                             </FormGroup>
                                         </div>
                                         <div className="d-line ml-4"> 
                                             <h6>Berapa kali sehari?</h6>          
                                             <div className="w-100 d-flex justify-content-center">  
                                                 <InputGroup className="w-100 mt-4">
-                                                    <Input type="number" min="0" name="makanan_lainnya_jumlah" value={makanan_lainnya_jumlah} onChange={handleAnswerLainnya_jumlah} required/>
+                                                    <Input type="number" min="0" name="makanan_lainnya_jumlah" value={makanan_lainnya_jumlah} onChange={handleAnswerLainnya_jumlah} required={makanan_lainnya == 'Ya'}/>
                                                     <InputGroupAddon addonType="append" >
                                                         <InputGroupText style={bgColor}>Hari</InputGroupText>
                                                     </InputGroupAddon>
@@ -155,7 +155,7 @@ const PemberianMakanan = (props) =>{
                                     {/* <div className="d-line ml-4"> */}
                                         <h6 className="mt-0">Alat apa yang digunakan untuk memberi minum anak?</h6>
                                         <FormGroup check className="d-inline pr-2">
-                                            <Input type="textarea" name="makanan_lainnya_alat" value={makanan_lainnya_alat} onChange={handleAnswerLainnya_alat} required/>
+                                            <Input type="textarea" name="makanan_lainnya_alat" value={makanan_lainnya_alat} onChange={handleAnswerLainnya_alat} required={makanan_lainnya == 'Ya'}/>
                                         </FormGroup>
                                     {/* </div> */}
                                 </div>
@@ -169,7 +169,7 @@ const PemberianMakanan = (props) =>{
                     <Link to="PemberianMakanan1" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Sebelumnya</Button></Link>
                 </Col>
                 <Col sm="4">
-                    <Link to="PemberianMakanan3" style={{textDecoration: "none"}}><Button color="success" block >Selanjutnya <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
+                    <Button color="success" type="submit" block >Selanjutnya <FontAwesomeIcon icon={faChevronRight}/></Button>
                 </Col>
             </Row>
         </div>

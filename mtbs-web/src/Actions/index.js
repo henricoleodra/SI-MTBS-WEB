@@ -141,22 +141,6 @@ export const KlasifikasiImunisasiChange = (comp, ans) => {
     }
 }
 
-// ANSWER PEMBERIAN MAKANAN
-export const AnsPemberianMakananChange = (comp, ans) => {
-    return {
-        type: comp,
-        answer: ans
-    }
-}
-
-// KLASIFIKASI PEMBERIAN MAKANAN
-export const KlasifikasiPemberianMakananChange = (comp, ans) => {
-    return {
-        type: comp,
-        answer: ans
-    }
-}
-
 //ANSWER VITAMIN A
 export const AnsVitaminChange = (comp, ans) => {
     return {
@@ -183,6 +167,22 @@ export const AnsKeluhanLainChange = (comp, ans) => {
 
 //KLASIFIKASI KELUHANLAIN
 export const KlasifikasiKeluhanLain = (comp, ans) => {
+    return {
+        type: comp,
+        answer: ans
+    }
+}
+
+// ANSWER PEMBERIAN MAKANAN
+export const AnsPemberianMakananChange = (comp, ans) => {
+    return {
+        type: comp,
+        answer: ans
+    }
+}
+
+// KLASIFIKASI PEMBERIAN MAKANAN
+export const KlasifikasiPemberianMakananChange = (comp, ans) => {
     return {
         type: comp,
         answer: ans

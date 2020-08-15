@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useDispatch, useSelector } from 'react-redux';
 import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
-import { KlasifikasiPemberianMakanan, AnsPemberianMakananChange, compStatusChange } from '../../Actions';
+import { KlasifikasiPemberianMakananChange, AnsPemberianMakananChange, compStatusChange } from '../../Actions';
 
 
 let outlineColor = {
@@ -21,8 +21,9 @@ const PemberianMakanan4 = (props) =>{
 
     const handleSubmit = event => {
         event.preventDefault();
-        dispatch(KlasifikasiPemberianMakanan('',""));
-        dispatch(KlasifikasiPemberianMakanan('',"info"));
+        dispatch(KlasifikasiPemberianMakananChange('PEMBERIANMAKANAN_KLASIFIKASI',""));
+        dispatch(KlasifikasiPemberianMakananChange('PEMBERIANMAKANAN_STATUS',"info"));
+        dispatch(compStatusChange('TINDAKAN'));
         history.push("Klasifikasi");
     }
 
@@ -37,7 +38,7 @@ const PemberianMakanan4 = (props) =>{
     }
 
     const handleAnswer2 = event => {
-        set_makanan_kurus_perubahanPemberian_keterangan(event.taret.value);
+        set_makanan_kurus_perubahanPemberian_keterangan(event.target.value);
         dispatch(AnsPemberianMakananChange('PERUBAHAN_PEMBERIAN_KET', event.target.value));
     }
 
@@ -118,7 +119,7 @@ const PemberianMakanan4 = (props) =>{
                     <Link to="PemberianMakanan3" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Sebelumnya</Button></Link>
                 </Col>
                 <Col sm="4">
-                    <Link to="Klasifikasi" style={{textDecoration: "none"}}><Button color="success" block >Klasifikasi <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
+                    <Button color="success" type="submit" block >Klasifikasi <FontAwesomeIcon icon={faChevronRight}/></Button>
                 </Col>
             </Row>
         </div>

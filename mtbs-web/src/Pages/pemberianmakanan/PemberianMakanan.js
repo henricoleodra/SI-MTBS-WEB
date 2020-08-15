@@ -120,8 +120,8 @@ const PemberianMakanan = (props) =>{
                                         height: 1
                                     }}
                                 />
-                                <h6 hidden={pemberianMakanan_ibuMenyusui =='Tidak' || pemberianMakanan_ibuMenyusui == null}>Jika ya, berapa kali sehari?</h6>
-                                <div className="w-100 d-flex justify-content-center" hidden={pemberianMakanan_ibuMenyusui =='Tidak' || pemberianMakanan_ibuMenyusui == null}>
+                                <h6 hidden={makanan_isDisusui =='Tidak' || makanan_isDisusui == null}>Jika ya, berapa kali sehari?</h6>
+                                <div className="w-100 d-flex justify-content-center" hidden={makanan_isDisusui =='Tidak' || makanan_isDisusui == null}>
                                     <InputGroup className="w-25">
                                         <Input type="number" min="0" name="pemberianMakanan_jkIyaMenyusui" value={makanan_jumlahDisusui} onChange={handleAnswerJkIyaMenyusui} required/>
                                         <InputGroupAddon addonType="append" >

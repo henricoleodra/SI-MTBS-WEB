@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useDispatch, useSelector } from 'react-redux';
 import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
-import { KlasifikasiPemberianMakanan, AnsPemberianMakananChange, compStatusChange } from '../../Actions';
+import { KlasifikasiPemberianMakananChange, AnsPemberianMakananChange, compStatusChange } from '../../Actions';
 
 let outlineColor = {
     borderColor : '#75C9E6'
@@ -50,8 +50,8 @@ const PemberianMakanan3 = (props) =>{
 
     const handleSubmit = event => {
         event.preventDefault();
-        dispatch(KlasifikasiPemberianMakanan('PEMBERIANMAKANAN_KLASIFIKASI',""));
-        dispatch(KlasifikasiPemberianMakanan('PEMBERIANMAKANAN_STATUS',"info"));
+        dispatch(KlasifikasiPemberianMakananChange('PEMBERIANMAKANAN_KLASIFIKASI',""));
+        dispatch(KlasifikasiPemberianMakananChange('PEMBERIANMAKANAN_STATUS',"info"));
         history.push("PemberianMakanan4");
     }
 

@@ -32,7 +32,8 @@ const Summary = () => {
   const klasifikasiHIV = useSelector(state => state.klasifikasiHIV);
   const klasifikasiImunisasi = useSelector(state => state.klasifikasiImunisasi);
   const klasifikasiVitaminA = useSelector(state => state.klasifikasiVitaminA);
-  const klasifikasiKeluhanLain = useSelector(state => state.klasifikasiKeluhanLain); 
+  const klasifikasiKeluhanLain = useSelector(state => state.klasifikasiKeluhanLain);
+  const klasifikasiPemberianMakanan = useSelector(state => state.klasifikasiPemberianMakanan);
 
   let summary = [
     {
@@ -103,8 +104,8 @@ const Summary = () => {
     },
     {
       'title' : 'Pemberian Makanan',
-      'text' : 'Penyakit Makanan',
-      'color' : 'dark',
+      'text' : (klasifikasiPemberianMakanan.pemberianMakanan_klasifikasi===null ? '' : klasifikasiPemberianMakanan.pemberianMakanan_klasifikasi),
+      'color' : (klasifikasiPemberianMakanan.pemberianMakanan_status===null ? 'dark' : klasifikasiPemberianMakanan.pemberianMakanan_status),
       'disabled' : compStatus.makan
     },
   ];

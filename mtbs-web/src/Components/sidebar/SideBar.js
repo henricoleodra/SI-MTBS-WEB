@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBaby } from '@fortawesome/free-solid-svg-icons';
 import SideBarItem from './sidebarItem/SideBarItem'
 import '../../Assets/style/style.css';
+import { KlasifikasiPemberianMakananChange } from '../../Actions';
 
 let bgColor = {
     backgroundColor: '#75C9E6'
@@ -35,6 +36,7 @@ const SideBar = (props) => {
     const klasifikasiImunisasi = useSelector(state => state.klasifikasiImunisasi);
     const klasifikasiVitaminA = useSelector(state => state.klasifikasiVitaminA);
     const klasifikasiKeluhanLain = useSelector(state => state.klasifikasiKeluhanLain);
+    const klasifikasiPemberianMakanan = useSelector(state => state.klasifikasiPemberianMakanan);
     let sidebar = [
         {
             'title' : 'Tanda Bahaya Umum',
@@ -117,10 +119,11 @@ const SideBar = (props) => {
             'title' : 'Pemberian Makanan',
             'link' : 'PemberianMakanan1',
             'active' : url==='PemberianMakanan',
-            'color' : 'dark',
+            'color' : (klasifikasiPemberianMakanan.pemberianMakanan_status===null ? 'dark' : klasifikasiPemberianMakanan.pemberianMakanan_status),
             'disabled' : compStatus.makan
         },
       ];
+
     let jenisKelamin = (dataAnak.jenisKelamin === true ? "Laki-laki" : "Perempuan");
     const renderSideBar = sidebar.map((curr, index) => {
     return(
@@ -161,7 +164,7 @@ const SideBar = (props) => {
                     </NavLink>
                 </NavItem>
                 <NavItem>
-                    <NavLink href="#" className="btn pb-1 pt-1 btn-light text-left" id="tindakan" disabled>
+                    <NavLink href="#" className="btn pb-1 pt-1 btn-light text-left" id="tindakan" disabled={compStatus.tindakan}>
                         <Row className="">
                             <Col xs="12 pl-2 pr-0">
                                 <span className="text-left fontSideBar">Tindakan</span>

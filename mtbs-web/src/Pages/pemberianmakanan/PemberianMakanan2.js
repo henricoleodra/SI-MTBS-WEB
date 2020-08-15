@@ -23,32 +23,32 @@ const PemberianMakanan = (props) =>{
     const dispatch = useDispatch();
 
     const ansPemberianMakanan = useSelector(state => state.ansPemberianMakanan);
-    let[pemberianMakanan_makananLainnya, set_pemberianMakanan_makananLainnya] = useState(ansPemberianMakanan.makananLainnya);
-    let[pemberianMakanan_jkIyaLainnya, set_pemberianMakanan_jkIyaLainnya] = useState(ansPemberianMakanan.jkIyaLainnya);
-    let[pemberianMakanan_brpKaliSehari, set_pemberianMakanan_brpKaliSehari] = useState(ansPemberianMakanan.brpKaliSehari);
-    let[pemberianMakanan_alatLainApa, set_pemberianMakanan_alatLainApa] = useState(ansPemberianMakanan.alatLainApa);
+    let[makanan_lainnya, set_makanan_lainnya] = useState(ansPemberianMakanan.lainnya);
+    let[makanan_lainnya_keterangan, set_makanan_lainnya_keterangan] = useState(ansPemberianMakanan.lainnya_keterangan);
+    let[makanan_lainnya_jumlah, set_makanan_lainnya_jumlah] = useState(ansPemberianMakanan.lainnya_jumlah);
+    let[makanan_lainnya_alat, set_makanan_lainnya_alat] = useState(ansPemberianMakanan.lainnya_alat);
 
-    const handleAnswerMakananLainnya = event =>{
+    const handleAnswerLainnya = event =>{
         let tmp = event.target.value;
-        set_pemberianMakanan_makananLainnya(tmp);
+        set_makanan_lainnya(tmp);
         dispatch(AnsPemberianMakananChange('LAINNYA', tmp));
     }
 
-    const handleAnswerJkIyaLainnya = event =>{
+    const handleAnswerLainnya_keterangan = event =>{
         let tmp = event.target.value;
-        set_pemberianMakanan_jkIyaLainnya(tmp);
+        set_makanan_lainnya_keterangan(tmp);
         dispatch(AnsPemberianMakananChange('KETERANGAN_LAIN', tmp));
     }
 
-    const handleAnswerBrpKaliSehari = event =>{
+    const handleAnswerLainnya_jumlah = event =>{
         let tmp = event.target.value;
-        set_pemberianMakanan_brpKaliSehari(tmp);
+        set_makanan_lainnya_jumlah(tmp);
         dispatch(AnsPemberianMakananChange('JUMLAH_LAIN', tmp));
     }
 
-    const handleAnswerAlatLainApa = event =>{
+    const handleAnswerLainnya_alat = event =>{
         let tmp = event.target.value;
-        set_pemberianMakanan_alatLainApa(tmp);
+        set_makanan_lainnya_alat(tmp);
         dispatch(AnsPemberianMakananChange('ALAT_LAIN', tmp));
     }
 
@@ -99,7 +99,7 @@ const PemberianMakanan = (props) =>{
                                     <Col sm="3">
                                         <FormGroup className="d-inline pr-2">  
                                             <Label className="rdoBtn">Ya
-                                            <Input type="radio" name="pemberianMakanan_makananLainnya" value={'Ya'} onChange={handleAnswerMakananLainnya} checked={pemberianMakanan_makananLainnya === 'Ya'} required/>
+                                            <Input type="radio" name="makanan_lainnya" value={'Ya'} onChange={handleAnswerLainnya} checked={makanan_lainnya === 'Ya'} required/>
                                             <span style={{left:"20px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>
@@ -109,32 +109,32 @@ const PemberianMakanan = (props) =>{
                                     <Col sm="3">
                                         <FormGroup className="d-inline">
                                             <Label className="rdoBtn">Tidak
-                                            <Input type="radio" name="pemberianMakanan_makananLainnya" value={'Tidak'} onChange={handleAnswerMakananLainnya} checked={pemberianMakanan_makananLainnya === 'Tidak'}  /> 
+                                            <Input type="radio" name="makanan_lainnya" value={'Tidak'} onChange={handleAnswerLainnya} checked={makanan_lainnya === 'Tidak'}  /> 
                                             <span style={{left:"0px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>
                                     </Col>
                                 </Row>
-                                <hr hidden={pemberianMakanan_makananLainnya == null || pemberianMakanan_makananLainnya =='Tidak'}
+                                <hr hidden={makanan_lainnya == null || makanan_lainnya =='Tidak'}
                                     style={{
                                         color: "#75C9E6",
                                         backgroundColor: "#75C9E6",
                                         height: 1
                                     }}
                                 />
-                                <div className="d-flex flex-column justify-content-around pt-2"  hidden={pemberianMakanan_makananLainnya == null || pemberianMakanan_makananLainnya =='Tidak'}>
+                                <div className="d-flex flex-column justify-content-around pt-2"  hidden={makanan_lainnya == null || makanan_lainnya =='Tidak'}>
                                     <div className="d-flex flex-row">
                                         <div className="d-line">
                                             <h6>Jika Ya, makanan atau minuman apa?</h6>
                                             <FormGroup check className="d-inline pr-2">
-                                                <Input type="textarea" name="pemberianMakanan_jkIyaLainnya" value={pemberianMakanan_jkIyaLainnya} onChange={handleAnswerJkIyaLainnya} required/>
+                                                <Input type="textarea" name="makanan_lainnya_keterangan" value={makanan_lainnya_keterangan} onChange={handleAnswerLainnya_keterangan} required/>
                                             </FormGroup>
                                         </div>
                                         <div className="d-line ml-4"> 
                                             <h6>Berapa kali sehari?</h6>          
                                             <div className="w-100 d-flex justify-content-center">  
                                                 <InputGroup className="w-100 mt-4">
-                                                    <Input type="number" min="0" name="pemberianMakanan_brpKaliSehari" value={pemberianMakanan_brpKaliSehari} onChange={handleAnswerBrpKaliSehari} required/>
+                                                    <Input type="number" min="0" name="makanan_lainnya_jumlah" value={makanan_lainnya_jumlah} onChange={handleAnswerLainnya_jumlah} required/>
                                                     <InputGroupAddon addonType="append" >
                                                         <InputGroupText style={bgColor}>Hari</InputGroupText>
                                                     </InputGroupAddon>
@@ -155,7 +155,7 @@ const PemberianMakanan = (props) =>{
                                     {/* <div className="d-line ml-4"> */}
                                         <h6 className="mt-0">Alat apa yang digunakan untuk memberi minum anak?</h6>
                                         <FormGroup check className="d-inline pr-2">
-                                            <Input type="textarea" name="pemberianMakanan_alatLainApa" value={pemberianMakanan_alatLainApa} onChange={handleAnswerAlatLainApa} required/>
+                                            <Input type="textarea" name="makanan_lainnya_alat" value={makanan_lainnya_alat} onChange={handleAnswerLainnya_alat} required/>
                                         </FormGroup>
                                     {/* </div> */}
                                 </div>

@@ -33,6 +33,8 @@ const SideBar = (props) => {
     const klasifikasiAnemia = useSelector(state => state.klasifikasiAnemia);
     const klasifikasiHIV = useSelector(state => state.klasifikasiHIV);
     const klasifikasiImunisasi = useSelector(state => state.klasifikasiImunisasi);
+    const klasifikasiVitaminA = useSelector(state => state.klasifikasiVitaminA);
+    const klasifikasiKeluhanLain = useSelector(state => state.klasifikasiKeluhanLain);
     let sidebar = [
         {
             'title' : 'Tanda Bahaya Umum',
@@ -101,14 +103,14 @@ const SideBar = (props) => {
             'title' : 'Vitamin A',
             'link' : 'VitaminA',
             'active' : url==='VitaminA',
-            'color' : 'dark',
+            'color' : (klasifikasiVitaminA.vit_status===null ? 'dark' : klasifikasiVitaminA.vit_status),
             'disabled' : compStatus.vitamina
         },
         {
             'title' : 'Keluhan Lain',
             'link' : 'KeluhanLain',
             'active' : url==='KeluhanLain',
-            'color' : 'dark',
+            'color' : (klasifikasiKeluhanLain.kel_status===null ? 'dark' : klasifikasiKeluhanLain.kel_status),
             'disabled' : compStatus.keluhanlain
         },
         {

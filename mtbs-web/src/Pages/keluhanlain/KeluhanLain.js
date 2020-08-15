@@ -21,8 +21,8 @@ const Keluhan = (props) =>{
 
     const handleSubmit = event =>{
         event.preventDefault();
-        dispatch(KlasifikasiKeluhanLain('KELUHAN_LAIN', true));
-        dispatch(compStatusChange('PEMBERIAN_MAKANAN'));
+        dispatch(KlasifikasiKeluhanLain('KELUHAN_KLASIFIKASI',""));
+        dispatch(KlasifikasiKeluhanLain('KELUHAN_STATUS',"info"));
         history.push("PemberianMakanan1"); 
     }
 

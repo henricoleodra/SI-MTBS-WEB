@@ -124,3 +124,20 @@ export const KlasifikasiHIVChange = (comp, ans) =>{
         answer : ans
     }
 }
+
+//ANSWER IMUNISASI
+export const AnsImunisasiChange = (comp, ans) => {
+    return{
+        type : comp,
+        answer : ans
+    }
+}
+
+//KLASIFIKASI IMUNISASI
+export const KlasifikasiImunisasi = (comp, ans) =>{
+    return{
+        type : comp,
+        answer : ans
+    }
+}
+

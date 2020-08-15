@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button, Row, Col } from "reactstrap";
+import { useDispatch, useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
@@ -10,6 +11,8 @@ let outlineColor = {
 }
 
 const Imunisasi = (props) =>{
+    let[imun_bcg, set_imun_bcg] = useState();
+    let[imun_hb0, set_imun_hb0] = useState();
     return(
         <Form>
             <div className="w-100">
@@ -47,7 +50,7 @@ const Imunisasi = (props) =>{
                                     <Col  sm="4">
                                         <FormGroup className="d-inline">
                                             <Label className="rdoBtn">Belum
-                                            <Input type="radio" name="radio1" value={'belum'}/>
+                                            <Input type="radio" name="radio1" value={'Belum'}/>
                                             <span style={{left:"30px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>
@@ -56,7 +59,7 @@ const Imunisasi = (props) =>{
                                     <Col sm="4">
                                         <FormGroup className="d-inline pr-2">  
                                             <Label className="rdoBtn">Akan
-                                            <Input type="radio" name="radio1" value={'akan'}/>
+                                            <Input type="radio" name="radio1" value={'Akan'}/>
                                             <span style={{left:"30px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>
@@ -65,7 +68,7 @@ const Imunisasi = (props) =>{
                                     <Col sm="4">
                                         <FormGroup className="d-inline">
                                             <Label className="rdoBtn">Sudah
-                                            <Input type="radio" name="radio1" value={'sudah'}/>
+                                            <Input type="radio" name="radio1" value={'Sudah'}/>
                                             <span style={{left:"30px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>
@@ -80,7 +83,7 @@ const Imunisasi = (props) =>{
                                     <Col  sm="4">
                                         <FormGroup className="d-inline">
                                             <Label className="rdoBtn">Belum
-                                            <Input type="radio" name="radio1" value={'belum'}/>
+                                            <Input type="radio" name="radio1" value={'Belum'}/>
                                             <span style={{left:"30px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>
@@ -89,7 +92,7 @@ const Imunisasi = (props) =>{
                                     <Col sm="4">
                                         <FormGroup className="d-inline pr-2">  
                                             <Label className="rdoBtn">Akan
-                                            <Input type="radio" name="radio1" value={'akan'}/>
+                                            <Input type="radio" name="radio1" value={'Akan'}/>
                                             <span style={{left:"30px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>
@@ -98,7 +101,7 @@ const Imunisasi = (props) =>{
                                     <Col sm="4">
                                         <FormGroup className="d-inline">
                                             <Label className="rdoBtn">Sudah
-                                            <Input type="radio" name="radio1" value={'sudah'}/>
+                                            <Input type="radio" name="radio1" value={'Sudah'}/>
                                             <span style={{left:"30px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>

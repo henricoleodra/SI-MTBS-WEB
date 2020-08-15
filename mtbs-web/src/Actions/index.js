@@ -141,3 +141,36 @@ export const KlasifikasiImunisasiChange = (comp, ans) =>{
     }
 }
 
+
+
+//ANSWER VITAMIN A
+export const AnsVitaminChange = (comp, ans) => {
+    return{
+        type : comp,
+        answer : ans
+    }
+}
+
+//KLASIFIKASI VITAMIN A
+export const KlasifikasiVitamin = (comp, ans) =>{
+    return{
+        type : comp,
+        answer : ans
+    }
+}
+
+//ANSWER KELUHAN LAIN
+export const AnsKeluhanLainChange = (comp, ans) => {
+    return{
+        type : comp,
+        answer : ans
+    }
+}
+
+//KLASIFIKASI KELUHANLAIN
+export const KlasifikasiKeluhanLain = (comp, ans) =>{
+    return{
+        type : comp,
+        answer : ans
+    }
+}

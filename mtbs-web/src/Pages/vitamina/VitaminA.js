@@ -1,18 +1,42 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button, Row, Col} from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useDispatch, useSelector } from 'react-redux';
 import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
 import '../../Assets/style/style.css';
 
+// Actions
+import { KlasifikasiVitamin, AnsVitaminChange, compStatusChange } from '../../Actions';
+
 var outlineColor = {
-    borderColor : '#41E8B3'
+    borderColor : '#75C9E6'
 }
 
 const Vitamina = (props) => {
+    const history = useHistory();
+    const dispatch = useDispatch();
+    const ansVitamin = useSelector(state => state.ansVitamin);
+    let[vit_dibutuhkanA, set_vit_dibutuhkanA] = useState(ansVitamin.vit_dibutuhkanA);
+    
+    const handleSubmit = event =>{
+        event.preventDefault();
+        history.push("KeluhanLain"); 
+    }
+
+    const handleAnswer1 = event =>{
+        if(event.target.value == 1){
+            set_vit_dibutuhkanA(true);
+            dispatch(AnsVitaminChange('SUPLEMEN_A', true));
+        }else if(event.target.value == 2){
+            set_vit_dibutuhkanA(false);
+            dispatch(AnsVitaminChange('SUPLEMEN_A', false));
+        }
+    }
+
     return(
-        <Form>
+        <Form onSubmit={handleSubmit}>
             <div className="w-100">
                 <div className="col-12">
                 <div className="d-flex justify-content-center mt-3">
@@ -43,7 +67,7 @@ const Vitamina = (props) => {
                                     <Col sm="3">
                                         <FormGroup className="d-inline pr-2">  
                                             <Label className="rdoBtn">Ya
-                                            <Input type="radio" name="radio1"/>
+                                            <Input type="radio" name="radio1" value={1} onChange={handleAnswer1} checked={vit_dibutuhkanA === true} required/>
                                             <span style={{left:"20px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>
@@ -54,7 +78,7 @@ const Vitamina = (props) => {
                                     <Col sm="3">
                                         <FormGroup className="d-inline">
                                             <Label className="rdoBtn">Tidak
-                                            <Input type="radio" name="radio1"/>
+                                            <Input type="radio" name="radio1" value={2} onChange={handleAnswer1} checked={vit_dibutuhkanA === false}/>
                                             <span style={{left:"0px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>

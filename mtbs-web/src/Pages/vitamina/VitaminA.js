@@ -22,7 +22,10 @@ const Vitamina = (props) => {
     
     const handleSubmit = event =>{
         event.preventDefault();
-        history.push("KeluhanLain"); 
+        dispatch(KlasifikasiVitamin('VITAMIN_KLASIFIKASI',""));
+        dispatch(KlasifikasiVitamin('VITAMIN_STATUS',"info"));
+        history.push("KeluhanLain");
+        dispatch(compStatusChange('KELUHAN_LAIN')); 
     }
 
     const handleAnswer1 = event =>{

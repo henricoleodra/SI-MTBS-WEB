@@ -25,8 +25,9 @@ const PemberianMakanan3 = (props) =>{
     let[makanan_kurus_keteranganCara, set_makanan_kurus_keteranganCara] = useState(ansPemberianMakanan.makanan_kurus_keteranganCara);
     
     const handleAnswer1 = event => {
-        set_makanan_kurus_jumlah(event.taret.value);
-        dispatch(AnsPemberianMakananChange('KURUS_JUMLAH', event.target.value));
+        let tmp = event.target.value;
+        set_makanan_kurus_jumlah(tmp);
+        dispatch(AnsPemberianMakananChange('KURUS_JUMLAH', tmp));
     }
 
     const handleAnswer2 = event =>{
@@ -40,8 +41,11 @@ const PemberianMakanan3 = (props) =>{
     }
 
     const handleAnswer3 = event => {
-        set_makanan_kurus_keteranganCara(event.taret.value);
-        dispatch(AnsPemberianMakananChange('KETERANGAN_CARA', event.target.value));
+        //set_makanan_kurus_keteranganCara(event.taret.value);
+        //dispatch(AnsPemberianMakananChange('KETERANGAN_CARA', event.target.value));
+        let tmp = event.target.value;
+        set_makanan_kurus_keteranganCara(tmp);
+        dispatch(AnsPemberianMakananChange('KETERANGAN_CARA', tmp));
     }
 
     const handleSubmit = event => {

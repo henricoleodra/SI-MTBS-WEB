@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button, InputGroup, InputGroupText, InputGroupAddon, Row, Col} from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useDispatch, useSelector } from 'react-redux';
 import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
+import { KlasifikasiPemberianMakanan, AnsPemberianMakananChange, compStatusChange } from '../../Actions';
 
 let outlineColor = {
     borderColor : '#75C9E6'
@@ -14,9 +16,43 @@ let bgColor ={
     color: 'white'
 }
 
-const PemberianMakanan = (props) =>{
+const PemberianMakanan3 = (props) =>{
+    const history = useHistory();
+    const dispatch = useDispatch();
+    const ansPemberianMakanan = useSelector(state => state.ansPemberianMakanan);
+    let[makanan_kurus_jumlah, set_makanan_kurus_jumlah] = useState(ansPemberianMakanan.makanan_kurus_jumlah);
+    let[makanan_kurus_makananTersendiri, set_makanan_kurus_makananTersendiri] = useState(ansPemberianMakanan.makanan_kurus_makananTersendiri);
+    let[makanan_kurus_keteranganCara, set_makanan_kurus_keteranganCara] = useState(ansPemberianMakanan.makanan_kurus_keteranganCara);
+    
+    const handleAnswer1 = event => {
+        set_makanan_kurus_jumlah(event.taret.value);
+        dispatch(AnsPemberianMakananChange('KURUS_JUMLAH', event.target.value));
+    }
+
+    const handleAnswer2 = event =>{
+        if(event.target.value == 1){
+            set_makanan_kurus_makananTersendiri(true);
+            dispatch(AnsPemberianMakananChange('TERSENDIRI', true));
+        }else if(event.target.value == 2){
+            set_makanan_kurus_makananTersendiri(false);
+            dispatch(AnsPemberianMakananChange('TERSENDIRI', false));
+        }
+    }
+
+    const handleAnswer3 = event => {
+        set_makanan_kurus_keteranganCara(event.taret.value);
+        dispatch(AnsPemberianMakananChange('KETERANGAN_CARA', event.target.value));
+    }
+
+    const handleSubmit = event => {
+        event.preventDefault();
+        dispatch(KlasifikasiPemberianMakanan('',""));
+        dispatch(KlasifikasiPemberianMakanan('',"info"));
+        history.push("PemberianMakanan4");
+    }
+
     return(
-        <Form>
+        <Form onSubmit={handleSubmit}>
             <div className="w-100">
                 <div className="col-12">
                 <div className="d-flex justify-content-center mt-3">
@@ -51,7 +87,7 @@ const PemberianMakanan = (props) =>{
                                 <CardTitle className="h5"><b>Tanyakan! </b>Berapa banyak makanan atau minuman yang diberikan pada anak?</CardTitle>
                                 <div className="w-100 d-flex justify-content-center">
                                     <InputGroup className="w-50">
-                                        <Input type="number" min="0"/>
+                                        <Input type="number" min="0" value={makanan_kurus_jumlah} onChange={handleAnswer1} required/>
                                         <InputGroupAddon addonType="append" >
                                             <InputGroupText style={bgColor}>Kali</InputGroupText>
                                         </InputGroupAddon>
@@ -68,7 +104,7 @@ const PemberianMakanan = (props) =>{
                                     <Col sm="3">
                                         <FormGroup className="d-inline pr-2">  
                                             <Label className="rdoBtn">Ya
-                                            <Input type="radio" name="radio1" /**value={1} onChange={handleAnswer1} checked={tbu_letargis === true}**/ required/>
+                                            <Input type="radio" name="radio1" value={1} onChange={handleAnswer2} checked={makanan_kurus_makananTersendiri === true} required/>
                                             <span style={{left:"20px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>
@@ -78,7 +114,7 @@ const PemberianMakanan = (props) =>{
                                     <Col sm="3">
                                         <FormGroup className="d-inline">
                                             <Label className="rdoBtn">Tidak
-                                            <Input type="radio" name="radio1" /**value={2} onChange={handleAnswer1} checked={tbu_letargis === false}**/ /> 
+                                            <Input type="radio" name="radio1" value={2} onChange={handleAnswer2} checked={makanan_kurus_makananTersendiri === false} /> 
                                             <span style={{left:"0px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>
@@ -90,7 +126,7 @@ const PemberianMakanan = (props) =>{
                             <CardBody>
                                 <CardTitle className="h5"><b>Tanyakan! </b>Siapa yang memberi makan dan bagaimana caranya?</CardTitle>
                                 <FormGroup check className="d-inline pr-2">
-                                    <Input type="textarea"/> 
+                                    <Input type="textarea" value={makanan_kurus_keteranganCara} onChange={handleAnswer3} required/> 
                                 </FormGroup>
                             </CardBody>
                         </Card>
@@ -102,7 +138,7 @@ const PemberianMakanan = (props) =>{
                     <Link to="PemberianMakanan2" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Sebelumnya</Button></Link>
                 </Col>
                 <Col sm="4">
-                    <Link to="PemberianMakanan4" style={{textDecoration: "none"}}><Button color="success" block >Selanjutnya <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
+                    <Button color="success" type="submit" block >Selanjutnya <FontAwesomeIcon icon={faChevronRight}/></Button>
                 </Col>
             </Row>
         </div>

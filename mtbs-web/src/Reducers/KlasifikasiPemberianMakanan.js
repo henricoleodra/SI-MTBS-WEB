@@ -1,9 +1,9 @@
 const inistate = {
-    pemberianMakanan_klasifikasi = null,
-    pemberianMakanan_status = null,
-    pemberianMakanan_2 = null,
-    pemberianMakanan_3 = null,
-    pemberianMakanan_4 = null
+    pemberianMakanan_klasifikasi: null,
+    pemberianMakanan_status: null,
+    pemberianMakanan_2: null,
+    pemberianMakanan_3: null,
+    pemberianMakanan_4: null
 }
 
 const KlasifikasiPemberianMakananReducer = (state = inistate, action) => {

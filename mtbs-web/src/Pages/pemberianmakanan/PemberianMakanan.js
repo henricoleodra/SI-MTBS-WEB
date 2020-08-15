@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button, InputGroup, InputGroupText, InputGroupAddon, Row, Col} from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
 import '../../Assets/style/style.css';
+import { useDispatch, useSelector } from 'react-redux';
+
+// Action
+import { KlasifikasiPemberianMakananChange, AnsPemberianMakananChange} from '../../Actions';
 
 let outlineColor = {
     borderColor : '#75C9E6'
@@ -16,6 +20,39 @@ let bgColor ={
 }
 
 const PemberianMakanan = (props) =>{
+    const history = useHistory();
+    const dispatch = useDispatch();
+
+    const ansPemberianMakanan = useSelector(state => state.ansPemberianMakanan);
+    let[pemberianMakanan_ibuMenyusui, set_pemberianMakanan_ibuMenyusui] = useState(ansPemberianMakanan.ibuMenyusui);
+    let[pemberianMakanan_jkIyaMenyusui, set_pemberianMakanan_jkIyaMenyusui] = useState(ansPemberianMakanan.jkIyaMenyusui);
+    let[pemberianMakanan_menyusuiMalamHari, set_pemberianMakanan_menyusuiMalamHari] = useState(ansPemberianMakanan.menyusuiMalamHari);
+
+    const handleAnswerIbuMenyusui = event =>{
+        let tmp = event.target.value;
+        set_pemberianMakanan_ibuMenyusui(tmp);
+        dispatch(AnsPemberianMakananChange('DISUSUI', tmp));
+    }
+
+    const handleAnswerJkIyaMenyusui = event =>{
+        let tmp = event.target.value;
+        set_pemberianMakanan_jkIyaMenyusui(tmp);
+        dispatch(AnsPemberianMakananChange('JUMLAH_DISUSUI', tmp));
+    }
+
+    const handleAnswerMenyusuiMalamHari = event =>{
+        let tmp = event.target.value;
+        set_pemberianMakanan_menyusuiMalamHari(tmp);
+        dispatch(AnsPemberianMakananChange('MALAM', tmp));
+    }
+
+    const handleSubmit = event =>{
+        event.preventDefault();
+        dispatch(KlasifikasiPemberianMakananChange('PEMBERIANMAKANAN_KLASIFIKASI', ""));
+        dispatch(KlasifikasiPemberianMakananChange('PEMBERIANMAKANAN_STATUS', "info"));
+        history.push("PemberianMakanan2");
+    }
+
     return(
         <Form>
             <div className="w-100">
@@ -58,7 +95,7 @@ const PemberianMakanan = (props) =>{
                                         <Col sm="3">
                                             <FormGroup className="d-inline pr-2">  
                                                 <Label className="rdoBtn">Ya
-                                                <Input type="radio" name="radio1"/>
+                                                <Input type="radio" name="pemberianMakanan_ibuMenyusui" value={'Ya'} onChange={handleAnswerIbuMenyusui} checked={pemberianMakanan_ibuMenyusui === 'Ya'} required/>
                                                 <span style={{left:"20px"}} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>
@@ -69,7 +106,7 @@ const PemberianMakanan = (props) =>{
                                         <Col sm="3">
                                             <FormGroup className="d-inline">
                                                 <Label className="rdoBtn">Tidak
-                                                <Input type="radio" name="radio1"/> 
+                                                <Input type="radio" name="pemberianMakanan_ibuMenyusui" value={'Tidak'} onChange={handleAnswerIbuMenyusui} checked={pemberianMakanan_ibuMenyusui === 'Tidak'}/> 
                                                 <span style={{left:"0px"}} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>
@@ -83,10 +120,10 @@ const PemberianMakanan = (props) =>{
                                         height: 1
                                     }}
                                 />
-                                <h6>Jika ya, berapa kali sehari?</h6>
-                                <div className="w-100 d-flex justify-content-center">
+                                <h6 hidden={pemberianMakanan_ibuMenyusui =='Tidak' || pemberianMakanan_ibuMenyusui == null}>Jika ya, berapa kali sehari?</h6>
+                                <div className="w-100 d-flex justify-content-center" hidden={pemberianMakanan_ibuMenyusui =='Tidak' || pemberianMakanan_ibuMenyusui == null}>
                                     <InputGroup className="w-25">
-                                        <Input type="number" min="0"/>
+                                        <Input type="number" min="0" name="pemberianMakanan_jkIyaMenyusui" value={pemberianMakanan_jkIyaMenyusui} onChange={handleAnswerJkIyaMenyusui} required/>
                                         <InputGroupAddon addonType="append" >
                                             <InputGroupText style={bgColor}>Kali</InputGroupText>
                                         </InputGroupAddon>
@@ -101,7 +138,7 @@ const PemberianMakanan = (props) =>{
                                         <Col sm="3">
                                         <FormGroup className="d-inline pr-2">  
                                             <Label className="rdoBtn">Ya
-                                            <Input type="radio" name="radio2"/>
+                                            <Input type="radio" name="pemberianMakanan_menyusuiMalamHari" value={'Ya'} onChange={handleAnswerMenyusuiMalamHari} checked={pemberianMakanan_menyusuiMalamHari === 'Ya'} required/>
                                             <span style={{left:"20px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>
@@ -112,7 +149,7 @@ const PemberianMakanan = (props) =>{
                                         <Col sm="3">
                                         <FormGroup className="d-inline">
                                             <Label className="rdoBtn">Tidak
-                                            <Input type="radio" name="radio2"/>
+                                            <Input type="radio" name="pemberianMakanan_menyusuiMalamHari" value={'Tidak'} onChange={handleAnswerMenyusuiMalamHari} checked={pemberianMakanan_menyusuiMalamHari === 'Tidak'} />
                                             <span style={{left:"0px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>

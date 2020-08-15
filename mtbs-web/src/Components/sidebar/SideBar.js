@@ -104,14 +104,14 @@ const SideBar = (props) => {
             'disabled' : compStatus.vitamina
         },
         {
-            'title' : 'KeluhanLain',
+            'title' : 'Keluhan Lain',
             'link' : 'KeluhanLain',
             'active' : url==='KeluhanLain',
             'color' : 'dark',
             'disabled' : compStatus.keluhanlain
         },
         {
-            'title' : 'PemberianMakanan',
+            'title' : 'Pemberian Makanan',
             'link' : 'PemberianMakanan1',
             'active' : url==='PemberianMakanan',
             'color' : 'dark',

@@ -1,17 +1,60 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button, Row, Col} from "reactstrap";
+import { useDispatch, useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
+// Actions
+import { KlasifikasiImunisasiChange, AnsImunisasiChange, compStatusChange } from '../../Actions';
 
 var outlineColor = {
     borderColor : '#41E8B3'
 }
 
 const Imunisasi = (props) =>{
+    const history = useHistory();
+    const dispatch = useDispatch();
+    const ansImunisasi = useSelector(state => state.ansImunisasi);
+    let[imun_ipv, set_imun_ipv] = useState(ansImunisasi.imun_ipv);
+    let[imun_campak, set_imun_campak] = useState(ansImunisasi.imun_campak);
+    let[imun_dpthbhiblanjut, set_imun_dpthbhiblanjut] = useState(ansImunisasi.imun_dpthbhiblanjut);
+    let[imun_campaklanjut, set_imun_campaklanjut] = useState(ansImunisasi.imun_campaklanjut);
+
+    const handleAnswerIPV = event =>{
+        let tmp = event.target.value;
+        set_imun_ipv(tmp);
+        dispatch(AnsImunisasiChange('IPV', tmp));
+    }
+
+    const handleAnswerCampak = event =>{
+        let tmp = event.target.value;
+        set_imun_campak(tmp);
+        dispatch(AnsImunisasiChange('CAMPAK', tmp));
+    }
+
+    const handleAnswerDPTHBHIBLanjut = event =>{
+        let tmp = event.target.value;
+        set_imun_dpthbhiblanjut(tmp);
+        dispatch(AnsImunisasiChange('DPT_HB_HIB_LANJUT', tmp));
+    }
+
+    const handleAnswerCampakLanjut = event =>{
+        let tmp = event.target.value;
+        set_imun_campaklanjut(tmp);
+        dispatch(AnsImunisasiChange('CAMPAK_LANJUT', tmp));
+    }
+
+    const handleSubmit = event =>{
+        event.preventDefault();
+        dispatch(KlasifikasiImunisasiChange('IMUNISASI_KLASIFIKASI',""));
+        dispatch(KlasifikasiImunisasiChange('IMUNISASI_STATUS',"info"));
+        dispatch(compStatusChange('VITAMIN_A'));
+        history.push("VitaminA");
+    }
+
     return(
-        <Form>
+        <Form onSubmit={handleSubmit}>
             <div className="w-100">
                 <div className="col-12">
                 <div className="d-flex justify-content-center mt-3">
@@ -47,7 +90,7 @@ const Imunisasi = (props) =>{
                                     <Col  sm="4">
                                         <FormGroup className="d-inline">
                                             <Label className="rdoBtn">Belum
-                                            <Input type="radio" name="radio1" value={'belum'}/>
+                                            <Input type="radio" name="imun_ipv" value={'Belum'} onChange={handleAnswerIPV} checked={imun_ipv === 'Belum'} required />
                                             <span style={{left:"30px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>
@@ -56,7 +99,7 @@ const Imunisasi = (props) =>{
                                     <Col sm="4">
                                         <FormGroup className="d-inline pr-2">  
                                             <Label className="rdoBtn">Akan
-                                            <Input type="radio" name="radio1" value={'akan'}/>
+                                            <Input type="radio" name="imun_ipv" value={'Akan'} onChange={handleAnswerIPV} checked={imun_ipv === 'Akan'} />
                                             <span style={{left:"30px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>
@@ -65,7 +108,7 @@ const Imunisasi = (props) =>{
                                     <Col sm="4">
                                         <FormGroup className="d-inline">
                                             <Label className="rdoBtn">Sudah
-                                            <Input type="radio" name="radio1" value={'sudah'}/>
+                                            <Input type="radio" name="imun_ipv" value={'Sudah'} onChange={handleAnswerIPV} checked={imun_ipv === 'Sudah'} />
                                             <span style={{left:"30px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>
@@ -80,7 +123,7 @@ const Imunisasi = (props) =>{
                                     <Col  sm="4">
                                         <FormGroup className="d-inline">
                                             <Label className="rdoBtn">Belum
-                                            <Input type="radio" name="radio2" value={'belum'}/>
+                                            <Input type="radio" name="imun_campak" value={'Belum'} onChange={handleAnswerCampak} checked={imun_campak === 'Belum'} required />
                                             <span style={{left:"30px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>
@@ -89,7 +132,7 @@ const Imunisasi = (props) =>{
                                     <Col sm="4">
                                         <FormGroup className="d-inline pr-2">  
                                             <Label className="rdoBtn">Akan
-                                            <Input type="radio" name="radio2" value={'akan'}/>
+                                            <Input type="radio" name="imun_campak" value={'Akan'} onChange={handleAnswerCampak} checked={imun_campak === 'Akan'} />
                                             <span style={{left:"30px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>
@@ -98,7 +141,7 @@ const Imunisasi = (props) =>{
                                     <Col sm="4">
                                         <FormGroup className="d-inline">
                                             <Label className="rdoBtn">Sudah
-                                            <Input type="radio" name="radio2" value={'sudah'}/>
+                                            <Input type="radio" name="imun_campak" value={'Sudah'} onChange={handleAnswerCampak} checked={imun_campak === 'Sudah'} />
                                             <span style={{left:"30px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>
@@ -113,7 +156,7 @@ const Imunisasi = (props) =>{
                                     <Col  sm="4">
                                         <FormGroup className="d-inline">
                                             <Label className="rdoBtn">Belum
-                                            <Input type="radio" name="radio3" value={'belum'}/>
+                                            <Input type="radio" name="imun_dpthbhiblanjut" value={'Belum'} onChange={handleAnswerDPTHBHIBLanjut} checked={imun_dpthbhiblanjut === 'Belum'} required />
                                             <span style={{left:"30px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>
@@ -122,7 +165,7 @@ const Imunisasi = (props) =>{
                                     <Col sm="4">
                                         <FormGroup className="d-inline pr-2">  
                                             <Label className="rdoBtn">Akan
-                                            <Input type="radio" name="radio3" value={'akan'}/>
+                                            <Input type="radio" name="imun_dpthbhiblanjut" value={'Akan'} onChange={handleAnswerDPTHBHIBLanjut} checked={imun_dpthbhiblanjut === 'Akan'} />
                                             <span style={{left:"30px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>
@@ -131,7 +174,7 @@ const Imunisasi = (props) =>{
                                     <Col sm="4">
                                         <FormGroup className="d-inline">
                                             <Label className="rdoBtn">Sudah
-                                            <Input type="radio" name="radio3" value={'sudah'}/>
+                                            <Input type="radio" name="imun_dpthbhiblanjut" value={'Sudah'} onChange={handleAnswerDPTHBHIBLanjut} checked={imun_dpthbhiblanjut === 'Sudah'} />
                                             <span style={{left:"30px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>
@@ -146,7 +189,7 @@ const Imunisasi = (props) =>{
                                     <Col  sm="4">
                                         <FormGroup className="d-inline">
                                             <Label className="rdoBtn">Belum
-                                            <Input type="radio" name="radio4" value={'belum'}/>
+                                            <Input type="radio" name="imun_campaklanjut" value={'Belum'} onChange={handleAnswerCampakLanjut} checked={imun_campaklanjut === 'Belum'} required />
                                             <span style={{left:"30px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>
@@ -155,7 +198,7 @@ const Imunisasi = (props) =>{
                                     <Col sm="4">
                                         <FormGroup className="d-inline pr-2">  
                                             <Label className="rdoBtn">Akan
-                                            <Input type="radio" name="radio4" value={'akan'}/>
+                                            <Input type="radio" name="imun_campaklanjut" value={'Akan'} onChange={handleAnswerCampakLanjut} checked={imun_campaklanjut === 'Akan'} />
                                             <span style={{left:"30px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>
@@ -164,7 +207,7 @@ const Imunisasi = (props) =>{
                                     <Col sm="4">
                                         <FormGroup className="d-inline">
                                             <Label className="rdoBtn">Sudah
-                                            <Input type="radio" name="radio4" value={'sudah'}/>
+                                            <Input type="radio" name="imun_campaklanjut" value={'Sudah'} onChange={handleAnswerCampakLanjut} checked={imun_campaklanjut === 'Sudah'} />
                                             <span style={{left:"30px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>

@@ -23,7 +23,8 @@ const Keluhan = (props) =>{
         event.preventDefault();
         dispatch(KlasifikasiKeluhanLain('KELUHAN_KLASIFIKASI',""));
         dispatch(KlasifikasiKeluhanLain('KELUHAN_STATUS',"info"));
-        history.push("PemberianMakanan1"); 
+        history.push("PemberianMakanan1");
+        dispatch(compStatusChange('MAKAN')); 
     }
 
     const handleAnswer1 = event =>{

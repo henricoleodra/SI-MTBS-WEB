@@ -96,7 +96,7 @@ const SideBar = (props) => {
             'title' : 'Imunisasi',
             'link' : 'Imunisasi1',
             'active' : url==='Imunisasi',
-            'color' : (klasifikasiImunisasi.imun_status===null ? 'dark' : klasifikasiImunisasi.demam_status),
+            'color' : (klasifikasiImunisasi.imun_status===null ? 'dark' : klasifikasiImunisasi.imun_status),
             'disabled' : compStatus.imunisasi
         },
         {

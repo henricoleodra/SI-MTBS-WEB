@@ -89,7 +89,7 @@ const Imunisasi2 = (props) =>{
                                     <Col  sm="4">
                                         <FormGroup className="d-inline">
                                             <Label className="rdoBtn">Belum
-                                            <Input type="radio" name="radio1" value={'Belum'}/>
+                                            <Input type="radio" name="imun_polio1" value={'Belum'} onChange={handleAnswerPolio1} checked={imun_polio1 === 'Belum'} required />
                                             <span style={{left:"30px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>
@@ -98,7 +98,7 @@ const Imunisasi2 = (props) =>{
                                     <Col sm="4">
                                         <FormGroup className="d-inline pr-2">  
                                             <Label className="rdoBtn">Akan
-                                            <Input type="radio" name="radio1" value={'Akan'}/>
+                                            <Input type="radio" name="imun_polio1" value={'Akan'} onChange={handleAnswerPolio1}  checked={imun_polio1 === 'Akan'} />
                                             <span style={{left:"30px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>
@@ -107,7 +107,7 @@ const Imunisasi2 = (props) =>{
                                     <Col sm="4">
                                         <FormGroup className="d-inline">
                                             <Label className="rdoBtn">Sudah
-                                            <Input type="radio" name="radio1" value={'Sudah'}/>
+                                            <Input type="radio" name="imun_polio1" value={'Sudah'} onChange={handleAnswerPolio1}  checked={imun_polio1 === 'Sudah'}/>
                                             <span style={{left:"30px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>
@@ -122,7 +122,7 @@ const Imunisasi2 = (props) =>{
                                     <Col  sm="4">
                                         <FormGroup className="d-inline">
                                             <Label className="rdoBtn">Belum
-                                            <Input type="radio" name="radio2" value={'Belum'}/>
+                                            <Input type="radio" name="imun_polio2" value={'Belum'} onChange={handleAnswerPolio2} checked={imun_polio2 === 'Belum'} required />
                                             <span style={{left:"30px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>
@@ -131,7 +131,7 @@ const Imunisasi2 = (props) =>{
                                     <Col sm="4">
                                         <FormGroup className="d-inline pr-2">  
                                             <Label className="rdoBtn">Akan
-                                            <Input type="radio" name="radio2" value={'Akan'}/>
+                                            <Input type="radio" name="imun_polio2" value={'Akan'} onChange={handleAnswerPolio2} checked={imun_polio2 === 'Akan'} />
                                             <span style={{left:"30px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>
@@ -140,7 +140,7 @@ const Imunisasi2 = (props) =>{
                                     <Col sm="4">
                                         <FormGroup className="d-inline">
                                             <Label className="rdoBtn">Sudah
-                                            <Input type="radio" name="radio2" value={'Sudah'}/>
+                                            <Input type="radio" name="imun_polio2" value={'Sudah'} onChange={handleAnswerPolio2} checked={imun_polio2 === 'Sudah'}/>
                                             <span style={{left:"30px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>
@@ -155,7 +155,7 @@ const Imunisasi2 = (props) =>{
                                     <Col  sm="4">
                                         <FormGroup className="d-inline">
                                             <Label className="rdoBtn">Belum
-                                            <Input type="radio" name="radio3" value={'Belum'}/>
+                                            <Input type="radio" name="imun_polio3" value={'Belum'} onChange={handleAnswerPolio3} checked={imun_polio3 === 'Belum'} required />
                                             <span style={{left:"30px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>
@@ -164,7 +164,7 @@ const Imunisasi2 = (props) =>{
                                     <Col sm="4">
                                         <FormGroup className="d-inline pr-2">  
                                             <Label className="rdoBtn">Akan
-                                            <Input type="radio" name="radio3" value={'Akan'}/>
+                                            <Input type="radio" name="imun_polio3" value={'Akan'} onChange={handleAnswerPolio3} checked={imun_polio3 === 'Akan'}/>
                                             <span style={{left:"30px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>
@@ -173,7 +173,7 @@ const Imunisasi2 = (props) =>{
                                     <Col sm="4">
                                         <FormGroup className="d-inline">
                                             <Label className="rdoBtn">Sudah
-                                            <Input type="radio" name="radio3" value={'Sudah'}/>
+                                            <Input type="radio" name="imun_polio3" value={'Sudah'} onChange={handleAnswerPolio3} checked={imun_polio3 === 'Sudah'}/>
                                             <span style={{left:"30px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>
@@ -188,7 +188,7 @@ const Imunisasi2 = (props) =>{
                                     <Col  sm="4">
                                         <FormGroup className="d-inline">
                                             <Label className="rdoBtn">Belum
-                                            <Input type="radio" name="radio4" value={'Belum'}/>
+                                            <Input type="radio" name="imun_polio4" value={'Belum'} onChange={handleAnswerPolio4} checked={imun_polio4 === 'Belum'} required />
                                             <span style={{left:"30px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>
@@ -197,7 +197,7 @@ const Imunisasi2 = (props) =>{
                                     <Col sm="4">
                                         <FormGroup className="d-inline pr-2">  
                                             <Label className="rdoBtn">Akan
-                                            <Input type="radio" name="radio4" value={'Akan'}/>
+                                            <Input type="radio" name="imun_polio4" value={'Akan'} onChange={handleAnswerPolio4} checked={imun_polio4 === 'Akan'} />
                                             <span style={{left:"30px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>
@@ -206,7 +206,7 @@ const Imunisasi2 = (props) =>{
                                     <Col sm="4">
                                         <FormGroup className="d-inline">
                                             <Label className="rdoBtn">Sudah
-                                            <Input type="radio" name="radio4" value={'Sudah'}/>
+                                            <Input type="radio" name="imun_polio4" value={'Sudah'} onChange={handleAnswerPolio4} checked={imun_polio4 === 'Sudah'} />
                                             <span style={{left:"30px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>

@@ -83,8 +83,8 @@ const Summary = () => {
     },
     {
       'title' : 'Imunisasi',
-      'text' : (klasifikasiImunisasi.imunisasi_klasifikasi===null ? '' : klasifikasiImunisasi.imunisasi_klasifikas),
-      'color' : (klasifikasiImunisasi.imunisasi_status===null ? 'dark' : klasifikasiImunisasi.imunisasi_status),
+      'text' : (klasifikasiImunisasi.imun_klasifikasi===null ? '' : klasifikasiImunisasi.imun_klasifikas),
+      'color' : (klasifikasiImunisasi.imun_status===null ? 'dark' : klasifikasiImunisasi.imun_status),
       'disabled' : compStatus.imunisasi
     },
     {

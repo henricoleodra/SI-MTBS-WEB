@@ -141,7 +141,7 @@ export const KlasifikasiImunisasiChange = (comp, ans) => {
     }
 }
 
-// ANSWER IMUNISASI
+// ANSWER PEMBERIAN MAKANAN
 export const AnsPemberianMakananChange = (comp, ans) => {
     return {
         type: comp,
@@ -149,7 +149,7 @@ export const AnsPemberianMakananChange = (comp, ans) => {
     }
 }
 
-// KLASIFIKASI IMUNISASI
+// KLASIFIKASI PEMBERIAN MAKANAN
 export const KlasifikasiPemberianMakananChange = (comp, ans) => {
     return {
         type: comp,

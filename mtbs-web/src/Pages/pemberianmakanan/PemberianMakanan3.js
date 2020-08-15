@@ -46,8 +46,8 @@ const PemberianMakanan3 = (props) =>{
 
     const handleSubmit = event => {
         event.preventDefault();
-        dispatch(KlasifikasiPemberianMakanan('',""));
-        dispatch(KlasifikasiPemberianMakanan('',"info"));
+        dispatch(KlasifikasiPemberianMakanan('PEMBERIANMAKANAN_KLASIFIKASI',""));
+        dispatch(KlasifikasiPemberianMakanan('PEMBERIANMAKANAN_STATUS',"info"));
         history.push("PemberianMakanan4");
     }
 

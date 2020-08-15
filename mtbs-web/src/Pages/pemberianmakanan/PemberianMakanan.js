@@ -24,25 +24,25 @@ const PemberianMakanan = (props) =>{
     const dispatch = useDispatch();
 
     const ansPemberianMakanan = useSelector(state => state.ansPemberianMakanan);
-    let[pemberianMakanan_ibuMenyusui, set_pemberianMakanan_ibuMenyusui] = useState(ansPemberianMakanan.ibuMenyusui);
-    let[pemberianMakanan_jkIyaMenyusui, set_pemberianMakanan_jkIyaMenyusui] = useState(ansPemberianMakanan.jkIyaMenyusui);
-    let[pemberianMakanan_menyusuiMalamHari, set_pemberianMakanan_menyusuiMalamHari] = useState(ansPemberianMakanan.menyusuiMalamHari);
+    let[makanan_isDisusui, set_makanan_isDisusui] = useState(ansPemberianMakanan.makanan_isDisusui);
+    let[makanan_jumlahDisusui, set_makanan_jumlahDisusui] = useState(ansPemberianMakanan.makanan_jumlahDisusui);
+    let[makanan_malam, set_makanan_malam] = useState(ansPemberianMakanan.makanan_malam);
 
     const handleAnswerIbuMenyusui = event =>{
         let tmp = event.target.value;
-        set_pemberianMakanan_ibuMenyusui(tmp);
+        set_makanan_isDisusui(tmp);
         dispatch(AnsPemberianMakananChange('DISUSUI', tmp));
     }
 
     const handleAnswerJkIyaMenyusui = event =>{
         let tmp = event.target.value;
-        set_pemberianMakanan_jkIyaMenyusui(tmp);
+        set_makanan_jumlahDisusui(tmp);
         dispatch(AnsPemberianMakananChange('JUMLAH_DISUSUI', tmp));
     }
 
     const handleAnswerMenyusuiMalamHari = event =>{
         let tmp = event.target.value;
-        set_pemberianMakanan_menyusuiMalamHari(tmp);
+        set_makanan_malam(tmp);
         dispatch(AnsPemberianMakananChange('MALAM', tmp));
     }
 
@@ -54,7 +54,7 @@ const PemberianMakanan = (props) =>{
     }
 
     return(
-        <Form>
+        <Form onSubmit={handleSubmit}>
             <div className="w-100">
                 <div className="col-12">
                 <div className="d-flex justify-content-center mt-3">
@@ -95,7 +95,7 @@ const PemberianMakanan = (props) =>{
                                         <Col sm="3">
                                             <FormGroup className="d-inline pr-2">  
                                                 <Label className="rdoBtn">Ya
-                                                <Input type="radio" name="pemberianMakanan_ibuMenyusui" value={'Ya'} onChange={handleAnswerIbuMenyusui} checked={pemberianMakanan_ibuMenyusui === 'Ya'} required/>
+                                                <Input type="radio" name="pemberianMakanan_ibuMenyusui" value={'Ya'} onChange={handleAnswerIbuMenyusui} checked={makanan_isDisusui === 'Ya'} required/>
                                                 <span style={{left:"20px"}} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>
@@ -106,7 +106,7 @@ const PemberianMakanan = (props) =>{
                                         <Col sm="3">
                                             <FormGroup className="d-inline">
                                                 <Label className="rdoBtn">Tidak
-                                                <Input type="radio" name="pemberianMakanan_ibuMenyusui" value={'Tidak'} onChange={handleAnswerIbuMenyusui} checked={pemberianMakanan_ibuMenyusui === 'Tidak'}/> 
+                                                <Input type="radio" name="pemberianMakanan_ibuMenyusui" value={'Tidak'} onChange={handleAnswerIbuMenyusui} checked={makanan_isDisusui === 'Tidak'}/> 
                                                 <span style={{left:"0px"}} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>
@@ -123,7 +123,7 @@ const PemberianMakanan = (props) =>{
                                 <h6 hidden={pemberianMakanan_ibuMenyusui =='Tidak' || pemberianMakanan_ibuMenyusui == null}>Jika ya, berapa kali sehari?</h6>
                                 <div className="w-100 d-flex justify-content-center" hidden={pemberianMakanan_ibuMenyusui =='Tidak' || pemberianMakanan_ibuMenyusui == null}>
                                     <InputGroup className="w-25">
-                                        <Input type="number" min="0" name="pemberianMakanan_jkIyaMenyusui" value={pemberianMakanan_jkIyaMenyusui} onChange={handleAnswerJkIyaMenyusui} required/>
+                                        <Input type="number" min="0" name="pemberianMakanan_jkIyaMenyusui" value={makanan_jumlahDisusui} onChange={handleAnswerJkIyaMenyusui} required/>
                                         <InputGroupAddon addonType="append" >
                                             <InputGroupText style={bgColor}>Kali</InputGroupText>
                                         </InputGroupAddon>
@@ -138,7 +138,7 @@ const PemberianMakanan = (props) =>{
                                         <Col sm="3">
                                         <FormGroup className="d-inline pr-2">  
                                             <Label className="rdoBtn">Ya
-                                            <Input type="radio" name="pemberianMakanan_menyusuiMalamHari" value={'Ya'} onChange={handleAnswerMenyusuiMalamHari} checked={pemberianMakanan_menyusuiMalamHari === 'Ya'} required/>
+                                            <Input type="radio" name="pemberianMakanan_menyusuiMalamHari" value={'Ya'} onChange={handleAnswerMenyusuiMalamHari} checked={makanan_malam === 'Ya'} required/>
                                             <span style={{left:"20px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>
@@ -149,7 +149,7 @@ const PemberianMakanan = (props) =>{
                                         <Col sm="3">
                                         <FormGroup className="d-inline">
                                             <Label className="rdoBtn">Tidak
-                                            <Input type="radio" name="pemberianMakanan_menyusuiMalamHari" value={'Tidak'} onChange={handleAnswerMenyusuiMalamHari} checked={pemberianMakanan_menyusuiMalamHari === 'Tidak'} />
+                                            <Input type="radio" name="pemberianMakanan_menyusuiMalamHari" value={'Tidak'} onChange={handleAnswerMenyusuiMalamHari} checked={makanan_malam === 'Tidak'} />
                                             <span style={{left:"0px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>
@@ -167,7 +167,7 @@ const PemberianMakanan = (props) =>{
                     <Link to="KeluhanLain" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Pemeriksaan Keluhan Lain</Button></Link>
                 </Col>
                 <Col sm="4">
-                    <Link to="PemberianMakanan2" style={{textDecoration: "none"}}><Button color="success" block >Selanjutnya <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
+                    <Button color="success" type="submit" block >Selanjutnya <FontAwesomeIcon icon={faChevronRight}/></Button>
                 </Col>
             </Row>
         </div>

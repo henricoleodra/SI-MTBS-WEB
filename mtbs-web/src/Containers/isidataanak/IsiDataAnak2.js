@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faRunning, faSearch } from '@fortawesome/free-solid-svg-icons'
 
 //Import Component
-import HeaderTitle from './../../Components/headertitle/HeaderTitle'
+import { HeaderTitle } from '../../Components';
 
 // Actions
 import { DataAnakChange, AnsDemamChange } from '../../Actions';
@@ -77,7 +77,7 @@ const IsiDataAnak2 = () =>{
         dispatch(DataAnakChange('TINGGI_ANAK', tinggiAnak));
         dispatch(DataAnakChange('KUNJUNGAN_KE', kunjunganKe));
         dispatch(DataAnakChange('KELUHAN_AWAL', keluhanAwal));
-        history.push("MTBS/TandaBahayaUmum1"); 
+        history.push("../MTBS/TandaBahayaUmum1"); 
     }
 
     
@@ -149,7 +149,7 @@ const IsiDataAnak2 = () =>{
                     </div>
                     
                     <div className="d-flex justify-content-between mt-4">
-                        <Link to="IsiDataAnak1" style={{textDecoration: "none"}}><Button color="danger">Sebelumnya</Button></Link>
+                        <Link to="1" style={{textDecoration: "none"}}><Button color="danger">Sebelumnya</Button></Link>
                         <Button color="success">Selanjutnya</Button>
                     </div>   
                     

@@ -4,7 +4,7 @@ import { Row, Col, Card, CardTitle, CardText } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheck, faTimes } from '@fortawesome/free-solid-svg-icons'
 //Import Component
-import HeaderTitle from './../../Components/headertitle/HeaderTitle'
+import { HeaderTitle } from '../../Components'
 
 const MulaiPemeriksaan = (props) =>{
     return(
@@ -25,7 +25,7 @@ const MulaiPemeriksaan = (props) =>{
                     </Link>
                 </Col>
                 <Col xs="6" >
-                    <Link to="IsiDataAnak1" style={{textDecoration: 'none'}}>
+                    <Link to="IsiDataAnak/1" style={{textDecoration: 'none'}}>
                         <Card style={{minHeight: '400px'}} className="bg-danger shadow rounded">
                             <CardText className="d-flex justify-content-center mt-2">
                                 <h1><FontAwesomeIcon icon={faTimes} className="text-white fa-7x"/></h1>

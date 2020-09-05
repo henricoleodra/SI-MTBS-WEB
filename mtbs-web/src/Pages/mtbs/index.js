@@ -45,10 +45,10 @@ import {
     PemberianMakanan4,
     Klasifikasi,
     Tindakan
-} from '../../Pages';
+} from '../../Containers';
 
 const Index = ( props ) => {
-    const RenderContent = () => {
+    const Content = () => {
         switch(props.location.pathname) {
             case `/MTBS/TandaBahayaUmum1` : 
                 return <TandaBahayaUmum1/>;
@@ -146,7 +146,7 @@ const Index = ( props ) => {
 
     return (
         <Layout location={props.location.pathname} >
-            <RenderContent/>
+            <Content/>
         </Layout>
     );
 }

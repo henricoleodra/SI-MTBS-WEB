@@ -5,13 +5,9 @@ import {
     PemeriksaanAnak,
     MulaiPemeriksaan,
     PencarianDataAnak,
-    IsiDataAnak1,
-    IsiDataAnak2,
-} from '../Pages';
-
-import {
+    IsiDataAnak,
     MTBS
-} from '../Containers';
+} from '../Pages';
 
 const routes = [
     { path: '/ApaItuMTBS', component: ApaItuMTBS },
@@ -19,8 +15,7 @@ const routes = [
     { path: '/PemeriksaanAnak', component: PemeriksaanAnak },
     { path: '/MulaiPemeriksaan', component: MulaiPemeriksaan },
     { path: '/PencarianDataAnak', component: PencarianDataAnak },
-    { path: '/IsiDataAnak1', component: IsiDataAnak1 },
-    { path: '/IsiDataAnak2', component: IsiDataAnak2 },
+    { path: '/IsiDataAnak', component: IsiDataAnak },
     { path: '/MTBS', component: MTBS },
     { path: '/', component: Beranda },
 ];

@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendarDay } from '@fortawesome/free-solid-svg-icons'
 
 //Import Component
-import HeaderTitle from './../../Components/headertitle/HeaderTitle'
+import { HeaderTitle } from '../../Components'
 
 // Actions
 import { DataAnakChange, AnsDemamChange } from '../../Actions';
@@ -105,7 +105,7 @@ const IsiDataAnak1 = () =>{
         dispatch(DataAnakChange('UMUR_ANAK', differenceInDays));
         dispatch(DataAnakChange('TANGGAL_KUNJUNGAN', tmpCurDate));
         dispatch(DataAnakChange('KUNJUNGAN_PERTAMA', true));
-        history.push("IsiDataAnak2"); 
+        history.push("2"); 
     }
 
     
@@ -210,7 +210,7 @@ const IsiDataAnak1 = () =>{
                         </FormGroup>
                     </div>
                     <div className="d-flex justify-content-between mt-4">
-                        <Link to="MulaiPemeriksaan" style={{textDecoration: "none"}}><Button color="danger">Sebelumnya</Button></Link>
+                        <Link to="../MulaiPemeriksaan" style={{textDecoration: "none"}}><Button color="danger">Sebelumnya</Button></Link>
                         <Button color="success">Selanjutnya</Button>
                     </div>   
                     

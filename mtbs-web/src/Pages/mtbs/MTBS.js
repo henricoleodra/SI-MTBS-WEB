@@ -2,9 +2,7 @@ import React from 'react'
 import { useRouteMatch } from 'react-router-dom';
 
 //Import Components
-import SideBar from './../../Components/sidebar/SideBar'
-import Summary from './../../Components/summary/Summary';
-
+import { SideBar, Summary } from '../../Components';
 
 //Import Pages MTBS
 import TandaBahayaUmum from './../tandabahayaumum/TandaBahayaUmum';
@@ -67,11 +65,9 @@ function MTBS(props){
         location = location[location.length - 1];
     }
 
-    let iconColor = ["danger", "warning"];
-
     return(
         <div style={{ width: '100%'}} className="d-flex">
-            <SideBar location={location} iconColor={iconColor} />
+            <SideBar location={location} />
             <div className="w-75">
             {(() => {
                 switch(props.location.pathname) {

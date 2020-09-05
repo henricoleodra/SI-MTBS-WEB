@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 import { Row, Col, Card, CardBody, CardTitle, CardText, CardImg, Button, Container} from 'reactstrap';
 
 // Import Components
-import NavBar from './../../Components/navbar/NavBar';
-import Footer from './../../Components/footer/Footer';
+import { NavBar, Footer } from '../../Components';
 
 //Import Image
 // import pemeriksaan from './../../Assets/image/medicine.png';

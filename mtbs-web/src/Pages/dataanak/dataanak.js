@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import {Card, CardBody, CardImg, Button, Label} from 'reactstrap';
 
 //import components
-import HeaderTitle from './../../Components/headertitle/HeaderTitle'
-import RiwayatPemeriksaan from './../../Components/riwayatpemeriksaan/RiwayatPemeriksaan'
+import HeaderTitle from '../../Components/headertitle/HeaderTitle'
+import RiwayatPemeriksaan from '../../Components/riwayatpemeriksaan/RiwayatPemeriksaan'
 
 import '../../Assets/style/style.css';
 

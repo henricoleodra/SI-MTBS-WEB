@@ -1,198 +1,95 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import {Card, CardHeader, CardBody, CardTitle, CardFooter, Button} from 'reactstrap';
+import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { Container } from 'reactstrap';
+import { Klasifikasi } from '../../Components'
 
 let bgColor = {
     backgroundColor: '#41E8B3',
     borderColor: '#41E8B3'
 }
 
-const Klasifikasi = (props) =>{
+const Index = (props) =>{
+    const klasifikasiTBU = useSelector(state => state.klasifikasiTBU);
+    const klasifikasiBatuk = useSelector(state => state.klasifikasiBatuk);
+    const klasifikasiDiare = useSelector(state => state.klasifikasiDiare);
+    const klasifikasiDemam = useSelector(state => state.klasifikasiDemam);
+    const klasifikasiTelinga = useSelector(state => state.klasifikasiTelinga);
+    const klasifikasiAnemia = useSelector(state => state.klasifikasiAnemia);
+    const klasifikasiHIV = useSelector(state => state.klasifikasiHIV);
+    const klasifikasiImunisasi = useSelector(state => state.klasifikasiImunisasi);
+    const klasifikasiVitaminA = useSelector(state => state.klasifikasiVitaminA);
+    const klasifikasiKeluhanLain = useSelector(state => state.klasifikasiKeluhanLain);
+    const klasifikasiPemberianMakanan = useSelector(state => state.klasifikasiPemberianMakanan);
+
+    let klasifikasi = [
+        {
+            status: klasifikasiTBU.tbu_status,
+            title: "Tanda Bahaya Umum",
+            klasifikasi: klasifikasiTBU.tbu_klasifikasi,
+            flag: (klasifikasiTBU.tbu_status != null)
+        },
+        {
+            status: klasifikasiBatuk.bsb_status,
+            title: "Batuk",
+            klasifikasi: klasifikasiBatuk.bsb_klasifikasi,
+            flag: (klasifikasiBatuk.bsb_status != null && klasifikasiBatuk.bsb_status != "info")
+        },
+        {
+            status: klasifikasiDiare.diare_status,
+            title: "Diare",
+            klasifikasi: klasifikasiDiare.diare_klasifikasi,
+            flag: (klasifikasiDiare.diare_status != null && klasifikasiDiare.diare_status != "info")
+        },
+        {
+            status: klasifikasiDemam.demam_status,
+            title: "Demam",
+            klasifikasi: klasifikasiDemam.demam_klasifikasi,
+            flag: (klasifikasiDemam.demam_status !=null && klasifikasiDemam.demam_status != "info")
+        },
+        {
+            status: klasifikasiTelinga.telinga_status,
+            title: "Telinga",
+            klasifikasi: klasifikasiTelinga.telinga_klasifikasi,
+            flag: (klasifikasiTelinga.telinga_status !=null && klasifikasiTelinga.telinga_status != "info")
+        },
+        {
+            status: klasifikasiAnemia.anemia_status,
+            title: "Anemia",
+            klasifikasi: klasifikasiAnemia.anemia_klasifikasi,
+            flag: (klasifikasiAnemia.anemia_status !=null)
+        },
+        {
+            status: klasifikasiHIV.hiv_status,
+            title: "HIV",
+            klasifikasi: klasifikasiHIV.hiv_klasifikasi,
+            flag: (klasifikasiHIV.hiv_status !=null)
+        },
+    ];
+    
     return(
         <div className="d-flex flex-column mt-2">
-            <div className="">
-                    <h3 className="text-center font-weight-bold">Klasifikasi</h3>
-                    <hr
-                    style={{
-                        color: "#41E8B3",
-                        backgroundColor: "#41E8B3",
-                        height: 5,
-                        width: '95%'
-                    }}
-                    />
-                </div>
-            <div className="d-flex justify-content-around mt-2">
-                <div className="" style={{width: '30%'}}>
-                    <Card className="">
-                        <CardHeader className="text-center bg-danger text-light">
-                            <CardTitle className="font-weight-bold">Tanda Bahaya Umum</CardTitle>
-                        </CardHeader>
-                        <CardBody className="text-center">
-                            <div>Penyakit PROSI</div>
-                            <div>Penyakit PROSI</div>
-                            
-                        </CardBody>
-                        <CardFooter className="d-flex justify-content-center">
-                            <Link to="Tindakan"><Button className="btn btn-secondary" >Tindakan</Button></Link>
-                        </CardFooter>
-                    </Card>
-                </div>
-                <div className="" style={{width: '30%'}}>
-                    <Card className="">
-                        <CardHeader className="text-center bg-warning text-dark">
-                            <CardTitle className="font-weight-bold">Batuk</CardTitle>
-                        </CardHeader>
-                        <CardBody className="text-center">
-                            Penyakit PROSI
-                        </CardBody>
-                        <CardFooter className="d-flex justify-content-center">
-                            <Button className="btn btn-secondary">Tindakan</Button>
-                        </CardFooter>
-                    </Card>
-                </div>
+            <div>
+                <h3 className="text-center font-weight-bold">Klasifikasi</h3>
+                <hr
+                style={{
+                    color: "#41E8B3",
+                    backgroundColor: "#41E8B3",
+                    height: 5,
+                    width: '95%'
+                }}
+                />
             </div>
-            <div className="d-flex justify-content-around mt-3">
-                <div className="text-muted" style={{width: '30%'}}>
-                    <Card className="">
-                        <CardHeader className="text-center ">
-                            <CardTitle className="font-weight-bold">Diare</CardTitle>
-                        </CardHeader>
-                        <CardBody className="text-center">
-                            Penyakit PROSI
-                        </CardBody>
-                        <CardFooter className="d-flex justify-content-center">
-                            <Link to="Tindakan"><Button className="btn btn-secondary" disabled>Tindakan</Button></Link>
-                        </CardFooter>
-                    </Card>
-                </div>
-                <div className="" style={{width: '30%'}}>
-                    <Card className="">
-                        <CardHeader className="text-center bg-success text-dark">
-                            <CardTitle className="font-weight-bold">Demam</CardTitle>
-                        </CardHeader>
-                        <CardBody className="text-center">
-                            Penyakit PROSI
-                        </CardBody>
-                        <CardFooter className="d-flex justify-content-center">
-                            <Button className="btn btn-secondary">Tindakan</Button>
-                        </CardFooter>
-                    </Card>
-                </div>
-            </div>
-            <div className="d-flex justify-content-around mt-3">
-                <div className="text-muted" style={{width: '30%'}}>
-                    <Card className="">
-                        <CardHeader className="text-center ">
-                            <CardTitle className="font-weight-bold">Telinga</CardTitle>
-                        </CardHeader>
-                        <CardBody className="text-center">
-                            Penyakit PROSI
-                        </CardBody>
-                        <CardFooter className="d-flex justify-content-center">
-                            <Link to="Tindakan"><Button className="btn btn-secondary" disabled>Tindakan</Button></Link>
-                        </CardFooter>
-                    </Card>
-                </div>
-                <div className="text-muted" style={{width: '30%'}}>
-                    <Card className="">
-                        <CardHeader className="text-center">
-                            <CardTitle className="font-weight-bold">Gizi</CardTitle>
-                        </CardHeader>
-                        <CardBody className="text-center">
-                            Penyakit PROSI
-                        </CardBody>
-                        <CardFooter className="d-flex justify-content-center">
-                            <Button className="btn btn-secondary" disabled>Tindakan</Button>
-                        </CardFooter>
-                    </Card>
-                </div>
-            </div>
-            <div className="d-flex justify-content-around mt-3">
-                <div className="text-muted" style={{width: '30%'}}>
-                    <Card className="">
-                        <CardHeader className="text-center ">
-                            <CardTitle className="font-weight-bold">Anemia</CardTitle>
-                        </CardHeader>
-                        <CardBody className="text-center">
-                            Penyakit PROSI
-                        </CardBody>
-                        <CardFooter className="d-flex justify-content-center">
-                            <Link to="Tindakan"><Button className="btn btn-secondary" disabled >Tindakan</Button></Link>
-                        </CardFooter>
-                    </Card>
-                </div>
-                <div className="text-muted" style={{width: '30%'}}>
-                    <Card className="">
-                        <CardHeader className="text-center">
-                            <CardTitle className="font-weight-bold">HIV</CardTitle>
-                        </CardHeader>
-                        <CardBody className="text-center">
-                            Penyakit PROSI
-                        </CardBody>
-                        <CardFooter className="d-flex justify-content-center">
-                            <Button className="btn btn-secondary" disabled>Tindakan</Button>
-                        </CardFooter>
-                    </Card>
-                </div>
-            </div>
-            <div className="d-flex justify-content-around mt-3">
-                <div className="text-muted" style={{width: '30%'}}>
-                    <Card className="">
-                        <CardHeader className="text-center ">
-                            <CardTitle className="font-weight-bold">Imunisasi</CardTitle>
-                        </CardHeader>
-                        <CardBody className="text-center">
-                            Penyakit PROSI
-                        </CardBody>
-                        <CardFooter className="d-flex justify-content-center">
-                            <Button className="btn btn-secondary" disabled>Tindakan</Button>
-                        </CardFooter>
-                    </Card>
-                </div>
-                <div className="" style={{width: '30%'}}>
-                    <Card className="text-muted">
-                        <CardHeader className="text-center">
-                            <CardTitle className="font-weight-bold">Vitamin A</CardTitle>
-                        </CardHeader>
-                        <CardBody className="text-center">
-                            Penyakit PROSI
-                        </CardBody>
-                        <CardFooter className="d-flex justify-content-center">
-                            <Button className="btn btn-secondary" disabled>Tindakan</Button>
-                        </CardFooter>
-                    </Card>
-                </div>
-            </div>
-            <div className="d-flex justify-content-around mt-3 mb-3">
-                    <div className="text-muted" style={{width: '30%'}}>
-                        <Card className="">
-                            <CardHeader className="text-center ">
-                                <CardTitle className="font-weight-bold">Keluhan Lain</CardTitle>
-                            </CardHeader>
-                            <CardBody className="text-center">
-                                Penyakit PROSI
-                            </CardBody>
-                            <CardFooter className="d-flex justify-content-center">
-                                <Link to="Tindakan"><Button className="btn btn-secondary" disabled>Tindakan</Button></Link>
-                            </CardFooter>
-                        </Card>
-                    </div>
-                    <div className="text-muted" style={{width: '30%'}}>
-                        <Card className="">
-                            <CardHeader className="text-center">
-                                <CardTitle className="font-weight-bold">Pemberian Makanan</CardTitle>
-                            </CardHeader>
-                            <CardBody className="text-center">
-                                Penyakit PROSI
-                            </CardBody>
-                            <CardFooter className="d-flex justify-content-center">
-                                <Button className="btn btn-secondary" disabled>Tindakan</Button>
-                            </CardFooter>
-                        </Card>
-                    </div>
-            </div>
+            <Container className="w-75 justify-content-center">
+                {
+                    klasifikasi.map((klasifikasi, idx) => {
+                        if(klasifikasi.flag){
+                            return <Klasifikasi key={idx} status={klasifikasi.status} title={klasifikasi.title} klasifikasi={klasifikasi.klasifikasi} />
+                        }
+                    })
+                }
+            </Container>
         </div>  
     );
 }
 
-export default Klasifikasi;
+export default Index;

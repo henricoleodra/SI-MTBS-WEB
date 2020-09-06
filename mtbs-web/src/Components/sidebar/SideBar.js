@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { Link } from 'react-router-dom';
 import {NavItem, Nav, Row, Col, NavLink, Label,  Modal, ModalHeader, ModalBody, ModalFooter, Button } from 'reactstrap';
 import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -155,7 +156,7 @@ const SideBar = (props) => {
                 </NavItem>
                 {renderSideBar}
                 <NavItem>
-                    <NavLink href="Klasifikasi" className="btn pb-1 pt-1 btn-light text-left" id="klasifikasi" active={props.location === 'Klasifikasi'}>
+                    <NavLink className="btn pb-1 pt-1 btn-light text-left" id="klasifikasi" tag={Link} active={props.location === 'Klasifikasi'} to="Klasifikasi" >
                         <Row className="">
                             <Col xs="12 pl-2 pr-0">
                                 <span className="text-left fontSideBar">Klasifikasi</span>
@@ -164,7 +165,7 @@ const SideBar = (props) => {
                     </NavLink>
                 </NavItem>
                 <NavItem>
-                    <NavLink href="#" className="btn pb-1 pt-1 btn-light text-left" id="tindakan" disabled={compStatus.tindakan}>
+                    <NavLink className="btn pb-1 pt-1 btn-light text-left" id="tindakan" tag={Link} disabled={compStatus.tindakan} to="">
                         <Row className="">
                             <Col xs="12 pl-2 pr-0">
                                 <span className="text-left fontSideBar">Tindakan</span>

@@ -31,29 +31,40 @@ const Telinga = (props) =>{
 
     const handleSubmit = event =>{
         event.preventDefault();
-        if(klasifikasiTelinga.telinga_2 === true){
-            axios.post(`/Telinga/2`,{
-                ansTelinga : ansTelinga
-            })
-            .then(res =>{
-                dispatch(KlasifikasiTelingaChange('TELINGA_KLASIFIKASI', res.data.hasilKlasifikasi));
-                dispatch(KlasifikasiTelingaChange('TELINGA_STATUS', res.data.statusKlasifikasi));
-            })
-            .catch(err => {
-                console.log(err);
-            });
-        }else{
-            axios.post(`/Telinga/1`, {
-                ansTelinga : ansTelinga
-            })
-            .then(res =>{
-                dispatch(KlasifikasiTelingaChange('TELINGA_KLASIFIKASI', res.data.hasilKlasifikasi));
-                dispatch(KlasifikasiTelingaChange('TELINGA_STATUS', res.data.statusKlasifikasi));
-            })
-            .catch(err =>{
-                console.log(err);
-            });
-        }
+        // if(klasifikasiTelinga.telinga_2 === true){
+        //     axios.post(`/Telinga/2`,{
+        //         ansTelinga : ansTelinga
+        //     })
+        //     .then(res =>{
+        //         dispatch(KlasifikasiTelingaChange('TELINGA_KLASIFIKASI', res.data.hasilKlasifikasi));
+        //         dispatch(KlasifikasiTelingaChange('TELINGA_STATUS', res.data.statusKlasifikasi));
+        //     })
+        //     .catch(err => {
+        //         console.log(err);
+        //     });
+        // }else{
+        //     axios.post(`/Telinga/1`, {
+        //         ansTelinga : ansTelinga
+        //     })
+        //     .then(res =>{
+        //         dispatch(KlasifikasiTelingaChange('TELINGA_KLASIFIKASI', res.data.hasilKlasifikasi));
+        //         dispatch(KlasifikasiTelingaChange('TELINGA_STATUS', res.data.statusKlasifikasi));
+        //     })
+        //     .catch(err =>{
+        //         console.log(err);
+        //     });
+        // }
+        // history.push("Telinga2");
+        axios.post(`/Telinga`, {
+            ansTelinga: ansTelinga
+        })
+        .then(res => {
+            dispatch(KlasifikasiTelingaChange('TELINGA_KLASIFIKASI', res.data.hasilKlasifikasi));
+            dispatch(KlasifikasiTelingaChange('TELINGA_STATUS', res.data.statusKlasifikasi));
+        })
+        .catch(err => {
+            console.log(err);
+        });
         history.push("Telinga2");
     }
 

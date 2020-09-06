@@ -25,19 +25,30 @@ const Telinga2 = (props) =>{
 
     const handleSubmit = event =>{
         event.preventDefault();
-        axios.post(`/Telinga/2`, {
-            ansTelinga : ansTelinga
+        // axios.post(`/Telinga/2`, {
+        //     ansTelinga : ansTelinga
+        // })
+        // .then(res =>{
+        //     dispatch(KlasifikasiTelingaChange('TELINGA_KLASIFIKASI', res.data.hasilKlasifikasi));
+        //     dispatch(KlasifikasiTelingaChange('TELINGA_STATUS', res.data.statusKlasifikasi));
+        // })
+        // .catch(err =>{
+        //     console.log(err);
+        // })
+        // dispatch(KlasifikasiTelingaChange('TELINGA_2', true));
+        // history.push("Gizi1");
+        // dispatch(compStatusChange('GIZI'));
+        axios.post(`/Telinga`, {
+            ansTelinga: ansTelinga
         })
-        .then(res =>{
+        .then(res => {
             dispatch(KlasifikasiTelingaChange('TELINGA_KLASIFIKASI', res.data.hasilKlasifikasi));
             dispatch(KlasifikasiTelingaChange('TELINGA_STATUS', res.data.statusKlasifikasi));
         })
-        .catch(err =>{
+        .catch(err => {
             console.log(err);
-        })
-        dispatch(KlasifikasiTelingaChange('TELINGA_2', true));
+        });
         history.push("Gizi1");
-        dispatch(compStatusChange('GIZI'));
     }
 
     const handleAnswer1 = event => {

@@ -21,7 +21,16 @@ const telinga2 = async function(req, res, next){
     res.json(ans);
 };
 
+const telinga = async function(req, res, next){
+    const klasTelinga = await klasifikasiTelinga.classifierTelinga(req.body.ansTelinga);
+
+    const ans = {
+        hasilKlasifikasi : klasTelinga.hasilKlasifikasi,
+        statusKlasifikasi : klasTelinga.statusKlasifikasi,
+    }
+    res.json(ans);
+};
+
 module.exports = {
-    telinga1,
-    telinga2
+    telinga1, telinga2, telinga
 };

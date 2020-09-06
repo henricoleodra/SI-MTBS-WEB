@@ -29,7 +29,7 @@ const Batuk2 = (props) =>{
 
     const handleSubmit = event =>{
         event.preventDefault();
-        axios.post(`/Batuk/2`, {
+        axios.post(`/Batuk`, {
             ansBatuk : ansBatuk
         })
         .then(res => {
@@ -39,8 +39,8 @@ const Batuk2 = (props) =>{
         .catch(err=>{
             console.log(err);
         });
-        dispatch(KlasifikasiBatukChange('BATUK_2', true));
-        dispatch(compStatusChange('DIARE'));
+        // dispatch(KlasifikasiBatukChange('BATUK_2', true));
+        // dispatch(compStatusChange('DIARE'));
         history.push("DiareYaTidak"); 
     }
 

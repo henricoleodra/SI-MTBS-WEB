@@ -33,30 +33,40 @@ const Batuk = (props) => {
 
     const handleSubmit = event =>{
         event.preventDefault();
-        if(klasifikasiBatuk.bsb_2 === true){
-            axios.post(`/Batuk/2`, {
-                ansBatuk : ansBatuk
-            })
-            .then(res => {
-                dispatch(KlasifikasiBatukChange('BATUK_KLASIFIKASI', res.data.hasilKlasifkasi));
-                dispatch(KlasifikasiBatukChange('BATUK_STATUS', res.data.statusKlasifikasi));
-            })
-            .catch(err=>{
-                console.log(err);
-            });
-        }
-        else{
-            axios.post(`/Batuk/1`, {
-                ansBatuk : ansBatuk
-            })
-            .then(res => {
-                dispatch(KlasifikasiBatukChange('BATUK_KLASIFIKASI', res.data.hasilKlasifkasi));
-                dispatch(KlasifikasiBatukChange('BATUK_STATUS', res.data.statusKlasifikasi));
-            })
-            .catch(err=>{
-                console.log(err);
-            });
-        }
+        // if(klasifikasiBatuk.bsb_2 === true){
+        //     axios.post(`/Batuk/2`, {
+        //         ansBatuk : ansBatuk
+        //     })
+        //     .then(res => {
+        //         dispatch(KlasifikasiBatukChange('BATUK_KLASIFIKASI', res.data.hasilKlasifkasi));
+        //         dispatch(KlasifikasiBatukChange('BATUK_STATUS', res.data.statusKlasifikasi));
+        //     })
+        //     .catch(err=>{
+        //         console.log(err);
+        //     });
+        // }
+        // else{
+        //     axios.post(`/Batuk/1`, {
+        //         ansBatuk : ansBatuk
+        //     })
+        //     .then(res => {
+        //         dispatch(KlasifikasiBatukChange('BATUK_KLASIFIKASI', res.data.hasilKlasifkasi));
+        //         dispatch(KlasifikasiBatukChange('BATUK_STATUS', res.data.statusKlasifikasi));
+        //     })
+        //     .catch(err=>{
+        //         console.log(err);
+        //     });
+        // }
+        axios.post(`/Batuk`, {
+            ansBatuk: ansBatuk
+        })
+        .then(res => {
+            dispatch(KlasifikasiBatukChange('BATUK_KLASIFIKASI', res.data.hasilKlasifikasi));
+            dispatch(KlasifikasiBatukChange('BATUK_STATUS', res.data.statusKlasifikasi));
+        })
+        .catch(err => {
+            console.log(err);
+        });
         history.push("Batuk2");
         
     }

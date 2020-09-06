@@ -63,14 +63,7 @@ const classifierBatuk = (ansBatuk) => {
     if(ansBatuk.bsb_wheezing != null){
         res = res || ansBatuk.bsb_wheezing;
     }
-    if(res === true ){
-        const ans = {
-            hasilKlasifkasi: 'Pneumonia berat',
-            statusKlasifikasi: 'danger', 
-        }
-        return ans;
-    }
-    else if(ansBatuk.bsb_saturasiOksigen < 90){
+    if(res === true || ansBatuk.bsb_saturasiOksigen < 90){
         const ans = {
             hasilKlasifkasi: 'Pneumonia berat',
             statusKlasifikasi: 'danger', 

@@ -24,6 +24,7 @@ const Batuk2 = (props) =>{
     const history = useHistory();
     const dispatch = useDispatch();
     const ansBatuk = useSelector(state => state.ansBatuk);
+    const KlasifikasiBatuk = useSelector(state => state.klasifikasiBatuk);
     let[bsb_wheezing, set_bsb_wheezing] = useState(ansBatuk.bsb_wheezing);
     let[bsb_saturasiOksigen, set_bsb_saturasiOksigen] = useState(ansBatuk.bsb_saturasiOksigen);
 

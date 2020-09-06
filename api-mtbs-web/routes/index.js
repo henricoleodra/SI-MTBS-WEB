@@ -18,7 +18,7 @@ router.post('/TBU', tandabahayaumum.tandaBahayaUmum);
 router.post('/TBU/1', tandabahayaumum.tandaBahayaUmum1);
 router.post('/TBU/2', tandabahayaumum.tandaBahayaUmum2);
 //Batuk
-router.post(`/Batuk`,batuk.batuk1);
+router.post(`/Batuk`,batuk.batuk);
 router.post(`/Batuk/1`, batuk.batuk1);
 router.post(`/Batuk/2`, batuk.batuk2);
 //Diare
@@ -29,7 +29,7 @@ router.post(`/Diare/3`,diare.diare3);
 //Demam
 router.post('/Demam', demam.demam);
 //Telinga
-router.post(`/Telinga`,telinga.telinga1);
+router.post(`/Telinga`,telinga.telinga);
 router.post(`/Telinga/1`,telinga.telinga1);
 router.post(`/Telinga/2`,telinga.telinga2);
 //Anemia

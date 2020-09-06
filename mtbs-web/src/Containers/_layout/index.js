@@ -24,7 +24,8 @@ const Index = ( props ) => {
             </div>
             {(() => {
                 let x = location;
-                if (x !== '/MTBS/Klasifikasi' && x !== '/MTBS/Tindakan' ) return (
+                console.log(x);
+                if (x !== 'Klasifikasi' && x !== 'Tindakan' ) return (
                     <div className="mt-2 w-25 mr-1">
                         <Summary/>
                     </div>

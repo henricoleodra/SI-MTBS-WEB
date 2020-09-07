@@ -23,18 +23,29 @@ const HIV = (props) =>{
 
     const handleSubmit = event =>{
         event.preventDefault();
-        axios.post(`/HIV/3`, {
-            ansHIV : ansHIV
+        // axios.post(`/HIV/3`, {
+        //     ansHIV : ansHIV
+        // })
+        // .then(res => {
+        //     dispatch(KlasifikasiHIVChange('HIV_KLASIFIKASI', res.data.hasilKlasifikasi));
+        //     dispatch(KlasifikasiHIVChange('HIV_STATUS', res.data.statusKlasifikasi));
+        // })
+        // .catch(err=>{
+        //   console.log(err);
+        // }); 
+        // dispatch(KlasifikasiHIVChange('HIV_3', true));
+        // dispatch(compStatusChange('IMUNISASI'));
+        // history.push("Imunisasi1");
+        axios.post(`/HIV`, {
+            ansHIV: ansHIV
         })
         .then(res => {
             dispatch(KlasifikasiHIVChange('HIV_KLASIFIKASI', res.data.hasilKlasifikasi));
             dispatch(KlasifikasiHIVChange('HIV_STATUS', res.data.statusKlasifikasi));
         })
-        .catch(err=>{
-          console.log(err);
-        }); 
-        dispatch(KlasifikasiHIVChange('HIV_3', true));
-        dispatch(compStatusChange('IMUNISASI'));
+        .catch(err => {
+            console.log(err);
+        });
         history.push("Imunisasi1");
     }
 

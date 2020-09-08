@@ -1,11 +1,11 @@
 const initState = {
     bsb : null,
-    bsb_lamaHari : null,
-    bsb_jumlahNafas : null,
+    bsb_lamaHari : "",
+    bsb_jumlahNafas : "",
     bsb_nafasCepat : null,
     bsb_tarikanDindingDada : null,
     bsb_wheezing : null,
-    bsb_saturasiOksigen : null
+    bsb_saturasiOksigen : ""
 }
 
 const ansBatukReducer = (state = initState, action) => {

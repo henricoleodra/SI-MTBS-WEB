@@ -1,12 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { Container } from 'reactstrap';
 import { Klasifikasi } from '../../Components'
 
-let bgColor = {
-    backgroundColor: '#41E8B3',
-    borderColor: '#41E8B3'
-}
 
 const Index = (props) =>{
     const klasifikasiTBU = useSelector(state => state.klasifikasiTBU);
@@ -16,10 +12,6 @@ const Index = (props) =>{
     const klasifikasiTelinga = useSelector(state => state.klasifikasiTelinga);
     const klasifikasiAnemia = useSelector(state => state.klasifikasiAnemia);
     const klasifikasiHIV = useSelector(state => state.klasifikasiHIV);
-    const klasifikasiImunisasi = useSelector(state => state.klasifikasiImunisasi);
-    const klasifikasiVitaminA = useSelector(state => state.klasifikasiVitaminA);
-    const klasifikasiKeluhanLain = useSelector(state => state.klasifikasiKeluhanLain);
-    const klasifikasiPemberianMakanan = useSelector(state => state.klasifikasiPemberianMakanan);
 
     let klasifikasi = [
         {
@@ -32,25 +24,25 @@ const Index = (props) =>{
             status: klasifikasiBatuk.bsb_status,
             title: "Batuk",
             klasifikasi: klasifikasiBatuk.bsb_klasifikasi,
-            flag: (klasifikasiBatuk.bsb_status != null && klasifikasiBatuk.bsb_status != "info")
+            flag: (klasifikasiBatuk.bsb_status != null && klasifikasiBatuk.bsb_status !== "info")
         },
         {
             status: klasifikasiDiare.diare_status,
             title: "Diare",
             klasifikasi: klasifikasiDiare.diare_klasifikasi,
-            flag: (klasifikasiDiare.diare_status != null && klasifikasiDiare.diare_status != "info")
+            flag: (klasifikasiDiare.diare_status != null && klasifikasiDiare.diare_status !== "info")
         },
         {
             status: klasifikasiDemam.demam_status,
             title: "Demam",
             klasifikasi: klasifikasiDemam.demam_klasifikasi,
-            flag: (klasifikasiDemam.demam_status !=null && klasifikasiDemam.demam_status != "info")
+            flag: (klasifikasiDemam.demam_status !=null && klasifikasiDemam.demam_status !== "info")
         },
         {
             status: klasifikasiTelinga.telinga_status,
             title: "Telinga",
             klasifikasi: klasifikasiTelinga.telinga_klasifikasi,
-            flag: (klasifikasiTelinga.telinga_status !=null && klasifikasiTelinga.telinga_status != "info")
+            flag: (klasifikasiTelinga.telinga_status !=null && klasifikasiTelinga.telinga_status !== "info")
         },
         {
             status: klasifikasiAnemia.anemia_status,
@@ -84,6 +76,9 @@ const Index = (props) =>{
                     klasifikasi.map((klasifikasi, idx) => {
                         if(klasifikasi.flag){
                             return <Klasifikasi key={idx} status={klasifikasi.status} title={klasifikasi.title} klasifikasi={klasifikasi.klasifikasi} />
+                        }
+                        else {
+                            return <></>
                         }
                     })
                 }

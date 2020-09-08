@@ -20,7 +20,6 @@ const TandaBahayaUmum = (props) => {
   const history = useHistory();
   const dispatch = useDispatch();
   const ansTBU = useSelector(state => state.ansTBU);
-  const klasifikasiTBU = useSelector(state => state.klasifikasiTBU);
   let[tbu_tidakBisaMinum, set_tbu_tidakBisaMinum] = useState(ansTBU.tbu_tidakBisaMinum);
   let[tbu_muntah, set_tbu_muntah] = useState(ansTBU.tbu_muntah);
   let[tbu_kejang, set_tbu_kejang] = useState(ansTBU.tbu_kejang);
@@ -29,30 +28,6 @@ const TandaBahayaUmum = (props) => {
 
   const handleSubmit = event =>{
     event.preventDefault();
-    // if(klasifikasiTBU.tbu_2 === true){
-    //   axios.post(`/TBU/2`, {
-    //     ansTBU : ansTBU
-    //   })
-    //   .then(res => {
-    //     dispatch(KlasifikasiTBUChange('TBU_KLASIFIKASI', res.data.hasilKlasifkasi));
-    //     dispatch(KlasifikasiTBUChange('TBU_STATUS', res.data.statusKlasifikasi));
-    //   })
-    //   .catch(err=>{
-    //     console.log(err);
-    //   });
-    // }
-    // else{
-    //   axios.post(`/TBU/1`, {
-    //     ansTBU : ansTBU
-    //   })
-    //   .then(res => {
-    //     dispatch(KlasifikasiTBUChange('TBU_KLASIFIKASI', res.data.hasilKlasifkasi));
-    //     dispatch(KlasifikasiTBUChange('TBU_STATUS', res.data.statusKlasifikasi));
-    //   })
-    //   .catch(err=>{
-    //     console.log(err);
-    //   });
-    // }
     axios.post(`/TBU`, {
       ansTBU : ansTBU
     })
@@ -67,40 +42,40 @@ const TandaBahayaUmum = (props) => {
   }
 
   const handleAnswer1 = event =>{
-    if(event.target.value == 1){
+    if(event.target.value === "1"){
       set_tbu_tidakBisaMinum(true);
       dispatch(AnsTBUChange('TIDAK_BISA_MINUM', true));
-    }else if(event.target.value == 2){
+    }else if(event.target.value === "2"){
       set_tbu_tidakBisaMinum(false);
       dispatch(AnsTBUChange('TIDAK_BISA_MINUM', false));
     }
   }
 
   const handleAnswer2 = event =>{
-    if(event.target.value == 1){
+    if(event.target.value === "1"){
       set_tbu_muntah(true);
       dispatch(AnsTBUChange('MUNTAH', true));
-    }else if(event.target.value == 2){
+    }else if(event.target.value === "2"){
       set_tbu_muntah(false);
       dispatch(AnsTBUChange('MUNTAH', false));
     }
   }
 
   const handleAnswer3 = event =>{
-    if(event.target.value == 1){
+    if(event.target.value === "1"){
       set_tbu_kejang(true);
       dispatch(AnsTBUChange('KEJANG', true));
-    }else if(event.target.value == 2){
+    }else if(event.target.value === "2"){
       set_tbu_kejang(false);
       dispatch(AnsTBUChange('KEJANG', false));
     }
   }
 
   const handleAnswer4 = event =>{
-    if(event.target.value == 1){
+    if(event.target.value === "1"){
       set_tbu_gelisah(true);
       dispatch(AnsTBUChange('GELISAH', true));
-    }else if(event.target.value == 2){
+    }else if(event.target.value === "2"){
       set_tbu_gelisah(false);
       dispatch(AnsTBUChange('GELISAH', false));
     }

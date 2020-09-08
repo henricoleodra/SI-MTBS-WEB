@@ -72,17 +72,19 @@ const Batuk = (props) => {
     }
 
     const handleAnswer1 = event =>{
-        set_bsb_lamaHari(event.target.value);
-        dispatch(AnsBatukChange('LAMA_HARI', event.target.value));
+        let tmp = Number(event.target.value);
+        set_bsb_lamaHari(tmp);
+        dispatch(AnsBatukChange('LAMA_HARI', tmp));
     }
 
     const handleAnswer2 = event =>{
         let tmpUmurHari = dataAnak.umurAnak;
         let umur = Math.floor(tmpUmurHari/30);
-        set_bsb_jumlahNafas(event.target.value);
-        dispatch(AnsBatukChange('JUMLAH_NAFAS', event.target.value));
+        let tmp = Number(event.target.value);
+        set_bsb_jumlahNafas(tmp);
+        dispatch(AnsBatukChange('JUMLAH_NAFAS', tmp));
         if(umur<12){
-            if(event.target.value>50){
+            if(tmp>50){
                 set_bsb_nafasCepat(true);
                 dispatch(AnsBatukChange('NAFAS_CEPAT', true));
             }
@@ -92,7 +94,7 @@ const Batuk = (props) => {
             }
         }
         else{
-            if(event.target.value>40){
+            if(tmp>40){
                 set_bsb_nafasCepat(true);
                 dispatch(AnsBatukChange('NAFAS_CEPAT', true));
             }

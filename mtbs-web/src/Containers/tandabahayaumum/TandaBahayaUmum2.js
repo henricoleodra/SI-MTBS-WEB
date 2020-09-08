@@ -9,8 +9,7 @@ import axios from 'axios';
 import '../../Assets/style/style.css';
 
 // Actions
-import { KlasifikasiTBUChange, AnsTBUChange, AnsDemamChange } from '../../Actions';
-import { compStatusChange } from '../../Actions';
+import { KlasifikasiTBUChange, AnsTBUChange, AnsDemamChange, compStatusChange } from '../../Actions';
 
 var outlineColor = {
   borderColor : '#75C9E6'
@@ -28,16 +27,6 @@ const TandaBahayaUmum2 = (props) => {
   
   const handleSubmit = event =>{
     event.preventDefault();
-    // axios.post(`/TBU/2`, {
-    //   ansTBU : ansTBU
-    // })
-    // .then(res => {
-    //   dispatch(KlasifikasiTBUChange('TBU_KLASIFIKASI', res.data.hasilKlasifkasi));
-    //   dispatch(KlasifikasiTBUChange('TBU_STATUS', res.data.statusKlasifikasi));
-    // })
-    // .catch(err=>{
-    //   console.log(err);
-    // });
     axios.post(`/TBU`, {
       ansTBU : ansTBU
     })
@@ -60,7 +49,7 @@ const TandaBahayaUmum2 = (props) => {
   }
 
   const handleAnswer1 = event =>{
-    if(event.target.value == 1){
+    if(event.target.value === "1"){
       set_tbu_letargis(true);
       dispatch(AnsTBUChange('LETARGIS', true));
     }else{
@@ -70,7 +59,7 @@ const TandaBahayaUmum2 = (props) => {
   }
 
   const handleAnswer2 = event =>{
-    if(event.target.value == 1){
+    if(event.target.value === "1"){
       set_tbu_stridor(true);
       dispatch(AnsTBUChange('STRIDOR', true));
     }else{
@@ -80,7 +69,7 @@ const TandaBahayaUmum2 = (props) => {
   }
 
   const handleAnswer3 = event =>{
-    if(event.target.value == 1){
+    if(event.target.value === "1"){
       set_tbu_sianosis(true);
       dispatch(AnsTBUChange('SIANOSIS', true));
     }else{
@@ -90,7 +79,7 @@ const TandaBahayaUmum2 = (props) => {
   }
 
   const handleAnswer4 = event =>{
-    if(event.target.value == 1){
+    if(event.target.value === "1"){
       set_tbu_pucatDingin(true);
       dispatch(AnsTBUChange('PUCAT_DINGIN', true));
     }else{

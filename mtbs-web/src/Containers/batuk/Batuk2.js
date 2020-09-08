@@ -24,7 +24,6 @@ const Batuk2 = (props) =>{
     const history = useHistory();
     const dispatch = useDispatch();
     const ansBatuk = useSelector(state => state.ansBatuk);
-    const KlasifikasiBatuk = useSelector(state => state.klasifikasiBatuk);
     let[bsb_wheezing, set_bsb_wheezing] = useState(ansBatuk.bsb_wheezing);
     let[bsb_saturasiOksigen, set_bsb_saturasiOksigen] = useState(ansBatuk.bsb_saturasiOksigen);
 
@@ -40,8 +39,7 @@ const Batuk2 = (props) =>{
         .catch(err=>{
             console.log(err);
         });
-        // dispatch(KlasifikasiBatukChange('BATUK_2', true));
-        // dispatch(compStatusChange('DIARE'));
+        dispatch(compStatusChange('DIARE'));
         history.push("DiareYaTidak"); 
     }
 
@@ -56,8 +54,9 @@ const Batuk2 = (props) =>{
     }
 
     const handleAnswer2 = event =>{
-        set_bsb_saturasiOksigen(event.target.value);
-        dispatch(AnsBatukChange('SATURASI_OKSIGEN', event.target.value));
+        let tmp = Number(event.target.value);
+        set_bsb_saturasiOksigen(tmp);
+        dispatch(AnsBatukChange('SATURASI_OKSIGEN', tmp));
     }
 
     return(
@@ -118,7 +117,7 @@ const Batuk2 = (props) =>{
                                 <CardTitle className="h5"><b>Tanyakan! </b>Saturasi oksigen</CardTitle>
                                 <div className="w-100 d-flex justify-content-center">
                                     <InputGroup className="w-25">
-                                        <Input type="number" min="0" value={bsb_saturasiOksigen} onChange={handleAnswer2}/>
+                                        <Input type="float" min="0" value={bsb_saturasiOksigen} onChange={handleAnswer2}/>
                                         <InputGroupAddon addonType="append" >
                                             <InputGroupText style={bgColor}>%</InputGroupText>
                                         </InputGroupAddon>

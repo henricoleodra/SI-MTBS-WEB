@@ -14,10 +14,6 @@ let outlineColor = {
     borderColor : '#75C9E6'
 }
 
-let bgColor ={
-    backgroundColor : '#75C9E6',
-    color: 'white'
-}
 
 const Batuk = (props) => {
     const history = useHistory();
@@ -26,7 +22,7 @@ const Batuk = (props) => {
     let [bsb, setBsb] = useState(ansBatuk.bsb);
     
     const handleBatuk = event =>{
-        if(event.target.value == 1){
+        if(event.target.value === '1'){
             setBsb(true);
         }
         else{
@@ -36,7 +32,7 @@ const Batuk = (props) => {
 
 const handleSubmit = event =>{
     event.preventDefault();
-    if(bsb == true){
+    if(bsb === true){
         if(ansBatuk.bsb === false){
             dispatch(KlasifikasiBatukChange('BATUK_KLASIFIKASI', ""));
             dispatch(KlasifikasiBatukChange('BATUK_STATUS', null));

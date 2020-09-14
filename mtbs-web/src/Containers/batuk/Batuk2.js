@@ -28,6 +28,7 @@ const Batuk2 = (props) =>{
     let[bsb_saturasiOksigen, set_bsb_saturasiOksigen] = useState(ansBatuk.bsb_saturasiOksigen);
 
     const handleSubmit = event =>{
+        console.log(bsb_saturasiOksigen);
         event.preventDefault();
         axios.post(`/Batuk`, {
             ansBatuk : ansBatuk
@@ -44,19 +45,21 @@ const Batuk2 = (props) =>{
     }
 
     const handleAnswer1 = event =>{
-        if(event.target.value == 1){
+        if(event.target.value === '1'){
             set_bsb_wheezing(true);
             dispatch(AnsBatukChange('WHEEZING', true));
-        }else if(event.target.value == 2){
+        }else{
             set_bsb_wheezing(false);
             dispatch(AnsBatukChange('WHEEZING', false));
         }
     }
 
     const handleAnswer2 = event =>{
-        let tmp = Number(event.target.value);
-        set_bsb_saturasiOksigen(tmp);
-        dispatch(AnsBatukChange('SATURASI_OKSIGEN', tmp));
+        if(event.target.value !== ''){
+            let tmp = Number(event.target.value);
+            set_bsb_saturasiOksigen(tmp);
+            dispatch(AnsBatukChange('SATURASI_OKSIGEN', tmp));
+        }
     }
 
     return(
@@ -88,7 +91,6 @@ const Batuk2 = (props) =>{
                                 <CardTitle className="h5"><b>Tanyakan! </b>Ada wheezing</CardTitle>
                                 <Row className="limitCol "> 
                                     <Col  sm="3">
-                                    
                                     </Col>
                                     <Col sm="3">
                                     <FormGroup className="d-inline pr-2">  
@@ -104,7 +106,7 @@ const Batuk2 = (props) =>{
                                     <Col sm="3">
                                     <FormGroup className="d-inline">
                                         <Label className="rdoBtn">Tidak
-                                        <Input type="radio" name="radio1" value={2} onChange={handleAnswer1} checked={bsb_wheezing === false} required/>
+                                        <Input type="radio" name="radio1" value={2} onChange={handleAnswer1} checked={bsb_wheezing === false}/>
                                         <span style={{left:"0px"}} className="checkmark"></span>
                                         </Label>
                                     </FormGroup>
@@ -117,7 +119,7 @@ const Batuk2 = (props) =>{
                                 <CardTitle className="h5"><b>Tanyakan! </b>Saturasi oksigen</CardTitle>
                                 <div className="w-100 d-flex justify-content-center">
                                     <InputGroup className="w-25">
-                                        <Input type="float" min="0" value={bsb_saturasiOksigen} onChange={handleAnswer2}/>
+                                        <Input type="number" step={0.01} min={0} value={bsb_saturasiOksigen} onChange={handleAnswer2}/>
                                         <InputGroupAddon addonType="append" >
                                             <InputGroupText style={bgColor}>%</InputGroupText>
                                         </InputGroupAddon>

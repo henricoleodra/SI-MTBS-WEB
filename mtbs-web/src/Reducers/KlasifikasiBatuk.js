@@ -1,7 +1,6 @@
 const initState = {
     bsb_klasifikasi : null,
-    bsb_status : null,
-    bsb_2 : null
+    bsb_status : null
 }
 
 const KlasifikasiBatukReducer = (state = initState, action) => {
@@ -13,10 +12,6 @@ const KlasifikasiBatukReducer = (state = initState, action) => {
         case 'BATUK_STATUS':
             return Object.assign({}, state, {
                 bsb_status : action.answer
-            });
-        case 'BATUK_2':
-            return Object.assign({}, state, {
-                bsb_2 : action.answer
             });
         default:
             return state;

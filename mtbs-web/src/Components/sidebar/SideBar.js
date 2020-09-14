@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBaby } from '@fortawesome/free-solid-svg-icons';
 import SideBarItem from './sidebarItem/SideBarItem'
 import '../../Assets/style/style.css';
-import { KlasifikasiPemberianMakananChange } from '../../Actions';
 
 let bgColor = {
     backgroundColor: '#75C9E6'

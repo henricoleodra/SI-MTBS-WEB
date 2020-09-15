@@ -25,7 +25,7 @@ const Diare = (props) => {
     const history = useHistory();
     const dispatch = useDispatch();
     const ansDiare = useSelector(state => state.ansDiare);
-    const klasifikasiDiare = useSelector(state => state.klasifikasiDiare);
+    // const klasifikasiDiare = useSelector(state => state.klasifikasiDiare);
     let[diare_berapaLama, set_diare_berapaLama] = useState(ansDiare.diare_berapaLama);
     let[diare_tinjaBerdarah, set_diare_tinjaBerdarah] = useState(ansDiare.diare_tinjaBerdarah);
 
@@ -86,10 +86,10 @@ const Diare = (props) => {
     }
 
     const handleAnswer2 = event =>{
-        if(event.target.value == 1){
+        if(event.target.value === "1"){
             set_diare_tinjaBerdarah(true);
             dispatch(AnsDiareChange('TINJA_BERDARAH', true));
-        }else if(event.target.value == 2){
+        }else if(event.target.value === "2"){
             set_diare_tinjaBerdarah(false);
             dispatch(AnsDiareChange('TINJA_BERDARAH', false));
         }

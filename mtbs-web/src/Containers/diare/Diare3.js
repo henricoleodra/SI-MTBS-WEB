@@ -50,7 +50,7 @@ const Diare3 = (props) => {
     }
 
     const handleAnswer1 = event =>{
-        if(event.target.value == 1){
+        if(event.target.value === "1"){
             set_diare_isNotMinum(true);
             dispatch(AnsDiareChange('TIDAK_MINUM', true));
         }else{

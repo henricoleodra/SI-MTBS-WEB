@@ -20,7 +20,7 @@ const Diare2 = (props) => {
     const history = useHistory();
     const dispatch = useDispatch();
     const ansDiare = useSelector(state => state.ansDiare);
-    const klasifikasiDiare = useSelector(state => state.klasifikasiDiare);
+    // const klasifikasiDiare = useSelector(state => state.klasifikasiDiare);
     let[diare_isAnakTidakSadar, set_diare_isAnakTidakSadar] = useState(ansDiare.diare_isAnakTidakSadar);
     let[diare_rewelMudahMarah, set_diare_rewelMudahMarah] = useState(ansDiare.diare_rewelMudahMarah);
     let[diare_isMataCekung, set_diare_isMataCekung] = useState(ansDiare.diare_isMataCekung);
@@ -65,28 +65,28 @@ const Diare2 = (props) => {
         history.push("Diare3");    
     }
     const handleAnswer1 = event =>{
-        if(event.target.value == 1){
+        if(event.target.value === "1"){
             set_diare_isAnakTidakSadar(true);
             dispatch(AnsDiareChange('ANAK_TIDAK_SADAR', true));
-        }else if(event.target.value == 2){
+        }else if(event.target.value === "2"){
             set_diare_isAnakTidakSadar(false);
             dispatch(AnsDiareChange('ANAK_TIDAK_SADAR', false));
         }
     }
     const handleAnswer2 = event =>{
-        if(event.target.value == 1){
+        if(event.target.value === "1"){
             set_diare_rewelMudahMarah(true);
             dispatch(AnsDiareChange('REWEL_MUDAH_MARAH', true));
-        }else if(event.target.value == 2){
+        }else if(event.target.value === "2"){
             set_diare_rewelMudahMarah(false);
             dispatch(AnsDiareChange('REWEL_MUDAH_MARAH', false));
         }
     }
     const handleAnswer3 = event =>{
-        if(event.target.value == 1){
+        if(event.target.value === "1"){
             set_diare_isMataCekung(true);
             dispatch(AnsDiareChange('MATA_CEKUNG', true));
-        }else if(event.target.value == 2){
+        }else if(event.target.value === "2"){
             set_diare_isMataCekung(false);
             dispatch(AnsDiareChange('MATA_CEKUNG', false));
         }

@@ -13,11 +13,6 @@ let outlineColor = {
     borderColor : '#75C9E6'
 }
 
-let bgColor ={
-    backgroundColor : '#75C9E6',
-    color: 'white'
-}
-
 const Diare = (props) => {
     const history = useHistory();
     const dispatch = useDispatch();
@@ -25,7 +20,7 @@ const Diare = (props) => {
     let [diare, setDiare] = useState(ansDiare.diare);
     
     const handleDiare = event =>{
-        if(event.target.value == 1){
+        if(event.target.value === "1"){
             setDiare(true);
         }
         else{
@@ -35,7 +30,7 @@ const Diare = (props) => {
 
     const handleSubmit = event =>{
         event.preventDefault();
-        if(diare == true){
+        if(diare === true){
             if(ansDiare.diare === false){
                 dispatch(KlasifikasiDiareChange('DIARE_KLASIFIKASI', ""));
                 dispatch(KlasifikasiDiareChange('DIARE_STATUS', null));

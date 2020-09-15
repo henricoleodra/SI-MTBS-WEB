@@ -11,9 +11,9 @@ const Index = ( props ) => {
         <Wrapper>
             <Row className="wrapper-klasifikasi my-3">
                 {
-                    props.status == "success" ? 
+                    props.status === "success" ? 
                         <Col sm={1} className="bg-success indicator"></Col>
-                    : props.status == "warning" ?
+                    : props.status === "warning" ?
                         <Col sm={1} className="bg-warning indicator"></Col>
                     :
                         <Col sm={1} className="bg-danger indicator"></Col>
@@ -25,7 +25,7 @@ const Index = ( props ) => {
                 <Col sm={6}>
                     {
                         klasifikasi.map((klasifikasi, idx) => {
-                            if(klasifikasi!=""){
+                            if(klasifikasi!==""){
                                 return <h3 key={idx} className="klasifikasi mt-2">{klasifikasi}</h3>
                             }
                         })

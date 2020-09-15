@@ -109,32 +109,32 @@ const PemberianMakanan = (props) =>{
                                     <Col sm="3">
                                         <FormGroup className="d-inline">
                                             <Label className="rdoBtn">Tidak
-                                            <Input type="radio" name="makanan_lainnya" value={'Tidak'} onChange={handleAnswerLainnya} checked={makanan_lainnya === 'Tidak'}  /> 
+                                            <Input type="radio" name="makanan_lainnya" value={'Tidak'} onChange={handleAnswerLainnya} checked={makanan_lainnya === "Tidak"}  /> 
                                             <span style={{left:"0px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>
                                     </Col>
                                 </Row>
-                                <hr hidden={makanan_lainnya == null || makanan_lainnya =='Tidak'}
+                                <hr hidden={makanan_lainnya == null || makanan_lainnya === "Tidak"}
                                     style={{
                                         color: "#75C9E6",
                                         backgroundColor: "#75C9E6",
                                         height: 1
                                     }}
                                 />
-                                <div className="d-flex flex-column justify-content-around pt-2"  hidden={makanan_lainnya == null || makanan_lainnya =='Tidak'}>
+                                <div className="d-flex flex-column justify-content-around pt-2"  hidden={makanan_lainnya == null || makanan_lainnya ==="Tidak"}>
                                     <div className="d-flex flex-row">
                                         <div className="d-line">
                                             <h6>Jika Ya, makanan atau minuman apa?</h6>
                                             <FormGroup check className="d-inline pr-2">
-                                                <Input type="textarea" name="makanan_lainnya_keterangan" value={makanan_lainnya_keterangan} onChange={handleAnswerLainnya_keterangan} required={makanan_lainnya == 'Ya'}/>
+                                                <Input type="textarea" name="makanan_lainnya_keterangan" value={makanan_lainnya_keterangan} onChange={handleAnswerLainnya_keterangan} required={makanan_lainnya === "Ya"}/>
                                             </FormGroup>
                                         </div>
                                         <div className="d-line ml-4"> 
                                             <h6>Berapa kali sehari?</h6>          
                                             <div className="w-100 d-flex justify-content-center">  
                                                 <InputGroup className="w-100 mt-4">
-                                                    <Input type="number" min="0" name="makanan_lainnya_jumlah" value={makanan_lainnya_jumlah} onChange={handleAnswerLainnya_jumlah} required={makanan_lainnya == 'Ya'}/>
+                                                    <Input type="number" min="0" name="makanan_lainnya_jumlah" value={makanan_lainnya_jumlah} onChange={handleAnswerLainnya_jumlah} required={makanan_lainnya === "Ya"}/>
                                                     <InputGroupAddon addonType="append" >
                                                         <InputGroupText style={bgColor}>Hari</InputGroupText>
                                                     </InputGroupAddon>
@@ -155,7 +155,7 @@ const PemberianMakanan = (props) =>{
                                     {/* <div className="d-line ml-4"> */}
                                         <h6 className="mt-0">Alat apa yang digunakan untuk memberi minum anak?</h6>
                                         <FormGroup check className="d-inline pr-2">
-                                            <Input type="textarea" name="makanan_lainnya_alat" value={makanan_lainnya_alat} onChange={handleAnswerLainnya_alat} required={makanan_lainnya == 'Ya'}/>
+                                            <Input type="textarea" name="makanan_lainnya_alat" value={makanan_lainnya_alat} onChange={handleAnswerLainnya_alat} required={makanan_lainnya === "Ya"}/>
                                         </FormGroup>
                                     {/* </div> */}
                                 </div>

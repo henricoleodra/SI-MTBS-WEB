@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useDispatch, useSelector } from 'react-redux';
 import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
-import { KlasifikasiPemberianMakananChange, AnsPemberianMakananChange, compStatusChange } from '../../Actions';
+import { KlasifikasiPemberianMakananChange, AnsPemberianMakananChange } from '../../Actions';
 
 let outlineColor = {
     borderColor : '#75C9E6'
@@ -31,10 +31,10 @@ const PemberianMakanan3 = (props) =>{
     }
 
     const handleAnswer2 = event =>{
-        if(event.target.value == 1){
+        if(event.target.value === 1){
             set_makanan_kurus_makananTersendiri(true);
             dispatch(AnsPemberianMakananChange('TERSENDIRI', true));
-        }else if(event.target.value == 2){
+        }else if(event.target.value === 2){
             set_makanan_kurus_makananTersendiri(false);
             dispatch(AnsPemberianMakananChange('TERSENDIRI', false));
         }

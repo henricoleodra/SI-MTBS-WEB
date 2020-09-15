@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Row, Col, Card, CardBody, CardTitle, CardText, CardImg, Button, Container} from 'reactstrap';
+import { Row, Col, Card,  CardTitle,  CardImg, Container} from 'reactstrap';
 
 // Import Components
 import { NavBar, Footer } from '../../Components';

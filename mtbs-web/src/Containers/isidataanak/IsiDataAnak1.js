@@ -33,7 +33,7 @@ const IsiDataAnak1 = () =>{
     let [rtrw, setRTRW] = useState(dataAnak.rtrwAnak);
     let [kelDes, setKelDes] = useState(dataAnak.kelDesAnak);
     let [kotKec, setKotKec] = useState(dataAnak.kotKecAnak);
-    let [curDate, setCurDate] = useState(hari + ', ' + date.getDate() + ' ' + bulan + ' ' + date.getFullYear());
+    let [curDate] = useState(hari + ', ' + date.getDate() + ' ' + bulan + ' ' + date.getFullYear());
 
     const handleNamaAnak = event =>{
         setNamaAnak(event.target.value);
@@ -44,7 +44,7 @@ const IsiDataAnak1 = () =>{
     }
 
     const handleJenisKelamin = event =>{
-        if(event.target.value == 1 ){
+        if(event.target.value === 1 ){
             setJenisKelamin(true);
         }
         else{
@@ -98,8 +98,8 @@ const IsiDataAnak1 = () =>{
             dispatch(DataAnakChange('DISPLAY_UMUR_ANAK', umur)); 
         }
         else{
-            var umur = month + " bulan";
-            dispatch(DataAnakChange('DISPLAY_UMUR_ANAK', umur)); 
+            var umur2 = month + " bulan";
+            dispatch(DataAnakChange('DISPLAY_UMUR_ANAK', umur2)); 
         }
         dispatch(AnsDemamChange('UMUR_ANAK', month));
         dispatch(DataAnakChange('UMUR_ANAK', differenceInDays));

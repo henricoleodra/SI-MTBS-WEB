@@ -30,7 +30,7 @@ const IsiDataAnak2 = () =>{
     let [kunjunganKe, setKunjunganKe] = useState(dataAnak.kunjunganKe);
     let [pencarianKeluhan, setPencarianKeluhan] = useState("");
     let [keluhanAwal, setKeluhanAwal] = useState(dataAnak.keluhanAwal);
-    let [curDate, setCurDate] = useState(hari + ', ' + date.getDate() + ' ' + bulan + ' ' + date.getFullYear());
+    let [curDate] = useState(hari + ', ' + date.getDate() + ' ' + bulan + ' ' + date.getFullYear());
 
     const handleSuhuAnak = event =>{
         setSuhuAnak(event.target.value);

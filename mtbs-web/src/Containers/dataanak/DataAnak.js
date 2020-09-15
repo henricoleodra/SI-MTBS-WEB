@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import {Card, CardBody, CardImg, Button, Label} from 'reactstrap';
+import React from 'react';
+import {Card, CardBody, Button, Label} from 'reactstrap';
 
 //import components
 import HeaderTitle from '../../Components/headertitle/HeaderTitle'
@@ -28,7 +28,7 @@ const DataAnak = (props) => {
                     <div className="m-3 text-center"> 
                         <Card style={outlineColor}>
                             <CardBody>
-                                <div><img src='../../Assets/image/kidboy.png'></img></div>
+                                <div><img src='../../Assets/image/kidboy.png' alt="icon baby"></img></div>
                                 <div><Label className="font-weight-bold">Nama Anak :</Label> Harry Senjaya</div>
                                 <div><Label className="font-weight-bold">Nama Ibu :</Label> Friska Christiana</div>
                                 <div><Label className="font-weight-bold">Jenis Kelamin :</Label> Laki-laki</div>

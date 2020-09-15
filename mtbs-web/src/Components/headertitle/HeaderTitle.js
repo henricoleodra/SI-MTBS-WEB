@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
+import React from 'react';
+import { Navbar } from 'reactstrap';
 
 const HeaderTitle = (props) =>{
     return(

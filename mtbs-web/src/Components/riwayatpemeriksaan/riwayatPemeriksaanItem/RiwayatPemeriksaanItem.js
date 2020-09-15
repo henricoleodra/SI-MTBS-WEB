@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {Card, CardBody, Button, Label} from 'reactstrap';
 
 let outlineColor = {

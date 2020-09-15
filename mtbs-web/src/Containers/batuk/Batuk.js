@@ -27,7 +27,7 @@ const Batuk = (props) => {
     const dataAnak = useSelector(state => state.dataAnak);
     let[bsb_lamaHari, set_bsb_lamaHari] = useState(ansBatuk.bsb_lamaHari);
     let[bsb_jumlahNafas, set_bsb_jumlahNafas] = useState(ansBatuk.bsb_jumlahNafas);
-    let[bsb_nafasCepat, set_bsb_nafasCepat] = useState(ansBatuk.bsb_nafasCepat);
+    let[set_bsb_nafasCepat] = useState(ansBatuk.bsb_nafasCepat);
     let[bsb_tarikanDindingDada, set_bsb_tarikanDindingDada] = useState(ansBatuk.bsb_tarikanDindingDada);
 
     const handleSubmit = event =>{

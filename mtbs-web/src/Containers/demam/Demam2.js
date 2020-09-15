@@ -40,20 +40,20 @@ const Demam = (props) => {
     }
 
     const handleAnswer1 = event => {
-        if (event.target.value == 1) {
+        if (event.target.value === "1") {
             set_demam_isCampak3Bulan(true);
             dispatch(AnsDemamChange('CAMPAK_TIGA_BULAN', true));
-        } else if (event.target.value == 2) {
+        } else if (event.target.value === "2") {
             set_demam_isCampak3Bulan(false);
             dispatch(AnsDemamChange('CAMPAK_TIGA_BULAN', false));
         }
     }
 
     const handleAnswer2 = event => {
-        if (event.target.value == 1) {
+        if (event.target.value === "1") {
             set_demam_kudukKaku(true);
             dispatch(AnsDemamChange('KUDUK_KAKU', true));
-        } else if (event.target.value == 2) {
+        } else if (event.target.value === "2") {
             set_demam_kudukKaku(false);
             dispatch(AnsDemamChange('KUDUK_KAKU', false));
         }

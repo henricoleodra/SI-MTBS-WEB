@@ -40,30 +40,30 @@ const Demam = (props) => {
     }
 
     const handleAnswer1 = event =>{
-        if(event.target.value == 1){
+        if(event.target.value === "1"){
             set_demam_nearIsDBD(true);
             dispatch(AnsDemamChange('NEAR_DBD', true));
-        }else if(event.target.value == 2){
+        }else if(event.target.value === "2"){
             set_demam_nearIsDBD(false);
             dispatch(AnsDemamChange('NEAR_DBD', false));
         }
     }
 
     const handleAnswer2 = event =>{
-        if(event.target.value == 1){
+        if(event.target.value === "1"){
             set_demam_isEkstremitasDingin(true);
             dispatch(AnsDemamChange('EKSTREMITAS_DINGIN', true));
-        }else if(event.target.value == 2){
+        }else if(event.target.value === "2"){
             set_demam_isEkstremitasDingin(false);
             dispatch(AnsDemamChange('EKSTREMITAS_DINGIN', false));
         }
     }
 
     const handleAnswer3 = event =>{
-        if(event.target.value == 1){
+        if(event.target.value === "1"){
             set_demam_darahHidungGusiKulit(true);
             dispatch(AnsDemamChange('DARAH_HIDUNG_GUSI_KULIT', true));
-        }else if(event.target.value == 2){
+        }else if(event.target.value === "2"){
             set_demam_darahHidungGusiKulit(false);
             dispatch(AnsDemamChange('DARAH_HIDUNG_GUSI_KULIT', false));
         }

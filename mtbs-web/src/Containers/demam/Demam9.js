@@ -39,7 +39,7 @@ const Demam = (props) => {
     }
 
     const handleAnswer1 = event => {
-        if (event.target.value == 1) {
+        if (event.target.value === "1") {
             set_demam_hasilUjiTorniket(true);
             dispatch(AnsDemamChange('UJI_TORNIKET', true));
         } else {

@@ -47,10 +47,10 @@ const Demam = (props) => {
     }
 
     const handleAnswer1 = event => {
-        if (event.target.value == 1) {
+        if (event.target.value === "1") {
             set_demam_isLukaMulut(true);
             dispatch(AnsDemamChange('LUKA_MULUT', true));
-        } else if (event.target.value == 2) {
+        } else if (event.target.value === "2") {
             set_demam_isLukaMulut(false);
             dispatch(AnsDemamChange('LUKA_MULUT', false));
         }
@@ -82,20 +82,20 @@ const Demam = (props) => {
     }
 
     const handleAnswer4 = event => {
-        if (event.target.value == 1) {
+        if (event.target.value === "1") {
             set_demam_nanahDiMata(true);
             dispatch(AnsDemamChange('NANAH_DI_MATA', true));
-        } else if (event.target.value == 2) {
+        } else if (event.target.value === "2") {
             set_demam_nanahDiMata(false);
             dispatch(AnsDemamChange('NANAH_DI_MATA', false));
         }
     }
 
     const handleAnswer5 = event => {
-        if (event.target.value == 1) {
+        if (event.target.value === "1") {
             set_demam_korneaKeruh(true);
             dispatch(AnsDemamChange('KORNEA_KERUH', true));
-        } else if (event.target.value == 2) {
+        } else if (event.target.value === "2") {
             set_demam_korneaKeruh(false);
             dispatch(AnsDemamChange('KORNEA_KERUH', false));
         }

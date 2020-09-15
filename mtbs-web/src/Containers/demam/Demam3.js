@@ -3,7 +3,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { FormGroup, Label, Input, Form, Card, CardBody, CardTitle, Button, Row, Col } from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
-import axios from 'axios';
+//import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 
 // Actions
@@ -39,10 +39,10 @@ const Demam = (props) => {
     }
 
     const handleAnswer1 = event => {
-        if (event.target.value == 1) {
+        if (event.target.value === "1") {
             set_demam_ruamKemerahan(true);
             dispatch(AnsDemamChange('RUAM_KEMERAHAN', true));
-        } else if (event.target.value == 2) {
+        } else if (event.target.value === "2") {
             set_demam_ruamKemerahan(false);
             dispatch(AnsDemamChange('RUAM_KEMERAHAN', false));
         }

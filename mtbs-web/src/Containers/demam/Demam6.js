@@ -41,7 +41,7 @@ const Demam = (props) => {
         dispatch(compStatusChange('TELINGA'));
     }
     const handleAnswer1 = event => {
-        if (event.target.value == 1) {
+        if (event.target.value === "1") {
             set_demam_isTinggiMenerus(true);
             dispatch(AnsDemamChange('TINGGI_MENERUS', true));
         } else {
@@ -61,7 +61,7 @@ const Demam = (props) => {
     // }
 
     const handleAnswer3 = event => {
-        if (event.target.value == 1) {
+        if (event.target.value === "1") {
             set_demam_isNyeriUluOrGelisah(true);
             dispatch(AnsDemamChange('NYERI_ULU_GELISAH', true));
         } else {
@@ -71,7 +71,7 @@ const Demam = (props) => {
     }
 
     const handleAnswer4 = event => {
-        if (event.target.value == 1) {
+        if (event.target.value === "1") {
             set_demam_isBadanDingin(true);
             dispatch(AnsDemamChange('BADAN_DINGIN', true));
         } else {

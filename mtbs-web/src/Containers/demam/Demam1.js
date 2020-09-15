@@ -50,20 +50,20 @@ const Demam = (props) => {
     }
 
     const handleAnswer2 = event => {
-        if (event.target.value == 1) {
+        if (event.target.value === "1") {
             set_demam_isDemamSetiapHari(true);
             dispatch(AnsDemamChange('DEMAM_SETIAP_HARI', true));
-        } else if (event.target.value == 2) {
+        } else if (event.target.value === "2") {
             set_demam_isDemamSetiapHari(false);
             dispatch(AnsDemamChange('DEMAM_SETIAP_HARI', false));
         }
     }
 
     const handleAnswer3 = event => {
-        if (event.target.value == 1) {
+        if (event.target.value === "1") {
             set_demam_pernahMalaria(true);
             dispatch(AnsDemamChange('MALARIA', true));
-        } else if (event.target.value == 2) {
+        } else if (event.target.value === "2") {
             set_demam_pernahMalaria(false);
             dispatch(AnsDemamChange('MALARIA', false));
         }
@@ -111,7 +111,7 @@ const Demam = (props) => {
                                     </div>
                                 </CardBody>
 
-                                <CardBody hidden={demam_berapaLama ==''}>
+                                <CardBody hidden={demam_berapaLama ===''}>
                                     <CardTitle className="h5"><b>Tanyakan! </b>Jika lebih dari 7 hari, apakah demam terjadi
                                     setiap hari?</CardTitle>
                                     <Row className="limitCol ">
@@ -121,7 +121,7 @@ const Demam = (props) => {
                                         <Col sm="3">
                                             <FormGroup className="d-inline pr-2">
                                                 <Label className="rdoBtn">Ya
-                                                <Input type="radio" name="radio1" value={1} onChange={handleAnswer2} checked={demam_berapaLama >= 7} disabled={demam_berapaLama ==''} required />
+                                                <Input type="radio" name="radio1" value={1} onChange={handleAnswer2} checked={demam_berapaLama >= 7} disabled={demam_berapaLama ===''} required />
                                                     <span style={{ left: "20px" }} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button, InputGroup, InputGroupText, InputGroupAddon, Row, Col} from "reactstrap";
+import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button, Row, Col} from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
@@ -21,7 +21,7 @@ const Demam = (props) => {
     let[demam, setDemam] = useState(ansDemam.demam);
 
     const handleDemam = event =>{
-        if(event.target.value == 1 ){
+        if(event.target.value === "1" ){
             setDemam(true);
         }
         else{
@@ -31,7 +31,7 @@ const Demam = (props) => {
 
     const handleSubmit = event =>{
         event.preventDefault();
-        if(demam == true){
+        if(demam === true){
             if(ansDemam.demam === false){
                 dispatch(KlasifikasiDemamChange('DEMAM_KLASIFIKASI', ""));
                 dispatch(KlasifikasiDemamChange('DEMAM_STATUS', null));

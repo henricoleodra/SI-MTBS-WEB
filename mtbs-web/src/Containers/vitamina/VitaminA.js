@@ -29,10 +29,10 @@ const Vitamina = (props) => {
     }
 
     const handleAnswer1 = event =>{
-        if(event.target.value == 1){
+        if(event.target.value === "1"){
             set_vit_dibutuhkanA(true);
             dispatch(AnsVitaminChange('SUPLEMEN_A', true));
-        }else if(event.target.value == 2){
+        }else if(event.target.value === "2"){
             set_vit_dibutuhkanA(false);
             dispatch(AnsVitaminChange('SUPLEMEN_A', false));
         }

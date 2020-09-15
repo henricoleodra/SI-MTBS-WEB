@@ -43,7 +43,7 @@ const Demam = (props) => {
     }
 
     const handleAnswer1 = event =>{
-        if(event.target.value == 1){
+        if(event.target.value === "1"){
             set_demam_anakMuntah(true);
             dispatch(AnsDemamChange('ANAK_MUNTAH', true));
         }else{
@@ -53,7 +53,7 @@ const Demam = (props) => {
     }
 
     const handleAnswer2 = event =>{
-        if(event.target.value == 1){
+        if(event.target.value === "1"){
             set_demam_anakSeringMuntah(true);
             dispatch(AnsDemamChange('SERING_MUNTAH', true));
         }else{
@@ -63,7 +63,7 @@ const Demam = (props) => {
     }
 
     const handleAnswer3 = event =>{
-        if(event.target.value == 1){
+        if(event.target.value === "1"){
             set_demam_muntahLikeDarahOrKopi(true);
             dispatch(AnsDemamChange('MUNTAH_DARAH_KOPI', true));
         }else{
@@ -73,7 +73,7 @@ const Demam = (props) => {
     }
 
     const handleAnswer4 = event =>{
-        if(event.target.value == 1){
+        if(event.target.value === "1"){
             set_demam_berakBerwarnaHitam(true);
             dispatch(AnsDemamChange('BERAK_HITAM', true));
         }else{

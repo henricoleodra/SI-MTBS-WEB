@@ -24,7 +24,7 @@ const HIV = (props) =>{
     const history = useHistory();
     const dispatch = useDispatch();
     const ansHIV = useSelector(state => state.ansHIV);
-    const klasifikasiHIV = useSelector(state => state.klasifikasiHIV);
+    //const klasifikasiHIV = useSelector(state => state.klasifikasiHIV);
     let[hiv_pernahTes, set_hiv_pernahTes] = useState(ansHIV.hiv_pernahTes);
     let[hiv_waktuTes, set_hiv_waktuTes] = useState(ansHIV.hiv_waktuTes);
     let[hiv_hasilTes, set_hiv_hasilTes] = useState(ansHIV.hiv_hasilTes);
@@ -84,10 +84,10 @@ const HIV = (props) =>{
     }
 
     const handleAnswer1 = event =>{
-        if(event.target.value == 1){
+        if(event.target.value === "1"){
             set_hiv_pernahTes(true);
             dispatch(AnsHIVChange('PERNAH_TES', true));
-        }else if(event.target.value == 2){
+        }else if(event.target.value === "2"){
             set_hiv_pernahTes(false);
             dispatch(AnsHIVChange('PERNAH_TES', false));
             set_hiv_waktuTes("");
@@ -103,30 +103,30 @@ const HIV = (props) =>{
     }
 
     const handleAnswer3 = event =>{
-        if(event.target.value == 1){
+        if(event.target.value === "1"){
             set_hiv_hasilTes(true);
             dispatch(AnsHIVChange('HASIL_TES', true));
-        }else if(event.target.value == 2){
+        }else if(event.target.value === "2"){
             set_hiv_hasilTes(false);
             dispatch(AnsHIVChange('HASIL_TES', false));
         }
     }
 
     const handleAnswer4 = event =>{
-        if(event.target.value == 1){
+        if(event.target.value === "1"){
             set_hiv_ibuPernahTes(true);
             dispatch(AnsHIVChange('IBU_PERNAH_TES', true));
-        }else if(event.target.value == 2){
+        }else if(event.target.value === "2"){
             set_hiv_ibuPernahTes(false);
             dispatch(AnsHIVChange('IBU_PERNAH_TES', false));
         }
     }
 
     const handleAnswer5 = event =>{
-        if(event.target.value == 1){
+        if(event.target.value === "1"){
             set_hiv_ibuHasilTes(true);
             dispatch(AnsHIVChange('IBU_HASIL_TES', true));
-        }else if(event.target.value == 2){
+        }else if(event.target.value === "2"){
             set_hiv_ibuHasilTes(false);
             dispatch(AnsHIVChange('IBU_HASIL_TES', false));
         }

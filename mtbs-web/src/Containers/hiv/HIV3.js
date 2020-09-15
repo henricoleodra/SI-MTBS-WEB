@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 
 // Actions
-import { KlasifikasiHIVChange, AnsHIVChange, compStatusChange  } from '../../Actions';
+import { KlasifikasiHIVChange, AnsHIVChange  } from '../../Actions';
 
 import '../../Assets/style/style.css';
 
@@ -50,10 +50,10 @@ const HIV = (props) =>{
     }
 
     const handleAnswer1 = event =>{
-        if(event.target.value == 1){
+        if(event.target.value === "1"){
             set_hiv_bercakPutih(true);
             dispatch(AnsHIVChange('BERCAK_PUTIH', true));
-        }else if(event.target.value == 2){
+        }else if(event.target.value === "2"){
             set_hiv_bercakPutih(false);
             dispatch(AnsHIVChange('BERCAK_PUTIH', false));
         }

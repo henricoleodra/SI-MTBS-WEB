@@ -8,7 +8,7 @@ import axios from 'axios';
 
 import '../../Assets/style/style.css';
 // Actions
-import { KlasifikasiTelingaChange, AnsTelingaChange, compStatusChange } from '../../Actions';
+import { KlasifikasiTelingaChange, AnsTelingaChange } from '../../Actions';
 
 let outlineColor = {
     borderColor : '#75C9E6'
@@ -23,7 +23,7 @@ const Telinga = (props) =>{
     const history = useHistory();
     const dispatch = useDispatch();
     const ansTelinga = useSelector(state => state.ansTelinga);
-    const klasifikasiTelinga = useSelector(state => state.klasifikasiTelinga);
+    //const klasifikasiTelinga = useSelector(state => state.klasifikasiTelinga);
     let[telinga_isNyeri, set_telinga_isNyeri] = useState(ansTelinga.telinga_isNyeri);
     let[telinga_isPenuh, set_telinga_isPenuh] = useState(ansTelinga.telinga_isPenuh);
     let[telinga_isNanah, set_telinga_isNanah] = useState(ansTelinga.telinga_isNanah);
@@ -71,7 +71,7 @@ const Telinga = (props) =>{
         // dispatch(AnsTelingaChange('NANAH', telinga_isNanah));
         // dispatch(AnsTelingaChange('NANAH_LAMA_HARI', telinga_nanahLamaHari));
     const handleAnswer1 = event =>{
-        if(event.target.value == 1){
+        if(event.target.value === "1"){
             set_telinga_isNyeri(true);
             dispatch(AnsTelingaChange('NYERI', true));
         }else{
@@ -82,7 +82,7 @@ const Telinga = (props) =>{
     }
 
     const handleAnswer2 = event =>{
-        if(event.target.value == 1){
+        if(event.target.value === "1"){
             set_telinga_isPenuh(true);
             dispatch(AnsTelingaChange('PENUH', true));
         }else{
@@ -93,7 +93,7 @@ const Telinga = (props) =>{
     }
 
     const handleAnswer3 = event =>{
-        if(event.target.value == 1){
+        if(event.target.value === "1"){
             set_telinga_isNanah(true);
             dispatch(AnsTelingaChange('NANAH', true));
         }else{

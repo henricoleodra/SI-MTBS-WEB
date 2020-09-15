@@ -19,7 +19,7 @@ const HIV2 = (props) =>{
     const history = useHistory();
     const dispatch = useDispatch();
     const ansHIV = useSelector(state => state.ansHIV);
-    const klasifikasiHIV = useSelector(state => state.klasifikasiHIV);
+    //const klasifikasiHIV = useSelector(state => state.klasifikasiHIV);
     let[hiv_kerabatTerdiagnosis, set_hiv_kerabatTerdiagnosis] = useState(ansHIV.hiv_kerabatTerdiagnosis);
     let[hiv_kerabatMeninggal, set_hiv_kerabatMeninggal] = useState(ansHIV.hiv_kerabatMeninggal);
     let[hiv_masihDapatASI, set_hiv_masihDapatASI] = useState(ansHIV.hiv_masihDapatASI);
@@ -65,28 +65,28 @@ const HIV2 = (props) =>{
         history.push("HIV3");    
     }
     const handleAnswer1 = event =>{
-        if(event.target.value == 1){
+        if(event.target.value === "1"){
             set_hiv_kerabatTerdiagnosis(true);
             dispatch(AnsHIVChange('KERABAT_TERDIAGNOSIS', true));
-        }else if(event.target.value == 2){
+        }else if(event.target.value === "2"){
             set_hiv_kerabatTerdiagnosis(false);
             dispatch(AnsHIVChange('KERABAT_TERDIAGNOSIS', false));
         }
     }
     const handleAnswer2 = event =>{
-        if(event.target.value == 1){
+        if(event.target.value === "1"){
             set_hiv_kerabatMeninggal(true);
             dispatch(AnsHIVChange('KERABAT_MENINGGAL', true));
-        }else if(event.target.value == 2){
+        }else if(event.target.value === "2"){
             set_hiv_kerabatMeninggal(false);
             dispatch(AnsHIVChange('KERABAT_MENINGGAL', false));
         }
     }
     const handleAnswer3 = event =>{
-        if(event.target.value == 1){
+        if(event.target.value === "1"){
             set_hiv_masihDapatASI(true);
             dispatch(AnsHIVChange('MASIH_DAPAT_ASI', true));
-        }else if(event.target.value == 2){
+        }else if(event.target.value === "2"){
             set_hiv_masihDapatASI(false);
             dispatch(AnsHIVChange('MASIH_DAPAT_ASI', false));
         }

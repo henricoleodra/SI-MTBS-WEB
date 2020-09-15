@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button, InputGroup, InputGroupText, InputGroupAddon, Row, Col} from "reactstrap";
+import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button, Row, Col} from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
@@ -14,10 +14,10 @@ let outlineColor = {
     borderColor : '#41E8B3'
 }
 
-let bgColor ={
-    backgroundColor : '#41E8B3',
-    color: 'white'
-}
+// let bgColor ={
+//     backgroundColor : '#41E8B3',
+//     color: 'white'
+// }
 
 const TelingaYaTidak = (props) => {
     const history = useHistory();
@@ -26,7 +26,7 @@ const TelingaYaTidak = (props) => {
     let [telinga, setTelinga] = useState(ansTelinga.telinga);
     
     const handleTelinga = event =>{
-        if(event.target.value == 1){
+        if(event.target.value === "1"){
             setTelinga(true);
         }
         else{
@@ -36,7 +36,7 @@ const TelingaYaTidak = (props) => {
 
     const handleSubmit = event =>{
         event.preventDefault();
-        if(telinga == true){
+        if(telinga === true){
             if(ansTelinga.telinga === false){
                 dispatch(KlasifikasiTelingaChange('TELINGA_KLASIFIKASI', ""));
                 dispatch(KlasifikasiTelingaChange('TELINGA_STATUS', null));

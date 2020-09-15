@@ -8,7 +8,7 @@ import axios from 'axios';
 
 import '../../Assets/style/style.css';
 // Actions
-import { KlasifikasiTelingaChange, AnsTelingaChange, compStatusChange } from '../../Actions';
+import { KlasifikasiTelingaChange, AnsTelingaChange } from '../../Actions';
 
 let outlineColor = {
     borderColor : '#75C9E6'
@@ -19,7 +19,7 @@ const Telinga2 = (props) =>{
     const history = useHistory();
     const dispatch = useDispatch();
     const ansTelinga = useSelector(state => state.ansTelinga);
-    const klasifikasiTelinga = useSelector(state => state.klasifikasiTelinga);
+    //const klasifikasiTelinga = useSelector(state => state.klasifikasiTelinga);
     let[telinga_cekKeluarNanah, set_telinga_cekKeluarNanah] = useState(ansTelinga.telinga_cekKeluarNanah); 
     let[telinga_isBengkak, set_telinga_isBengkak] = useState(ansTelinga.telinga_isBengkak);
 
@@ -52,7 +52,7 @@ const Telinga2 = (props) =>{
     }
 
     const handleAnswer1 = event => {
-        if(event.target.value == 1){
+        if(event.target.value === "1"){
             set_telinga_cekKeluarNanah(true);
             dispatch(AnsTelingaChange('CEK_KELUAR_NANAH',true));
         }else{
@@ -63,7 +63,7 @@ const Telinga2 = (props) =>{
     }
 
     const handleAnswer2 = event => {
-        if(event.target.value == 1){
+        if(event.target.value === "1"){
             set_telinga_isBengkak(true);
             dispatch(AnsTelingaChange('BENGKAK', true));
         }else{

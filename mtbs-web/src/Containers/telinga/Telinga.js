@@ -23,7 +23,6 @@ const Telinga = (props) =>{
     const history = useHistory();
     const dispatch = useDispatch();
     const ansTelinga = useSelector(state => state.ansTelinga);
-    //const klasifikasiTelinga = useSelector(state => state.klasifikasiTelinga);
     let[telinga_isNyeri, set_telinga_isNyeri] = useState(ansTelinga.telinga_isNyeri);
     let[telinga_isPenuh, set_telinga_isPenuh] = useState(ansTelinga.telinga_isPenuh);
     let[telinga_isNanah, set_telinga_isNanah] = useState(ansTelinga.telinga_isNanah);
@@ -31,30 +30,6 @@ const Telinga = (props) =>{
 
     const handleSubmit = event =>{
         event.preventDefault();
-        // if(klasifikasiTelinga.telinga_2 === true){
-        //     axios.post(`/Telinga/2`,{
-        //         ansTelinga : ansTelinga
-        //     })
-        //     .then(res =>{
-        //         dispatch(KlasifikasiTelingaChange('TELINGA_KLASIFIKASI', res.data.hasilKlasifikasi));
-        //         dispatch(KlasifikasiTelingaChange('TELINGA_STATUS', res.data.statusKlasifikasi));
-        //     })
-        //     .catch(err => {
-        //         console.log(err);
-        //     });
-        // }else{
-        //     axios.post(`/Telinga/1`, {
-        //         ansTelinga : ansTelinga
-        //     })
-        //     .then(res =>{
-        //         dispatch(KlasifikasiTelingaChange('TELINGA_KLASIFIKASI', res.data.hasilKlasifikasi));
-        //         dispatch(KlasifikasiTelingaChange('TELINGA_STATUS', res.data.statusKlasifikasi));
-        //     })
-        //     .catch(err =>{
-        //         console.log(err);
-        //     });
-        // }
-        // history.push("Telinga2");
         axios.post(`/Telinga`, {
             ansTelinga: ansTelinga
         })
@@ -68,8 +43,6 @@ const Telinga = (props) =>{
         history.push("Telinga2");
     }
 
-        // dispatch(AnsTelingaChange('NANAH', telinga_isNanah));
-        // dispatch(AnsTelingaChange('NANAH_LAMA_HARI', telinga_nanahLamaHari));
     const handleAnswer1 = event =>{
         if(event.target.value === "1"){
             set_telinga_isNyeri(true);
@@ -78,7 +51,6 @@ const Telinga = (props) =>{
             set_telinga_isNyeri(false);
             dispatch(AnsTelingaChange('NYERI', false));
         }
-        console.log(telinga_isNyeri);
     }
 
     const handleAnswer2 = event =>{
@@ -89,7 +61,6 @@ const Telinga = (props) =>{
             set_telinga_isPenuh(false);
             dispatch(AnsTelingaChange('PENUH', false));
         }
-        console.log(telinga_isPenuh);
     }
 
     const handleAnswer3 = event =>{
@@ -102,13 +73,12 @@ const Telinga = (props) =>{
             set_telinga_nanahLamaHari("");
             dispatch(AnsTelingaChange('NANAH_LAMA_HARI', ""));
         }
-        console.log(telinga_isNanah);
     }
 
     const handleAnswer4 = event =>{
-        set_telinga_nanahLamaHari(event.target.value);
-        dispatch(AnsTelingaChange('NANAH_LAMA_HARI', event.target.value));
-        console.log(telinga_nanahLamaHari);
+        let tmp = Number(event.target.value);
+        set_telinga_nanahLamaHari(tmp);
+        dispatch(AnsTelingaChange('NANAH_LAMA_HARI', tmp));
     }
 
     return(

@@ -3,7 +3,7 @@ const initState = {
     telinga_isNyeri : null,
     telinga_isPenuh : null,
     telinga_isNanah : null,
-    telinga_nanahLamaHari : null,
+    telinga_nanahLamaHari : '',
     telinga_cekKeluarNanah : null,
     telinga_isBengkak : null
 }

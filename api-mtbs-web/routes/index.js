@@ -27,8 +27,6 @@ router.post('/Demam', demam.demam);
 
 //Telinga
 router.post(`/Telinga`,telinga.telinga);
-router.post(`/Telinga/1`,telinga.telinga1);
-router.post(`/Telinga/2`,telinga.telinga2);
 
 //Anemia
 router.post(`/Anemia`,anemia.anemia);

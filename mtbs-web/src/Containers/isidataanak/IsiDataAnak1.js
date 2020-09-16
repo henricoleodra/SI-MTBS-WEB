@@ -44,7 +44,7 @@ const IsiDataAnak1 = () =>{
     }
 
     const handleJenisKelamin = event =>{
-        if(event.target.value === 1 ){
+        if(event.target.value === "1" ){
             setJenisKelamin(true);
         }
         else{
@@ -152,10 +152,27 @@ const IsiDataAnak1 = () =>{
                             </InputGroup>
                         </FormGroup>
                         <FormGroup>
-                            <Label for="alamat">Alamat</Label>
+                            
                             <Row>
                                 <Col sm={2}>
-                                    <Input type="select" name="provinsi" id="provinsi" defaultValue="Provinsi" style={{borderColor : '#41E8B3'}} value={provinsi} onChange={handleProvinsi} required>
+                                    <Label for="provinsi">Provinsi</Label>
+                                </Col>
+                                <Col sm={4}>
+                                    <Label for="alamat">Alamat</Label>
+                                </Col>
+                                <Col sm={2}>
+                                    <Label for="rt/rw">RT/RW</Label>
+                                </Col>
+                                <Col sm={2}>
+                                    <Label for="kelurahan/desa">Kelurahan/Desa</Label>
+                                </Col>
+                                <Col sm={2}>
+                                    <Label for="kota/kecamatan">Kota/Kecamatan</Label>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col sm={2}>
+                                    <Input type="select" name="provinsi" id="provinsi" defaultValue={(provinsi==="" ? "Provinsi" : provinsi)} style={{borderColor : '#41E8B3'}}  onChange={handleProvinsi} required>
                                         <option defaultChecked disabled>Provinsi</option>
                                         <option value={1}>Aceh</option>
                                         <option value={2}>Bali</option>

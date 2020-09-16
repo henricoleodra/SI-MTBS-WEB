@@ -3,7 +3,7 @@ const initState = {
     namaIbu : "",
     jenisKelamin : null,
     tglLahir : "",
-    provinsiAnak : null,
+    provinsiAnak : "",
     alamatAnak : "",
     rtrwAnak : "",
     kelDesAnak : "",

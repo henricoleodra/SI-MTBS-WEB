@@ -24,7 +24,6 @@ const Demam = (props) => {
     const history = useHistory();
     const dispatch = useDispatch();
     const ansDemam = useSelector(state => state.ansDemam);
-    // const klasifikasiDemam = useSelector(state => state.klasifikasiDemam);
     let [demam_berapaLama, set_demam_berapaLama] = useState(ansDemam.demam_berapaLama);
     let [demam_isDemamSetiapHari, set_demam_isDemamSetiapHari] = useState(ansDemam.demam_isDemamSetiapHari);
     let [demam_pernahMalaria, set_demam_pernahMalaria] = useState(ansDemam.demam_pernahMalaria);
@@ -45,15 +44,16 @@ const Demam = (props) => {
     }
 
     const handleAnswer1 = event =>{
-        set_demam_berapaLama(event.target.value);
-        dispatch(AnsDemamChange('BERAPA_LAMA', event.target.value));
+        let tmp = Number(event.target.value);
+        set_demam_berapaLama(tmp);
+        dispatch(AnsDemamChange('BERAPA_LAMA', tmp));
     }
 
     const handleAnswer2 = event => {
-        if (event.target.value === "1") {
+        if (event.target.value === "1"){
             set_demam_isDemamSetiapHari(true);
             dispatch(AnsDemamChange('DEMAM_SETIAP_HARI', true));
-        } else if (event.target.value === "2") {
+        }else{
             set_demam_isDemamSetiapHari(false);
             dispatch(AnsDemamChange('DEMAM_SETIAP_HARI', false));
         }
@@ -63,7 +63,7 @@ const Demam = (props) => {
         if (event.target.value === "1") {
             set_demam_pernahMalaria(true);
             dispatch(AnsDemamChange('MALARIA', true));
-        } else if (event.target.value === "2") {
+        }else{
             set_demam_pernahMalaria(false);
             dispatch(AnsDemamChange('MALARIA', false));
         }
@@ -93,8 +93,6 @@ const Demam = (props) => {
                                 height: 5
                             }}
                         />
-                        {/* <p className="text-center"><b>Jika Daerah Non Endemis</b>, tanyakan riwayat bepergian ke daerah endemis
-                        malaria dalam 2 minggu terakhir dan tentukan daerah endemis sesuai tempat yang dikunjungi</p> */}
                     </div>
                     <div style={{ minHeight: "475px" }}>
                         <Row className="justify-content-around">
@@ -103,7 +101,7 @@ const Demam = (props) => {
                                     <CardTitle className="h5"><b>Tanyakan! </b>Sudah berapa lama?</CardTitle>
                                     <div className="w-100 d-flex justify-content-center">
                                         <InputGroup className="w-25">
-                                            <Input type="number" min="0" value={demam_berapaLama} onChange={handleAnswer1} />
+                                            <Input type="number" min="0" value={demam_berapaLama} onChange={handleAnswer1} required />
                                             <InputGroupAddon addonType="append" >
                                                 <InputGroupText style={bgColor}>Hari</InputGroupText>
                                             </InputGroupAddon>
@@ -111,7 +109,7 @@ const Demam = (props) => {
                                     </div>
                                 </CardBody>
 
-                                <CardBody hidden={demam_berapaLama ===''}>
+                                <CardBody hidden={demam_berapaLama <= 7}>
                                     <CardTitle className="h5"><b>Tanyakan! </b>Jika lebih dari 7 hari, apakah demam terjadi
                                     setiap hari?</CardTitle>
                                     <Row className="limitCol ">
@@ -121,7 +119,7 @@ const Demam = (props) => {
                                         <Col sm="3">
                                             <FormGroup className="d-inline pr-2">
                                                 <Label className="rdoBtn">Ya
-                                                <Input type="radio" name="radio1" value={1} onChange={handleAnswer2} checked={demam_berapaLama >= 7} disabled={demam_isDemamSetiapHari ===''} required />
+                                                <Input type="radio" name="radio1" value={1} onChange={handleAnswer2} checked={demam_isDemamSetiapHari === true} disabled={demam_berapaLama <= 7} required />
                                                     <span style={{ left: "20px" }} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>
@@ -132,7 +130,7 @@ const Demam = (props) => {
                                         <Col sm="3">
                                             <FormGroup className="d-inline">
                                                 <Label className="rdoBtn">Tidak
-                                                <Input type="radio" name="radio1" value={2} onChange={handleAnswer2} checked={demam_berapaLama < 7} />
+                                                <Input type="radio" name="radio1" value={2} onChange={handleAnswer2} checked={demam_isDemamSetiapHari === false} />
                                                     <span style={{ left: "0px" }} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>

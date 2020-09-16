@@ -1,16 +1,16 @@
 const initState = {
     //makanan : null,
     makanan_isDisusui: null,
-    makanan_jumlahDisusui: null,
+    makanan_jumlahDisusui: '',
     makanan_malam: null,
     makanan_lainnya: null,
     makanan_lainnya_keterangan: "",
-    makanan_lainnya_jumlah: null,
+    makanan_lainnya_jumlah: '',
     makanan_lainnya_alat: null,
     //jika gizi kurus
-    makanan_kurus_jumlah: null,
+    makanan_kurus_jumlah: '',
     makanan_kurus_makananTersendiri: null,
-    makanan_kurus_keteranganCara: null,
+    makanan_kurus_keteranganCara: '',
     makanan_kurus_perubahanPemberian: null,
     makanan_kurus_perubahanPemberian_keterangan: null
 }

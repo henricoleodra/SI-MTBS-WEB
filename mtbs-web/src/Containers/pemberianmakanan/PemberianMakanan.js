@@ -35,7 +35,7 @@ const PemberianMakanan = (props) =>{
     }
 
     const handleAnswerJkIyaMenyusui = event =>{
-        let tmp = event.target.value;
+        let tmp = Number(event.target.value);
         set_makanan_jumlahDisusui(tmp);
         dispatch(AnsPemberianMakananChange('JUMLAH_DISUSUI', tmp));
     }

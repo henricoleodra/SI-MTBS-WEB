@@ -21,9 +21,6 @@ router.post(`/Batuk`,batuk.batuk);
 
 //Diare
 router.post(`/Diare`,diare.diare);
-router.post(`/Diare/1`,diare.diare1);
-router.post(`/Diare/2`,diare.diare2);
-router.post(`/Diare/3`,diare.diare3);
 
 //Demam
 router.post('/Demam', demam.demam);

@@ -25,48 +25,11 @@ const Diare = (props) => {
     const history = useHistory();
     const dispatch = useDispatch();
     const ansDiare = useSelector(state => state.ansDiare);
-    // const klasifikasiDiare = useSelector(state => state.klasifikasiDiare);
     let[diare_berapaLama, set_diare_berapaLama] = useState(ansDiare.diare_berapaLama);
     let[diare_tinjaBerdarah, set_diare_tinjaBerdarah] = useState(ansDiare.diare_tinjaBerdarah);
 
     const handleSubmit = event =>{
         event.preventDefault();
-        // if(klasifikasiDiare.diare_3 === true){
-        //     axios.post(`/Diare/3`, {
-        //         ansDiare : ansDiare
-        //     })
-        //     .then(res => {
-        //         dispatch(KlasifikasiDiareChange('DIARE_KLASIFIKASI', res.data.hasilKlasifikasi));
-        //         dispatch(KlasifikasiDiareChange('DIARE_STATUS', res.data.statusKlasifikasi));
-        //     })
-        //     .catch(err=>{
-        //       console.log(err);
-        //     }); 
-        // }
-        // else if(klasifikasiDiare.diare_2 === true){
-        //     axios.post(`/Diare/2`, {
-        //         ansDiare : ansDiare
-        //     })
-        //     .then(res => {
-        //         dispatch(KlasifikasiDiareChange('DIARE_KLASIFIKASI', res.data.hasilKlasifikasi));
-        //         dispatch(KlasifikasiDiareChange('DIARE_STATUS', res.data.statusKlasifikasi));
-        //     })
-        //     .catch(err=>{
-        //       console.log(err);
-        //     }); 
-        // }
-        // else{
-        //     axios.post(`/Diare/1`, {
-        //         ansDiare : ansDiare
-        //     })
-        //     .then(res => {
-        //         dispatch(KlasifikasiDiareChange('DIARE_KLASIFIKASI', res.data.hasilKlasifikasi));
-        //         dispatch(KlasifikasiDiareChange('DIARE_STATUS', res.data.statusKlasifikasi));
-        //     })
-        //     .catch(err=>{
-        //       console.log(err);
-        //     }); 
-        // }
         axios.post(`/Diare`, {
             ansDiare: ansDiare
         })
@@ -81,15 +44,16 @@ const Diare = (props) => {
     }
 
     const handleAnswer1 = event =>{
-        set_diare_berapaLama(event.target.value);
-        dispatch(AnsDiareChange('BERAPA_LAMA', event.target.value));
+        let tmp = Number(event.target.value);
+        set_diare_berapaLama(tmp);
+        dispatch(AnsDiareChange('BERAPA_LAMA', tmp));
     }
 
     const handleAnswer2 = event =>{
         if(event.target.value === "1"){
             set_diare_tinjaBerdarah(true);
             dispatch(AnsDiareChange('TINJA_BERDARAH', true));
-        }else if(event.target.value === "2"){
+        }else{
             set_diare_tinjaBerdarah(false);
             dispatch(AnsDiareChange('TINJA_BERDARAH', false));
         }
@@ -127,7 +91,7 @@ const Diare = (props) => {
                                 <CardTitle className="h5"><b>Tanyakan dan periksa! </b>Sudah berapa lama?</CardTitle>
                                 <div className="w-100 d-flex justify-content-center">
                                     <InputGroup className="w-50">
-                                        <Input type="number" min="0" value={diare_berapaLama} onChange={handleAnswer1}/>
+                                        <Input type="number" min="0" value={diare_berapaLama} onChange={handleAnswer1} required/>
                                         <InputGroupAddon addonType="append" >
                                             <InputGroupText style={bgColor}>Hari</InputGroupText>
                                         </InputGroupAddon>

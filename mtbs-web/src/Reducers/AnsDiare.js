@@ -1,6 +1,6 @@
 const initState = {
     diare : null,
-    diare_berapaLama : null,
+    diare_berapaLama : '',
     diare_tinjaBerdarah : null,
     diare_isAnakTidakSadar : null,
     diare_rewelMudahMarah : null,

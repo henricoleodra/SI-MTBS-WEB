@@ -24,7 +24,6 @@ const HIV = (props) =>{
     const history = useHistory();
     const dispatch = useDispatch();
     const ansHIV = useSelector(state => state.ansHIV);
-    //const klasifikasiHIV = useSelector(state => state.klasifikasiHIV);
     let[hiv_pernahTes, set_hiv_pernahTes] = useState(ansHIV.hiv_pernahTes);
     let[hiv_waktuTes, set_hiv_waktuTes] = useState(ansHIV.hiv_waktuTes);
     let[hiv_hasilTes, set_hiv_hasilTes] = useState(ansHIV.hiv_hasilTes);
@@ -33,43 +32,6 @@ const HIV = (props) =>{
 
     const handleSubmit = event =>{
         event.preventDefault();
-        // if(klasifikasiHIV.hiv_3 === true){
-        //     axios.post(`/HIV/3`, {
-        //         ansHIV : ansHIV
-        //     })
-        //     .then(res => {
-        //         dispatch(KlasifikasiHIVChange('HIV_KLASIFIKASI', res.data.hasilKlasifikasi));
-        //         dispatch(KlasifikasiHIVChange('HIV_STATUS', res.data.statusKlasifikasi));
-        //     })
-        //     .catch(err=>{
-        //       console.log(err);
-        //     }); 
-        // }
-        // else if(klasifikasiHIV.hiv_2 === true){
-        //     axios.post(`/HIV/2`, {
-        //         ansHIV : ansHIV
-        //     })
-        //     .then(res => {
-        //         dispatch(KlasifikasiHIVChange('HIV_KLASIFIKASI', res.data.hasilKlasifikasi));
-        //         dispatch(KlasifikasiHIVChange('HIV_STATUS', res.data.statusKlasifikasi));
-        //     })
-        //     .catch(err=>{
-        //       console.log(err);
-        //     }); 
-        // }
-        // else{
-        //     axios.post(`/HIV/1`, {
-        //         ansHIV : ansHIV
-        //     })
-        //     .then(res => {
-        //         dispatch(KlasifikasiHIVChange('HIV_KLASIFIKASI', res.data.hasilKlasifikasi));
-        //         dispatch(KlasifikasiHIVChange('HIV_STATUS', res.data.statusKlasifikasi));
-        //     })
-        //     .catch(err=>{
-        //       console.log(err);
-        //     }); 
-        // }
-        // history.push("HIV2");
         axios.post(`/HIV`, {
             ansHIV: ansHIV
         })
@@ -87,7 +49,7 @@ const HIV = (props) =>{
         if(event.target.value === "1"){
             set_hiv_pernahTes(true);
             dispatch(AnsHIVChange('PERNAH_TES', true));
-        }else if(event.target.value === "2"){
+        }else{
             set_hiv_pernahTes(false);
             dispatch(AnsHIVChange('PERNAH_TES', false));
             set_hiv_waktuTes("");
@@ -98,15 +60,16 @@ const HIV = (props) =>{
     }
 
     const handleAnswer2 = event =>{
-        set_hiv_waktuTes(event.target.value);
-        dispatch(AnsHIVChange('WAKTU_TES', event.target.value));
+        let tmp = Number(event.target.value);
+        set_hiv_waktuTes(tmp);
+        dispatch(AnsHIVChange('WAKTU_TES', tmp));
     }
 
     const handleAnswer3 = event =>{
         if(event.target.value === "1"){
             set_hiv_hasilTes(true);
             dispatch(AnsHIVChange('HASIL_TES', true));
-        }else if(event.target.value === "2"){
+        }else{
             set_hiv_hasilTes(false);
             dispatch(AnsHIVChange('HASIL_TES', false));
         }
@@ -116,7 +79,7 @@ const HIV = (props) =>{
         if(event.target.value === "1"){
             set_hiv_ibuPernahTes(true);
             dispatch(AnsHIVChange('IBU_PERNAH_TES', true));
-        }else if(event.target.value === "2"){
+        }else{
             set_hiv_ibuPernahTes(false);
             dispatch(AnsHIVChange('IBU_PERNAH_TES', false));
         }
@@ -126,7 +89,7 @@ const HIV = (props) =>{
         if(event.target.value === "1"){
             set_hiv_ibuHasilTes(true);
             dispatch(AnsHIVChange('IBU_HASIL_TES', true));
-        }else if(event.target.value === "2"){
+        }else{
             set_hiv_ibuHasilTes(false);
             dispatch(AnsHIVChange('IBU_HASIL_TES', false));
         }

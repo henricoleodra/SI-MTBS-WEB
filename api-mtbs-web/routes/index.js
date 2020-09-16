@@ -32,9 +32,6 @@ router.post(`/Telinga`,telinga.telinga);
 router.post(`/Anemia`,anemia.anemia);
 
 //HIV
-router.post(`/HIV`,hiv.hiv)
-router.post(`/HIV/1`,hiv.hiv1);
-router.post(`/HIV/2`,hiv.hiv2);
-router.post(`/HIV/3`,hiv.hiv3);
+router.post(`/HIV`,hiv.hiv);
 
 module.exports = router;

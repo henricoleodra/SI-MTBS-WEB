@@ -94,7 +94,7 @@ const classifierDiare = (ansDiare) =>{
         }
     }
     if(dehidrasi != null){
-        if(ansDiare.diare_berapaLama !=null){
+        if(ansDiare.diare_berapaLama !== ''){
             if(ansDiare.diare_berapaLama >= 14 && dehidrasi === true){
                 status = 1;
                 if(klasifikasi === null){

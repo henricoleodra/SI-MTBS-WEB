@@ -191,15 +191,17 @@ const Telinga = (props) =>{
                                         </Col>
                                     </Row>
                                     <br></br>
-                                    <h5>Jika ya, berapa lama?</h5>
-                                    <div className="w-100 d-flex justify-content-center">
-                                        <InputGroup className="w-50">
-                                            <Input type="number" min="0" value={telinga_nanahLamaHari} onChange={handleAnswer4} disabled={(telinga_isNanah === null || telinga_isNanah === false)}/>
-                                            <InputGroupAddon addonType="append" >
-                                                <InputGroupText style={bgColor}>Hari</InputGroupText>
-                                            </InputGroupAddon>
-                                        </InputGroup>         
-                                    </div> 
+                                    <div hidden={telinga_isNanah === false || telinga_isNanah === null}>
+                                        <h5>Jika ya, berapa lama?</h5>
+                                        <div className="w-100 d-flex justify-content-center">
+                                            <InputGroup className="w-50">
+                                                <Input type="number" min="0" value={telinga_nanahLamaHari} onChange={handleAnswer4} disabled={(telinga_isNanah === null || telinga_isNanah === false)}/>
+                                                <InputGroupAddon addonType="append" >
+                                                    <InputGroupText style={bgColor}>Hari</InputGroupText>
+                                                </InputGroupAddon>
+                                            </InputGroup>         
+                                        </div>
+                                    </div>
                                 </CardBody>
                             </Card>
                         </Row>

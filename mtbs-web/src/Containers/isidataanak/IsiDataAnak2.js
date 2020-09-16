@@ -33,23 +33,28 @@ const IsiDataAnak2 = () =>{
     let [curDate] = useState(hari + ', ' + date.getDate() + ' ' + bulan + ' ' + date.getFullYear());
 
     const handleSuhuAnak = event =>{
-        setSuhuAnak(event.target.value);
+        let tmp = Number(event.target.value);
+        setSuhuAnak(tmp);
     }
 
     const handleBeratAnak = event =>{
-        setBeratAnak(event.target.value);
+        let tmp = Number(event.target.value);
+        setBeratAnak(tmp);
     }
 
     const handleTinggiAnak = event =>{
-        setTinggiAnak(event.target.value);
+        let tmp = Number(event.target.value);
+        setTinggiAnak(tmp);
     }
 
     const handleKunjunganKe = event =>{
-        setKunjunganKe(event.target.value);
+        let tmp = Number(event.target.value);
+        setKunjunganKe(tmp);
     }
 
     const handlePencarianKeluhan = event =>{
-        setPencarianKeluhan(event.target.value);
+        let tmp = Number(event.target.value);
+        setPencarianKeluhan(tmp);
     }
 
     const handleEnter = event =>{

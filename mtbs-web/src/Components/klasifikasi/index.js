@@ -28,6 +28,9 @@ const Index = ( props ) => {
                             if(klasifikasi!==""){
                                 return <h3 key={idx} className="klasifikasi mt-2">{klasifikasi}</h3>
                             }
+                            else{
+                                return <></>
+                            }
                         })
                     }
                 </Col>

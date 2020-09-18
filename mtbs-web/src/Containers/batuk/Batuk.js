@@ -27,7 +27,7 @@ const Batuk = (props) => {
     const dataAnak = useSelector(state => state.dataAnak);
     let[bsb_lamaHari, set_bsb_lamaHari] = useState(ansBatuk.bsb_lamaHari);
     let[bsb_jumlahNafas, set_bsb_jumlahNafas] = useState(ansBatuk.bsb_jumlahNafas);
-    let[set_bsb_nafasCepat] = useState(ansBatuk.bsb_nafasCepat);
+    let[bsb_nafasCepat, set_bsb_nafasCepat] = useState(ansBatuk.bsb_nafasCepat);
     let[bsb_tarikanDindingDada, set_bsb_tarikanDindingDada] = useState(ansBatuk.bsb_tarikanDindingDada);
 
     const handleSubmit = event =>{
@@ -119,7 +119,7 @@ const Batuk = (props) => {
                                 <CardTitle className="h5"><b>Tanyakan! </b>Sudah berapa lama?</CardTitle>
                                     <div className="w-100 d-flex justify-content-center">
                                         <InputGroup className="w-25">
-                                            <Input type="number" min="0" value={bsb_lamaHari} onChange={handleAnswer1}/>
+                                            <Input type="number" min="0" value={bsb_lamaHari} onChange={handleAnswer1} required/>
                                             <InputGroupAddon addonType="append" >
                                                 <InputGroupText style={bgColor}>Hari</InputGroupText>
                                             </InputGroupAddon>
@@ -132,7 +132,7 @@ const Batuk = (props) => {
                                 <CardTitle className="h5"><b>Tanyakan! </b>Hitung nafas dalam 1 menit !</CardTitle>
                                 <div className="w-100 d-flex justify-content-center">
                                         <InputGroup className="w-50">
-                                            <Input type="number" min="0" value={bsb_jumlahNafas} onChange={handleAnswer2}/>
+                                            <Input type="number" min="0" value={bsb_jumlahNafas} onChange={handleAnswer2} required/>
                                             <InputGroupAddon addonType="append" >
                                                 <InputGroupText style={bgColor}>Kali/Menit</InputGroupText>
                                             </InputGroupAddon>

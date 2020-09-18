@@ -30,10 +30,10 @@ const Summary = () => {
   const klasifikasiTelinga = useSelector(state => state.klasifikasiTelinga);
   const klasifikasiAnemia = useSelector(state => state.klasifikasiAnemia);
   const klasifikasiHIV = useSelector(state => state.klasifikasiHIV);
-  const klasifikasiImunisasi = useSelector(state => state.klasifikasiImunisasi);
-  const klasifikasiVitaminA = useSelector(state => state.klasifikasiVitaminA);
-  const klasifikasiKeluhanLain = useSelector(state => state.klasifikasiKeluhanLain);
-  const klasifikasiPemberianMakanan = useSelector(state => state.klasifikasiPemberianMakanan);
+  // const klasifikasiImunisasi = useSelector(state => state.klasifikasiImunisasi);
+  // const klasifikasiVitaminA = useSelector(state => state.klasifikasiVitaminA);
+  // const klasifikasiKeluhanLain = useSelector(state => state.klasifikasiKeluhanLain);
+  // const klasifikasiPemberianMakanan = useSelector(state => state.klasifikasiPemberianMakanan);
 
   let summary = [
     {
@@ -84,30 +84,30 @@ const Summary = () => {
       'color' : (klasifikasiHIV.hiv_status===null ? 'dark' : klasifikasiHIV.hiv_status),
       'disabled' : compStatus.hiv
     },
-    {
-      'title' : 'Imunisasi',
-      'text' : (klasifikasiImunisasi.imun_klasifikasi===null ? '' : klasifikasiImunisasi.imun_klasifikas),
-      'color' : (klasifikasiImunisasi.imun_status===null ? 'dark' : klasifikasiImunisasi.imun_status),
-      'disabled' : compStatus.imunisasi
-    },
-    {
-      'title' : 'Vitamin A',
-      'text' : (klasifikasiVitaminA.vit_klasifikasi===null ? '' : klasifikasiVitaminA.vit_klasifikas),
-      'color' : (klasifikasiVitaminA.vit_status===null ? 'dark' : klasifikasiVitaminA.vit_status),
-      'disabled' : compStatus.vitamina
-    },
-    {
-      'title' : 'Keluhan Lain',
-      'text' : (klasifikasiKeluhanLain.kel_klasifikasi===null ? '' : klasifikasiKeluhanLain.kel_klasifikas),
-      'color' : (klasifikasiKeluhanLain.kel_status===null ? 'dark' : klasifikasiKeluhanLain.kel_status),
-      'disabled' : compStatus.keluhanlain
-    },
-    {
-      'title' : 'Pemberian Makanan',
-      'text' : (klasifikasiPemberianMakanan.pemberianMakanan_klasifikasi===null ? '' : klasifikasiPemberianMakanan.pemberianMakanan_klasifikasi),
-      'color' : (klasifikasiPemberianMakanan.pemberianMakanan_status===null ? 'dark' : klasifikasiPemberianMakanan.pemberianMakanan_status),
-      'disabled' : compStatus.makan
-    },
+    // {
+    //   'title' : 'Imunisasi',
+    //   'text' : (klasifikasiImunisasi.imun_klasifikasi===null ? '' : klasifikasiImunisasi.imun_klasifikas),
+    //   'color' : (klasifikasiImunisasi.imun_status===null ? 'dark' : klasifikasiImunisasi.imun_status),
+    //   'disabled' : compStatus.imunisasi
+    // },
+    // {
+    //   'title' : 'Vitamin A',
+    //   'text' : (klasifikasiVitaminA.vit_klasifikasi===null ? '' : klasifikasiVitaminA.vit_klasifikas),
+    //   'color' : (klasifikasiVitaminA.vit_status===null ? 'dark' : klasifikasiVitaminA.vit_status),
+    //   'disabled' : compStatus.vitamina
+    // },
+    // {
+    //   'title' : 'Keluhan Lain',
+    //   'text' : (klasifikasiKeluhanLain.kel_klasifikasi===null ? '' : klasifikasiKeluhanLain.kel_klasifikas),
+    //   'color' : (klasifikasiKeluhanLain.kel_status===null ? 'dark' : klasifikasiKeluhanLain.kel_status),
+    //   'disabled' : compStatus.keluhanlain
+    // },
+    // {
+    //   'title' : 'Pemberian Makanan',
+    //   'text' : (klasifikasiPemberianMakanan.pemberianMakanan_klasifikasi===null ? '' : klasifikasiPemberianMakanan.pemberianMakanan_klasifikasi),
+    //   'color' : (klasifikasiPemberianMakanan.pemberianMakanan_status===null ? 'dark' : klasifikasiPemberianMakanan.pemberianMakanan_status),
+    //   'disabled' : compStatus.makan
+    // },
   ];
 
   const renderSummary = summary.map((curr, index) => {

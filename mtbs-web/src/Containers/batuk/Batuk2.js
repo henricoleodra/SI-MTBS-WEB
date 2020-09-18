@@ -55,11 +55,9 @@ const Batuk2 = (props) =>{
     }
 
     const handleAnswer2 = event =>{
-        if(event.target.value !== ''){
-            let tmp = Number(event.target.value);
-            set_bsb_saturasiOksigen(tmp);
-            dispatch(AnsBatukChange('SATURASI_OKSIGEN', tmp));
-        }
+        let tmp = Number(event.target.value);
+        set_bsb_saturasiOksigen(tmp);
+        dispatch(AnsBatukChange('SATURASI_OKSIGEN', tmp));
     }
 
     return(
@@ -119,7 +117,7 @@ const Batuk2 = (props) =>{
                                 <CardTitle className="h5"><b>Tanyakan! </b>Saturasi oksigen</CardTitle>
                                 <div className="w-100 d-flex justify-content-center">
                                     <InputGroup className="w-25">
-                                        <Input type="number" step={0.01} min={0} value={bsb_saturasiOksigen} onChange={handleAnswer2}/>
+                                        <Input type="number" min={0} max={100} value={bsb_saturasiOksigen} onChange={handleAnswer2}/>
                                         <InputGroupAddon addonType="append" >
                                             <InputGroupText style={bgColor}>%</InputGroupText>
                                         </InputGroupAddon>

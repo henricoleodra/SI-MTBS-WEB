@@ -1,7 +1,7 @@
 const Point = require('./point');
 const Interpolator = require('./interpolator');
 
-const classifierGizi = () => {
+const classifierGizi = (ansGizi) => {
 
 
 };
@@ -66,8 +66,11 @@ const perhitunganSD = (dataAnak) => {
         nilaiSD = "Dengan nilai 2 SD : " + hasil2.toFixed(2) + "kg";
     }
 
-
-
+    const ans = {
+        hasilSDGizi: hasilSD,
+        nilaiSDGizi: nilaiSD,
+    }
+    return ans;
 }
 
 module.exports = {

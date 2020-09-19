@@ -2,7 +2,38 @@ const Point = require('./point');
 const Interpolator = require('./interpolator');
 
 const classifierGizi = (ansGizi) => {
+    if( (ansGizi.gizi_tampakSangatKurus === true || ansGizi.gizi_pembengkakanKeduaPunggungKakiAtauTangan === true || 
+        ans.Gizi.gizi_BBmenurutPBAtauTB === "BB/PB (TB) < -3 SD (Sangat Kurus)" || ansGizi.gizi_lingkarLenganAtas === "LiLA < 11,5") &&
+        (ansGizi.gizi_tandaBahayaUmum === true || ansGizi.gizi_klasifikasiBerat === true || ansGizi.gizi_masalahPemberianASI === true)
+        ){
+            const ans = {
+                hasilKlasifkasi: 'Sangat Kurus Dengan Komplikasi',
+                statusKlasifikasi: 'danger', 
+            }
+            return ans;
+    }
+    else if(ansGizi.gizi_tampakSangatKurus === true || ans.Gizi.gizi_BBmenurutPBAtauTB === "BB/PB (TB) < -3 SD (Sangat Kurus)" || ansGizi.gizi_lingkarLenganAtas === "LiLA < 11,5 cm"){
+        const ans = {
+            hasilKlasifkasi: 'Sangat Kurus Tanpa Komplikasi',
+            statusKlasifikasi: 'warning', 
+        }
+        return ans;
 
+    }
+    else if(ans.Gizi.gizi_BBmenurutPBAtauTB === "-3 SD ≥ BB/PB (TB) ≤ -2 SD (Kurus)" || ansGizi.gizi_lingkarLenganAtas === "LiLA < 11,5 cm - < 12,5 cm"){
+        const ans = {
+            hasilKlasifkasi: 'Kurus',
+            statusKlasifikasi: 'warning', 
+        }
+        return ans;
+    }
+    else{
+        const ans = {
+            hasilKlasifkasi: 'Gizi Normal',
+            statusKlasifikasi: 'success', 
+        }
+        return ans;
+    }
 
 };
 

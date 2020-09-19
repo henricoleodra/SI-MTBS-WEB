@@ -51,7 +51,6 @@ export { default as Telinga2 } from './telinga/Telinga2';
 // Gizi 
 export { default as Gizi1 } from './gizi/Gizi';
 export { default as Gizi2 } from './gizi/Gizi2';
-export { default as Gizi3} from './gizi/Gizi3';
 
 // Anemia
 export { default as Anemia } from './anemia/Anemia';

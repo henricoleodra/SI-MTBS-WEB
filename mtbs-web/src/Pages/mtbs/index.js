@@ -28,7 +28,6 @@ import {
     Telinga2,
     Gizi1,
     Gizi2,
-    Gizi3,
     Anemia,
     HIV1,
     HIV2,
@@ -104,8 +103,6 @@ const Index = ( props ) => {
                 return <Gizi1/>;
             case `/MTBS/Gizi2` :
                 return <Gizi2/>;
-            case `/MTBS/Gizi3` :
-                return <Gizi3/>;
             case `/MTBS/Anemia`:
                 return <Anemia/>;
             case `/MTBS/HIV1`:

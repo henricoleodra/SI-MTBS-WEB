@@ -1,6 +1,6 @@
 import React, {  } from 'react';
 import { Link } from 'react-router-dom';
-import { FormGroup, Input, Form, Card, CardBody, CardTitle, Button, Row, Col } from "reactstrap";
+import { FormGroup, Input, Form, Card, CardBody, CardTitle, Button, Row, Col, Label } from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
@@ -21,9 +21,6 @@ const Gizi2 = (props) => {
                         <div className="p-2">
                             <FontAwesomeIcon icon={faCircle} style={{ color: '#41E8B3' }} />
                         </div>
-                        <div className="p-2">
-                            <FontAwesomeIcon icon={faCircle} className="text-muted" />
-                        </div>
                     </div>
                     <div className="mt-2">
                         <h3 className="text-center font-weight-bold">Status Gizi</h3>
@@ -39,47 +36,70 @@ const Gizi2 = (props) => {
                         <Row className="justify-content-center">
                             <Card style={outlineColor} className="text-center w-75 mt-3" >
                                 <CardBody>
-                                    <CardTitle className="h5"><b>Tentukan! </b>Berat badan(BB) menurut Panjang Badan(PB) / Tinggi Badan(TB)</CardTitle>
-                                    {/* <FormGroup check className="mt-3">
-                                        BB menurut PB / TB :<Input type="number" required/>
-                                    </FormGroup>
-                                </CardBody>
-                            </Card>
-                            <Card style={outlineColor} className="text-center w-75 mt-3" >
-                                <CardBody>
                                     <CardTitle className="h5"><b>Tentukan! </b>Lingkar lengan atas(LiLA) untuk anak umur 6 bulan / lebih</CardTitle>
-                                    <FormGroup check className="mt-3">
-                                        LiLA :<Input type="number" required/>
-                                    </FormGroup> */}
-                                    <Row>
-                                        <Col sm="2">
-                                                
-                                        </Col>
-                                        <Col sm="8">
-                                            <FormGroup check className="mt-3">
-                                                BB menurut PB / TB :<Input type="number" required/>
+                                    <Row className="limitCol "> 
+                                        <Col  sm="4">
+                                            <FormGroup className="d-inline">
+                                                <Label className="rdoBtn">
+                                                    <p>liLA &#44;x</p>
+                                                <Input type="radio" name="" required />
+                                                <span style={{left:"30px"}} className="checkmark"></span>
+                                                </Label>
                                             </FormGroup>
                                         </Col>
-                                        <Col sm="2">
-                                            
+
+                                        <Col sm="4">
+                                            <FormGroup className="d-inline pr-2">  
+                                                <Label className="rdoBtn">Akan
+                                                <Input type="radio"/>
+                                                <span style={{left:"30px"}} className="checkmark"></span>
+                                                </Label>
+                                            </FormGroup>
+                                        </Col>
+
+                                        <Col sm="4">
+                                            <FormGroup className="d-inline">
+                                                <Label className="rdoBtn">Sudah
+                                                <Input type="radio"/>
+                                                <span style={{left:"30px"}} className="checkmark"></span>
+                                                </Label>
+                                            </FormGroup>
                                         </Col>
                                     </Row>
                                 </CardBody>
                             </Card>
+
+                            {/* <CardTitle className="h5">Jika BB/PB < -3SD ATAU LiLA < 11&#44;5 cm, maka: </CardTitle> */}
                             <Card style={outlineColor} className="text-center w-75 mt-3" >
                                 <CardBody>
-                                    <CardTitle className="h5"><b>Tentukan! </b>Lingkar lengan atas(LiLA) untuk anak umur 6 bulan / lebih</CardTitle>
-                                    <Row>
-                                        <Col sm="2">
-                                                
-                                        </Col>
-                                        <Col sm="8">
-                                            <FormGroup check className="mt-3">
-                                                LiLA :<Input type="number" required/>
+                                    {/* <CardTitle className="h5">Nilai pemberian ASI pada anak umur <6 bulan! Apakah anak memiliki masalah pemberian ASI? </CardTitle> */}
+                                    <Row className="limitCol "> 
+                                        <Col  sm="4">
+                                            <FormGroup className="d-inline">
+                                                <Label className="rdoBtn">
+                                                    <p>liLA</p>
+                                                <Input type="radio" name="" required />
+                                                <span style={{left:"30px"}} className="checkmark"></span>
+                                                </Label>
                                             </FormGroup>
                                         </Col>
-                                        <Col sm="2">
-                                            
+
+                                        <Col sm="4">
+                                            <FormGroup className="d-inline pr-2">  
+                                                <Label className="rdoBtn">Akan
+                                                <Input type="radio"/>
+                                                <span style={{left:"30px"}} className="checkmark"></span>
+                                                </Label>
+                                            </FormGroup>
+                                        </Col>
+
+                                        <Col sm="4">
+                                            <FormGroup className="d-inline">
+                                                <Label className="rdoBtn">Sudah
+                                                <Input type="radio"/>
+                                                <span style={{left:"30px"}} className="checkmark"></span>
+                                                </Label>
+                                            </FormGroup>
                                         </Col>
                                     </Row>
                                 </CardBody>

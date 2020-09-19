@@ -10,12 +10,6 @@ var outlineColor = {
     borderColor: '#41E8B3'
 }
 
-var outlineColorRed = {
-    borderColor: '#41E8B3'
-}
-
-
-
 const Gizi = (props) => {
     const history = useHistory();
     const dispatch = useDispatch();
@@ -29,9 +23,6 @@ const Gizi = (props) => {
                     <div className="d-flex justify-content-center mt-3">
                         <div className="p-2">
                             <FontAwesomeIcon icon={faCircle} style={{ color: '#41E8B3' }} />
-                        </div>
-                        <div className="p-2">
-                            <FontAwesomeIcon icon={faCircle} className="text-muted" />
                         </div>
                         <div className="p-2">
                             <FontAwesomeIcon icon={faCircle} className="text-muted" />
@@ -118,7 +109,8 @@ const Gizi = (props) => {
 
                             <Card style={outlineColor} className="text-center w-75 mt-3">
                                 <CardBody>
-
+                                    <CardTitle style={{fontSize:"1rem;"}}><b>Hasil Perhitungan Berat Badan</b> menurut Panjang Badan atau 
+                                    Tinggi Badan sesuai umur dan jenis kelamin adalah sebagai berikut:</CardTitle>
                                 </CardBody>
                             </Card>
                         </Row>

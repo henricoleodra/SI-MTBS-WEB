@@ -1,143 +1,125 @@
-const classifierDiare = (ansDiare) =>{
+const classifierDiare = (ansDiare) => {
     var status = null;
-    var klasifikasi = null; 
+    var klasifikasi = null;
     var berat = 0;
     var ringan = 0;
     var dehidrasi = null;
-    if(ansDiare.diare_tinjaBerdarah != null){
-        if(ansDiare.diare_tinjaBerdarah === true){
-            if(status === null){
+    if (ansDiare.diare_tinjaBerdarah != null) {
+        if (ansDiare.diare_tinjaBerdarah === true) {
+            if (status === null) {
                 status = 2;
-            }
-            else{
-                if(status != 1){
+            } else {
+                if (status != 1) {
                     status = 2;
                 }
             }
-            if(klasifikasi === null){
+            if (klasifikasi === null) {
                 klasifikasi = 'Disentri';
-            }
-            else{
+            } else {
                 klasifikasi += '\nDisentri';
             }
         }
     }
-    if(ansDiare.diare_isAnakTidakSadar != null){
-        if(ansDiare.diare_isAnakTidakSadar === true){
-            berat ++;
+    if (ansDiare.diare_isAnakTidakSadar != null) {
+        if (ansDiare.diare_isAnakTidakSadar === true) {
+            berat++;
         }
     }
-    if(ansDiare.diare_isMataCekung != null){
-        if(ansDiare.diare_isMataCekung === true){
-            berat ++;
-            ringan ++;
+    if (ansDiare.diare_isMataCekung != null) {
+        if (ansDiare.diare_isMataCekung === true) {
+            berat++;
+            ringan++;
         }
     }
-    if(ansDiare.diare_isNotMinum != null){
-        if(ansDiare.diare_isNotMinum === true){
-            berat ++;
-        }
-        else{
-            ringan ++;
-        }
-    }
-    if(ansDiare.diare_kulitPerutLambat != null){
-        if(ansDiare.diare_kulitPerutLambat === 'Sangat Lambat'){
-            berat ++;
-        } 
-        else if(ansDiare.diare_kulitPerutLambat === 'Lambat'){
-            ringan ++;
+    if (ansDiare.diare_isNotMinum != null) {
+        if (ansDiare.diare_isNotMinum === true) {
+            berat++;
+        } else {
+            ringan++;
         }
     }
-    if(berat >= 2){
+    if (ansDiare.diare_kulitPerutLambat != null) {
+        if (ansDiare.diare_kulitPerutLambat === 'Sangat Lambat') {
+            berat++;
+        } else if (ansDiare.diare_kulitPerutLambat === 'Lambat') {
+            ringan++;
+        }
+    }
+    if (berat >= 2) {
         status = 1;
         dehidrasi = true;
-        if(klasifikasi === null){
+        if (klasifikasi === null) {
             klasifikasi = 'Diare Dehidrasi Berat';
-        }
-        else{
+        } else {
             klasifikasi += '\nDiare Dehidrasi Berat';
         }
-    }
-    else if(ringan >= 2){
+    } else if (ringan >= 2) {
         dehidrasi = true;
-        if(status === null){
+        if (status === null) {
             status = 2;
-        }
-        else{
-            if(status != 1){
+        } else {
+            if (status != 1) {
                 status = 2;
             }
         }
-        if(klasifikasi === null){
+        if (klasifikasi === null) {
             klasifikasi = 'Diare Dehidrasi Ringan/Sedang';
-        }
-        else{
+        } else {
             klasifikasi += '\nDiare Dehidrasi Ringan/Sedang';
         }
-    }
-    else{
+    } else {
         dehidrasi = false;
-        if(status === null){
+        if (status === null) {
             status = 3;
-        }
-        else{
-            if(status != 1 && status != 2){
+        } else {
+            if (status != 1 && status != 2) {
                 status = 3;
             }
         }
-        if(klasifikasi === null){
+        if (klasifikasi === null) {
             klasifikasi = 'Diare Tanpa Dehidrasi';
-        }
-        else{
+        } else {
             klasifikasi += '\nDiare Tanpa Dehidrasi';
         }
     }
-    if(dehidrasi != null){
-        if(ansDiare.diare_berapaLama !== ''){
-            if(ansDiare.diare_berapaLama >= 14 && dehidrasi === true){
+    if (dehidrasi != null) {
+        if (ansDiare.diare_berapaLama !== '') {
+            if (ansDiare.diare_berapaLama >= 14 && dehidrasi === true) {
                 status = 1;
-                if(klasifikasi === null){
+                if (klasifikasi === null) {
                     klasifikasi = 'Diare Persisten Berat';
-                }
-                else{
+                } else {
                     klasifikasi += '\nDiare Persisten Berat';
                 }
-            }
-            else{
-                if(status === null){
+            } else {
+                if (status === null) {
                     status = 2;
-                }
-                else{
-                    if(status != 1){
+                } else {
+                    if (status != 1) {
                         status = 2;
                     }
                 }
-                if(klasifikasi === null && ansDiare.diare_berapaLama >= 14){
+                if (klasifikasi === null && ansDiare.diare_berapaLama >= 14) {
                     klasifikasi = 'Diare Persisten';
-                }
-                else if(klasifikasi !== null && ansDiare.diare_berapaLama >= 14){
+                } else if (klasifikasi !== null && ansDiare.diare_berapaLama >= 14) {
                     klasifikasi += '\nDiare Persisten';
                 }
             }
         }
     }
     var resStatus = '';
-    if(status === 1){
+    if (status === 1) {
         resStatus = 'danger';
-    }
-    else if(status === 2){
+    } else if (status === 2) {
         resStatus = 'warning';
-    }
-    else if(status === 3){
+    } else if (status === 3) {
         resStatus = 'success';
-    }
-    else{
+    } else {
         resStatus = 'dark';
     }
     const ans = {
-        hasilKlasifikasi : klasifikasi,
-        statusKlasifikasi: resStatus,    
+        hasilKlasifikasi: klasifikasi,
+        statusKlasifikasi: resStatus,
     }
     return ans;
 };

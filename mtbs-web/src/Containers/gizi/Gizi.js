@@ -10,6 +10,10 @@ var outlineColor = {
     borderColor: '#41E8B3'
 }
 
+var outlineColorRed = {
+    borderColor: '#41E8B3'
+}
+
 
 
 const Gizi = (props) => {
@@ -109,6 +113,12 @@ const Gizi = (props) => {
                                             </FormGroup>
                                         </Col>
                                     </Row>
+                                </CardBody>
+                            </Card>
+
+                            <Card style={outlineColor} className="text-center w-75 mt-3">
+                                <CardBody>
+
                                 </CardBody>
                             </Card>
                         </Row>

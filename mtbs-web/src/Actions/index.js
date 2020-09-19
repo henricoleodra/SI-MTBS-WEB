@@ -1,3 +1,9 @@
+export const reset = (action) => {
+    return {
+        type: action
+    }
+}
+
 // Sidebar & Summary
 export const compStatusChange = (comp) => {
     return {

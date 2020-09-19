@@ -27,8 +27,9 @@ import KlasifikasiKeluhanLainReducer from './KlasifikasiKeluhanLain';
 
 import DataAnakReducer from './DataAnak';
 
+import storage from 'redux-persist/lib/storage';
 
-const rootReducer = combineReducers({
+const appReducer = combineReducers({
     compStatus: CompStatusReducer,
     dataAnak: DataAnakReducer,
     ansTBU: AnsTBUReducer,
@@ -54,5 +55,13 @@ const rootReducer = combineReducers({
     ansPemberianMakanan: AnsPemberianMakananReducer,
     klasifikasiPemberianMakanan: KlasifikasiPemberianMakananReducer
 });
+
+const rootReducer = (state, action) => {
+    if (action.type === 'RESET_STORE'){
+        storage.removeItem('persist:root');
+        state = undefined;
+    }
+    return appReducer(state, action);
+}
 
 export default rootReducer;

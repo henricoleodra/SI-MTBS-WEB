@@ -1,12 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom'
 import { Row, Col, Card, CardTitle, CardText } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheck, faTimes } from '@fortawesome/free-solid-svg-icons'
+import { useDispatch } from 'react-redux';
 //Import Component
 import { HeaderTitle } from '../../Components'
 
+import { reset } from '../../Actions';
+
 const MulaiPemeriksaan = (props) =>{
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(reset('RESET_STORE'));
+     }, []);
+
     return(
         <div>
             <HeaderTitle title="Mulai Pemeriksaan"/>

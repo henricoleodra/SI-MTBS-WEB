@@ -28,6 +28,7 @@ const Summary = () => {
   const klasifikasiDiare = useSelector(state => state.klasifikasiDiare);
   const klasifikasiDemam = useSelector(state => state.klasifikasiDemam);
   const klasifikasiTelinga = useSelector(state => state.klasifikasiTelinga);
+  const klasifikasiGizi = useSelector(state => state.klasifikasiGizi);
   const klasifikasiAnemia = useSelector(state => state.klasifikasiAnemia);
   const klasifikasiHIV = useSelector(state => state.klasifikasiHIV);
   // const klasifikasiImunisasi = useSelector(state => state.klasifikasiImunisasi);
@@ -68,8 +69,8 @@ const Summary = () => {
     },
     {
       'title' : 'Gizi',
-      'text' : 'Penyakit Gizi',
-      'color' : 'dark',
+      'text' : (klasifikasiGizi.gizi_klasifikasi===null ? '' : klasifikasiGizi.gizi_klasifikasi),
+      'color' : (klasifikasiGizi.gizi_status===null ? 'dark' : klasifikasiGizi.gizi_status),
       'disabled' : compStatus.gizi
     },
     {

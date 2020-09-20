@@ -1,8 +1,9 @@
-import React, {  } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FormGroup, Input, Form, Card, CardBody, CardTitle, Button, Row, Col, Label } from "reactstrap";
+import { Form, Card, CardBody, CardTitle, Button, Row, Col, Label } from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { useDispatch, useSelector } from 'react-redux';
 
 
 var outlineColor = {
@@ -10,8 +11,15 @@ var outlineColor = {
 }
 
 const Gizi2 = (props) => {
+    const ansGizi = useSelector(state => state.ansGizi);
+    const dataAnak = useSelector(state => state.dataAnak);
+    let [gizi_BBmenurutPBAtauTB, set_gizi_BBmenurutPBAtauTB] = useState(ansGizi.gizi_BBmenurutPBAtauTB);
+    let [gizi_nilaiSD, set_gizi_nilaiSD] = useState(ansGizi.gizi_nilaiSD);
+    let [beratAnak, set_beratAnak] = useState(dataAnak.beratAnak);
+    let [tinggiAnak, set_tinggiAnak] = useState(dataAnak.tinggiAnak);
+
     return (
-        <Form /**onSubmit={handleSubmit}**/>
+        <Form>
             <div className="w-100">
                 <div className="col-12">
                     <div className="d-flex justify-content-center mt-3">
@@ -20,6 +28,9 @@ const Gizi2 = (props) => {
                         </div>
                         <div className="p-2">
                             <FontAwesomeIcon icon={faCircle} style={{ color: '#41E8B3' }} />
+                        </div>
+                        <div className="p-2">
+                            <FontAwesomeIcon icon={faCircle} className="text-muted"/>
                         </div>
                     </div>
                     <div className="mt-2">
@@ -34,73 +45,23 @@ const Gizi2 = (props) => {
                     </div>
                     <div style={{minHeight: "440px"}}>
                         <Row className="justify-content-center">
-                            <Card style={outlineColor} className="text-center w-75 mt-3" >
+                        <Card style={outlineColor} className="text-center w-75 mt-3">
                                 <CardBody>
-                                    <CardTitle className="h5"><b>Tentukan! </b>Lingkar lengan atas(LiLA) untuk anak umur 6 bulan / lebih</CardTitle>
-                                    <Row className="limitCol "> 
-                                        <Col  sm="4">
-                                            <FormGroup className="d-inline">
-                                                <Label className="rdoBtn">
-                                                    <p>liLA &#44;x</p>
-                                                <Input type="radio" name="" required />
-                                                <span style={{left:"30px"}} className="checkmark"></span>
-                                                </Label>
-                                            </FormGroup>
-                                        </Col>
-
-                                        <Col sm="4">
-                                            <FormGroup className="d-inline pr-2">  
-                                                <Label className="rdoBtn">Akan
-                                                <Input type="radio"/>
-                                                <span style={{left:"30px"}} className="checkmark"></span>
-                                                </Label>
-                                            </FormGroup>
-                                        </Col>
-
-                                        <Col sm="4">
-                                            <FormGroup className="d-inline">
-                                                <Label className="rdoBtn">Sudah
-                                                <Input type="radio"/>
-                                                <span style={{left:"30px"}} className="checkmark"></span>
-                                                </Label>
-                                            </FormGroup>
-                                        </Col>
+                                    <CardTitle>
+                                        <b>Hasil Perhitungan Berat Badan</b> menurut Panjang Badan atau 
+                                        Tinggi Badan sesuai umur dan jenis kelamin adalah sebagai berikut:
+                                    </CardTitle>
+                                    <Row className="justify-content-center">
+                                        <Label>{gizi_BBmenurutPBAtauTB}</Label>
                                     </Row>
-                                </CardBody>
-                            </Card>
-
-                            {/* <CardTitle className="h5">Jika BB/PB < -3SD ATAU LiLA < 11&#44;5 cm, maka: </CardTitle> */}
-                            <Card style={outlineColor} className="text-center w-75 mt-3" >
-                                <CardBody>
-                                    {/* <CardTitle className="h5">Nilai pemberian ASI pada anak umur <6 bulan! Apakah anak memiliki masalah pemberian ASI? </CardTitle> */}
-                                    <Row className="limitCol "> 
-                                        <Col  sm="4">
-                                            <FormGroup className="d-inline">
-                                                <Label className="rdoBtn">
-                                                    <p>liLA</p>
-                                                <Input type="radio" name="" required />
-                                                <span style={{left:"30px"}} className="checkmark"></span>
-                                                </Label>
-                                            </FormGroup>
-                                        </Col>
-
-                                        <Col sm="4">
-                                            <FormGroup className="d-inline pr-2">  
-                                                <Label className="rdoBtn">Akan
-                                                <Input type="radio"/>
-                                                <span style={{left:"30px"}} className="checkmark"></span>
-                                                </Label>
-                                            </FormGroup>
-                                        </Col>
-
-                                        <Col sm="4">
-                                            <FormGroup className="d-inline">
-                                                <Label className="rdoBtn">Sudah
-                                                <Input type="radio"/>
-                                                <span style={{left:"30px"}} className="checkmark"></span>
-                                                </Label>
-                                            </FormGroup>
-                                        </Col>
+                                    <Row className="justify-content-center">
+                                        <Label>{gizi_nilaiSD}</Label>
+                                    </Row>
+                                    <Row className="justify-content-center">
+                                        <Label>Berat Badan Anak : {beratAnak}kg</Label>
+                                    </Row>
+                                    <Row className="justify-content-center">
+                                        <Label>Tinggi Badan Anak : {tinggiAnak}cm</Label>
                                     </Row>
                                 </CardBody>
                             </Card>
@@ -112,7 +73,7 @@ const Gizi2 = (props) => {
                         <Link to="Gizi1" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Sebelumnya</Button></Link>
                     </Col>
                     <Col sm="4">
-                        <Button type="submit" color="success" block >Selanjutnya <FontAwesomeIcon icon={faChevronRight}/></Button>
+                        <Link to="Gizi3"><Button type="submit" color="success" block >Selanjutnya <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
                     </Col>
                 </Row>
             </div>
@@ -120,4 +81,4 @@ const Gizi2 = (props) => {
     )
 }
 
-export default Gizi2
+export default Gizi2;

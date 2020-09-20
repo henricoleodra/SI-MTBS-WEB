@@ -1,7 +1,7 @@
 const klasifikasiGizi = require('../models/gizi');
 
 const gizi = async function(req, res, next) {
-    const klasGizi = await klasifikasiGizi.classifierGizi(req.body.ansDemam);
+    const klasGizi = await klasifikasiGizi.classifierGizi(req.body.ansGizi);
     const ans = {
         hasilKlasifikasi : klasGizi.hasilKlasifikasi,
         statusKlasifikasi: klasGizi.statusKlasifikasi,

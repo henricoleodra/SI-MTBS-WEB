@@ -99,6 +99,22 @@ export const KlasifikasiTelingaChange = (comp, ans) => {
     }
 }
 
+//ANSWER Gizi
+export const AnsGiziChange = (comp, ans) => {
+    return {
+        type: comp,
+        answer: ans
+    }
+}
+
+//KLASIFIKASI Gizi
+export const KlasifikasiGiziChange = (comp, ans) => {
+    return {
+        type: comp,
+        answer: ans
+    }
+}
+
 // ANSWER Anemia
 export const AnsAnemiaChange = (comp, ans) => {
     return {

@@ -3,18 +3,18 @@ const Interpolator = require('./interpolator');
 
 const classifierGizi = (ansGizi) => {
     if( (ansGizi.gizi_tampakSangatKurus === true || ansGizi.gizi_pembengkakanKeduaPunggungKakiAtauTangan === true || 
-        ans.Gizi.gizi_BBmenurutPBAtauTB === "BB/PB (TB) < -3 SD (Sangat Kurus)" || ansGizi.gizi_lingkarLenganAtas === "LiLA < 11,5") &&
+        ans.Gizi.gizi_BBmenurutPBAtauTB === "BB/PB (TB) < -3 SD (Sangat Kurus)" || ansGizi.gizi_lingkarLenganAtas === "LiLA < 11,5 cm") &&
         (ansGizi.gizi_tandaBahayaUmum === true || ansGizi.gizi_klasifikasiBerat === true || ansGizi.gizi_masalahPemberianASI === true)
         ){
             const ans = {
-                hasilKlasifkasi: 'Sangat Kurus Dengan Komplikasi',
+                hasilKlasifikasi: 'Sangat Kurus Dengan Komplikasi',
                 statusKlasifikasi: 'danger', 
             }
             return ans;
     }
     else if(ansGizi.gizi_tampakSangatKurus === true || ans.Gizi.gizi_BBmenurutPBAtauTB === "BB/PB (TB) < -3 SD (Sangat Kurus)" || ansGizi.gizi_lingkarLenganAtas === "LiLA < 11,5 cm"){
         const ans = {
-            hasilKlasifkasi: 'Sangat Kurus Tanpa Komplikasi',
+            hasilKlasifikasi: 'Sangat Kurus Tanpa Komplikasi',
             statusKlasifikasi: 'warning', 
         }
         return ans;
@@ -22,14 +22,14 @@ const classifierGizi = (ansGizi) => {
     }
     else if(ans.Gizi.gizi_BBmenurutPBAtauTB === "-3 SD ≥ BB/PB (TB) ≤ -2 SD (Kurus)" || ansGizi.gizi_lingkarLenganAtas === "LiLA < 11,5 cm - < 12,5 cm"){
         const ans = {
-            hasilKlasifkasi: 'Kurus',
+            hasilKlasifikasi: 'Kurus',
             statusKlasifikasi: 'warning', 
         }
         return ans;
     }
     else{
         const ans = {
-            hasilKlasifkasi: 'Gizi Normal',
+            hasilKlasifikasi: 'Gizi Normal',
             statusKlasifikasi: 'success', 
         }
         return ans;
@@ -84,7 +84,7 @@ const perhitunganSD = (dataAnak) => {
 
     if (beratBadan < hasilmin3) {
         hasilSD = "BB/PB (TB) < -3 SD (Sangat Kurus)";
-        nilaiSD = " Dengan nilai -3 SD : " + hasilmin3.toFixed(2) + "kg";
+        nilaiSD = "Dengan nilai -3 SD : " + hasilmin3.toFixed(2) + "kg";
     } else if (beratBadan >= hasilmin3 && beratBadan <= hasilmin2) {
         hasilSD = "-3 SD ≥ BB/PB (TB) ≤ -2 SD (Kurus)";
         nilaiSD = "Dengan nilai -3 SD : " + hasilmin3.toFixed(2) + "kg dan nilai -2 SD : " + hasilmin2.toFixed(2) + "kg";

@@ -10,6 +10,8 @@ import AnsDemamReducer from './AnsDemam';
 import KlasifikasiDemamReducer from './KlasifikasiDemam';
 import AnsTelingaReducer from './AnsTelinga';
 import KlasifikasiTelingaReducer from './KlasifikasiTelinga';
+import AnsGiziReducer from './AnsGizi';
+import KlasifikasiGiziReducer from './KlasifikasiGizi';
 import AnsAnemiaReducer from './AnsAnemia';
 import KlasifikasiAnemiaReducer from './KlasifikasiAnemia';
 import AnsHIVReducer from './AnsHIV';
@@ -42,6 +44,8 @@ const appReducer = combineReducers({
     klasifikasiDemam: KlasifikasiDemamReducer,
     ansTelinga: AnsTelingaReducer,
     klasifikasiTelinga: KlasifikasiTelingaReducer,
+    ansGizi: AnsGiziReducer,
+    klasifikasiGizi: KlasifikasiGiziReducer,
     ansAnemia: AnsAnemiaReducer,
     klasifikasiAnemia: KlasifikasiAnemiaReducer,
     ansHIV: AnsHIVReducer,

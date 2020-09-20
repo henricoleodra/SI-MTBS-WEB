@@ -1,50 +1,47 @@
 const initState = {
-    gizi : null,
-    gizi_tampakSangatKurus : null,
-    gizi_pembengkakanKeduaPunggungKakiAtauTangan : null,
-    gizi_BBmenurutPBAtauTB : null,
-    // jika umur >= 6 bln
-    gizi_lingkarLenganAtas : null,
-    // Jika BB menurut PB atau TB < -3 SD ATAU Lingkar Lengan Atas < 11.5cm, periksa komplikasi medis
-    gizi_tandaBahayaUmum : null,
-    gizi_klasifikasiBerat : null,
-    // Jika tidak ada komplikasi medis, nilai pemberian ASI pada anak umur <6 bulan
-    gizi_masalahPemberianASI : null
+    gizi_tampakSangatKurus: null,
+    gizi_pembengkakanKeduaPunggungKakiAtauTangan: null,
+    gizi_BBmenurutPBAtauTB: null,
+    gizi_nilaiSD: null,
+    gizi_lingkarLenganAtas: null,
+    gizi_masalahPemberianASI: null,
+    gizi_tandaBahayaUmum: null,
+    gizi_klasifikasiBerat: null
 }
 
 const ansGiziReducer = (state = initState, action) => {
     switch(action.type){
-        case 'Gizi':
+        case 'TAMPAK_SANGAT_KURUS':
             return Object.assign({}, state, {
-                gizi : action.answer
+                gizi_tampakSangatKurus : action.answer
             });
-        case 'SANGAT_KURUS':
+        case 'PEMBENGKAKAN_KEDUA_PUNGGUNG_KAKI_ATAU_TANGAN':
             return Object.assign({}, state, {
-                gizi : action.answer
+                gizi_pembengkakanKeduaPunggungKakiAtauTangan : action.answer
             });
-        case 'PEMBENGKAKAN_KEDUA_PUNGGUNGKT':
+        case 'BB_MENURUT_PB_ATAU_TB':
             return Object.assign({}, state, {
-                gizi : action.answer
+                gizi_BBmenurutPBAtauTB : action.answer
             });
-        case 'BB_PBA_TB':
+        case 'NILAI_SD':
             return Object.assign({}, state, {
-                gizi : action.answer
+                gizi_nilaiSD : action.answer
             });
-        case 'LILA':
+        case 'LINGKAR_LENGAN_ATAS':
             return Object.assign({}, state, {
-                gizi : action.answer
-            });
-        case 'TANDA_BAHAYA_UMUM':
-            return Object.assign({}, state, {
-                gizi : action.answer
-            });
-        case 'KLASIFIKASI_BERAT':
-            return Object.assign({}, state, {
-                gizi : action.answer
+                gizi_lingkarLenganAtas : action.answer
             });
         case 'MASALAH_PEMBERIAN_ASI':
             return Object.assign({}, state, {
-                gizi : action.answer
+                gizi_tampakSangatKurus : action.answer
+            });
+        case 'GIZI_TANDA_BAHAYA_UMUM':
+            return Object.assign({}, state, {
+                gizi_tampakSangatKurus : action.answer
+            });
+        case 'GIZI_KLASIFIKASI_BERAT':
+            return Object.assign({}, state, {
+                gizi_tampakSangatKurus : action.answer
             });
         default:
             return state;

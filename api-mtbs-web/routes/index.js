@@ -31,7 +31,7 @@ router.post(`/Telinga`, telinga.telinga);
 
 //Gizi 
 router.post(`/Gizi`, gizi.gizi);
-router.get(`/CalculateSD`, gizi.sdGizi);
+router.post(`/CalculateSD`, gizi.sdGizi);
 
 //Anemia
 router.post(`/Anemia`, anemia.anemia);

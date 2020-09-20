@@ -8,7 +8,7 @@ import axios from 'axios';
 
 import '../../Assets/style/style.css';
 // Actions
-import { KlasifikasiTelingaChange, AnsTelingaChange } from '../../Actions';
+import { KlasifikasiTelingaChange, AnsTelingaChange, compStatusChange } from '../../Actions';
 
 let outlineColor = {
     borderColor : '#75C9E6'
@@ -19,25 +19,11 @@ const Telinga2 = (props) =>{
     const history = useHistory();
     const dispatch = useDispatch();
     const ansTelinga = useSelector(state => state.ansTelinga);
-    //const klasifikasiTelinga = useSelector(state => state.klasifikasiTelinga);
     let[telinga_cekKeluarNanah, set_telinga_cekKeluarNanah] = useState(ansTelinga.telinga_cekKeluarNanah); 
     let[telinga_isBengkak, set_telinga_isBengkak] = useState(ansTelinga.telinga_isBengkak);
 
     const handleSubmit = event =>{
         event.preventDefault();
-        // axios.post(`/Telinga/2`, {
-        //     ansTelinga : ansTelinga
-        // })
-        // .then(res =>{
-        //     dispatch(KlasifikasiTelingaChange('TELINGA_KLASIFIKASI', res.data.hasilKlasifikasi));
-        //     dispatch(KlasifikasiTelingaChange('TELINGA_STATUS', res.data.statusKlasifikasi));
-        // })
-        // .catch(err =>{
-        //     console.log(err);
-        // })
-        // dispatch(KlasifikasiTelingaChange('TELINGA_2', true));
-        // history.push("Gizi1");
-        // dispatch(compStatusChange('GIZI'));
         axios.post(`/Telinga`, {
             ansTelinga: ansTelinga
         })
@@ -49,6 +35,7 @@ const Telinga2 = (props) =>{
             console.log(err);
         });
         history.push("Gizi1");
+        dispatch(compStatusChange('GIZI'));
     }
 
     const handleAnswer1 = event => {

@@ -9,7 +9,7 @@ let outlineColor = {
     borderRadius: '25px'
 }
 
-const DaftarAnakItem = (props) =>{
+const Index = ( props ) =>{
     return(
         <Card style={outlineColor} className="mb-3">
             <CardBody>
@@ -33,4 +33,4 @@ const DaftarAnakItem = (props) =>{
     )
 }
 
-export default DaftarAnakItem;
+export default Index;

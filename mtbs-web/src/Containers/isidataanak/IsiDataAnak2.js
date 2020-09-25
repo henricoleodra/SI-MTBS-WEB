@@ -4,12 +4,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Button, Form, FormGroup, Label, Input, InputGroup, InputGroupAddon, InputGroupText, Row, Col } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faRunning, faSearch } from '@fortawesome/free-solid-svg-icons'
+import axios from 'axios';
 
 //Import Component
 import { HeaderTitle } from '../../Components';
 
 // Actions
-import { DataAnakChange, AnsDemamChange } from '../../Actions';
+import { DataAnakChange, AnsDemamChange, AnsGiziChange } from '../../Actions';
 
 // Styles
 import '../../Assets/style/style.css';
@@ -35,25 +36,30 @@ const IsiDataAnak2 = () =>{
     const handleSuhuAnak = event =>{
         let tmp = Number(event.target.value);
         setSuhuAnak(tmp);
+        dispatch(DataAnakChange('SUHU_ANAK', tmp));
+        dispatch(AnsDemamChange('SUHU_ANAK', tmp));
     }
 
     const handleBeratAnak = event =>{
         let tmp = Number(event.target.value);
         setBeratAnak(tmp);
+        dispatch(DataAnakChange('BERAT_ANAK', tmp));
     }
 
     const handleTinggiAnak = event =>{
         let tmp = Number(event.target.value);
         setTinggiAnak(tmp);
+        dispatch(DataAnakChange('TINGGI_ANAK', tmp));
     }
 
     const handleKunjunganKe = event =>{
         let tmp = Number(event.target.value);
         setKunjunganKe(tmp);
+        dispatch(DataAnakChange('KUNJUNGAN_KE', tmp));
     }
 
     const handlePencarianKeluhan = event =>{
-        let tmp = Number(event.target.value);
+        let tmp = event.target.value;
         setPencarianKeluhan(tmp);
     }
 
@@ -72,16 +78,21 @@ const IsiDataAnak2 = () =>{
 
     const hanldeKeluhanAwal = event =>{
         setKeluhanAwal(event.target.value);
+        dispatch(DataAnakChange('KELUHAN_AWAL', event.target.value));
     }
 
     const handleSubmit = event =>{
         event.preventDefault();
-        dispatch(DataAnakChange('SUHU_ANAK', suhuAnak));
-        dispatch(AnsDemamChange('SUHU_ANAK', suhuAnak));
-        dispatch(DataAnakChange('BERAT_ANAK', beratAnak));
-        dispatch(DataAnakChange('TINGGI_ANAK', tinggiAnak));
-        dispatch(DataAnakChange('KUNJUNGAN_KE', kunjunganKe));
-        dispatch(DataAnakChange('KELUHAN_AWAL', keluhanAwal));
+        axios.post(`/CalculateSD`, {
+            dataAnak: dataAnak
+        })
+        .then(res => {
+            dispatch(AnsGiziChange('BB_MENURUT_PB_ATAU_TB', res.data.hasilSDGizi));
+            dispatch(AnsGiziChange('NILAI_SD', res.data.nilaiSDGizi));
+        })
+        .catch(err => {
+            console.log(err);
+        });
         history.push("../MTBS/TandaBahayaUmum1"); 
     }
 

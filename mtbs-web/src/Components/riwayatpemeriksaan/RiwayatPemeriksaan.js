@@ -16,6 +16,10 @@ const DataAnak = (props) => {
             'tanggalPemeriksaan' : '20 December 2020',
             'keluhanAnak' : 'Diare',
         },
+        {
+            'tanggalPemeriksaan' : '20 December 2020',
+            'keluhanAnak' : 'Diare',
+        },
     ];
     
     const renderRiwayatPemeriksaan = pemeriksaan.map((curr, index) => {

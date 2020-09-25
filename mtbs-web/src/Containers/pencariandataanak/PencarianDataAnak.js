@@ -2,7 +2,6 @@ import React from 'react';
 import { Button, Form, FormGroup, Label, Input, Row, Col} from 'reactstrap';
 
 //import components
-import DaftarAnak from './../../Components/daftaranak/DaftarAnak'
 import { HeaderTitle, DataAnak, Pagination } from './../../Components';
 
 //Styling
@@ -93,17 +92,7 @@ const PencarianDataAnak = (props) => {
                         {renderDaftarAnak}
                     </div>
                     <div>
-                        <Row>
-                            <Col>
-                                <Button color="warning">Sebelumnya</Button>
-                            </Col>
-                            <Col>
-                                1   2   3
-                            </Col>
-                            <Col>
-                                <Button color="info">Selanjutnya</Button>
-                            </Col>
-                        </Row>
+                        <Pagination/>
                     </div>
                 </div>
             </div>

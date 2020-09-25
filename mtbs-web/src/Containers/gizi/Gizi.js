@@ -25,17 +25,6 @@ const Gizi = (props) => {
     let[gizi_pembengkakanKeduaPunggungKakiAtauTangan, set_gizi_pembengkakanKeduaPunggungKakiAtauTangan] = useState(ansGizi.gizi_pembengkakanKeduaPunggungKakiAtauTangan);
 
     useEffect(() => {
-        axios.post(`/CalculateSD`, {
-            dataAnak: dataAnak
-        })
-        .then(res => {
-            dispatch(AnsGiziChange('BB_MENURUT_PB_ATAU_TB', res.data.hasilSDGizi));
-            dispatch(AnsGiziChange('NILAI_SD', res.data.nilaiSDGizi));
-        })
-        .catch(err => {
-            console.log(err);
-        });
-
         let tmp = false;
         if(klasifikasiTBU.tbu_status === "danger"){
             dispatch(AnsGiziChange('GIZI_TANDA_BAHAYA_UMUM', true));

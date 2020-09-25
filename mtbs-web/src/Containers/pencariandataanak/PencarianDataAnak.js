@@ -1,9 +1,9 @@
 import React from 'react';
-import { Button, Form, FormGroup, Label, Input} from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, Row, Col} from 'reactstrap';
 
 //import components
-import HeaderTitle from './../../Components/headertitle/HeaderTitle'
 import DaftarAnak from './../../Components/daftaranak/DaftarAnak'
+import { HeaderTitle, DataAnak, Pagination } from './../../Components';
 
 //Styling
 import '../../Assets/style/style.css';
@@ -11,6 +11,39 @@ import { Link } from 'react-router-dom';
 
 
 const PencarianDataAnak = (props) => {
+    let anak = [
+        {
+            'namaAnak' : 'Kelvin Dragon',
+            'namaIbu' : 'Nasus',
+            'jenisKelamin' : 'Laki-laki',
+            'tanggalLahir' : '25 Januari 2020'
+        },
+        {
+            'namaAnak' : 'Navoy Leodra',
+            'namaIbu' : 'Fani',
+            'jenisKelamin' : 'Laki-laki',
+            'tanggalLahir' : '25 Januari 2020'
+        },
+        {
+            'namaAnak' : 'Fidelis',
+            'namaIbu' : 'Tri Rahayu',
+            'jenisKelamin' : 'Perempuan',
+            'tanggalLahir' : '25 Januari 2020'
+        },
+        {
+            'namaAnak' : 'Fidelis',
+            'namaIbu' : 'Tri Rahayu',
+            'jenisKelamin' : 'Perempuan',
+            'tanggalLahir' : '25 Januari 2020'
+        },
+    ];
+    
+    const renderDaftarAnak = anak.map((curr, index) => {
+        return(
+            <DataAnak namaAnak={curr.namaAnak} namaIbu={curr.namaIbu} jenisKelamin={curr.jenisKelamin} tanggalLahir={curr.tanggalLahir}/>
+        )
+    })
+
     return(
         <div>
             <div>
@@ -55,8 +88,23 @@ const PencarianDataAnak = (props) => {
                         </div>        
                     </Form>
                 </div>
-                <div style={{ width: '60%'}} className="m-3 text-center">
-                    <DaftarAnak/>
+                <div style={{ width: '60%'}} className="m-3 text-center">  
+                    <div style={{minHeight: "580px"}}>
+                        {renderDaftarAnak}
+                    </div>
+                    <div>
+                        <Row>
+                            <Col>
+                                <Button color="warning">Sebelumnya</Button>
+                            </Col>
+                            <Col>
+                                1   2   3
+                            </Col>
+                            <Col>
+                                <Button color="info">Selanjutnya</Button>
+                            </Col>
+                        </Row>
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,4 +1,3 @@
-export { default as DaftarAnak } from './daftaranak/DaftarAnak';
 export { default as DataAnak } from './dataanak';
 export { default as Footer } from './footer/Footer';
 export { default as HasilPemeriksaan } from './hasilpemeriksaan/HasilPemeriksaan';

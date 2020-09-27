@@ -9,7 +9,10 @@ import axios from 'axios';
 import '../../Assets/style/style.css';
 
 // ACTIONS 
-import { KlasifikasiAnemiaChange, AnsAnemiaChange, compStatusChange } from '../../Actions';
+import { KlasifikasiAnemiaChange, AnsAnemiaChange, compStatusChange, FlagChange } from '../../Actions';
+
+import Classifier from '../../Classifier/Classifier';
+
 
 let outlineColor = {
     borderColor : '#41E8B3'
@@ -21,6 +24,15 @@ const Anemia = (props) =>{
     const ansAnemia = useSelector(state => state.ansAnemia);
     let [anemia_isPucat, set_anemia_isPucat] = useState(ansAnemia.anemia_isPucat);
 
+    const flag = useSelector(state => state.flag);
+    const ansTBU = useSelector(state => state.ansTBU);
+    const ansBatuk = useSelector(state => state.ansBatuk);
+    const ansDiare = useSelector(state => state.ansDiare);
+    const ansDemam = useSelector(state => state.ansDemam);
+    const ansTelinga = useSelector(state => state.ansTelinga);
+    const ansGizi = useSelector(state => state.ansGizi);
+    const ansHIV = useSelector(state => state.ansHIV);
+
     const handlePucat = event =>{
         set_anemia_isPucat(event.target.value);
         dispatch(AnsAnemiaChange('PUCAT', event.target.value));
@@ -28,6 +40,7 @@ const Anemia = (props) =>{
 
     const handleSubmit = event =>{
         event.preventDefault();
+        dispatch(FlagChange('ANEMIA'));
         axios.post(`/Anemia`, {
             ansAnemia : ansAnemia
         })
@@ -38,6 +51,19 @@ const Anemia = (props) =>{
         .catch(err=>{
             console.log(err);
         });
+        Classifier(
+            "anemia",
+            dispatch,
+            flag,
+            ansTBU,
+            ansBatuk,
+            ansDiare,
+            ansDemam,
+            ansTelinga,
+            ansGizi,
+            ansAnemia,
+            ansHIV
+        );
         dispatch(compStatusChange('HIV'));
         history.push("HIV1");
     }

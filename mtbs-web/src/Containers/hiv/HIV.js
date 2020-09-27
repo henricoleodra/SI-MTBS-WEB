@@ -7,7 +7,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 
 // Actions
-import { KlasifikasiHIVChange, AnsHIVChange} from '../../Actions';
+import { KlasifikasiHIVChange, AnsHIVChange, FlagChange } from '../../Actions';
+
+import Classifier from '../../Classifier/Classifier';
 
 import '../../Assets/style/style.css';
 
@@ -30,8 +32,18 @@ const HIV = (props) =>{
     let[hiv_ibuPernahTes, set_hiv_ibuPernahTes] = useState(ansHIV.hiv_ibuPernahTes);
     let[hiv_ibuHasilTes, set_hiv_ibuHasilTes] = useState(ansHIV.hiv_ibuHasilTes);
 
+    const flag = useSelector(state => state.flag);
+    const ansTBU = useSelector(state => state.ansTBU);
+    const ansBatuk = useSelector(state => state.ansBatuk);
+    const ansDiare = useSelector(state => state.ansDiare);
+    const ansDemam = useSelector(state => state.ansDemam);
+    const ansTelinga = useSelector(state => state.ansTelinga);
+    const ansGizi = useSelector(state => state.ansGizi);
+    const ansAnemia = useSelector(state => state.ansGizi);
+
     const handleSubmit = event =>{
         event.preventDefault();
+        dispatch(FlagChange('HIV'));
         axios.post(`/HIV`, {
             ansHIV: ansHIV
         })
@@ -42,6 +54,19 @@ const HIV = (props) =>{
         .catch(err => {
             console.log(err);
         });
+        Classifier(
+            "hiv",
+            dispatch,
+            flag,
+            ansTBU,
+            ansBatuk,
+            ansDiare,
+            ansDemam,
+            ansTelinga,
+            ansGizi,
+            ansAnemia,
+            ansHIV
+        );
         history.push("HIV2");
     }
 

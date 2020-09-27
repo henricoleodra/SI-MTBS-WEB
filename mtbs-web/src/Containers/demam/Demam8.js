@@ -9,6 +9,8 @@ import axios from 'axios';
 // Actions
 import{ KlasifikasiDemamChange, AnsDemamChange } from '../../Actions';
 
+import Classifier from '../../Classifier/Classifier';
+
 import '../../Assets/style/style.css';
 
 var outlineColor = {
@@ -24,6 +26,15 @@ const Demam = (props) => {
     let[demam_isEkstremitasDingin, set_demam_isEkstremitasDingin] = useState(ansDemam.demam_isEkstremitasDingin);
     let[demam_darahHidungGusiKulit, set_demam_darahHidungGusiKulit] = useState(ansDemam.demam_darahHidungGusiKulit);
     
+    const flag = useSelector(state => state.flag);
+    const ansTBU = useSelector(state => state.ansTBU);
+    const ansBatuk = useSelector(state => state.ansBatuk);
+    const ansDiare = useSelector(state => state.ansDiare);
+    const ansTelinga = useSelector(state => state.ansTelinga);
+    const ansGizi = useSelector(state => state.ansGizi);
+    const ansAnemia = useSelector(state => state.ansGizi);
+    const ansHIV = useSelector(state => state.ansHIV);
+
     const handleSubmit = event =>{
         event.preventDefault();
         axios.post(`/Demam`,{
@@ -36,6 +47,19 @@ const Demam = (props) => {
         .catch(err =>{
             console.log(err);
         });
+        Classifier(
+            "demam",
+            dispatch,
+            flag,
+            ansTBU,
+            ansBatuk,
+            ansDiare,
+            ansDemam,
+            ansTelinga,
+            ansGizi,
+            ansAnemia,
+            ansHIV
+        );
         history.push("Demam9");
     }
 

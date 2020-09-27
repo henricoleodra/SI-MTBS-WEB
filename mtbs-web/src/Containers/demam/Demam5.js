@@ -9,6 +9,8 @@ import { useDispatch, useSelector } from 'react-redux';
 // Actions
 import { KlasifikasiDemamChange, AnsDemamChange } from '../../Actions';
 
+import Classifier from '../../Classifier/Classifier';
+
 import '../../Assets/style/style.css';
 
 var outlineColor = {
@@ -26,18 +28,40 @@ const Demam = (props) => {
     let [demam_nanahDiMata, set_demam_nanahDiMata] = useState(ansDemam.demam_nanahDiMata);
     let [demam_korneaKeruh, set_demam_korneaKeruh] = useState(ansDemam.demam_korneaKeruh);
 
+    const flag = useSelector(state => state.flag);
+    const ansTBU = useSelector(state => state.ansTBU);
+    const ansBatuk = useSelector(state => state.ansBatuk);
+    const ansDiare = useSelector(state => state.ansDiare);
+    const ansTelinga = useSelector(state => state.ansTelinga);
+    const ansGizi = useSelector(state => state.ansGizi);
+    const ansAnemia = useSelector(state => state.ansGizi);
+    const ansHIV = useSelector(state => state.ansHIV);
+
     const handleSubmit = event => {
         event.preventDefault();
         axios.post(`/Demam`, {
             ansDemam: ansDemam
         })
-            .then(res => {
-                dispatch(KlasifikasiDemamChange('DEMAM_KLASIFIKASI', res.data.hasilKlasifikasi));
-                dispatch(KlasifikasiDemamChange('DEMAM_STATUS', res.data.statusKlasifikasi));
-            })
-            .catch(err => {
-                console.log(err);
-            });
+        .then(res => {
+            dispatch(KlasifikasiDemamChange('DEMAM_KLASIFIKASI', res.data.hasilKlasifikasi));
+            dispatch(KlasifikasiDemamChange('DEMAM_STATUS', res.data.statusKlasifikasi));
+        })
+        .catch(err => {
+            console.log(err);
+        });
+        Classifier(
+            "demam",
+            dispatch,
+            flag,
+            ansTBU,
+            ansBatuk,
+            ansDiare,
+            ansDemam,
+            ansTelinga,
+            ansGizi,
+            ansAnemia,
+            ansHIV
+        );
         if(ansDemam.demam_berapaLama >= 2 && ansDemam.demam_berapaLama <=7){
             history.push("Demam6");
         }

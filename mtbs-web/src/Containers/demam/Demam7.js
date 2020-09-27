@@ -7,8 +7,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 
 // Actions
-import { KlasifikasiDemamChange, AnsDemamChange } from '../../Actions';
-import { compStatusChange } from '../../Actions';
+import { KlasifikasiDemamChange, AnsDemamChange, compStatusChange } from '../../Actions';
+
+import Classifier from '../../Classifier/Classifier';
 
 import '../../Assets/style/style.css';
 
@@ -25,6 +26,15 @@ const Demam = (props) => {
     let[demam_muntahLikeDarahOrKopi, set_demam_muntahLikeDarahOrKopi] = useState(ansDemam.demam_muntahLikeDarahOrKopi);
     let[demam_berakBerwarnaHitam, set_demam_berakBerwarnaHitam] = useState(ansDemam.demam_berakBerwarnaHitam);
 
+    const flag = useSelector(state => state.flag);
+    const ansTBU = useSelector(state => state.ansTBU);
+    const ansBatuk = useSelector(state => state.ansBatuk);
+    const ansDiare = useSelector(state => state.ansDiare);
+    const ansTelinga = useSelector(state => state.ansTelinga);
+    const ansGizi = useSelector(state => state.ansGizi);
+    const ansAnemia = useSelector(state => state.ansGizi);
+    const ansHIV = useSelector(state => state.ansHIV);
+
     const handleSubmit = event => {
         event.preventDefault();
         axios.post(`/Demam`, {
@@ -37,6 +47,19 @@ const Demam = (props) => {
         .catch(err=>{
         console.log(err);
         });
+        Classifier(
+            "demam",
+            dispatch,
+            flag,
+            ansTBU,
+            ansBatuk,
+            ansDiare,
+            ansDemam,
+            ansTelinga,
+            ansGizi,
+            ansAnemia,
+            ansHIV
+        );
         dispatch(KlasifikasiDemamChange('Demam_6', true));
         history.push("Demam7"); 
         dispatch(compStatusChange('TELINGA'));

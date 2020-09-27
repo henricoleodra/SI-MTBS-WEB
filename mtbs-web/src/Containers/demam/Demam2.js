@@ -9,6 +9,8 @@ import { useDispatch, useSelector } from 'react-redux';
 // Actions
 import { KlasifikasiDemamChange, AnsDemamChange } from '../../Actions';
 
+import Classifier from '../../Classifier/Classifier';
+
 import '../../Assets/style/style.css';
 
 var outlineColor = {
@@ -24,18 +26,40 @@ const Demam = (props) => {
     let [demam_kudukKaku, set_demam_kudukKaku] = useState(ansDemam.demam_kudukKaku);
     let [demam_sebabLain, set_demam_sebabLain] = useState(ansDemam.demam_sebabLain);
 
+    const flag = useSelector(state => state.flag);
+    const ansTBU = useSelector(state => state.ansTBU);
+    const ansBatuk = useSelector(state => state.ansBatuk);
+    const ansDiare = useSelector(state => state.ansDiare);
+    const ansTelinga = useSelector(state => state.ansTelinga);
+    const ansGizi = useSelector(state => state.ansGizi);
+    const ansAnemia = useSelector(state => state.ansGizi);
+    const ansHIV = useSelector(state => state.ansHIV);
+
     const handleSubmit = event => {
         event.preventDefault();
         axios.post(`/Demam`, {
             ansDemam: ansDemam
         })
-            .then(res => {
-                dispatch(KlasifikasiDemamChange('DEMAM_KLASIFIKASI', res.data.hasilKlasifikasi));
-                dispatch(KlasifikasiDemamChange('DEMAM_STATUS', res.data.statusKlasifikasi));
-            })
-            .catch(err => {
-                console.log(err);
-            });
+        .then(res => {
+            dispatch(KlasifikasiDemamChange('DEMAM_KLASIFIKASI', res.data.hasilKlasifikasi));
+            dispatch(KlasifikasiDemamChange('DEMAM_STATUS', res.data.statusKlasifikasi));
+        })
+        .catch(err => {
+            console.log(err);
+        });
+        Classifier(
+            "demam",
+            dispatch,
+            flag,
+            ansTBU,
+            ansBatuk,
+            ansDiare,
+            ansDemam,
+            ansTelinga,
+            ansGizi,
+            ansAnemia,
+            ansHIV
+        );
         history.push("Demam3");
     }
 

@@ -10,6 +10,8 @@ import '../../Assets/style/style.css';
 // Actions
 import { KlasifikasiTelingaChange, AnsTelingaChange, compStatusChange } from '../../Actions';
 
+import Classifier from '../../Classifier/Classifier';
+
 let outlineColor = {
     borderColor : '#75C9E6'
 }
@@ -21,6 +23,15 @@ const Telinga2 = (props) =>{
     const ansTelinga = useSelector(state => state.ansTelinga);
     let[telinga_cekKeluarNanah, set_telinga_cekKeluarNanah] = useState(ansTelinga.telinga_cekKeluarNanah); 
     let[telinga_isBengkak, set_telinga_isBengkak] = useState(ansTelinga.telinga_isBengkak);
+
+    const flag = useSelector(state => state.flag);
+    const ansTBU = useSelector(state => state.ansTBU);
+    const ansBatuk = useSelector(state => state.ansBatuk);
+    const ansDiare = useSelector(state => state.ansDiare);
+    const ansDemam = useSelector(state => state.ansDemam);
+    const ansGizi = useSelector(state => state.ansGizi);
+    const ansAnemia = useSelector(state => state.ansGizi);
+    const ansHIV = useSelector(state => state.ansHIV);
 
     const handleSubmit = event =>{
         event.preventDefault();
@@ -34,6 +45,19 @@ const Telinga2 = (props) =>{
         .catch(err => {
             console.log(err);
         });
+        Classifier(
+            "telinga",
+            dispatch,
+            flag,
+            ansTBU,
+            ansBatuk,
+            ansDiare,
+            ansDemam,
+            ansTelinga,
+            ansGizi,
+            ansAnemia,
+            ansHIV
+        );
         history.push("Gizi1");
         dispatch(compStatusChange('GIZI'));
     }

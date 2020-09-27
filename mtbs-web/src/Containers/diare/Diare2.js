@@ -12,6 +12,8 @@ import '../../Assets/style/style.css';
 // Actions
 import { KlasifikasiDiareChange, AnsDiareChange } from '../../Actions';
 
+import Classifier from '../../Classifier/Classifier';
+
 let outlineColor = {
     borderColor : '#75C9E6'
 }
@@ -20,38 +22,21 @@ const Diare2 = (props) => {
     const history = useHistory();
     const dispatch = useDispatch();
     const ansDiare = useSelector(state => state.ansDiare);
-    // const klasifikasiDiare = useSelector(state => state.klasifikasiDiare);
     let[diare_isAnakTidakSadar, set_diare_isAnakTidakSadar] = useState(ansDiare.diare_isAnakTidakSadar);
     let[diare_rewelMudahMarah, set_diare_rewelMudahMarah] = useState(ansDiare.diare_rewelMudahMarah);
     let[diare_isMataCekung, set_diare_isMataCekung] = useState(ansDiare.diare_isMataCekung);
 
+    const flag = useSelector(state => state.flag);
+    const ansTBU = useSelector(state => state.ansTBU);
+    const ansBatuk = useSelector(state => state.ansBatuk);
+    const ansDemam = useSelector(state => state.ansDemam);
+    const ansTelinga = useSelector(state => state.ansTelinga);
+    const ansGizi = useSelector(state => state.ansGizi);
+    const ansAnemia = useSelector(state => state.ansGizi);
+    const ansHIV = useSelector(state => state.ansHIV);
+
     const handleSubmit = event =>{
         event.preventDefault();
-        // if(klasifikasiDiare.diare_3 === true){
-        //     axios.post(`/Diare/3`, {
-        //         ansDiare : ansDiare
-        //     })
-        //     .then(res => {
-        //         dispatch(KlasifikasiDiareChange('DIARE_KLASIFIKASI', res.data.hasilKlasifikasi));
-        //         dispatch(KlasifikasiDiareChange('DIARE_STATUS', res.data.statusKlasifikasi));
-        //     })
-        //     .catch(err=>{
-        //       console.log(err);
-        //     }); 
-        // }
-        // else{
-        //     axios.post(`/Diare/2`, {
-        //         ansDiare : ansDiare
-        //     })
-        //     .then(res => {
-        //         dispatch(KlasifikasiDiareChange('DIARE_KLASIFIKASI', res.data.hasilKlasifikasi));
-        //         dispatch(KlasifikasiDiareChange('DIARE_STATUS', res.data.statusKlasifikasi));
-        //     })
-        //     .catch(err=>{
-        //       console.log(err);
-        //     }); 
-        // }
-        // dispatch(KlasifikasiDiareChange('DIARE_2', true));
         axios.post(`/Diare`, {
             ansDiare: ansDiare
         })
@@ -62,6 +47,19 @@ const Diare2 = (props) => {
         .catch(err => {
             console.log(err);
         });
+        Classifier(
+            "diare",
+            dispatch,
+            flag,
+            ansTBU,
+            ansBatuk,
+            ansDiare,
+            ansDemam,
+            ansTelinga,
+            ansGizi,
+            ansAnemia,
+            ansHIV
+        );
         history.push("Diare3");    
     }
     const handleAnswer1 = event =>{

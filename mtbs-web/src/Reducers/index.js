@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import CompStatusReducer from './CompStatus';
+import FlagReducer from './Flag';
 import AnsTBUReducer from './AnsTBU';
 import KlasifikasiTBUReducer from './KlasifikasiTBU';
 import AnsBatukReducer from './AnsBatuk';
@@ -33,6 +34,7 @@ import storage from 'redux-persist/lib/storage';
 
 const appReducer = combineReducers({
     compStatus: CompStatusReducer,
+    flag: FlagReducer,
     dataAnak: DataAnakReducer,
     ansTBU: AnsTBUReducer,
     klasifikasiTBU: KlasifikasiTBUReducer,

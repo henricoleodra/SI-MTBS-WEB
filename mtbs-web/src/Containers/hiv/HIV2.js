@@ -10,6 +10,8 @@ import '../../Assets/style/style.css';
 
 import { KlasifikasiHIVChange, AnsHIVChange } from '../../Actions';
 
+import Classifier from '../../Classifier/Classifier';
+
 let outlineColor = {
     borderColor : '#41E8B3'
 }
@@ -19,39 +21,21 @@ const HIV2 = (props) =>{
     const history = useHistory();
     const dispatch = useDispatch();
     const ansHIV = useSelector(state => state.ansHIV);
-    //const klasifikasiHIV = useSelector(state => state.klasifikasiHIV);
     let[hiv_kerabatTerdiagnosis, set_hiv_kerabatTerdiagnosis] = useState(ansHIV.hiv_kerabatTerdiagnosis);
     let[hiv_kerabatMeninggal, set_hiv_kerabatMeninggal] = useState(ansHIV.hiv_kerabatMeninggal);
     let[hiv_masihDapatASI, set_hiv_masihDapatASI] = useState(ansHIV.hiv_masihDapatASI);
 
+    const flag = useSelector(state => state.flag);
+    const ansTBU = useSelector(state => state.ansTBU);
+    const ansBatuk = useSelector(state => state.ansBatuk);
+    const ansDiare = useSelector(state => state.ansDiare);
+    const ansDemam = useSelector(state => state.ansDemam);
+    const ansTelinga = useSelector(state => state.ansTelinga);
+    const ansGizi = useSelector(state => state.ansGizi);
+    const ansAnemia = useSelector(state => state.ansGizi);
+
     const handleSubmit = event =>{
         event.preventDefault();
-        // if(klasifikasiHIV.hiv_3 === true){
-        //     axios.post(`/HIV/3`, {
-        //         ansHIV : ansHIV
-        //     })
-        //     .then(res => {
-        //         dispatch(KlasifikasiHIVChange('HIV_KLASIFIKASI', res.data.hasilKlasifikasi));
-        //         dispatch(KlasifikasiHIVChange('HIV_STATUS', res.data.statusKlasifikasi));
-        //     })
-        //     .catch(err=>{
-        //       console.log(err);
-        //     }); 
-        // }
-        // else{
-        //     axios.post(`/HIV/2`, {
-        //         ansHIV : ansHIV
-        //     })
-        //     .then(res => {
-        //         dispatch(KlasifikasiHIVChange('HIV_KLASIFIKASI', res.data.hasilKlasifikasi));
-        //         dispatch(KlasifikasiHIVChange('HIV_STATUS', res.data.statusKlasifikasi));
-        //     })
-        //     .catch(err=>{
-        //       console.log(err);
-        //     }); 
-        // }
-        // dispatch(KlasifikasiHIVChange('HIV_2', true));
-        // history.push("HIV3");
         axios.post(`/HIV`, {
             ansHIV: ansHIV
         })
@@ -62,6 +46,19 @@ const HIV2 = (props) =>{
         .catch(err => {
             console.log(err);
         });
+        Classifier(
+            "hiv",
+            dispatch,
+            flag,
+            ansTBU,
+            ansBatuk,
+            ansDiare,
+            ansDemam,
+            ansTelinga,
+            ansGizi,
+            ansAnemia,
+            ansHIV
+        );
         history.push("HIV3");    
     }
     const handleAnswer1 = event =>{

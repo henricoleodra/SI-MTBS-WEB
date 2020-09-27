@@ -7,7 +7,9 @@ import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid
 import axios from 'axios';
 
 // Actions
-import { KlasifikasiDemamChange, AnsDemamChange } from '../../Actions';
+import { KlasifikasiDemamChange, AnsDemamChange, FlagChange } from '../../Actions';
+
+import Classifier from '../../Classifier/Classifier';
 
 import '../../Assets/style/style.css';
 
@@ -28,18 +30,41 @@ const Demam = (props) => {
     let [demam_isDemamSetiapHari, set_demam_isDemamSetiapHari] = useState(ansDemam.demam_isDemamSetiapHari);
     let [demam_pernahMalaria, set_demam_pernahMalaria] = useState(ansDemam.demam_pernahMalaria);
 
+    const flag = useSelector(state => state.flag);
+    const ansTBU = useSelector(state => state.ansTBU);
+    const ansBatuk = useSelector(state => state.ansBatuk);
+    const ansDiare = useSelector(state => state.ansDiare);
+    const ansTelinga = useSelector(state => state.ansTelinga);
+    const ansGizi = useSelector(state => state.ansGizi);
+    const ansAnemia = useSelector(state => state.ansGizi);
+    const ansHIV = useSelector(state => state.ansHIV);
+
     const handleSubmit = event => {
         event.preventDefault();
+        dispatch(FlagChange('DEMAM'));
         axios.post(`/Demam`, {
             ansDemam: ansDemam
         })
-            .then(res => {
-                dispatch(KlasifikasiDemamChange('DEMAM_KLASIFIKASI', res.data.hasilKlasifikasi));
-                dispatch(KlasifikasiDemamChange('DEMAM_STATUS', res.data.statusKlasifikasi));
-            })
-            .catch(err => {
-                console.log(err);
-            });
+        .then(res => {
+            dispatch(KlasifikasiDemamChange('DEMAM_KLASIFIKASI', res.data.hasilKlasifikasi));
+            dispatch(KlasifikasiDemamChange('DEMAM_STATUS', res.data.statusKlasifikasi));
+        })
+        .catch(err => {
+            console.log(err);
+        });
+        Classifier(
+            "demam",
+            dispatch,
+            flag,
+            ansTBU,
+            ansBatuk,
+            ansDiare,
+            ansDemam,
+            ansTelinga,
+            ansGizi,
+            ansAnemia,
+            ansHIV
+        );
         history.push("Demam2");
     }
 

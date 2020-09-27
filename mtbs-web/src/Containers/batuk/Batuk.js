@@ -7,9 +7,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 
 // Actions
-import { KlasifikasiBatukChange, AnsBatukChange } from '../../Actions';
+import { KlasifikasiBatukChange, AnsBatukChange, FlagChange } from '../../Actions';
 
 import '../../Assets/style/style.css';
+
+import Classifier from '../../Classifier/Classifier';
 
 let outlineColor = {
     borderColor : '#75C9E6'
@@ -30,8 +32,18 @@ const Batuk = (props) => {
     let[bsb_nafasCepat, set_bsb_nafasCepat] = useState(ansBatuk.bsb_nafasCepat);
     let[bsb_tarikanDindingDada, set_bsb_tarikanDindingDada] = useState(ansBatuk.bsb_tarikanDindingDada);
 
+    const flag = useSelector(state => state.flag);
+    const ansTBU = useSelector(state => state.ansTBU);
+    const ansDiare = useSelector(state => state.ansDiare);
+    const ansDemam = useSelector(state => state.ansDemam);
+    const ansTelinga = useSelector(state => state.ansTelinga);
+    const ansGizi = useSelector(state => state.ansGizi);
+    const ansAnemia = useSelector(state => state.ansGizi);
+    const ansHIV = useSelector(state => state.ansHIV);
+
     const handleSubmit = event =>{
         event.preventDefault();
+        dispatch(FlagChange('BATUK'));
         axios.post(`/Batuk`, {
             ansBatuk: ansBatuk
         })
@@ -42,8 +54,20 @@ const Batuk = (props) => {
         .catch(err => {
             console.log(err);
         });
+        Classifier(
+            "batuk",
+            dispatch,
+            flag,
+            ansTBU,
+            ansBatuk,
+            ansDiare,
+            ansDemam,
+            ansTelinga,
+            ansGizi,
+            ansAnemia,
+            ansHIV
+        );
         history.push("Batuk2");
-        
     }
 
     const handleAnswer1 = event =>{

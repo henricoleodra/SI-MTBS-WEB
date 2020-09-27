@@ -8,7 +8,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 
 // Actions
-import { KlasifikasiDiareChange, AnsDiareChange } from '../../Actions';
+import { KlasifikasiDiareChange, AnsDiareChange, FlagChange } from '../../Actions';
+
+import Classifier from '../../Classifier/Classifier';
 
 import '../../Assets/style/style.css';
 
@@ -28,8 +30,18 @@ const Diare = (props) => {
     let[diare_berapaLama, set_diare_berapaLama] = useState(ansDiare.diare_berapaLama);
     let[diare_tinjaBerdarah, set_diare_tinjaBerdarah] = useState(ansDiare.diare_tinjaBerdarah);
 
+    const flag = useSelector(state => state.flag);
+    const ansTBU = useSelector(state => state.ansTBU);
+    const ansBatuk = useSelector(state => state.ansBatuk);
+    const ansDemam = useSelector(state => state.ansDemam);
+    const ansTelinga = useSelector(state => state.ansTelinga);
+    const ansGizi = useSelector(state => state.ansGizi);
+    const ansAnemia = useSelector(state => state.ansGizi);
+    const ansHIV = useSelector(state => state.ansHIV);
+
     const handleSubmit = event =>{
         event.preventDefault();
+        dispatch(FlagChange('DIARE'));
         axios.post(`/Diare`, {
             ansDiare: ansDiare
         })
@@ -40,6 +52,19 @@ const Diare = (props) => {
         .catch(err => {
             console.log(err);
         });
+        Classifier(
+            "diare",
+            dispatch,
+            flag,
+            ansTBU,
+            ansBatuk,
+            ansDiare,
+            ansDemam,
+            ansTelinga,
+            ansGizi,
+            ansAnemia,
+            ansHIV
+        );
         history.push("Diare2");
     }
 

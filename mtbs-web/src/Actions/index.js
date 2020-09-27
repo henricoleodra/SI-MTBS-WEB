@@ -1,3 +1,4 @@
+// Reset State
 export const reset = (action) => {
     return {
         type: action
@@ -6,6 +7,13 @@ export const reset = (action) => {
 
 // Sidebar & Summary
 export const compStatusChange = (comp) => {
+    return {
+        type: comp
+    }
+}
+
+// Flag
+export const FlagChange = (comp) => {
     return {
         type: comp
     }

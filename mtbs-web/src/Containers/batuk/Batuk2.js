@@ -9,6 +9,8 @@ import axios from 'axios';
 // Actions
 import { KlasifikasiBatukChange, AnsBatukChange, compStatusChange} from '../../Actions';
 
+import Classifier from '../../Classifier/Classifier';
+
 import '../../Assets/style/style.css';
 
 let outlineColor = {
@@ -27,6 +29,15 @@ const Batuk2 = (props) =>{
     let[bsb_wheezing, set_bsb_wheezing] = useState(ansBatuk.bsb_wheezing);
     let[bsb_saturasiOksigen, set_bsb_saturasiOksigen] = useState(ansBatuk.bsb_saturasiOksigen);
 
+    const flag = useSelector(state => state.flag);
+    const ansTBU = useSelector(state => state.ansTBU);
+    const ansDiare = useSelector(state => state.ansDiare);
+    const ansDemam = useSelector(state => state.ansDemam);
+    const ansTelinga = useSelector(state => state.ansTelinga);
+    const ansGizi = useSelector(state => state.ansGizi);
+    const ansAnemia = useSelector(state => state.ansGizi);
+    const ansHIV = useSelector(state => state.ansHIV);
+
     const handleSubmit = event =>{
         console.log(bsb_saturasiOksigen);
         event.preventDefault();
@@ -40,6 +51,19 @@ const Batuk2 = (props) =>{
         .catch(err=>{
             console.log(err);
         });
+        Classifier(
+            "batuk",
+            dispatch,
+            flag,
+            ansTBU,
+            ansBatuk,
+            ansDiare,
+            ansDemam,
+            ansTelinga,
+            ansGizi,
+            ansAnemia,
+            ansHIV
+        );
         dispatch(compStatusChange('DIARE'));
         history.push("DiareYaTidak"); 
     }

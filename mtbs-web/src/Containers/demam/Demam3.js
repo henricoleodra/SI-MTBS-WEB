@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 // Actions
 import { AnsDemamChange } from '../../Actions';
 
+import Classifier from '../../Classifier/Classifier';
 
 import '../../Assets/style/style.css';
 
@@ -22,8 +23,30 @@ const Demam = (props) => {
     const ansDemam = useSelector(state => state.ansDemam);
     let [demam_ruamKemerahan, set_demam_ruamKemerahan] = useState(ansDemam.demam_ruamKemerahan);
 
+    const flag = useSelector(state => state.flag);
+    const ansTBU = useSelector(state => state.ansTBU);
+    const ansBatuk = useSelector(state => state.ansBatuk);
+    const ansDiare = useSelector(state => state.ansDiare);
+    const ansTelinga = useSelector(state => state.ansTelinga);
+    const ansGizi = useSelector(state => state.ansGizi);
+    const ansAnemia = useSelector(state => state.ansGizi);
+    const ansHIV = useSelector(state => state.ansHIV);
+
     const handleSubmit = event => {
         event.preventDefault();
+        Classifier(
+            "demam",
+            dispatch,
+            flag,
+            ansTBU,
+            ansBatuk,
+            ansDiare,
+            ansDemam,
+            ansTelinga,
+            ansGizi,
+            ansAnemia,
+            ansHIV
+        );
         if(ansDemam.demam_isCampak3Bulan === true){
             history.push("Demam5");
         }

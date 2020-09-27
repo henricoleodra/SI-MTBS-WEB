@@ -5,7 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
-import { KlasifikasiGiziChange, AnsGiziChange } from '../../Actions';
+import { KlasifikasiGiziChange, AnsGiziChange, FlagChange } from '../../Actions';
+import Classifier from '../../Classifier/Classifier';
 
 var outlineColor = {
     borderColor: '#41E8B3'
@@ -15,7 +16,6 @@ const Gizi = (props) => {
     const history = useHistory();
     const dispatch = useDispatch();
     const ansGizi = useSelector(state => state.ansGizi);
-    const dataAnak = useSelector(state => state.dataAnak);
     const klasifikasiTBU = useSelector(state => state.klasifikasiTBU);
     const klasifikasiBatuk = useSelector(state => state.klasifikasiBatuk);
     const klasifikasiDiare = useSelector(state => state.klasifikasiDiare);
@@ -24,6 +24,15 @@ const Gizi = (props) => {
     let[gizi_tampakSangatKurus, set_gizi_tampakSangatKurus] = useState(ansGizi.gizi_tampakSangatKurus);
     let[gizi_pembengkakanKeduaPunggungKakiAtauTangan, set_gizi_pembengkakanKeduaPunggungKakiAtauTangan] = useState(ansGizi.gizi_pembengkakanKeduaPunggungKakiAtauTangan);
 
+    const flag = useSelector(state => state.flag);
+    const ansTBU = useSelector(state => state.ansTBU);
+    const ansBatuk = useSelector(state => state.ansBatuk);
+    const ansDiare = useSelector(state => state.ansDiare);
+    const ansDemam = useSelector(state => state.ansDemam);
+    const ansTelinga = useSelector(state => state.ansTelinga);
+    const ansAnemia = useSelector(state => state.ansGizi);
+    const ansHIV = useSelector(state => state.ansHIV);
+    
     useEffect(() => {
         let tmp = false;
         if(klasifikasiTBU.tbu_status === "danger"){
@@ -45,9 +54,9 @@ const Gizi = (props) => {
         dispatch(AnsGiziChange('GIZI_KLASIFIKASI_BERAT', tmp));
      }, []);
 
-
     const handleSubmit = event => {
         event.preventDefault();
+        dispatch(FlagChange('GIZI'));
         axios.post(`/Gizi`, {
             ansGizi: ansGizi
         })
@@ -58,6 +67,19 @@ const Gizi = (props) => {
         .catch(err => {
             console.log(err);
         });
+        Classifier(
+            "gizi",
+            dispatch,
+            flag,
+            ansTBU,
+            ansBatuk,
+            ansDiare,
+            ansDemam,
+            ansTelinga,
+            ansGizi,
+            ansAnemia,
+            ansHIV
+        );
         history.push("Gizi2");
     }
 

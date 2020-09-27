@@ -6,6 +6,7 @@ import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { KlasifikasiGiziChange, AnsGiziChange, compStatusChange } from '../../Actions';
+import Classifier from '../../Classifier/Classifier';
 
 var outlineColor = {
     borderColor: '#41E8B3'
@@ -17,6 +18,15 @@ const Gizi3 = (props) => {
     const ansGizi = useSelector(state => state.ansGizi);
     let [gizi_lingkarLenganAtas, set_gizi_lingkarLenganAtas] = useState(ansGizi.gizi_lingkarLenganAtas);
     let [gizi_masalahPemberianASI, set_gizi_masalahPemberianASI] = useState(ansGizi.gizi_masalahPemberianASI);
+
+    const flag = useSelector(state => state.flag);
+    const ansTBU = useSelector(state => state.ansTBU);
+    const ansBatuk = useSelector(state => state.ansBatuk);
+    const ansDiare = useSelector(state => state.ansDiare);
+    const ansDemam = useSelector(state => state.ansDemam);
+    const ansTelinga = useSelector(state => state.ansTelinga);
+    const ansAnemia = useSelector(state => state.ansGizi);
+    const ansHIV = useSelector(state => state.ansHIV);
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -30,6 +40,19 @@ const Gizi3 = (props) => {
         .catch(err => {
             console.log(err);
         });
+        Classifier(
+            "gizi",
+            dispatch,
+            flag,
+            ansTBU,
+            ansBatuk,
+            ansDiare,
+            ansDemam,
+            ansTelinga,
+            ansGizi,
+            ansAnemia,
+            ansHIV
+        );
         history.push("Anemia");
         dispatch(compStatusChange('ANEMIA'));
     }

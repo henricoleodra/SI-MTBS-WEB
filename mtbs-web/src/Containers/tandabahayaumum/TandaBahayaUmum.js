@@ -7,7 +7,9 @@ import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid
 import axios from 'axios';
 
 // Actions
-import { KlasifikasiTBUChange, AnsTBUChange } from '../../Actions';
+import { KlasifikasiTBUChange, AnsTBUChange, FlagChange } from '../../Actions';
+
+import Classifier from '../../Classifier/Classifier';
 
 
 import '../../Assets/style/style.css';
@@ -25,9 +27,19 @@ const TandaBahayaUmum = (props) => {
   let[tbu_kejang, set_tbu_kejang] = useState(ansTBU.tbu_kejang);
   let[tbu_gelisah, set_tbu_gelisah] = useState(ansTBU.tbu_gelisah);
 
+  const flag = useSelector(state => state.flag);
+  const ansBatuk = useSelector(state => state.ansBatuk);
+  const ansDiare = useSelector(state => state.ansDiare);
+  const ansDemam = useSelector(state => state.ansDemam);
+  const ansTelinga = useSelector(state => state.ansTelinga);
+  const ansGizi = useSelector(state => state.ansGizi);
+  const ansAnemia = useSelector(state => state.ansGizi);
+  const ansHIV = useSelector(state => state.ansHIV);
+
 
   const handleSubmit = event =>{
     event.preventDefault();
+    dispatch(FlagChange('TBU'));
     axios.post(`/TBU`, {
       ansTBU : ansTBU
     })
@@ -38,6 +50,19 @@ const TandaBahayaUmum = (props) => {
     .catch(err=>{
       console.log(err);
     });
+    Classifier(
+      "tbu",
+      dispatch,
+      flag,
+      ansTBU,
+      ansBatuk,
+      ansDiare,
+      ansDemam,
+      ansTelinga,
+      ansGizi,
+      ansAnemia,
+      ansHIV
+    );
     history.push("TandaBahayaUmum2"); 
   }
 

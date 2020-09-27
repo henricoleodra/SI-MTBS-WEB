@@ -9,6 +9,8 @@ import axios from 'axios';
 // Actions
 import { KlasifikasiDiareChange, AnsDiareChange, compStatusChange } from '../../Actions';
 
+import Classifier from '../../Classifier/Classifier';
+
 import '../../Assets/style/style.css';
 
 let outlineColor = {
@@ -22,19 +24,17 @@ const Diare3 = (props) => {
     let[diare_isNotMinum, set_diare_isNotMinum] = useState(ansDiare.diare_isNotMinum);
     let[diare_kulitPerutLambat, set_diare_kulitPerutLambat]=useState(ansDiare.diare_kulitPerutLambat);
     
+    const flag = useSelector(state => state.flag);
+    const ansTBU = useSelector(state => state.ansTBU);
+    const ansBatuk = useSelector(state => state.ansBatuk);
+    const ansDemam = useSelector(state => state.ansDemam);
+    const ansTelinga = useSelector(state => state.ansTelinga);
+    const ansGizi = useSelector(state => state.ansGizi);
+    const ansAnemia = useSelector(state => state.ansGizi);
+    const ansHIV = useSelector(state => state.ansHIV);
+
     const handleSubmit = event =>{
         event.preventDefault();
-        // axios.post(`/Diare/3`, {
-        //     ansDiare : ansDiare
-        // })
-        // .then(res => {
-        //     dispatch(KlasifikasiDiareChange('DIARE_KLASIFIKASI', res.data.hasilKlasifikasi));
-        //     dispatch(KlasifikasiDiareChange('DIARE_STATUS', res.data.statusKlasifikasi));
-        // })
-        // .catch(err=>{
-        //   console.log(err);
-        // }); 
-        // dispatch(KlasifikasiDiareChange('DIARE_3', true));
         axios.post(`/Diare`, {
             ansDiare: ansDiare
         })
@@ -45,6 +45,19 @@ const Diare3 = (props) => {
         .catch(err => {
             console.log(err);
         });
+        Classifier(
+            "diare",
+            dispatch,
+            flag,
+            ansTBU,
+            ansBatuk,
+            ansDiare,
+            ansDemam,
+            ansTelinga,
+            ansGizi,
+            ansAnemia,
+            ansHIV
+        );
         dispatch(compStatusChange('DEMAM'));
         history.push("DemamYaTidak");
     }

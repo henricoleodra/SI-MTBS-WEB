@@ -10,6 +10,8 @@ import '../../Assets/style/style.css';
 // Actions
 import { AnsDemamChange } from '../../Actions';
 
+import Classifier from '../../Classifier/Classifier';
+
 var outlineColor = {
     borderColor: '#41E8B3'
 }
@@ -20,21 +22,41 @@ const DemamKonfirmasiDaerah = (props) => {
     const ansDemam = useSelector(state => state.ansDemam);
     let [demam_isBerkunjungDaerahEndemis, set_demam_isBerkunjungDaerahEndemis] = useState(ansDemam.demam_isBerkunjungDaerahEndemis);
 
+    const flag = useSelector(state => state.flag);
+    const ansTBU = useSelector(state => state.ansTBU);
+    const ansBatuk = useSelector(state => state.ansBatuk);
+    const ansDiare = useSelector(state => state.ansDiare);
+    const ansTelinga = useSelector(state => state.ansTelinga);
+    const ansGizi = useSelector(state => state.ansGizi);
+    const ansAnemia = useSelector(state => state.ansGizi);
+    const ansHIV = useSelector(state => state.ansHIV);
+
     const handleDaerahEndemis = event =>{
        set_demam_isBerkunjungDaerahEndemis(event.target.value);
+       dispatch(AnsDemamChange('BERKUNJUNG_DAERAH_ENDEMIS', event.target.value));
     }
 
     const handleSubmit = event =>{
+        Classifier(
+            "demam",
+            dispatch,
+            flag,
+            ansTBU,
+            ansBatuk,
+            ansDiare,
+            ansDemam,
+            ansTelinga,
+            ansGizi,
+            ansAnemia,
+            ansHIV
+        );
         if(demam_isBerkunjungDaerahEndemis === 'Tinggi'){
-            dispatch(AnsDemamChange('BERKUNJUNG_DAERAH_ENDEMIS', demam_isBerkunjungDaerahEndemis));
             history.push("DemamPerhatian");
         }
         else if(demam_isBerkunjungDaerahEndemis === 'Rendah'){
-            dispatch(AnsDemamChange('BERKUNJUNG_DAERAH_ENDEMIS', demam_isBerkunjungDaerahEndemis));
             history.push("Demam1");
         }
         else{
-            dispatch(AnsDemamChange('BERKUNJUNG_DAERAH_ENDEMIS', demam_isBerkunjungDaerahEndemis));
             history.push("Demam1");
         }
     }

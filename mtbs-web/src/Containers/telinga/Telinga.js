@@ -8,7 +8,9 @@ import axios from 'axios';
 
 import '../../Assets/style/style.css';
 // Actions
-import { KlasifikasiTelingaChange, AnsTelingaChange } from '../../Actions';
+import { KlasifikasiTelingaChange, AnsTelingaChange, FlagChange } from '../../Actions';
+
+import Classifier from '../../Classifier/Classifier';
 
 let outlineColor = {
     borderColor : '#75C9E6'
@@ -28,8 +30,18 @@ const Telinga = (props) =>{
     let[telinga_isNanah, set_telinga_isNanah] = useState(ansTelinga.telinga_isNanah);
     let[telinga_nanahLamaHari, set_telinga_nanahLamaHari] = useState(ansTelinga.telinga_nanahLamaHari);
 
+    const flag = useSelector(state => state.flag);
+    const ansTBU = useSelector(state => state.ansTBU);
+    const ansBatuk = useSelector(state => state.ansBatuk);
+    const ansDiare = useSelector(state => state.ansDiare);
+    const ansDemam = useSelector(state => state.ansDemam);
+    const ansGizi = useSelector(state => state.ansGizi);
+    const ansAnemia = useSelector(state => state.ansGizi);
+    const ansHIV = useSelector(state => state.ansHIV);
+
     const handleSubmit = event =>{
         event.preventDefault();
+        dispatch(FlagChange('TELINGA'));
         axios.post(`/Telinga`, {
             ansTelinga: ansTelinga
         })
@@ -40,6 +52,19 @@ const Telinga = (props) =>{
         .catch(err => {
             console.log(err);
         });
+        Classifier(
+            "telinga",
+            dispatch,
+            flag,
+            ansTBU,
+            ansBatuk,
+            ansDiare,
+            ansDemam,
+            ansTelinga,
+            ansGizi,
+            ansAnemia,
+            ansHIV
+        );
         history.push("Telinga2");
     }
 

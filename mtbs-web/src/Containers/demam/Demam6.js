@@ -7,8 +7,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 
 // Actions
-import { KlasifikasiDemamChange, AnsDemamChange } from '../../Actions';
-import { compStatusChange } from '../../Actions';
+import { KlasifikasiDemamChange, AnsDemamChange, compStatusChange } from '../../Actions';
+
+import Classifier from '../../Classifier/Classifier';
 
 import '../../Assets/style/style.css';
 
@@ -24,18 +25,40 @@ const Demam = (props) => {
     let [demam_isNyeriUluOrGelisah, set_demam_isNyeriUluOrGelisah] = useState(ansDemam.demam_isNyeriUluOrGelisah);
     let [demam_isBadanDingin, set_demam_isBadanDingin] = useState(ansDemam.demam_isBadanDingin);
 
+    const flag = useSelector(state => state.flag);
+    const ansTBU = useSelector(state => state.ansTBU);
+    const ansBatuk = useSelector(state => state.ansBatuk);
+    const ansDiare = useSelector(state => state.ansDiare);
+    const ansTelinga = useSelector(state => state.ansTelinga);
+    const ansGizi = useSelector(state => state.ansGizi);
+    const ansAnemia = useSelector(state => state.ansGizi);
+    const ansHIV = useSelector(state => state.ansHIV);
+
     const handleSubmit = event => {
         event.preventDefault();
         axios.post(`/Demam`, {
             ansDemam: ansDemam
         })
-            .then(res => {
-                dispatch(KlasifikasiDemamChange('DEMAM_KLASIFIKASI', res.data.hasilKlasifikasi));
-                dispatch(KlasifikasiDemamChange('DEMAM_STATUS', res.data.statusKlasifikasi));
-            })
-            .catch(err => {
-                console.log(err);
-            });
+        .then(res => {
+            dispatch(KlasifikasiDemamChange('DEMAM_KLASIFIKASI', res.data.hasilKlasifikasi));
+            dispatch(KlasifikasiDemamChange('DEMAM_STATUS', res.data.statusKlasifikasi));
+        })
+        .catch(err => {
+            console.log(err);
+        });
+        Classifier(
+            "demam",
+            dispatch,
+            flag,
+            ansTBU,
+            ansBatuk,
+            ansDiare,
+            ansDemam,
+            ansTelinga,
+            ansGizi,
+            ansAnemia,
+            ansHIV
+        );
         dispatch(KlasifikasiDemamChange('Demam_6', true));
         history.push("Demam7");
         dispatch(compStatusChange('TELINGA'));

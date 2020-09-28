@@ -16,11 +16,6 @@ const Gizi = (props) => {
     const history = useHistory();
     const dispatch = useDispatch();
     const ansGizi = useSelector(state => state.ansGizi);
-    const klasifikasiTBU = useSelector(state => state.klasifikasiTBU);
-    const klasifikasiBatuk = useSelector(state => state.klasifikasiBatuk);
-    const klasifikasiDiare = useSelector(state => state.klasifikasiDiare);
-    const klasifikasiDemam = useSelector(state => state.klasifikasiDemam);
-    const klasifikasiTelinga = useSelector(state => state.klasifikasiTelinga);
     let[gizi_tampakSangatKurus, set_gizi_tampakSangatKurus] = useState(ansGizi.gizi_tampakSangatKurus);
     let[gizi_pembengkakanKeduaPunggungKakiAtauTangan, set_gizi_pembengkakanKeduaPunggungKakiAtauTangan] = useState(ansGizi.gizi_pembengkakanKeduaPunggungKakiAtauTangan);
 
@@ -32,31 +27,10 @@ const Gizi = (props) => {
     const ansTelinga = useSelector(state => state.ansTelinga);
     const ansAnemia = useSelector(state => state.ansGizi);
     const ansHIV = useSelector(state => state.ansHIV);
-    
-    useEffect(() => {
-        let tmp = false;
-        if(klasifikasiTBU.tbu_status === "danger"){
-            dispatch(AnsGiziChange('GIZI_TANDA_BAHAYA_UMUM', true));
-            tmp = tmp || true;
-        }
-        if(klasifikasiBatuk.bsb_status === "danger" || klasifikasiBatuk.bsb_status === "warning"){
-            tmp = tmp || true;
-        }
-        if(klasifikasiDiare.diare_status === "danger" || klasifikasiDiare.diare_status === "warning"){
-            tmp = tmp || true;
-        }
-        if(klasifikasiDemam.demam_status === "danger" || klasifikasiDemam.demam_status === "warning"){
-            tmp = tmp || true;
-        }
-        if(klasifikasiTelinga.telinga_status === "danger" || klasifikasiTelinga.telinga_status === "warning"){
-            tmp = tmp || true;
-        }
-        dispatch(AnsGiziChange('GIZI_KLASIFIKASI_BERAT', tmp));
-     }, []);
 
     const handleSubmit = event => {
         event.preventDefault();
-        dispatch(FlagChange('GIZI'));
+        dispatch(FlagChange('FLAG_GIZI'));
         axios.post(`/Gizi`, {
             ansGizi: ansGizi
         })

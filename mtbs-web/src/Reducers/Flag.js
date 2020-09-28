@@ -1,36 +1,36 @@
 const initState = {
-    tbu : false,
-    batuk : false,
-    diare : false,
-    demam : false,
-    telinga : false,
-    gizi : false,
-    hiv : false
+    tbu : null,
+    batuk : null,
+    diare : null,
+    demam : null,
+    telinga : null,
+    gizi : null,
+    hiv : null
 }
 
 const flagReducer = (state = initState, action) => {
     switch(action.type){
-        case 'TBU':
+        case 'FLAG_TBU':
             return Object.assign({}, state, {
                 tbu : true
             });
-        case 'BATUK':
+        case 'FLAG_BATUK':
             return Object.assign({}, state, {
                 batuk : true
             });
-        case 'DIARE':
+        case 'FLAG_DIARE':
             return Object.assign({}, state, {
                 diare : true
             });
-        case 'DEMAM':
+        case 'FLAG_DEMAM':
             return Object.assign({}, state, {
                 demam : true
             });
-        case 'TELINGA':
+        case 'FLAG_TELINGA':
             return Object.assign({}, state, {
                 telinga : true
             });
-        case 'GIZI':
+        case 'FLAG_GIZI':
             return Object.assign({}, state, {
                 gizi : true
             });

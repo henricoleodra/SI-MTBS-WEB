@@ -33,15 +33,15 @@ const ansGiziReducer = (state = initState, action) => {
             });
         case 'MASALAH_PEMBERIAN_ASI':
             return Object.assign({}, state, {
-                gizi_tampakSangatKurus : action.answer
+                gizi_masalahPemberianASI : action.answer
             });
         case 'GIZI_TANDA_BAHAYA_UMUM':
             return Object.assign({}, state, {
-                gizi_tampakSangatKurus : action.answer
+                gizi_tandaBahayaUmum : action.answer
             });
         case 'GIZI_KLASIFIKASI_BERAT':
             return Object.assign({}, state, {
-                gizi_tampakSangatKurus : action.answer
+                gizi_klasifikasiBerat : action.answer
             });
         default:
             return state;

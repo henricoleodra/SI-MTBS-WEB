@@ -7,7 +7,7 @@ import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 
 // Actions
-import { KlasifikasiDemamChange, AnsDemamChange } from '../../Actions';
+import { KlasifikasiDemamChange, AnsDemamChange, AnsGiziChange } from '../../Actions';
 
 import Classifier from '../../Classifier/Classifier';
 
@@ -43,6 +43,9 @@ const Demam = (props) => {
         .then(res => {
             dispatch(KlasifikasiDemamChange('DEMAM_KLASIFIKASI', res.data.hasilKlasifikasi));
             dispatch(KlasifikasiDemamChange('DEMAM_STATUS', res.data.statusKlasifikasi));
+            if(res.data.statusKlasifikasi === "danger" || res.data.statusKlasifikasi === "warning"){
+                dispatch(AnsGiziChange('GIZI_KLASIFIKASI_BERAT', true || ansGizi.gizi_klasifikasiBerat));
+            }
         })
         .catch(err => {
             console.log(err);

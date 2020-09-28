@@ -40,7 +40,7 @@ const Anemia = (props) =>{
 
     const handleSubmit = event =>{
         event.preventDefault();
-        dispatch(FlagChange('ANEMIA'));
+        dispatch(FlagChange('FLAG_ANEMIA'));
         axios.post(`/Anemia`, {
             ansAnemia : ansAnemia
         })

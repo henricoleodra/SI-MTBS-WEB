@@ -10,7 +10,7 @@ import axios from 'axios';
 import '../../Assets/style/style.css';
 
 // Actions
-import { KlasifikasiDiareChange, AnsDiareChange } from '../../Actions';
+import { KlasifikasiDiareChange, AnsDiareChange, AnsGiziChange } from '../../Actions';
 
 import Classifier from '../../Classifier/Classifier';
 
@@ -43,6 +43,9 @@ const Diare2 = (props) => {
         .then(res => {
             dispatch(KlasifikasiDiareChange('DIARE_KLASIFIKASI', res.data.hasilKlasifikasi));
             dispatch(KlasifikasiDiareChange('DIARE_STATUS', res.data.statusKlasifikasi));
+            if(res.data.statusKlasifikasi === "danger" || res.data.statusKlasifikasi === "warning"){
+                dispatch(AnsGiziChange('GIZI_KLASIFIKASI_BERAT', true || ansGizi.gizi_klasifikasiBerat));
+            }
         })
         .catch(err => {
             console.log(err);

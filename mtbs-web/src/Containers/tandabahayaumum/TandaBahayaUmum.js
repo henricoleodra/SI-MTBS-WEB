@@ -7,7 +7,7 @@ import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid
 import axios from 'axios';
 
 // Actions
-import { KlasifikasiTBUChange, AnsTBUChange, FlagChange } from '../../Actions';
+import { KlasifikasiTBUChange, AnsTBUChange, AnsDemamChange, AnsGiziChange, FlagChange } from '../../Actions';
 
 import Classifier from '../../Classifier/Classifier';
 
@@ -39,13 +39,21 @@ const TandaBahayaUmum = (props) => {
 
   const handleSubmit = event =>{
     event.preventDefault();
-    dispatch(FlagChange('TBU'));
+    dispatch(FlagChange('FLAG_TBU'));
     axios.post(`/TBU`, {
       ansTBU : ansTBU
     })
     .then(res => {
       dispatch(KlasifikasiTBUChange('TBU_KLASIFIKASI', res.data.hasilKlasifkasi));
       dispatch(KlasifikasiTBUChange('TBU_STATUS', res.data.statusKlasifikasi));
+      if(res.data.statusKlasifikasi === 'danger'){
+        dispatch(AnsDemamChange('KLASIFIKASI_TBU', true));
+        dispatch(AnsGiziChange('GIZI_TANDA_BAHAYA_UMUM', true));
+        dispatch(AnsGiziChange('GIZI_KLASIFIKASI_BERAT', (true || ansGizi.gizi_klasifikasiBerat)));
+      }
+      else{
+        dispatch(AnsDemamChange('KLASIFIKASI_TBU', false));
+      }
     })
     .catch(err=>{
       console.log(err);

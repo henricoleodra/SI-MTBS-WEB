@@ -7,7 +7,7 @@ import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid
 import axios from 'axios';
 
 // Actions
-import { KlasifikasiBatukChange, AnsBatukChange, compStatusChange} from '../../Actions';
+import { KlasifikasiBatukChange, AnsBatukChange, AnsGiziChange, compStatusChange} from '../../Actions';
 
 import Classifier from '../../Classifier/Classifier';
 
@@ -42,13 +42,16 @@ const Batuk2 = (props) =>{
         console.log(bsb_saturasiOksigen);
         event.preventDefault();
         axios.post(`/Batuk`, {
-            ansBatuk : ansBatuk
+            ansBatuk: ansBatuk
         })
         .then(res => {
-            dispatch(KlasifikasiBatukChange('BATUK_KLASIFIKASI', res.data.hasilKlasifkasi));
+            dispatch(KlasifikasiBatukChange('BATUK_KLASIFIKASI', res.data.hasilKlasifikasi));
             dispatch(KlasifikasiBatukChange('BATUK_STATUS', res.data.statusKlasifikasi));
+            if(res.data.statusKlasifikasi === "danger" || res.data.statusKlasifikasi === "warning"){
+                dispatch(AnsGiziChange('GIZI_KLASIFIKASI_BERAT', true || ansGizi.gizi_klasifikasiBerat));
+            }
         })
-        .catch(err=>{
+        .catch(err => {
             console.log(err);
         });
         Classifier(

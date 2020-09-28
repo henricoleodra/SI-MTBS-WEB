@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 
 // Actions
-import { KlasifikasiDiareChange, AnsDiareChange, compStatusChange } from '../../Actions';
+import { KlasifikasiDiareChange, AnsDiareChange, AnsGiziChange, compStatusChange } from '../../Actions';
 
 import Classifier from '../../Classifier/Classifier';
 
@@ -41,6 +41,9 @@ const Diare3 = (props) => {
         .then(res => {
             dispatch(KlasifikasiDiareChange('DIARE_KLASIFIKASI', res.data.hasilKlasifikasi));
             dispatch(KlasifikasiDiareChange('DIARE_STATUS', res.data.statusKlasifikasi));
+            if(res.data.statusKlasifikasi === "danger" || res.data.statusKlasifikasi === "warning"){
+                dispatch(AnsGiziChange('GIZI_KLASIFIKASI_BERAT', true || ansGizi.gizi_klasifikasiBerat));
+            }
         })
         .catch(err => {
             console.log(err);

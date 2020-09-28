@@ -9,7 +9,7 @@ import axios from 'axios';
 import '../../Assets/style/style.css';
 
 // Actions
-import { KlasifikasiTBUChange, AnsTBUChange, AnsDemamChange, compStatusChange } from '../../Actions';
+import { KlasifikasiTBUChange, AnsTBUChange, AnsDemamChange, AnsGiziChange, compStatusChange } from '../../Actions';
 
 import Classifier from '../../Classifier/Classifier';
 
@@ -45,6 +45,8 @@ const TandaBahayaUmum2 = (props) => {
       dispatch(KlasifikasiTBUChange('TBU_STATUS', res.data.statusKlasifikasi));
       if(res.data.statusKlasifikasi === 'danger'){
         dispatch(AnsDemamChange('KLASIFIKASI_TBU', true));
+        dispatch(AnsGiziChange('GIZI_TANDA_BAHAYA_UMUM', true));
+        dispatch(AnsGiziChange('GIZI_KLASIFIKASI_BERAT', true || ansGizi.gizi_klasifikasiBerat));
       }
       else{
         dispatch(AnsDemamChange('KLASIFIKASI_TBU', false));

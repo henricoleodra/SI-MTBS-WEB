@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 
 // Actions
-import { KlasifikasiDiareChange, AnsDiareChange, FlagChange } from '../../Actions';
+import { KlasifikasiDiareChange, AnsDiareChange, FlagChange, AnsGiziChange } from '../../Actions';
 
 import Classifier from '../../Classifier/Classifier';
 
@@ -41,13 +41,16 @@ const Diare = (props) => {
 
     const handleSubmit = event =>{
         event.preventDefault();
-        dispatch(FlagChange('DIARE'));
+        dispatch(FlagChange('FLAG_DIARE'));
         axios.post(`/Diare`, {
             ansDiare: ansDiare
         })
         .then(res => {
             dispatch(KlasifikasiDiareChange('DIARE_KLASIFIKASI', res.data.hasilKlasifikasi));
             dispatch(KlasifikasiDiareChange('DIARE_STATUS', res.data.statusKlasifikasi));
+            if(res.data.statusKlasifikasi === "danger" || res.data.statusKlasifikasi === "warning"){
+                dispatch(AnsGiziChange('GIZI_KLASIFIKASI_BERAT', true || ansGizi.gizi_klasifikasiBerat));
+            }
         })
         .catch(err => {
             console.log(err);

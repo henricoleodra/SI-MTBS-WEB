@@ -8,7 +8,7 @@ import axios from 'axios';
 
 import '../../Assets/style/style.css';
 // Actions
-import { KlasifikasiTelingaChange, AnsTelingaChange, compStatusChange } from '../../Actions';
+import { KlasifikasiTelingaChange, AnsTelingaChange, compStatusChange, AnsGiziChange } from '../../Actions';
 
 import Classifier from '../../Classifier/Classifier';
 
@@ -41,6 +41,9 @@ const Telinga2 = (props) =>{
         .then(res => {
             dispatch(KlasifikasiTelingaChange('TELINGA_KLASIFIKASI', res.data.hasilKlasifikasi));
             dispatch(KlasifikasiTelingaChange('TELINGA_STATUS', res.data.statusKlasifikasi));
+            if(res.data.statusKlasifikasi === "danger" || res.data.statusKlasifikasi === "warning"){
+                dispatch(AnsGiziChange('GIZI_KLASIFIKASI_BERAT', true || ansGizi.gizi_klasifikasiBerat));
+            }
         })
         .catch(err => {
             console.log(err);

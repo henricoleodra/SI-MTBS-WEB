@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 
 // Actions
-import { KlasifikasiBatukChange, AnsBatukChange, FlagChange } from '../../Actions';
+import { KlasifikasiBatukChange, AnsBatukChange, FlagChange, AnsGiziChange } from '../../Actions';
 
 import '../../Assets/style/style.css';
 
@@ -43,13 +43,16 @@ const Batuk = (props) => {
 
     const handleSubmit = event =>{
         event.preventDefault();
-        dispatch(FlagChange('BATUK'));
+        dispatch(FlagChange('FLAG_BATUK'));
         axios.post(`/Batuk`, {
             ansBatuk: ansBatuk
         })
         .then(res => {
             dispatch(KlasifikasiBatukChange('BATUK_KLASIFIKASI', res.data.hasilKlasifikasi));
             dispatch(KlasifikasiBatukChange('BATUK_STATUS', res.data.statusKlasifikasi));
+            if(res.data.statusKlasifikasi === "danger" || res.data.statusKlasifikasi === "warning"){
+                dispatch(AnsGiziChange('GIZI_KLASIFIKASI_BERAT', true || ansGizi.gizi_klasifikasiBerat));
+            }
         })
         .catch(err => {
             console.log(err);

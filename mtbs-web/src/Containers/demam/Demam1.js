@@ -7,7 +7,7 @@ import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid
 import axios from 'axios';
 
 // Actions
-import { KlasifikasiDemamChange, AnsDemamChange, FlagChange } from '../../Actions';
+import { KlasifikasiDemamChange, AnsDemamChange, AnsGiziChange, FlagChange } from '../../Actions';
 
 import Classifier from '../../Classifier/Classifier';
 
@@ -41,13 +41,16 @@ const Demam = (props) => {
 
     const handleSubmit = event => {
         event.preventDefault();
-        dispatch(FlagChange('DEMAM'));
+        dispatch(FlagChange('FLAG_DEMAM'));
         axios.post(`/Demam`, {
             ansDemam: ansDemam
         })
         .then(res => {
             dispatch(KlasifikasiDemamChange('DEMAM_KLASIFIKASI', res.data.hasilKlasifikasi));
             dispatch(KlasifikasiDemamChange('DEMAM_STATUS', res.data.statusKlasifikasi));
+            if(res.data.statusKlasifikasi === "danger" || res.data.statusKlasifikasi === "warning"){
+                dispatch(AnsGiziChange('GIZI_KLASIFIKASI_BERAT', true || ansGizi.gizi_klasifikasiBerat));
+            }
         })
         .catch(err => {
             console.log(err);

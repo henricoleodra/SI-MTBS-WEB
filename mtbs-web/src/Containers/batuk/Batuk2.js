@@ -45,6 +45,7 @@ const Batuk2 = (props) =>{
             ansBatuk: ansBatuk
         })
         .then(res => {
+            console.log(res.data.hasilKlasifikasi);
             dispatch(KlasifikasiBatukChange('BATUK_KLASIFIKASI', res.data.hasilKlasifikasi));
             dispatch(KlasifikasiBatukChange('BATUK_STATUS', res.data.statusKlasifikasi));
             if(res.data.statusKlasifikasi === "danger" || res.data.statusKlasifikasi === "warning"){

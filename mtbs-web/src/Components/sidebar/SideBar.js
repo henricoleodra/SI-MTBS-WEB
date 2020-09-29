@@ -8,7 +8,7 @@ import SideBarItem from './sidebarItem/SideBarItem'
 import '../../Assets/style/style.css';
 
 let bgColor = {
-    backgroundColor: '#75C9E6'
+    backgroundColor: '#41E8B3'
 } 
 
 let bold = {
@@ -143,7 +143,7 @@ const SideBar = (props) => {
         <div style={{backgroundColor: '#F8F9FB', minHeight : '100vh'}} className="w-25 p-0">
             <Nav vertical className="w-100">
                 <NavItem>
-                    <NavLink href="#" className="btn btn-light text-left pr-0 pl-0 pt-2 pb-0" id="tindakan" style={{backgroundColor:'#75C9E6'}} onClick={toggle}>
+                    <NavLink href="#" className="btn btn-light text-left pr-0 pl-0 pt-2 pb-0" id="tindakan" style={{backgroundColor:'#41E8B3'}} onClick={toggle}>
                         <Row className="">
                             <Col sm="2" className="mt-1">
                                 <FontAwesomeIcon icon={faBaby} className="fa-3x"/>

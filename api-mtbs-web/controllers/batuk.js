@@ -3,7 +3,7 @@ const klasifikasiBatuk = require('../models/batuk');
 const batuk = async function(req, res, next){
     const klasBatuk = await klasifikasiBatuk.classifierBatuk(req.body.ansBatuk);
     const ans = {
-        hasilKlasifkasi : klasBatuk.hasilKlasifkasi,
+        hasilKlasifikasi : klasBatuk.hasilKlasifikasi,
         statusKlasifikasi : klasBatuk.statusKlasifikasi,
     }
     res.json(ans);

@@ -8,7 +8,7 @@ import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons
 import '../../Assets/style/style.css';
 
 // Actions
-import { KlasifikasiBatukChange, AnsBatukChange, compStatusChange } from '../../Actions';
+import { KlasifikasiBatukChange, AnsBatukChange, compStatusChange, FlagChange } from '../../Actions';
 
 let outlineColor = {
     borderColor : '#75C9E6'

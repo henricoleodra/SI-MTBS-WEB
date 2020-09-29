@@ -28,10 +28,10 @@ const PemberianMakanan4 = (props) =>{
     }
 
     const handleAnswer1 = event =>{
-        if(event.target.value === 1){
+        if(event.target.value === "1"){
             set_makanan_kurus_perubahanPemberian(true);
             dispatch(AnsPemberianMakananChange('PERUBAHAN_PEMBERIAN', true));
-        }else if(event.target.value === 2){
+        }else{
             set_makanan_kurus_perubahanPemberian(false);
             dispatch(AnsPemberianMakananChange('PERUBAHAN_PEMBERIAN', false));
         }

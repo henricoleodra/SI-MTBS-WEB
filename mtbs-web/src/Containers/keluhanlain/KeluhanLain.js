@@ -28,10 +28,10 @@ const Keluhan = (props) =>{
     }
 
     const handleAnswer1 = event =>{
-        if(event.target.value === 1){
+        if(event.target.value === "1"){
             set_keluhan_adaTidak(true);
             dispatch(AnsKeluhanLainChange('ADA_KELUHAN', true));
-        }else if(event.target.value === 2){
+        }else if(event.target.value === "2"){
             set_keluhan_adaTidak(false);
             dispatch(AnsKeluhanLainChange('ADA_KELUHAN', false));
         }

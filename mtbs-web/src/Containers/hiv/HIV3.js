@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 
 // Actions
-import { KlasifikasiHIVChange, AnsHIVChange  } from '../../Actions';
+import { KlasifikasiHIVChange, AnsHIVChange, compStatusChange } from '../../Actions';
 
 import Classifier from '../../Classifier/Classifier';
 
@@ -57,6 +57,7 @@ const HIV = (props) =>{
             ansAnemia,
             ansHIV
         );
+        dispatch(compStatusChange('IMUNISASI'));
         history.push("Imunisasi1");
     }
 

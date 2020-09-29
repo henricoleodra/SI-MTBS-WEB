@@ -1,6 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Row, Col, Card,  CardTitle,  CardImg, Container} from 'reactstrap';
+import { 
+    Row, 
+    Col, 
+    Card, 
+    Label, 
+    Button, 
+    CardTitle, 
+    CardBody, 
+    CardText, 
+    CardImg, 
+    Container
+} from 'reactstrap';
 
 // Import Components
 import { NavBar, Footer } from '../../Components';
@@ -20,8 +31,8 @@ const Beranda = (props) =>{
         <Wrapper>
             <div>
                 <NavBar />
-                <Container className="mt-4 mb-5">
-                    <Row className="my-2">
+                <Container className="mt-4 mb-5 wrapper-beranda">
+                    {/* <Row className="my-2">
                         <Col md={2}></Col>
                         <Col md={8}>
                             <Link to="ApaItuMtbs" style={{textDecoration: "none"}}>
@@ -33,28 +44,44 @@ const Beranda = (props) =>{
                                 </Card>
                             </Link>
                         </Col>
-                    </Row>
+                    </Row> */}
                     <Row className="my-5">
                         <Col md={5}>
-                            <Link to="MulaiPemeriksaan" style={{textDecoration: "none"}}>
-                                <Card className="wrapper-menus shadow-lg my-2">
-                                    <CardTitle className="text-center text-white font-weight-bold menus-title">Mulai Pemeriksaan</CardTitle>
+                            {/* <Link to="MulaiPemeriksaan" style={{textDecoration: "none"}}> */}
+                                <Card className="wrapper-menus shadow-lg">
+                                    <CardTitle className="text-center text-white font-weight-bold menus-title mt-2">Mulai Pemeriksaan</CardTitle>
                                     <div className="mt-1 mb-2">
                                         <CardImg bottom className="rounded" width="5%" height="250px" src={pemeriksaan} alt="Buku Mtbs" />
                                     </div>
+                                    <CardBody>
+                                        <CardText className="text-center menus-body">
+                                            <Label className="text-dark">Cintai buah hati dengan melakukan test kesehatan, apakah buat hati sehat, dan terimuninasi sesuai dengan waktunya.</Label>
+                                        </CardText>
+                                        <div className="d-flex justify-content-center">
+                                            <Button color="light" tag={Link} className="mx-auto menus-button" to="MulaiPemeriksaan">Mulai Pemeriksaan</Button>
+                                        </div>
+                                    </CardBody>
                                 </Card>
-                            </Link>
+                            {/* </Link> */}
                         </Col>
                         <Col md={2}></Col>
                         <Col md={5}>
-                            <Link to="PencarianDataAnak" style={{textDecoration: "none"}}>
-                                <Card className="wrapper-menus shadow-lg my-2">
-                                    <CardTitle className="text-center text-white font-weight-bold menus-title">Data Anak</CardTitle>
+                            {/* <Link to="PencarianDataAnak" style={{textDecoration: "none"}}> */}
+                                <Card className="wrapper-menus shadow-lg">
+                                    <CardTitle className="text-center text-white font-weight-bold menus-title mt-2">Data Anak</CardTitle>
                                     <div className="mt-1 mb-2">
                                         <CardImg bottom className="rounded" width="5%" height="250px" src={dataanak} alt="Buku Mtbs" />
                                     </div>
+                                    <CardBody>
+                                        <CardText className="text-center menus-body">
+                                            <Label className="text-dark">Mencari riwayat data anak yang sudah pernah melakukan pendaftaran dan pemeriksaan</Label>
+                                        </CardText>
+                                        <div className="d-flex justify-content-center">
+                                            <Button color="light" tag={Link} className="mx-auto menus-button" to="PencarianDataAnak">Data Anak</Button>
+                                        </div>
+                                    </CardBody>
                                 </Card>
-                            </Link>
+                            {/* </Link> */}
                         </Col>
                     </Row>
                 </Container>

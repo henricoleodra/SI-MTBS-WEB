@@ -31,10 +31,10 @@ const PemberianMakanan3 = (props) =>{
     }
 
     const handleAnswer2 = event =>{
-        if(event.target.value === 1){
+        if(event.target.value === "1"){
             set_makanan_kurus_makananTersendiri(true);
             dispatch(AnsPemberianMakananChange('TERSENDIRI', true));
-        }else if(event.target.value === 2){
+        }else{
             set_makanan_kurus_makananTersendiri(false);
             dispatch(AnsPemberianMakananChange('TERSENDIRI', false));
         }

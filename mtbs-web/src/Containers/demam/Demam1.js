@@ -46,6 +46,7 @@ const Demam = (props) => {
             ansDemam: ansDemam
         })
         .then(res => {
+            console.log(res.data.hasilKlasifikasi);
             dispatch(KlasifikasiDemamChange('DEMAM_KLASIFIKASI', res.data.hasilKlasifikasi));
             dispatch(KlasifikasiDemamChange('DEMAM_STATUS', res.data.statusKlasifikasi));
             if(res.data.statusKlasifikasi === "danger" || res.data.statusKlasifikasi === "warning"){
@@ -147,7 +148,7 @@ const Demam = (props) => {
                                         <Col sm="3">
                                             <FormGroup className="d-inline pr-2">
                                                 <Label className="rdoBtn">Ya
-                                                <Input type="radio" name="radio1" value={1} onChange={handleAnswer2} checked={demam_isDemamSetiapHari === true} disabled={demam_berapaLama <= 7} required />
+                                                <Input type="radio" name="radio1" value={1} onChange={handleAnswer2} checked={demam_isDemamSetiapHari === true} disabled={demam_berapaLama <= 7} required/>
                                                     <span style={{ left: "20px" }} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>
@@ -158,7 +159,7 @@ const Demam = (props) => {
                                         <Col sm="3">
                                             <FormGroup className="d-inline">
                                                 <Label className="rdoBtn">Tidak
-                                                <Input type="radio" name="radio1" value={2} onChange={handleAnswer2} checked={demam_isDemamSetiapHari === false} />
+                                                <Input type="radio" name="radio1" value={2} onChange={handleAnswer2} checked={demam_isDemamSetiapHari === false} disabled={demam_berapaLama <= 7}/>
                                                     <span style={{ left: "0px" }} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>

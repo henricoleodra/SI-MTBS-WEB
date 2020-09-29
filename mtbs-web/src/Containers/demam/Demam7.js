@@ -64,7 +64,7 @@ const Demam = (props) => {
             ansHIV
         );
         dispatch(KlasifikasiDemamChange('Demam_6', true));
-        history.push("Demam7"); 
+        history.push("Demam8"); 
         dispatch(compStatusChange('TELINGA'));
     }
 

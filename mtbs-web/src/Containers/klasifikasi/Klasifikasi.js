@@ -10,6 +10,7 @@ const Index = (props) =>{
     const klasifikasiDiare = useSelector(state => state.klasifikasiDiare);
     const klasifikasiDemam = useSelector(state => state.klasifikasiDemam);
     const klasifikasiTelinga = useSelector(state => state.klasifikasiTelinga);
+    const klasifikasiGizi = useSelector(state => state.klasifikasiGizi);
     const klasifikasiAnemia = useSelector(state => state.klasifikasiAnemia);
     const klasifikasiHIV = useSelector(state => state.klasifikasiHIV);
 
@@ -43,6 +44,12 @@ const Index = (props) =>{
             title: "Telinga",
             klasifikasi: klasifikasiTelinga.telinga_klasifikasi,
             flag: (klasifikasiTelinga.telinga_status !=null && klasifikasiTelinga.telinga_status !== "info")
+        },
+        {
+            status: klasifikasiGizi.gizi_status,
+            title: "Gizi",
+            klasifikasi: klasifikasiGizi.gizi_klasifikasi,
+            flag: (klasifikasiGizi.gizi_status !=null && klasifikasiGizi.gizi_status !== "info")
         },
         {
             status: klasifikasiAnemia.anemia_status,

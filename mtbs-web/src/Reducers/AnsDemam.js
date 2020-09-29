@@ -176,6 +176,10 @@ const ansDemamReducer = (state = initState, action) => {
             return Object.assign({}, state, {
                 demam_hasilUjiTorniket: action.answer
             });
+        case 'RESET_DEMAM':
+            return Object.assign({}, state, 
+                initState
+            );
         default:
             return state;
     }

@@ -41,7 +41,7 @@ const Demam = (props) => {
 
     const handleSubmit = event => {
         event.preventDefault();
-        dispatch(FlagChange('FLAG_DEMAM'));
+        dispatch(FlagChange('FLAG_DEMAM', true));
         axios.post(`/Demam`, {
             ansDemam: ansDemam
         })

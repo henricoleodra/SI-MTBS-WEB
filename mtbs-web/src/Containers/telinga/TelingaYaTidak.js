@@ -8,16 +8,11 @@ import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons
 import '../../Assets/style/style.css';
 
 // Actions
-import { KlasifikasiTelingaChange, AnsTelingaChange, compStatusChange } from '../../Actions';
+import { KlasifikasiTelingaChange, AnsTelingaChange, compStatusChange, FlagChange } from '../../Actions';
 
 let outlineColor = {
     borderColor : '#41E8B3'
 }
-
-// let bgColor ={
-//     backgroundColor : '#41E8B3',
-//     color: 'white'
-// }
 
 const TelingaYaTidak = (props) => {
     const history = useHistory();
@@ -45,6 +40,8 @@ const TelingaYaTidak = (props) => {
             history.push("Telinga1");
         }
         else{
+            dispatch(FlagChange('FLAG_TELINGA', false));
+            dispatch(AnsTelingaChange('TELINGA',true));
             dispatch(AnsTelingaChange('TELINGA', telinga));
             dispatch(KlasifikasiTelingaChange('TELINGA_KLASIFIKASI', ""));
             dispatch(KlasifikasiTelingaChange('TELINGA_STATUS', "info"));

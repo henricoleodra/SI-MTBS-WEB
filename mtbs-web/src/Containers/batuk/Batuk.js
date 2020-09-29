@@ -43,7 +43,7 @@ const Batuk = (props) => {
 
     const handleSubmit = event =>{
         event.preventDefault();
-        dispatch(FlagChange('FLAG_BATUK'));
+        dispatch(FlagChange('FLAG_BATUK', true));
         axios.post(`/Batuk`, {
             ansBatuk: ansBatuk
         })

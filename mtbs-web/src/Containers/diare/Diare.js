@@ -41,7 +41,7 @@ const Diare = (props) => {
 
     const handleSubmit = event =>{
         event.preventDefault();
-        dispatch(FlagChange('FLAG_DIARE'));
+        dispatch(FlagChange('FLAG_DIARE', true));
         axios.post(`/Diare`, {
             ansDiare: ansDiare
         })

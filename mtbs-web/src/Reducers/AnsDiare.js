@@ -43,6 +43,10 @@ const ansDiareReducer = (state = initState, action) => {
             return Object.assign({}, state, {
                 diare_kulitPerutLambat : action.answer
             });
+       case 'RESET_DIARE':
+            return Object.assign({}, state, 
+                initState
+            );    
         default:
             return state;
     }

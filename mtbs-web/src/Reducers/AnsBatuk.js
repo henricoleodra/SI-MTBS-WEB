@@ -38,6 +38,10 @@ const ansBatukReducer = (state = initState, action) => {
             return Object.assign({}, state, {
                 bsb_saturasiOksigen : action.answer
             });
+        case 'RESET_BATUK':
+            return Object.assign({}, state, 
+                initState
+            );
         default:
             return state;
     }

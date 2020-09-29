@@ -43,7 +43,7 @@ const HIV = (props) =>{
 
     const handleSubmit = event =>{
         event.preventDefault();
-        dispatch(FlagChange('FLAG_HIV'));
+        dispatch(FlagChange('FLAG_HIV', true));
         axios.post(`/HIV`, {
             ansHIV: ansHIV
         })

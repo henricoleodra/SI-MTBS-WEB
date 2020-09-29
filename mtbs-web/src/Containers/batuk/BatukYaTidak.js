@@ -41,6 +41,8 @@ const handleSubmit = event =>{
         history.push("Batuk1");
     }
     else{
+        dispatch(FlagChange('FLAG_BATUK', false));
+        dispatch(AnsBatukChange('RESET_BATUK', true));
         dispatch(AnsBatukChange('BATUK', bsb));
         dispatch(KlasifikasiBatukChange('BATUK_KLASIFIKASI', ""));
         dispatch(KlasifikasiBatukChange('BATUK_STATUS', "info"));

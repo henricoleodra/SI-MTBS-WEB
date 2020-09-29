@@ -41,7 +41,7 @@ const Telinga = (props) =>{
 
     const handleSubmit = event =>{
         event.preventDefault();
-        dispatch(FlagChange('FLAG_TELINGA'));
+        dispatch(FlagChange('FLAG_TELINGA', true));
         axios.post(`/Telinga`, {
             ansTelinga: ansTelinga
         })

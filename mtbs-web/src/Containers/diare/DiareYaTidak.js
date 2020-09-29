@@ -7,7 +7,7 @@ import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons
 import '../../Assets/style/style.css';
 
 // Actions
-import { KlasifikasiDiareChange, AnsDiareChange, compStatusChange } from '../../Actions';
+import { KlasifikasiDiareChange, AnsDiareChange, compStatusChange, FlagChange } from '../../Actions';
 
 let outlineColor = {
     borderColor : '#75C9E6'
@@ -39,6 +39,8 @@ const Diare = (props) => {
             history.push("Diare1");
         }
         else{
+            dispatch(FlagChange('FLAG_DIARE', false));
+            dispatch(AnsDiareChange('RESET_DIARE', true));
             dispatch(AnsDiareChange('DIARE', diare));
             dispatch(KlasifikasiDiareChange('DIARE_KLASIFIKASI', ""));
             dispatch(KlasifikasiDiareChange('DIARE_STATUS', "info"));

@@ -13,9 +13,10 @@ export const compStatusChange = (comp) => {
 }
 
 // Flag
-export const FlagChange = (comp) => {
+export const FlagChange = (comp, ans) => {
     return {
-        type: comp
+        type: comp,
+        value: ans
     }
 }
 

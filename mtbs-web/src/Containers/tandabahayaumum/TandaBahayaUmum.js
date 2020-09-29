@@ -39,7 +39,7 @@ const TandaBahayaUmum = (props) => {
 
   const handleSubmit = event =>{
     event.preventDefault();
-    dispatch(FlagChange('FLAG_TBU'));
+    dispatch(FlagChange('FLAG_TBU', true));
     axios.post(`/TBU`, {
       ansTBU : ansTBU
     })

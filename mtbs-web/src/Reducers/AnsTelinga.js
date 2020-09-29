@@ -38,6 +38,10 @@ const ansTelingaReducer = (state = initState, action) => {
             return Object.assign({}, state, {
                 telinga_isBengkak : action.answer
             });
+        case 'RESET_TELINGA':
+            return Object.assign({}, state, 
+                initState
+            );
         default:
             return state;
     }

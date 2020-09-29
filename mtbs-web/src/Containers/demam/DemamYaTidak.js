@@ -8,7 +8,7 @@ import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons
 import '../../Assets/style/style.css';
 
 // Actions
-import { KlasifikasiDemamChange, AnsDemamChange, compStatusChange } from '../../Actions';
+import { KlasifikasiDemamChange, AnsDemamChange, compStatusChange, FlagChange } from '../../Actions';
 
 let outlineColor = {
     borderColor : '#41E8B3'
@@ -40,6 +40,8 @@ const Demam = (props) => {
             history.push("DemamDaerah");
         }
         else{
+            dispatch(FlagChange('FLAG_DEMAM', false));
+            dispatch(AnsDemamChange('RESET_DEMAM', true));
             dispatch(AnsDemamChange('DEMAM', demam));
             dispatch(KlasifikasiDemamChange('DEMAM_KLASIFIKASI', ""));
             dispatch(KlasifikasiDemamChange('DEMAM_STATUS', "info"));

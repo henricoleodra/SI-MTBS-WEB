@@ -23,9 +23,9 @@ const Classifier = ( cur, dispatch, flag, ansTBU, ansBatuk, ansDiare, ansDemam, 
             if(res.data.statusKlasifikasi === 'danger'){
                 dispatch(AnsDemamChange('KLASIFIKASI_TBU', true));
                 dispatch(AnsGiziChange('GIZI_TANDA_BAHAYA_UMUM', true));
-                dispatch(AnsGiziChange('GIZI_KLASIFIKASI_BERAT', (true || ansGizi.gizi_klasifikasiBerat)));
             }
             else{
+                dispatch(AnsGiziChange('GIZI_TANDA_BAHAYA_UMUM', false));
                 dispatch(AnsDemamChange('KLASIFIKASI_TBU', false));
             }
         })
@@ -34,15 +34,18 @@ const Classifier = ( cur, dispatch, flag, ansTBU, ansBatuk, ansDiare, ansDemam, 
         });
     }
     if(flag.batuk === true  && cur !== "batuk") {
-        console.log(flag.batuk);
         axios.post(`/Batuk`, {
             ansBatuk: ansBatuk
         })
         .then(res => {
+            console.log(res.data.hasilKlasifikasi);
             dispatch(KlasifikasiBatukChange('BATUK_KLASIFIKASI', res.data.hasilKlasifikasi));
             dispatch(KlasifikasiBatukChange('BATUK_STATUS', res.data.statusKlasifikasi));
             if(res.data.statusKlasifikasi === "danger" || res.data.statusKlasifikasi === "warning"){
-                dispatch(AnsGiziChange('GIZI_KLASIFIKASI_BERAT', true || ansGizi.gizi_klasifikasiBerat));
+                dispatch(AnsGiziChange('GIZI_BATUK', true));
+            }
+            else{
+                dispatch(AnsGiziChange('GIZI_BATUK', false));
             }
         })
         .catch(err => {
@@ -57,7 +60,10 @@ const Classifier = ( cur, dispatch, flag, ansTBU, ansBatuk, ansDiare, ansDemam, 
             dispatch(KlasifikasiDiareChange('DIARE_KLASIFIKASI', res.data.hasilKlasifikasi));
             dispatch(KlasifikasiDiareChange('DIARE_STATUS', res.data.statusKlasifikasi));
             if(res.data.statusKlasifikasi === "danger" || res.data.statusKlasifikasi === "warning"){
-                dispatch(AnsGiziChange('GIZI_KLASIFIKASI_BERAT', true || ansGizi.gizi_klasifikasiBerat));
+                dispatch(AnsGiziChange('GIZI_DIARE', true));
+            }
+            else{
+                dispatch(AnsGiziChange('GIZI_DIARE', false));
             }
         })
         .catch(err => {
@@ -69,10 +75,14 @@ const Classifier = ( cur, dispatch, flag, ansTBU, ansBatuk, ansDiare, ansDemam, 
             ansDemam: ansDemam
         })
         .then(res => {
+            console.log(res.data.hasilKlasifikasi);
             dispatch(KlasifikasiDemamChange('DEMAM_KLASIFIKASI', res.data.hasilKlasifikasi));
             dispatch(KlasifikasiDemamChange('DEMAM_STATUS', res.data.statusKlasifikasi));
             if(res.data.statusKlasifikasi === "danger" || res.data.statusKlasifikasi === "warning"){
-                dispatch(AnsGiziChange('GIZI_KLASIFIKASI_BERAT', true || ansGizi.gizi_klasifikasiBerat));
+                dispatch(AnsGiziChange('GIZI_DEMAM', true));
+            }
+            else{
+                dispatch(AnsGiziChange('GIZI_DEMAM', false));
             }
         })
         .catch(err => {
@@ -87,7 +97,10 @@ const Classifier = ( cur, dispatch, flag, ansTBU, ansBatuk, ansDiare, ansDemam, 
             dispatch(KlasifikasiTelingaChange('TELINGA_KLASIFIKASI', res.data.hasilKlasifikasi));
             dispatch(KlasifikasiTelingaChange('TELINGA_STATUS', res.data.statusKlasifikasi));
             if(res.data.statusKlasifikasi === "danger" || res.data.statusKlasifikasi === "warning"){
-                dispatch(AnsGiziChange('GIZI_KLASIFIKASI_BERAT', true || ansGizi.gizi_klasifikasiBerat));
+                dispatch(AnsGiziChange('GIZI_TELINGA', true));
+            }
+            else{   
+                dispatch(AnsGiziChange('GIZI_TELINGA', false));
             }
         })
         .catch(err => {

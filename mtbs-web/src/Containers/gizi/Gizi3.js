@@ -139,7 +139,7 @@ const Gizi3 = (props) => {
                                     </Row>
                                 </CardBody>
                             </Card>
-                            <Card style={outlineColor} className="text-center w-75 mt-3" hidden={(ansGizi.gizi_BBmenurutPBAtauTB !== "BB/PB (TB) < -3 SD (Sangat Kurus)" && gizi_lingkarLenganAtas !== "LiLA < 11,5 cm") && (ansGizi.gizi_tandaBahayaUmum !== true && ansGizi.gizi_klasifikasiBerat !== true)}>
+                            <Card style={outlineColor} className="text-center w-75 mt-3" hidden={(ansGizi.gizi_BBmenurutPBAtauTB !== "BB/PB (TB) < -3 SD (Sangat Kurus)" && gizi_lingkarLenganAtas !== "LiLA < 11,5 cm") && (ansGizi.gizi_tandaBahayaUmum !== true && ansGizi.gizi_batuk !== true && ansGizi.gizi_diare !== true && ansGizi.gizi_demam !== true && ansGizi.gizi_telinga !== true)}>
                                 <CardBody>
                                     <CardTitle className="h5"><b>Nilai pemberian ASI pada umur &lt; 6 bulan!  </b>Apakah anak memiliki masalah pemberian ASI?</CardTitle>
                                     <Row className="limitCol">
@@ -148,7 +148,7 @@ const Gizi3 = (props) => {
                                         <Col sm="3">
                                             <FormGroup className="d-inline pr-2">  
                                                 <Label className="rdoBtn">Ya
-                                                <Input type="radio" name="gizi_masalahPemberianASI" value="1" onChange={handleAnswerMasalahPemberianASI} checked={gizi_masalahPemberianASI === true} disabled={(ansGizi.gizi_BBmenurutPBAtauTB !== "BB/PB (TB) < -3 SD (Sangat Kurus)" && gizi_lingkarLenganAtas !== "LiLA < 11,5 cm") && (ansGizi.gizi_tandaBahayaUmum !== true && ansGizi.gizi_klasifikasiBerat !== true)} required/>
+                                                <Input type="radio" name="gizi_masalahPemberianASI" value="1" onChange={handleAnswerMasalahPemberianASI} checked={gizi_masalahPemberianASI === true} disabled={(ansGizi.gizi_BBmenurutPBAtauTB !== "BB/PB (TB) < -3 SD (Sangat Kurus)" && gizi_lingkarLenganAtas !== "LiLA < 11,5 cm") && (ansGizi.gizi_tandaBahayaUmum !== true && ansGizi.gizi_batuk !== true && ansGizi.gizi_diare !== true && ansGizi.gizi_demam !== true && ansGizi.gizi_telinga !== true)} required/>
                                                 <span style={{left:"20px"}} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>
@@ -158,7 +158,7 @@ const Gizi3 = (props) => {
                                         <Col sm="3">
                                             <FormGroup className="d-inline">
                                                 <Label className="rdoBtn">Tidak
-                                                <Input type="radio" name="gizi_masalahPemberianASI" value="2" onChange={handleAnswerMasalahPemberianASI} checked={gizi_masalahPemberianASI === false} disabled={(ansGizi.gizi_BBmenurutPBAtauTB !== "BB/PB (TB) < -3 SD (Sangat Kurus)" && gizi_lingkarLenganAtas !== "LiLA < 11,5 cm") && (ansGizi.gizi_tandaBahayaUmum !== true && ansGizi.gizi_klasifikasiBerat !== true)}/> 
+                                                <Input type="radio" name="gizi_masalahPemberianASI" value="2" onChange={handleAnswerMasalahPemberianASI} checked={gizi_masalahPemberianASI === false} disabled={(ansGizi.gizi_BBmenurutPBAtauTB !== "BB/PB (TB) < -3 SD (Sangat Kurus)" && gizi_lingkarLenganAtas !== "LiLA < 11,5 cm") && (ansGizi.gizi_tandaBahayaUmum !== true && ansGizi.gizi_batuk !== true && ansGizi.gizi_diare !== true && ansGizi.gizi_demam !== true && ansGizi.gizi_telinga !== true)}/> 
                                                 <span style={{left:"0px"}} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>

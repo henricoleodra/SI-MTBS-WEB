@@ -43,10 +43,14 @@ const Demam = (props) => {
             ansDemam: ansDemam
         })
         .then(res => {
+            console.log(res.data.hasilKlasifikasi);
             dispatch(KlasifikasiDemamChange('DEMAM_KLASIFIKASI', res.data.hasilKlasifikasi));
             dispatch(KlasifikasiDemamChange('DEMAM_STATUS', res.data.statusKlasifikasi));
             if(res.data.statusKlasifikasi === "danger" || res.data.statusKlasifikasi === "warning"){
-                dispatch(AnsGiziChange('GIZI_KLASIFIKASI_BERAT', true || ansGizi.gizi_klasifikasiBerat));
+                dispatch(AnsGiziChange('GIZI_DEMAM', true));
+            }
+            else{
+                dispatch(AnsGiziChange('GIZI_DEMAM', false));
             }
         })
         .catch(err => {

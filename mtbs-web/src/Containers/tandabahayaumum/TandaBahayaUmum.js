@@ -49,9 +49,9 @@ const TandaBahayaUmum = (props) => {
       if(res.data.statusKlasifikasi === 'danger'){
         dispatch(AnsDemamChange('KLASIFIKASI_TBU', true));
         dispatch(AnsGiziChange('GIZI_TANDA_BAHAYA_UMUM', true));
-        dispatch(AnsGiziChange('GIZI_KLASIFIKASI_BERAT', (true || ansGizi.gizi_klasifikasiBerat)));
       }
       else{
+        dispatch(AnsGiziChange('GIZI_TANDA_BAHAYA_UMUM', false));
         dispatch(AnsDemamChange('KLASIFIKASI_TBU', false));
       }
     })

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Container, Row, Col } from 'reactstrap';
 
 const Index = ( props ) => {
     let tindakan = props.tindakan.split("\n");
@@ -18,11 +19,13 @@ const Index = ( props ) => {
                 <Col sm={10}>
                     {
                       tindakan.map((tindakan, idx) => {
-                        <Row key={idx}>
-                          <Col sm={12} className="border-right border-top border-left border-bottom">
-                              <h6 className="py-2">{tindakan}</h6>
-                          </Col>
-                        </Row>
+                        return(
+                          <Row key={idx}>
+                            <Col sm={12} className="border-right border-top border-left border-bottom">
+                                <h6 className="py-2">{tindakan}</h6>
+                            </Col>
+                          </Row>
+                        )
                       })
                     }
                 </Col>

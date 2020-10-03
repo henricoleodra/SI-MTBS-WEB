@@ -13,7 +13,7 @@ import { KlasifikasiHIVChange, AnsHIVChange } from '../../Actions';
 import Classifier from '../../Classifier/Classifier';
 
 let outlineColor = {
-    borderColor : '#41E8B3'
+    borderColor : '#46d0fe'
 }
 
 const HIV2 = (props) =>{
@@ -98,7 +98,7 @@ const HIV2 = (props) =>{
                         <FontAwesomeIcon icon={faCircle} className="text-muted"/>
                     </div>
                     <div className="p-2">
-                        <FontAwesomeIcon icon={faCircle} style={{color: '#41E8B3'}}/>
+                        <FontAwesomeIcon icon={faCircle} style={{color: '#46d0fe'}}/>
                     </div>
                     <div className="p-2">
                         <FontAwesomeIcon icon={faCircle} className="text-muted"/>
@@ -108,8 +108,8 @@ const HIV2 = (props) =>{
                     <h3 className="text-center font-weight-bold">HIV</h3>
                     <hr
                     style={{
-                        color: "#41E8B3",
-                        backgroundColor: "#41E8B3",
+                        color: "#46d0fe",
+                        backgroundColor: "#46d0fe",
                         height: 5
                     }}
                     />
@@ -121,8 +121,8 @@ const HIV2 = (props) =>{
                                 <CardTitle className="h5"><b>Tanyakan! </b>Anak memiliki orang tua kandung dan/atau saudara kandung .....</CardTitle>
                                 <hr
                                 style={{
-                                    color: "#41E8B3",
-                                    backgroundColor: "#41E8B3",
+                                    color: "#46d0fe",
+                                    backgroundColor: "#46d0fe",
                                     height: 1
                                 }}
                                 />
@@ -218,10 +218,10 @@ const HIV2 = (props) =>{
             </div>
             <Row className="justify-content-between px-5 py-0">
                 <Col sm="4">
-                    <Link to="HIV1" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/>Sebelumnya</Button></Link>
+                    <Link to="HIV1" style={{textDecoration: "none"}}><Button style={{backgroundColor: '#fe8d3b', border: '0'}} block><FontAwesomeIcon icon={faChevronLeft}/>Sebelumnya</Button></Link>
                 </Col>
                 <Col sm="4">
-                    <Button color="success" type="submit" block>Selanjutnya <FontAwesomeIcon icon={faChevronRight}/></Button>
+                    <Button style={{backgroundColor: '#46d0fe', border: '0'}} type="submit" block>Selanjutnya <FontAwesomeIcon icon={faChevronRight}/></Button>
                 </Col>
             </Row>
         </div>

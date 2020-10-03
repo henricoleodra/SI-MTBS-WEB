@@ -20,7 +20,7 @@ const IsiDataAnak1 = () =>{
     const tmpHari = date.getDay();
     const tmpBulan = date.getMonth();
     const hari = (tmpHari === 1 ? 'Senin' : tmpHari === 2 ? 'Selasa' : tmpHari === 3 ? 'Rabu' : tmpHari === 4 ? 'Kamis' : tmpHari === 5 ? 'Jumat' : tmpHari === 6 ? 'Sabtu' : 'Minggu');
-    const bulan = (tmpBulan === 1 ? 'Januari' : tmpBulan === 2 ? 'Februari' : tmpBulan === 3 ? 'Maret' : tmpBulan === 4 ? 'April' : tmpBulan === 5 ? 'Mei' : tmpBulan === 6 ? 'Juni' : tmpBulan === 7 ? 'Juli' : tmpBulan === 8 ? 'Agustus' : tmpBulan === 9 ? 'September' : tmpBulan === 10 ? 'Oktober' : tmpBulan === 11 ? 'November' : 'Desember');
+    const bulan = (tmpBulan === 0 ? 'Januari' : tmpBulan === 1 ? 'Februari' : tmpBulan === 2 ? 'Maret' : tmpBulan === 3 ? 'April' : tmpBulan === 4 ? 'Mei' : tmpBulan === 5 ? 'Juni' : tmpBulan === 6 ? 'Juli' : tmpBulan === 7 ? 'Agustus' : tmpBulan === 8 ? 'September' : tmpBulan === 9 ? 'Oktober' : tmpBulan === 10 ? 'November' : 'Desember');
     const history = useHistory();
     const dispatch = useDispatch();
     const dataAnak = useSelector(state => state.dataAnak);

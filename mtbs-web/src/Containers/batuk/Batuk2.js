@@ -49,7 +49,10 @@ const Batuk2 = (props) =>{
             dispatch(KlasifikasiBatukChange('BATUK_KLASIFIKASI', res.data.hasilKlasifikasi));
             dispatch(KlasifikasiBatukChange('BATUK_STATUS', res.data.statusKlasifikasi));
             if(res.data.statusKlasifikasi === "danger" || res.data.statusKlasifikasi === "warning"){
-                dispatch(AnsGiziChange('GIZI_KLASIFIKASI_BERAT', true || ansGizi.gizi_klasifikasiBerat));
+                dispatch(AnsGiziChange('GIZI_BATUK', true));
+            }
+            else{
+                dispatch(AnsGiziChange('GIZI_BATUK', false));
             }
         })
         .catch(err => {

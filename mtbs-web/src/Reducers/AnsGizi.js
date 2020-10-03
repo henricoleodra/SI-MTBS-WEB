@@ -5,8 +5,12 @@ const initState = {
     gizi_nilaiSD: null,
     gizi_lingkarLenganAtas: null,
     gizi_masalahPemberianASI: null,
-    gizi_tandaBahayaUmum: null,
-    gizi_klasifikasiBerat: null
+    gizi_tandaBahayaUmum: false,
+    gizi_batuk: false,
+    gizi_diare: false,
+    gizi_demam: false,
+    gizi_telinga: false,
+    gizi_klasifikasiBerat: false
 }
 
 const ansGiziReducer = (state = initState, action) => {
@@ -38,6 +42,18 @@ const ansGiziReducer = (state = initState, action) => {
         case 'GIZI_TANDA_BAHAYA_UMUM':
             return Object.assign({}, state, {
                 gizi_tandaBahayaUmum : action.answer
+            });
+        case 'GIZI_BATUK':
+            return Object.assign({}, state, {
+                gizi_batuk : action.answer
+            });
+        case 'GIZI_DIARE':
+            return Object.assign({}, state, {
+                gizi_diare : action.answer
+            });
+        case 'GIZI_TELINGA':
+            return Object.assign({}, state, {
+                gizi_telinga : action.answer
             });
         case 'GIZI_KLASIFIKASI_BERAT':
             return Object.assign({}, state, {

@@ -42,7 +42,10 @@ const Diare3 = (props) => {
             dispatch(KlasifikasiDiareChange('DIARE_KLASIFIKASI', res.data.hasilKlasifikasi));
             dispatch(KlasifikasiDiareChange('DIARE_STATUS', res.data.statusKlasifikasi));
             if(res.data.statusKlasifikasi === "danger" || res.data.statusKlasifikasi === "warning"){
-                dispatch(AnsGiziChange('GIZI_KLASIFIKASI_BERAT', true || ansGizi.gizi_klasifikasiBerat));
+                dispatch(AnsGiziChange('GIZI_DIARE', true));
+            }
+            else{
+                dispatch(AnsGiziChange('GIZI_DIARE', false));
             }
         })
         .catch(err => {

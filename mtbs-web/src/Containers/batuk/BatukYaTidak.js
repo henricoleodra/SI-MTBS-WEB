@@ -103,10 +103,10 @@ const handleSubmit = event =>{
             </div>
             <Row className="justify-content-between px-5 py-0">
                 <Col sm="4">
-                    <Link to="TandaBahayaUmum1" style={{textDecoration: "none"}}><Button block style={{width: "250px", height : "60px", backgroundColor : '#fe8d3b'}} color="danger"><FontAwesomeIcon icon={faChevronLeft}/> Pemeriksaan Tanda Bahaya Umum</Button></Link>
+                    <Link to="TandaBahayaUmum1" style={{textDecoration: "none"}}><Button block style={{width: "250px", height : "60px", backgroundColor : '#fe8d3b', border: '0'}} color="danger"><FontAwesomeIcon icon={faChevronLeft}/> Pemeriksaan Tanda Bahaya Umum</Button></Link>
                 </Col>
                 <Col sm="4">
-                    <Button type="submit" block style={{width: "250px", height : "60px", backgroundColor : '#46d0fe'}} color="success">Selanjutnya <FontAwesomeIcon icon={faChevronRight}/></Button>
+                    <Button type="submit" block style={{width: "250px", height : "60px", backgroundColor : '#46d0fe', border: '0'}} color="success">Selanjutnya <FontAwesomeIcon icon={faChevronRight}/></Button>
                 </Col>
             </Row>
         </div>

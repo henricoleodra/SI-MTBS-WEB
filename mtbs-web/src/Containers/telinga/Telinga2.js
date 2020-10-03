@@ -42,7 +42,10 @@ const Telinga2 = (props) =>{
             dispatch(KlasifikasiTelingaChange('TELINGA_KLASIFIKASI', res.data.hasilKlasifikasi));
             dispatch(KlasifikasiTelingaChange('TELINGA_STATUS', res.data.statusKlasifikasi));
             if(res.data.statusKlasifikasi === "danger" || res.data.statusKlasifikasi === "warning"){
-                dispatch(AnsGiziChange('GIZI_KLASIFIKASI_BERAT', true || ansGizi.gizi_klasifikasiBerat));
+                dispatch(AnsGiziChange('GIZI_TELINGA', true));
+            }
+            else{   
+                dispatch(AnsGiziChange('GIZI_TELINGA', false));
             }
         })
         .catch(err => {

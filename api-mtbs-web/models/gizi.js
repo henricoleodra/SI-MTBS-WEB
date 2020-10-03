@@ -2,9 +2,10 @@ const Point = require('./point');
 const Interpolator = require('./interpolator');
 
 const classifierGizi = (ansGizi) => {
+    console.log(ansGizi);   
     if( (ansGizi.gizi_tampakSangatKurus === true || ansGizi.gizi_pembengkakanKeduaPunggungKakiAtauTangan === true || 
-        ans.Gizi.gizi_BBmenurutPBAtauTB === "BB/PB (TB) < -3 SD (Sangat Kurus)" || ansGizi.gizi_lingkarLenganAtas === "LiLA < 11,5 cm") &&
-        (ansGizi.gizi_tandaBahayaUmum === true || ansGizi.gizi_klasifikasiBerat === true || ansGizi.gizi_masalahPemberianASI === true)
+        ansGizi.gizi_BBmenurutPBAtauTB === "BB/PB (TB) < -3 SD (Sangat Kurus)" || ansGizi.gizi_lingkarLenganAtas === "LiLA < 11,5 cm") &&
+        (ansGizi.gizi_tandaBahayaUmum === true || ansGizi.gizi_batuk === true || ansGizi.gizi_diare === true || ansGizi.gizi_demam === true || ansGizi.gizi_telinga === true || ansGizi.gizi_masalahPemberianASI === true)
         ){
             const ans = {
                 hasilKlasifikasi: 'Sangat Kurus Dengan Komplikasi',
@@ -12,7 +13,7 @@ const classifierGizi = (ansGizi) => {
             }
             return ans;
     }
-    else if(ansGizi.gizi_tampakSangatKurus === true || ans.Gizi.gizi_BBmenurutPBAtauTB === "BB/PB (TB) < -3 SD (Sangat Kurus)" || ansGizi.gizi_lingkarLenganAtas === "LiLA < 11,5 cm"){
+    else if(ansGizi.gizi_tampakSangatKurus === true || ansGizi.gizi_BBmenurutPBAtauTB === "BB/PB (TB) < -3 SD (Sangat Kurus)" || ansGizi.gizi_lingkarLenganAtas === "LiLA < 11,5 cm"){
         const ans = {
             hasilKlasifikasi: 'Sangat Kurus Tanpa Komplikasi',
             statusKlasifikasi: 'warning', 
@@ -20,7 +21,7 @@ const classifierGizi = (ansGizi) => {
         return ans;
 
     }
-    else if(ans.Gizi.gizi_BBmenurutPBAtauTB === "-3 SD ≥ BB/PB (TB) ≤ -2 SD (Kurus)" || ansGizi.gizi_lingkarLenganAtas === "LiLA < 11,5 cm - < 12,5 cm"){
+    else if(ansGizi.gizi_BBmenurutPBAtauTB === "-3 SD ≥ BB/PB (TB) ≤ -2 SD (Kurus)" || ansGizi.gizi_lingkarLenganAtas === "LiLA < 11,5 cm - < 12,5 cm"){
         const ans = {
             hasilKlasifikasi: 'Kurus',
             statusKlasifikasi: 'warning', 

@@ -9,7 +9,7 @@ import { KlasifikasiPemberianMakananChange, AnsPemberianMakananChange, compStatu
 
 
 let outlineColor = {
-    borderColor : '#75C9E6'
+    borderColor : '#46d0fe '
 }
 
 const PemberianMakanan4 = (props) =>{

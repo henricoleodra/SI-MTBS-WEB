@@ -11,7 +11,7 @@ import '../../Assets/style/style.css';
 import { KlasifikasiVitamin, AnsVitaminChange, compStatusChange } from '../../Actions';
 
 var outlineColor = {
-    borderColor : '#75C9E6'
+    borderColor : '#46d0fe '
 }
 
 const Vitamina = (props) => {

@@ -8,7 +8,7 @@ import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid
 import { KlasifikasiPemberianMakananChange, AnsPemberianMakananChange } from '../../Actions';
 
 let outlineColor = {
-    borderColor : '#75C9E6'
+    borderColor : '#46d0fe '
 }
 
 let bgColor ={

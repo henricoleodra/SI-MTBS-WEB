@@ -9,7 +9,7 @@ import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid
 import { KlasifikasiKeluhanLain, AnsKeluhanLainChange, compStatusChange } from '../../Actions';
 
 let outlineColor = {
-    borderColor : '#75C9E6'
+    borderColor : '#46d0fe '
 }
 
 const Keluhan = (props) =>{

@@ -71,8 +71,8 @@ const Index = (props) =>{
                 <h3 className="text-center font-weight-bold">Klasifikasi</h3>
                 <hr
                 style={{
-                    color: "#41E8B3",
-                    backgroundColor: "#41E8B3",
+                    color: "#46d0fe",
+                    backgroundColor: "#46d0fe",
                     height: 5,
                     width: '95%'
                 }}

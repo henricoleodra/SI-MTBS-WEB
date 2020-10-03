@@ -11,8 +11,8 @@ const Tindakan = (props) => {
                 <h3 className="text-center font-weight-bold">Tindakan</h3>
                 <hr
                     style={{
-                        color: "#41E8B3",
-                        backgroundColor: "#41E8B3",
+                        color: "#46d0fe",
+                        backgroundColor: "#46d0fe",
                         height: 5,
                         width: '95%'
                     }}
@@ -33,18 +33,18 @@ const Tindakan = (props) => {
                     <Row className="pt-3" >
 
                         <Col sm={1} className="bg-success indicator border-left border-top
-                        border-bottom border-right border-dark"></Col>
+                        border-bottom border-right "></Col>
 
                         <Col sm={10}>
                             <Row>
-                                <Col sm={12} className="border-right border-top border-bottom border-dark">
+                                <Col sm={12} className="border-right border-top border-left border-bottom">
                                     <h6 className="py-2">Cari klinik tongfang memberikan solusi terbaik,
                                     Cari klinik tongfang memberikan solusi terbaik
                                     Cari klinik tongfang memberikan solusi terbaik</h6>
                                 </Col>
                             </Row>
                             <Row>
-                                <Col sm={12} className="border-right  border-bottom border-dark">
+                                <Col sm={12} className="border-right border-top border-left border-bottom">
                                     <h6 className="py-2">Cari klinik tongfang memberikan solusi terbaik</h6>
                                 </Col>
                             </Row>
@@ -154,9 +154,21 @@ const Tindakan = (props) => {
             </div>
 
 
-            <div className="d-flex justify-content-center mt-3">
-                <Link to="Klasifikasi"><Button color="danger" >Kembali ke Halaman Klasifikasi</Button></Link>
+            {/* <div className="d-flex justify-content-center mt-3">
+                <Link to="Klasifikasi"><Button style={{backgroundColor: '#fe8d3b', border: '0'}} >Kembali ke Halaman Klasifikasi</Button></Link>
             </div>
+            <div className="d-flex justify-content-center mt-3">
+                <Link to=""><Button style={{backgroundColor: '#46d0fe', border: '0'}} >Akhiri Pemeriksaan</Button></Link>
+            </div> */}
+
+            <Row className="justify-content-between px-5 py-0 mt-5">
+                <Col sm="4">
+                    <Link to="Klasifikasi"><Button style={{backgroundColor: '#fe8d3b', border: '0'}} >Kembali ke Halaman Klasifikasi</Button></Link>
+                </Col>
+                <Col sm="4">
+                    <Link to="../.."><Button style={{backgroundColor: '#46d0fe', border: '0'}} >Akhiri Pemeriksaan</Button></Link>
+                </Col>
+            </Row>
         </div>
     );
 }

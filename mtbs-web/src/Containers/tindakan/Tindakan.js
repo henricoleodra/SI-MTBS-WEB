@@ -1,175 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ListGroup, ListGroupItem, Container, Row, Col, Button } from 'reactstrap';
-// import { Tindakan } from '../../Components'
-// import { useSelector } from 'react-redux';
+import { Row, Button } from 'reactstrap';
+import { Wrapper } from  './style';
 
-const Tindakan = (props) => {
+const Tindakan = ( props ) => {
     return (
-        <div className="d-flex flex-column mt-2">
-            <div className="">
-                <h3 className="text-center font-weight-bold">Tindakan</h3>
-                <hr
-                    style={{
-                        color: "#46d0fe",
-                        backgroundColor: "#46d0fe",
-                        height: 5,
-                        width: '95%'
-                    }}
-                />
-            </div>
+        <Wrapper>
+          <div className="d-flex flex-column mt-2 wrapper-tindakan">
+              <div className="">
+                  <h3 className="text-center font-weight-bold">Tindakan</h3>
+                  <hr className="underline-tindakan"/>
+              </div>
+              
 
-            <div className="d-flex justify-content-center flex-column ml-4">
-                <div>
-                    <h4 className="text-center">Tanda Bahaya Umum</h4>
-                </div>
-                <div>
-                    <h6 className="text-center">Hasil Klasifikasi: Penyakit Sangat Berat</h6>
-                </div>
-            </div>
-
-            <div className="d-flex ">
-                <Container className="ml-5 ">
-                    <Row className="pt-3" >
-
-                        <Col sm={1} className="bg-success indicator border-left border-top
-                        border-bottom border-right "></Col>
-
-                        <Col sm={10}>
-                            <Row>
-                                <Col sm={12} className="border-right border-top border-left border-bottom">
-                                    <h6 className="py-2">Cari klinik tongfang memberikan solusi terbaik,
-                                    Cari klinik tongfang memberikan solusi terbaik
-                                    Cari klinik tongfang memberikan solusi terbaik</h6>
-                                </Col>
-                            </Row>
-                            <Row>
-                                <Col sm={12} className="border-right border-top border-left border-bottom">
-                                    <h6 className="py-2">Cari klinik tongfang memberikan solusi terbaik</h6>
-                                </Col>
-                            </Row>
-                        </Col>
-                    </Row>
-
-                    {/* 
-                    <Row className="">
-
-                        <Col sm={1} className="bg-success indicator border-left border-bottom border-right"></Col>
-
-
-                        <Col sm={9} className="border-right border-bottom border-left border-bottom">
-                            <h6 className="">Cari klinik tongfang memberikan solusi terbaik sampai anda puas, ayo buruan datang
-                            ke klinik tongfang</h6>
-                        </Col>
-
-                    </Row> */}
-                </Container>
-                {/* <Container className="w-75 justify-content-center">
-                    {
-                        klasifikasi.map((tindakan, idx) => {
-                            if (tindakan.flag) {
-                                return <Klasifikasi key={idx} status={tindakan.status} title={tindakan.title} klasifikasi={tindakan.tindakan} />
-                            }
-                            else {
-                                return <></>
-                            }
-                        })
-                    }
-                </Container> */}
-                {/* <ListGroup style={{width: '95%'}}>
-                <ListGroupItem color="danger">Bila sedang kejang beri diazepam</ListGroupItem>
-                <ListGroupItem color="danger">Bila ada stridor pastikan tidak ada sumbatan jalan napas</ListGroupItem>
-                <ListGroupItem color="danger">Bila ada stridor, sianosis dan ujung tangan dan kaki pucat dan dingin berikan 
-                    oksigen 3-5 liter/menit melalui nasai prong dengan perangkat oksigen standar (tabung O2 
-                    dan humidifier)</ListGroupItem>
-                <ListGroupItem color="danger">Cegah agar gula darah tidak turun</ListGroupItem>
-                <ListGroupItem color="danger" className="font-weight-bold">RUJUK SEGERA</ListGroupItem>
-            </ListGroup> */}
-            </div>
-
-            <div className="d-flex justify-content-center flex-column ml-4 mt-4">
-                <div>
-                    <h4 className="text-center">Batuk</h4>
-                </div>
-                <div>
-                    <h6 className="text-center">Hasil Klasifikasi: Pneunomia</h6>
-                </div>
-            </div>
-
-            <div className="d-flex ">
-                <Container className="ml-5 ">
-                    <Row className="pt-3" >
-
-                        <Col sm={1} className="bg-warning indicator border-left border-top border-bottom border-right"></Col>
-
-                        <Col sm={10}>
-                            <Row>
-                                <Col sm={12} className="border-right border-top border-left border-bottom">
-                                    <h6 className="py-2">Cari klinik tongfang memberikan solusi terbaik,
-                                    Cari klinik tongfang memberikan solusi terbaik
-                                    Cari klinik tongfang memberikan solusi terbaik</h6>
-                                </Col>
-                            </Row>
-                            <Row>
-                                <Col sm={12} className="border-right border-top border-left border-bottom">
-                                    <h6 className="py-2">Cari klinik tongfang memberikan solusi terbaik</h6>
-                                </Col>
-                            </Row>
-                        </Col>
-                    </Row>
-                </Container>
-            </div>
-
-            <div className="d-flex justify-content-center flex-column ml-4 mt-4">
-                <div>
-                    <h4 className="text-center">Demam</h4>
-                </div>
-                <div>
-                    <h6 className="text-center">Hasil Klasifikasi: Malaria</h6>
-                </div>
-            </div>
-
-            <div className="d-flex ">
-                <Container className="ml-5 ">
-                    <Row className="pt-3" >
-
-                        <Col sm={1} className="bg-danger indicator border-left border-top border-bottom border-right"></Col>
-
-                        <Col sm={10}>
-                            <Row>
-                                <Col sm={12} className="border-right border-top border-left border-bottom">
-                                    <h6 className="py-2">Cari klinik tongfang memberikan solusi terbaik,
-                                    Cari klinik tongfang memberikan solusi terbaik
-                                    Cari klinik tongfang memberikan solusi terbaik</h6>
-                                </Col>
-                            </Row>
-                            <Row>
-                                <Col sm={12} className="border-right border-top border-left border-bottom">
-                                    <h6 className="py-2">Cari klinik tongfang memberikan solusi terbaik</h6>
-                                </Col>
-                            </Row>
-                        </Col>
-                    </Row>
-                </Container>
-            </div>
-
-
-            {/* <div className="d-flex justify-content-center mt-3">
-                <Link to="Klasifikasi"><Button style={{backgroundColor: '#fe8d3b', border: '0'}} >Kembali ke Halaman Klasifikasi</Button></Link>
-            </div>
-            <div className="d-flex justify-content-center mt-3">
-                <Link to=""><Button style={{backgroundColor: '#46d0fe', border: '0'}} >Akhiri Pemeriksaan</Button></Link>
-            </div> */}
-
-            <Row className="justify-content-between px-5 py-0 mt-5">
-                <Col sm="4">
-                    <Link to="Klasifikasi"><Button style={{backgroundColor: '#fe8d3b', border: '0'}} >Kembali ke Halaman Klasifikasi</Button></Link>
-                </Col>
-                <Col sm="4">
-                    <Link to="../.."><Button style={{backgroundColor: '#46d0fe', border: '0'}} >Akhiri Pemeriksaan</Button></Link>
-                </Col>
-            </Row>
-        </div>
+              <Row className="justify-content-between px-5 py-0 mt-5">
+                <Link to="Klasifikasi"><Button className="button-sebelumnya-tindakan">Kembali ke Halaman Klasifikasi</Button></Link>
+                <Link to="../.."><Button className="button-selanjutnya-tindakan">Akhiri Pemeriksaan</Button></Link>
+              </Row>
+          </div>
+        </Wrapper>
     );
 }
 

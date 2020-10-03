@@ -8,3 +8,4 @@ export { default as Pagination } from './pagination';
 export { default as RiwayatPemeriksaan } from './riwayatpemeriksaan/RiwayatPemeriksaan';
 export { default as SideBar } from './sidebar/SideBar';
 export { default as Summary } from './summary/Summary';
+export { default as Tindakan } from './tindakan';

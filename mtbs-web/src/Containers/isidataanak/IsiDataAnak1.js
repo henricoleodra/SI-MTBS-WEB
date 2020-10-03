@@ -119,11 +119,11 @@ const IsiDataAnak1 = () =>{
                     <div style={{minHeight : "380px"}}>
                         <FormGroup>
                             <Label for="namaAnak">Nama Anak</Label>
-                            <Input type="text" name="namaAnak" id="namaAnak" placeholder="Contoh : John Doe" style={{borderColor : '#41E8B3'}} value={namaAnak} onChange={handleNamaAnak} required/>
+                            <Input type="text" name="namaAnak" id="namaAnak" placeholder="Contoh : John Doe" style={{borderColor : '#46d0fe'}} value={namaAnak} onChange={handleNamaAnak} required/>
                         </FormGroup>
                         <FormGroup>
                             <Label for="namaIbu">Nama Ibu</Label>
-                            <Input type="text" name="namaIbu" id="namaIbu" placeholder="Contoh : Jane Doe" style={{borderColor : '#41E8B3'}} value={namaIbu} onChange={handleNamaIbu} required/>
+                            <Input type="text" name="namaIbu" id="namaIbu" placeholder="Contoh : Jane Doe" style={{borderColor : '#46d0fe'}} value={namaIbu} onChange={handleNamaIbu} required/>
                         </FormGroup>
                         <FormGroup tag="fieldset">
                             <Label>Jenis Kelamin</Label>
@@ -145,9 +145,9 @@ const IsiDataAnak1 = () =>{
                         <FormGroup>
                             <Label for="tanggalLahir">Tanggal Lahir</Label>
                             <InputGroup>
-                                <Input type="date" name="tanggalLahir" id="tanggalLahir" placeholder="Contoh : John Doe" style={{borderColor : '#41E8B3'}} value={tglLahir} onChange={handleTglLahir} required/>
+                                <Input type="date" name="tanggalLahir" id="tanggalLahir" placeholder="Contoh : John Doe" style={{borderColor : '#46d0fe'}} value={tglLahir} onChange={handleTglLahir} required/>
                                 <InputGroupAddon addonType="append">
-                                    <InputGroupText style={{backgroundColor : "#41E8B3", borderColor : "#41E8B3"}}><FontAwesomeIcon icon={faCalendarDay} style={{color: 'white'}}/></InputGroupText>
+                                    <InputGroupText style={{backgroundColor : "#46d0fe", borderColor : "#46d0fe"}}><FontAwesomeIcon icon={faCalendarDay} style={{color: 'white'}}/></InputGroupText>
                                 </InputGroupAddon>
                             </InputGroup>
                         </FormGroup>
@@ -172,7 +172,7 @@ const IsiDataAnak1 = () =>{
                             </Row>
                             <Row>
                                 <Col sm={2}>
-                                    <Input type="select" name="provinsi" id="provinsi" defaultValue={(provinsi==="" ? "Provinsi" : provinsi)} style={{borderColor : '#41E8B3'}}  onChange={handleProvinsi} required>
+                                    <Input type="select" name="provinsi" id="provinsi" defaultValue={(provinsi==="" ? "Provinsi" : provinsi)} style={{borderColor : '#46d0fe'}}  onChange={handleProvinsi} required>
                                         <option defaultChecked disabled>Provinsi</option>
                                         <option value={1}>Aceh</option>
                                         <option value={2}>Bali</option>
@@ -211,24 +211,24 @@ const IsiDataAnak1 = () =>{
                                     </Input>
                                 </Col>
                                 <Col sm={4}>
-                                    <Input type="text" name="alamat" id="alamat" style={{borderColor : '#41E8B3'}} placeholder="Alamat" value={alamat} onChange={handleAlamat} required/>
+                                    <Input type="text" name="alamat" id="alamat" style={{borderColor : '#46d0fe'}} placeholder="Alamat" value={alamat} onChange={handleAlamat} required/>
                                 </Col>
                                 <Col sm={2}>
-                                    <Input type="text" name="rtrw" id="rtrw" style={{borderColor : '#41E8B3'}} placeholder="RT/RW" value={rtrw} onChange={handleRTRW} required/>
+                                    <Input type="text" name="rtrw" id="rtrw" style={{borderColor : '#46d0fe'}} placeholder="RT/RW" value={rtrw} onChange={handleRTRW} required/>
                                 </Col>
                                 <Col sm={2}>
-                                    <Input type="text" name="kelDes" id="kelDes" style={{borderColor : '#41E8B3'}} placeholder="Kelurahan/Desa" value={kelDes} onChange={handleKelDes} required/>
+                                    <Input type="text" name="kelDes" id="kelDes" style={{borderColor : '#46d0fe'}} placeholder="Kelurahan/Desa" value={kelDes} onChange={handleKelDes} required/>
                                 </Col>
                                 <Col sm={2}>
-                                    <Input type="text" name="kotKec" id="kotKec" style={{borderColor : '#41E8B3'}} placeholder="Kota/Kecamatan" value={kotKec} onChange={handleKotKec} required/>
+                                    <Input type="text" name="kotKec" id="kotKec" style={{borderColor : '#46d0fe'}} placeholder="Kota/Kecamatan" value={kotKec} onChange={handleKotKec} required/>
                                 </Col>
                             </Row>
                             
                         </FormGroup>
                     </div>
                     <div className="d-flex justify-content-between mt-4">
-                        <Link to="../MulaiPemeriksaan" style={{textDecoration: "none"}}><Button color="danger">Sebelumnya</Button></Link>
-                        <Button color="success">Selanjutnya</Button>
+                        <Link to="../MulaiPemeriksaan" style={{textDecoration: "none"}}><Button style={{backgroundColor: '#fe8d3b', border: '0'}}>Sebelumnya</Button></Link>
+                        <Button style={{backgroundColor: '#46d0fe', border: '0'}}>Selanjutnya</Button>
                     </div>   
                     
                 </Form>

@@ -108,19 +108,19 @@ const IsiDataAnak2 = () =>{
                             <Col sm={2} className="mt-2"><Label for="suhu">Suhu</Label></Col>
                             <Col sm={3}>
                                 <InputGroup>
-                                    <Input type="number" name="suhu" id="suhu" placeholder="Contoh : 37" style={{borderColor : '#41E8B3'}} min="0" value={suhuAnak} onChange={handleSuhuAnak} required/>
+                                    <Input type="number" min="30" max="50" name="suhu" id="suhu" placeholder="Contoh : 37" style={{borderColor : '#46d0fe'}} value={suhuAnak} onChange={handleSuhuAnak} required/>
                                     <InputGroupAddon addonType="append">
-                                        <InputGroupText style={{backgroundColor : "#41E8B3", borderColor : "#41E8B3"}} className="text-white">°C</InputGroupText>
+                                        <InputGroupText style={{backgroundColor : "#46d0fe", borderColor : "#46d0fe"}} className="text-white">°C</InputGroupText>
                                     </InputGroupAddon>
                                 </InputGroup>
                             </Col>
-                            <Col sm={2} style={{marginTop : "-10px"}}><hr style={{backgroundColor : "#41E8B3", width : "2px", height : "25px"}}/></Col>
+                            <Col sm={2} style={{marginTop : "-10px"}}><hr style={{backgroundColor : "#46d0fe", width : "2px", height : "25px"}}/></Col>
                             <Col sm={2} className="mt-2"><Label for="beratBadan">Berat Badan</Label></Col>
                             <Col sm={3}>
                                 <InputGroup>
-                                    <Input type="number" name="beratBadan" id="beratBadan" placeholder="Contoh : 20" style={{borderColor : '#41E8B3'}} min="0" value={beratAnak} onChange={handleBeratAnak} required/>
+                                    <Input type="number" min="5" max="30" name="beratBadan" id="beratBadan" placeholder="Contoh : 20" style={{borderColor : '#46d0fe'}}  value={beratAnak} onChange={handleBeratAnak} required/>
                                     <InputGroupAddon addonType="append">
-                                        <InputGroupText style={{backgroundColor : "#41E8B3", borderColor : "#41E8B3"}} className="text-white">Kg</InputGroupText>
+                                        <InputGroupText style={{backgroundColor : "#46d0fe", borderColor : "#46d0fe"}} className="text-white">Kg</InputGroupText>
                                     </InputGroupAddon>
                                 </InputGroup>
                             </Col>
@@ -129,19 +129,19 @@ const IsiDataAnak2 = () =>{
                             <Col sm={2} className="mt-2"><Label for="tinggiBadan">Tinggi Badan</Label></Col>
                             <Col sm={3}>
                                 <InputGroup>
-                                    <Input type="number" name="tinggiBadan" id="tinggiBadan" placeholder="Contoh : 50" style={{borderColor : '#41E8B3'}} min="0" value={tinggiAnak} onChange={handleTinggiAnak} required/>
+                                    <Input type="number" min="60" max="120" name="tinggiBadan" id="tinggiBadan" placeholder="Contoh : 70" style={{borderColor : '#46d0fe'}} value={tinggiAnak} onChange={handleTinggiAnak} required/>
                                     <InputGroupAddon addonType="append">
-                                        <InputGroupText style={{backgroundColor : "#41E8B3", borderColor : "#41E8B3"}} className="text-white">Cm</InputGroupText>
+                                        <InputGroupText style={{backgroundColor : "#46d0fe", borderColor : "#46d0fe"}} className="text-white">Cm</InputGroupText>
                                     </InputGroupAddon>
                                 </InputGroup>
                             </Col>
-                            <Col sm={2} style={{marginTop : "-10px"}}><hr style={{backgroundColor : "#41E8B3", width : "2px", height : "25px"}}/></Col>
+                            <Col sm={2} style={{marginTop : "-10px"}}><hr style={{backgroundColor : "#46d0fe", width : "2px", height : "25px"}}/></Col>
                             <Col sm={2} className="mt-2"><Label for="kunjungan">Kunjungan Ke</Label></Col>
                             <Col sm={3}>
                                 <InputGroup>
-                                    <Input type="number" name="kunjungan" id="kunjungan" placeholder="Contoh : 1" style={{borderColor : '#41E8B3'}} min="0" value={kunjunganKe} onChange={handleKunjunganKe} required/>
+                                    <Input type="number" name="kunjungan" id="kunjungan" placeholder="Contoh : 1" style={{borderColor : '#46d0fe'}} min="0" value={kunjunganKe} onChange={handleKunjunganKe} required/>
                                     <InputGroupAddon addonType="append">
-                                        <InputGroupText style={{backgroundColor : "#41E8B3", borderColor : "#41E8B3"}}><FontAwesomeIcon icon={faRunning} style={{color: 'white'}}/></InputGroupText>
+                                        <InputGroupText style={{backgroundColor : "#46d0fe", borderColor : "#46d0fe"}}><FontAwesomeIcon icon={faRunning} style={{color: 'white'}}/></InputGroupText>
                                     </InputGroupAddon>
                                 </InputGroup>
                             </Col>
@@ -151,22 +151,22 @@ const IsiDataAnak2 = () =>{
                             <Row>
                                 <Col sm={5}>
                                     <InputGroup>
-                                        <Input type="text" name="cariKeluhan" id="cariKeluhan" placeholder="Contoh : Batuk" style={{borderColor : '#41E8B3'}} value={pencarianKeluhan} onChange={handlePencarianKeluhan} onKeyPress={handleEnter}/>
+                                        <Input type="text" name="cariKeluhan" id="cariKeluhan" placeholder="Contoh : Batuk" style={{borderColor : '#46d0fe'}} value={pencarianKeluhan} onChange={handlePencarianKeluhan} onKeyPress={handleEnter}/>
                                         <InputGroupAddon addonType="append">
-                                            <InputGroupText style={{backgroundColor : "#41E8B3", borderColor : "#41E8B3"}}><FontAwesomeIcon icon={faSearch} style={{color: 'white'}}/></InputGroupText>
+                                            <InputGroupText style={{backgroundColor : "#46d0fe", borderColor : "#46d0fe"}}><FontAwesomeIcon icon={faSearch} style={{color: 'white'}}/></InputGroupText>
                                         </InputGroupAddon>
                                     </InputGroup>
                                 </Col>
                                 <Col sm={7}>
-                                    <Input type="textarea" name="keluhanLain" id="keluhanLain" style={{height : "180px", borderColor : "#41E8B3"}} onChange={hanldeKeluhanAwal} value={keluhanAwal} required/>
+                                    <Input type="textarea" name="keluhanLain" id="keluhanLain" style={{height : "180px", borderColor : "#46d0fe"}} onChange={hanldeKeluhanAwal} value={keluhanAwal} required/>
                                 </Col>
                             </Row>
                         </FormGroup>
                     </div>
                     
                     <div className="d-flex justify-content-between mt-4">
-                        <Link to="1" style={{textDecoration: "none"}}><Button color="danger">Sebelumnya</Button></Link>
-                        <Button color="success">Selanjutnya</Button>
+                        <Link to="1" style={{textDecoration: "none"}}><Button style={{backgroundColor: '#fe8d3b', border: '0'}}>Sebelumnya</Button></Link>
+                        <Button style={{backgroundColor: '#46d0fe', border: '0'}}>Selanjutnya</Button>
                     </div>   
                     
                 </Form>

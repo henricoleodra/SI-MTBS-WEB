@@ -158,7 +158,7 @@ const Gizi3 = (props) => {
                                         <Col sm="3">
                                             <FormGroup className="d-inline">
                                                 <Label className="rdoBtn">Tidak
-                                                <Input type="radio" name="gizi_masalahPemberianASI" value="2" onChange={handleAnswerMasalahPemberianASI} checked={gizi_masalahPemberianASI === false} /> 
+                                                <Input type="radio" name="gizi_masalahPemberianASI" value="2" onChange={handleAnswerMasalahPemberianASI} checked={gizi_masalahPemberianASI === false} disabled={(ansGizi.gizi_BBmenurutPBAtauTB !== "BB/PB (TB) < -3 SD (Sangat Kurus)" && gizi_lingkarLenganAtas !== "LiLA < 11,5 cm") && (ansGizi.gizi_tandaBahayaUmum !== true && ansGizi.gizi_klasifikasiBerat !== true)}/> 
                                                 <span style={{left:"0px"}} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>

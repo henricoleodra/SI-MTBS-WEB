@@ -227,10 +227,10 @@ const Diare2 = (props) => {
             </div>
             <Row className="justify-content-between px-5 py-0">
                 <Col sm="4">
-                    <Link to="Diare1" style={{textDecoration: "none"}}><Button style={{backgroundColor: '#fe8d3b', border: '0'}} block><FontAwesomeIcon icon={faChevronLeft}/> Sebelumnya</Button></Link>
+                    <Link to="Diare1" style={{textDecoration: "none"}}><Button style={{backgroundColor: '#fe8d3b'}} block><FontAwesomeIcon icon={faChevronLeft}/> Sebelumnya</Button></Link>
                 </Col>
                 <Col sm="4">
-                    <Button type="submit" style={{backgroundColor: '#46d0fe', border: '0'}} block>Selanjutnya <FontAwesomeIcon icon={faChevronRight}/></Button>
+                    <Button type="submit" style={{backgroundColor: '#46d0fe'}} block>Selanjutnya <FontAwesomeIcon icon={faChevronRight}/></Button>
                 </Col>
             </Row>
         </div>

@@ -48,7 +48,7 @@ const Keluhan = (props) =>{
                 <div className="col-12">
                 <div className="d-flex justify-content-center mt-3">
                     <div className="p-2">
-                        <FontAwesomeIcon icon={faCircle} style={{color: '#41E8B3'}}/>
+                        <FontAwesomeIcon icon={faCircle} style={{color: '#46d0fe '}}/>
                     </div>
                 </div>
                 <div className="mt-2">
@@ -56,7 +56,7 @@ const Keluhan = (props) =>{
                     <hr
                     style={{
                         color: "#41E8B3",
-                        backgroundColor: "#41E8B3",
+                        backgroundColor: "#46d0fe ",
                         height: 5
                     }}
                     />
@@ -107,10 +107,10 @@ const Keluhan = (props) =>{
 
             <Row className="justify-content-between px-5 py-0">
                 <Col sm="4">
-                    <Link to="VitaminA" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/>Pemberian Vitamin A</Button></Link>
+                    <Link to="VitaminA" style={{textDecoration: "none"}}><Button style={{backgroundColor: '#fe8d3b', border: '0'}} block><FontAwesomeIcon icon={faChevronLeft}/>Pemberian Vitamin A</Button></Link>
                 </Col>
                 <Col sm="4">
-                    <Button color="success" type="submit" block>Pemeriksaan Pemberian Makanan <FontAwesomeIcon icon={faChevronRight}/></Button>
+                    <Button style={{backgroundColor: '#46d0fe ', border: '0'}} type="submit" block>Pemeriksaan Pemberian Makanan <FontAwesomeIcon icon={faChevronRight}/></Button>
                 </Col>
             </Row>
         </div>

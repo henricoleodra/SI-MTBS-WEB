@@ -98,7 +98,7 @@ const Gizi = (props) => {
                         <h3 className="text-center font-weight-bold">Status Gizi</h3>
                         <hr
                         style={{
-                            color: "#41E8B3",
+                            color: "#46d0fe",
                             backgroundColor: "#46d0fe",
                             height: 5
                         }}

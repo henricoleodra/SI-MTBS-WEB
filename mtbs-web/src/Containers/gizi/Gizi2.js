@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 
 var outlineColor = {
-    borderColor: '#41E8B3'
+    borderColor: '#46d0fe'
 }
 
 const Gizi2 = (props) => {
@@ -37,7 +37,7 @@ const Gizi2 = (props) => {
                         <h3 className="text-center font-weight-bold">Status Gizi</h3>
                         <hr
                         style={{
-                            color: "#41E8B3",
+                            color: "#46d0fe",
                             backgroundColor: "#46d0fe",
                             height: 5
                         }}

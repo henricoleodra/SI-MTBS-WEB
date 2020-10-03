@@ -9,7 +9,7 @@ import { KlasifikasiGiziChange, AnsGiziChange, compStatusChange } from '../../Ac
 import Classifier from '../../Classifier/Classifier';
 
 var outlineColor = {
-    borderColor: '#41E8B3'
+    borderColor: '#46d0fe'
 }
 
 const Gizi3 = (props) => {

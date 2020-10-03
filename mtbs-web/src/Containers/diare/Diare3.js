@@ -14,7 +14,7 @@ import Classifier from '../../Classifier/Classifier';
 import '../../Assets/style/style.css';
 
 let outlineColor = {
-    borderColor : '#75C9E6'
+    borderColor : '#46d0fe'
 }
 
 const Diare3 = (props) => {
@@ -100,15 +100,15 @@ const Diare3 = (props) => {
                         <FontAwesomeIcon icon={faCircle} className="text-muted"/>
                     </div> 
                     <div className="p-2">
-                        <FontAwesomeIcon icon={faCircle} style={{color: '#75C9E6'}}/>
+                        <FontAwesomeIcon icon={faCircle} style={{color: '#46d0fe'}}/>
                     </div> 
                 </div>
                 <div className="mt-2">
                     <h3 className="text-center font-weight-bold">Diare</h3>
                     <hr
                     style={{
-                        color: "#75C9E6",
-                        backgroundColor: "#75C9E6",
+                        color: "#46d0fe",
+                        backgroundColor: "#46d0fe",
                         height: 5
                     }}
                     />
@@ -180,10 +180,10 @@ const Diare3 = (props) => {
             </div>
             <Row className="justify-content-between px-5 py-0">
                 <Col sm="4">
-                    <Link to="Diare2" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Sebelumnya</Button></Link>
+                    <Link to="Diare2" style={{textDecoration: "none"}}><Button style={{backgroundColor: '#fe8d3b', border: '0'}} block><FontAwesomeIcon icon={faChevronLeft}/> Sebelumnya</Button></Link>
                 </Col>
                 <Col sm="4">
-                    <Button type="submit" color="success" block> Pemeriksaan Demam <FontAwesomeIcon icon={faChevronRight}/></Button>
+                    <Button type="submit" style={{backgroundColor: '#46d0fe', border: '0'}} block> Pemeriksaan Demam <FontAwesomeIcon icon={faChevronRight}/></Button>
                 </Col>
             </Row>
         </div>

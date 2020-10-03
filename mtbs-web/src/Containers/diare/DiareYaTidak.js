@@ -10,7 +10,7 @@ import '../../Assets/style/style.css';
 import { KlasifikasiDiareChange, AnsDiareChange, compStatusChange, FlagChange } from '../../Actions';
 
 let outlineColor = {
-    borderColor : '#75C9E6'
+    borderColor : '#46d0fe'
 }
 
 const Diare = (props) => {
@@ -56,8 +56,8 @@ const Diare = (props) => {
                         <h3 className="text-center font-weight-bold">Diare</h3>
                         <hr
                         style={{
-                            color: "#75C9E6",
-                            backgroundColor: "#75C9E6",
+                            color: "#46d0fe",
+                            backgroundColor: "#46d0fe",
                             height: 5
                         }}
                         />
@@ -98,10 +98,10 @@ const Diare = (props) => {
             </div>
             <Row className="justify-content-between px-5 py-0">
                 <Col sm="4">
-                    <Link to="BatukYaTidak" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Pemeriksaan Batuk</Button></Link>
+                    <Link to="BatukYaTidak" style={{textDecoration: "none"}}><Button style={{backgroundColor: '#fe8d3b', border: '0'}} block><FontAwesomeIcon icon={faChevronLeft}/> Pemeriksaan Batuk</Button></Link>
                 </Col>
                 <Col sm="4">
-                    <Button color="success" block>Selanjutnya <FontAwesomeIcon icon={faChevronRight}/></Button>
+                    <Button style={{backgroundColor: '#46d0fe', border: '0'}} block>Selanjutnya <FontAwesomeIcon icon={faChevronRight}/></Button>
                 </Col>
             </Row>
         </div>

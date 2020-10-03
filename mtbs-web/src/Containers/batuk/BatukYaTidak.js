@@ -11,7 +11,7 @@ import '../../Assets/style/style.css';
 import { KlasifikasiBatukChange, AnsBatukChange, compStatusChange, FlagChange } from '../../Actions';
 
 let outlineColor = {
-    borderColor : '#75C9E6'
+    borderColor : '#46d0fe'
 }
 
 
@@ -59,8 +59,8 @@ const handleSubmit = event =>{
                         <h3 className="text-center font-weight-bold">Batuk / Sukar Bernafas</h3>
                         <hr
                         style={{
-                            color: "#75C9E6",
-                            backgroundColor: "#75C9E6",
+                            color: "#46d0fe",
+                            backgroundColor: "#46d0fe",
                             height: 5
                         }}
                         />
@@ -103,10 +103,10 @@ const handleSubmit = event =>{
             </div>
             <Row className="justify-content-between px-5 py-0">
                 <Col sm="4">
-                    <Link to="TandaBahayaUmum1" style={{textDecoration: "none"}}><Button block style={{width: "250px", height : "60px"}} color="danger"><FontAwesomeIcon icon={faChevronLeft}/> Pemeriksaan Tanda Bahaya Umum</Button></Link>
+                    <Link to="TandaBahayaUmum1" style={{textDecoration: "none"}}><Button block style={{width: "250px", height : "60px", backgroundColor : '#fe8d3b'}} color="danger"><FontAwesomeIcon icon={faChevronLeft}/> Pemeriksaan Tanda Bahaya Umum</Button></Link>
                 </Col>
                 <Col sm="4">
-                    <Button type="submit" block style={{width: "250px", height : "60px"}} color="success">Selanjutnya <FontAwesomeIcon icon={faChevronRight}/></Button>
+                    <Button type="submit" block style={{width: "250px", height : "60px", backgroundColor : '#46d0fe'}} color="success">Selanjutnya <FontAwesomeIcon icon={faChevronRight}/></Button>
                 </Col>
             </Row>
         </div>

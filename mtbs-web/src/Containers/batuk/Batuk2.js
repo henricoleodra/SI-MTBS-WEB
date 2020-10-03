@@ -14,11 +14,11 @@ import Classifier from '../../Classifier/Classifier';
 import '../../Assets/style/style.css';
 
 let outlineColor = {
-    borderColor : '#75C9E6'
+    borderColor : '#46d0fe'
 }
 
 let bgColor ={
-    backgroundColor : '#75C9E6',
+    backgroundColor : '#46d0fe',
     color: 'white'
 }
 
@@ -97,15 +97,15 @@ const Batuk2 = (props) =>{
                         <FontAwesomeIcon icon={faCircle} className="text-muted"/>
                     </div>
                     <div className="p-2">
-                        <FontAwesomeIcon icon={faCircle} style={{color: '#75C9E6'}}/>
+                        <FontAwesomeIcon icon={faCircle} style={{color: '#46d0fe'}}/>
                     </div> 
                 </div>
                 <div className="mt-2">
                     <h3 className="text-center font-weight-bold">Batuk / Sukar Bernafas</h3>
                     <hr
                     style={{
-                        color: "#75C9E6",
-                        backgroundColor: "#75C9E6",
+                        color: "#46d0fe",
+                        backgroundColor: "#46d0fe",
                         height: 5
                     }}
                     />
@@ -158,10 +158,10 @@ const Batuk2 = (props) =>{
             </div>
             <Row className="justify-content-between px-5 py-0">
                 <Col sm="4">
-                    <Link to="Batuk1" style={{textDecoration: "none"}}><Button block color="danger" ><FontAwesomeIcon icon={faChevronLeft}/> Sebelumnya</Button></Link>
+                    <Link to="Batuk1" style={{textDecoration: "none"}}><Button block style={{backgroundColor: '#fe8d3b', border: '0'}} ><FontAwesomeIcon icon={faChevronLeft}/> Sebelumnya</Button></Link>
                 </Col>
                 <Col sm="4">
-                   <Button type="submit" color="success" block>Pemeriksaan Diare <FontAwesomeIcon icon={faChevronRight}/></Button>
+                   <Button type="submit" style={{backgroundColor: '#46d0fe', border: '0'}} block>Pemeriksaan Diare <FontAwesomeIcon icon={faChevronRight}/></Button>
                 </Col>
             </Row>
         </div>

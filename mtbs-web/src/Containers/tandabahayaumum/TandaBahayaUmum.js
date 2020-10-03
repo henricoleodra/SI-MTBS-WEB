@@ -15,7 +15,7 @@ import Classifier from '../../Classifier/Classifier';
 import '../../Assets/style/style.css';
 
 var outlineColor = {
-  borderColor : '#41E8B3'
+  borderColor : '#46d0fe'
 }
 
 const TandaBahayaUmum = (props) => {
@@ -120,7 +120,7 @@ const TandaBahayaUmum = (props) => {
         <div className="col-12" >
           <div className="d-flex justify-content-center mt-3">
             <div className="p-2">
-              <FontAwesomeIcon icon={faCircle} style={{color: '#41E8B3'}}/>
+              <FontAwesomeIcon icon={faCircle} style={{color: '#46d0fe'}}/>
             </div>
             <div className="p-2">
               <FontAwesomeIcon icon={faCircle} className="text-muted"/>
@@ -130,7 +130,7 @@ const TandaBahayaUmum = (props) => {
             <h3 className="text-center font-weight-bold">Tanda Bahaya Umum</h3>
             <hr
               style={{
-                  backgroundColor: "#41E8B3",
+                  backgroundColor: "#46d0fe",
                   height: 5
               }}
             />
@@ -258,10 +258,10 @@ const TandaBahayaUmum = (props) => {
           
           <Row className="justify-content-between px-5 py-0">
             <Col sm="4">
-              <Link to="../IsiDataAnak/1" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Data Anak</Button></Link>
+              <Link to="../IsiDataAnak/1" style={{textDecoration: "none"}}><Button style={{backgroundColor: '#fe8d3b', border: '0'}} block><FontAwesomeIcon icon={faChevronLeft}/> Data Anak</Button></Link>
             </Col>
             <Col sm="4">
-              <Button type="submit" color="success" block>Selanjutnya <FontAwesomeIcon icon={faChevronRight}/></Button>
+              <Button type="submit" style={{backgroundColor: '#46d0fe', border: '0'}} block>Selanjutnya <FontAwesomeIcon icon={faChevronRight}/></Button>
             </Col>
           </Row>
         </div>

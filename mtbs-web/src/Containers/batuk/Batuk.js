@@ -14,11 +14,11 @@ import '../../Assets/style/style.css';
 import Classifier from '../../Classifier/Classifier';
 
 let outlineColor = {
-    borderColor : '#75C9E6'
+    borderColor : '#46d0fe'
 }
 
 let bgColor ={
-    backgroundColor : '#75C9E6',
+    backgroundColor : '#46d0fe',
     color: 'white'
 }
 
@@ -124,7 +124,7 @@ const Batuk = (props) => {
                 <div className="col-12">
                 <div className="d-flex justify-content-center mt-3">
                     <div className="p-2">
-                        <FontAwesomeIcon icon={faCircle} style={{color: '#75C9E6'}}/>
+                        <FontAwesomeIcon icon={faCircle} style={{color: '#46d0fe'}}/>
                     </div>
                     <div className="p-2">
                         <FontAwesomeIcon icon={faCircle} className="text-muted"/>
@@ -134,8 +134,8 @@ const Batuk = (props) => {
                     <h3 className="text-center font-weight-bold">Batuk / Sukar Bernafas</h3>
                     <hr
                     style={{
-                        color: "#75C9E6",
-                        backgroundColor: "#75C9E6",
+                        color: "#46d0fe",
+                        backgroundColor: "#46d0fe",
                         height: 5
                     }}
                     />
@@ -203,10 +203,10 @@ const Batuk = (props) => {
             </div>
             <Row className="justify-content-between px-5 py-0">
                 <Col sm="4">
-                    <Link to="BatukYaTidak" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Sebelumnya</Button></Link>
+                    <Link to="BatukYaTidak" style={{textDecoration: "none"}}><Button style={{backgroundColor: '#fe8d3b', border: '0'}} block><FontAwesomeIcon icon={faChevronLeft}/> Sebelumnya</Button></Link>
                 </Col>
                 <Col sm="4">
-                    <Button type="submit" color="success" block>Selanjutnya <FontAwesomeIcon icon={faChevronRight}/></Button>
+                    <Button type="submit" style={{backgroundColor: '#46d0fe', border: '0'}} block>Selanjutnya <FontAwesomeIcon icon={faChevronRight}/></Button>
                 </Col>
             </Row>
         </div>

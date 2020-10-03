@@ -24,10 +24,10 @@ const DemamPerhatian = (props) => {
             </div>
             <Row className="justify-content-between px-5 py-0">
                 <Col sm="4">
-                    <Link to="DemamDaerah" style={{textDecoration: "none"}}><Button block color="danger"><FontAwesomeIcon icon={faChevronLeft}/> Sebelumnya</Button></Link>
+                    <Link to="DemamDaerah" style={{textDecoration: "none"}}><Button block style={{backgroundColor: '#fe8d3b', border: '0'}}><FontAwesomeIcon icon={faChevronLeft}/> Sebelumnya</Button></Link>
                 </Col>
                 <Col sm="4">
-                    <Link to="Demam1" style={{textDecoration: "none"}}><Button block color="success">Selanjutnya <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
+                    <Link to="Demam1" style={{textDecoration: "none"}}><Button block style={{backgroundColor: '#46d0fe', border: '0'}}>Selanjutnya <FontAwesomeIcon icon={faChevronRight}/></Button></Link>
                 </Col>
             </Row>
         </Form>

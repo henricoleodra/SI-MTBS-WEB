@@ -5,10 +5,11 @@ import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBaby } from '@fortawesome/free-solid-svg-icons';
 import SideBarItem from './sidebarItem/SideBarItem'
+import { Wrapper } from './style';
 import '../../Assets/style/style.css';
 
 let bgColor = {
-    backgroundColor: '#41E8B3'
+    backgroundColor: '#46d0fe'
 } 
 
 let bold = {
@@ -140,71 +141,73 @@ const SideBar = (props) => {
 
 
     return (
-        <div style={{backgroundColor: '#F8F9FB', minHeight : '100vh'}} className="w-25 p-0">
-            <Nav vertical className="w-100">
-                <NavItem>
-                    <NavLink href="#" className="btn btn-light text-left pr-0 pl-0 pt-2 pb-0" id="tindakan" style={{backgroundColor:'#41E8B3'}} onClick={toggle}>
-                        <Row className="">
-                            <Col sm="2" className="mt-1">
-                                <FontAwesomeIcon icon={faBaby} className="fa-3x"/>
-                            </Col>
-                            <Col sm="10" className="">
-                                <div>
-                                    <Label>Nama Anak :</Label> <strong>{dataAnak.namaAnak}</strong>
-                                </div>
-                                <div>
-                                    <Label>Click disini untuk Detail Anak!</Label> 
-                                </div>
-                            </Col> 
-                        </Row>
-                    </NavLink>
-                </NavItem>
-                {renderSideBar}
-                <NavItem>
-                    <NavLink className="btn pb-1 pt-1 btn-light text-left" id="klasifikasi" tag={Link} active={props.location === 'Klasifikasi'} to="Klasifikasi" >
-                        <Row className="">
-                            <Col xs="12 pl-2 pr-0">
-                                <span className="text-left fontSideBar">Klasifikasi</span>
-                            </Col>
-                        </Row>
-                    </NavLink>
-                </NavItem>
-                <NavItem>
-                    <NavLink className="btn pb-1 pt-1 btn-light text-left" id="tindakan" tag={Link} disabled={compStatus.tindakan} to="">
-                        <Row className="">
-                            <Col xs="12 pl-2 pr-0">
-                                <span className="text-left fontSideBar">Tindakan</span>
-                            </Col>
-                        </Row>
-                    </NavLink>
-                </NavItem>
-            </Nav> 
+        <Wrapper className="w-25">
+            <div className="wrapper-sidebar p-0">
+                <Nav vertical className="w-100">
+                    <NavItem>
+                        <NavLink href="#" className="btn btn-light text-left pr-0 pl-0 pt-2 pb-0" style={{backgroundColor: '#46d0fe'}} onClick={toggle}>
+                            <Row className="">
+                                <Col sm="2" className="mt-1">
+                                    <FontAwesomeIcon icon={faBaby} className="fa-3x"/>
+                                </Col>
+                                <Col sm="10" className="">
+                                    <div>
+                                        <Label>Nama Anak :</Label> <strong>{dataAnak.namaAnak}</strong>
+                                    </div>
+                                    <div>
+                                        <Label>Click disini untuk Detail Anak!</Label> 
+                                    </div>
+                                </Col> 
+                            </Row>
+                        </NavLink>
+                    </NavItem>
+                    {renderSideBar}
+                    <NavItem>
+                        <NavLink className="btn pb-1 pt-1 btn-light text-left" id="klasifikasi" tag={Link} active={props.location === 'Klasifikasi'} to="Klasifikasi" >
+                            <Row className="">
+                                <Col xs="12 pl-2 pr-0">
+                                    <span className="text-left fontSideBar">Klasifikasi</span>
+                                </Col>
+                            </Row>
+                        </NavLink>
+                    </NavItem>
+                    <NavItem>
+                        <NavLink className="btn pb-1 pt-1 btn-light text-left" id="tindakan" tag={Link} disabled={compStatus.tindakan} to="">
+                            <Row className="">
+                                <Col xs="12 pl-2 pr-0">
+                                    <span className="text-left fontSideBar">Tindakan</span>
+                                </Col>
+                            </Row>
+                        </NavLink>
+                    </NavItem>
+                </Nav> 
 
-            <Modal isOpen={modal} toggle={toggle} size="lg" centered>
-                <ModalHeader toggle={toggle} style={bgColor}>Profile Anak</ModalHeader>
-                <ModalBody className="d-flex">
-                    <div>
-                        <div><Label style={bold}>Nama Anak :</Label> {dataAnak.namaAnak}</div>
-                        <div><Label style={bold}>Nama Ibu :</Label> {dataAnak.namaIbu}</div>
-                        <div><Label style={bold}>Jenis Kelamin :</Label> {jenisKelamin}</div>
-                        <div><Label style={bold}>Tanggal Lahir: </Label> {dataAnak.tglLahir}</div>
-                        <div><Label style={bold}>Umur: </Label> {dataAnak.displayUmurAnak}</div>
-                        <div><Label style={bold}>Suhu: </Label> {dataAnak.suhuAnak} °C</div>
-                    </div>
-                    <hr style={{backgroundColor: '#75C9E6', width: 1, height: "20vh"}} className="ml-5 mr-5"/>
-                    <div className="ml-0">
-                        <div><Label style={bold}>Berat Badan: </Label> {dataAnak.beratAnak} Kg</div>
-                        <div><Label style={bold}>Tinggi Badan: </Label> {dataAnak.tinggiAnak} cm</div>
-                        <div><Label style={bold}>Keluhan Anak: </Label> {dataAnak.keluhanAwal}</div>
-                        <div><Label style={bold}>Kunjungan Ke: </Label> {dataAnak.kunjunganKe}</div>
-                        <div><Label style={bold}>Alamat: </Label> {dataAnak.alamatAnak}</div>
-                    </div>
-                </ModalBody>
-                <ModalFooter className="d-flex justify-content-center">
-                    <Button color="danger" onClick={toggle}>Tutup</Button>{' '}
-                </ModalFooter>
-            </Modal>
-        </div> 
+                <Modal isOpen={modal} toggle={toggle} size="lg" centered>
+                    <ModalHeader toggle={toggle} style={bgColor}>Profile Anak</ModalHeader>
+                    <ModalBody className="d-flex">
+                        <div>
+                            <div><Label style={bold}>Nama Anak :</Label> {dataAnak.namaAnak}</div>
+                            <div><Label style={bold}>Nama Ibu :</Label> {dataAnak.namaIbu}</div>
+                            <div><Label style={bold}>Jenis Kelamin :</Label> {jenisKelamin}</div>
+                            <div><Label style={bold}>Tanggal Lahir: </Label> {dataAnak.tglLahir}</div>
+                            <div><Label style={bold}>Umur: </Label> {dataAnak.displayUmurAnak}</div>
+                            <div><Label style={bold}>Suhu: </Label> {dataAnak.suhuAnak} °C</div>
+                        </div>
+                        <hr style={{backgroundColor: '#75C9E6', width: 1, height: "20vh"}} className="ml-5 mr-5"/>
+                        <div className="ml-0">
+                            <div><Label style={bold}>Berat Badan: </Label> {dataAnak.beratAnak} Kg</div>
+                            <div><Label style={bold}>Tinggi Badan: </Label> {dataAnak.tinggiAnak} cm</div>
+                            <div><Label style={bold}>Keluhan Anak: </Label> {dataAnak.keluhanAwal}</div>
+                            <div><Label style={bold}>Kunjungan Ke: </Label> {dataAnak.kunjunganKe}</div>
+                            <div><Label style={bold}>Alamat: </Label> {dataAnak.alamatAnak}</div>
+                        </div>
+                    </ModalBody>    
+                    <ModalFooter className="d-flex justify-content-center">
+                        <Button style={{backgroundColor: '#fe8d3b', border: '0'}} onClick={toggle}>Tutup</Button>{' '}
+                    </ModalFooter>
+                </Modal>
+            </div> 
+        </Wrapper>
     );
 }
 

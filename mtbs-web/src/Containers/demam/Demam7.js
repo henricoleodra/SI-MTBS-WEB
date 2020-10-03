@@ -14,7 +14,7 @@ import Classifier from '../../Classifier/Classifier';
 import '../../Assets/style/style.css';
 
 var outlineColor = {
-    borderColor: '#41E8B3'
+    borderColor: '#46d0fe'
 }
 
 const Demam = (props) => {
@@ -116,7 +116,7 @@ const Demam = (props) => {
                             <FontAwesomeIcon icon={faCircle} className="text-muted" />
                         </div>
                         <div className="p-2">
-                            <FontAwesomeIcon icon={faCircle} style={{ color: '#41E8B3' }} />
+                            <FontAwesomeIcon icon={faCircle} style={{ color: '#46d0fe' }} />
                         </div>
                         <div className="p-2">
                             <FontAwesomeIcon icon={faCircle} className="text-muted" />
@@ -129,8 +129,8 @@ const Demam = (props) => {
                         <h3 className="text-center font-weight-bold">Demam sudah 2-7 hari</h3>
                         <hr
                             style={{
-                                color: "#41E8B3",
-                                backgroundColor: "#41E8B3",
+                                color: "#46d0fe",
+                                backgroundColor: "#46d0fe",
                                 height: 5
                             }}
                         />
@@ -167,13 +167,13 @@ const Demam = (props) => {
                                     </Row>
                                     <hr
                                         style={{
-                                            color: "#41E8B3",
-                                            backgroundColor: "#41E8B3",
+                                            color: "#46d0fe",
+                                            backgroundColor: "#46d0fe",
                                             height: 1
                                         }}
                                     />
-                                    <h5>Jika, ya</h5>
-                                    <div>
+                                    
+                                    <div hidden={demam_anakMuntah === false || demam_anakMuntah === null}>
                                         <h6>Apakah sering?</h6>
                                         <Row className="limitCol "> 
                                         <Col  sm="3">
@@ -182,7 +182,7 @@ const Demam = (props) => {
                                         <Col sm="3">
                                             <FormGroup className="d-inline pr-2">  
                                                 <Label className="rdoBtn">Ya
-                                                <Input type="radio" name="radio2" value={1} onChange={handleAnswer2} checked={demam_anakSeringMuntah === true} required/>
+                                                <Input type="radio" name="radio2" value={1} onChange={handleAnswer2} checked={demam_anakSeringMuntah === true} disabled={demam_anakMuntah === false || demam_anakMuntah === null} required/>
                                                 <span style={{left:"20px"}} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>
@@ -193,14 +193,12 @@ const Demam = (props) => {
                                         <Col sm="3">
                                             <FormGroup className="d-inline">
                                                 <Label className="rdoBtn">Tidak
-                                                <Input type="radio" name="radio2" value={2} onChange={handleAnswer2} checked={demam_anakSeringMuntah === false} /> 
+                                                <Input type="radio" name="radio2" value={2} onChange={handleAnswer2} checked={demam_anakSeringMuntah === false} disabled={demam_anakMuntah === false || demam_anakMuntah === null} /> 
                                                 <span style={{left:"5px"}} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>
                                         </Col>
                                     </Row>
-                                    </div>
-                                    <div>
                                         <h6>Apakah muntah dengan darah atau seperti kopi?</h6>
                                         <Row className="limitCol "> 
                                         <Col  sm="3">
@@ -209,7 +207,7 @@ const Demam = (props) => {
                                         <Col sm="3">
                                             <FormGroup className="d-inline pr-2">  
                                                 <Label className="rdoBtn">Ya
-                                                <Input type="radio" name="radio3" value={1} onChange={handleAnswer3} checked={demam_muntahLikeDarahOrKopi === true} required/>
+                                                <Input type="radio" name="radio3" value={1} onChange={handleAnswer3} checked={demam_muntahLikeDarahOrKopi === true} disabled={demam_anakMuntah === false || demam_anakMuntah === null} required/>
                                                 <span style={{left:"20px"}} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>
@@ -220,7 +218,7 @@ const Demam = (props) => {
                                         <Col sm="3">
                                             <FormGroup className="d-inline">
                                                 <Label className="rdoBtn">Tidak
-                                                <Input type="radio" name="radio3" value={2} onChange={handleAnswer3} checked={demam_muntahLikeDarahOrKopi === false} /> 
+                                                <Input type="radio" name="radio3" value={2} onChange={handleAnswer3} checked={demam_muntahLikeDarahOrKopi === false} disabled={demam_anakMuntah === false || demam_anakMuntah === null} /> 
                                                 <span style={{left:"5px"}} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>
@@ -263,10 +261,10 @@ const Demam = (props) => {
                 </div>
                 <Row className="justify-content-between px-5 py-0">
                     <Col sm="4">
-                        <Link to="Demam6" style={{textDecoration: "none"}}><Button color="danger" block><FontAwesomeIcon icon={faChevronLeft}/> Sebelumnya</Button></Link>
+                        <Link to="Demam6" style={{textDecoration: "none"}}><Button style={{backgroundColor: '#fe8d3b', border: '0'}} block><FontAwesomeIcon icon={faChevronLeft}/> Sebelumnya</Button></Link>
                     </Col>
                     <Col sm="4">
-                        <Button type="submit" color="success" block >Selanjutnya <FontAwesomeIcon icon={faChevronRight}/></Button>
+                        <Button type="submit" style={{backgroundColor: '#46d0fe', border: '0'}} block >Selanjutnya <FontAwesomeIcon icon={faChevronRight}/></Button>
                     </Col>
                 </Row>
             </div>

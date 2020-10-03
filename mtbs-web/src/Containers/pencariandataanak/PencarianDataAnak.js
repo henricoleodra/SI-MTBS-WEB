@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Form, FormGroup, Label, Input, Row, Col} from 'reactstrap';
-
+import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 //import components
 import { HeaderTitle, DataAnak, Pagination } from './../../Components';
 
@@ -91,9 +92,19 @@ const PencarianDataAnak = (props) => {
                     <div style={{minHeight: "580px"}}>
                         {renderDaftarAnak}
                     </div>
-                    <div>
-                        <Pagination/>
-                    </div>
+                    <Row>
+                        <Col sm={12}>
+                            {/* <Pagination/> */}
+                            <div className="paginationSearchChild">
+                            <a href="#" className="blockActivePagination">&lt; sebelumnya</a>
+                            <a href="#" className="activePagination">1</a>
+                            <a href="#">2</a>
+                            <a href="#">3</a>
+                            <a href="#">...</a>
+                            <a href="#">selanjutnya &gt;</a>
+                            </div>
+                        </Col>
+                    </Row>
                 </div>
             </div>
         </div>

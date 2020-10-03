@@ -58,7 +58,7 @@ const TelingaYaTidak = (props) => {
                         <hr
                         style={{
                             color: "#41E8B3",
-                            backgroundColor: "#41E8B3",
+                            backgroundColor: "#46d0fe",
                             height: 5
                         }}
                         />
@@ -99,10 +99,10 @@ const TelingaYaTidak = (props) => {
             </div>
             <Row className="justify-content-between px-5 py-0">
                 <Col sm="4">
-                    <Link to="DemamYaTidak" style={{textDecoration: "none"}}><Button block color="danger"><FontAwesomeIcon icon={faChevronLeft}/> Pemeriksaan Demam</Button></Link>
+                    <Link to="DemamYaTidak" style={{textDecoration: "none"}}><Button block style={{backgroundColor: '#fe8d3b', border: '0'}}><FontAwesomeIcon icon={faChevronLeft}/> Pemeriksaan Demam</Button></Link>
                 </Col>
                 <Col sm="4">
-                    <Button type="submit" block color="success">Selanjutnya <FontAwesomeIcon icon={faChevronRight}/></Button>
+                    <Button type="submit" block style={{backgroundColor: '#46d0fe ', border: '0'}}>Selanjutnya <FontAwesomeIcon icon={faChevronRight}/></Button>
                 </Col>
             </Row>
         </div>

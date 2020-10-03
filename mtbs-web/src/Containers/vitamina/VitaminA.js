@@ -44,7 +44,7 @@ const Vitamina = (props) => {
                 <div className="col-12">
                 <div className="d-flex justify-content-center mt-3">
                     <div className="p-2">
-                        <FontAwesomeIcon icon={faCircle} style={{color: '#41E8B3'}}/>
+                        <FontAwesomeIcon icon={faCircle} style={{color: '#46d0fe '}}/>
                     </div>
                 </div>
                 <div className="mt-2">
@@ -52,7 +52,7 @@ const Vitamina = (props) => {
                     <hr
                     style={{
                         color: "#41E8B3",
-                        backgroundColor: "#41E8B3",
+                        backgroundColor: "#46d0fe ",
                         height: 5
                     }}
                     />
@@ -95,10 +95,10 @@ const Vitamina = (props) => {
             </div>
             <Row className="justify-content-between px-5 py-0">
                 <Col sm="4">
-                    <Link to="TandaBahayaUmum1" style={{textDecoration: "none"}}><Button block style={{width: "250px", height : "60px"}} color="danger"><FontAwesomeIcon icon={faChevronLeft}/>Pemeriksaan HIV</Button></Link>
+                    <Link to="TandaBahayaUmum1" style={{textDecoration: "none"}}><Button block style={{width: "250px", height : "60px" , backgroundColor: '#fe8d3b', border: '0'}} ><FontAwesomeIcon icon={faChevronLeft}/>Pemeriksaan HIV</Button></Link>
                 </Col>
                 <Col sm="4">
-                    <Button type="submit" block style={{width: "250px", height : "60px"}} color="success">Pemeriksaan Keluhan Lain <FontAwesomeIcon icon={faChevronRight}/></Button>
+                    <Button type="submit" block style={{width: "250px", height : "60px", backgroundColor: '#46d0fe ', border: '0'}} >Pemeriksaan Keluhan Lain <FontAwesomeIcon icon={faChevronRight}/></Button>
                 </Col>
             </Row>
         </div>

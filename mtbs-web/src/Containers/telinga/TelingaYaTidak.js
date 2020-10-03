@@ -11,7 +11,7 @@ import '../../Assets/style/style.css';
 import { KlasifikasiTelingaChange, AnsTelingaChange, compStatusChange, FlagChange } from '../../Actions';
 
 let outlineColor = {
-    borderColor : '#41E8B3'
+    borderColor : '#46d0fe'
 }
 
 const TelingaYaTidak = (props) => {

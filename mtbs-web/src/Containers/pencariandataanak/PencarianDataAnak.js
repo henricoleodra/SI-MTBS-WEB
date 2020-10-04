@@ -94,15 +94,15 @@ const PencarianDataAnak = (props) => {
                     </div>
                     <Row>
                         <Col sm={12}>
-                            {/* <Pagination/> */}
-                            <div className="paginationSearchChild">
+                            <Pagination/>
+                            {/* <div className="paginationSearchChild">
                             <a href="#" className="blockActivePagination">&lt; sebelumnya</a>
                             <a href="#" className="activePagination">1</a>
                             <a href="#">2</a>
                             <a href="#">3</a>
                             <a href="#">...</a>
                             <a href="#">selanjutnya &gt;</a>
-                            </div>
+                            </div> */}
                         </Col>
                     </Row>
                 </div>

@@ -181,3 +181,30 @@ body {
     opacity: 0.5;
     cursor: not-allowed;
 }
+
+.button-pepper-mint {
+    background-color: #46D0FE;
+    border: 0;
+}
+
+.button-orange {
+    background-color: #FE8D3B;
+    border: 0;
+}
+
+.button-bananna {
+    background-color: #FFBA10;
+    border: 0;
+}
+
+.button-pepper-mint:hover {
+    background-color: #3bb1d9;
+}
+
+.button-orange:hover {
+    background-color: #e87e33;
+}
+
+.button-bananna:hover {
+    background-color: #e0ab0b;
+}

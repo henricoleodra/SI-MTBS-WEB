@@ -26,11 +26,10 @@ import bukumtbs from './../../Assets/image/buku-mtbs.png';
 
 import { Wrapper } from './style';
 
-const Beranda = (props) =>{
+const Lobby = (props) =>{
     return(
         <Wrapper>
             <div>
-                <NavBar />
                 <Container className="mt-4 mb-5 wrapper-beranda">
                     {/* <Row className="my-2">
                         <Col md={2}></Col>
@@ -58,7 +57,7 @@ const Beranda = (props) =>{
                                             <Label className="text-dark">Cintai buah hati dengan melakukan test kesehatan, apakah buat hati sehat, dan terimuninasi sesuai dengan waktunya.</Label>
                                         </CardText>
                                         <div className="d-flex justify-content-center">
-                                            <Button tag={Link} className="mx-auto menus-button" to="MulaiPemeriksaan">Mulai Pemeriksaan</Button>
+                                            <Button tag={Link} className="mx-auto button-orange px-3" to="MulaiPemeriksaan">Mulai Pemeriksaan</Button>
                                         </div>
                                     </CardBody>
                                 </Card>
@@ -77,7 +76,7 @@ const Beranda = (props) =>{
                                             <Label className="text-dark">Mencari riwayat data anak yang sudah pernah melakukan pendaftaran dan pemeriksaan</Label>
                                         </CardText>
                                         <div className="d-flex justify-content-center">
-                                            <Button tag={Link} className="mx-auto menus-button" to="PencarianDataAnak">Data Anak</Button>
+                                            <Button tag={Link} className="mx-auto button-orange px-5" to="PencarianDataAnak">Data Anak</Button>
                                         </div>
                                     </CardBody>
                                 </Card>
@@ -85,11 +84,10 @@ const Beranda = (props) =>{
                         </Col>
                     </Row>
                 </Container>
-                <Footer/>
             </div>  
         </Wrapper>
         
     );
 }
 
-export default Beranda;
+export default Lobby;

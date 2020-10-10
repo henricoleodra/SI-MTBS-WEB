@@ -1,6 +1,7 @@
 export { default as Layout } from './_layout';
+export { default as LayoutMTBS } from './_layoutMTBS';
 
-export { default as Beranda } from './beranda/Beranda';
+export { default as Lobby } from './lobby/Lobby';
 export { default as ApaItuMTBS } from './apaitumtbs/ApaItuMtbs';
 
 // Data Anak

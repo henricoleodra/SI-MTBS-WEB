@@ -1,5 +1,5 @@
 import {
-    Beranda,
+    Lobby,
     ApaItuMTBS,
     DataAnak,
     PemeriksaanAnak,
@@ -19,7 +19,7 @@ const routes = [
     { path: '/IsiDataAnak', component: IsiDataAnak },
     { path: '/MTBS', component: MTBS },
     { path: '/Login', component: Login },
-    { path: '/', component: Beranda },
+    { path: '/Lobby', component: Lobby },
 ];
 
 export default routes;

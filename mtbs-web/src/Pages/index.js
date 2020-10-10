@@ -1,5 +1,5 @@
 export { default as ApaItuMTBS } from './apaitumtbs';
-export { default as Beranda } from './beranda'
+export { default as Lobby } from './lobby';
 export { default as DataAnak } from './dataanak';
 export { default as IsiDataAnak } from './isidataanak';
 export { default as MTBS } from './mtbs';

@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    Layout,
+    LayoutMTBS,
     TandaBahayaUmum1,
     TandaBahayaUmum2,
     BatukYaTidak,
@@ -145,9 +145,9 @@ const Index = ( props ) => {
     };
 
     return (
-        <Layout location={props.location.pathname} >
+        <LayoutMTBS location={props.location.pathname} >
             <Content/>
-        </Layout>
+        </LayoutMTBS>
     );
 }
 

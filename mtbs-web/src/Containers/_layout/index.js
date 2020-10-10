@@ -8,7 +8,7 @@ import {
 const Index = ( props ) => {
   return (
     <div>
-      <NavBar step={props.step}/>
+      <NavBar step={props.step} cur={props.cur}/>
         {
           props.children   
         }

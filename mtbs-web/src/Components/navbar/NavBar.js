@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, NavbarBrand, NavbarToggler, Collapse, Nav, NavItem, Button, Label, Row, Col} from 'reactstrap';
 import { Wrapper } from './style';
@@ -12,6 +12,16 @@ const NavBar = ( props ) =>{
     const [isOpen, setIsOpen] = useState(false);
     
     const toggle = () => setIsOpen(!isOpen);
+    let cur = null;
+
+    useEffect(()=> {
+        if(props.cur==='beranda'){
+            cur = '/';
+        }
+        else{
+            cur = '/Lobby';
+        }
+    }, []);
 
     const RenderComponent = () => {
         switch (props.step) {
@@ -40,7 +50,7 @@ const NavBar = ( props ) =>{
     return(
         <Wrapper>
             <Navbar expand="xl" className="shadow-lg wrapper-navbar p-1">
-                <NavbarBrand href="/Lobby" className="text-white w-75">
+                <NavbarBrand className="text-white w-75">
                     <img src={kemenkes} className="logo-kemenkes"/>
                     <label className="font-weight-bold ml-2">SI-MTBS</label>
                     <img src={puskesmas} className="logo-puskesmas ml-3"/>

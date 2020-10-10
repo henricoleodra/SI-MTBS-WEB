@@ -23,7 +23,7 @@ const Login = () => {
                         <Link >X</Link>
                     </Col> */}
                 </Row>
-                <Link className="button-x mr-2 fa-2x"><FontAwesomeIcon icon={faTimes}/></Link>
+                <Link className="button-x mr-3 mt-1 fa-2x" to=".."><FontAwesomeIcon icon={faTimes}/></Link>
 
                 <h1 className="text-primary text-center m-1">SI MTBS</h1>       
 
@@ -58,7 +58,7 @@ const Login = () => {
                     <img src={LogoUnpar}  className = "m-3 logo-unpar"/>
                     <img src={LogoInformatika}  className = "m-3 logo-informatika"/>
                 </Row>
-                <h5 className="text-muted text-center">Copyright © 2020 Tim Pengembangan SI-MTBS</h5>
+                <small className="text-muted text-center">Copyright © 2020 Tim Pengembangan SI-MTBS</small>
             </Container>
         </Wrapper>
     );

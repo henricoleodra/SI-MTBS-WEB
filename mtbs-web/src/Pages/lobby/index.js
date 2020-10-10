@@ -10,7 +10,7 @@ const Index = () => {
     }
 
     return (
-        <Layout step={1}>
+        <Layout step={1} cur={'lobby'}>
             <Content/>
         </Layout>
     );

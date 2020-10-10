@@ -6,7 +6,7 @@ import {
 
 const Index = ( props ) => {
     return (
-        <Layout step={0}>
+        <Layout step={0} cur={'beranda'}>
             <Beranda/>
         </Layout>
     );

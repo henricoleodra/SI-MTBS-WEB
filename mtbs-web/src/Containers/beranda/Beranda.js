@@ -58,7 +58,7 @@ const Beranda = (props) =>{
                                             <Label className="text-dark">Cintai buah hati dengan melakukan test kesehatan, apakah buat hati sehat, dan terimuninasi sesuai dengan waktunya.</Label>
                                         </CardText>
                                         <div className="d-flex justify-content-center">
-                                            <Button color="light" tag={Link} className="mx-auto menus-button" to="MulaiPemeriksaan">Mulai Pemeriksaan</Button>
+                                            <Button tag={Link} className="mx-auto menus-button" to="MulaiPemeriksaan">Mulai Pemeriksaan</Button>
                                         </div>
                                     </CardBody>
                                 </Card>
@@ -77,7 +77,7 @@ const Beranda = (props) =>{
                                             <Label className="text-dark">Mencari riwayat data anak yang sudah pernah melakukan pendaftaran dan pemeriksaan</Label>
                                         </CardText>
                                         <div className="d-flex justify-content-center">
-                                            <Button color="light" tag={Link} className="mx-auto menus-button" to="PencarianDataAnak">Data Anak</Button>
+                                            <Button tag={Link} className="mx-auto menus-button" to="PencarianDataAnak">Data Anak</Button>
                                         </div>
                                     </CardBody>
                                 </Card>

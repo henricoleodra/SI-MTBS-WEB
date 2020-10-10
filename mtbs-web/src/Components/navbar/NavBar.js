@@ -1,16 +1,16 @@
 import React, {  } from 'react';
-import {  Navbar, NavbarBrand } from 'reactstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircle } from '@fortawesome/free-solid-svg-icons'
+import { Navbar, NavbarBrand } from 'reactstrap';
 import { Wrapper } from './style';
+
+import logo from './../../Assets/image/logo/kemenkes.png';
 
 const NavBar = (props) =>{
     return(
         <Wrapper>
-            <Navbar expand="xl" className="shadow-lg wrapper-navbar d-flex justify-content-center">
+            <Navbar expand="xl" className="shadow-lg wrapper-navbar p-1">
                 <NavbarBrand href="/" className="text-white">
-                    <FontAwesomeIcon icon={faCircle} size="lg" className="mr-1"/>
-                    SI-MTBS
+                    <img src={logo} className="logo-navbar"/>
+                    <label className="font-weight-bold ml-2">SI-MTBS</label>
                 </NavbarBrand>
             </Navbar>
         </Wrapper>

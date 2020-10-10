@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
     .wrapper-beranda {
-        min-height: 615px;
+        min-height: 594px;
 
         .wrapper-thumbnail {
             border-radius: 25px;
@@ -25,7 +25,7 @@ export const Wrapper = styled.div`
         }
     
         .wrapper-menus{
-            background-color: #41E8B3;
+            background-color: #46D0FE;
             border-radius: 25px;
             border: none;
             min-height: 500px;
@@ -40,7 +40,8 @@ export const Wrapper = styled.div`
             }
 
             .menus-button{
-                color: #41E8B3;
+                background-color: #FE8D3B; 
+                border: 0;
                 padding: 10px 50px 10px 50px;
             }
         }

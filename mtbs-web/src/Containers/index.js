@@ -86,3 +86,6 @@ export { default as Klasifikasi } from './klasifikasi/Klasifikasi';
 // Tindakan
 export { default as Tindakan } from './tindakan/Tindakan';
 
+//Login
+export { default as Login} from './login/Login'
+

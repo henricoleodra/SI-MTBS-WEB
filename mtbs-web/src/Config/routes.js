@@ -6,7 +6,8 @@ import {
     MulaiPemeriksaan,
     PencarianDataAnak,
     IsiDataAnak,
-    MTBS
+    MTBS,
+    Login
 } from '../Pages';
 
 const routes = [
@@ -17,6 +18,7 @@ const routes = [
     { path: '/PencarianDataAnak', component: PencarianDataAnak },
     { path: '/IsiDataAnak', component: IsiDataAnak },
     { path: '/MTBS', component: MTBS },
+    { path: '/Login', component: Login },
     { path: '/', component: Beranda },
 ];
 

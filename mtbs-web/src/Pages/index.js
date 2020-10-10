@@ -6,3 +6,4 @@ export { default as MTBS } from './mtbs';
 export { default as MulaiPemeriksaan } from './mulaipemeriksaan';
 export { default as PemeriksaanAnak } from './pemeriksaananak';
 export { default as PencarianDataAnak } from './pencariandataanak';
+export { default as Login } from './login';

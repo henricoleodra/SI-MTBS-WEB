@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
         }
 
         .logo-puskesmas{
-            width: 5%;
+            width: 10%;
             height: auto;
         }
 

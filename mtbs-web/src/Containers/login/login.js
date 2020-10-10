@@ -43,7 +43,7 @@ const Login = () => {
                 </Row>
                       
                 <Row className="justify-content-center mt-5">
-                    <img src={LogoPuskemas}  className = "m-3 logo-puskesmas"/>
+                    <img src={LogoPuskemas}  className = "m-1 logo-puskesmas"/>
                     <img src={LogoUnpar}  className = "m-3 logo-unpar"/>
                     <img src={LogoInformatika}  className = "m-3 logo-informatika"/>
                 </Row>

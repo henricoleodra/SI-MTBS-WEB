@@ -1,4 +1,6 @@
 import {
+    Beranda,
+    Login,
     Lobby,
     ApaItuMTBS,
     DataAnak,
@@ -6,8 +8,7 @@ import {
     MulaiPemeriksaan,
     PencarianDataAnak,
     IsiDataAnak,
-    MTBS,
-    Login
+    MTBS
 } from '../Pages';
 
 const routes = [
@@ -20,6 +21,7 @@ const routes = [
     { path: '/MTBS', component: MTBS },
     { path: '/Login', component: Login },
     { path: '/Lobby', component: Lobby },
+    { path: '/', component: Beranda }
 ];
 
 export default routes;

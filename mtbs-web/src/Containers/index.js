@@ -1,6 +1,9 @@
+// Layout
 export { default as Layout } from './_layout';
 export { default as LayoutMTBS } from './_layoutMTBS';
 
+export { default as Beranda } from './beranda';
+export { default as Login} from './login/Login'
 export { default as Lobby } from './lobby/Lobby';
 export { default as ApaItuMTBS } from './apaitumtbs/ApaItuMtbs';
 
@@ -87,6 +90,5 @@ export { default as Klasifikasi } from './klasifikasi/Klasifikasi';
 // Tindakan
 export { default as Tindakan } from './tindakan/Tindakan';
 
-//Login
-export { default as Login} from './login/Login'
+
 

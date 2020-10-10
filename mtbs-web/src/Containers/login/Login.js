@@ -1,10 +1,10 @@
 import React, {  } from 'react';
 import { Container } from 'reactstrap';
-import { Link, useHistory } from 'react-router-dom'
-import { Wrapper } from './Style';
-import { Button, Form, FormGroup, Label, Input, Row, Col } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
+import { Button, Form, FormGroup, Label, Input, Row, Col } from 'reactstrap';
+import { Wrapper } from './Style';
+import { Link, useHistory } from 'react-router-dom'
 import LogoKemenkes from '../../Assets/image/logo/kemenkes.png';
 import LogoPuskemas from '../../Assets/image/logo/puskesmas.png';
 import LogoUnpar from '../../Assets/image/logo/unpar.png';

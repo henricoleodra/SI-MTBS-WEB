@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Navbar, NavbarBrand, NavbarToggler, Collapse, Nav, NavItem, Button, Label, Row, Col} from 'reactstrap';
 import { Wrapper } from './style';
 
@@ -18,7 +19,7 @@ const NavBar = ( props ) =>{
                 return (
                     <React.Fragment>
                         <NavItem className="mx-2">
-                            <Button className="button-bananna button-navbar px-3 py-2">LogIn</Button>
+                            <Button className="button-bananna button-navbar px-3 py-2" tag={Link} to="Login">LogIn</Button>
                         </NavItem>
                     </React.Fragment>
                 );
@@ -29,7 +30,7 @@ const NavBar = ( props ) =>{
                             <Label className="text-white mt-2">Hi, <span className="font-weight-bold">Richard Morris Yonggi</span></Label>
                         </NavItem>
                         <NavItem className="mx-2">
-                            <Button className="button-bananna button-navbar px-3 py-2">LogOut</Button>
+                            <Button className="button-bananna button-navbar px-3 py-2" tag={Link} to="..">LogOut</Button>
                         </NavItem>
                     </React.Fragment>
                 );

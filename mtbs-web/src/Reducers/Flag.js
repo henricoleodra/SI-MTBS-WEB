@@ -1,11 +1,11 @@
 const initState = {
-    tbu : null,
-    batuk : null,
-    diare : null,
-    demam : null,
-    telinga : null,
-    gizi : null,
-    hiv : null
+    tbu : 0,
+    batuk : 0,
+    diare : 0,
+    demam : 0,
+    telinga : 0,
+    gizi : 0,
+    hiv : 0
 }
 
 const flagReducer = (state = initState, action) => {

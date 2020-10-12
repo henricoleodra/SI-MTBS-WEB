@@ -5,8 +5,6 @@ import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button, Row, C
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
-import '../../Assets/style/style.css';
-
 // Actions
 import { KlasifikasiBatukChange, AnsBatukChange, compStatusChange, FlagChange } from '../../Actions';
 
@@ -37,11 +35,12 @@ const handleSubmit = event =>{
             dispatch(KlasifikasiBatukChange('BATUK_KLASIFIKASI', ""));
             dispatch(KlasifikasiBatukChange('BATUK_STATUS', null));
         }
+        dispatch(FlagChange('FLAG_BATUK', 1));
         dispatch(AnsBatukChange('BATUK', bsb));
         history.push("Batuk1");
     }
     else{
-        dispatch(FlagChange('FLAG_BATUK', false));
+        dispatch(FlagChange('FLAG_BATUK', 0));
         dispatch(AnsBatukChange('RESET_BATUK', true));
         dispatch(AnsBatukChange('BATUK', bsb));
         dispatch(KlasifikasiBatukChange('BATUK_KLASIFIKASI', ""));

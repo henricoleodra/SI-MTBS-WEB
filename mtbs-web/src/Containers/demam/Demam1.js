@@ -7,11 +7,9 @@ import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid
 import axios from 'axios';
 
 // Actions
-import { KlasifikasiDemamChange, AnsDemamChange, AnsGiziChange, FlagChange } from '../../Actions';
+import { KlasifikasiDemamChange, AnsDemamChange, AnsGiziChange } from '../../Actions';
 
 import Classifier from '../../Classifier/Classifier';
-
-import '../../Assets/style/style.css';
 
 var outlineColor = {
     borderColor: '#46d0fe'
@@ -41,7 +39,6 @@ const Demam = (props) => {
 
     const handleSubmit = event => {
         event.preventDefault();
-        dispatch(FlagChange('FLAG_DEMAM', true));
         axios.post(`/Demam`, {
             ansDemam: ansDemam
         })

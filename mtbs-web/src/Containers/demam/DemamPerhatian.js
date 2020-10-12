@@ -4,8 +4,6 @@ import { Form, Card, CardBody, CardTitle, CardText, Button, Row, Col} from "reac
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronLeft, faChevronRight, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
 
-import '../../Assets/style/style.css';
-
 const DemamPerhatian = (props) => {
     return(
         <Form /**onSubmit={handleSubmit}**/>

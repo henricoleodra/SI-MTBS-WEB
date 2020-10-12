@@ -7,11 +7,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 
 // Actions
-import { KlasifikasiHIVChange, AnsHIVChange, compStatusChange } from '../../Actions';
+import { KlasifikasiHIVChange, AnsHIVChange, compStatusChange, FlagChange } from '../../Actions';
 
 import Classifier from '../../Classifier/Classifier';
-
-import '../../Assets/style/style.css';
 
 let outlineColor = {
     borderColor : '#46d0fe'
@@ -34,6 +32,7 @@ const HIV = (props) =>{
 
     const handleSubmit = event =>{
         event.preventDefault();
+        dispatch(FlagChange('FLAG_HIV', 2));
         axios.post(`/HIV`, {
             ansHIV: ansHIV
         })

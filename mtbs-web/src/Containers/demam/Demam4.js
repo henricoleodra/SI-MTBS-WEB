@@ -4,8 +4,6 @@ import { FormGroup, Label, Input, Form, Card, CardBody, CardTitle, Button, Row, 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faChevronLeft, faChevronRight} from '@fortawesome/free-solid-svg-icons'
 
-import '../../Assets/style/style.css';
-
 var outlineColor = {
     borderColor: '#46d0fe'
 }

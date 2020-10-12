@@ -9,7 +9,7 @@ import axios from 'axios';
 import '../../Assets/style/style.css';
 
 // Actions
-import { KlasifikasiTBUChange, AnsTBUChange, AnsDemamChange, AnsGiziChange, compStatusChange } from '../../Actions';
+import { KlasifikasiTBUChange, AnsTBUChange, AnsDemamChange, AnsGiziChange, compStatusChange, FlagChange } from '../../Actions';
 
 import Classifier from '../../Classifier/Classifier';
 
@@ -37,6 +37,7 @@ const TandaBahayaUmum2 = (props) => {
 
   const handleSubmit = event =>{
     event.preventDefault();
+    dispatch(FlagChange('FLAG_TBU', 2));
     axios.post(`/TBU`, {
       ansTBU : ansTBU
     })

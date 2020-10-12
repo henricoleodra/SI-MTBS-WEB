@@ -7,11 +7,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 
 // Actions
-import { KlasifikasiDiareChange, AnsDiareChange, AnsGiziChange, compStatusChange } from '../../Actions';
+import { KlasifikasiDiareChange, AnsDiareChange, AnsGiziChange, compStatusChange, FlagChange } from '../../Actions';
 
 import Classifier from '../../Classifier/Classifier';
-
-import '../../Assets/style/style.css';
 
 let outlineColor = {
     borderColor : '#46d0fe'
@@ -35,6 +33,7 @@ const Diare3 = (props) => {
 
     const handleSubmit = event =>{
         event.preventDefault();
+        dispatch(FlagChange('FLAG_DIARE', 2));
         axios.post(`/Diare`, {
             ansDiare: ansDiare
         })

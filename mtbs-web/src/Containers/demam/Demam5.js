@@ -7,11 +7,9 @@ import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 
 // Actions
-import { KlasifikasiDemamChange, AnsDemamChange, AnsGiziChange } from '../../Actions';
+import { KlasifikasiDemamChange, AnsDemamChange, AnsGiziChange, FlagChange } from '../../Actions';
 
 import Classifier from '../../Classifier/Classifier';
-
-import '../../Assets/style/style.css';
 
 var outlineColor = {
     borderColor: '#46d0fe'
@@ -73,6 +71,7 @@ const Demam = (props) => {
             history.push("Demam6");
         }
         else{
+            dispatch(FlagChange('FLAG_DEMAM', 2));
             history.push("TelingaYaTidak");
         }
     }

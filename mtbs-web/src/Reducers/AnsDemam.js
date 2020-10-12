@@ -176,6 +176,29 @@ const ansDemamReducer = (state = initState, action) => {
             return Object.assign({}, state, {
                 demam_hasilUjiTorniket: action.answer
             });
+        case 'RESET_DEMAM_CAMPAK': 
+            return Object.assign({}, state, {
+                demam_isLukaMulut: null,
+                demam_descLukaMulutLuas: null,
+                demam_descLukaMulutDalam: null,
+                demam_nanahDiMata: null,
+                demam_korneaKeruh: null
+            });
+        case 'RESET_DEMAM_DUA_TUJUH_HARI':
+            return Object.assign({}, state, {
+              demam_isTinggiMenerus: null,
+              demam_isNyeriUluOrGelisah: null,
+              demam_isBadanDingin: null,
+              demam_anakMuntah: null,
+              demam_anakSeringMuntah: null,
+              demam_muntahLikeDarahOrKopi: null,
+              demam_berakBerwarnaHitam: null,
+              demam_nearIsDBD: null,
+              demam_isEkstremitasDingin: null,
+              demam_isNadiLemah: null,
+              demam_darahHidungGusiKulit: null,
+              demam_hasilUjiTorniket: null
+            });
         case 'RESET_DEMAM':
             return Object.assign({}, state, 
                 initState

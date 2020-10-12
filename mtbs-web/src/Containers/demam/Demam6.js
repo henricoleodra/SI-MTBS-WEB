@@ -7,11 +7,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 
 // Actions
-import { KlasifikasiDemamChange, AnsDemamChange, AnsGiziChange, compStatusChange } from '../../Actions';
+import { KlasifikasiDemamChange, AnsDemamChange, AnsGiziChange } from '../../Actions';
 
 import Classifier from '../../Classifier/Classifier';
-
-import '../../Assets/style/style.css';
 
 var outlineColor = {
     borderColor: '#46d0fe'
@@ -68,7 +66,6 @@ const Demam = (props) => {
         );
         dispatch(KlasifikasiDemamChange('Demam_6', true));
         history.push("Demam7");
-        dispatch(compStatusChange('TELINGA'));
     }
     const handleAnswer1 = event => {
         if (event.target.value === "1") {

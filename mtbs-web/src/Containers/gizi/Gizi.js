@@ -30,7 +30,7 @@ const Gizi = (props) => {
 
     const handleSubmit = event => {
         event.preventDefault();
-        dispatch(FlagChange('FLAG_GIZI', true));
+        dispatch(FlagChange('FLAG_GIZI', 1));
         axios.post(`/Gizi`, {
             ansGizi: ansGizi
         })

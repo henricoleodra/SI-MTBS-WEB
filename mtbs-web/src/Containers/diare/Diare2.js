@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button, Row, Col} from "reactstrap";
@@ -6,8 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
-
-import '../../Assets/style/style.css';
 
 // Actions
 import { KlasifikasiDiareChange, AnsDiareChange, AnsGiziChange } from '../../Actions';

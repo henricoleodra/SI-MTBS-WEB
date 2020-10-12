@@ -6,8 +6,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios';
 
-import '../../Assets/style/style.css';
-
 // ACTIONS 
 import { KlasifikasiAnemiaChange, AnsAnemiaChange, compStatusChange, FlagChange } from '../../Actions';
 
@@ -40,7 +38,7 @@ const Anemia = (props) =>{
 
     const handleSubmit = event =>{
         event.preventDefault();
-        dispatch(FlagChange('FLAG_ANEMIA', true));
+        dispatch(FlagChange('FLAG_ANEMIA', 2));
         axios.post(`/Anemia`, {
             ansAnemia : ansAnemia
         })

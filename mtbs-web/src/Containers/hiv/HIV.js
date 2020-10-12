@@ -11,8 +11,6 @@ import { KlasifikasiHIVChange, AnsHIVChange, FlagChange } from '../../Actions';
 
 import Classifier from '../../Classifier/Classifier';
 
-import '../../Assets/style/style.css';
-
 let outlineColor = {
     borderColor : '#46d0fe'
 }
@@ -43,7 +41,7 @@ const HIV = (props) =>{
 
     const handleSubmit = event =>{
         event.preventDefault();
-        dispatch(FlagChange('FLAG_HIV', true));
+        dispatch(FlagChange('FLAG_HIV', 1));
         axios.post(`/HIV`, {
             ansHIV: ansHIV
         })

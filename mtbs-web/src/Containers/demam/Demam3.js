@@ -7,11 +7,9 @@ import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid
 import { useDispatch, useSelector } from 'react-redux';
 
 // Actions
-import { AnsDemamChange } from '../../Actions';
+import { AnsDemamChange, FlagChange } from '../../Actions';
 
 import Classifier from '../../Classifier/Classifier';
-
-import '../../Assets/style/style.css';
 
 var outlineColor = {
     borderColor: '#46d0fe'
@@ -51,10 +49,13 @@ const Demam = (props) => {
             history.push("Demam5");
         }
         else{
+            dispatch(AnsDemamChange('RESET_DEMAM_CAMPAK', true));
             if(ansDemam.demam_berapaLama >= 2 && ansDemam.demam_berapaLama <=7){
                 history.push("Demam6");
             }
             else{
+                dispatch(AnsDemamChange('RESET_DEMAM_DUA_TUJUH_HARI', true));
+                dispatch(FlagChange('FLAG_DEMAM', 2));   
                 history.push("TelingaYaTidak");
             }
         }

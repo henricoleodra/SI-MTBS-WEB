@@ -5,8 +5,6 @@ import { FormGroup, Label, Input, Form, Card, CardBody, CardTitle, Button, Row, 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronLeft, faChevronRight} from '@fortawesome/free-solid-svg-icons'
 
-import '../../Assets/style/style.css';
-
 // Actions
 import { AnsDemamChange } from '../../Actions';
 

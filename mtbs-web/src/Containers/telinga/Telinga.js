@@ -6,9 +6,8 @@ import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 
-import '../../Assets/style/style.css';
 // Actions
-import { KlasifikasiTelingaChange, AnsTelingaChange, FlagChange, AnsGiziChange } from '../../Actions';
+import { KlasifikasiTelingaChange, AnsTelingaChange, AnsGiziChange } from '../../Actions';
 
 import Classifier from '../../Classifier/Classifier';
 
@@ -41,7 +40,6 @@ const Telinga = (props) =>{
 
     const handleSubmit = event =>{
         event.preventDefault();
-        dispatch(FlagChange('FLAG_TELINGA', true));
         axios.post(`/Telinga`, {
             ansTelinga: ansTelinga
         })

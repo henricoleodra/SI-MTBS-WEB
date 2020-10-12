@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
-import { KlasifikasiGiziChange, AnsGiziChange, compStatusChange } from '../../Actions';
+import { KlasifikasiGiziChange, AnsGiziChange, compStatusChange, FlagChange } from '../../Actions';
 import Classifier from '../../Classifier/Classifier';
 
 var outlineColor = {
@@ -30,6 +30,7 @@ const Gizi3 = (props) => {
 
     const handleSubmit = event => {
         event.preventDefault();
+        dispatch(FlagChange('FLAG_GIZI', 2));
         axios.post(`/Gizi`, {
             ansGizi: ansGizi
         })

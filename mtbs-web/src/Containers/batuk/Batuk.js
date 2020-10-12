@@ -7,9 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 
 // Actions
-import { KlasifikasiBatukChange, AnsBatukChange, FlagChange, AnsGiziChange } from '../../Actions';
-
-import '../../Assets/style/style.css';
+import { KlasifikasiBatukChange, AnsBatukChange, AnsGiziChange } from '../../Actions';
 
 import Classifier from '../../Classifier/Classifier';
 
@@ -18,7 +16,7 @@ let outlineColor = {
 }
 
 let bgColor ={
-    backgroundColor : '#46d0fe',
+    backgroundColor : '#46d0fe', 
     color: 'white'
 }
 
@@ -43,7 +41,6 @@ const Batuk = (props) => {
 
     const handleSubmit = event =>{
         event.preventDefault();
-        dispatch(FlagChange('FLAG_BATUK', true));
         axios.post(`/Batuk`, {
             ansBatuk: ansBatuk
         })

@@ -5,8 +5,6 @@ import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button, Row, C
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
-import '../../Assets/style/style.css';
-
 // Actions
 import { KlasifikasiDemamChange, AnsDemamChange, compStatusChange, FlagChange } from '../../Actions';
 
@@ -36,11 +34,12 @@ const Demam = (props) => {
                 dispatch(KlasifikasiDemamChange('DEMAM_KLASIFIKASI', ""));
                 dispatch(KlasifikasiDemamChange('DEMAM_STATUS', null));
             }
+            dispatch(FlagChange('FLAG_DEMAM', 1));
             dispatch(AnsDemamChange('DEMAM', demam));
             history.push("DemamDaerah");
         }
         else{
-            dispatch(FlagChange('FLAG_DEMAM', false));
+            dispatch(FlagChange('FLAG_DEMAM', 0));
             dispatch(AnsDemamChange('RESET_DEMAM', true));
             dispatch(AnsDemamChange('DEMAM', demam));
             dispatch(KlasifikasiDemamChange('DEMAM_KLASIFIKASI', ""));

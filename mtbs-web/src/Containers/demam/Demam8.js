@@ -11,8 +11,6 @@ import{ KlasifikasiDemamChange, AnsDemamChange, AnsGiziChange } from '../../Acti
 
 import Classifier from '../../Classifier/Classifier';
 
-import '../../Assets/style/style.css';
-
 var outlineColor = {
     borderColor: '#46d0fe'
 }
@@ -21,7 +19,6 @@ const Demam = (props) => {
     const history = useHistory();
     const dispatch = useDispatch();
     const ansDemam = useSelector(state => state.ansDemam);
-    // const klasifikasiDemam = useSelector(state => state.klasifikasiDemam);
     let[demam_nearIsDBD, set_demam_nearIsDBD] = useState(ansDemam.demam_nearIsDBD);
     let[demam_isEkstremitasDingin, set_demam_isEkstremitasDingin] = useState(ansDemam.demam_isEkstremitasDingin);
     let[demam_darahHidungGusiKulit, set_demam_darahHidungGusiKulit] = useState(ansDemam.demam_darahHidungGusiKulit);

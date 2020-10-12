@@ -5,8 +5,6 @@ import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button, Row, C
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
-import '../../Assets/style/style.css';
-
 // Actions
 import { KlasifikasiTelingaChange, AnsTelingaChange, compStatusChange, FlagChange } from '../../Actions';
 
@@ -36,11 +34,12 @@ const TelingaYaTidak = (props) => {
                 dispatch(KlasifikasiTelingaChange('TELINGA_KLASIFIKASI', ""));
                 dispatch(KlasifikasiTelingaChange('TELINGA_STATUS', null));
             }
+            dispatch(FlagChange('FLAG_TELINGA', 1));
             dispatch(AnsTelingaChange('TELINGA', telinga));
             history.push("Telinga1");
         }
         else{
-            dispatch(FlagChange('FLAG_TELINGA', false));
+            dispatch(FlagChange('FLAG_TELINGA', 0));
             dispatch(AnsTelingaChange('TELINGA',true));
             dispatch(AnsTelingaChange('TELINGA', telinga));
             dispatch(KlasifikasiTelingaChange('TELINGA_KLASIFIKASI', ""));

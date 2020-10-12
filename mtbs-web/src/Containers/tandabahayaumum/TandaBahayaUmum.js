@@ -11,9 +11,6 @@ import { KlasifikasiTBUChange, AnsTBUChange, AnsDemamChange, AnsGiziChange, Flag
 
 import Classifier from '../../Classifier/Classifier';
 
-
-import '../../Assets/style/style.css';
-
 var outlineColor = {
   borderColor : '#46d0fe'
 }
@@ -39,7 +36,7 @@ const TandaBahayaUmum = (props) => {
 
   const handleSubmit = event =>{
     event.preventDefault();
-    dispatch(FlagChange('FLAG_TBU', true));
+    dispatch(FlagChange('FLAG_TBU', 1));
     axios.post(`/TBU`, {
       ansTBU : ansTBU
     })

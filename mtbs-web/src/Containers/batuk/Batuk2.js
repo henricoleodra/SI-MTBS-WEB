@@ -7,11 +7,9 @@ import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid
 import axios from 'axios';
 
 // Actions
-import { KlasifikasiBatukChange, AnsBatukChange, AnsGiziChange, compStatusChange} from '../../Actions';
+import { KlasifikasiBatukChange, AnsBatukChange, AnsGiziChange, compStatusChange, FlagChange} from '../../Actions';
 
 import Classifier from '../../Classifier/Classifier';
-
-import '../../Assets/style/style.css';
 
 let outlineColor = {
     borderColor : '#46d0fe'
@@ -41,6 +39,7 @@ const Batuk2 = (props) =>{
     const handleSubmit = event =>{
         console.log(bsb_saturasiOksigen);
         event.preventDefault();
+        dispatch(FlagChange('FLAG_BATUK', 2));
         axios.post(`/Batuk`, {
             ansBatuk: ansBatuk
         })

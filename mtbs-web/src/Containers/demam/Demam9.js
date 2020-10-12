@@ -6,11 +6,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios';
 
-import { KlasifikasiDemamChange, AnsDemamChange, AnsGiziChange, compStatusChange } from '../../Actions';
+import { KlasifikasiDemamChange, AnsDemamChange, AnsGiziChange, compStatusChange, FlagChange } from '../../Actions';
 
 import Classifier from '../../Classifier/Classifier';
-
-import '../../Assets/style/style.css';
 
 var outlineColor = {
     borderColor: '#46d0fe'
@@ -34,6 +32,7 @@ const Demam = (props) => {
 
     const handleSubmit = event => {
         event.preventDefault();
+        dispatch(FlagChange('FLAG_DEMAM', 2));
         axios.post(`/Demam`, {
             ansDemam: ansDemam
         })

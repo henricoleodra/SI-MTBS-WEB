@@ -6,8 +6,6 @@ import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 
-import '../../Assets/style/style.css';
-
 import { KlasifikasiHIVChange, AnsHIVChange } from '../../Actions';
 
 import Classifier from '../../Classifier/Classifier';

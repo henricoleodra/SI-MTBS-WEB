@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button, Row, Col} from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
-import '../../Assets/style/style.css';
 
 // Actions
 import { KlasifikasiDiareChange, AnsDiareChange, compStatusChange, FlagChange } from '../../Actions';
@@ -35,11 +34,12 @@ const Diare = (props) => {
                 dispatch(KlasifikasiDiareChange('DIARE_KLASIFIKASI', ""));
                 dispatch(KlasifikasiDiareChange('DIARE_STATUS', null));
             }
+            dispatch(FlagChange('FLAG_DIARE', 1));
             dispatch(AnsDiareChange('DIARE', diare));
             history.push("Diare1");
         }
         else{
-            dispatch(FlagChange('FLAG_DIARE', false));
+            dispatch(FlagChange('FLAG_DIARE', 0));
             dispatch(AnsDiareChange('RESET_DIARE', true));
             dispatch(AnsDiareChange('DIARE', diare));
             dispatch(KlasifikasiDiareChange('DIARE_KLASIFIKASI', ""));

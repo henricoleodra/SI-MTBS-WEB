@@ -13,7 +13,7 @@ import {
 } from '../Actions'; 
 
 const Classifier = ( cur, dispatch, flag, ansTBU, ansBatuk, ansDiare, ansDemam, ansTelinga, ansGizi, ansAnemia, ansHIV ) => {
-    if(flag.tbu === true && cur !== "tbu") {
+    if(flag.tbu !== 0 && cur !== "tbu") {
         axios.post(`/TBU`, {
             ansTBU : ansTBU
         })
@@ -33,7 +33,7 @@ const Classifier = ( cur, dispatch, flag, ansTBU, ansBatuk, ansDiare, ansDemam, 
             console.log(err);
         });
     }
-    if(flag.batuk === true  && cur !== "batuk") {
+    if(flag.batuk !== 0  && cur !== "batuk") {
         axios.post(`/Batuk`, {
             ansBatuk: ansBatuk
         })
@@ -52,7 +52,7 @@ const Classifier = ( cur, dispatch, flag, ansTBU, ansBatuk, ansDiare, ansDemam, 
             console.log(err);
         });
     }
-    if(flag.diare === true && cur !== "diare") {
+    if(flag.diare !== 0 && cur !== "diare") {
         axios.post(`/Diare`, {
             ansDiare: ansDiare
         })
@@ -70,7 +70,7 @@ const Classifier = ( cur, dispatch, flag, ansTBU, ansBatuk, ansDiare, ansDemam, 
             console.log(err);
         });
     }
-    if(flag.demam === true && cur !== "demam") {
+    if(flag.demam !== 0 && cur !== "demam") {
         axios.post(`/Demam`, {
             ansDemam: ansDemam
         })
@@ -89,7 +89,7 @@ const Classifier = ( cur, dispatch, flag, ansTBU, ansBatuk, ansDiare, ansDemam, 
             console.log(err);
         });
     }
-    if(flag.telinga === true && cur !== "telinga") {
+    if(flag.telinga !== 0 && cur !== "telinga") {
         axios.post(`/Telinga`, {
             ansTelinga: ansTelinga
         })
@@ -107,7 +107,7 @@ const Classifier = ( cur, dispatch, flag, ansTBU, ansBatuk, ansDiare, ansDemam, 
             console.log(err);
         });
     }
-    if(flag.gizi === true && cur !== "gizi") {
+    if(flag.gizi !== 0 && cur !== "gizi") {
         axios.post(`/Gizi`, {
             ansGizi: ansGizi
         })
@@ -119,7 +119,7 @@ const Classifier = ( cur, dispatch, flag, ansTBU, ansBatuk, ansDiare, ansDemam, 
             console.log(err);
         });
     }
-    if(flag.anemia === true && cur !== "anemia"){
+    if(flag.anemia !== 0 && cur !== "anemia"){
         axios.post(`/Anemia`, {
             ansAnemia : ansAnemia
         })
@@ -131,7 +131,7 @@ const Classifier = ( cur, dispatch, flag, ansTBU, ansBatuk, ansDiare, ansDemam, 
             console.log(err);
         });
     }
-    if(flag.hiv === true  && cur !== "hiv"){
+    if(flag.hiv !== 0  && cur !== "hiv"){
         axios.post(`/HIV`, {
             ansHIV: ansHIV
         })

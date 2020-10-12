@@ -7,11 +7,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 
 // Actions
-import { KlasifikasiDemamChange, AnsDemamChange, AnsGiziChange, compStatusChange } from '../../Actions';
+import { KlasifikasiDemamChange, AnsDemamChange, AnsGiziChange } from '../../Actions';
 
 import Classifier from '../../Classifier/Classifier';
-
-import '../../Assets/style/style.css';
 
 var outlineColor = {
     borderColor: '#46d0fe'
@@ -69,7 +67,6 @@ const Demam = (props) => {
         );
         dispatch(KlasifikasiDemamChange('Demam_6', true));
         history.push("Demam8"); 
-        dispatch(compStatusChange('TELINGA'));
     }
 
     const handleAnswer1 = event =>{
@@ -169,6 +166,9 @@ const Demam = (props) => {
                                             </FormGroup>
                                         </Col>
                                     </Row>
+                                    
+                                    
+                                    <div hidden={demam_anakMuntah === false || demam_anakMuntah === null}>
                                     <hr
                                         style={{
                                             color: "#46d0fe",
@@ -176,8 +176,6 @@ const Demam = (props) => {
                                             height: 1
                                         }}
                                     />
-                                    
-                                    <div hidden={demam_anakMuntah === false || demam_anakMuntah === null}>
                                         <h6>Apakah sering?</h6>
                                         <Row className="limitCol "> 
                                         <Col  sm="3">

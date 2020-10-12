@@ -1,63 +1,68 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button, Row, Col} from "reactstrap";
+import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button, InputGroup, InputGroupText, InputGroupAddon, Row, Col} from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useDispatch, useSelector } from 'react-redux';
 import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
-import { KlasifikasiPemberianMakananChange, AnsPemberianMakananChange, compStatusChange } from '../../Actions';
-
+import { KlasifikasiPemberianMakananChange, AnsPemberianMakananChange } from '../../Actions';
 
 let outlineColor = {
     borderColor : '#46d0fe '
+}
+
+let bgColor ={
+    backgroundColor : '#75C9E6',
+    color: 'white'
 }
 
 const PemberianMakanan4 = (props) =>{
     const history = useHistory();
     const dispatch = useDispatch();
     const ansPemberianMakanan = useSelector(state => state.ansPemberianMakanan);
-    let[makanan_kurus_perubahanPemberian, set_makanan_kurus_perubahanPemberian] = useState(ansPemberianMakanan.makanan_kurus_perubahanPemberian);
-    let[makanan_kurus_perubahanPemberian_keterangan, set_makanan_kurus_perubahanPemberian_keterangan] = useState(ansPemberianMakanan.makanan_kurus_perubahanPemberian_keterangan);
+    let[makanan_kurus_jumlah, set_makanan_kurus_jumlah] = useState(ansPemberianMakanan.makanan_kurus_jumlah);
+    let[makanan_kurus_makananTersendiri, set_makanan_kurus_makananTersendiri] = useState(ansPemberianMakanan.makanan_kurus_makananTersendiri);
+    let[makanan_kurus_keteranganCara, set_makanan_kurus_keteranganCara] = useState(ansPemberianMakanan.makanan_kurus_keteranganCara);
+    
+    const handleAnswer1 = event => {
+        let tmp = Number(event.target.value);
+        set_makanan_kurus_jumlah(tmp);
+        dispatch(AnsPemberianMakananChange('KURUS_JUMLAH', tmp));
+    }
+
+    const handleAnswer2 = event =>{
+        if(event.target.value === "1"){
+            set_makanan_kurus_makananTersendiri(true);
+            dispatch(AnsPemberianMakananChange('TERSENDIRI', true));
+        }else{
+            set_makanan_kurus_makananTersendiri(false);
+            dispatch(AnsPemberianMakananChange('TERSENDIRI', false));
+        }
+    }
+
+    const handleAnswer3 = event => {
+        let tmp = event.target.value;
+        set_makanan_kurus_keteranganCara(tmp);
+        dispatch(AnsPemberianMakananChange('KETERANGAN_CARA', tmp));
+    }
 
     const handleSubmit = event => {
         event.preventDefault();
         dispatch(KlasifikasiPemberianMakananChange('PEMBERIANMAKANAN_KLASIFIKASI',""));
         dispatch(KlasifikasiPemberianMakananChange('PEMBERIANMAKANAN_STATUS',"info"));
-        dispatch(compStatusChange('TINDAKAN'));
-        history.push("Klasifikasi");
-    }
-
-    const handleAnswer1 = event =>{
-        if(event.target.value === "1"){
-            set_makanan_kurus_perubahanPemberian(true);
-            dispatch(AnsPemberianMakananChange('PERUBAHAN_PEMBERIAN', true));
-        }else{
-            set_makanan_kurus_perubahanPemberian(false);
-            dispatch(AnsPemberianMakananChange('PERUBAHAN_PEMBERIAN', false));
-        }
-    }
-
-    const handleAnswer2 = event => {
-        set_makanan_kurus_perubahanPemberian_keterangan(event.target.value);
-        dispatch(AnsPemberianMakananChange('PERUBAHAN_PEMBERIAN_KET', event.target.value));
+        history.push("PemberianMakanan5");
     }
 
     return(
-        <Form onSubmit={handleSubmit}> 
+        <Form onSubmit={handleSubmit}>
             <div className="w-100">
                 <div className="col-12">
                 <div className="d-flex justify-content-center mt-3">
                     <div className="p-2">
-                        <FontAwesomeIcon icon={faCircle} className="text-muted"/>
-                    </div> 
-                    <div className="p-2">
-                        <FontAwesomeIcon icon={faCircle} className="text-muted"/>
-                    </div> 
-                    <div className="p-2">
-                        <FontAwesomeIcon icon={faCircle} className="text-muted"/>
-                    </div> 
-                    <div className="p-2">
                         <FontAwesomeIcon icon={faCircle} style={{color: '#46d0fe '}}/>
+                    </div> 
+                    <div className="p-2">
+                        <FontAwesomeIcon icon={faCircle} className="text-muted"/>
                     </div> 
                 </div>
                 <div className="mt-2">
@@ -69,20 +74,32 @@ const PemberianMakanan4 = (props) =>{
                         height: 5
                     }}
                     />
-                    <p className="text-center">Jika anak <b>GIZI KURUS</b></p>
                 </div>
                 <div style={{minHeight: "475px"}}>
                     <Row className="justify-content-center">
                         <Card style={outlineColor} className="text-center w-75 mt-3">
                             <CardBody>
-                                <CardTitle className="h5"><b>Tanyakan! </b>Selama sakit ini, apakah ada perubahan pemberian makan?</CardTitle>
+                                <CardTitle className="h5"><b>Tanyakan! </b>Berapa banyak makanan atau minuman yang diberikan pada anak?</CardTitle>
+                                <div className="w-100 d-flex justify-content-center">
+                                    <InputGroup className="w-50">
+                                        <Input type="number" min="0" value={makanan_kurus_jumlah} onChange={handleAnswer1} required/>
+                                        <InputGroupAddon addonType="append" >
+                                            <InputGroupText style={bgColor}>Kali</InputGroupText>
+                                        </InputGroupAddon>
+                                    </InputGroup>         
+                                </div> 
+                            </CardBody>
+                        </Card>
+                        <Card style={outlineColor} className="text-center w-75 mt-3">
+                            <CardBody>
+                                <CardTitle className="h5"><b>Tanyakan! </b>Apakah anak mendapat makanan tersendiri?</CardTitle>
                                 <Row className="limitCol">
                                     <Col sm="3">
                                     </Col>
                                     <Col sm="3">
                                         <FormGroup className="d-inline pr-2">  
                                             <Label className="rdoBtn">Ya
-                                            <Input type="radio" name="radio1" value={1} onChange={handleAnswer1} checked={makanan_kurus_perubahanPemberian === true} required/>
+                                            <Input type="radio" name="radio1" value={1} onChange={handleAnswer2} checked={makanan_kurus_makananTersendiri === true} required/>
                                             <span style={{left:"20px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>
@@ -92,22 +109,19 @@ const PemberianMakanan4 = (props) =>{
                                     <Col sm="3">
                                         <FormGroup className="d-inline">
                                             <Label className="rdoBtn">Tidak
-                                            <Input type="radio" name="radio1" value={2} onChange={handleAnswer1} checked={makanan_kurus_perubahanPemberian === false} /> 
+                                            <Input type="radio" name="radio1" value={2} onChange={handleAnswer2} checked={makanan_kurus_makananTersendiri === false} /> 
                                             <span style={{left:"0px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>
                                     </Col>
                                 </Row>
-                                <hr
-                                    style={{
-                                        color: "#75C9E6",
-                                        backgroundColor: "#75C9E6",
-                                        height: 1
-                                    }}
-                                />
-                                <h5>Jika Ya, bagaimana?</h5>
+                            </CardBody>
+                        </Card>
+                        <Card style={outlineColor} className="text-center w-75 mt-3">
+                            <CardBody>
+                                <CardTitle className="h5"><b>Tanyakan! </b>Siapa yang memberi makan dan bagaimana caranya?</CardTitle>
                                 <FormGroup check className="d-inline pr-2">
-                                    <Input type="textarea" value={makanan_kurus_perubahanPemberian_keterangan} onChange={handleAnswer2} required/>
+                                    <Input type="textarea" value={makanan_kurus_keteranganCara} onChange={handleAnswer3} required/> 
                                 </FormGroup>
                             </CardBody>
                         </Card>
@@ -119,7 +133,7 @@ const PemberianMakanan4 = (props) =>{
                     <Link to="PemberianMakanan3" style={{textDecoration: "none"}}><Button style={{backgroundColor: '#fe8d3b', border: '0'}} block><FontAwesomeIcon icon={faChevronLeft}/> Sebelumnya</Button></Link>
                 </Col>
                 <Col sm="4">
-                    <Button style={{backgroundColor: '#46d0fe ', border: '0'}} type="submit" block >Klasifikasi <FontAwesomeIcon icon={faChevronRight}/></Button>
+                    <Button style={{backgroundColor: '#46d0fe ', border: '0'}} type="submit" block >Selanjutnya <FontAwesomeIcon icon={faChevronRight}/></Button>
                 </Col>
             </Row>
         </div>

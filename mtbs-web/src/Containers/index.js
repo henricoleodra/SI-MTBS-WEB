@@ -79,10 +79,11 @@ export { default as VitaminA } from './vitamina/VitaminA';
 export { default as KeluhanLain } from './keluhanlain/KeluhanLain';
 
 // Pemberian Makanan
-export { default as PemberianMakanan1 } from './pemberianmakanan/PemberianMakanan';
+export { default as PemberianMakanan1 } from './pemberianmakanan/PemberianMakanan1';
 export { default as PemberianMakanan2 } from './pemberianmakanan/PemberianMakanan2';
 export { default as PemberianMakanan3 } from './pemberianmakanan/PemberianMakanan3';
 export { default as PemberianMakanan4 } from './pemberianmakanan/PemberianMakanan4';
+export { default as PemberianMakanan5 } from './pemberianmakanan/PemberianMakanan5';
 
 // Klasifikasi 
 export { default as Klasifikasi } from './klasifikasi/Klasifikasi';

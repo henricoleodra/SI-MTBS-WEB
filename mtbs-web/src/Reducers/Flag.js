@@ -5,7 +5,9 @@ const initState = {
     demam : 0,
     telinga : 0,
     gizi : 0,
-    hiv : 0
+    anemia: 0,
+    hiv : 0,
+    pemberianmakanan : 0,
 }
 
 const flagReducer = (state = initState, action) => {
@@ -33,6 +35,18 @@ const flagReducer = (state = initState, action) => {
         case 'FLAG_GIZI':
             return Object.assign({}, state, {
                 gizi : action.value
+            });
+        case 'FLAG_ANEMIA':
+            return Object.assign({}, state, {
+                anemia : action.value
+            });
+        case 'FLAG_HIV':
+            return Object.assign({}, state, {
+                hiv : action.value
+            });
+        case 'FLAG_PEMBERIAN_MAKANAN':
+            return Object.assign({}, state, {
+                pemberianmakanan : action.value
             });
         default:
             return state; 

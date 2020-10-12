@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { FormGroup,Label, Input, Form, Card, CardBody, CardTitle, Button, InputGroup, InputGroupText, InputGroupAddon, Row, Col} from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { useDispatch, useSelector } from 'react-redux';
 import { faCircle, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
-import { KlasifikasiPemberianMakananChange, AnsPemberianMakananChange } from '../../Actions';
+import { useDispatch, useSelector } from 'react-redux';
+
+// Action
+import { KlasifikasiPemberianMakananChange, AnsPemberianMakananChange, FlagChange, compStatusChange} from '../../Actions';
 
 let outlineColor = {
     borderColor : '#46d0fe '
@@ -20,37 +22,48 @@ const PemberianMakanan3 = (props) =>{
     const history = useHistory();
     const dispatch = useDispatch();
     const ansPemberianMakanan = useSelector(state => state.ansPemberianMakanan);
-    let[makanan_kurus_jumlah, set_makanan_kurus_jumlah] = useState(ansPemberianMakanan.makanan_kurus_jumlah);
-    let[makanan_kurus_makananTersendiri, set_makanan_kurus_makananTersendiri] = useState(ansPemberianMakanan.makanan_kurus_makananTersendiri);
-    let[makanan_kurus_keteranganCara, set_makanan_kurus_keteranganCara] = useState(ansPemberianMakanan.makanan_kurus_keteranganCara);
-    
-    const handleAnswer1 = event => {
-        let tmp = Number(event.target.value);
-        set_makanan_kurus_jumlah(tmp);
-        dispatch(AnsPemberianMakananChange('KURUS_JUMLAH', tmp));
-    }
+    const ansGizi = useSelector(state => state.ansGizi);
+    let[makanan_lainnya, set_makanan_lainnya] = useState(ansPemberianMakanan.lainnya);
+    let[makanan_lainnya_keterangan, set_makanan_lainnya_keterangan] = useState(ansPemberianMakanan.lainnya_keterangan);
+    let[makanan_lainnya_jumlah, set_makanan_lainnya_jumlah] = useState(ansPemberianMakanan.lainnya_jumlah);
+    let[makanan_lainnya_alat, set_makanan_lainnya_alat] = useState(ansPemberianMakanan.lainnya_alat);
 
-    const handleAnswer2 = event =>{
-        if(event.target.value === "1"){
-            set_makanan_kurus_makananTersendiri(true);
-            dispatch(AnsPemberianMakananChange('TERSENDIRI', true));
-        }else{
-            set_makanan_kurus_makananTersendiri(false);
-            dispatch(AnsPemberianMakananChange('TERSENDIRI', false));
-        }
-    }
-
-    const handleAnswer3 = event => {
+    const handleAnswerLainnya = event =>{
         let tmp = event.target.value;
-        set_makanan_kurus_keteranganCara(tmp);
-        dispatch(AnsPemberianMakananChange('KETERANGAN_CARA', tmp));
+        set_makanan_lainnya(tmp);
+        dispatch(AnsPemberianMakananChange('LAINNYA', tmp));
     }
 
-    const handleSubmit = event => {
+    const handleAnswerLainnya_keterangan = event =>{
+        let tmp = event.target.value;
+        set_makanan_lainnya_keterangan(tmp);
+        dispatch(AnsPemberianMakananChange('KETERANGAN_LAIN', tmp));
+    }
+
+    const handleAnswerLainnya_jumlah = event =>{
+        let tmp = event.target.value;
+        set_makanan_lainnya_jumlah(tmp);
+        dispatch(AnsPemberianMakananChange('JUMLAH_LAIN', tmp));
+    }
+
+    const handleAnswerLainnya_alat = event =>{
+        let tmp = event.target.value;
+        set_makanan_lainnya_alat(tmp);
+        dispatch(AnsPemberianMakananChange('ALAT_LAIN', tmp));
+    }
+
+    const handleSubmit = event =>{
         event.preventDefault();
-        dispatch(KlasifikasiPemberianMakananChange('PEMBERIANMAKANAN_KLASIFIKASI',""));
-        dispatch(KlasifikasiPemberianMakananChange('PEMBERIANMAKANAN_STATUS',"info"));
-        history.push("PemberianMakanan4");
+        dispatch(KlasifikasiPemberianMakananChange('PEMBERIANMAKANAN_KLASIFIKASI', ""));
+        dispatch(KlasifikasiPemberianMakananChange('PEMBERIANMAKANAN_STATUS', "info"));
+        if(ansGizi.gizi_BBmenurutPBAtauTB === '-3 SD ≥ BB/PB (TB) ≤ -2 SD (Kurus)'){
+            history.push('PemberianMakanan4');
+        }
+        else{
+            dispatch(FlagChange('FLAG_PEMBERIAN_MAKANAN',2));
+            dispatch(compStatusChange('TINDAKAN'));
+            history.push('Klasifikasi');
+        }
     }
 
     return(
@@ -62,14 +75,8 @@ const PemberianMakanan3 = (props) =>{
                         <FontAwesomeIcon icon={faCircle} className="text-muted"/>
                     </div> 
                     <div className="p-2">
-                        <FontAwesomeIcon icon={faCircle} className="text-muted"/>
-                    </div> 
-                    <div className="p-2">
                         <FontAwesomeIcon icon={faCircle} style={{color: '#46d0fe '}}/>
-                    </div> 
-                    <div className="p-2">
-                        <FontAwesomeIcon icon={faCircle} className="text-muted"/>
-                    </div> 
+                    </div>
                 </div>
                 <div className="mt-2">
                     <h3 className="text-center font-weight-bold">Pemberian Makanan</h3>  
@@ -80,33 +87,19 @@ const PemberianMakanan3 = (props) =>{
                         height: 5
                     }}
                     />
-                    <p className="text-center">Jika anak <b>GIZI KURUS</b></p>
                 </div>
                 <div style={{minHeight: "475px"}}>
                     <Row className="justify-content-center">
                         <Card style={outlineColor} className="text-center w-75 mt-3">
                             <CardBody>
-                                <CardTitle className="h5"><b>Tanyakan! </b>Berapa banyak makanan atau minuman yang diberikan pada anak?</CardTitle>
-                                <div className="w-100 d-flex justify-content-center">
-                                    <InputGroup className="w-50">
-                                        <Input type="number" min="0" value={makanan_kurus_jumlah} onChange={handleAnswer1} required/>
-                                        <InputGroupAddon addonType="append" >
-                                            <InputGroupText style={bgColor}>Kali</InputGroupText>
-                                        </InputGroupAddon>
-                                    </InputGroup>         
-                                </div> 
-                            </CardBody>
-                        </Card>
-                        <Card style={outlineColor} className="text-center w-75 mt-3">
-                            <CardBody>
-                                <CardTitle className="h5"><b>Tanyakan! </b>Apakah anak mendapat makanan tersendiri?</CardTitle>
+                                <CardTitle className="h5"><b>Tanyakan! </b>Apakah anak mendapat makanan atau minuman lain?</CardTitle>
                                 <Row className="limitCol">
                                     <Col sm="3">
                                     </Col>
                                     <Col sm="3">
                                         <FormGroup className="d-inline pr-2">  
                                             <Label className="rdoBtn">Ya
-                                            <Input type="radio" name="radio1" value={1} onChange={handleAnswer2} checked={makanan_kurus_makananTersendiri === true} required/>
+                                            <Input type="radio" name="makanan_lainnya" value={'Ya'} onChange={handleAnswerLainnya} checked={makanan_lainnya === 'Ya'} required/>
                                             <span style={{left:"20px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>
@@ -116,20 +109,56 @@ const PemberianMakanan3 = (props) =>{
                                     <Col sm="3">
                                         <FormGroup className="d-inline">
                                             <Label className="rdoBtn">Tidak
-                                            <Input type="radio" name="radio1" value={2} onChange={handleAnswer2} checked={makanan_kurus_makananTersendiri === false} /> 
+                                            <Input type="radio" name="makanan_lainnya" value={'Tidak'} onChange={handleAnswerLainnya} checked={makanan_lainnya === "Tidak"}  /> 
                                             <span style={{left:"0px"}} className="checkmark"></span>
                                             </Label>
                                         </FormGroup>
                                     </Col>
                                 </Row>
-                            </CardBody>
-                        </Card>
-                        <Card style={outlineColor} className="text-center w-75 mt-3">
-                            <CardBody>
-                                <CardTitle className="h5"><b>Tanyakan! </b>Siapa yang memberi makan dan bagaimana caranya?</CardTitle>
-                                <FormGroup check className="d-inline pr-2">
-                                    <Input type="textarea" value={makanan_kurus_keteranganCara} onChange={handleAnswer3} required/> 
-                                </FormGroup>
+                                <hr hidden={makanan_lainnya == null || makanan_lainnya === "Tidak"}
+                                    style={{
+                                        color: "#75C9E6",
+                                        backgroundColor: "#75C9E6",
+                                        height: 1
+                                    }}
+                                />
+                                <div className="d-flex flex-column justify-content-around pt-2"  hidden={makanan_lainnya == null || makanan_lainnya ==="Tidak"}>
+                                    <div className="d-flex flex-row">
+                                        <div className="d-line">
+                                            <h6>Jika Ya, makanan atau minuman apa?</h6>
+                                            <FormGroup check className="d-inline pr-2">
+                                                <Input type="textarea" name="makanan_lainnya_keterangan" value={makanan_lainnya_keterangan} onChange={handleAnswerLainnya_keterangan} required={makanan_lainnya === "Ya"}/>
+                                            </FormGroup>
+                                        </div>
+                                        <div className="d-line ml-4"> 
+                                            <h6>Berapa kali sehari?</h6>          
+                                            <div className="w-100 d-flex justify-content-center">  
+                                                <InputGroup className="w-100 mt-4">
+                                                    <Input type="number" min="0" name="makanan_lainnya_jumlah" value={makanan_lainnya_jumlah} onChange={handleAnswerLainnya_jumlah} required={makanan_lainnya === "Ya"}/>
+                                                    <InputGroupAddon addonType="append" >
+                                                        <InputGroupText style={bgColor}>Hari</InputGroupText>
+                                                    </InputGroupAddon>
+                                                </InputGroup>         
+                                            </div> 
+                                        </div>                            
+                                    </div>
+                                    <div className="flex-row ml-4 mb-2">
+                                        <hr
+                                            style={{
+                                                color: "#75C9E6",
+                                                backgroundColor: "#75C9E6",
+                                                height: "100%",
+                                                width: 2
+                                            }}
+                                        />
+                                    </div>
+                                    {/* <div className="d-line ml-4"> */}
+                                        <h6 className="mt-0">Alat apa yang digunakan untuk memberi minum anak?</h6>
+                                        <FormGroup check className="d-inline pr-2">
+                                            <Input type="textarea" name="makanan_lainnya_alat" value={makanan_lainnya_alat} onChange={handleAnswerLainnya_alat} required={makanan_lainnya === "Ya"}/>
+                                        </FormGroup>
+                                    {/* </div> */}
+                                </div>
                             </CardBody>
                         </Card>
                     </Row>

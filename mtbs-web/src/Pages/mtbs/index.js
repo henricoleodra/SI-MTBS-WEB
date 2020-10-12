@@ -43,6 +43,7 @@ import {
     PemberianMakanan2,
     PemberianMakanan3,
     PemberianMakanan4,
+    PemberianMakanan5,
     Klasifikasi,
     Tindakan
 } from '../../Containers';
@@ -138,6 +139,8 @@ const Index = ( props ) => {
                 return <PemberianMakanan3/>;
             case `/MTBS/PemberianMakanan4`:
                 return <PemberianMakanan4/>;
+            case `/MTBS/PemberianMakanan5`:
+                return <PemberianMakanan5/>;
             default :
                 console.log(props.location.pathname);
                 return "404 not found";

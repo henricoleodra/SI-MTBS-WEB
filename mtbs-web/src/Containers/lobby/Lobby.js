@@ -13,16 +13,8 @@ import {
     Container
 } from 'reactstrap';
 
-// Import Components
-import { NavBar, Footer } from '../../Components';
-
-//Import Image
-// import pemeriksaan from './../../Assets/image/medicine.png';
-// import buku from './../../Assets/image/book.png';
-// import baby from './../../Assets/image/baby.png';
 import pemeriksaan from './../../Assets/image/medicineSS.png';
 import dataanak from './../../Assets/image/dataBabyPage.png';
-import bukumtbs from './../../Assets/image/buku-mtbs.png';
 
 import { Wrapper } from './style';
 

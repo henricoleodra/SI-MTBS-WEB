@@ -28,4 +28,9 @@ export const Wrapper = styled.div`
             background-color: #3bb1d9;
         }
     }
+
+    .loading-tindakan {
+        width: 5rem;
+        height: 5rem;
+    }
 `;  

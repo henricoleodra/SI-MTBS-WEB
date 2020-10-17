@@ -219,11 +219,3 @@ export const KlasifikasiPemberianMakananChange = (comp, ans) => {
         answer: ans
     }
 }
-
-// TINDAKAN
-export const TindakanChange = (comp, ans) => {
-    return{
-        type: comp,
-        answer: ans
-    }
-}

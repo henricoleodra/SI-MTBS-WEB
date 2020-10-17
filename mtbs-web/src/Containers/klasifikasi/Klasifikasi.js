@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { Container } from 'reactstrap';
+import { Link } from 'react-router-dom';
+import { Container, Row, Button } from 'reactstrap';
 import { Klasifikasi } from '../../Components'
 
 
@@ -90,6 +91,9 @@ const Index = (props) =>{
                     })
                 }
             </Container>
+            <Row className="justify-content-center px-5 py-0 mt-5">
+                <Link to="Tindakan"><Button className="button-orange">Akhiri Pemeriksaan</Button></Link>
+            </Row>
         </div>  
     );
 }

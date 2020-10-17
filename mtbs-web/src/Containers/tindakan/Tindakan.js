@@ -78,12 +78,6 @@ const Tindakan = (props) => {
               status: klasifikasiTBU.tbu_status,
               tindakan: res.data.tbu,
             },
-            {
-              judul: "Tanda Bahaya Umum",
-              klasifikasi: klasifikasiTBU.tbu_klasifikasi,
-              status: klasifikasiTBU.tbu_status,
-              tindakan: res.data.tbu,
-            },
           ]);
           set_isLoading(false);
         })
@@ -92,7 +86,25 @@ const Tindakan = (props) => {
         });
     }
     fetchResult();
-  }, [ansTBU, klasifikasiTBU]);
+  }, [
+    dataAnak,
+    ansTBU,
+    klasifikasiTBU,
+    ansBatuk,
+    klasifikasiBatuk,
+    ansDiare,
+    klasifikasiDiare,
+    ansDemam,
+    klasifikasiDemam,
+    ansTelinga,
+    klasifikasiTelinga,
+    ansGizi,
+    klasifikasiGizi,
+    ansAnemia,
+    klasifikasiAnemia,
+    ansHIV,
+    klasifikasiHIV,
+  ]);
 
   if (isLoading) {
     return (

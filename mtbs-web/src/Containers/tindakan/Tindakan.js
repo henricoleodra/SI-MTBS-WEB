@@ -32,7 +32,7 @@ const Tindakan = (props) => {
 
   useEffect(() => {
     async function fetchResult() {
-      axios
+      await axios
         .post(`/Tindakan`, {
           dataanak: {
             dataAna: dataAnak,
@@ -72,6 +72,12 @@ const Tindakan = (props) => {
         })
         .then((res) => {
           set_hasilTindakan([
+            {
+              judul: "Tanda Bahaya Umum",
+              klasifikasi: klasifikasiTBU.tbu_klasifikasi,
+              status: klasifikasiTBU.tbu_status,
+              tindakan: res.data.tbu,
+            },
             {
               judul: "Tanda Bahaya Umum",
               klasifikasi: klasifikasiTBU.tbu_klasifikasi,

@@ -31,59 +31,62 @@ const Tindakan = (props) => {
   const dataAnak = useSelector((state) => state.dataAnak);
 
   useEffect(() => {
-    axios
-      .post(`/Tindakan`, {
-        dataanak: {
-          dataAna: dataAnak,
-        },
-        tbu: {
-          ansTBU: ansTBU,
-          klasifikasiTBU: klasifikasiTBU,
-        },
-        batuk: {
-          ansBatuk: ansBatuk,
-          klasifikasiBatuk: klasifikasiBatuk,
-        },
-        diare: {
-          ansDiare: ansDiare,
-          klasifikasiDiare: klasifikasiDiare,
-        },
-        demam: {
-          ansDemam: ansDemam,
-          klasifikasiDemam: klasifikasiDemam,
-        },
-        telinga: {
-          ansTelinga: ansTelinga,
-          klasifikasiTelinga: klasifikasiTelinga,
-        },
-        gizi: {
-          ansGizi: ansGizi,
-          klasifikasiGizi: klasifikasiGizi,
-        },
-        anemia: {
-          ansAnemia: ansAnemia,
-          klasifikasiAnemia: klasifikasiAnemia,
-        },
-        hiv: {
-          ansHIV: ansHIV,
-          klasifikasiHIV: klasifikasiHIV,
-        },
-      })
-      .then((res) => {
-        set_hasilTindakan([
-          {
-            judul: "Tanda Bahaya Umum",
-            klasifikasi: klasifikasiTBU.tbu_klasifikasi,
-            status: klasifikasiTBU.tbu_status,
-            tindakan: res.data.tbu,
+    async function fetchResult() {
+      axios
+        .post(`/Tindakan`, {
+          dataanak: {
+            dataAna: dataAnak,
           },
-        ]);
-        set_isLoading(false);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+          tbu: {
+            ansTBU: ansTBU,
+            klasifikasiTBU: klasifikasiTBU,
+          },
+          batuk: {
+            ansBatuk: ansBatuk,
+            klasifikasiBatuk: klasifikasiBatuk,
+          },
+          diare: {
+            ansDiare: ansDiare,
+            klasifikasiDiare: klasifikasiDiare,
+          },
+          demam: {
+            ansDemam: ansDemam,
+            klasifikasiDemam: klasifikasiDemam,
+          },
+          telinga: {
+            ansTelinga: ansTelinga,
+            klasifikasiTelinga: klasifikasiTelinga,
+          },
+          gizi: {
+            ansGizi: ansGizi,
+            klasifikasiGizi: klasifikasiGizi,
+          },
+          anemia: {
+            ansAnemia: ansAnemia,
+            klasifikasiAnemia: klasifikasiAnemia,
+          },
+          hiv: {
+            ansHIV: ansHIV,
+            klasifikasiHIV: klasifikasiHIV,
+          },
+        })
+        .then((res) => {
+          set_hasilTindakan([
+            {
+              judul: "Tanda Bahaya Umum",
+              klasifikasi: klasifikasiTBU.tbu_klasifikasi,
+              status: klasifikasiTBU.tbu_status,
+              tindakan: res.data.tbu,
+            },
+          ]);
+          set_isLoading(false);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+    fetchResult();
+  }, [ansTBU, klasifikasiTBU]);
 
   if (isLoading) {
     return (

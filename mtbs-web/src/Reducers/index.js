@@ -30,6 +30,8 @@ import KlasifikasiKeluhanLainReducer from './KlasifikasiKeluhanLain';
 
 import DataAnakReducer from './DataAnak';
 
+import TindakanReducer from './Tindakan';
+
 import storage from 'redux-persist/lib/storage';
 
 const appReducer = combineReducers({
@@ -59,7 +61,8 @@ const appReducer = combineReducers({
     ansKeluhanLain: AnsKeluhanLainReducer,
     klasifikasiKeluhanLain: KlasifikasiKeluhanLainReducer,
     ansPemberianMakanan: AnsPemberianMakananReducer,
-    klasifikasiPemberianMakanan: KlasifikasiPemberianMakananReducer
+    klasifikasiPemberianMakanan: KlasifikasiPemberianMakananReducer,
+    tindakan: TindakanReducer
 });
 
 const rootReducer = (state, action) => {

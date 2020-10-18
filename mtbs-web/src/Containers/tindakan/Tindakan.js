@@ -78,6 +78,24 @@ const Tindakan = (props) => {
               status: klasifikasiTBU.tbu_status,
               tindakan: res.data.tbu,
             },
+            {
+              judul: "Batuk atau Sukar Bernafas",
+              klasifikasi: klasifikasiBatuk.bsb_klasifikasi,
+              status: klasifikasiBatuk.bsb_status,
+              tindakan: res.data.batuk,
+            },
+            {
+              judul: "Telinga",
+              klasifikasi: klasifikasiTelinga.telinga_klasifikasi,
+              status: klasifikasiTelinga.telinga_status,
+              tindakan: res.data.telinga,
+            },
+            {
+              judul: "Gizi",
+              klasifikasi: klasifikasiGizi.gizi_klasifikasi,
+              status: klasifikasiGizi.gizi_status,
+              tindakan: res.data.gizi,
+            },
           ]);
           set_isLoading(false);
         })

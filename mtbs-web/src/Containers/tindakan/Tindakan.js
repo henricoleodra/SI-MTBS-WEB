@@ -96,6 +96,18 @@ const Tindakan = (props) => {
               status: klasifikasiGizi.gizi_status,
               tindakan: res.data.gizi,
             },
+            {
+              judul: "Anemia",
+              klasifikasi: klasifikasiAnemia.anemia_klasifikasi,
+              status: klasifikasiAnemia.anemia_status,
+              tindakan: res.data.anemia,
+            },
+            {
+              judul: "HIV",
+              klasifikasi: klasifikasiHIV.hiv_klasifikasi,
+              status: klasifikasiHIV.hiv_status,
+              tindakan: res.data.hiv,
+            },
           ]);
           set_isLoading(false);
         })

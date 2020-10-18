@@ -5,8 +5,10 @@ const tindakan = async function(req, res, next) {
     const result = {
         tbu: processTindakan[0],
         batuk: processTindakan[1],
-        telinga: processTindakan[2],
-        gizi:processTindakan[3]
+        telinga: processTindakan[4],
+        gizi:processTindakan[5],
+        anemia:processTindakan[6],
+        hiv:processTindakan[7]
     }
     res.json(result);
 };

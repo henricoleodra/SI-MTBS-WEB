@@ -5,6 +5,8 @@ const processTindakan = (data) => {
 
   let telinga = Array();
   let gizi = Array();
+  let anemia = Array();
+  let hiv = Array();
   //tbu
   if (data.tbu.klasifikasiTBU.tbu_klasifikasi === "Penyakit sangat berat") {
     tbu.push(
@@ -123,6 +125,51 @@ const processTindakan = (data) => {
       "Anjurkan untuk menimbang berat badan anak setiap bulan"
     );
     res.push(gizi);
+  }
+
+  //ANEMIA
+  if(data.anemia.klasifikasiAnemia.anemia_klasifikasi === "Anemia Berat"){
+    anemia.push(
+      "Bila masih menyusu, teruskan pemberian ASI",
+      "RUJUK SEGERA"
+    )
+  }
+  if(data.anemia.klasifikasiAnemia.anemia_klasifikasi === "Anemia"){
+    anemia.push(
+      "Lakukan Penilaian Pemberian Makan pada anak. Bila ada masalah, beri konseling pemberian makan dan kunjungan ulang 7 hari",
+      "Beri zat besi",
+      "Lakukan pemberiksaan tinja untuk deteksi kecacingan",
+      "Jika daerah Endemis Tinggi Malaria: periksa dan obati malaria terlebih dahulu jika positif",
+      "Nasihati kapan kembali segera",
+      "Kunjungan ulang 14 hari"
+    )
+  }
+  if(data.anemia.klasifikasiAnemia.anemia_klasifikasi === "Tidak Anemia"){
+    anemia.push(
+      "Jika anak < 2 tahun, nilai pemberian makanan pada anak. Jika ada masalah pemberian makanan, kunjungan ulang 7 hari"
+    )
+  }
+
+  // HIV
+  if(data.hiv.klasifikasiHIV.hiv_klasifikasi === "Infeksi HIV Terkonfirmasi"){
+    hiv.push(
+      "Rujuk ke puskesmas/RS Rujukan ARV untuk mendapatkan terapi ARV dan Kotrimoksasol profilaksis"
+    )
+  }
+  if(data.hiv.klasifikasiHIV.hiv_klasifikasi === "Diduga terinfeksi HIV"){
+    hiv.push(
+      "Rujuk ke puskesmas/RS Rujukan ARV untuk mendapatkan pemeriksaan lebih lanjut dan terapi ARV dan Kotrimoksasol profilaksis"
+    )
+  }
+  if(data.hiv.klasifikasiHIV.hiv_klasifikasi === "Terpajan HIV"){
+    hiv.push(
+      "Rujuk ke puskesmas/RS rujukan ARV untuk mendapatkan pemeriksaan lebih lanjut dan ARV profilaksis serta Kotrimoksasol profilaksis"
+    )
+  }
+  if(data.hiv.klasifikasiHIV.hiv_klasifikasi === "Mungkin bukan infeksi HIV"){
+    hiv.push(
+      "Tangani Infeksi yang ada"
+    )
   }
 
   return res;

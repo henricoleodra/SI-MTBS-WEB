@@ -35,7 +35,7 @@ const Tindakan = (props) => {
       await axios
         .post(`/Tindakan`, {
           dataanak: {
-            dataAna: dataAnak,
+            dataAnak: dataAnak,
           },
           tbu: {
             ansTBU: ansTBU,
@@ -83,6 +83,18 @@ const Tindakan = (props) => {
               klasifikasi: klasifikasiBatuk.bsb_klasifikasi,
               status: klasifikasiBatuk.bsb_status,
               tindakan: res.data.batuk,
+            },
+            {
+              judul: "Diare",
+              klasifikasi: klasifikasiDiare.diare_klasifikasi,
+              status: klasifikasiDiare.diare_status,
+              tindakan: res.data.diare,
+            },
+            {
+              judul: "Demam",
+              klasifikasi: klasifikasiDemam.demam_klasifikasi,
+              status: klasifikasiDemam.demam_status,
+              tindakan: res.data.demam,
             },
             {
               judul: "Telinga",

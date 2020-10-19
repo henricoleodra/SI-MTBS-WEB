@@ -3,7 +3,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { FormGroup, Label, Input, Form, Card, CardBody, CardTitle, Button, Row, Col } from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronLeft, faChevronRight} from '@fortawesome/free-solid-svg-icons'
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
 // Actions
 import { AnsDemamChange } from '../../Actions';
@@ -29,12 +29,12 @@ const DemamKonfirmasiDaerah = (props) => {
     const ansAnemia = useSelector(state => state.ansGizi);
     const ansHIV = useSelector(state => state.ansHIV);
 
-    const handleDaerahEndemis = event =>{
-       set_demam_isBerkunjungDaerahEndemis(event.target.value);
-       dispatch(AnsDemamChange('BERKUNJUNG_DAERAH_ENDEMIS', event.target.value));
+    const handleDaerahEndemis = event => {
+        set_demam_isBerkunjungDaerahEndemis(event.target.value);
+        dispatch(AnsDemamChange('BERKUNJUNG_DAERAH_ENDEMIS', event.target.value));
     }
 
-    const handleSubmit = event =>{
+    const handleSubmit = event => {
         Classifier(
             "demam",
             dispatch,
@@ -48,13 +48,13 @@ const DemamKonfirmasiDaerah = (props) => {
             ansAnemia,
             ansHIV
         );
-        if(demam_isBerkunjungDaerahEndemis === 'Tinggi'){
+        if (demam_isBerkunjungDaerahEndemis === 'Tinggi') {
             history.push("DemamPerhatian");
         }
-        else if(demam_isBerkunjungDaerahEndemis === 'Rendah'){
+        else if (demam_isBerkunjungDaerahEndemis === 'Rendah') {
             history.push("Demam1");
         }
-        else{
+        else {
             history.push("Demam1");
         }
     }
@@ -73,44 +73,44 @@ const DemamKonfirmasiDaerah = (props) => {
                             }}
                         />
                     </div>
-                    <div style={{minHeight: "510px"}}>
+                    <div style={{ minHeight: "510px" }}>
                         <Row className="justify-content-around">
                             <Card style={outlineColor} className="text-center w-75" >
                                 <CardBody>
-                                    <CardTitle className="h5"><span className="font-weight-bold">Tanyakan! </span>Apakah anak pernah berpergian ke daerah endemis dalam 2 minggu terakhir ini? 
+                                    <CardTitle className="h5"><span className="font-weight-bold">Tanyakan! </span>Apakah anak pernah berpergian ke daerah endemis dalam 2 minggu terakhir ini?
                                     Jika "Ya", tentukan jenis tipe endemis dari daerah tersebut</CardTitle>
-                                    <Row className="limitCol "> 
+                                    <Row className="limitCol ">
                                         <Col sm="1">
-                                            
+
                                         </Col>
                                         <Col sm="3">
-                                            <FormGroup className="d-inline pr-2">  
-                                                <Label className="rdoBtn" style={{left:"10px"}}>Tinggi
-                                                <Input type="radio" name="radio2" value={'Tinggi'} onChange={handleDaerahEndemis} checked={demam_isBerkunjungDaerahEndemis === 'Tinggi'} required/>
-                                                <span style={{left:"6px"}} className="checkmark"></span>
+                                            <FormGroup className="d-inline pr-2">
+                                                <Label className="rdoBtn" style={{ left: "10px" }}>Tinggi
+                                                <Input type="radio" name="radio2" value={'Tinggi'} onChange={handleDaerahEndemis} checked={demam_isBerkunjungDaerahEndemis === 'Tinggi'} required />
+                                                    <span style={{ left: "6px" }} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>
                                         </Col>
 
                                         <Col sm="3">
                                             <FormGroup className="d-inline">
-                                                <Label className="rdoBtn" style={{left:"10px"}}>Rendah
-                                                <Input type="radio" name="radio2" value={'Rendah'} onChange={handleDaerahEndemis} checked={demam_isBerkunjungDaerahEndemis === 'Rendah'} /> 
-                                                <span style={{left:"-1px"}} className="checkmark"></span>
+                                                <Label className="rdoBtn" style={{ left: "10px" }}>Rendah
+                                                <Input type="radio" name="radio2" value={'Rendah'} onChange={handleDaerahEndemis} checked={demam_isBerkunjungDaerahEndemis === 'Rendah'} />
+                                                    <span style={{ left: "-1px" }} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>
                                         </Col>
 
                                         <Col sm="4">
                                             <FormGroup className="d-inline">
-                                                <Label className="rdoBtn" style={{left:"10px"}}>Non Endemis 
-                                                <Input type="radio" name="radio2" value={'Non Endemis'} onChange={handleDaerahEndemis} checked={demam_isBerkunjungDaerahEndemis === 'Non Endemis'} /> 
-                                                <span style={{left:"-1px"}} className="checkmark"></span>
+                                                <Label className="rdoBtn" style={{ left: "10px" }}>Non Endemis
+                                                <Input type="radio" name="radio2" value={'Non Endemis'} onChange={handleDaerahEndemis} checked={demam_isBerkunjungDaerahEndemis === 'Non Endemis'} />
+                                                    <span style={{ left: "-1px" }} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>
                                         </Col>
                                         <Col sm="1">
-                                            
+
                                         </Col>
                                     </Row>
                                 </CardBody>
@@ -120,10 +120,10 @@ const DemamKonfirmasiDaerah = (props) => {
                 </div>
                 <Row className="justify-content-between px-5 py-0">
                     <Col sm="4">
-                        <Link to="DemamDaerah" style={{textDecoration: "none"}}><Button style={{backgroundColor: '#fe8d3b', border: '0'}} block><FontAwesomeIcon icon={faChevronLeft}/> Sebelumnya</Button></Link>
+                        <Link to="DemamDaerah" style={{ textDecoration: "none" }}><Button style={{ backgroundColor: '#fe8d3b', border: '0' }} block><FontAwesomeIcon icon={faChevronLeft} /> Sebelumnya</Button></Link>
                     </Col>
                     <Col sm="4">
-                        <Button type="submit" style={{backgroundColor: '#46d0fe', border: '0'}} block >Selanjutnya <FontAwesomeIcon icon={faChevronRight}/></Button>
+                        <Button type="submit" style={{ backgroundColor: '#46d0fe', border: '0' }} block >Selanjutnya <FontAwesomeIcon icon={faChevronRight} /></Button>
                     </Col>
                 </Row>
             </div>

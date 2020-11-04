@@ -1,5 +1,6 @@
 import {
     Beranda,
+    Dashboard,
     Login,
     Lobby,
     ApaItuMTBS,
@@ -21,6 +22,7 @@ const routes = [
     { path: '/MTBS', component: MTBS },
     { path: '/Login', component: Login },
     { path: '/Lobby', component: Lobby },
+    { path: '/Dashboard', component: Dashboard },
     { path: '/', component: Beranda }
 ];
 

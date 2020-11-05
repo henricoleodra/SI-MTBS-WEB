@@ -1,49 +1,72 @@
 import React, { useState } from "react";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 import {
-    NavbarBrand,
-    Collapse,
-    Nav,
-    NavItem,
-    NavLink,
-    Button,
-    Container,
-    Row,
-    Col
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+  Button,
+  Container,
+  Row,
+  Col,
 } from "reactstrap";
-import { Wrapper, LeftCollapse } from "./style";
-import LogoKemenkes from '../../Assets/image/logo/kemenkes.png';
+import { Wrapper } from "./style";
+import LogoKemenkes from "../../Assets/image/logo/kemenkes.png";
 
 const Index = (props) => {
-    const [isOpen, setIsOpen] = useState(true);
+  // const [isOpen, setIsOpen] = useState(true);
 
-    const toggle = () => {
-        setIsOpen(!isOpen);
-    };
+  // const toggle = () => {
+  //   setIsOpen(!isOpen);
+  // };
 
-    return (
-        <Wrapper>
-            <div className={`left ${isOpen ? "active" : ""}`}>
-                <Nav vertical id="sidebar" className="min-vh-100">
-                    <div className="content">
-                        <NavbarBrand className="my-3 d-flex flex-column align-items-center">
-                            <img src={LogoKemenkes} className="sidebar-brand" />
-                            <h3 className="text-center mt-2 brand">SI-MTBS</h3>
-                        </NavbarBrand>
-                        <NavItem className="mt-2">
-                            <NavLink className="text-white sidebar-menu p-3 active" to="/Dashboard" tag={Link}>Dashboard</NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink className="text-white sidebar-menu p-3" tag={Link}>Statistik</NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink className="text-white sidebar-menu p-3 " to="/Dashboard" tag={Link}>Trend</NavLink>
-                        </NavItem>
-                    </div>
-                </Nav>
-            </div>
+  return (
+    <Wrapper>
+      <div className={`left ${props.isOpen ? "active" : ""}`}>
+        <Nav vertical id="sidebar" className="min-vh-100">
+          <div className="content">
+            <NavbarBrand className="my-3 d-flex flex-column align-items-center">
+              <img src={LogoKemenkes} className="sidebar-brand" />
+              <h3 className="text-center mt-2 brand">SI-MTBS</h3>
+            </NavbarBrand>
+            <NavItem className="mt-2">
+              <NavLink
+                className={`text-white sidebar-menu p-3 ${
+                  props.page === "dashboard" ? "active" : ""
+                }`}
+                to="/Dashboard"
+                tag={Link}
+              >
+                Dashboard
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink
+                className={`text-white sidebar-menu p-3 ${
+                  props.page === "statistik" ? "active" : ""
+                }`}
+                to="/Statistik"
+                tag={Link}
+              >
+                Statistik
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink
+                className={`text-white sidebar-menu p-3 ${
+                  props.page === "trend" ? "active" : ""
+                }`}
+                to="/Trend"
+                tag={Link}
+              >
+                Trend
+              </NavLink>
+            </NavItem>
+          </div>
+        </Nav>
+      </div>
 
-            <div class={`right ${isOpen ? "active" : ""}`}>
+      {/* <div class={`right ${isOpen ? "active" : ""}`}>
                 <Container fluid className="min-vh-100">
                     <Button
                         style={{ position: "absolute", right: "10px", top: "10px", zIndex: "1" }}
@@ -58,9 +81,9 @@ const Index = (props) => {
                         </Col>
                     </Row>
                 </Container>
-            </div>
-        </Wrapper>
-    );
+            </div> */}
+    </Wrapper>
+  );
 };
 
 export default Index;

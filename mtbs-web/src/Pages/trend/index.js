@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { LayoutDashboard, Dashboard } from "../../Containers";
+import { LayoutDashboard, Trend } from "../../Containers";
 
 const Index = (props) => {
   let [isOpen, setIsOpen] = useState(true);
@@ -7,11 +7,11 @@ const Index = (props) => {
   return (
     <LayoutDashboard
       isOpen={isOpen}
-      page={"dashboard"}
+      page={"trend"}
       setIsOpen={setIsOpen}
-      title={"Dashboard"}
+      title={"Trend"}
     >
-      <Dashboard />
+      <Trend />
     </LayoutDashboard>
   );
 };

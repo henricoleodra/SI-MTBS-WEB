@@ -1,6 +1,7 @@
 export { default as DataAnak } from './dataanak';
 export { default as Footer } from './footer/Footer';
 export { default as HasilPemeriksaan } from './hasilpemeriksaan/HasilPemeriksaan';
+export { default as HeaderDashboard } from './headerdashboard';
 export { default as HeaderTitle } from './headertitle/HeaderTitle';
 export { default as Klasifikasi } from './klasifikasi';
 export { default as NavBar } from './navbar/NavBar';

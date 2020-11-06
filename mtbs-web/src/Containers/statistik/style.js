@@ -14,6 +14,10 @@ export const Wrapper = styled.div`
     }
 
     .statistik-diagram {
+      width: 75%;
+      height: auto;
+      border: solid 1px black;
     }
+
   }
 `;

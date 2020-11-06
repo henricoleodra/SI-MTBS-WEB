@@ -15,5 +15,10 @@ export const Wrapper = styled.div`
 
     .trend-diagram {
     }
+
+    .trend-form {
+      border: solid 1px black;
+      border-radius: 25px;
+    }
   }
 `;

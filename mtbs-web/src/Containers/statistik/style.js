@@ -19,5 +19,10 @@ export const Wrapper = styled.div`
       border: solid 1px black;
     }
 
+    .statistik-form {
+      border: solid 1px black;
+      border-radius: 25px;
+    }
+
   }
 `;

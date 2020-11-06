@@ -20,8 +20,8 @@ const Index = (props) => {
 
         <FormGroup className="ml-5 trend-form p-3 mt-4">
           <Row className="mt-2">
-            <Col sm={1}>
-              <Label>Daerah 1:</Label>
+            <Col sm={2}>
+              <Label>Daerah:</Label>
             </Col>
             <Col sm={3}>
               <Input type="select" name="daerah1" id="daerah1">
@@ -33,7 +33,7 @@ const Index = (props) => {
           </Row>
 
           <Row className="mt-4">
-          <Col sm={1}>
+          <Col sm={2}>
               <Label>Tanggal: </Label>
             </Col>
             <Col sm={3}>
@@ -58,7 +58,7 @@ const Index = (props) => {
           </Row>
 
           <Row className="mt-4">
-            <Col sm={1}>
+            <Col sm={2}>
               <Label>Penyakit:</Label>
             </Col>
             <Col sm={3}>

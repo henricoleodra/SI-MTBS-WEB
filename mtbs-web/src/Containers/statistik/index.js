@@ -18,7 +18,87 @@ const Index = (props) => {
           </Col>
         </Row>
 
-        {/* Isi Disini */}
+        <FormGroup className="ml-5 statistik-form p-3 mt-4">
+          <Row className="mt-2">
+            <Col sm={2}>
+              <Label>Daerah 1:</Label>
+            </Col>
+            <Col sm={3}>
+              <Input type="select" name="daerah1" id="daerah1">
+                  <option value={1}>Jawa Barat</option>
+                  <option value={2}>Jawa Tengah</option>
+                  <option value={3}>Jawa Timur</option>
+              </Input>
+            </Col>
+            <Col sm={1}>
+            </Col>
+            <Col sm={2}>
+              <Label>Daerah 2:</Label>
+            </Col>
+            <Col sm={3}>
+              <Input type="select" name="daerah2" id="daerah2">
+                  <option value={1}>Jawa Barat</option>
+                  <option value={2}>Jawa Tengah</option>
+                  <option value={3}>Jawa Timur</option>
+              </Input>
+            </Col>
+          </Row>
+
+          <Row className="mt-4">
+          <Col sm={2}>
+              <Label>Tanggal: </Label>
+            </Col>
+            <Col sm={3}>
+              <InputGroup>
+                    <Input type="date" name="tanggalAwal" id="tanggalAwal"/>
+                    <InputGroupAddon addonType="append">
+                        <InputGroupText style={{backgroundColor : "#46d0fe", borderColor : "#46d0fe"}}><FontAwesomeIcon icon={faCalendarDay} style={{color: 'white'}}/></InputGroupText>
+                    </InputGroupAddon>
+                </InputGroup>
+            </Col>
+            <Col sm={1}>
+              <h1>-</h1>
+            </Col>
+            <Col sm={3}>
+              <InputGroup>
+                    <Input type="date" name="tanggalAkhir" id="tanggalAkhir"/>
+                    <InputGroupAddon addonType="append">
+                        <InputGroupText style={{backgroundColor : "#46d0fe", borderColor : "#46d0fe"}}><FontAwesomeIcon icon={faCalendarDay} style={{color: 'white'}}/></InputGroupText>
+                    </InputGroupAddon>
+                </InputGroup>
+            </Col>
+          </Row>
+
+          <Row className="mt-4">
+            <Col sm={2}>
+              <Label>Diagram:</Label>
+            </Col>
+            <Col sm={2}>
+              <FormGroup check disabled>
+                <Label check>
+                  <Input type="radio" name="radio1" defaultChecked />
+                  Pie
+                </Label>
+              </FormGroup>
+            </Col>
+            <Col sm={2}>
+              <FormGroup check disabled>
+                <Label check>
+                  <Input type="radio" name="radio1" />
+                  Bar
+                </Label>
+              </FormGroup>
+            </Col>
+            <Col sm={2}>
+              <FormGroup check disabled>
+                <Label check>
+                  <Input type="radio" name="radio1" />
+                  Line
+                </Label>
+              </FormGroup>
+            </Col>
+          </Row>
+        </FormGroup>
 
         <Row className="justify-content-center">
           <Col className="mt-2">

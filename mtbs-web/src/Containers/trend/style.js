@@ -19,6 +19,11 @@ export const Wrapper = styled.div`
     .trend-form {
       border: solid 1px black;
       border-radius: 25px;
+
+      .trend-date-line {
+        width: 15px;
+        background-color: var(--black);
+      }
     }
   }
 `;

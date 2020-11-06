@@ -22,7 +22,11 @@ export const Wrapper = styled.div`
     .statistik-form {
       border: solid 1px black;
       border-radius: 25px;
-    }
 
+      .statistik-date-line {
+        width: 15px;
+        background-color: var(--black);
+      }
+    }
   }
 `;

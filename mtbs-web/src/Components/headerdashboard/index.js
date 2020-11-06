@@ -58,7 +58,10 @@ const Index = (props) => {
               </Label>
             </Col>
             <Col className="d-flex justify-content-end">
-              <Link className="text-muted text-decoration-none" to="/Login">
+              <Link
+                className="text-muted text-decoration-none mr-2"
+                to="/Login"
+              >
                 <FontAwesomeIcon icon={faSignOutAlt} /> Log Out
               </Link>
             </Col>

@@ -1,9 +1,18 @@
 import React from "react";
-import { FormGroup, Label, Input, InputGroup, InputGroupAddon, InputGroupText, Row, Col } from "reactstrap";
+import {
+  FormGroup,
+  Label,
+  Input,
+  InputGroup,
+  InputGroupAddon,
+  InputGroupText,
+  Row,
+  Col,
+} from "reactstrap";
 import { Wrapper } from "./style";
 import grafik from "./../../Assets/image/dashboard/trenpenyakit.PNG";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCalendarDay } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCalendarDay } from "@fortawesome/free-solid-svg-icons";
 
 const Index = (props) => {
   return (
@@ -18,54 +27,74 @@ const Index = (props) => {
           </Col>
         </Row>
 
-        <FormGroup className="ml-5 trend-form p-3 mt-4">
+        <FormGroup className=" mx-2 trend-form p-3 mt-4">
           <Row className="mt-2">
             <Col sm={2}>
-              <Label>Daerah:</Label>
+              <Label className="mt-1">Daerah:</Label>
             </Col>
             <Col sm={3}>
               <Input type="select" name="daerah1" id="daerah1">
-                  <option value={1}>Jawa Barat</option>
-                  <option value={2}>Jawa Tengah</option>
-                  <option value={3}>Jawa Timur</option>
+                <option value={1}>Jawa Barat</option>
+                <option value={2}>Jawa Tengah</option>
+                <option value={3}>Jawa Timur</option>
               </Input>
             </Col>
           </Row>
 
           <Row className="mt-4">
-          <Col sm={2}>
-              <Label>Tanggal: </Label>
+            <Col sm={2}>
+              <Label className="mt-1">Tanggal: </Label>
             </Col>
             <Col sm={3}>
               <InputGroup>
-                    <Input type="date" name="tanggalAwal" id="tanggalAwal"/>
-                    <InputGroupAddon addonType="append">
-                        <InputGroupText style={{backgroundColor : "#46d0fe", borderColor : "#46d0fe"}}><FontAwesomeIcon icon={faCalendarDay} style={{color: 'white'}}/></InputGroupText>
-                    </InputGroupAddon>
-                </InputGroup>
+                <Input type="date" name="tanggalAwal" id="tanggalAwal" />
+                <InputGroupAddon addonType="append">
+                  <InputGroupText
+                    style={{
+                      backgroundColor: "#46d0fe",
+                      borderColor: "#46d0fe",
+                    }}
+                  >
+                    <FontAwesomeIcon
+                      icon={faCalendarDay}
+                      style={{ color: "white" }}
+                    />
+                  </InputGroupText>
+                </InputGroupAddon>
+              </InputGroup>
             </Col>
             <Col sm={1}>
-              <h1>-</h1>
+              <hr className="trend-date-line" />
             </Col>
             <Col sm={3}>
               <InputGroup>
-                    <Input type="date" name="tanggalAkhir" id="tanggalAkhir"/>
-                    <InputGroupAddon addonType="append">
-                        <InputGroupText style={{backgroundColor : "#46d0fe", borderColor : "#46d0fe"}}><FontAwesomeIcon icon={faCalendarDay} style={{color: 'white'}}/></InputGroupText>
-                    </InputGroupAddon>
-                </InputGroup>
+                <Input type="date" name="tanggalAkhir" id="tanggalAkhir" />
+                <InputGroupAddon addonType="append">
+                  <InputGroupText
+                    style={{
+                      backgroundColor: "#46d0fe",
+                      borderColor: "#46d0fe",
+                    }}
+                  >
+                    <FontAwesomeIcon
+                      icon={faCalendarDay}
+                      style={{ color: "white" }}
+                    />
+                  </InputGroupText>
+                </InputGroupAddon>
+              </InputGroup>
             </Col>
           </Row>
 
           <Row className="mt-4">
             <Col sm={2}>
-              <Label>Penyakit:</Label>
+              <Label className="mt-1">Penyakit:</Label>
             </Col>
             <Col sm={3}>
               <Input type="select" name="penyakit" id="penyakit">
-                  <option value={1}>Penyakit Sangat Berat</option>
-                  <option value={2}>Pneumonia</option>
-                  <option value={3}>Anemia</option>
+                <option value={1}>Penyakit Sangat Berat</option>
+                <option value={2}>Pneumonia</option>
+                <option value={3}>Anemia</option>
               </Input>
             </Col>
           </Row>
@@ -73,31 +102,24 @@ const Index = (props) => {
 
         <Row className="justify-content-center">
           <Col className="mt-2">
-            <p className="ml-5">
-              Daerah: Jawa Barat
-            </p>
+            <p className="ml-5">Daerah: Jawa Barat</p>
           </Col>
         </Row>
         <Row className="justify-content-center">
           <Col className="">
-            <p className="ml-5">
-              Tanggal: 01/03/2019 - 01/03/2020
-            </p>
+            <p className="ml-5">Tanggal: 01/03/2019 - 01/03/2020</p>
           </Col>
         </Row>
         <Row className="justify-content-center">
           <Col className="">
-            <p className="ml-5">
-              Penyakit: Penyakit Sangat Berat
-            </p>
+            <p className="ml-5">Penyakit: Penyakit Sangat Berat</p>
           </Col>
         </Row>
         <Row>
-          <Col className="d-flex justify-content-center mt-2">
-            <img src={grafik} className="trend-diagram" />
+          <Col className="d-flex justify-content-center my-2">
+            <img src={grafik} className="trend-diagram border" />
           </Col>
         </Row>
-
       </div>
     </Wrapper>
   );

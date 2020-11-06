@@ -1,9 +1,18 @@
 import React from "react";
-import { Row, Col, FormGroup, Label, Input, InputGroup, InputGroupAddon, InputGroupText } from "reactstrap";
+import {
+  Row,
+  Col,
+  FormGroup,
+  Label,
+  Input,
+  InputGroup,
+  InputGroupAddon,
+  InputGroupText,
+} from "reactstrap";
 import { Wrapper } from "./style";
 import distribusiPenyakit from "./../../Assets/image/dashboard/distribusipenyakit.PNG";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCalendarDay } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCalendarDay, faUnderline } from "@fortawesome/free-solid-svg-icons";
 
 const Index = (props) => {
   return (
@@ -18,54 +27,77 @@ const Index = (props) => {
           </Col>
         </Row>
 
-        <FormGroup className="ml-5 statistik-form p-3 mt-4">
+        <FormGroup className="mx-2 statistik-form p-3 mt-4">
           <Row className="mt-2">
             <Col sm={2}>
-              <Label>Daerah 1:</Label>
+              <Label className="mt-1">Daerah 1:</Label>
             </Col>
             <Col sm={3}>
               <Input type="select" name="daerah1" id="daerah1">
-                  <option value={1}>Jawa Barat</option>
-                  <option value={2}>Jawa Tengah</option>
-                  <option value={3}>Jawa Timur</option>
+                <option value={1} selected>
+                  Jawa Barat
+                </option>
+                <option value={2}>Jawa Tengah</option>
+                <option value={3}>Jawa Timur</option>
               </Input>
             </Col>
-            <Col sm={1}>
-            </Col>
+            <Col sm={1}></Col>
             <Col sm={2}>
-              <Label>Daerah 2:</Label>
+              <Label className="mt-1">Daerah 2:</Label>
             </Col>
             <Col sm={3}>
               <Input type="select" name="daerah2" id="daerah2">
-                  <option value={1}>Jawa Barat</option>
-                  <option value={2}>Jawa Tengah</option>
-                  <option value={3}>Jawa Timur</option>
+                <option value={1}>Jawa Barat</option>
+                <option value={2}>Jawa Tengah</option>
+                <option value={3} selected>
+                  Jawa Timur
+                </option>
               </Input>
             </Col>
           </Row>
 
           <Row className="mt-4">
-          <Col sm={2}>
-              <Label>Tanggal: </Label>
+            <Col sm={2}>
+              <Label className="mt-1">Tanggal: </Label>
             </Col>
             <Col sm={3}>
               <InputGroup>
-                    <Input type="date" name="tanggalAwal" id="tanggalAwal"/>
-                    <InputGroupAddon addonType="append">
-                        <InputGroupText style={{backgroundColor : "#46d0fe", borderColor : "#46d0fe"}}><FontAwesomeIcon icon={faCalendarDay} style={{color: 'white'}}/></InputGroupText>
-                    </InputGroupAddon>
-                </InputGroup>
+                <Input type="date" name="tanggalAwal" id="tanggalAwal" />
+                <InputGroupAddon addonType="append">
+                  <InputGroupText
+                    style={{
+                      backgroundColor: "#46d0fe",
+                      borderColor: "#46d0fe",
+                    }}
+                  >
+                    <FontAwesomeIcon
+                      icon={faCalendarDay}
+                      style={{ color: "white" }}
+                    />
+                  </InputGroupText>
+                </InputGroupAddon>
+              </InputGroup>
             </Col>
             <Col sm={1}>
-              <h1>-</h1>
+              <hr className="statistik-date-line" />
             </Col>
             <Col sm={3}>
               <InputGroup>
-                    <Input type="date" name="tanggalAkhir" id="tanggalAkhir"/>
-                    <InputGroupAddon addonType="append">
-                        <InputGroupText style={{backgroundColor : "#46d0fe", borderColor : "#46d0fe"}}><FontAwesomeIcon icon={faCalendarDay} style={{color: 'white'}}/></InputGroupText>
-                    </InputGroupAddon>
-                </InputGroup>
+                <Input type="date" name="tanggalAkhir" id="tanggalAkhir" />
+                <InputGroupAddon addonType="append">
+                  <InputGroupText
+                    style={{
+                      backgroundColor: "#46d0fe",
+                      borderColor: "#46d0fe",
+                    }}
+                  >
+                    <FontAwesomeIcon
+                      icon={faCalendarDay}
+                      style={{ color: "white" }}
+                    />
+                  </InputGroupText>
+                </InputGroupAddon>
+              </InputGroup>
             </Col>
           </Row>
 
@@ -102,9 +134,7 @@ const Index = (props) => {
 
         <Row className="justify-content-center">
           <Col className="mt-2">
-            <h3 className="text-center">
-              01/03/2019 - 01/03/2020
-            </h3>
+            <h3 className="text-center">01/03/2019 - 01/03/2020</h3>
           </Col>
         </Row>
 
@@ -134,7 +164,6 @@ const Index = (props) => {
             <img src={distribusiPenyakit} className="statistik-diagram" />
           </Col>
         </Row>
-        
       </div>
     </Wrapper>
   );

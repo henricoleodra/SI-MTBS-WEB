@@ -54,7 +54,7 @@ const Login = () => {
   return (
     <Wrapper style={{ width: "100%", height: "100%" }}>
       <Container
-        className=" wrapper-login h-100 d-flex justify-content-center flex-column p-5"
+        className=" wrapper-login h-100 d-flex justify-content-center flex-column p-5 min-vh-100"
         fluid
       >
         <Row className="mt-4">
@@ -69,7 +69,10 @@ const Login = () => {
           <FontAwesomeIcon icon={faTimes} />
         </Link>
 
-        <h1 className="text-primary text-center m-1">SI MTBS</h1>
+        <h2 className="text-primary text-center m-4">
+          Sistem Informasi <br />
+          Manajemen Terpadu Balita Sakit
+        </h2>
 
         <Row>
           {/* <Col sm={3}></Col> */}

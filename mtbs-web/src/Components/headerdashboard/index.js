@@ -54,7 +54,8 @@ const Index = (props) => {
           <Row className="justify-content-end">
             <Col xs={6} className="d-flex justify-content-end">
               <Label className="text-muted">
-                <span className="font-weight-bold">Logged in as:</span> MTBS
+                <span className="font-weight-bold">Logged in as:</span>{" "}
+                {props.userName}
               </Label>
             </Col>
             <Col className="d-flex justify-content-end">

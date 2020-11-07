@@ -10,7 +10,11 @@ const Index = (props) => {
       <SidebarDashboard isOpen={props.isOpen} page={props.page} />
       <div className={`right ${props.isOpen ? "active" : ""}`}>
         <Container fluid className="min-vh-100 p-0">
-          <HeaderDashboard isOpen={props.isOpen} setIsOpen={props.setIsOpen} />
+          <HeaderDashboard
+            isOpen={props.isOpen}
+            setIsOpen={props.setIsOpen}
+            userName={props.userName}
+          />
           <div className="wrapper-title text-muted py-2 px-3 mt-1">
             <h3>{props.title}</h3>
           </div>

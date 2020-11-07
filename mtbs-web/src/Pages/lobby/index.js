@@ -1,19 +1,12 @@
-import React from 'react';
-import {
-    Layout,
-    Lobby
-} from '../../Containers';
+import React from "react";
+import { Layout, Lobby } from "../../Containers";
 
 const Index = () => {
-    const Content = () => {
-        return <Lobby/>
-    }
-
-    return (
-        <Layout step={1} cur={'lobby'}>
-            <Content/>
-        </Layout>
-    );
-}
+  return (
+    <Layout step={1} userName={"Petugas MTBS"} cur={"lobby"}>
+      <Lobby />
+    </Layout>
+  );
+};
 
 export default Index;

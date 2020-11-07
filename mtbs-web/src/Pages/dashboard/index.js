@@ -10,6 +10,7 @@ const Index = (props) => {
       page={"dashboard"}
       setIsOpen={setIsOpen}
       title={"Dashboard"}
+      userName={"Admin MTBS"}
     >
       <Dashboard />
     </LayoutDashboard>

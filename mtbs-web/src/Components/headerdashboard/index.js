@@ -34,7 +34,7 @@ const Index = (props) => {
   return (
     <Wrapper>
       <Row className="wrapper-dashboard-header">
-        <Col xs={6}>
+        <Col xs={7}>
           <Button
             className="button-pepper-mint"
             onClick={() => {
@@ -50,7 +50,7 @@ const Index = (props) => {
             <span className="font-weight-bold">Server Time:</span> {time}
           </Label>
         </Col>
-        <Col xs={6} className="mt-1">
+        <Col xs={5} className="mt-1">
           <Row className="justify-content-end">
             <Col xs={6} className="d-flex justify-content-end">
               <Label className="text-muted">

@@ -68,11 +68,13 @@ const Login = () => {
         <Link className="button-x mr-3 mt-1 fa-2x" to="..">
           <FontAwesomeIcon icon={faTimes} />
         </Link>
-
-        <h2 className="text-primary text-center m-4">
-          Sistem Informasi <br />
-          Manajemen Terpadu Balita Sakit
-        </h2>
+        <Row className="justify-content-center">
+          <Col sm={6}>
+            <h2 className="text-primary text-center m-4">
+              Sistem Informasi Manajemen Terpadu Balita Sakit (MTBS)
+            </h2>
+          </Col>
+        </Row>
 
         <Row>
           {/* <Col sm={3}></Col> */}

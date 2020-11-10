@@ -174,15 +174,27 @@ const Tindakan = (props) => {
         {hasilTindakan &&
           hasilTindakan.map((tindakan, idx) => {
             if (tindakan.status !== "info") {
-              return (
-                <CompTindakan
-                  key={idx}
-                  judul={tindakan.judul}
-                  klasifikasi={tindakan.klasifikasi}
-                  status={tindakan.status}
-                  tindakan={tindakan.tindakan}
-                />
-              );
+              if(tindakan.judul !== "Tanda Bahaya Umum"){
+                return (
+                  <CompTindakan
+                    key={idx}
+                    judul={tindakan.judul}
+                    klasifikasi={tindakan.klasifikasi}
+                    status={tindakan.status}
+                    tindakan={tindakan.tindakan}
+                  />
+                );
+              }else if(tindakan.status === "danger"){
+                return (
+                  <CompTindakan
+                    key={idx}
+                    judul={tindakan.judul}
+                    klasifikasi={tindakan.klasifikasi}
+                    status={tindakan.status}
+                    tindakan={tindakan.tindakan}
+                  />
+                );
+              }
             } else {
               return <></>;
             }

@@ -14,8 +14,8 @@ export { default as Lobby } from "./lobby/Lobby";
 export { default as ApaItuMTBS } from "./apaitumtbs/ApaItuMtbs";
 
 // Data Anak
-export { default as DataAnak } from "./dataanak/DataAnak";
-export { default as PemeriksaanAnak } from "./pemeriksaananak/PemeriksaanAnak";
+export { default as DataAnak } from "./dataanak/";
+export { default as PemeriksaanAnak } from "./pemeriksaananak";
 export { default as PencarianDataAnak } from "./pencariandataanak/PencarianDataAnak";
 
 // Pemeriksaan

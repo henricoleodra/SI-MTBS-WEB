@@ -37,7 +37,7 @@ const HIV = (props) =>{
     const ansDemam = useSelector(state => state.ansDemam);
     const ansTelinga = useSelector(state => state.ansTelinga);
     const ansGizi = useSelector(state => state.ansGizi);
-    const ansAnemia = useSelector(state => state.ansGizi);
+    const ansAnemia = useSelector(state => state.ansAnemia);
 
     const handleSubmit = event =>{
         event.preventDefault();

@@ -177,7 +177,7 @@ const Demam = (props) => {
                                         <Col sm="3">
                                             <FormGroup className="d-inline pr-2">
                                                 <Label className="rdoBtn">Ya
-                                                <Input type="radio" name="radio3" value={1} onChange={handleAnswer3} checked={demam_isNyeriUluOrGelisah === true} required />
+                                                <Input type="radio" name="radio2" value={1} onChange={handleAnswer3} checked={demam_isNyeriUluOrGelisah === true} required />
                                                     <span style={{ left: "20px" }} className="checkmark"></span>
                                                 </Label>
                                             </FormGroup>

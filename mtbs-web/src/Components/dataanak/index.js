@@ -8,7 +8,6 @@ import { Wrapper } from "./style";
 const Index = (props) => {
   return (
     <Wrapper>
-      <Link to="DataAnak" className="text-dark text-decoration-none">
         <Card className="mb-3 wrapper-data-anak">
           <CardBody>
             <div className="d-flex justify-content-around">
@@ -40,7 +39,6 @@ const Index = (props) => {
             </div>
           </CardBody>
         </Card>
-      </Link>
     </Wrapper>
   );
 };

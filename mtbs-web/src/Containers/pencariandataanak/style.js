@@ -39,5 +39,10 @@ export const Wrapper = styled.div`
     .button-sebelumnya:hover {
       background-color: #e87e33;
     }
+    
+    .loading-pencarian-anak {
+      width: 5rem;
+      height: 5rem;
+    } 
   }
 `;

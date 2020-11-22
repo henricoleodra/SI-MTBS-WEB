@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import {
   Button,
@@ -11,9 +11,12 @@ import {
   Input,
   Row,
   Col,
+  Container,
+  Spinner
 } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarDay } from "@fortawesome/free-solid-svg-icons";
+import axios from 'axios';
 //import components
 import { HeaderTitle, DataAnak, Pagination } from "./../../Components";
 
@@ -25,20 +28,33 @@ const PencarianDataAnak = (props) => {
   let [jenisKelamin, set_jenisKelamin] = useState();
   let [namaIbu, set_namaIbu] = useState();
   let [tanggalLahir, set_tanggalLahir] = useState();
-  let [anak, setAnak] = useState([
-    {
-      namaAnak: "Harry Senjaya",
-      namaIbu: "Friska Christiana",
-      jenisKelamin: "Laki-laki",
-      tanggalLahir: "30 Januari 2020",
-    },
-    {
-      namaAnak: "John Doe",
-      namaIbu: "Jane Doe",
-      jenisKelamin: "Laki-laki",
-      tanggalLahir: "25 Januari 2020",
-    },
-  ]);
+  
+  let [anak, setAnak] = useState([]);
+  let [loading, setLoading] = useState(false);
+  let [currentPage, setCurrentPage] = useState(1);
+  let [numDataAnak] = useState(4);
+  let [totalDataAnak, setTotalDataAnak] = useState(); 
+
+  // Get Current Data
+  const indexOfLastPage = currentPage * numDataAnak;
+  const indexOfFirstPage = indexOfLastPage - numDataAnak;
+  const currentData = anak.slice(indexOfFirstPage, indexOfLastPage);
+
+  useEffect(() => {
+    const fetchDataAnak = async () => {
+      setLoading(true);
+      const res = await axios.get('/DataAnak');
+
+      setAnak(res.data);
+      setTotalDataAnak(res.data.length);
+      setLoading(false);
+    }
+    fetchDataAnak();
+  }, [])
+
+  const changePage = (number) => {
+    setCurrentPage(number);
+  }
 
   const handleSearch = (event) => {
     event.preventDefault();
@@ -46,7 +62,6 @@ const PencarianDataAnak = (props) => {
       dataAnak.namaAnak.toLowerCase().includes(namaAnak)
     );
     setAnak(tmp);
-    console.log(tmp);
   };
 
   const handleNamaAnak = (event) => {
@@ -65,17 +80,32 @@ const PencarianDataAnak = (props) => {
     set_tanggalLahir(event.target.value);
   };
 
-  const renderDaftarAnak = anak.map((curr, index) => {
+  const renderDaftarAnak = currentData.map((curr) => {
     return (
       <DataAnak
-        key={index}
-        namaAnak={curr.namaAnak}
-        namaIbu={curr.namaIbu}
-        jenisKelamin={curr.jenisKelamin}
-        tanggalLahir={curr.tanggalLahir}
+        key={curr.id}
+        namaAnak={curr.nama}
+        namaIbu={curr.ibu}
+        jenisKelamin={curr.jeniskelamin}
+        tanggalLahir={curr.tanggallahir}
       />
     );
   });
+
+  if (loading) {
+    return (
+      <Wrapper style={{ overflowY: "hidden" }}>
+        <Container className="w-100 h-100 d-flex justify-content-center" fluid>
+          <div
+            style={{ minHeight: "800px" }}
+            className="d-flex justify-content-center flex-column"
+          >
+            <Spinner className="loading-pencarian-anak" color="primary" />
+          </div>
+        </Container>
+      </Wrapper>
+    );
+  }
 
   return (
     <Wrapper>
@@ -166,7 +196,7 @@ const PencarianDataAnak = (props) => {
           <div style={{ minHeight: "580px" }}>{renderDaftarAnak}</div>
           <Row>
             <Col sm={12}>
-              <Pagination />
+              <Pagination changePage={changePage} currentPage={currentPage} numDataAnak={numDataAnak} totalDataAnak={totalDataAnak} />
             </Col>
           </Row>
         </div>

@@ -9,6 +9,7 @@ const gizi = require('../controllers/gizi');
 const anemia = require('../controllers/anemia');
 const hiv = require('../controllers/hiv');
 const tindakan = require('../controllers/tindakan');
+const dataanak = require('../controllers/dataanak');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -42,5 +43,8 @@ router.post(`/HIV`, hiv.hiv);
 
 //Tindakan
 router.post(`/Tindakan`, tindakan.tindakan);
+
+//Data Anak Temp
+router.get(`/DataAnak`, dataanak.dataanak);
 
 module.exports = router;

@@ -2,8 +2,8 @@ const dataanak = async function(req, res, next) {
     const dataAnak = Array( 
         {
             id: 0,
-            nama: 'John Doe',
-            ibu: 'Jane Doe',
+            nama: 'John Doe Leodra Yabai Kirito Kazuto',
+            ibu: 'Jane Doe Leodra Yabai Harahap',
             tanggallahir : '30 Januari 2020',
             jeniskelamin : 'Laki-laki'
         },

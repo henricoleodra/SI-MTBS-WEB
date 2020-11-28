@@ -38,7 +38,7 @@ const Index = (props) => {
         </Col>
         {
           pageNumbers.map((number) => (
-              <Col xs={1}>
+              <Col key={number} xs={1}>
                 <Button color="link" className={`button-pagination  ${props.currentPage === number ? "active" : ""} `} onClick={() => {props.changePage(number)}}>
                   {number}
                 </Button>

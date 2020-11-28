@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
   Button,
   Form,
@@ -12,11 +12,11 @@ import {
   Row,
   Col,
   Container,
-  Spinner
+  Spinner,
 } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCalendarDay } from "@fortawesome/free-solid-svg-icons";
-import axios from 'axios';
+import { faCalendarDay, faTrash } from "@fortawesome/free-solid-svg-icons";
+import axios from "axios";
 //import components
 import { HeaderTitle, DataAnak, Pagination } from "./../../Components";
 
@@ -24,44 +24,73 @@ import { HeaderTitle, DataAnak, Pagination } from "./../../Components";
 import { Wrapper } from "./style";
 
 const PencarianDataAnak = (props) => {
-  let [namaAnak, set_namaAnak] = useState();
-  let [jenisKelamin, set_jenisKelamin] = useState();
-  let [namaIbu, set_namaIbu] = useState();
-  let [tanggalLahir, set_tanggalLahir] = useState();
-  
+  let [namaAnak, set_namaAnak] = useState("");
+  let [jenisKelamin, set_jenisKelamin] = useState("");
+  let [namaIbu, set_namaIbu] = useState("");
+  let [tanggalLahir, set_tanggalLahir] = useState("");
+
   let [anak, setAnak] = useState([]);
   let [loading, setLoading] = useState(false);
   let [currentPage, setCurrentPage] = useState(1);
   let [numDataAnak] = useState(4);
-  let [totalDataAnak, setTotalDataAnak] = useState(); 
+  let [totalDataAnak, setTotalDataAnak] = useState();
 
   // Get Current Data
   const indexOfLastPage = currentPage * numDataAnak;
   const indexOfFirstPage = indexOfLastPage - numDataAnak;
-  const currentData = anak.slice(indexOfFirstPage, indexOfLastPage);
+  let [currentData, setCurrentData] = useState([]);
 
   useEffect(() => {
     const fetchDataAnak = async () => {
       setLoading(true);
-      const res = await axios.get('/DataAnak');
+      const res = await axios.get("/DataAnak");
 
       setAnak(res.data);
+      setCurrentData(res.data);
       setTotalDataAnak(res.data.length);
       setLoading(false);
-    }
+    };
     fetchDataAnak();
-  }, [])
+  }, []);
 
   const changePage = (number) => {
     setCurrentPage(number);
-  }
+  };
 
   const handleSearch = (event) => {
     event.preventDefault();
-    let tmp = anak.filter((dataAnak) =>
-      dataAnak.namaAnak.toLowerCase().includes(namaAnak)
-    );
-    setAnak(tmp);
+
+    let tmp = anak;
+    if (namaAnak !== "") {
+      tmp = tmp.filter((anak) =>
+        anak.nama.toLowerCase().includes(namaAnak.toLowerCase())
+      );
+    }
+    if (jenisKelamin !== "") {
+      tmp = tmp.filter(
+        (anak) => anak.jeniskelamin.toLowerCase() === jenisKelamin.toLowerCase()
+      );
+    }
+    if (namaIbu !== "") {
+      tmp = tmp.filter((anak) =>
+        anak.ibu.toLowerCase().includes(namaIbu.toLowerCase())
+      );
+    }
+    if (tanggalLahir !== "") {
+      tmp = tmp.filter((anak) => anak.tanggallahir === tanggalLahir);
+    }
+    setCurrentPage(1);
+    setTotalDataAnak(tmp.length);
+    setCurrentData(tmp);
+  };
+
+  const handleClear = (event) => {
+    event.preventDefault();
+    set_namaAnak("");
+    set_jenisKelamin("");
+    set_namaIbu("");
+    set_tanggalLahir("");
+    setCurrentData(anak);
   };
 
   const handleNamaAnak = (event) => {
@@ -69,7 +98,7 @@ const PencarianDataAnak = (props) => {
   };
 
   const handleJenisKelamin = (event) => {
-    set_jenisKelamin(Number(event.target.value));
+    set_jenisKelamin(event.target.value);
   };
 
   const handleNamaIbu = (event) => {
@@ -80,17 +109,19 @@ const PencarianDataAnak = (props) => {
     set_tanggalLahir(event.target.value);
   };
 
-  const renderDaftarAnak = currentData.map((curr) => {
-    return (
-      <DataAnak
-        key={curr.id}
-        namaAnak={curr.nama}
-        namaIbu={curr.ibu}
-        jenisKelamin={curr.jeniskelamin}
-        tanggalLahir={curr.tanggallahir}
-      />
-    );
-  });
+  const renderDaftarAnak = currentData
+    .slice(indexOfFirstPage, indexOfLastPage)
+    .map((curr) => {
+      return (
+        <DataAnak
+          key={curr.id}
+          namaAnak={curr.nama}
+          namaIbu={curr.ibu}
+          jenisKelamin={curr.jeniskelamin}
+          tanggalLahir={curr.tanggallahir}
+        />
+      );
+    });
 
   if (loading) {
     return (
@@ -124,6 +155,7 @@ const PencarianDataAnak = (props) => {
                   name="NamaAnak"
                   id="NamaAnak"
                   className="input-data-anak"
+                  value={namaAnak}
                   onChange={handleNamaAnak}
                   placeholder="Masukkan nama anak"
                 />
@@ -135,8 +167,9 @@ const PencarianDataAnak = (props) => {
                     <Input
                       type="radio"
                       name="radio1"
-                      value="1"
+                      value="Laki-laki"
                       onChange={handleJenisKelamin}
+                      checked={jenisKelamin === "Laki-laki"}
                     />
                     Laki-Laki
                   </Label>
@@ -146,8 +179,9 @@ const PencarianDataAnak = (props) => {
                     <Input
                       type="radio"
                       name="radio1"
-                      value="2"
+                      value="Perempuan"
                       onChange={handleJenisKelamin}
+                      checked={jenisKelamin === "Perempuan"}
                     />
                     Perempuan
                   </Label>
@@ -159,6 +193,7 @@ const PencarianDataAnak = (props) => {
                   type="text"
                   name="NamaIbu"
                   id="NamaIbu"
+                  value={namaIbu}
                   onChange={handleNamaIbu}
                   className="input-data-anak"
                   placeholder="Masukkan nama ibu"
@@ -171,6 +206,7 @@ const PencarianDataAnak = (props) => {
                     type="date"
                     name="tanggalLahir"
                     id="tanggalLahir"
+                    value={tanggalLahir}
                     className="input-data-anak"
                     onChange={handleTanggalLahir}
                   />
@@ -181,7 +217,19 @@ const PencarianDataAnak = (props) => {
                   </InputGroupAddon>
                 </InputGroup>
               </FormGroup>
+              <div style={{ display: "flex" }}>
+                <Button
+                  className="button-clear-form-data-anak"
+                  color="danger"
+                  onClick={handleClear}
+                  style={{ marginLeft: "auto" }}
+                >
+                  <FontAwesomeIcon icon={faTrash} color="white" /> Bersihkan
+                  Form
+                </Button>
+              </div>
             </div>
+
             <div>
               <Button className="button-cari-data-anak" type="submit">
                 Cari Data Anak
@@ -193,10 +241,37 @@ const PencarianDataAnak = (props) => {
           </Form>
         </div>
         <div style={{ width: "60%" }} className="m-3 text-center">
-          <div style={{ minHeight: "580px" }}>{renderDaftarAnak}</div>
-          <Row>
+          <div style={{ minHeight: "580px" }}>
+            {renderDaftarAnak}
+            <Row className={`${totalDataAnak === 0 ? "" : "d-none"}`}>
+              <Col sm="12" className="text-muted">
+                <p>Data yang dicari kosong atau tidak ditemukan</p>
+                <h2>
+                  Data Anak yang anda cari tidak ada, silahkan periksa hal-hal
+                  berikut :
+                </h2>
+                <ul>
+                  <li>
+                    - Periksa kembali data anak (nama anak, nama ibu, jenis
+                    kelamin, dan tanggal lahir.
+                  </li>
+                  <li>
+                    - Jika data yang dicari sudah benar, namun tidak ada hasil
+                    silahkan lakukan registrasi baru / isi data anak baru.
+                  </li>
+                </ul>
+              </Col>
+            </Row>
+          </div>
+
+          <Row className={`${totalDataAnak === 0 ? "d-none" : ""}`}>
             <Col sm={12}>
-              <Pagination changePage={changePage} currentPage={currentPage} numDataAnak={numDataAnak} totalDataAnak={totalDataAnak} />
+              <Pagination
+                changePage={changePage}
+                currentPage={currentPage}
+                numDataAnak={numDataAnak}
+                totalDataAnak={totalDataAnak}
+              />
             </Col>
           </Row>
         </div>

@@ -90,6 +90,8 @@ const PencarianDataAnak = (props) => {
     set_jenisKelamin("");
     set_namaIbu("");
     set_tanggalLahir("");
+    setCurrentPage(1);
+    setTotalDataAnak(anak.length);
     setCurrentData(anak);
   };
 

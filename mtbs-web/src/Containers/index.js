@@ -22,6 +22,7 @@ export { default as PencarianDataAnak } from "./pencariandataanak/PencarianDataA
 export { default as MulaiPemeriksaan } from "./mulaipemeriksaan/MulaiPemeriksaan";
 export { default as IsiDataAnak1 } from "./isidataanak/IsiDataAnak1";
 export { default as IsiDataAnak2 } from "./isidataanak/IsiDataAnak2";
+export { default as KonfirmasiDataAnak } from "./isidataanak/KonfirmasiDataAnak";
 
 // Tanda Bahaya Umum
 export { default as TandaBahayaUmum1 } from "./tandabahayaumum/TandaBahayaUmum";

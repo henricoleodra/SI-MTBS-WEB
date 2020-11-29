@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import {
   Button,
   Form,
@@ -17,13 +18,13 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarDay, faTrash } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
-//import components
 import { HeaderTitle, DataAnak, Pagination } from "./../../Components";
-
-//Styling
 import { Wrapper } from "./style";
+import { DataAnakChange } from "../../Actions";
 
 const PencarianDataAnak = (props) => {
+  const dispatch = useDispatch();
+  const history = useHistory();
   let [namaAnak, set_namaAnak] = useState("");
   let [jenisKelamin, set_jenisKelamin] = useState("");
   let [namaIbu, set_namaIbu] = useState("");
@@ -95,6 +96,25 @@ const PencarianDataAnak = (props) => {
     setCurrentData(anak);
   };
 
+  const handleChoose = (index) => {
+    let data = currentData[index];
+    console.log(data);
+    dispatch(DataAnakChange("NAMA_ANAK", data.nama));
+    dispatch(DataAnakChange("NAMA_IBU", data.ibu));
+    if (data.jeniskelamin === "Laki-laki") {
+      dispatch(DataAnakChange("JENIS_KELAMIN", true));
+    } else {
+      dispatch(DataAnakChange("JENIS_KELAMIN", false));
+    }
+    dispatch(DataAnakChange("TANGGAL_LAHIR", data.tanggallahir));
+    dispatch(DataAnakChange("PROVINSI", data.provinsi));
+    dispatch(DataAnakChange("ALAMAT_ANAK", data.alamat));
+    dispatch(DataAnakChange("RT_RW", data.rtrw));
+    dispatch(DataAnakChange("KELURAHAN_DESA", data.keldes));
+    dispatch(DataAnakChange("KOTA_KECAMATAN", data.kotkec));
+    history.push("IsiDataAnak/Konfirmasi");
+  };
+
   const handleNamaAnak = (event) => {
     set_namaAnak(event.target.value);
   };
@@ -113,14 +133,16 @@ const PencarianDataAnak = (props) => {
 
   const renderDaftarAnak = currentData
     .slice(indexOfFirstPage, indexOfLastPage)
-    .map((curr) => {
+    .map((curr, index) => {
       return (
         <DataAnak
           key={curr.id}
+          position={index}
           namaAnak={curr.nama}
           namaIbu={curr.ibu}
           jenisKelamin={curr.jeniskelamin}
           tanggalLahir={curr.tanggallahir}
+          handleChoose={handleChoose}
         />
       );
     });

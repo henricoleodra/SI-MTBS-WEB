@@ -1,4 +1,5 @@
 export { default as DataAnak } from "./dataanak";
+export { default as InfoAnak } from "./infoanak";
 export { default as Footer } from "./footer/Footer";
 export { default as HasilPemeriksaan } from "./hasilpemeriksaan/HasilPemeriksaan";
 export { default as HeaderDashboard } from "./headerdashboard";

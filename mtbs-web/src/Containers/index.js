@@ -15,8 +15,9 @@ export { default as ApaItuMTBS } from "./apaitumtbs/ApaItuMtbs";
 
 // Data Anak
 export { default as DataAnak } from "./dataanak/";
-export { default as PemeriksaanAnak } from "./pemeriksaananak";
-export { default as PencarianDataAnak } from "./pencariandataanak/PencarianDataAnak";
+export { default as RiwayatAnak } from "./riwayatanak";
+export { default as PencarianDataAnak } from "./pencariandataanak";
+export { default as PemilihanDataAnak } from "./pemilihandataanak/PemilihanDataAnak";
 
 // Pemeriksaan
 export { default as MulaiPemeriksaan } from "./mulaipemeriksaan/MulaiPemeriksaan";

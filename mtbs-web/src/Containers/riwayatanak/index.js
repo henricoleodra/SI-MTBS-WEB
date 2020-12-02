@@ -1,69 +1,65 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import { Button, Card, CardBody, Label, Row, Col } from "reactstrap";
+import {
+  Button,
+  Card,
+  CardBody,
+  Label,
+  Row,
+  Spinner,
+  Container,
+} from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBaby } from "@fortawesome/free-solid-svg-icons";
-//import components
-import { HeaderTitle, Klasifikasi, Pagination } from "./../../Components";
-
-//Styling
+import { HeaderTitle, Klasifikasi } from "./../../Components";
+import axios from "axios";
 import { Wrapper } from "./style";
 
-const PencarianDataAnak = (props) => {
-  let hasilKlasifikasi = [
-    {
-      title: "Tanda Bahaya Umum",
-      status: "success",
-      klasifikasi: "",
-    },
-    {
-      title: "Batuk",
-      status: "success",
-      klasifikasi: "Batuk bukan pneunomia",
-    },
-    {
-      title: "Diare",
-      status: "danger",
-      klasifikasi: "Diare dehidrasi berat",
-    },
-    {
-      title: "Demam",
-      status: "warning",
-      klasifikasi: "Malaria",
-    },
-    {
-      title: "Telinga",
-      status: "success",
-      klasifikasi: "Tidak ada infeksi telinga",
-    },
-    {
-      title: "Gizi",
-      status: "warning",
-      klasifikasi: "Sangat kurus tanpa komplikasi",
-    },
-    {
-      title: "Anemia",
-      status: "success",
-      klasifikasi: "Tidak anemia",
-    },
-    {
-      title: "HIV",
-      status: "danger",
-      klasifikasi: "Infeksi HIV terkonfirmasi",
-    },
-  ];
+const Index = (props) => {
+  let { ida, idp } = useParams();
+  let [info, setInfo] = useState([]);
+  let [riwayat, setRiwayat] = useState([]);
+  let [tanggal, setTanggal] = useState();
+  let [loading, setLoading] = useState(false);
 
-  const renderHasilKlasifikasi = hasilKlasifikasi.map((curr, index) => {
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      const infoAnak = await axios.get("/InfoAnak/" + ida);
+      const riwayatAnak = await axios.get("/DetailRiwayat/" + ida + "&" + idp);
+      setInfo(infoAnak.data);
+      setTanggal(riwayatAnak.data.tanggal);
+      setRiwayat(riwayatAnak.data.hasilpemeriksaan);
+      setLoading(false);
+    };
+    fetchData();
+  }, []);
+
+  const renderHasilKlasifikasi = riwayat.map((curr, index) => {
     return (
       <Klasifikasi
         key={index}
-        title={curr.title}
+        title={curr.judul}
         status={curr.status}
         klasifikasi={curr.klasifikasi}
       />
     );
   });
 
+  if (loading) {
+    return (
+      <Wrapper style={{ overflowY: "hidden" }}>
+        <Container className="w-100 h-100 d-flex justify-content-center" fluid>
+          <div
+            style={{ minHeight: "800px" }}
+            className="d-flex justify-content-center flex-column"
+          >
+            <Spinner className="loading-pencarian-anak" color="primary" />
+          </div>
+        </Container>
+      </Wrapper>
+    );
+  }
   return (
     <Wrapper>
       <div>
@@ -79,39 +75,43 @@ const PencarianDataAnak = (props) => {
                 </Row>
                 <Row className="justify-content-center my-4">
                   <Label className="font-weight-bold mr-2">Nama Anak : </Label>{" "}
-                  Harry Senjaya
+                  {info.nama}
                 </Row>
                 <Row className="justify-content-center my-4">
                   <Label className="font-weight-bold mr-2">Nama Ibu : </Label>{" "}
-                  Friska Christiana
+                  {info.ibu}
                 </Row>
                 <Row className="justify-content-center my-4">
                   <Label className="font-weight-bold mr-2">
                     Jenis Kelamin :{" "}
                   </Label>{" "}
-                  Laki-laki
+                  {info.jeniskelamin}
                 </Row>
                 <Row className="justify-content-center my-4">
                   <Label className="font-weight-bold mr-2">
                     Tanngal Lahir :{" "}
                   </Label>{" "}
-                  30 January 2020
+                  {info.tanggallahir}
                 </Row>
                 <Row className="justify-content-center my-4">
                   <Label className="font-weight-bold mr-2">Alamat : </Label>{" "}
-                  Jln. Holis No.4
+                  {info.alamat}
                 </Row>
               </CardBody>
             </Card>
             <div className="mt-2">
-              <Button className="button-orange w-100" tag={Link} to="DataAnak">
+              <Button
+                className="button-orange w-100"
+                tag={Link}
+                to={"../DataAnak/" + ida}
+              >
                 Kembali
               </Button>
             </div>
           </div>
         </div>
         <div style={{ width: "60%" }} className="m-3 text-center">
-          <h3 className="text-muted">Tanggal 30 Maret 2020</h3>
+          <h3 className="text-muted">{tanggal}</h3>
           <div style={{ minHeight: "580px" }}>{renderHasilKlasifikasi}</div>
         </div>
       </div>
@@ -119,4 +119,4 @@ const PencarianDataAnak = (props) => {
   );
 };
 
-export default PencarianDataAnak;
+export default Index;

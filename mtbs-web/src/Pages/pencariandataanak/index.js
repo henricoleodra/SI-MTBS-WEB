@@ -1,12 +1,8 @@
-import React from 'react';
-import {
-    PencarianDataAnak
-} from '../../Containers';
+import React from "react";
+import { PencarianDataAnak } from "../../Containers";
 
 const Index = () => {
-    return (
-        <PencarianDataAnak/>
-    );
-}
+  return <PencarianDataAnak />;
+};
 
 export default Index;

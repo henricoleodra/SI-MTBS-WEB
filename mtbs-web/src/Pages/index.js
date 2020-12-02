@@ -8,6 +8,7 @@ export { default as DataAnak } from "./dataanak";
 export { default as IsiDataAnak } from "./isidataanak";
 export { default as MTBS } from "./mtbs";
 export { default as MulaiPemeriksaan } from "./mulaipemeriksaan";
-export { default as PemeriksaanAnak } from "./pemeriksaananak";
+export { default as RiwayatAnak } from "./riwayatanak";
+export { default as PemilihanDataAnak } from "./pemilihandataanak";
 export { default as PencarianDataAnak } from "./pencariandataanak";
 export { default as Login } from "./login";

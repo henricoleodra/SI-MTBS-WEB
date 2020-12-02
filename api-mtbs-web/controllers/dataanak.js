@@ -149,6 +149,20 @@ const dataanak = async function (req, res, next) {
   res.json(dataAnak);
 };
 
+const infoanak = async function (req, res, next) {
+  var tmp = req.params.id;
+  console.log(tmp);
+  const data = {
+    nama: "Harry Senjaya",
+    ibu: "Friska Christiana",
+    jeniskelamin: "Laki-laki",
+    tanggallahir: "2019-04-20",
+    alamat: "Jln. Holis No.4",
+  };
+  res.json(data);
+};
+
 module.exports = {
   dataanak,
+  infoanak,
 };

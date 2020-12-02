@@ -7,8 +7,9 @@ import {
   Lobby,
   ApaItuMTBS,
   DataAnak,
-  PemeriksaanAnak,
+  RiwayatAnak,
   MulaiPemeriksaan,
+  PemilihanDataAnak,
   PencarianDataAnak,
   IsiDataAnak,
   MTBS,
@@ -16,9 +17,10 @@ import {
 
 const routes = [
   { path: "/ApaItuMTBS", component: ApaItuMTBS },
-  { path: "/DataAnak", component: DataAnak },
-  { path: "/PemeriksaanAnak", component: PemeriksaanAnak },
+  { path: "/DataAnak/:id", component: DataAnak },
+  { path: "/RiwayatAnak/:ida&:idp", component: RiwayatAnak },
   { path: "/MulaiPemeriksaan", component: MulaiPemeriksaan },
+  { path: "/PemilihanDataAnak", component: PemilihanDataAnak },
   { path: "/PencarianDataAnak", component: PencarianDataAnak },
   { path: "/IsiDataAnak", component: IsiDataAnak },
   { path: "/MTBS", component: MTBS },

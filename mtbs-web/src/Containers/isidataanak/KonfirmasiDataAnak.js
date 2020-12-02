@@ -379,7 +379,7 @@ const KonfirmasiDataAnak = (props) => {
             </FormGroup>
           </div>
           <div className="d-flex justify-content-between mt-4">
-            <Link to="../PencarianDataAnak" style={{ textDecoration: "none" }}>
+            <Link to="../PemilihanDataAnak" style={{ textDecoration: "none" }}>
               <Button style={{ backgroundColor: "#fe8d3b", border: "0" }}>
                 Sebelumnya
               </Button>

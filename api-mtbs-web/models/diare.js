@@ -31,6 +31,11 @@ const classifierDiare = (ansDiare) => {
             ringan++;
         }
     }
+    if(ansDiare.diare_rewelMudahMarah != null){
+        if (ansDiare.diare_rewelMudahMarah === true) {
+            ringan++;
+        }
+    }
     if (ansDiare.diare_isNotMinum != null) {
         if (ansDiare.diare_isNotMinum === true) {
             berat++;
@@ -39,7 +44,7 @@ const classifierDiare = (ansDiare) => {
         }
     }
     if (ansDiare.diare_kulitPerutLambat != null) {
-        if (ansDiare.diare_kulitPerutLambat === 'Sangat Lambat') {
+        if (ansDiare.diare_kulitPerutLambat === 'SangatLambat') {
             berat++;
         } else if (ansDiare.diare_kulitPerutLambat === 'Lambat') {
             ringan++;
@@ -107,6 +112,11 @@ const classifierDiare = (ansDiare) => {
             }
         }
     }
+
+    if(klasifikasi === 'Diare Tanpa Dehidrasi'){
+        status = 3;
+    }
+
     var resStatus = '';
     if (status === 1) {
         resStatus = 'danger';

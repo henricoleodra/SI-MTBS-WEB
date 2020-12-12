@@ -43,6 +43,13 @@ const classifierHIV = (ansHIV) =>{
             }
             return ans;
         }
+        else{
+            const ans = {
+                hasilKlasifikasi : 'Diduga terinfeksi HIV',
+                statusKlasifikasi: 'danger',
+            }
+            return ans;
+        }
     }
     else if(ibuTest === true && ibutHasilTest === true){
         if(dapatASI === true || test === false){
@@ -52,6 +59,13 @@ const classifierHIV = (ansHIV) =>{
             }
             return ans;
         }
+    }
+    else if(kerabatTerdiagonis === true || kerabatMeninggal === true){
+        const ans = {
+            hasilKlasifikasi : 'Diduga terinfeksi HIV',
+            statusKlasifikasi: 'danger',
+        }
+        return ans;
     }
     else{
         const ans = {

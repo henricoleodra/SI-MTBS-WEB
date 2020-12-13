@@ -36,27 +36,19 @@ const Batuk2 = (props) =>{
     const ansAnemia = useSelector(state => state.ansGizi);
     const ansHIV = useSelector(state => state.ansHIV);
 
-    const handleSubmit = event =>{
-        console.log(bsb_saturasiOksigen);
+    const handleSubmit = async event =>{
         event.preventDefault();
         dispatch(FlagChange('FLAG_BATUK', 2));
-        axios.post(`/Batuk`, {
-            ansBatuk: ansBatuk
-        })
-        .then(res => {
-            console.log(res.data.hasilKlasifikasi);
-            dispatch(KlasifikasiBatukChange('BATUK_KLASIFIKASI', res.data.hasilKlasifikasi));
-            dispatch(KlasifikasiBatukChange('BATUK_STATUS', res.data.statusKlasifikasi));
-            if(res.data.statusKlasifikasi === "danger" || res.data.statusKlasifikasi === "warning"){
-                dispatch(AnsGiziChange('GIZI_BATUK', true));
-            }
-            else{
-                dispatch(AnsGiziChange('GIZI_BATUK', false));
-            }
-        })
-        .catch(err => {
-            console.log(err);
-        });
+        const res = await axios.post(`/Batuk`, {ansBatuk: ansBatuk});
+        dispatch(KlasifikasiBatukChange("BATUK_KLASIFIKASI", res.data.hasilKlasifikasi));
+        dispatch(KlasifikasiBatukChange("BATUK_STATUS", res.data.statusKlasifikasi));
+        if (res.data.statusKlasifikasi === "danger" || res.data.statusKlasifikasi === "warning") {
+            ansGizi.gizi_batuk = true;
+            dispatch(AnsGiziChange("GIZI_BATUK", true));
+        } else {
+            ansGizi.gizi_batuk = false;
+            dispatch(AnsGiziChange("GIZI_BATUK", false));
+        }
         Classifier(
             "batuk",
             dispatch,

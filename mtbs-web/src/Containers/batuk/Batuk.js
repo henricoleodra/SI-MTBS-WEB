@@ -29,6 +29,7 @@ import {
   KlasifikasiBatukChange,
   AnsBatukChange,
   AnsGiziChange,
+  FlagChange,
 } from "../../Actions";
 
 import Classifier from "../../Classifier/Classifier";
@@ -65,32 +66,18 @@ const Batuk = (props) => {
   const ansAnemia = useSelector((state) => state.ansGizi);
   const ansHIV = useSelector((state) => state.ansHIV);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    axios
-      .post(`/Batuk`, {
-        ansBatuk: ansBatuk,
-      })
-      .then((res) => {
-        console.log(res.data.hasilKlasifikasi);
-        dispatch(
-          KlasifikasiBatukChange("BATUK_KLASIFIKASI", res.data.hasilKlasifikasi)
-        );
-        dispatch(
-          KlasifikasiBatukChange("BATUK_STATUS", res.data.statusKlasifikasi)
-        );
-        if (
-          res.data.statusKlasifikasi === "danger" ||
-          res.data.statusKlasifikasi === "warning"
-        ) {
-          dispatch(AnsGiziChange("GIZI_BATUK", true));
-        } else {
-          dispatch(AnsGiziChange("GIZI_BATUK", false));
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    const res = await axios.post(`/Batuk`, {ansBatuk: ansBatuk});
+    dispatch(KlasifikasiBatukChange("BATUK_KLASIFIKASI", res.data.hasilKlasifikasi));
+    dispatch(KlasifikasiBatukChange("BATUK_STATUS", res.data.statusKlasifikasi));
+    if (res.data.statusKlasifikasi === "danger" || res.data.statusKlasifikasi === "warning") {
+      ansGizi.gizi_batuk = true;
+      dispatch(AnsGiziChange("GIZI_BATUK", true));
+    } else {
+      ansGizi.gizi_batuk = false;
+      dispatch(AnsGiziChange("GIZI_BATUK", false));
+    }
     Classifier(
       "batuk",
       dispatch,

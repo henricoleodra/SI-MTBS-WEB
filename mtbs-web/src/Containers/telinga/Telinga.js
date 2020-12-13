@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 
 // Actions
-import { KlasifikasiTelingaChange, AnsTelingaChange, AnsGiziChange } from '../../Actions';
+import { KlasifikasiTelingaChange, AnsTelingaChange, AnsGiziChange, FlagChange } from '../../Actions';
 
 import Classifier from '../../Classifier/Classifier';
 
@@ -40,22 +40,33 @@ const Telinga = (props) =>{
 
     const handleSubmit = event =>{
         event.preventDefault();
-        axios.post(`/Telinga`, {
-            ansTelinga: ansTelinga
-        })
-        .then(res => {
-            dispatch(KlasifikasiTelingaChange('TELINGA_KLASIFIKASI', res.data.hasilKlasifikasi));
-            dispatch(KlasifikasiTelingaChange('TELINGA_STATUS', res.data.statusKlasifikasi));
-            if(res.data.statusKlasifikasi === "danger" || res.data.statusKlasifikasi === "warning"){
-                dispatch(AnsGiziChange('GIZI_TELINGA', true));
-            }
-            else{   
-                dispatch(AnsGiziChange('GIZI_TELINGA', false));
-            }
-        })
-        .catch(err => {
-            console.log(err);
-        });
+        const res = await axios.post(`/Telinga`, { ansTelinga: ansTelinga});
+        dispatch(KlasifikasiTelingaChange("TELINGA_KLASIFIKASI", res.data.hasilKlasifikasi));
+        dispatch(KlasifikasiTelingaChange("TELINGA_STATUS", res.statusKlasifikasi));
+        if (res.data.statusKlasifikasi === "danger" || res.data.statusKlasifikasi === "warning") {
+            ansGizi.gizi_telinga = true;
+            dispatch(AnsGiziChange('GIZI_TELINGA', true));
+        }
+        else {
+            ansGizi.gizi_telinga = false;
+            dispatch(AnsGiziChange('GIZI_TELINGA', false));
+        }
+        // axios.post(`/Telinga`, {
+        //     ansTelinga: ansTelinga
+        // })
+        // .then(res => {
+        //     dispatch(KlasifikasiTelingaChange('TELINGA_KLASIFIKASI', res.data.hasilKlasifikasi));
+        //     dispatch(KlasifikasiTelingaChange('TELINGA_STATUS', res.data.statusKlasifikasi));
+        //     if(res.data.statusKlasifikasi === "danger" || res.data.statusKlasifikasi === "warning"){
+        //         dispatch(AnsGiziChange('GIZI_TELINGA', true));
+        //     }
+        //     else{   
+        //         dispatch(AnsGiziChange('GIZI_TELINGA', false));
+        //     }
+        // })
+        // .catch(err => {
+        //     console.log(err);
+        // });
         Classifier(
             "telinga",
             dispatch,
@@ -72,42 +83,42 @@ const Telinga = (props) =>{
         history.push("Telinga2");
     }
 
-    const handleAnswer1 = event =>{
+    const handleAnswer1 = (event) =>{
         if(event.target.value === "1"){
             set_telinga_isNyeri(true);
-            dispatch(AnsTelingaChange('NYERI', true));
+            dispatch(AnsTelingaChange("NYERI", true));
         }else{
             set_telinga_isNyeri(false);
-            dispatch(AnsTelingaChange('NYERI', false));
+            dispatch(AnsTelingaChange("NYERI", false));
         }
     }
 
     const handleAnswer2 = event =>{
         if(event.target.value === "1"){
             set_telinga_isPenuh(true);
-            dispatch(AnsTelingaChange('PENUH', true));
+            dispatch(AnsTelingaChange("PENUH", true));
         }else{
             set_telinga_isPenuh(false);
-            dispatch(AnsTelingaChange('PENUH', false));
+            dispatch(AnsTelingaChange("PENUH", false));
         }
     }
 
     const handleAnswer3 = event =>{
         if(event.target.value === "1"){
             set_telinga_isNanah(true);
-            dispatch(AnsTelingaChange('NANAH', true));
+            dispatch(AnsTelingaChange("NANAH", true));
         }else{
             set_telinga_isNanah(false);
-            dispatch(AnsTelingaChange('NANAH', false));
+            dispatch(AnsTelingaChange("NANAH", false));
             set_telinga_nanahLamaHari("");
-            dispatch(AnsTelingaChange('NANAH_LAMA_HARI', ""));
+            dispatch(AnsTelingaChange("NANAH_LAMA_HARI", ""));
         }
     }
 
     const handleAnswer4 = event =>{
         let tmp = Number(event.target.value);
         set_telinga_nanahLamaHari(tmp);
-        dispatch(AnsTelingaChange('NANAH_LAMA_HARI', tmp));
+        dispatch(AnsTelingaChange("NANAH_LAMA_HARI", tmp));
     }
 
     return(

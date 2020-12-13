@@ -33,23 +33,21 @@ const Diare3 = (props) => {
 
     const handleSubmit = event => {
         event.preventDefault();
+        const res = await axios.post(`/Diare` ,{ansDiare: ansDiare});
         dispatch(FlagChange('FLAG_DIARE', 2));
-        axios.post(`/Diare`, {
-            ansDiare: ansDiare
-        })
-            .then(res => {
-                dispatch(KlasifikasiDiareChange('DIARE_KLASIFIKASI', res.data.hasilKlasifikasi));
-                dispatch(KlasifikasiDiareChange('DIARE_STATUS', res.data.statusKlasifikasi));
-                if (res.data.statusKlasifikasi === "danger" || res.data.statusKlasifikasi === "warning") {
-                    dispatch(AnsGiziChange('GIZI_DIARE', true));
-                }
-                else {
-                    dispatch(AnsGiziChange('GIZI_DIARE', false));
-                }
-            })
-            .catch(err => {
-                console.log(err);
-            });
+        dispatch(KlasifikasiDiareChange('DIARE_KLASIFIKASI', res.data.hasilKlasifikasi));
+        dispatch(KlasifikasiDiareChange('DIARE_STATUS', res.data.statusKlasifikasi));
+                
+        if (res.data.statusKlasifikasi === "danger" || res.data.statusKlasifikasi === "warning") {
+            ansGizi.gizi_diare = true;
+            dispatch(AnsGiziChange('GIZI_DIARE', true));
+        }
+        else {
+            ansGizi.gizi_diare = false;
+            dispatch(AnsGiziChange('GIZI_DIARE', false));
+        }
+            
+           
         Classifier(
             "diare",
             dispatch,
@@ -65,7 +63,7 @@ const Diare3 = (props) => {
         );
         dispatch(compStatusChange('DEMAM'));
         history.push("DemamYaTidak");
-    }
+    };
 
     const handleAnswer1 = event => {
         if (event.target.value === "1") {
@@ -191,6 +189,6 @@ const Diare3 = (props) => {
             </div>
         </Form>
     );
-}
+};
 
 export default Diare3

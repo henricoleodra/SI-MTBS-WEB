@@ -37,24 +37,21 @@ const Diare = (props) => {
     const ansAnemia = useSelector(state => state.ansGizi);
     const ansHIV = useSelector(state => state.ansHIV);
 
-    const handleSubmit = event =>{
+    const handleSubmit = async event =>{
         event.preventDefault();
-        axios.post(`/Diare`, {
-            ansDiare: ansDiare
-        })
-        .then(res => {
-            dispatch(KlasifikasiDiareChange('DIARE_KLASIFIKASI', res.data.hasilKlasifikasi));
-            dispatch(KlasifikasiDiareChange('DIARE_STATUS', res.data.statusKlasifikasi));
-            if(res.data.statusKlasifikasi === "danger" || res.data.statusKlasifikasi === "warning"){
-                dispatch(AnsGiziChange('GIZI_DIARE', true));
-            }
-            else{
-                dispatch(AnsGiziChange('GIZI_DIARE', false));
-            }
-        })
-        .catch(err => {
-            console.log(err);
-        });
+        const res = await axios.post(`/Diare` ,{ansDiare: ansDiare});
+        dispatch(KlasifikasiDiareChange('DIARE_KLASIFIKASI', res.data.hasilKlasifikasi));
+        dispatch(KlasifikasiDiareChange('DIARE_STATUS', res.data.statusKlasifikasi));
+            
+        if(res.data.statusKlasifikasi === "danger" || res.data.statusKlasifikasi === "warning"){
+            ansGizi.gizi_diare = true;
+            dispatch(AnsGiziChange('GIZI_DIARE', true));            
+        }
+        else{
+            ansGizi.gizi_diare = false;
+            dispatch(AnsGiziChange('GIZI_DIARE', false));
+        }
+        
         Classifier(
             "diare",
             dispatch,
@@ -69,7 +66,7 @@ const Diare = (props) => {
             ansHIV
         );
         history.push("Diare2");
-    }
+    };
 
     const handleAnswer1 = event =>{
         let tmp = Number(event.target.value);
@@ -170,6 +167,6 @@ const Diare = (props) => {
             </div>
         </Form>
     );
-}
+};
 
 export default Diare

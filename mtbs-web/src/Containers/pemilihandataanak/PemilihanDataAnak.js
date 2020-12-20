@@ -44,7 +44,7 @@ const PemilihanDataAnak = (props) => {
   useEffect(() => {
     const fetchDataAnak = async () => {
       setLoading(true);
-      const res = await axios.get("/DataAnak");
+      const res = await axios.get("http://localhost:8000/DataAnak");
 
       setAnak(res.data);
       setCurrentData(res.data);

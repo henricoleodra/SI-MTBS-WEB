@@ -59,7 +59,9 @@ const Telinga2 = (props) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     dispatch(FlagChange("FLAG_TELINGA", 2));
-    const res = await axios.post(`/Telinga`, { ansTelinga: ansTelinga });
+    const res = await axios.post(`http://localhost:8000/Telinga`, {
+      ansTelinga: ansTelinga,
+    });
     dispatch(
       KlasifikasiTelingaChange("TELINGA_KLASIFIKASI", res.data.hasilKlasifikasi)
     );

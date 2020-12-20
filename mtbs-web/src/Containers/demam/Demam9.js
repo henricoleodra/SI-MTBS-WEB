@@ -55,7 +55,9 @@ const Demam = (props) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     dispatch(FlagChange("FLAG_DEMAM", 2));
-    const res = await axios(`/Demam`, { ansDemam: ansDemam });
+    const res = await axios(`http://localhost:8000/Demam`, {
+      ansDemam: ansDemam,
+    });
     dispatch(
       KlasifikasiDemamChange("DEMAM_KLASIFIKASI", res.data.hasilKlasifikasi)
     );

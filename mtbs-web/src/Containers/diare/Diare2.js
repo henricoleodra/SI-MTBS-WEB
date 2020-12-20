@@ -59,7 +59,9 @@ const Diare2 = (props) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const res = await axios.post(`/Diare`, { ansDiare: ansDiare });
+    const res = await axios.post(`http://localhost:8000/Diare`, {
+      ansDiare: ansDiare,
+    });
     dispatch(
       KlasifikasiDiareChange("DIARE_KLASIFIKASI", res.data.hasilKlasifikasi)
     );

@@ -33,7 +33,7 @@ const Tindakan = (props) => {
   useEffect(() => {
     async function fetchResult() {
       await axios
-        .post(`/Tindakan`, {
+        .post(`http://localhost:8000/Tindakan`, {
           dataanak: {
             dataAnak: dataAnak,
           },
@@ -174,7 +174,7 @@ const Tindakan = (props) => {
         {hasilTindakan &&
           hasilTindakan.map((tindakan, idx) => {
             if (tindakan.status !== "info") {
-              if(tindakan.judul !== "Tanda Bahaya Umum"){
+              if (tindakan.judul !== "Tanda Bahaya Umum") {
                 return (
                   <CompTindakan
                     key={idx}
@@ -184,7 +184,7 @@ const Tindakan = (props) => {
                     tindakan={tindakan.tindakan}
                   />
                 );
-              }else if(tindakan.status === "danger"){
+              } else if (tindakan.status === "danger") {
                 return (
                   <CompTindakan
                     key={idx}

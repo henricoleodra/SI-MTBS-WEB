@@ -68,10 +68,19 @@ const Batuk = (props) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const res = await axios.post(`/Batuk`, {ansBatuk: ansBatuk});
-    dispatch(KlasifikasiBatukChange("BATUK_KLASIFIKASI", res.data.hasilKlasifikasi));
-    dispatch(KlasifikasiBatukChange("BATUK_STATUS", res.data.statusKlasifikasi));
-    if (res.data.statusKlasifikasi === "danger" || res.data.statusKlasifikasi === "warning") {
+    const res = await axios.post(`http://localhost:8000/Batuk`, {
+      ansBatuk: ansBatuk,
+    });
+    dispatch(
+      KlasifikasiBatukChange("BATUK_KLASIFIKASI", res.data.hasilKlasifikasi)
+    );
+    dispatch(
+      KlasifikasiBatukChange("BATUK_STATUS", res.data.statusKlasifikasi)
+    );
+    if (
+      res.data.statusKlasifikasi === "danger" ||
+      res.data.statusKlasifikasi === "warning"
+    ) {
       ansGizi.gizi_batuk = true;
       dispatch(AnsGiziChange("GIZI_BATUK", true));
     } else {

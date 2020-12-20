@@ -38,8 +38,10 @@ const PencarianDataAnak = (props) => {
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
-      const infoAnak = await axios.get("/InfoAnak/" + id);
-      const riwayatAnak = await axios.get("/RiwayatAnak/" + id);
+      const infoAnak = await axios.get("http://localhost:8000/InfoAnak/" + id);
+      const riwayatAnak = await axios.get(
+        "http://localhost:8000/RiwayatAnak/" + id
+      );
       setInfo(infoAnak.data);
       setRiwayat(riwayatAnak.data);
       setTotalRiwayatAnak(riwayatAnak.data.length);

@@ -25,8 +25,10 @@ const Index = (props) => {
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
-      const infoAnak = await axios.get("/InfoAnak/" + ida);
-      const riwayatAnak = await axios.get("/DetailRiwayat/" + ida + "&" + idp);
+      const infoAnak = await axios.get("http://localhost:8000/InfoAnak/" + ida);
+      const riwayatAnak = await axios.get(
+        "http://localhost:8000/DetailRiwayat/" + ida + "&" + idp
+      );
       setInfo(infoAnak.data);
       setTanggal(riwayatAnak.data.tanggal);
       setRiwayat(riwayatAnak.data.hasilpemeriksaan);

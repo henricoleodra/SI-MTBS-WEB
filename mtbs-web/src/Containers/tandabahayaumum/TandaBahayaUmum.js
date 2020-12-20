@@ -59,7 +59,9 @@ const TandaBahayaUmum = (props) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     dispatch(FlagChange("FLAG_TBU", 1));
-    const res = await axios.post(`/TBU`, { ansTBU: ansTBU });
+    const res = await axios.post(`http://localhost:8000/TBU`, {
+      ansTBU: ansTBU,
+    });
     dispatch(KlasifikasiTBUChange("TBU_KLASIFIKASI", res.data.hasilKlasifkasi));
     dispatch(KlasifikasiTBUChange("TBU_STATUS", res.data.statusKlasifikasi));
     if (res.data.statusKlasifikasi === "danger") {

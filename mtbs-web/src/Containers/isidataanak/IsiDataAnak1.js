@@ -76,10 +76,12 @@ const IsiDataAnak1 = () => {
   let [jenisKelamin, setJenisKelamin] = useState(dataAnak.jenisKelamin);
   let [tglLahir, setTglLahir] = useState(dataAnak.tglLahir);
   let [provinsi, setProvinsi] = useState(dataAnak.provinsiAnak);
+  let [kota, setKota] = useState(dataAnak.kotaAnak);
   let [alamat, setAlamat] = useState(dataAnak.alamatAnak);
-  let [rtrw, setRTRW] = useState(dataAnak.rtrwAnak);
+  let [rt, setRT] = useState(dataAnak.rtAnak);
+  let [rw, setRW] = useState(dataAnak.rwAnak);
   let [kelDes, setKelDes] = useState(dataAnak.kelDesAnak);
-  let [kotKec, setKotKec] = useState(dataAnak.kotKecAnak);
+  let [kecamatan, setKecamatan] = useState(dataAnak.kecamatanAnak);
   let [curDate] = useState(
     hari + ", " + date.getDate() + " " + bulan + " " + date.getFullYear()
   );
@@ -120,20 +122,28 @@ const IsiDataAnak1 = () => {
     setProvinsi(event.target.value);
   };
 
+  const handleKota = (event) => {
+    setKota(event.target.value);
+  };
+
   const handleAlamat = (event) => {
     setAlamat(event.target.value);
   };
 
-  const handleRTRW = (event) => {
-    setRTRW(event.target.value);
+  const handleRT = (event) => {
+    setRT(Number(event.target.value));
+  };
+
+  const handleRW = (event) => {
+    setRW(Number(event.target.value));
   };
 
   const handleKelDes = (event) => {
     setKelDes(event.target.value);
   };
 
-  const handleKotKec = (event) => {
-    setKotKec(event.target.value);
+  const handleKecamatan = (event) => {
+    setKecamatan(event.target.value);
   };
 
   const handleSubmit = (event) => {
@@ -143,10 +153,12 @@ const IsiDataAnak1 = () => {
     dispatch(DataAnakChange("JENIS_KELAMIN", jenisKelamin));
     dispatch(DataAnakChange("TANGGAL_LAHIR", tglLahir));
     dispatch(DataAnakChange("PROVINSI", provinsi));
-    dispatch(DataAnakChange("ALAMAT_ANAK", alamat));
-    dispatch(DataAnakChange("RT_RW", rtrw));
+    dispatch(DataAnakChange("KOTA", kota));
+    dispatch(DataAnakChange("ALAMAT", alamat));
+    dispatch(DataAnakChange("RT", rt));
+    dispatch(DataAnakChange("RW", rw));
     dispatch(DataAnakChange("KELURAHAN_DESA", kelDes));
-    dispatch(DataAnakChange("KOTA_KECAMATAN", kotKec));
+    dispatch(DataAnakChange("KECAMATAN", kecamatan));
     var tmpCurDate = new Date();
     var tmpTanggalLahir = new Date(tglLahir);
     var differenceInDays = Math.floor(
@@ -272,17 +284,23 @@ const IsiDataAnak1 = () => {
                 <Col sm={2}>
                   <Label for="provinsi">Provinsi</Label>
                 </Col>
-                <Col sm={4}>
-                  <Label for="alamat">Alamat</Label>
+                <Col sm={2}>
+                  <Label for="alamat">Kota</Label>
                 </Col>
                 <Col sm={2}>
-                  <Label for="rt/rw">RT/RW</Label>
+                  <Label for="alamat">Alamat</Label>
+                </Col>
+                <Col sm={1}>
+                  <Label for="rt">RT</Label>
+                </Col>
+                <Col sm={1}>
+                  <Label for="rt">RW</Label>
                 </Col>
                 <Col sm={2}>
                   <Label for="kelurahan/desa">Kelurahan/Desa</Label>
                 </Col>
                 <Col sm={2}>
-                  <Label for="kota/kecamatan">Kota/Kecamatan</Label>
+                  <Label for="kota/kecamatan">Kecamatan</Label>
                 </Col>
               </Row>
               <Row>
@@ -335,7 +353,19 @@ const IsiDataAnak1 = () => {
                     <option value={34}>Yogyakarta</option>
                   </Input>
                 </Col>
-                <Col sm={4}>
+                <Col sm={2}>
+                  <Input
+                    type="text"
+                    name="kota"
+                    id="kota"
+                    style={{ borderColor: "#46d0fe" }}
+                    placeholder="Kota"
+                    value={kota}
+                    onChange={handleKota}
+                    required
+                  />
+                </Col>
+                <Col sm={2}>
                   <Input
                     type="text"
                     name="alamat"
@@ -347,15 +377,27 @@ const IsiDataAnak1 = () => {
                     required
                   />
                 </Col>
-                <Col sm={2}>
+                <Col sm={1}>
                   <Input
-                    type="text"
-                    name="rtrw"
-                    id="rtrw"
+                    type="number"
+                    name="rt"
+                    id="rt"
                     style={{ borderColor: "#46d0fe" }}
-                    placeholder="RT/RW"
-                    value={rtrw}
-                    onChange={handleRTRW}
+                    placeholder="RT"
+                    value={rt}
+                    onChange={handleRT}
+                    required
+                  />
+                </Col>
+                <Col sm={1}>
+                  <Input
+                    type="number"
+                    name="rw"
+                    id="rw"
+                    style={{ borderColor: "#46d0fe" }}
+                    placeholder="RW"
+                    value={rw}
+                    onChange={handleRW}
                     required
                   />
                 </Col>
@@ -374,12 +416,12 @@ const IsiDataAnak1 = () => {
                 <Col sm={2}>
                   <Input
                     type="text"
-                    name="kotKec"
-                    id="kotKec"
+                    name="kecamatan"
+                    id="kecamatan"
                     style={{ borderColor: "#46d0fe" }}
-                    placeholder="Kota/Kecamatan"
-                    value={kotKec}
-                    onChange={handleKotKec}
+                    placeholder="Kecamatan"
+                    value={kecamatan}
+                    onChange={handleKecamatan}
                     required
                   />
                 </Col>

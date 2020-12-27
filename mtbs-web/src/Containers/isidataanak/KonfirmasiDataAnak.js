@@ -75,10 +75,12 @@ const KonfirmasiDataAnak = (props) => {
   let [jenisKelamin] = useState(dataAnak.jenisKelamin);
   let [tglLahir] = useState(dataAnak.tglLahir);
   let [provinsi] = useState(dataAnak.provinsiAnak);
+  let [kota] = useState(dataAnak.kotaAnak);
   let [alamat] = useState(dataAnak.alamatAnak);
-  let [rtrw] = useState(dataAnak.rtrwAnak);
+  let [rt] = useState(dataAnak.rtAnak);
+  let [rw] = useState(dataAnak.rwAnak);
   let [kelDes] = useState(dataAnak.kelDesAnak);
-  let [kotKec] = useState(dataAnak.kotKecAnak);
+  let [kecamatan] = useState(dataAnak.kecamatanAnak);
   let [curDate] = useState(
     hari + ", " + date.getDate() + " " + bulan + " " + date.getFullYear()
   );
@@ -201,17 +203,23 @@ const KonfirmasiDataAnak = (props) => {
                 <Col sm={2}>
                   <Label for="provinsi">Provinsi</Label>
                 </Col>
-                <Col sm={4}>
-                  <Label for="alamat">Alamat</Label>
+                <Col sm={2}>
+                  <Label for="alamat">Kota</Label>
                 </Col>
                 <Col sm={2}>
-                  <Label for="rt/rw">RT/RW</Label>
+                  <Label for="alamat">Alamat</Label>
+                </Col>
+                <Col sm={1}>
+                  <Label for="rt">RT</Label>
+                </Col>
+                <Col sm={1}>
+                  <Label for="rt">RW</Label>
                 </Col>
                 <Col sm={2}>
                   <Label for="kelurahan/desa">Kelurahan/Desa</Label>
                 </Col>
                 <Col sm={2}>
-                  <Label for="kota/kecamatan">Kota/Kecamatan</Label>
+                  <Label for="kota/kecamatan">Kecamatan</Label>
                 </Col>
               </Row>
               <Row>
@@ -331,25 +339,43 @@ const KonfirmasiDataAnak = (props) => {
                     </option>
                   </Input>
                 </Col>
-                <Col sm={4}>
+                <Col sm={2}>
                   <Input
                     type="text"
-                    name="alamat"
-                    id="alamat"
+                    name="kota"
+                    id="kota"
                     style={{ borderColor: "#46d0fe" }}
-                    placeholder="Alamat"
-                    value={alamat}
+                    value={kota}
                     disabled
                   />
                 </Col>
                 <Col sm={2}>
                   <Input
                     type="text"
-                    name="rtrw"
-                    id="rtrw"
+                    name="alamat"
+                    id="alamat"
                     style={{ borderColor: "#46d0fe" }}
-                    placeholder="RT/RW"
-                    value={rtrw}
+                    value={alamat}
+                    disabled
+                  />
+                </Col>
+                <Col sm={1}>
+                  <Input
+                    type="number"
+                    name="rt"
+                    id="rt"
+                    style={{ borderColor: "#46d0fe" }}
+                    value={rt}
+                    disabled
+                  />
+                </Col>
+                <Col sm={1}>
+                  <Input
+                    type="number"
+                    name="rw"
+                    id="rw"
+                    style={{ borderColor: "#46d0fe" }}
+                    value={rw}
                     disabled
                   />
                 </Col>
@@ -359,7 +385,6 @@ const KonfirmasiDataAnak = (props) => {
                     name="kelDes"
                     id="kelDes"
                     style={{ borderColor: "#46d0fe" }}
-                    placeholder="Kelurahan/Desa"
                     value={kelDes}
                     disabled
                   />
@@ -367,11 +392,10 @@ const KonfirmasiDataAnak = (props) => {
                 <Col sm={2}>
                   <Input
                     type="text"
-                    name="kotKec"
-                    id="kotKec"
+                    name="kecamatan"
+                    id="kecamatan"
                     style={{ borderColor: "#46d0fe" }}
-                    placeholder="Kota/Kecamatan"
-                    value={kotKec}
+                    value={kecamatan}
                     disabled
                   />
                 </Col>

@@ -27,18 +27,15 @@ const MulaiPemeriksaan = (props) => {
         <Col xs="6">
           <Container className="p-5" style={{ width: "75%" }}>
             <Link to="PemilihanDataAnak" style={{ textDecoration: "none" }}>
-              <Card
-                className="shadow rounded"
-                style={{ backgroundColor: "#46d0fe", border: "0" }}
-              >
-                <CardText className="d-flex justify-content-center mt-2">
-                  <h1>
+              <Card className="shadow rounded button-pepper-mint">
+                <h1>
+                  <CardText className="d-flex justify-content-center mt-2">
                     <FontAwesomeIcon
                       icon={faCheck}
                       className="text-white fa-7x"
                     />
-                  </h1>
-                </CardText>
+                  </CardText>
+                </h1>
                 <CardTitle className="text-white text-center">
                   <h1>YA</h1>
                 </CardTitle>
@@ -49,18 +46,15 @@ const MulaiPemeriksaan = (props) => {
         <Col xs="6">
           <Container className="p-5" style={{ width: "75%" }}>
             <Link to="IsiDataAnak/1" style={{ textDecoration: "none" }}>
-              <Card
-                className="shadow rounded"
-                style={{ backgroundColor: "#fe8d3b", border: "0" }}
-              >
-                <CardText className="d-flex justify-content-center mt-2">
-                  <h1>
+              <Card className="shadow rounded button-orange">
+                <h1>
+                  <CardText className="d-flex justify-content-center mt-2">
                     <FontAwesomeIcon
                       icon={faTimes}
                       className="text-white fa-7x"
                     />
-                  </h1>
-                </CardText>
+                  </CardText>
+                </h1>
                 <CardTitle className="text-white text-center">
                   <h1>TIDAK</h1>
                 </CardTitle>

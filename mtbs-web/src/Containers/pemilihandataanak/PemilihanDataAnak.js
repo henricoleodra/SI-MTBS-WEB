@@ -107,10 +107,12 @@ const PemilihanDataAnak = (props) => {
     }
     dispatch(DataAnakChange("TANGGAL_LAHIR", data.tanggallahir));
     dispatch(DataAnakChange("PROVINSI", data.provinsi));
-    dispatch(DataAnakChange("ALAMAT_ANAK", data.alamat));
-    dispatch(DataAnakChange("RT_RW", data.rtrw));
+    dispatch(DataAnakChange("KOTA", data.kota));
+    dispatch(DataAnakChange("ALAMAT", data.alamat));
+    dispatch(DataAnakChange("RT", data.rt));
+    dispatch(DataAnakChange("RW", data.rw));
     dispatch(DataAnakChange("KELURAHAN_DESA", data.keldes));
-    dispatch(DataAnakChange("KOTA_KECAMATAN", data.kotkec));
+    dispatch(DataAnakChange("KECAMATAN", data.kecamatan));
     history.push("IsiDataAnak/Konfirmasi");
   };
 

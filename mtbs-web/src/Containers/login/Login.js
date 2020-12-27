@@ -59,7 +59,11 @@ const Login = () => {
       >
         <Row className="mt-4">
           <Col sm={12} className="text-center">
-            <img src={LogoKemenkes} className="logo-kemenkes" />
+            <img
+              src={LogoKemenkes}
+              className="logo-kemenkes"
+              alt="Logo Kemenkes"
+            />
           </Col>
           {/* <Col ">
                         <Link >X</Link>
@@ -127,19 +131,27 @@ const Login = () => {
             xs={2}
             className="d-flex justify-content-center align-items-center"
           >
-            <img src={LogoPuskemas} className=" logo-puskesmas" />
+            <img
+              src={LogoPuskemas}
+              className=" logo-puskesmas"
+              alt="Logo Puskesmas"
+            />
           </Col>
           <Col
             xs={2}
             className="d-flex justify-content-center align-items-center"
           >
-            <img src={LogoUnpar} className=" logo-unpar" />
+            <img src={LogoUnpar} className=" logo-unpar" alt="Logo UNPAR" />
           </Col>
           <Col
             xs={2}
             className="d-flex justify-content-center align-items-center"
           >
-            <img src={LogoInformatika} className=" logo-informatika" />
+            <img
+              src={LogoInformatika}
+              className=" logo-informatika"
+              alt="Logo Informatika"
+            />
           </Col>
         </Row>
         <small className="text-muted text-center">

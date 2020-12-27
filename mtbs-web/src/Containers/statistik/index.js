@@ -12,7 +12,7 @@ import {
 import { Wrapper } from "./style";
 import distribusiPenyakit from "./../../Assets/image/dashboard/distribusipenyakit.PNG";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCalendarDay, faUnderline } from "@fortawesome/free-solid-svg-icons";
+import { faCalendarDay } from "@fortawesome/free-solid-svg-icons";
 
 const Index = (props) => {
   return (
@@ -158,10 +158,18 @@ const Index = (props) => {
 
         <Row className="mb-4">
           <Col className="d-flex justify-content-center">
-            <img src={distribusiPenyakit} className="statistik-diagram" />
+            <img
+              src={distribusiPenyakit}
+              className="statistik-diagram"
+              alt="Distribusi Penyakit"
+            />
           </Col>
           <Col className="d-flex justify-content-center">
-            <img src={distribusiPenyakit} className="statistik-diagram" />
+            <img
+              src={distribusiPenyakit}
+              className="statistik-diagram"
+              alt="Distribusi Penyakit"
+            />
           </Col>
         </Row>
       </div>

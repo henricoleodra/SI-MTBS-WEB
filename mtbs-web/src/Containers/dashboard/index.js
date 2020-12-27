@@ -27,7 +27,7 @@ const Index = (props) => {
         </Row>
         <Row>
           <Col className="d-flex justify-content-center">
-            <img src={peta} className="dashboard-diagram" />
+            <img src={peta} className="dashboard-diagram" alt="Peta" />
           </Col>
         </Row>
         <Row className="justify-content-center mt-1">
@@ -53,7 +53,11 @@ const Index = (props) => {
         </Row>
         <Row className="mb-4">
           <Col className="d-flex justify-content-center">
-            <img src={diagramJumlahPasien} className="dashboard-diagram" />
+            <img
+              src={diagramJumlahPasien}
+              className="dashboard-diagram"
+              alt="Jumlah Pasien"
+            />
           </Col>
         </Row>
       </div>

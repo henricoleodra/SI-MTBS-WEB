@@ -1,5 +1,4 @@
 import React from "react";
-import { Nav } from "reactstrap";
 import { NavBar, Footer } from "../../Components";
 
 const Index = (props) => {

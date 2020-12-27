@@ -117,7 +117,7 @@ const Index = (props) => {
         </Row>
         <Row>
           <Col className="d-flex justify-content-center my-2">
-            <img src={grafik} className="trend-diagram border" />
+            <img src={grafik} className="trend-diagram border" alt="Trend" />
           </Col>
         </Row>
       </div>

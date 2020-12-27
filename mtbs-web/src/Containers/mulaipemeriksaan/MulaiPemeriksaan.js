@@ -13,7 +13,7 @@ const MulaiPemeriksaan = (props) => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(reset("RESET_STORE"));
-  }, []);
+  }, [dispatch]);
 
   return (
     <div>

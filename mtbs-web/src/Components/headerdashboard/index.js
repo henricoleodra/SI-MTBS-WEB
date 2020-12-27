@@ -29,7 +29,7 @@ const Index = (props) => {
     }, 1000);
 
     return () => clearInterval(secTimer);
-  }, []);
+  }, [options]);
 
   return (
     <Wrapper>

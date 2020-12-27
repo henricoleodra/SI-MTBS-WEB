@@ -16,7 +16,7 @@ import {
   faChevronLeft,
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 var outlineColor = {
   borderColor: "#46d0fe",
@@ -25,12 +25,10 @@ var outlineColor = {
 const Gizi2 = (props) => {
   const ansGizi = useSelector((state) => state.ansGizi);
   const dataAnak = useSelector((state) => state.dataAnak);
-  let [gizi_BBmenurutPBAtauTB, set_gizi_BBmenurutPBAtauTB] = useState(
-    ansGizi.gizi_BBmenurutPBAtauTB
-  );
-  let [gizi_nilaiSD, set_gizi_nilaiSD] = useState(ansGizi.gizi_nilaiSD);
-  let [beratAnak, set_beratAnak] = useState(dataAnak.beratAnak);
-  let [tinggiAnak, set_tinggiAnak] = useState(dataAnak.tinggiAnak);
+  let [gizi_BBmenurutPBAtauTB] = useState(ansGizi.gizi_BBmenurutPBAtauTB);
+  let [gizi_nilaiSD] = useState(ansGizi.gizi_nilaiSD);
+  let [beratAnak] = useState(dataAnak.beratAnak);
+  let [tinggiAnak] = useState(dataAnak.tinggiAnak);
 
   return (
     <Form>

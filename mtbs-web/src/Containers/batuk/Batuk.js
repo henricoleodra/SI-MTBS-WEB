@@ -29,7 +29,6 @@ import {
   KlasifikasiBatukChange,
   AnsBatukChange,
   AnsGiziChange,
-  FlagChange,
 } from "../../Actions";
 
 import Classifier from "../../Classifier/Classifier";

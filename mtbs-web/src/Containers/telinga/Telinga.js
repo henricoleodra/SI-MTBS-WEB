@@ -29,7 +29,6 @@ import {
   KlasifikasiTelingaChange,
   AnsTelingaChange,
   AnsGiziChange,
-  FlagChange,
 } from "../../Actions";
 
 import Classifier from "../../Classifier/Classifier";

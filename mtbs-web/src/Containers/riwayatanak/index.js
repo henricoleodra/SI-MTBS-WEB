@@ -35,7 +35,7 @@ const Index = (props) => {
       setLoading(false);
     };
     fetchData();
-  }, []);
+  }, [ida, idp]);
 
   const renderHasilKlasifikasi = riwayat.map((curr, index) => {
     return (

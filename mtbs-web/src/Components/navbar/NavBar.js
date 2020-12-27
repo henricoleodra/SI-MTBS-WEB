@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   Navbar,
@@ -9,8 +9,6 @@ import {
   NavItem,
   Button,
   Label,
-  Row,
-  Col,
 } from "reactstrap";
 import { Wrapper } from "./style";
 
@@ -23,15 +21,6 @@ const NavBar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
-  let cur = null;
-
-  useEffect(() => {
-    if (props.cur === "beranda") {
-      cur = "/";
-    } else {
-      cur = "/Lobby";
-    }
-  }, []);
 
   const RenderComponent = () => {
     switch (props.step) {
@@ -75,11 +64,19 @@ const NavBar = (props) => {
     <Wrapper>
       <Navbar expand="xl" className="shadow-lg wrapper-navbar p-1">
         <NavbarBrand className="text-white w-75">
-          <img src={kemenkes} className="logo-kemenkes" />
+          <img src={kemenkes} className="logo-kemenkes" alt="Logo Kemenkes" />
           <label className="font-weight-bold ml-2">SI-MTBS</label>
-          <img src={puskesmas} className="logo-puskesmas ml-3" />
-          <img src={unpar} className="logo-unpar ml-1" />
-          <img src={informatika} className="logo-informatika ml-3" />
+          <img
+            src={puskesmas}
+            className="logo-puskesmas ml-3"
+            alt="Logo Puskesmas Cimbuleuit"
+          />
+          <img src={unpar} className="logo-unpar ml-1" alt="Logo UNPAR" />
+          <img
+            src={informatika}
+            className="logo-informatika ml-3"
+            alt="Logo UNPAR"
+          />
         </NavbarBrand>
         <NavbarToggler className="button-bananna" onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>

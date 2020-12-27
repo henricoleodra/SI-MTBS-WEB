@@ -1,5 +1,4 @@
 import axios from "axios";
-import { useSelector } from "react-redux";
 import {
   KlasifikasiTBUChange,
   KlasifikasiBatukChange,
@@ -27,7 +26,9 @@ const Classifier = async (
   ansHIV
 ) => {
   if (flag.tbu !== 0 && cur !== "tbu") {
-    const tbu = await axios.post(`/TBU`, { ansTBU: ansTBU });
+    const tbu = await axios.post(`http://localhost:8000/TBU`, {
+      ansTBU: ansTBU,
+    });
     dispatch(KlasifikasiTBUChange("TBU_KLASIFIKASI", tbu.data.hasilKlasifkasi));
     dispatch(KlasifikasiTBUChange("TBU_STATUS", tbu.data.statusKlasifikasi));
     if (tbu.data.statusKlasifikasi === "danger") {
@@ -43,7 +44,9 @@ const Classifier = async (
     }
   }
   if (flag.batuk !== 0 && cur !== "batuk") {
-    const batuk = await axios.post(`/Batuk`, { ansBatuk: ansBatuk });
+    const batuk = await axios.post(`http://localhost:8000/Batuk`, {
+      ansBatuk: ansBatuk,
+    });
     dispatch(
       KlasifikasiBatukChange("BATUK_KLASIFIKASI", batuk.data.hasilKlasifikasi)
     );
@@ -62,7 +65,9 @@ const Classifier = async (
     }
   }
   if (flag.diare !== 0 && cur !== "diare") {
-    const diare = await axios.post(`/Diare`, { ansDiare: ansDiare });
+    const diare = await axios.post(`http://localhost:8000/Diare`, {
+      ansDiare: ansDiare,
+    });
     dispatch(
       KlasifikasiDiareChange("DIARE_KLASIFIKASI", diare.data.hasilKlasifikasi)
     );
@@ -81,7 +86,9 @@ const Classifier = async (
     }
   }
   if (flag.demam !== 0 && cur !== "demam") {
-    const demam = await axios(`/Demam`, { ansDemam: ansDemam });
+    const demam = await axios(`http://localhost:8000/Demam`, {
+      ansDemam: ansDemam,
+    });
     dispatch(
       KlasifikasiDemamChange("DEMAM_KLASIFIKASI", demam.data.hasilKlasifikasi)
     );
@@ -100,7 +107,9 @@ const Classifier = async (
     }
   }
   if (flag.telinga !== 0 && cur !== "telinga") {
-    const telinga = await axios.post(`/Telinga`, { ansTelinga: ansTelinga });
+    const telinga = await axios.post(`http://localhost:8000/Telinga`, {
+      ansTelinga: ansTelinga,
+    });
     dispatch(
       KlasifikasiTelingaChange(
         "TELINGA_KLASIFIKASI",
@@ -123,7 +132,7 @@ const Classifier = async (
   }
   if (flag.gizi !== 0 && cur !== "gizi") {
     axios
-      .post(`/Gizi`, {
+      .post(`http://localhost:8000/Gizi`, {
         ansGizi: ansGizi,
       })
       .then((res) => {
@@ -140,7 +149,7 @@ const Classifier = async (
   }
   if (flag.anemia !== 0 && cur !== "anemia") {
     axios
-      .post(`/Anemia`, {
+      .post(`http://localhost:8000/Anemia`, {
         ansAnemia: ansAnemia,
       })
       .then((res) => {
@@ -160,7 +169,7 @@ const Classifier = async (
   }
   if (flag.hiv !== 0 && cur !== "hiv") {
     axios
-      .post(`/HIV`, {
+      .post(`http://localhost:8000/HIV`, {
         ansHIV: ansHIV,
       })
       .then((res) => {

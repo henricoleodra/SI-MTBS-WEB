@@ -1,32 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import {
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink,
-  Button,
-  Container,
-  Row,
-  Col,
-} from "reactstrap";
+import { NavbarBrand, Nav, NavItem, NavLink } from "reactstrap";
 import { Wrapper } from "./style";
 import LogoKemenkes from "../../Assets/image/logo/kemenkes.png";
 
 const Index = (props) => {
-  // const [isOpen, setIsOpen] = useState(true);
-
-  // const toggle = () => {
-  //   setIsOpen(!isOpen);
-  // };
-
   return (
     <Wrapper>
       <div className={`left ${props.isOpen ? "active" : ""}`}>
         <Nav vertical id="sidebar" className="min-vh-100">
           <div className="content">
             <NavbarBrand className="my-3 d-flex flex-column align-items-center">
-              <img src={LogoKemenkes} className="sidebar-brand" />
+              <img
+                src={LogoKemenkes}
+                className="sidebar-brand"
+                alt="Logo Kemenkes"
+              />
               <h3 className="text-center mt-2 brand">SI-MTBS</h3>
             </NavbarBrand>
             <NavItem className="mt-2">

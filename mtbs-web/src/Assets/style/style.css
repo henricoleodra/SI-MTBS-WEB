@@ -208,3 +208,11 @@ body {
 .button-bananna:hover {
     background-color: #e0ab0b;
 }
+
+.bg-lightblue {
+    background-color: #46D0FE;
+}
+
+.bg-orange {
+    background-color: #FE8D3B;
+}

@@ -5,6 +5,7 @@ import {
   Button,
   Form,
   FormGroup,
+  FormText,
   Label,
   Input,
   InputGroup,
@@ -82,6 +83,7 @@ const IsiDataAnak1 = () => {
   let [curDate] = useState(
     hari + ", " + date.getDate() + " " + bulan + " " + date.getFullYear()
   );
+  let [valid, setValid] = useState(true);
 
   const handleNamaAnak = (event) => {
     setNamaAnak(event.target.value);
@@ -101,6 +103,17 @@ const IsiDataAnak1 = () => {
 
   const handleTglLahir = (event) => {
     setTglLahir(event.target.value);
+    var tmpCurDate = new Date();
+    var tmpTanggalLahir = new Date(event.target.value);
+    var differenceInDays = Math.floor(
+      (tmpCurDate.getTime() - tmpTanggalLahir.getTime()) / (1000 * 3600 * 24)
+    );
+    var month = Math.floor(differenceInDays / 30);
+    if (month < 2 || month > 60) {
+      setValid(false);
+    } else {
+      setValid(true);
+    }
   };
 
   const handleProvinsi = (event) => {
@@ -248,6 +261,11 @@ const IsiDataAnak1 = () => {
                   </InputGroupText>
                 </InputGroupAddon>
               </InputGroup>
+              <FormText className={`${valid === true ? "d-none" : ""}`}>
+                <small className="text-danger">
+                  Umur anak harus diantara 2 bulan - 5 tahun
+                </small>
+              </FormText>
             </FormGroup>
             <FormGroup>
               <Row>
@@ -370,11 +388,13 @@ const IsiDataAnak1 = () => {
           </div>
           <div className="d-flex justify-content-between mt-4">
             <Link to="../MulaiPemeriksaan" style={{ textDecoration: "none" }}>
-              <Button style={{ backgroundColor: "#fe8d3b", border: "0" }}>
-                Sebelumnya
-              </Button>
+              <Button className="button-orange">Sebelumnya</Button>
             </Link>
-            <Button style={{ backgroundColor: "#46d0fe", border: "0" }}>
+            <Button
+              className={`${
+                valid === false ? "disabled" : "button-pepper-mint"
+              }`}
+            >
               Selanjutnya
             </Button>
           </div>

@@ -48,27 +48,27 @@ const IsiDataAnak2 = () => {
       ? "Sabtu"
       : "Minggu";
   const bulan =
-    tmpBulan === 1
+    tmpBulan === 0
       ? "Januari"
-      : tmpBulan === 2
+      : tmpBulan === 1
       ? "Februari"
-      : tmpBulan === 3
+      : tmpBulan === 2
       ? "Maret"
-      : tmpBulan === 4
+      : tmpBulan === 3
       ? "April"
-      : tmpBulan === 5
+      : tmpBulan === 4
       ? "Mei"
-      : tmpBulan === 6
+      : tmpBulan === 5
       ? "Juni"
-      : tmpBulan === 7
+      : tmpBulan === 6
       ? "Juli"
-      : tmpBulan === 8
+      : tmpBulan === 7
       ? "Agustus"
-      : tmpBulan === 9
+      : tmpBulan === 8
       ? "September"
-      : tmpBulan === 10
+      : tmpBulan === 9
       ? "Oktober"
-      : tmpBulan === 11
+      : tmpBulan === 10
       ? "November"
       : "Desember";
   const history = useHistory();
@@ -84,6 +84,8 @@ const IsiDataAnak2 = () => {
   let [curDate] = useState(
     hari + ", " + date.getDate() + " " + bulan + " " + date.getFullYear()
   );
+  let [pilihDataAnak] = useState(dataAnak.pilihDataAnak);
+  console.log(pilihDataAnak);
 
   const handleSuhuAnak = (event) => {
     let tmp = Number(event.target.value);
@@ -347,7 +349,7 @@ const IsiDataAnak2 = () => {
               <Button
                 style={{ backgroundColor: "#fe8d3b", border: "0" }}
                 tag={Link}
-                to="1"
+                to={`${pilihDataAnak === true ? "Konfirmasi" : "1"}`}
               >
                 Sebelumnya
               </Button>

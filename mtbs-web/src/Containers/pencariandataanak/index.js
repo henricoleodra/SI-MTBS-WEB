@@ -15,7 +15,11 @@ import {
   Spinner,
 } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCalendarDay, faTrash } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCalendarDay,
+  faTrash,
+  faChevronLeft,
+} from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import { HeaderTitle, InfoAnak, Pagination } from "../../Components";
 import { Wrapper } from "./style";
@@ -147,6 +151,12 @@ const PencarianDataAnak = (props) => {
 
   return (
     <Wrapper>
+      <div className="btn-lobby">
+        <Button className="button-orange" tag={Link} to="Lobby">
+          <FontAwesomeIcon icon={faChevronLeft} /> {}
+          Lobby
+        </Button>
+      </div>
       <div>
         <HeaderTitle title="Pencarian Data Anak" />
       </div>

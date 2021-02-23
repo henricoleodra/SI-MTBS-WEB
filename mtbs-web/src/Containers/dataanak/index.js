@@ -11,7 +11,7 @@ import {
   Spinner,
 } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBaby } from "@fortawesome/free-solid-svg-icons";
+import { faBaby, faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 //import components
 import {
   HeaderTitle,
@@ -90,6 +90,12 @@ const PencarianDataAnak = (props) => {
 
   return (
     <Wrapper>
+      <div className="btn-lobby">
+        <Button className="button-orange" tag={Link} to="../Lobby">
+          <FontAwesomeIcon icon={faChevronLeft} /> {}
+          Lobby
+        </Button>
+      </div>
       <div>
         <HeaderTitle title="Data Anak" />
       </div>

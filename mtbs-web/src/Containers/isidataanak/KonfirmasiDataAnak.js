@@ -104,8 +104,10 @@ const KonfirmasiDataAnak = (props) => {
     }
     dispatch(AnsDemamChange("UMUR_ANAK", month));
     dispatch(DataAnakChange("UMUR_ANAK", differenceInDays));
-    dispatch(DataAnakChange("TANGGAL_KUNJUNGAN", tmpCurDate));
-    dispatch(DataAnakChange("KUNJUNGAN_PERTAMA", true));
+    dispatch(
+      DataAnakChange("TANGGAL_KUNJUNGAN", tmpCurDate.toISOString().slice(0, 10))
+    );
+    dispatch(DataAnakChange("PILIH_DATA_ANAK", true));
     history.push("2");
   };
 

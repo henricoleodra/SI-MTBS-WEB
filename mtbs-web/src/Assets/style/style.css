@@ -1,218 +1,222 @@
 html,
 body {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .glowing-border {
-    border: 2px solid #dadada;  
-    border-radius: 7px;
+  border: 2px solid #dadada;
+  border-radius: 7px;
 }
 
 .glowing-border:focus {
-    outline: none;
-    border-color: #9ecaed;
-    box-shadow: 0 0 10px #9ecaed;
+  outline: none;
+  border-color: #9ecaed;
+  box-shadow: 0 0 10px #9ecaed;
 }
 
 .rdoBtn {
-    display: block;
-    position: relative;
-    padding: 0, 0, 0, 0;
-    margin: 0, 0, 0, 0;
-    cursor: pointer;
-    font-size: 20px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+  display: block;
+  position: relative;
+  padding: 0, 0, 0, 0;
+  margin: 0, 0, 0, 0;
+  cursor: pointer;
+  font-size: 20px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
-
 
 /* menghilangkan radio button */
 
 .rdoBtn input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
 }
 
 .checkmark {
-    position: absolute;
-    top: 5px;
-    padding: 0, 0, 0, 0;
-    margin: 0, 0, 0, 0;
-    height: 25px;
-    width: 25px;
-    background-color: #eee;
-    border-radius: 50%;
+  position: absolute;
+  top: 5px;
+  padding: 0, 0, 0, 0;
+  margin: 0, 0, 0, 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
 }
 
-.rdoBtn:hover input~.checkmark {
-    background-color: #ccc;
+.rdoBtn:hover input ~ .checkmark {
+  background-color: #ccc;
 }
 
-.rdoBtn input:checked~.checkmark {
-    background-color: #007BFF;
+.rdoBtn input:checked ~ .checkmark {
+  background-color: #007bff;
 }
 
 .checkmark:after {
-    content: "";
-    position: absolute;
-    display: none;
+  content: "";
+  position: absolute;
+  display: none;
 }
 
-.rdoBtn input:checked~.checkmark:after {
-    display: block;
+.rdoBtn input:checked ~ .checkmark:after {
+  display: block;
 }
 
 .rdoBtn .checkmark:after {
-    top: 5.498px;
-    left: 5.48px;
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background: white;
+  top: 5.498px;
+  left: 5.48px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: white;
 }
 
 .divider {
-    border-right: 5px solid;
-    height: 100%;
-    padding-right: 20px;
-    border-color: #007BFF;
+  border-right: 5px solid;
+  height: 100%;
+  padding-right: 20px;
+  border-color: #007bff;
 }
 
 .limitCol {
-    height: 30px;
+  height: 30px;
 }
 
 .fontSideBar {
-    font-size: 18px;
+  font-size: 18px;
 }
 
 .paddingSideBar {
-    padding-top: 6px;
-    padding-bottom: 6px;
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
 
 .boldFont {
-    font-weight: bold;
+  font-weight: bold;
 }
-
 
 /* versi checkbox */
 
 .chckBtn {
-    display: block;
-    position: relative;
-    padding: 0, 0, 0, 0;
-    margin: 0, 0, 0, 0;
-    cursor: pointer;
-    font-size: 20px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+  display: block;
+  position: relative;
+  padding: 0, 0, 0, 0;
+  margin: 0, 0, 0, 0;
+  cursor: pointer;
+  font-size: 20px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
-
 
 /* menghilangkan radio button */
 
 .chckBtn input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
 }
 
 .checkmarkBox {
-    position: absolute;
-    top: 5px;
-    padding: 0, 0, 0, 0;
-    margin: 0, 0, 0, 0;
-    height: 25px;
-    width: 25px;
-    background-color: #eee;
-    border-radius: 0%;
+  position: absolute;
+  top: 5px;
+  padding: 0, 0, 0, 0;
+  margin: 0, 0, 0, 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 0%;
 }
 
 .checkmarkBox:after {
-    content: "";
-    position: absolute;
-    display: none;
+  content: "";
+  position: absolute;
+  display: none;
 }
 
-.chckBtn:hover input~.checkmarkBox {
-    background-color: #ccc;
+.chckBtn:hover input ~ .checkmarkBox {
+  background-color: #ccc;
 }
 
-.chckBtn input:checked~.checkmarkBox {
-    background-color: #007BFF;
+.chckBtn input:checked ~ .checkmarkBox {
+  background-color: #007bff;
 }
 
-.chckBtn input:checked~.checkmarkBox:after {
-    display: block;
+.chckBtn input:checked ~ .checkmarkBox:after {
+  display: block;
 }
 
 .chckBtn .checkmarkBox:after {
-    top: 5.498px;
-    left: 5.48px;
-    width: 14px;
-    height: 14px;
-    border-radius: 0%;
-    background: white;
+  top: 5.498px;
+  left: 5.48px;
+  width: 14px;
+  height: 14px;
+  border-radius: 0%;
+  background: white;
 }
 
 .paginationSearchChild {
-    display: inline-block;
+  display: inline-block;
 }
 
 .paginationSearchChild a {
-    text-decoration: none;
-    padding: 0 0.6em 0 0.6em;
-    color: black;
-    font-size: 1.7em;
+  text-decoration: none;
+  padding: 0 0.6em 0 0.6em;
+  color: black;
+  font-size: 1.7em;
 }
 
 .activePagination {
-    border-bottom: 5px solid #33CCFF;
+  border-bottom: 5px solid #33ccff;
 }
 
 .blockActivePagination {
-    opacity: 0.5;
-    cursor: not-allowed;
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .button-pepper-mint {
-    background-color: #46D0FE;
-    border: 0;
+  background-color: #46d0fe;
+  border: 0;
 }
 
 .button-orange {
-    background-color: #FE8D3B;
-    border: 0;
+  background-color: #fe8d3b;
+  border: 0;
 }
 
 .button-bananna {
-    background-color: #FFBA10;
-    border: 0;
+  background-color: #ffba10;
+  border: 0;
 }
 
 .button-pepper-mint:hover {
-    background-color: #3bb1d9;
+  background-color: #3bb1d9;
 }
 
 .button-orange:hover {
-    background-color: #e87e33;
+  background-color: #e87e33;
 }
 
 .button-bananna:hover {
-    background-color: #e0ab0b;
+  background-color: #e0ab0b;
 }
 
 .bg-lightblue {
-    background-color: #46D0FE;
+  background-color: #46d0fe;
 }
 
 .bg-orange {
-    background-color: #FE8D3B;
+  background-color: #fe8d3b;
+}
+
+.btn-lobby {
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  z-index: 2;
 }

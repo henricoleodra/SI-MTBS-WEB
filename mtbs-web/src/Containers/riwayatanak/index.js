@@ -10,7 +10,7 @@ import {
   Container,
 } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBaby } from "@fortawesome/free-solid-svg-icons";
+import { faBaby, faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { HeaderTitle, Klasifikasi } from "./../../Components";
 import axios from "axios";
 import { Wrapper } from "./style";
@@ -64,6 +64,12 @@ const Index = (props) => {
   }
   return (
     <Wrapper>
+      <div className="btn-lobby">
+        <Button className="button-orange" tag={Link} to="../Lobby">
+          <FontAwesomeIcon icon={faChevronLeft} /> {}
+          Lobby
+        </Button>
+      </div>
       <div>
         <HeaderTitle title="Riwayat Pemeriksaan Anak" />
       </div>

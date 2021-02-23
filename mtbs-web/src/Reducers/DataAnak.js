@@ -20,6 +20,7 @@ const initState = {
   tglKunjungan: "",
   kunjunganPertama: null,
   kunjunganUlang: null,
+  pilihDataAnak: false,
 };
 
 const dataAnakReducer = (state = initState, action) => {
@@ -107,6 +108,10 @@ const dataAnakReducer = (state = initState, action) => {
     case "KUNJUNGAN_ULANG":
       return Object.assign({}, state, {
         kunjunganUlang: action.answer,
+      });
+    case "PILIH_DATA_ANAK":
+      return Object.assign({}, state, {
+        pilihDataAnak: action.answer,
       });
     default:
       return state;

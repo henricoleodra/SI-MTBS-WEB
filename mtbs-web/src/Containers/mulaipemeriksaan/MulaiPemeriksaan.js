@@ -1,8 +1,20 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Row, Col, Card, CardTitle, CardText, Container } from "reactstrap";
+import {
+  Row,
+  Col,
+  Card,
+  CardTitle,
+  CardText,
+  Container,
+  Button,
+} from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCheck,
+  faTimes,
+  faChevronLeft,
+} from "@fortawesome/free-solid-svg-icons";
 import { useDispatch } from "react-redux";
 //Import Component
 import { HeaderTitle } from "../../Components";
@@ -17,6 +29,12 @@ const MulaiPemeriksaan = (props) => {
 
   return (
     <div>
+      <div className="btn-lobby">
+        <Button className="button-orange" tag={Link} to="Lobby">
+          <FontAwesomeIcon icon={faChevronLeft} /> {}
+          Lobby
+        </Button>
+      </div>
       <HeaderTitle title="Mulai Pemeriksaan" />
       <div className="mt-3">
         <h3 className="text-center">

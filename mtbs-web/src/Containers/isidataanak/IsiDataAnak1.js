@@ -176,7 +176,9 @@ const IsiDataAnak1 = () => {
     }
     dispatch(AnsDemamChange("UMUR_ANAK", month));
     dispatch(DataAnakChange("UMUR_ANAK", differenceInDays));
-    dispatch(DataAnakChange("TANGGAL_KUNJUNGAN", tmpCurDate));
+    dispatch(
+      DataAnakChange("TANGGAL_KUNJUNGAN", tmpCurDate.toISOString().slice(0, 10))
+    );
     dispatch(DataAnakChange("KUNJUNGAN_PERTAMA", true));
     history.push("2");
   };

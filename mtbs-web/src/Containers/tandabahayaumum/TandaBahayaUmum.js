@@ -355,8 +355,9 @@ const TandaBahayaUmum = (props) => {
                 <Button
                   style={{ backgroundColor: "#fe8d3b", border: "0" }}
                   block
+                  disabled
                 >
-                  <FontAwesomeIcon icon={faChevronLeft} /> Data Anak
+                  <FontAwesomeIcon icon={faChevronLeft} /> Sebelumnya
                 </Button>
               </Link>
             </Col>

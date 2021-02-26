@@ -168,7 +168,10 @@ const IsiDataAnak1 = () => {
     if (month >= 12) {
       var year = Math.floor(month / 12);
       var tmpMonth = month % 12;
-      var umur = year + " tahun " + tmpMonth + " bulan";
+      var umur = year + " tahun ";
+      if (tmpMonth !== 0) {
+        umur += tmpMonth + " bulan";
+      }
       dispatch(DataAnakChange("DISPLAY_UMUR_ANAK", umur));
     } else {
       var umur2 = month + " bulan";

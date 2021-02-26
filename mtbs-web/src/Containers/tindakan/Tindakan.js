@@ -196,7 +196,7 @@ const Tindakan = (props) => {
                 );
               }
             } else {
-              return <React.Fragment></React.Fragment>;
+              return <React.Fragment key={idx}></React.Fragment>;
             }
           })}
 

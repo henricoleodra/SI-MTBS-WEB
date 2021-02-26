@@ -64,9 +64,6 @@ const Batuk2 = (props) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    if (bsb_saturasiOksigen === "" || bsb_saturasiOksigen === 0) {
-      dispatch(AnsBatukChange("SATURASI_OKSIGEN", 95));
-    }
     dispatch(FlagChange("FLAG_BATUK", 2));
     const res = await axios.post(`http://localhost:8000/Batuk`, {
       ansBatuk: ansBatuk,
@@ -205,7 +202,6 @@ const Batuk2 = (props) => {
                         type="number"
                         min={0}
                         max={100}
-                        step="0.01"
                         value={bsb_saturasiOksigen}
                         onChange={handleAnswer2}
                       />
@@ -222,13 +218,13 @@ const Batuk2 = (props) => {
         <Row className="justify-content-between px-5 py-0">
           <Col sm="4">
             <Link to="Batuk1" style={{ textDecoration: "none" }}>
-              <Button block className="button-orange">
+              <Button block style={{ backgroundColor: "#fe8d3b" }}>
                 <FontAwesomeIcon icon={faChevronLeft} /> Sebelumnya
               </Button>
             </Link>
           </Col>
           <Col sm="4">
-            <Button type="submit" className="button-pepper-mint" block>
+            <Button type="submit" style={{ backgroundColor: "#46d0fe" }} block>
               Pemeriksaan Diare <FontAwesomeIcon icon={faChevronRight} />
             </Button>
           </Col>

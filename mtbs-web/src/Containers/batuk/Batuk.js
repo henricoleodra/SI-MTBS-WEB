@@ -268,13 +268,13 @@ const Batuk = (props) => {
         <Row className="justify-content-between px-5 py-0">
           <Col sm="4">
             <Link to="BatukYaTidak" style={{ textDecoration: "none" }}>
-              <Button className="button-orange" block>
+              <Button style={{ backgroundColor: "#fe8d3b" }} block>
                 <FontAwesomeIcon icon={faChevronLeft} /> Sebelumnya
               </Button>
             </Link>
           </Col>
           <Col sm="4">
-            <Button type="submit" className="button-pepper-mint" block>
+            <Button type="submit" style={{ backgroundColor: "#46d0fe" }} block>
               Selanjutnya <FontAwesomeIcon icon={faChevronRight} />
             </Button>
           </Col>

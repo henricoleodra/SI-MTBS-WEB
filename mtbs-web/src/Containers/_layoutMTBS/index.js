@@ -16,7 +16,6 @@ const Index = (props) => {
       <div className="w-75">{props.children}</div>
       {(() => {
         let x = location;
-        console.log(x);
         if (x !== "Klasifikasi" && x !== "Tindakan")
           return (
             <div className="mt-2 w-25 mr-1">

@@ -1,0 +1,205 @@
+[
+  {
+    "penyakit": "Pneumonia",
+    "jenisObat": "Antibiotik",
+    "keterangan": "2x sehari selama 3 hari untuk Pneumonia",
+    "kondisiSpesial": "HIV",
+    "keteranganKondisiSpesial": "2x sehari selama 5 hari untuk Pneumonia dengan klasifikasi HIV merah",
+    "obatAlternatif": "Eritromisin 50mg/KgBB dalam 3 dosis pemberian",
+    "keteranganObatAlternatif": "Apabila tidak ada respon dengan Amoksisilin berikan",
+    "conditioned": [
+      {
+        "tipe": "Amoksisilin",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 4
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 6
+          }
+        ],
+        "keterangan": "1/2 Tablet 500 mg"
+      },
+      {
+        "tipe": "Amoksisilin",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 4
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 6
+          }
+        ],
+        "keterangan": "10 ml Sirup 125 mg/5ml"
+      },
+      {
+        "tipe": "Amoksisilin",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 4
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 6
+          }
+        ],
+        "keterangan": "5 ml Sirup 250 mg/5ml"
+      },
+      {
+        "tipe": "Amoksisilin",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 6
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 10
+          }
+        ],
+        "keterangan": "3/4 Tablet 500 mg"
+      },
+      {
+        "tipe": "Amoksisilin",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 6
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 10
+          }
+        ],
+        "keterangan": "15 ml Sirup 125 mg/5ml"
+      },
+      {
+        "tipe": "Amoksisilin",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 6
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 10
+          }
+        ],
+        "keterangan": "7.5 ml Sirup 250 mg/5ml"
+      },
+      {
+        "tipe": "Amoksisilin",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 10
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 16
+          }
+        ],
+        "keterangan": "1 1/4 Tablet 500 mg"
+      },
+      {
+        "tipe": "Amoksisilin",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 10
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 16
+          }
+        ],
+        "keterangan": "25 ml Sirup 125 mg/5ml"
+      },
+      {
+        "tipe": "Amoksisilin",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 10
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 16
+          }
+        ],
+        "keterangan": "10 ml Sirup 250 mg/5ml"
+      },
+      {
+        "tipe": "Amoksisilin",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 16
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 19
+          }
+        ],
+        "keterangan": "1 1/2 Tablet 500 mg"
+      },
+      {
+        "tipe": "Amoksisilin",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 16
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 19
+          }
+        ],
+        "keterangan": "30 ml Sirup 125 mg/5ml"
+      },
+      {
+        "tipe": "Amoksisilin",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 16
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 19
+          }
+        ],
+        "keterangan": "12,5 ml Sirup 250 mg/5ml"
+      }
+    ]
+  }
+]

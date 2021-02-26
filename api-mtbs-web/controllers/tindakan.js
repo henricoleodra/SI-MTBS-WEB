@@ -1,7 +1,7 @@
 const ProcessTindakan = require("../models/tindakan");
 
 const tindakan = async function (req, res, next) {
-  console.log(req.body);
+  // console.log(req.body);
   const processTindakan = await ProcessTindakan.processTindakan(req.body);
   const result = {
     tbu: processTindakan[0],
@@ -11,7 +11,7 @@ const tindakan = async function (req, res, next) {
     telinga: processTindakan[4],
     gizi: processTindakan[5],
     anemia: processTindakan[6],
-    hiv: processTindakan[7]
+    hiv: processTindakan[7],
   };
   res.json(result);
 };

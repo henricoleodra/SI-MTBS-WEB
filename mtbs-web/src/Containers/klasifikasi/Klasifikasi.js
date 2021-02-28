@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { Container, Row, Button } from "reactstrap";
+import { Container, Row, Button, Badge } from "reactstrap";
 import { Klasifikasi } from "../../Components";
 
 const Index = (props) => {
@@ -13,6 +13,9 @@ const Index = (props) => {
   const klasifikasiGizi = useSelector((state) => state.klasifikasiGizi);
   const klasifikasiAnemia = useSelector((state) => state.klasifikasiAnemia);
   const klasifikasiHIV = useSelector((state) => state.klasifikasiHIV);
+  const flag = useSelector((state) => state.flag);
+  const [valid, setValid] = useState(false);
+  const [validMessage, setValidMessage] = useState("");
 
   let klasifikasi = [
     {
@@ -75,6 +78,66 @@ const Index = (props) => {
     },
   ];
 
+  useEffect(() => {
+    const validate = () => {
+      let res = true;
+      let message = "";
+      if (flag.tbu !== 2) {
+        res = false;
+        message += "Tanda Bahaya Umum, ";
+      }
+      if (flag.batuk !== 2) {
+        res = false;
+        message += "Batuk, ";
+      }
+      if (flag.diare !== 2) {
+        res = false;
+        message += "Diare, ";
+      }
+      if (flag.demam !== 2) {
+        res = false;
+        message += "Demam, ";
+      }
+      if (flag.telinga !== 2) {
+        res = false;
+        message += "Telinga, ";
+      }
+      if (flag.gizi !== 2) {
+        res = false;
+        message += "Gizi, ";
+      }
+      if (flag.anemia !== 2) {
+        res = false;
+        message += "Anemia, ";
+      }
+      if (flag.hiv !== 2) {
+        res = false;
+        message += "HIV, ";
+      }
+      if (flag.imunisasi !== 2) {
+        res = false;
+        message += "Imunisasi, ";
+      }
+      if (flag.vitamina !== 2) {
+        res = false;
+        message += "Vitamin A, ";
+      }
+      if (flag.keluhanlain !== 2) {
+        res = false;
+        message += "Keluhan Lain, ";
+      }
+      if (flag.pemberianmakanan !== 2) {
+        res = false;
+        message += "Pemberian Makanan, ";
+      }
+      message = message.trim();
+      message = message.substr(0, message.length - 1);
+      message += ".";
+      setValid(res);
+      setValidMessage(message);
+    };
+    validate();
+  }, []);
   return (
     <div className="d-flex flex-column mt-2">
       <div>
@@ -104,11 +167,27 @@ const Index = (props) => {
           }
         })}
       </Container>
-      <Row className="justify-content-center px-5 py-0 mt-5">
-        <Link to="Tindakan">
-          <Button className="button-orange">Akhiri Pemeriksaan</Button>
-        </Link>
-      </Row>
+      <Container className="px-5 py-0 mt-5">
+        <Row
+          className={`justify-content-center ${valid === true ? "d-none" : ""}`}
+        >
+          <small className="d-block text-center">
+            <Badge color="danger">
+              Pengisian belum lengkap : {validMessage}
+            </Badge>
+          </small>
+        </Row>
+        <Row className="justify-content-center mt-2">
+          <Button
+            tag={Link}
+            to="Tindakan"
+            className="button-orange"
+            disabled={!valid}
+          >
+            Akhiri Pemeriksaan
+          </Button>
+        </Row>
+      </Container>
     </div>
   );
 };

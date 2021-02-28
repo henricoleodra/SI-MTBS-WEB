@@ -25,6 +25,7 @@ import {
   KlasifikasiKeluhanLain,
   AnsKeluhanLainChange,
   compStatusChange,
+  FlagChange,
 } from "../../Actions";
 
 let outlineColor = {
@@ -48,8 +49,9 @@ const Keluhan = (props) => {
     event.preventDefault();
     dispatch(KlasifikasiKeluhanLain("KELUHAN_KLASIFIKASI", ""));
     dispatch(KlasifikasiKeluhanLain("KELUHAN_STATUS", "info"));
-    history.push("PemberianMakanan1");
+    dispatch(FlagChange("FLAG_KELUHAN_LAIN", 2));
     dispatch(compStatusChange("MAKAN"));
+    history.push("PemberianMakanan1");
   };
 
   const handleAnswer1 = (event) => {

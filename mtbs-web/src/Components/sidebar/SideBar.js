@@ -57,6 +57,7 @@ const SideBar = (props) => {
   const klasifikasiPemberianMakanan = useSelector(
     (state) => state.klasifikasiPemberianMakanan
   );
+  const flag = useSelector((state) => state.flag);
 
   // useEffect(() => {
   //     console.log(klasifikasiGizi.gizi_status);
@@ -70,6 +71,7 @@ const SideBar = (props) => {
       color:
         klasifikasiTBU.tbu_status === null ? "dark" : klasifikasiTBU.tbu_status,
       disabled: compStatus.tandabahayaumum,
+      status: flag.tbu,
     },
     {
       title: "Batuk",
@@ -80,6 +82,7 @@ const SideBar = (props) => {
           ? "dark"
           : klasifikasiBatuk.bsb_status,
       disabled: compStatus.batuk,
+      status: flag.batuk,
     },
     {
       title: "Diare",
@@ -90,6 +93,7 @@ const SideBar = (props) => {
           ? "dark"
           : klasifikasiDiare.diare_status,
       disabled: compStatus.diare,
+      status: flag.diare,
     },
     {
       title: "Demam",
@@ -105,6 +109,7 @@ const SideBar = (props) => {
           ? "dark"
           : klasifikasiDemam.demam_status,
       disabled: compStatus.demam,
+      status: flag.demam,
     },
     {
       title: "Telinga",
@@ -115,6 +120,7 @@ const SideBar = (props) => {
           ? "dark"
           : klasifikasiTelinga.telinga_status,
       disabled: compStatus.telinga,
+      status: flag.telinga,
     },
     {
       title: "Gizi",
@@ -125,6 +131,7 @@ const SideBar = (props) => {
           ? "dark"
           : klasifikasiGizi.gizi_status,
       disabled: compStatus.gizi,
+      status: flag.gizi,
     },
     {
       title: "Anemia",
@@ -135,6 +142,7 @@ const SideBar = (props) => {
           ? "dark"
           : klasifikasiAnemia.anemia_status,
       disabled: compStatus.anemia,
+      status: flag.anemia,
     },
     {
       title: "HIV",
@@ -143,6 +151,7 @@ const SideBar = (props) => {
       color:
         klasifikasiHIV.hiv_status === null ? "dark" : klasifikasiHIV.hiv_status,
       disabled: compStatus.hiv,
+      status: flag.hiv,
     },
     {
       title: "Imunisasi",
@@ -153,6 +162,7 @@ const SideBar = (props) => {
           ? "dark"
           : klasifikasiImunisasi.imun_status,
       disabled: compStatus.imunisasi,
+      status: flag.imunisasi,
     },
     {
       title: "Vitamin A",
@@ -163,6 +173,7 @@ const SideBar = (props) => {
           ? "dark"
           : klasifikasiVitaminA.vit_status,
       disabled: compStatus.vitamina,
+      status: flag.vitamina,
     },
     {
       title: "Keluhan Lain",
@@ -173,6 +184,7 @@ const SideBar = (props) => {
           ? "dark"
           : klasifikasiKeluhanLain.kel_status,
       disabled: compStatus.keluhanlain,
+      status: flag.keluhanlain,
     },
     {
       title: "Pemberian Makanan",
@@ -183,6 +195,7 @@ const SideBar = (props) => {
           ? "dark"
           : klasifikasiPemberianMakanan.pemberianMakanan_status,
       disabled: compStatus.makan,
+      status: flag.pemberianmakanan,
     },
   ];
 
@@ -196,6 +209,8 @@ const SideBar = (props) => {
         active={curr.active}
         color={curr.color}
         disabled={curr.disabled}
+        location={url}
+        status={curr.status}
       />
     );
   });

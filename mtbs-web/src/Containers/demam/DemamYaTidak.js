@@ -56,7 +56,7 @@ const Demam = (props) => {
       dispatch(AnsDemamChange("DEMAM", demam));
       history.push("DemamDaerah");
     } else {
-      dispatch(FlagChange("FLAG_DEMAM", 0));
+      dispatch(FlagChange("FLAG_DEMAM", 2));
       dispatch(AnsDemamChange("RESET_DEMAM", true));
       dispatch(AnsDemamChange("DEMAM", demam));
       dispatch(KlasifikasiDemamChange("DEMAM_KLASIFIKASI", ""));

@@ -1,0 +1,181 @@
+[{
+        "penyakit": "Anemia",
+        "jenisObat": "Zat Besi",
+        "keterangan": "Beri tiap hari selama 4 minggu untuk anak umur 6 bulan sampai 5 tahun. TABLET BESI/FOLAT (60 mg besi elemental dan 0.25 mg asam folat). SIRUP BESI (setiap 5 ml mengandung 30 mg besi elemental)",
+        "kondisiSpesial": "",
+        "keteranganKondisiSpesial": "",
+        "obatAlternatif": "",
+        "keteranganObatAlternatif": "",
+        "conditioned": [{
+                "tipe": "TABLET BESI (FOLAT)",
+                "rule": [{
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 7
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 10
+                    }
+                ],
+                "keterangan": "1/4 Tablet"
+            },
+            {
+                "tipe": "SIRUP BESI",
+                "rule": [{
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 7
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 10
+                    }
+                ],
+                "keterangan": "2.5 ml (1/2 sendok takar) Sirup"
+            },
+            {
+                "tipe": "TABLET BESI (FOLAT)",
+                "rule": [{
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 10
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 19
+                    }
+                ],
+                "keterangan": "1/2 Tablet"
+            },
+            {
+                "tipe": "SIRUP BESI",
+                "rule": [{
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 10
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 19
+                    }
+                ],
+                "keterangan": "5 ml (1 sendok takar) Sirup"
+            }
+        ]
+    },
+    {
+        "penyakit": "Anemia",
+        "jenisObat": "Albendanzol",
+        "keterangan": "berumur >= 4 bulan",
+        "kondisiSpesial": "",
+        "keteranganKondisiSpesial": "belum pernah mendapat obat ini dalam 6 bulan terakhir",
+        "obatAlternatif": "",
+        "keteranganObatAlternatif": "",
+        "Conditioned": [{
+                "tipe": "Tablet 400 mg",
+                "rule": [{
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 12
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 24
+                    }
+                ],
+                "keterangan": "1/2"
+            },
+            {
+                "tipe": "Tablet 400 mg",
+                "rule": [{
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 24
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 60
+                    }
+                ],
+                "keterangan": "1"
+            }
+        ]
+    },
+    {
+        "penyakit": "Anemia",
+        "jenisObat": "Pirantel Pamoat",
+        "keterangan": "berumur >= 4 bulan",
+        "kondisiSpesial": "",
+        "keteranganKondisiSpesial": "belum pernah mendapat obat ini dalam 6 bulan terakhir",
+        "obatAlternatif": "",
+        "keteranganObatAlternatif": "",
+        "Conditioned": [{
+                "tipe": "Tablet 125 mg Dosis Tunggal",
+                "rule": [{
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 4
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 9
+                    }
+                ],
+                "keterangan": "1/2"
+            },
+            {
+                "tipe": "Tablet 125 mg Dosis Tunggal",
+                "rule": [{
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 9
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 12
+                    }
+                ],
+                "keterangan": "3/4"
+            },
+            {
+                "tipe": "Tablet 125 mg Dosis Tunggal",
+                "rule": [{
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 12
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 36
+                    }
+                ],
+                "keterangan": "1"
+            },
+            {
+                "tipe": "Tablet 125 mg Dosis Tunggal",
+                "rule": [{
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 36
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 60
+                    }
+                ],
+                "keterangan": "3/2"
+            }
+        ]
+    }
+]

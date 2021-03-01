@@ -65,7 +65,7 @@ const processTindakan = (data) => {
       bsb.push("Obati wheezing");
     }
     if (data.batuk.ansBatuk.bsb_lamaHari >= 14) {
-      bsb.push("Rujuk untuk pemeriksaan TB dan sebab lai");
+      bsb.push("Rujuk untuk pemeriksaan TB dan sebab lain");
     }
   }
 
@@ -169,19 +169,19 @@ const processTindakan = (data) => {
         "Penyakit Berat Dengan Demam"
       )
     ) {
+      demam.push(pengobatan.classifyPengobatan("demam", "Parasetamol", data));
       demam.push(
         "Beri dosis pertama artemeter injeksi atau kinin injeksi untuk malaria berat",
         "Beri dosis pertama antibiotik yang sesuai",
         "Cegah agar gula darah tidak turun",
-        "Berikan satu dosis parasetamol untuk demam ≥ 38,5 °C",
         "RUJUK SEGERA"
       );
     } else if (
       data.demam.klasifikasiDemam.demam_klasifikasi.includes("Malaria")
     ) {
+      demam.push(pengobatan.classifyPengobatan("demam", "Parasetamol", data));
       demam.push(
         "Beri obat anti malaria oral pilihan pertama",
-        "Beri satu dosis parasetamol untuk demam ≥ 38,5 °C",
         "Nasihati kapan kembali segera",
         "Kunjungan ulang 3 hari jika tetap demam",
         "Jika demam berlanjut lebih dari 7 hari, RUJUK untuk penilaian lebih lanjut"
@@ -191,8 +191,8 @@ const processTindakan = (data) => {
         "Demam Mungkin Bukan Malaria"
       )
     ) {
+      demam.push(pengobatan.classifyPengobatan("demam", "Parasetamol", data));
       demam.push(
-        "Beri satu dosis parasetamol untuk demam ≥ 38,5 °C",
         "Obati penyebab lain dari demam",
         "Nasihati kapan kembali segera",
         "Kunjungan ulang 3 hari jika tetap demam",
@@ -205,10 +205,10 @@ const processTindakan = (data) => {
         "Penyakit Berat Dengan Demam"
       )
     ) {
+      demam.push(pengobatan.classifyPengobatan("demam", "Parasetamol", data));
       demam.push(
         "Beri dosis pertama antibiotik yang sesuai",
         "Cegah agar gula darah tidak turun",
-        "Beri satu dosis parasetamol untuk demam ≥ 38,5 °C",
         "RUJUK SEGERA"
       );
     } else if (
@@ -216,8 +216,8 @@ const processTindakan = (data) => {
         "Demam Bukan Malaria"
       )
     ) {
+      demam.push(pengobatan.classifyPengobatan("demam", "Parasetamol", data));
       demam.push(
-        "Beri satu dosis parasetamol untuk demam ≥ 38,5 °C",
         "Obati penyebab lain dari demam",
         "Nasihati kapan kembali segera",
         "Kunjungan ulang 2 hari jika tetap demam",
@@ -231,8 +231,8 @@ const processTindakan = (data) => {
       "Campak Dengan Komplikasi Berat"
     )
   ) {
+    
     demam.push(
-      "Beri vitamin A dosis pengobatan",
       "Beri dosis pertama antibiotik yang sesuai",
       "RUJUK SEGERA"
     );
@@ -250,6 +250,7 @@ const processTindakan = (data) => {
       "Campak Dengan Komplikasi Pada Mata Dan/Atau Mulut"
     )
   ) {
+    demam.push(pengobatan.classifyPengobatan("demam", "Vitamin A", data));
     demam.push("Beri vitamin A dosis pengobatan", "Kunjungan ulang 3 hari");
     if (data.demam.ansDemam.demam_nanahDiMata === true) {
       demam.push("Beri salep mata antibiotik");
@@ -288,15 +289,15 @@ const processTindakan = (data) => {
         );
       }
     }
+    demam.push(pengobatan.classifyPengobatan("demam", "Parasetamol", data),"tidak boleh golongan salisilat dan ibuprofen");
     demam.push(
-      "Beri dosis pertama parasetamol, jika demam tinggi (≥38,5 ° C), t idak boleh golongan salisilat dan ibuprofen",
       "RUJUK SEGERA"
     );
   } else if (
     data.demam.klasifikasiDemam.demam_klasifikasi.includes("Mungkin DBD")
   ) {
+    demam.push(pengobatan.classifyPengobatan("demam", "Parasetamol", data),"tidak boleh golongan salisilat dan ibuprofen");
     demam.push(
-      "Beri dosis pertama parasetamol, jika demam t inggi (≥ 38,5 ° C), tidak boleh golongan salisilat dan ibuprofen",
       "Nasihati untuk lebih banyak minum: oralit/cairan lain.",
       "Nasihati kapan kembali segera",
       "Kunjungan ulang 1 hari"
@@ -306,9 +307,9 @@ const processTindakan = (data) => {
       "Demam Mungkin Bukan DBD"
     )
   ) {
+    demam.push(pengobatan.classifyPengobatan("demam", "Parasetamol", data),"tidak boleh golongan salisilat dan ibuprofen");
     demam.push(
       "Obati penyebab lain dari demam",
-      "Beri dosis pertama parasetamol, jika demam tinggi (≥ 38,5 ° C), tidak boleh golongan salisilat dan ibuprofen",
       "Nasihati kapan kembali segera",
       "Kunjungan ulang 2 hari jika tetap demam"
     );
@@ -316,18 +317,18 @@ const processTindakan = (data) => {
 
   // Telinga
   if (data.telinga.klasifikasiTelinga.telinga_klasifikasi === "Mastoiditis") {
+    demam.push(pengobatan.classifyPengobatan("demam", "Parasetamol", data));
     telinga.push(
       "Beri dosis pertama antibiotik yang sesuai",
-      "Beri dosis pertama parasetamol untuk mengatasi nyeri",
       "RUJUK SEGERA"
     );
   } else if (
     data.telinga.klasifikasiTelinga.telinga_klasifikasi ===
     "Infeksi Telinga Kronis"
   ) {
+    demam.push(pengobatan.classifyPengobatan("demam", "Parasetamol", data));
     telinga.push(
       "Beri antibiotik yang sesuai selama 7 hari",
-      "Beri parasetamol untuk mengatasi nyeri",
       "Keringkan telinga dengan bahan penyedap",
       "Kunjungan ulang 5 hari"
     );
@@ -335,6 +336,7 @@ const processTindakan = (data) => {
     data.telinga.klasifikasiTelinga.telinga_klasifikasi ===
     "Infeksi Telinga Akut"
   ) {
+    demam.push(pengobatan.classifyPengobatan("demam", "Parasetamol", data));
     telinga.push(
       "Keringkan telinga dengan bahan penyerap setelah dicuci dengan NaCl 0,9% atau H2O23%",
       "Beri tetes telinga yang sesuai",
@@ -388,14 +390,25 @@ const processTindakan = (data) => {
   //ANEMIA
   if (data.anemia.klasifikasiAnemia.anemia_klasifikasi === "Anemia Berat") {
     anemia.push("Bila masih menyusu, teruskan pemberian ASI", "RUJUK SEGERA");
+    // anemia.push(pengobatan.classifyPengobatan("anemia", "Albendanzol", data));
+    // anemia.push(pengobatan.classifyPengobatan("anemia", "Pirantel Pamoat", data));
+    
+    
   } else if (data.anemia.klasifikasiAnemia.anemia_klasifikasi === "Anemia") {
+    anemia.push(pengobatan.classifyPengobatan("anemia", "Zat Besi", data));
+    // anemia.push(pengobatan.classifyPengobatan("anemia", "Albendanzol", data));
+    // anemia.push(pengobatan.classifyPengobatan("anemia", "Pirantel Pamoat", data));
+    
+    
+    // console.log(pengobatan.classifyPengobatan("anemia", "Zat Besi", data));
+    //setelah ada pengobatan
     anemia.push(
       "Lakukan Penilaian Pemberian Makan pada anak. Bila ada masalah, beri konseling pemberian makan dan kunjungan ulang 7 hari",
-      "Beri zat besi",
       "Lakukan pemberiksaan tinja untuk deteksi kecacingan",
       "Nasihati kapan kembali segera",
       "Kunjungan ulang 14 hari"
     );
+
 
     if (data.demam.ansDemam.demam_isDaerahEndemis === "Tinggi") {
       anemia.push(

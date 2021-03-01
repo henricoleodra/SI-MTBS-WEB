@@ -1,0 +1,242 @@
+[{
+        "penyakit": "Campak",
+        "jenisObat": "Vitamin A",
+        "keterangan": "",
+        "kondisiSpesial": "Komplikasi",
+        "keteranganKondisiSpesial": "",
+        "obatAlternatif": "",
+        "keteranganObatAlternatif": "",
+        "Conditioned": [{
+                "tipe": "Dosis/hari",
+                "rule": [{
+                    "key": "Umur",
+                    "operator": "<=",
+                    "value": 6
+                }],
+                "keterangan": "50.000 IU (1/2 kapsul biru) Hari ke 1"
+            },
+            {
+                "tipe": "Dosis/hari",
+                "rule": [{
+                        "key": "Umur",
+                        "operator": ">",
+                        "value": 6
+                    },
+                    {
+                        "key": "Umur",
+                        "operator": "<=",
+                        "value": 11
+                    }
+                ],
+                "keterangan": "100.000 IU (kapsul biru) Hari ke 1"
+            },
+            {
+                "tipe": "Dosis/hari",
+                "rule": [{
+                        "key": "Umur",
+                        "operator": ">",
+                        "value": 12
+                    },
+                    {
+                        "key": "Umur",
+                        "operator": "<=",
+                        "value": 59
+                    }
+                ],
+                "keterangan": "200.000 IU (kapsul merah) Hari ke 1"
+            }
+        ]
+    },
+    {
+        "penyakit": "Campak",
+        "jenisObat": "Vitamin A",
+        "keterangan": "",
+        "kondisiSpesial": "Komplikasi",
+        "keteranganKondisiSpesial": "",
+        "obatAlternatif": "",
+        "keteranganObatAlternatif": "",
+        "Conditioned": [{
+                "tipe": "Dosis/hari",
+                "rule": [{
+                    "key": "Umur",
+                    "operator": "<=",
+                    "value": 6
+                }],
+                "keterangan": "50.000 IU (1/2 kapsul biru) Hari ke 1, dan hari ke 2"
+            },
+            {
+                "tipe": "Dosis/hari",
+                "rule": [{
+                        "key": "Umur",
+                        "operator": ">",
+                        "value": 6
+                    },
+                    {
+                        "key": "Umur",
+                        "operator": "<=",
+                        "value": 11
+                    }
+                ],
+                "keterangan": "100.000 IU (kapsul biru) Hari ke 1, dan hari ke 2"
+            },
+            {
+                "tipe": "Dosis/hari",
+                "rule": [{
+                        "key": "Umur",
+                        "operator": ">",
+                        "value": 12
+                    },
+                    {
+                        "key": "Umur",
+                        "operator": "<=",
+                        "value": 59
+                    }
+                ],
+                "keterangan": "200.000 IU (kapsul merah) Hari ke 1, dan hari ke 2"
+            }
+        ]
+    },
+    {
+        "penyakit": "Demam tinggi",
+        "jenisObat": "Parasetamol",
+        "keterangan": "Setiap 6 jam sampai demam hilang",
+        "kondisiSpesial": "",
+        "keteranganKondisiSpecial": "",
+        "conditioned": [{
+                "tipe": "Parasetamol",
+                "rule": [{
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 4
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 7
+                    }
+                ],
+                "keterangan": "1/8 Tablet 500 mg"
+            },
+            {
+                "tipe": "Parasetamol",
+                "rule": [{
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 4
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 7
+                    }
+                ],
+                "keterangan": "1/2 Tablet 100 mg"
+            },
+            {
+                "tipe": "Parasetamol",
+                "rule": [{
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 4
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 7
+                    }
+                ],
+                "keterangan": "2.5ml (1/2 sdk taker) Sirup 120 mg/5 ml"
+            },
+            {
+                "tipe": "Parasetamol",
+                "rule": [{
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 7
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 14
+                    }
+                ],
+                "keterangan": "1/4 Tablet 500 mg"
+            },
+            {
+                "tipe": "Parasetamol",
+                "rule": [{
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 7
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 14
+                    }
+                ],
+                "keterangan": "1 Tablet 100 mg"
+            },
+            {
+                "tipe": "Parasetamol",
+                "rule": [{
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 7
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 14
+                    }
+                ],
+                "keterangan": "5ml (1 sdk taker) Sirup 120 mg/5 ml"
+            },
+            {
+                "tipe": "Parasetamol",
+                "rule": [{
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 14
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 19
+                    }
+                ],
+                "keterangan": "1/2 Tablet 500 mg"
+            },
+            {
+                "tipe": "Parasetamol",
+                "rule": [{
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 14
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 19
+                    }
+                ],
+                "keterangan": "2 Tablet 100 mg"
+            },
+            {
+                "tipe": "Parasetamol",
+                "rule": [{
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 14
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 19
+                    }
+                ],
+                "keterangan": "7.5ml (1 1/2 sdk taker) Sirup 120 mg/5 ml"
+            }
+        ]
+    }
+]

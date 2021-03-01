@@ -11,6 +11,20 @@ const classifyPengobatan = (penyakit, obat, data) => {
         return err;
       }
       break;
+    case "demam":
+      try {
+        rawRules = fs.readFileSync("./rules/Demam.json");
+      } catch (err) {
+        return err;
+      }
+      break;
+    case "anemia":
+      try {
+        rawRules = fs.readFileSync("./rules/Anemia.json");
+      } catch (err) {
+        return err;
+      }
+      break;
     // Other Penyakit Here!
     default:
       return "Error";
@@ -32,6 +46,9 @@ const classifyPengobatan = (penyakit, obat, data) => {
           if (validation.key === "beratbadan") {
             dataAnak = data.dataanak.dataAnak.beratAnak;
           }
+          if (validation.key === "umur") {
+            dataAnak = data.dataanak.dataAnak.umurAnak;
+          }
           // Other Data Anak Type Here!
           if (!evaluateRules(dataAnak, validation.value, validation.operator)) {
             valid = valid && false;
@@ -48,13 +65,10 @@ const classifyPengobatan = (penyakit, obat, data) => {
           }
         }
       });
+      res += ".";
       if (rule.keteranganObatAlternatif !== "") {
         res +=
-          ". " +
-          rule.keteranganObatAlternatif +
-          " " +
-          rule.obatAlternatif +
-          ".";
+          " " + rule.keteranganObatAlternatif + " " + rule.obatAlternatif + ".";
       }
     }
   });

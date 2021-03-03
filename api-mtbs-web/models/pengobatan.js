@@ -47,7 +47,7 @@ const classifyPengobatan = (penyakit, obat, data) => {
             dataAnak = data.dataanak.dataAnak.beratAnak;
           }
           if (validation.key === "umur") {
-            dataAnak = data.dataanak.dataAnak.umurAnak;
+            dataAnak = Number(data.dataanak.dataAnak.umurAnak) / 30;
           }
           // Other Data Anak Type Here!
           if (!evaluateRules(dataAnak, validation.value, validation.operator)) {

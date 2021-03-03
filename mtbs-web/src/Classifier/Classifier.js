@@ -86,7 +86,7 @@ const Classifier = async (
     }
   }
   if (flag.demam !== 0 && cur !== "demam") {
-    const demam = await axios(`http://localhost:8000/Demam`, {
+    const demam = await axios.post(`http://localhost:8000/Demam`, {
       ansDemam: ansDemam,
     });
     dispatch(

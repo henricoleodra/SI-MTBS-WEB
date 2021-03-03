@@ -25,6 +25,13 @@ const classifyPengobatan = (penyakit, obat, data) => {
         return err;
       }
       break;
+    case "telinga":
+      try {
+        rawRules = fs.readFileSync("./rules/Telinga.json");
+      } catch (err) {
+        return err;
+      }
+      break;
     case "anemia":
       try {
         rawRules = fs.readFileSync("./rules/Anemia.json");

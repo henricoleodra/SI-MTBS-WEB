@@ -76,7 +76,9 @@ const Telinga = (props) => {
     dispatch(
       KlasifikasiTelingaChange("TELINGA_KLASIFIKASI", res.data.hasilKlasifikasi)
     );
-    dispatch(KlasifikasiTelingaChange("TELINGA_STATUS", res.statusKlasifikasi));
+    dispatch(
+      KlasifikasiTelingaChange("TELINGA_STATUS", res.data.statusKlasifikasi)
+    );
     if (
       res.data.statusKlasifikasi === "danger" ||
       res.data.statusKlasifikasi === "warning"

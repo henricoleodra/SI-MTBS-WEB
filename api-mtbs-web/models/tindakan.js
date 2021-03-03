@@ -42,7 +42,7 @@ const processTindakan = (data) => {
     );
   }
 
-  // Batuk
+  // BATUK
   if (data.batuk.klasifikasiBatuk.bsb_klasifikasi === "Pneumonia berat") {
     bsb.push(
       "Beri Oksigen maksimal 2-3 liter/menit dengan menggunakan nasal prong"
@@ -76,7 +76,7 @@ const processTindakan = (data) => {
     }
   }
 
-  // Diare
+  // DIARE
   let klasifikasiBeratLainDiare =
     data.tbu.klasifikasiTBU.tbu_status === "danger" ||
     data.batuk.klasifikasiBatuk.bsb_status === "warning" ||
@@ -164,7 +164,7 @@ const processTindakan = (data) => {
     );
   }
 
-  // Demam
+  // DEMAM
   if (
     data.demam.ansDemam.demam_isDaerahEndemis === "Tinggi" ||
     data.demam.ansDemam.demam_isDaerahEndemis === "Rendah" ||
@@ -327,13 +327,13 @@ const processTindakan = (data) => {
 
   // Telinga
   if (data.telinga.klasifikasiTelinga.telinga_klasifikasi === "Mastoiditis") {
-    // demam.push(pengobatan.classifyPengobatan("demam", "Parasetamol", data));
+    telinga.push(pengobatan.classifyPengobatan("telinga", "Antibiotik", data));
+    telinga.push(pengobatan.classifyPengobatan("telinga", "Parasetamol", data));
     telinga.push("Beri dosis pertama antibiotik yang sesuai", "RUJUK SEGERA");
   } else if (
     data.telinga.klasifikasiTelinga.telinga_klasifikasi ===
     "Infeksi Telinga Kronis"
   ) {
-    // demam.push(pengobatan.classifyPengobatan("demam", "Parasetamol", data));
     telinga.push(
       "Beri antibiotik yang sesuai selama 7 hari",
       "Keringkan telinga dengan bahan penyedap",
@@ -343,7 +343,8 @@ const processTindakan = (data) => {
     data.telinga.klasifikasiTelinga.telinga_klasifikasi ===
     "Infeksi Telinga Akut"
   ) {
-    // demam.push(pengobatan.classifyPengobatan("demam", "Parasetamol", data));
+    telinga.push(pengobatan.classifyPengobatan("telinga", "Antibiotik", data));
+    telinga.push(pengobatan.classifyPengobatan("telinga", "Parasetamol", data));
     telinga.push(
       "Keringkan telinga dengan bahan penyerap setelah dicuci dengan NaCl 0,9% atau H2O23%",
       "Beri tetes telinga yang sesuai",

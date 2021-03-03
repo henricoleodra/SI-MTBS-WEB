@@ -7,10 +7,6 @@ import { faCircle } from "@fortawesome/free-solid-svg-icons";
 const SideBarItem = (props) => {
   const [tooltipOpen, setTooltipOpen] = useState(false);
   const name = props.title.replace(/ /g, "");
-  if (name === "Batuk") {
-    console.log(props.status);
-  }
-
   const toggle = () => {
     setTooltipOpen(!tooltipOpen);
   };

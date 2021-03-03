@@ -15,12 +15,22 @@ const processTindakan = (data) => {
   if (data.tbu.klasifikasiTBU.tbu_klasifikasi === "Penyakit sangat berat") {
     if (data.tbu.ansTBU.tbu_tidakBisaMinum === true) {
       tbu.push(
-        pengobatan.classifyPengobatan("tandabahayaumum", "Antibiotik", data)
+        pengobatan.classifyPengobatan(
+          "tandabahayaumum",
+          "tidak dapat minum / menyusu",
+          "Antibiotik",
+          data
+        )
       );
     }
     if (data.tbu.ansTBU.tbu_kejang === true) {
       tbu.push(
-        pengobatan.classifyPengobatan("tandabahayaumum", "Diazepam", data)
+        pengobatan.classifyPengobatan(
+          "tandabahayaumum",
+          "kejang",
+          "Diazepam",
+          data
+        )
       );
     }
     if (data.tbu.ansTBU.tbu_stridor === true) {
@@ -47,10 +57,14 @@ const processTindakan = (data) => {
     bsb.push(
       "Beri Oksigen maksimal 2-3 liter/menit dengan menggunakan nasal prong"
     );
-    bsb.push(pengobatan.classifyPengobatan("batuk", "Antibiotik", data));
+    bsb.push(
+      pengobatan.classifyPengobatan("batuk", "Pneumonia", "Antibiotik", data)
+    );
     bsb.push("RUJUK SEGERA");
   } else if (data.batuk.klasifikasiBatuk.bsb_klasifikasi === "Pneumonia") {
-    bsb.push(pengobatan.classifyPengobatan("batuk", "Antibiotik", data));
+    bsb.push(
+      pengobatan.classifyPengobatan("batuk", "Pneumonia", "Antibiotik", data)
+    );
     bsb.push(
       "Beri pelega tenggorokan dan pereda batuk yang aman",
       "Obati wheezing bila ada",
@@ -108,7 +122,8 @@ const processTindakan = (data) => {
     }
     if (data.dataanak.dataAnak.umurAnak / 30 / 12 > 2) {
       diare.push(
-        "Jika ada wabah kolera di daerah tersebut, beri antibiotik untuk kolera"
+        "Jika ada wabah kolera di daerah tersebut, beri antibiotik untuk kolera" +
+          pengobatan.classifyPengobatan("diare", "Kolera", "Antibiotik", data)
       );
     }
   } else if (
@@ -157,7 +172,9 @@ const processTindakan = (data) => {
 
   if (data.diare.klasifikasiDiare.diare_klasifikasi.includes("Disentri")) {
     diare.push(
-      "Beri antibiotik yang sesuai",
+      pengobatan.classifyPengobatan("diare", "Disentri", "Antibiotik", data)
+    );
+    diare.push(
       "Beri tablet zinc selama 10 hari berturut-turut",
       "Nasihati kapan kembali segera",
       "Kunjungan ulang 3 hari"
@@ -325,10 +342,24 @@ const processTindakan = (data) => {
     );
   }
 
-  // Telinga
+  // TELINGA
   if (data.telinga.klasifikasiTelinga.telinga_klasifikasi === "Mastoiditis") {
-    telinga.push(pengobatan.classifyPengobatan("telinga", "Antibiotik", data));
-    telinga.push(pengobatan.classifyPengobatan("telinga", "Parasetamol", data));
+    telinga.push(
+      pengobatan.classifyPengobatan(
+        "telinga",
+        "Infeksi Telinga Akut",
+        "Antibiotik",
+        data
+      )
+    );
+    telinga.push(
+      pengobatan.classifyPengobatan(
+        "telinga",
+        "Sakit Telinga",
+        "Parasetamol",
+        data
+      )
+    );
     telinga.push("Beri dosis pertama antibiotik yang sesuai", "RUJUK SEGERA");
   } else if (
     data.telinga.klasifikasiTelinga.telinga_klasifikasi ===
@@ -343,8 +374,22 @@ const processTindakan = (data) => {
     data.telinga.klasifikasiTelinga.telinga_klasifikasi ===
     "Infeksi Telinga Akut"
   ) {
-    telinga.push(pengobatan.classifyPengobatan("telinga", "Antibiotik", data));
-    telinga.push(pengobatan.classifyPengobatan("telinga", "Parasetamol", data));
+    telinga.push(
+      pengobatan.classifyPengobatan(
+        "telinga",
+        "Infeksi Telinga Akut",
+        "Antibiotik",
+        data
+      )
+    );
+    telinga.push(
+      pengobatan.classifyPengobatan(
+        "telinga",
+        "Sakit Telinga",
+        "Parasetamol",
+        data
+      )
+    );
     telinga.push(
       "Keringkan telinga dengan bahan penyerap setelah dicuci dengan NaCl 0,9% atau H2O23%",
       "Beri tetes telinga yang sesuai",
@@ -357,7 +402,7 @@ const processTindakan = (data) => {
     telinga.push("Tangani masalah telinga yang ditemukan");
   }
 
-  //Gizi
+  // GIZI
   if (
     data.gizi.klasifikasiGizi.gizi_klasifikasi ===
     "Sangat Kurus Dengan Komplikasi"
@@ -395,16 +440,22 @@ const processTindakan = (data) => {
     );
   }
 
-  //ANEMIA
+  // ANEMIA
   if (data.anemia.klasifikasiAnemia.anemia_klasifikasi === "Anemia Berat") {
     if (data.dataanak.dataAnak.umurAnak / 30 >= 4) {
-      anemia.push(pengobatan.classifyPengobatan("anemia", "Obat Cacing", data));
+      anemia.push(
+        pengobatan.classifyPengobatan("anemia", "Anemia", "Obat Cacing", data)
+      );
     }
     anemia.push("Bila masih menyusu, teruskan pemberian ASI", "RUJUK SEGERA");
   } else if (data.anemia.klasifikasiAnemia.anemia_klasifikasi === "Anemia") {
-    anemia.push(pengobatan.classifyPengobatan("anemia", "Zat Besi", data));
+    anemia.push(
+      pengobatan.classifyPengobatan("anemia", "Anemia", "Zat Besi", data)
+    );
     if (data.dataanak.dataAnak.umurAnak / 30 >= 4) {
-      anemia.push(pengobatan.classifyPengobatan("anemia", "Obat Cacing", data));
+      anemia.push(
+        pengobatan.classifyPengobatan("anemia", "Anemia", "Obat Cacing", data)
+      );
     }
     anemia.push(
       "Lakukan Penilaian Pemberian Makan pada anak. Bila ada masalah, beri konseling pemberian makan dan kunjungan ulang 7 hari",

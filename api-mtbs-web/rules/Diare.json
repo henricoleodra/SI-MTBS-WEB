@@ -1,0 +1,472 @@
+[
+  {
+    "penyakit": "Disentri",
+    "jenisObat": "Antibiotik",
+    "keterangan": "Untuk Kontrimoksasol : 4mg/kgBB/kali 2x sehari selama 5 hari, Untuk Sefiksim : 1,5 - 3 mg/KgB 2x sehari selama 5 hari, Untuk Metronidazol : 3x sehari selama 10 hari (untuk amuba)",
+    "kondisiSpesial": "",
+    "keteranganKondisiSpesial": "",
+    "obatAlternatif": "",
+    "keteranganObatAlternatif": "",
+    "conditioned": [
+      {
+        "tipe": "Kontrimoksasol",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 4
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 6
+          }
+        ],
+        "keterangan": "1 Tab Anak (20 mg TMP + 100 mg SMZ)"
+      },
+      {
+        "tipe": "Kontrimoksasol",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 6
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 10
+          }
+        ],
+        "keterangan": "2 Tab Anak (20 mg TMP + 100 mg SMZ)"
+      },
+      {
+        "tipe": "Kontrimoksasol",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 10
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 16
+          }
+        ],
+        "keterangan": "2 1/2 Tab Anak (20 mg TMP + 100 mg SMZ)"
+      },
+      {
+        "tipe": "Kontrimoksasol",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 16
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 19
+          }
+        ],
+        "keterangan": "3 Tab Anak (20 mg TMP + 100 mg SMZ)"
+      },
+      {
+        "tipe": "Sefiksim",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 4
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 6
+          }
+        ],
+        "keterangan": "1/16 Tab 100 mg"
+      },
+      {
+        "tipe": "Sefiksim",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 4
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 6
+          }
+        ],
+        "keterangan": "0.5 ml Sirup 100 mg/5ml"
+      },
+      {
+        "tipe": "Sefiksim",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 6
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 10
+          }
+        ],
+        "keterangan": "1/8 Tab 100 mg"
+      },
+      {
+        "tipe": "Sefiksim",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 6
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 10
+          }
+        ],
+        "keterangan": "1 ml Sirup 100 mg/5ml"
+      },
+      {
+        "tipe": "Sefiksim",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 10
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 16
+          }
+        ],
+        "keterangan": "1/4 Tab 100 mg"
+      },
+      {
+        "tipe": "Sefiksim",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 10
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 16
+          }
+        ],
+        "keterangan": "2 ml Sirup 100 mg/5ml"
+      },
+      {
+        "tipe": "Sefiksim",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 16
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 19
+          }
+        ],
+        "keterangan": "1/2 Tab 100 mg"
+      },
+      {
+        "tipe": "Sefiksim",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 16
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 19
+          }
+        ],
+        "keterangan": "3 ml Sirup 100 mg/5ml"
+      },
+      {
+        "tipe": "Metronidazol",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 4
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 6
+          }
+        ],
+        "keterangan": "1/8 Tab 500 mg"
+      },
+      {
+        "tipe": "Metronidazol",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 6
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 10
+          }
+        ],
+        "keterangan": "1/4 Tab 500 mg"
+      },
+      {
+        "tipe": "Metronidazol",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 10
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 16
+          }
+        ],
+        "keterangan": "1/2 Tab 500 mg"
+      },
+      {
+        "tipe": "Metronidazol",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 16
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 19
+          }
+        ],
+        "keterangan": "3/4 Tab 500 mg"
+      }
+    ]
+  },
+  {
+    "penyakit": "Kolera",
+    "jenisObat": "Antibiotik",
+    "keterangan": "Untuk Tetrasiklin : 4x sehari selama 3 hari, Untuk Kotrimoksasol : 2x sehari selama 3 hari",
+    "kondisiSpesial": "",
+    "keteranganKondisiSpesial": "",
+    "obatAlternatif": "",
+    "keteranganObatAlternatif": "",
+    "conditioned": [
+      {
+        "tipe": "Tetrasiklin",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 4
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 6
+          }
+        ],
+        "keterangan": "jangan diberi"
+      },
+      {
+        "tipe": "Tetrasiklin",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 6
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 10
+          }
+        ],
+        "keterangan": "1/2 kapsul 250mg"
+      },
+      {
+        "tipe": "Tetrasiklin",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 10
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 19
+          }
+        ],
+        "keterangan": "1 kapsul 250mg"
+      },
+      {
+        "tipe": "Kotrimoksasol",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 4
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 6
+          }
+        ],
+        "keterangan": "1/4 Tablet Dewasa (80 mg/400 mg)"
+      },
+      {
+        "tipe": "Kotrimoksasol",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 4
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 6
+          }
+        ],
+        "keterangan": "1 Tablet Anak (20 mg/100 mg)"
+      },
+      {
+        "tipe": "Kotrimoksasol",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 4
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 6
+          }
+        ],
+        "keterangan": "2.5 ml Sirup per 5 ml (40 mg/200 mg)"
+      },
+      {
+        "tipe": "Kotrimoksasol",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 6
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 10
+          }
+        ],
+        "keterangan": "1/2 Tablet Dewasa (80 mg/400 mg)"
+      },
+      {
+        "tipe": "Kotrimoksasol",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 6
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 10
+          }
+        ],
+        "keterangan": "2 Tablet Anak (20 mg/100 mg)"
+      },
+      {
+        "tipe": "Kotrimoksasol",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 6
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 10
+          }
+        ],
+        "keterangan": "5 ml Sirup per 5 ml (40 mg/200 mg)"
+      },
+      {
+        "tipe": "Kotrimoksasol",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 10
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 19
+          }
+        ],
+        "keterangan": "1 Tablet Dewasa (80 mg/400 mg)"
+      },
+      {
+        "tipe": "Kotrimoksasol",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 10
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 19
+          }
+        ],
+        "keterangan": "3 Tablet Anak (20 mg/100 mg)"
+      },
+      {
+        "tipe": "Kotrimoksasol",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 10
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 19
+          }
+        ],
+        "keterangan": "10 ml Sirup per 5 ml (40 mg/200 mg)"
+      }
+    ]
+  }
+]

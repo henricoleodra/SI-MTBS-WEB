@@ -57,7 +57,7 @@ const TelingaYaTidak = (props) => {
       history.push("Telinga1");
     } else {
       dispatch(FlagChange("FLAG_TELINGA", 2));
-      dispatch(AnsTelingaChange("TELINGA", true));
+      dispatch(AnsTelingaChange("RESET_TELINGA", true));
       dispatch(AnsTelingaChange("TELINGA", telinga));
       dispatch(KlasifikasiTelingaChange("TELINGA_KLASIFIKASI", ""));
       dispatch(KlasifikasiTelingaChange("TELINGA_STATUS", "info"));

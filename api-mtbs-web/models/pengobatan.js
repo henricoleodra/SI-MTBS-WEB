@@ -1,9 +1,9 @@
 const fs = require("fs");
 
-const classifyPengobatan = (penyakit, obat, data) => {
+const classifyPengobatan = (klasifikasi, penyakit, obat, data) => {
   let rawRules;
   let res = "";
-  switch (penyakit) {
+  switch (klasifikasi) {
     case "tandabahayaumum":
       try {
         rawRules = fs.readFileSync("./rules/TandaBahayaUmum.json");
@@ -14,6 +14,13 @@ const classifyPengobatan = (penyakit, obat, data) => {
     case "batuk":
       try {
         rawRules = fs.readFileSync("./rules/Batuk.json");
+      } catch (err) {
+        return err;
+      }
+      break;
+    case "diare":
+      try {
+        rawRules = fs.readFileSync("./rules/Diare.json");
       } catch (err) {
         return err;
       }
@@ -46,7 +53,7 @@ const classifyPengobatan = (penyakit, obat, data) => {
   let rules = JSON.parse(rawRules);
   let i = 0;
   rules.forEach((rule) => {
-    if (rule.jenisObat === obat) {
+    if (rule.penyakit === penyakit && rule.jenisObat === obat) {
       let flag = true;
       res += "Berikan " + rule.jenisObat + " " + rule.keterangan;
       if (rule.keteranganKondisiSpesial !== "") {

@@ -43,7 +43,7 @@ const Classifier = async (
       dispatch(AnsGiziChange("GIZI_TANDA_BAHAYA_UMUM", false));
     }
   }
-  if (flag.batuk !== 0 && cur !== "batuk") {
+  if (ansBatuk.bsb === true && flag.batuk !== 0 && cur !== "batuk") {
     const batuk = await axios.post(`http://localhost:8000/Batuk`, {
       ansBatuk: ansBatuk,
     });
@@ -64,7 +64,7 @@ const Classifier = async (
       dispatch(AnsGiziChange("GIZI_BATUK", false));
     }
   }
-  if (flag.diare !== 0 && cur !== "diare") {
+  if (ansDiare.diare === true && flag.diare !== 0 && cur !== "diare") {
     const diare = await axios.post(`http://localhost:8000/Diare`, {
       ansDiare: ansDiare,
     });
@@ -85,7 +85,8 @@ const Classifier = async (
       dispatch(AnsGiziChange("GIZI_DIARE", false));
     }
   }
-  if (flag.demam !== 0 && cur !== "demam") {
+  if (ansDemam.demam === true && flag.demam !== 0 && cur !== "demam") {
+    console.log(flag.demam);
     const demam = await axios.post(`http://localhost:8000/Demam`, {
       ansDemam: ansDemam,
     });
@@ -106,7 +107,7 @@ const Classifier = async (
       dispatch(AnsGiziChange("GIZI_DEMAM", false));
     }
   }
-  if (flag.telinga !== 0 && cur !== "telinga") {
+  if (ansTelinga.telinga === true && flag.telinga !== 0 && cur !== "telinga") {
     const telinga = await axios.post(`http://localhost:8000/Telinga`, {
       ansTelinga: ansTelinga,
     });

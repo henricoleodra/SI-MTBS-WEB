@@ -13,8 +13,15 @@ const processTindakan = (data) => {
 
   // TBU
   if (data.tbu.klasifikasiTBU.tbu_klasifikasi === "Penyakit sangat berat") {
+    if (data.tbu.ansTBU.tbu_tidakBisaMinum === true) {
+      tbu.push(
+        pengobatan.classifyPengobatan("tandabahayaumum", "Antibiotik", data)
+      );
+    }
     if (data.tbu.ansTBU.tbu_kejang === true) {
-      tbu.push("Beri Diazepam");
+      tbu.push(
+        pengobatan.classifyPengobatan("tandabahayaumum", "Diazepam", data)
+      );
     }
     if (data.tbu.ansTBU.tbu_stridor === true) {
       tbu.push("Pastikan tidak ada sumbatan jalan napas");
@@ -389,6 +396,9 @@ const processTindakan = (data) => {
 
   //ANEMIA
   if (data.anemia.klasifikasiAnemia.anemia_klasifikasi === "Anemia Berat") {
+    if (data.dataanak.dataAnak.umurAnak / 30 >= 4) {
+      anemia.push(pengobatan.classifyPengobatan("anemia", "Obat Cacing", data));
+    }
     anemia.push("Bila masih menyusu, teruskan pemberian ASI", "RUJUK SEGERA");
   } else if (data.anemia.klasifikasiAnemia.anemia_klasifikasi === "Anemia") {
     anemia.push(pengobatan.classifyPengobatan("anemia", "Zat Besi", data));

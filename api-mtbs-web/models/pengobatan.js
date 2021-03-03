@@ -4,6 +4,13 @@ const classifyPengobatan = (penyakit, obat, data) => {
   let rawRules;
   let res = "";
   switch (penyakit) {
+    case "tandabahayaumum":
+      try {
+        rawRules = fs.readFileSync("./rules/TandaBahayaUmum.json");
+      } catch (err) {
+        return err;
+      }
+      break;
     case "batuk":
       try {
         rawRules = fs.readFileSync("./rules/Batuk.json");

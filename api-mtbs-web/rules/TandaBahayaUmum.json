@@ -1,0 +1,270 @@
+[
+  {
+    "penyakit": "kejang",
+    "jenisObat": "Diazepam",
+    "keterangan": "",
+    "kondisiSpesial": "",
+    "keteranganKondisiSpesial": "",
+    "obatAlternatif": "",
+    "keteranganObatAlternatif": "",
+    "conditioned": [
+      {
+        "tipe": "DIAZEPAM (10 mg/2ml)",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 5
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 7
+          }
+        ],
+        "keterangan": "0,5 ml"
+      },
+      {
+        "tipe": "DIAZEPAM (10 mg/2ml)",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 7
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 10
+          }
+        ],
+        "keterangan": "1 ml"
+      },
+      {
+        "tipe": "DIAZEPAM (10 mg/2ml)",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 10
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 14
+          }
+        ],
+        "keterangan": "1,5 ml"
+      },
+      {
+        "tipe": "DIAZEPAM (10 mg/2ml)",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 14
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 19
+          }
+        ],
+        "keterangan": "2 ml"
+      },
+      {
+        "tipe": "DIAZEPAM per rektum siap",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": "<",
+            "value": 10
+          }
+        ],
+        "keterangan": "5 mg"
+      },
+      {
+        "tipe": "DIAZEPAM per rektum siap",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">=",
+            "value": 10
+          }
+        ],
+        "keterangan": "10 mg"
+      }
+    ]
+  },
+  {
+    "penyakit": "tidak dapat minum / menyusu",
+    "jenisObat": "Antibiotik",
+    "keterangan": "Untuk Ampisilin : 50 mg per kg BB, Tambahkan 4,0 ml aquadest dalam 1000 mg sehingga menjadi 1000 mg/5ml atau 200mg/ml, Untuk Gentamisin : 7,5 mg per kg BB, sediakan 80mg/2ml",
+    "kondisiSpesial": "",
+    "keteranganKondisiSpesial": "",
+    "obatAlternatif": "",
+    "keteranganObatAlternatif": "",
+    "conditioned": [
+      {
+        "tipe": "Ampisilin",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 4
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 6
+          }
+        ],
+        "keterangan": "1,25 ml = 250mg"
+      },
+      {
+        "tipe": "Gentamisin",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 4
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 6
+          }
+        ],
+        "keterangan": "1 ml = 40mg"
+      },
+      {
+        "tipe": "Ampisilin",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 6
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 8
+          }
+        ],
+        "keterangan": "1,75 ml = 350mg"
+      },
+      {
+        "tipe": "Gentamisin",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 6
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 8
+          }
+        ],
+        "keterangan": "1,25 ml = 50mg"
+      },
+      {
+        "tipe": "Ampisilin",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 8
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 10
+          }
+        ],
+        "keterangan": "2,25 ml = 450mg"
+      },
+      {
+        "tipe": "Gentamisin",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 8
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 10
+          }
+        ],
+        "keterangan": "1,75 ml = 70mg"
+      },
+      {
+        "tipe": "Ampisilin",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 10
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 14
+          }
+        ],
+        "keterangan": "3 ml = 600mg"
+      },
+      {
+        "tipe": "Gentamisin",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 10
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 14
+          }
+        ],
+        "keterangan": "2,5 ml = 100mg"
+      },
+      {
+        "tipe": "Ampisilin",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 14
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 19
+          }
+        ],
+        "keterangan": "3,75 ml = 750mg"
+      },
+      {
+        "tipe": "Gentamisin",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 14
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 19
+          }
+        ],
+        "keterangan": "3 ml = 120mg"
+      }
+    ]
+  }
+]

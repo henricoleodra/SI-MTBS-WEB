@@ -1,0 +1,2437 @@
+[
+    {
+        "penyakit": "Malaria",
+        "jenisObat": "DHP",
+        "keterangan": "(Malaria falsiparum) Obat anti malaria harus diberikan sesudah makan, Hari 1-3",
+        "kondisiSpesial": "Lini Pertama",
+        "keteranganKondisiSpesial": "Jumlah tablet per hari menurut berat badan",
+        "obatAlternatif": "",
+        "keteranganObatAlternatif": "",
+        "conditioned": [
+            {
+                "tipe": "DHP",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 0
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 4
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 0
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 1
+                    }
+                ],
+                "keterangan": "1/3"
+            },
+            {
+                "tipe": "DHP",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 4
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 6
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 1
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 2
+                    }
+                ],
+                "keterangan": "1/2"
+            },
+            {
+                "tipe": "DHP",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 6
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 10
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 6
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 11
+                    }
+                ],
+                "keterangan": "1/2"
+            },
+            {
+                "tipe": "DHP",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 10
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 17
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 12
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 48
+                    }
+                ],
+                "keterangan": "1"
+            },
+            {
+                "tipe": "DHP",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 17
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 30
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 48
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 108
+                    }
+                ],
+                "keterangan": "1 1/2"
+            },
+            {
+                "tipe": "DHP",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 30
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 40
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 120
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 168
+                    }
+                ],
+                "keterangan": "2"
+            },
+            {
+                "tipe": "DHP",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 40
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 59
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 180
+                    }
+                ],
+                "keterangan": "3"
+            },
+            {
+                "tipe": "DHP",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 60
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 180
+                    }
+                ],
+                "keterangan": "4"
+            }
+        ]
+    },
+    {
+        "penyakit": "Malaria",
+        "jenisObat": "Primakuin",
+        "keterangan": "(Malaria falsiparum) Obat anti malaria harus diberikan sesudah makan, Hari 1",
+        "kondisiSpesial": "Lini Pertama",
+        "keteranganKondisiSpesial": "Jumlah tablet per hari menurut berat badan",
+        "obatAlternatif": "",
+        "keteranganObatAlternatif": "",
+        "conditioned": [
+            {
+                "tipe": "Primakuin",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 0
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 4
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 0
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 1
+                    }
+                ],
+                "keterangan": "-"
+            },
+            {
+                "tipe": "Primakuin",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 4
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 6
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 1
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 2
+                    }
+                ],
+                "keterangan": "-"
+            },
+            {
+                "tipe": "Primakuin",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 6
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 10
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 6
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 11
+                    }
+                ],
+                "keterangan": "1/4"
+            },
+            {
+                "tipe": "Primakuin",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 10
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 17
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 12
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 48
+                    }
+                ],
+                "keterangan": "1/4"
+            },
+            {
+                "tipe": "Primakuin",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 17
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 30
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 48
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 108
+                    }
+                ],
+                "keterangan": "1/2"
+            },
+            {
+                "tipe": "Primakuin",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 30
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 40
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 120
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 168
+                    }
+                ],
+                "keterangan": "3/4"
+            },
+            {
+                "tipe": "Primakuin",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 40
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 59
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 180
+                    }
+                ],
+                "keterangan": "1"
+            },
+            {
+                "tipe": "Primakuin",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 60
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 180
+                    }
+                ],
+                "keterangan": "1"
+            }
+        ]
+    },
+    {
+        "penyakit": "Malaria",
+        "jenisObat": "Kina",
+        "keterangan": "(Malaria falsiparum) Obat anti malaria harus diberikan sesudah makan, Hari 1-7",
+        "kondisiSpesial": "Lini Kedua",
+        "keteranganKondisiSpesial": "Jumlah tablet per hari menurut berat badan",
+        "obatAlternatif": "",
+        "keteranganObatAlternatif": "",
+        "conditioned": [
+            {
+                "tipe": "Kina",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 0
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 4
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 0
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 1
+                    }
+                ],
+                "keterangan": "sesuai BB"
+            },
+            {
+                "tipe": "Kina",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 4
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 6
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 1
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 2
+                    }
+                ],
+                "keterangan": "3 x 1/2"
+            },
+            {
+                "tipe": "Kina",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 6
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 10
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 6
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 11
+                    }
+                ],
+                "keterangan": "3 x 1/2"
+            },
+            {
+                "tipe": "Kina",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 10
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 17
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 12
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 48
+                    }
+                ],
+                "keterangan": "3 x 1"
+            },
+            {
+                "tipe": "Kina",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 17
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 30
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 48
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 108
+                    }
+                ],
+                "keterangan": "3 x 1 1/2"
+            },
+            {
+                "tipe": "Kina",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 30
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 33
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 120
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 168
+                    }
+                ],
+                "keterangan": "3 x 1 1/2"
+            },
+            {
+                "tipe": "Kina",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 33
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 40
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 120
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 168
+                    }
+                ],
+                "keterangan": "3 x 2"
+            },
+            {
+                "tipe": "Kina",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 40
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 45
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 180
+                    }
+                ],
+                "keterangan": "3 x 2 1/2"
+            },
+            {
+                "tipe": "Kina",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 45
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 60
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 180
+                    }
+                ],
+                "keterangan": "3 x 2 1/2"
+            },
+            {
+                "tipe": "Kina",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 60
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 180
+                    }
+                ],
+                "keterangan": "3 x 3"
+            }
+        ]
+    },
+    {
+        "penyakit": "Malaria",
+        "jenisObat": "Primakuin",
+        "keterangan": "(Malaria falsiparum) Obat anti malaria harus diberikan sesudah makan, Hari 1",
+        "kondisiSpesial": "Lini Kedua",
+        "keteranganKondisiSpesial": "Jumlah tablet per hari menurut berat badan",
+        "obatAlternatif": "",
+        "keteranganObatAlternatif": "",
+        "conditioned": [
+            {
+                "tipe": "Primakuin",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 0
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 4
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 0
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 1
+                    }
+                ],
+                "keterangan": "-"
+            },
+            {
+                "tipe": "Primakuin",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 4
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 6
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 1
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 2
+                    }
+                ],
+                "keterangan": "-"
+            },
+            {
+                "tipe": "Primakuin",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 6
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 10
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 6
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 11
+                    }
+                ],
+                "keterangan": "1/4"
+            },
+            {
+                "tipe": "Primakuin",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 10
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 17
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 12
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 48
+                    }
+                ],
+                "keterangan": "1/4"
+            },
+            {
+                "tipe": "Primakuin",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 17
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 30
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 48
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 108
+                    }
+                ],
+                "keterangan": "1/2"
+            },
+            {
+                "tipe": "Primakuin",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 30
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 33
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 120
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 168
+                    }
+                ],
+                "keterangan": "3/4"
+            },
+            {
+                "tipe": "Primakuin",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 33
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 40
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 120
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 168
+                    }
+                ],
+                "keterangan": "3/4"
+            },
+            {
+                "tipe": "Primakuin",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 40
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 45
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 180
+                    }
+                ],
+                "keterangan": "1"
+            },
+            {
+                "tipe": "Primakuin",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 45
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 60
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 180
+                    }
+                ],
+                "keterangan": "1"
+            },
+            {
+                "tipe": "Primakuin",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 60
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 180
+                    }
+                ],
+                "keterangan": "1"
+            }
+        ]
+    },
+    {
+        "penyakit": "Malaria",
+        "jenisObat": "Doksisiklin",
+        "keterangan": "(Malaria falsiparum) Dosis doksisiklin 3.5 mg/kgBB/hari diberikan 2x sehari untuk >=15 tahun. Dosis doksisiklin 2.2 mg/kgBB/hari diberikan 2x sehari untuk 8-14 tahun, Hari 1-7",
+        "kondisiSpesial": "Lini Kedua Variasi dengan Doksisiklin",
+        "keteranganKondisiSpesial": "Jumlah tablet per hari menurut berat badan",
+        "obatAlternatif": "",
+        "keteranganObatAlternatif": "",
+        "conditioned": [
+            {
+                "tipe": "Doksisiklin",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 5
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 0
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 1
+                    }
+                ],
+                "keterangan": "-"
+            },
+            {
+                "tipe": "Doksisiklin",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 6
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 19
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 1
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 96
+                    }
+                ],
+                "keterangan": "-"
+            },
+            {
+                "tipe": "Doksisiklin",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 19
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 29
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 1
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 96
+                    }
+                ],
+                "keterangan": "2 x 25 mg"
+            },
+            {
+                "tipe": "Doksisiklin",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 29
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 44
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 120
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 168
+                    }
+                ],
+                "keterangan": "2 x 50 mg"
+            },
+            {
+                "tipe": "Doksisiklin",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 44
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 59
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">=",
+                        "value": 180
+                    }
+                ],
+                "keterangan": "2 x 75 mg"
+            },
+            {
+                "tipe": "Doksisiklin",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">=",
+                        "value": 60
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">=",
+                        "value": 180
+                    }
+                ],
+                "keterangan": "2 x 100 mg"
+            }
+        ]
+    },
+    {
+        "penyakit": "Malaria",
+        "jenisObat": "Tetrasiklin",
+        "keterangan": "(Malaria falsiparum) Dosis diberikan 4x sehari, tidak diberikan pada anak umur <8 tahun, Hari 1-7",
+        "kondisiSpesial": "Lini Kedua Variasi dengan Terasiklin",
+        "keteranganKondisiSpesial": "Jumlah tablet per hari menurut berat badan",
+        "obatAlternatif": "",
+        "keteranganObatAlternatif": "",
+        "conditioned": [
+            {
+                "tipe": "Tetrasiklin",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 5
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 0
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 1
+                    }
+                ],
+                "keterangan": "-"
+            },
+            {
+                "tipe": "Tetrasiklin",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 1
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 11
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 1
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 11
+                    }
+                ],
+                "keterangan": "-"
+            },
+            {
+                "tipe": "Tetrasiklin",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 10
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 17
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 11
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 48
+                    }
+                ],
+                "keterangan": "-"
+            },
+            {
+                "tipe": "Tetrasiklin",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 17
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 30
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 48
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 96
+                    }
+                ],
+                "keterangan": "-"
+            },
+            {
+                "tipe": "Tetrasiklin",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 30
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 40
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 96
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 168
+                    }
+                ],
+                "keterangan": "4 x 125 mg"
+            },
+            {
+                "tipe": "Tetrasiklin",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 40
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 49
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 180
+                    }
+                ],
+                "keterangan": "4 x 125 mg"
+            },
+            {
+                "tipe": "Tetrasiklin",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 49
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 59
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 180
+                    }
+                ],
+                "keterangan": "4 x 250 mg"
+            },
+            {
+                "tipe": "Tetrasiklin",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">=",
+                        "value": 60
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 180
+                    }
+                ],
+                "keterangan": "4 x 250 mg"
+            }
+        ]
+    },
+    {
+        "penyakit": "Malaria",
+        "jenisObat": "DHP",
+        "keterangan": "(Malaria vivax) Hari 1-3",
+        "kondisiSpesial": "Lini Pertama",
+        "keteranganKondisiSpesial": "Jumlah tablet per hari menurut berat badan",
+        "obatAlternatif": "",
+        "keteranganObatAlternatif": "",
+        "conditioned": [
+            {
+                "tipe": "DHP",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 4
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 0
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 1
+                    }
+                ],
+                "keterangan": "1/3"
+            },
+            {
+                "tipe": "DHP",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 4
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 6
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 1
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 2
+                    }
+                ],
+                "keterangan": "1/2"
+            },
+            {
+                "tipe": "DHP",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 6
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 10
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 2
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 11
+                    }
+                ],
+                "keterangan": "1/2"
+            },
+            {
+                "tipe": "DHP",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 10
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 17
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 11
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 48
+                    }
+                ],
+                "keterangan": "1"
+            },
+            {
+                "tipe": "DHP",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 17
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 30
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 48
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 108
+                    }
+                ],
+                "keterangan": "1 1/2"
+            },
+            {
+                "tipe": "DHP",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 30
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 40
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 108
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 168
+                    }
+                ],
+                "keterangan": "2"
+            },
+            {
+                "tipe": "DHP",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 40
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 59
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 180
+                    }
+                ],
+                "keterangan": "3"
+            },
+            {
+                "tipe": "DHP",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 60
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 180
+                    }
+                ],
+                "keterangan": "4"
+            }
+        ]
+    },
+    {
+        "penyakit": "Malaria",
+        "jenisObat": "Primakuin",
+        "keterangan": "(Malaria vivax) Hari 1-14",
+        "kondisiSpesial": "Lini Pertama",
+        "keteranganKondisiSpesial": "Jumlah tablet per hari menurut berat badan",
+        "obatAlternatif": "",
+        "keteranganObatAlternatif": "",
+        "conditioned": [
+            {
+                "tipe": "Primakuin",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 4
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 0
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 1
+                    }
+                ],
+                "keterangan": "-"
+            },
+            {
+                "tipe": "Primakuin",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 4
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 6
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 1
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 2
+                    }
+                ],
+                "keterangan": "-"
+            },
+            {
+                "tipe": "Primakuin",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 6
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 10
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 2
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 11
+                    }
+                ],
+                "keterangan": "1/4"
+            },
+            {
+                "tipe": "Primakuin",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 10
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 17
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 11
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 48
+                    }
+                ],
+                "keterangan": "1/4"
+            },
+            {
+                "tipe": "Primakuin",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 17
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 30
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 48
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 108
+                    }
+                ],
+                "keterangan": "1/2"
+            },
+            {
+                "tipe": "Primakuin",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 30
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 40
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 108
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 168
+                    }
+                ],
+                "keterangan": "3/4"
+            },
+            {
+                "tipe": "Primakuin",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 40
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 59
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 180
+                    }
+                ],
+                "keterangan": "1"
+            },
+            {
+                "tipe": "Primakuin",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 60
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 180
+                    }
+                ],
+                "keterangan": "1"
+            }
+        ]
+    },
+    {
+        "penyakit": "Malaria",
+        "jenisObat": "DH",
+        "keterangan": "(Malaria vivax) Hari 1-7",
+        "kondisiSpesial": "Lini Kedua",
+        "keteranganKondisiSpesial": "Jumlah tablet per hari menurut berat badan",
+        "obatAlternatif": "",
+        "keteranganObatAlternatif": "",
+        "conditioned": [
+            {
+                "tipe": "DH",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 5
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 0
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 1
+                    }
+                ],
+                "keterangan": "sesuai BB"
+            },
+            {
+                "tipe": "DH",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 5
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 10
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 1
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 11
+                    }
+                ],
+                "keterangan": "3 x 1/2"
+            },
+            {
+                "tipe": "DH",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 10
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 17
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 11
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 48
+                    }
+                ],
+                "keterangan": "3 x 1"
+            },
+            {
+                "tipe": "DH",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 17
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 30
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 48
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 72
+                    }
+                ],
+                "keterangan": "3 x 1 1/2"
+            },
+            {
+                "tipe": "DH",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 30
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 33
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 72
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 168
+                    }
+                ],
+                "keterangan": "3 x 1 1/2"
+            },
+            {
+                "tipe": "DH",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 33
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 40
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 72
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 168
+                    }
+                ],
+                "keterangan": "3 x 2"
+            },
+            {
+                "tipe": "DH",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 40
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 45
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">=",
+                        "value": 180
+                    }
+                ],
+                "keterangan": "3 x 2 1/2"
+            },
+            {
+                "tipe": "DH",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 45
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 60
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">=",
+                        "value": 180
+                    }
+                ],
+                "keterangan": "3 x 2 1/2"
+            },
+            {
+                "tipe": "DH",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 60
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">=",
+                        "value": 180
+                    }
+                ],
+                "keterangan": "3 x 3"
+            }
+        ]
+    },
+    {
+        "penyakit": "Malaria",
+        "jenisObat": "Primakuin",
+        "keterangan": "(Malaria vivax) Hari 1-14",
+        "kondisiSpesial": "Lini Kedua",
+        "keteranganKondisiSpesial": "Jumlah tablet per hari menurut berat badan",
+        "obatAlternatif": "",
+        "keteranganObatAlternatif": "",
+        "conditioned": [
+            {
+                "tipe": "Primakuin",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 5
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 0
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 1
+                    }
+                ],
+                "keterangan": "-"
+            },
+            {
+                "tipe": "Primakuin",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 5
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 10
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 1
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 11
+                    }
+                ],
+                "keterangan": "-"
+            },
+            {
+                "tipe": "Primakuin",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 10
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 17
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 11
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 48
+                    }
+                ],
+                "keterangan": "1/4"
+            },
+            {
+                "tipe": "Primakuin",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 17
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 30
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 48
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 72
+                    }
+                ],
+                "keterangan": "1/2"
+            },
+            {
+                "tipe": "Primakuin",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 30
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 33
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 72
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 168
+                    }
+                ],
+                "keterangan": "3/4"
+            },
+            {
+                "tipe": "Primakuin",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 33
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 40
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 72
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 168
+                    }
+                ],
+                "keterangan": "3/4"
+            },
+            {
+                "tipe": "Primakuin",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 40
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 45
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">=",
+                        "value": 180
+                    }
+                ],
+                "keterangan": "1"
+            },
+            {
+                "tipe": "Primakuin",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 45
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 60
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">=",
+                        "value": 180
+                    }
+                ],
+                "keterangan": "1"
+            },
+            {
+                "tipe": "Primakuin",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 60
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">=",
+                        "value": 180
+                    }
+                ],
+                "keterangan": "1"
+            }
+        ]
+    },
+    {
+        "penyakit": "Malaria",
+        "jenisObat": "DHP",
+        "keterangan": "(Malaria infeksi campuran P.falciparum + P.vivax / P.ovale) Hari 1-3",
+        "kondisiSpesial": "Pengobatan infeksi campur",
+        "keteranganKondisiSpesial": "Jumlah tablet per hari menurut berat badan",
+        "obatAlternatif": "",
+        "keteranganObatAlternatif": "",
+        "conditioned": [
+            {
+                "tipe": "DHP",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 5
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 0
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 1
+                    }
+                ],
+                "keterangan": "1/4"
+            },
+            {
+                "tipe": "DHP",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 5
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 10
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 1
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 11
+                    }
+                ],
+                "keterangan": "1/2"
+            },
+            {
+                "tipe": "DHP",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 10
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 17
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 11
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 48
+                    }
+                ],
+                "keterangan": "1"
+            },
+            {
+                "tipe": "DHP",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 17
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 30
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 48
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 72
+                    }
+                ],
+                "keterangan": "1 1/2"
+            },
+            {
+                "tipe": "DHP",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 30
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 40
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 72
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 168
+                    }
+                ],
+                "keterangan": "2"
+            },
+            {
+                "tipe": "DHP",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 40
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 59
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">=",
+                        "value": 180
+                    }
+                ],
+                "keterangan": "3"
+            },
+            {
+                "tipe": "DHP",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">=",
+                        "value": 60
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">=",
+                        "value": 180
+                    }
+                ],
+                "keterangan": "4"
+            }
+        ]
+    },
+    {
+        "penyakit": "Malaria",
+        "jenisObat": "Primakuin",
+        "keterangan": "(Malaria infeksi campuran P.falciparum + P.vivax / P.ovale) Hari 1-14",
+        "kondisiSpesial": "Pengobatan infeksi campur",
+        "keteranganKondisiSpesial": "Jumlah tablet per hari menurut berat badan",
+        "obatAlternatif": "",
+        "keteranganObatAlternatif": "",
+        "conditioned": [
+            {
+                "tipe": "Primakuin",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 5
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 0
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 1
+                    }
+                ],
+                "keterangan": "-"
+            },
+            {
+                "tipe": "Primakuin",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 5
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 10
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 1
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 11
+                    }
+                ],
+                "keterangan": "-"
+            },
+            {
+                "tipe": "Primakuin",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 10
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 17
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 11
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 48
+                    }
+                ],
+                "keterangan": "1/4"
+            },
+            {
+                "tipe": "Primakuin",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 17
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 30
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 48
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 72
+                    }
+                ],
+                "keterangan": "1/2"
+            },
+            {
+                "tipe": "Primakuin",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 30
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 40
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">",
+                        "value": 72
+                    },
+                    {
+                        "key": "umur",
+                        "operator": "<=",
+                        "value": 168
+                    }
+                ],
+                "keterangan": "3/4"
+            },
+            {
+                "tipe": "Primakuin",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">",
+                        "value": 40
+                    },
+                    {
+                        "key": "beratbadan",
+                        "operator": "<=",
+                        "value": 59
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">=",
+                        "value": 180
+                    }
+                ],
+                "keterangan": "1"
+            },
+            {
+                "tipe": "Primakuin",
+                "rule": [
+                    {
+                        "key": "beratbadan",
+                        "operator": ">=",
+                        "value": 60
+                    },
+                    {
+                        "key": "umur",
+                        "operator": ">=",
+                        "value": 180
+                    }
+                ],
+                "keterangan": "1"
+            }
+        ]
+    }
+]

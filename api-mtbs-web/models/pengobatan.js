@@ -46,6 +46,13 @@ const classifyPengobatan = (klasifikasi, penyakit, obat, data) => {
         return err;
       }
       break;
+    case "malaria":
+      try{
+        rawRules = fs.readFileSync(".rules/Malaria.json");
+      } catch (err){
+        return err;
+      }
+      break;
     // Other Penyakit Here!
     default:
       return "Error";

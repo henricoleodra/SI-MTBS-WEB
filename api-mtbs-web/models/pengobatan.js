@@ -53,6 +53,13 @@ const classifyPengobatan = (klasifikasi, penyakit, obat, data) => {
         return err;
       }
       break;
+    case "vitamina":
+      try{
+        rawRules = fs.readFileSync(".rules/VitA_Gizi.json");
+      } catch (err){
+        return err;
+      }
+      break;
     // Other Penyakit Here!
     default:
       return "Error";

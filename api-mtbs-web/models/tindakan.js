@@ -255,13 +255,25 @@ const processTindakan = (data) => {
       "Campak Dengan Komplikasi Berat"
     )
   ) {
+    
+    
+    
     demam.push("Beri dosis pertama antibiotik yang sesuai", "RUJUK SEGERA");
     if (
       data.demam.ansDemam.demam_korneaKeruh === true ||
       data.demam.ansDemam.demam_nanahDiMata === true
     ) {
       demam.push("Berikan salep mata antibiotik");
+      
+      demam.push(
+        pengobatan.classifyPengobatan("demam", "Campak dengan komplikasi mata atau mulut", "Vitamin A", data)
+      );
+    }else{
+      demam.push(
+        pengobatan.classifyPengobatan("demam", "Campak tanpa komplikasi mata atau mulut", "Vitamin A", data)
+      );
     }
+
     if (data.dataanak.dataAnak.suhuAnak >= 38.5) {
       demam.push("Beri dosis pertama parasetamol");
     }
@@ -271,7 +283,12 @@ const processTindakan = (data) => {
     )
   ) {
     // demam.push(pengobatan.classifyPengobatan("demam", "Vitamin A", data));
-    demam.push("Beri vitamin A dosis pengobatan", "Kunjungan ulang 3 hari");
+    demam.push(
+      pengobatan.classifyPengobatan("demam", "Campak dengan komplikasi mata atau mulut", "Vitamin A", data)
+    );
+
+    demam.push("Kunjungan ulang 3 hari");
+
     if (data.demam.ansDemam.demam_nanahDiMata === true) {
       demam.push("Beri salep mata antibiotik");
     }

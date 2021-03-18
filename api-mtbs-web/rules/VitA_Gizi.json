@@ -1,56 +1,56 @@
 [
-    {
-        "penyakit": "Defisiensi Vit A, Xerofthalmia dan Gizi Sangat Kurus",
-        "jenisObat": "Vitamin A",
-        "keterangan": "",
-        "kondisiSpesial": "",
-        "keteranganKondisiSpesial": "",
-        "obatAlternatif": "",
-        "keteranganObatAlternatif": "",
-        "conditioned": [
-            {
-                "tipe": "Dosis/hari",
-                "rule": [
-                    {
-                        "key": "umur",
-                        "operator": "<",
-                        "value": 6
-                    }
-                ],
-                "keterangan": "50.000 IU (1/2 kapsul biru) Hari ke 1, Hari Ke 2,dan Hari Ke 15"
-            },
-            {
-                "tipe": "Dosis/hari",
-                "rule": [
-                    {
-                        "key": "umur",
-                        "operator": ">",
-                        "value": 6
-                    },
-                    {
-                        "key": "umur",
-                        "operator": "<=",
-                        "value": 11
-                    }
-                ],
-                "keterangan": "100.000 IU (kapsul biru) Hari ke 1, Hari Ke 2,dan Hari Ke 15"
-            },
-            {
-                "tipe": "Dosis/hari",
-                "rule": [
-                    {
-                        "key": "umur",
-                        "operator": ">",
-                        "value": 12
-                    },
-                    {
-                        "key": "umur",
-                        "operator": "<=",
-                        "value": 59
-                    }
-                ],
-                "keterangan": "200.000 IU (kapsul merah) Hari ke 1, Hari Ke 2,dan Hari Ke 15"
-            }
-        ]
-    }
+  {
+    "penyakit": "Defisiensi Vit A, Xerofthalmia dan Gizi Sangat Kurus",
+    "jenisObat": "Vitamin A",
+    "keterangan": "",
+    "kondisiSpesial": "",
+    "keteranganKondisiSpesial": "",
+    "obatAlternatif": "",
+    "keteranganObatAlternatif": "",
+    "conditioned": [
+      {
+        "tipe": "Dosis/hari",
+        "rule": [
+          {
+            "key": "umur",
+            "operator": "<",
+            "value": 6
+          }
+        ],
+        "keterangan": "50.000 IU (1/2 kapsul biru) Hari ke 1, Hari Ke 2,dan Hari Ke 15"
+      },
+      {
+        "tipe": "Dosis/hari",
+        "rule": [
+          {
+            "key": "umur",
+            "operator": ">",
+            "value": 6
+          },
+          {
+            "key": "umur",
+            "operator": "<=",
+            "value": 11
+          }
+        ],
+        "keterangan": "100.000 IU (kapsul biru) Hari ke 1, Hari Ke 2,dan Hari Ke 15"
+      },
+      {
+        "tipe": "Dosis/hari",
+        "rule": [
+          {
+            "key": "umur",
+            "operator": ">",
+            "value": 12
+          },
+          {
+            "key": "umur",
+            "operator": "<=",
+            "value": 59
+          }
+        ],
+        "keterangan": "200.000 IU (kapsul merah) Hari ke 1, Hari Ke 2,dan Hari Ke 15"
+      }
+    ]
+  }
 ]

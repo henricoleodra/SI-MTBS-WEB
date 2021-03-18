@@ -193,19 +193,52 @@ const processTindakan = (data) => {
         "Penyakit Berat Dengan Demam"
       )
     ) {
-      // demam.push(pengobatan.classifyPengobatan("demam", "Parasetamol", data));
       demam.push(
         "Beri dosis pertama artemeter injeksi atau kinin injeksi untuk malaria berat",
         "Beri dosis pertama antibiotik yang sesuai",
-        "Cegah agar gula darah tidak turun",
-        "RUJUK SEGERA"
+        "Cegah agar gula darah tidak turun"
       );
+      demam.push(
+        pengobatan.classifyPengobatan(
+          "demam",
+          "Demam tinggi",
+          "Parasetamol",
+          data
+        )
+      );
+      demam.push("RUJUK SEGERA");
     } else if (
       data.demam.klasifikasiDemam.demam_klasifikasi.includes("Malaria")
     ) {
-      // demam.push(pengobatan.classifyPengobatan("demam", "Parasetamol", data));
       demam.push(
-        "Beri obat anti malaria oral pilihan pertama",
+        pengobatan.classifyPengobatan(
+          "malaria",
+          "Malaria",
+          "Obat Anti Malaria Falsiparum",
+          data
+        ),
+        pengobatan.classifyPengobatan(
+          "malaria",
+          "Malaria",
+          "Obat Anti Malaria Vivax",
+          data
+        ),
+        pengobatan.classifyPengobatan(
+          "malaria",
+          "Malaria",
+          "Obat Anti Malaria Infeksi Campur",
+          data
+        )
+      );
+      demam.push(
+        pengobatan.classifyPengobatan(
+          "demam",
+          "Demam tinggi",
+          "Parasetamol",
+          data
+        )
+      );
+      demam.push(
         "Nasihati kapan kembali segera",
         "Kunjungan ulang 3 hari jika tetap demam",
         "Jika demam berlanjut lebih dari 7 hari, RUJUK untuk penilaian lebih lanjut"
@@ -215,7 +248,14 @@ const processTindakan = (data) => {
         "Demam Mungkin Bukan Malaria"
       )
     ) {
-      // demam.push(pengobatan.classifyPengobatan("demam", "Parasetamol", data));
+      demam.push(
+        pengobatan.classifyPengobatan(
+          "demam",
+          "Demam tinggi",
+          "Parasetamol",
+          data
+        )
+      );
       demam.push(
         "Obati penyebab lain dari demam",
         "Nasihati kapan kembali segera",
@@ -229,18 +269,32 @@ const processTindakan = (data) => {
         "Penyakit Berat Dengan Demam"
       )
     ) {
-      // demam.push(pengobatan.classifyPengobatan("demam", "Parasetamol", data));
       demam.push(
         "Beri dosis pertama antibiotik yang sesuai",
-        "Cegah agar gula darah tidak turun",
-        "RUJUK SEGERA"
+        "Cegah agar gula darah tidak turun"
       );
+      demam.push(
+        pengobatan.classifyPengobatan(
+          "demam",
+          "Demam tinggi",
+          "Parasetamol",
+          data
+        )
+      );
+      demam.push("RUJUK SEGERA");
     } else if (
       data.demam.klasifikasiDemam.demam_klasifikasi.includes(
         "Demam Bukan Malaria"
       )
     ) {
-      // demam.push(pengobatan.classifyPengobatan("demam", "Parasetamol", data));
+      demam.push(
+        pengobatan.classifyPengobatan(
+          "demam",
+          "Demam tinggi",
+          "Parasetamol",
+          data
+        )
+      );
       demam.push(
         "Obati penyebab lain dari demam",
         "Nasihati kapan kembali segera",
@@ -255,40 +309,54 @@ const processTindakan = (data) => {
       "Campak Dengan Komplikasi Berat"
     )
   ) {
-    
-    
-    
-    demam.push("Beri dosis pertama antibiotik yang sesuai", "RUJUK SEGERA");
+    demam.push("Beri dosis pertama antibiotik yang sesuai");
     if (
       data.demam.ansDemam.demam_korneaKeruh === true ||
       data.demam.ansDemam.demam_nanahDiMata === true
     ) {
       demam.push("Berikan salep mata antibiotik");
-      
       demam.push(
-        pengobatan.classifyPengobatan("demam", "Campak dengan komplikasi mata atau mulut", "Vitamin A", data)
+        pengobatan.classifyPengobatan(
+          "demam",
+          "Campak dengan komplikasi mata atau mulut",
+          "Vitamin A",
+          data
+        )
       );
-    }else{
+    } else {
       demam.push(
-        pengobatan.classifyPengobatan("demam", "Campak tanpa komplikasi mata atau mulut", "Vitamin A", data)
+        pengobatan.classifyPengobatan(
+          "demam",
+          "Campak tanpa komplikasi mata atau mulut",
+          "Vitamin A",
+          data
+        )
       );
     }
-
     if (data.dataanak.dataAnak.suhuAnak >= 38.5) {
-      demam.push("Beri dosis pertama parasetamol");
+      demam.push(
+        pengobatan.classifyPengobatan(
+          "demam",
+          "Demam tinggi",
+          "Parasetamol",
+          data
+        )
+      );
     }
+    demam.push("RUJUK SEGERA");
   } else if (
     data.demam.klasifikasiDemam.demam_klasifikasi.includes(
       "Campak Dengan Komplikasi Pada Mata Dan/Atau Mulut"
     )
   ) {
-    // demam.push(pengobatan.classifyPengobatan("demam", "Vitamin A", data));
     demam.push(
-      pengobatan.classifyPengobatan("demam", "Campak dengan komplikasi mata atau mulut", "Vitamin A", data)
+      pengobatan.classifyPengobatan(
+        "demam",
+        "Campak dengan komplikasi mata atau mulut",
+        "Vitamin A",
+        data
+      )
     );
-
-    demam.push("Kunjungan ulang 3 hari");
-
     if (data.demam.ansDemam.demam_nanahDiMata === true) {
       demam.push("Beri salep mata antibiotik");
     }
@@ -299,8 +367,16 @@ const processTindakan = (data) => {
       data.gizi.ansGizi.gizi_BBmenurutPBAtauTB ===
       "BB/PB (TB) < -3 SD (Sangat Kurus)"
     ) {
-      demam.push("Beri vitamin A sesuai dosis");
+      demam.push(
+        pengobatan.classifyPengobatan(
+          "vitamina",
+          "Defisiensi Vit A, Xerofthalmia dan Gizi Sangat Kurus",
+          "Vitamin A",
+          data
+        )
+      );
     }
+    demam.push("Kunjungan ulang 3 hari");
   }
 
   if (
@@ -326,18 +402,30 @@ const processTindakan = (data) => {
         );
       }
     }
-    demam.push(
-      // pengobatan.classifyPengobatan("demam", "Parasetamol", data),
-      "tidak boleh golongan salisilat dan ibuprofen"
-    );
+    if (data.dataanak.dataAnak.suhuAnak >= 38.5) {
+      demam.push(
+        pengobatan.classifyPengobatan(
+          "demam",
+          "Demam tinggi",
+          "Parasetamol",
+          data
+        ) + "tidak boleh golongan salisilat dan ibuprofen."
+      );
+    }
     demam.push("RUJUK SEGERA");
   } else if (
     data.demam.klasifikasiDemam.demam_klasifikasi.includes("Mungkin DBD")
   ) {
-    demam.push(
-      // pengobatan.classifyPengobatan("demam", "Parasetamol", data),
-      "tidak boleh golongan salisilat dan ibuprofen"
-    );
+    if (data.dataanak.dataAnak.suhuAnak >= 38.5) {
+      demam.push(
+        pengobatan.classifyPengobatan(
+          "demam",
+          "Demam tinggi",
+          "Parasetamol",
+          data
+        ) + "tidak boleh golongan salisilat dan ibuprofen."
+      );
+    }
     demam.push(
       "Nasihati untuk lebih banyak minum: oralit/cairan lain.",
       "Nasihati kapan kembali segera",
@@ -348,12 +436,18 @@ const processTindakan = (data) => {
       "Demam Mungkin Bukan DBD"
     )
   ) {
+    demam.push("Obati penyebab lain dari demam");
+    if (data.dataanak.dataAnak.suhuAnak >= 38.5) {
+      demam.push(
+        pengobatan.classifyPengobatan(
+          "demam",
+          "Demam tinggi",
+          "Parasetamol",
+          data
+        ) + "tidak boleh golongan salisilat dan ibuprofen."
+      );
+    }
     demam.push(
-      // pengobatan.classifyPengobatan("demam", "Parasetamol", data),
-      "tidak boleh golongan salisilat dan ibuprofen"
-    );
-    demam.push(
-      "Obati penyebab lain dari demam",
       "Nasihati kapan kembali segera",
       "Kunjungan ulang 2 hari jika tetap demam"
     );
@@ -424,9 +518,16 @@ const processTindakan = (data) => {
     data.gizi.klasifikasiGizi.gizi_klasifikasi ===
     "Sangat Kurus Dengan Komplikasi"
   ) {
+    gizi.push("Beri dosis pertama antibiotik yang sesuai");
     gizi.push(
-      "Beri dosis pertama antibiotik yang sesuai",
-      "Beri Vitamin A dosis pertama",
+      pengobatan.classifyPengobatan(
+        "vitamina",
+        "Defisiensi Vit A, Xerofthalmia dan Gizi Sangat Kurus",
+        "Vitamin A",
+        data
+      )
+    );
+    gizi.push(
       "Cegah gula darah tidak turun",
       "Hangatkan badan",
       "RUJUK SEGERA"
@@ -435,9 +536,16 @@ const processTindakan = (data) => {
     data.gizi.klasifikasiGizi.gizi_klasifikasi ===
     "Sangat Kurus Tanpa Komplikasi"
   ) {
+    gizi.push("Beri antibiotik yang sesuai selama 5 hari");
     gizi.push(
-      "Beri antibiotik yang sesuai selama 5 hari",
-      "Beri Vitamin A dosis pertama",
+      pengobatan.classifyPengobatan(
+        "vitamina",
+        "Defisiensi Vit A, Xerofthalmia dan Gizi Sangat Kurus",
+        "Vitamin A",
+        data
+      )
+    );
+    gizi.push(
       "Cegah gula darah tidak turun",
       "Hangatkan badan",
       "RUJUK untuk penanganan gizi sangat kurus termasuk kemungkinan adanya penyakit penyerta",

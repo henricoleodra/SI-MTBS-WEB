@@ -47,16 +47,16 @@ const classifyPengobatan = (klasifikasi, penyakit, obat, data) => {
       }
       break;
     case "malaria":
-      try{
+      try {
         rawRules = fs.readFileSync(".rules/Malaria.json");
-      } catch (err){
+      } catch (err) {
         return err;
       }
       break;
     case "vitamina":
-      try{
+      try {
         rawRules = fs.readFileSync(".rules/VitA_Gizi.json");
-      } catch (err){
+      } catch (err) {
         return err;
       }
       break;

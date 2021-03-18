@@ -478,7 +478,7 @@ const processTindakan = (data) => {
   ) {
     telinga.push(
       "Beri antibiotik yang sesuai selama 7 hari",
-      "Keringkan telinga dengan bahan penyedap",
+      "Keringkan telinga dengan bahan penyerap",
       "Kunjungan ulang 5 hari"
     );
   } else if (

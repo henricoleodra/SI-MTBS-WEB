@@ -7,7 +7,7 @@
     "keteranganKondisiSpesial": "",
     "obatAlternatif": "",
     "keteranganObatAlternatif": "",
-    "Conditioned": [
+    "conditioned": [
       {
         "tipe": "Dosis/hari",
         "rule": [
@@ -61,7 +61,7 @@
     "keteranganKondisiSpesial": "",
     "obatAlternatif": "",
     "keteranganObatAlternatif": "",
-    "Conditioned": [
+    "conditioned": [
       {
         "tipe": "Dosis/hari",
         "rule": [

@@ -1,0 +1,129 @@
+[
+    {
+        "penyakit": "Diare",
+        "klasifikasi": "Diare Dehidrasi Berat",
+        "conditioned": [
+            {
+                "tipe": null,
+                "rule": [
+                    {
+                      "key": "diare_isNotMinum",
+                      "operator": "=",
+                      "value": "true"
+                    }
+                ],
+                "keterangan": "Berikan ASI dan larutan oralit selama perjalanan"
+            },
+            {
+                "tipe": null,
+                "rule": null,
+                "keterangan": "RUJUK SEGERA"
+            }
+        ]
+    },
+    {
+        "penyakit": "Diare",
+        "klasifikasi": "Diare Dehidrasi Ringan/Sedang",
+        "conditioned": [
+            {
+                "tipe": null,
+                "rule": null,
+                "keterangan": "Beri cairan, tablet Zinc dan makanan sesuai Rencana Terapi B"
+            },
+            {
+                "tipe": null,
+                "rule": null,
+                "keterangan": "Nasihati kapan kembali segera"
+            },
+            {
+                "tipe": null,
+                "rule": null,
+                "keterangan": "Kunjungan ulang 3 hari jika tidak ada perbaikan"
+            }
+        ]
+    },
+    {
+        "penyakit": "Diare",
+        "klasifikasi": "Diare Tanpa Dehidrasi",
+        "conditioned": [
+            {
+                "tipe": null,
+                "rule": null,
+                "keterangan": "Beri cairan, tablet Zinc dan makanan sesuai Rencana Terapi A"
+            },
+            {
+                "tipe": null,
+                "rule": null,
+                "keterangan": "Nasihati kapan kembali segera"
+            },
+            {
+                "tipe": null,
+                "rule": null,
+                "keterangan": "Kunjungan ulang 3 hari jika tidak ada perbaikan"
+            }
+        ]
+    },
+    {
+        "penyakit": "Diare",
+        "klasifikasi": "Diare Persisten Berat",
+        "conditioned": [
+            {
+                "tipe": null,
+                "rule": null,
+                "keterangan": "Atasi dehidrasi sebelum dirujuk, kecuali ada klasifikasi berat lain"
+            },
+            {
+                "tipe": null,
+                "rule": null,
+                "keterangan": "RUJUK"
+            }
+        ]
+    },
+    {
+        "penyakit": "Diare",
+        "klasifikasi": "Diare Persisten",
+        "conditioned": [
+            {
+                "tipe": null,
+                "rule": null,
+                "keterangan": "Nasihati pemberian makan untuk Diare Persisten"
+            },
+            {
+                "tipe": null,
+                "rule": null,
+                "keterangan": "Beri tablet zinc selama 10 hari berturut-turut"
+            },
+            {
+                "tipe": null,
+                "rule": null,
+                "keterangan": "Nasihati kapan kembali segera"
+            },
+            {
+                "tipe": null,
+                "rule": null,
+                "keterangan": "Kunjungan ulang 3 hari"
+            }
+        ] 
+    },
+    {
+        "penyakit": "Diare",
+        "klasifikasi": "Disentri",
+        "conditioned": [
+            {
+                "tipe": null,
+                "rule": null,
+                "keterangan": "Beri tablet zinc selama 10 hari berturut-turut"
+            },
+            {
+                "tipe": null,
+                "rule": null,
+                "keterangan": "Nasihati kapan kembali segera"
+            },
+            {
+                "tipe": null,
+                "rule": null,
+                "keterangan": "Kunjungan ulang 3 hari"
+            }
+        ]
+    }
+]

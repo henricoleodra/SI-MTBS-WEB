@@ -1,0 +1,98 @@
+[
+    {
+        "penyakit": "Batuk",
+        "klasifikasi": "Pneumonia Berat",
+        "conditioned": [
+            {
+                "tipe": null,
+                "rule": null,
+                "keterangan": "Beri Oksigen maksimal 2-3 liter/menit dengan menggunakan nasal prong."
+            },
+            {
+                "tipe": null,
+                "rule": null,
+                "keterangan": "RUJUK SEGARA."
+            }
+        ]
+    },
+    {
+        "penyakit": "Batuk",
+        "klasifikasi": "Pneumonia",
+        "conditioned": [
+            {
+                "tipe": "lamaHari",
+                "rule": [
+                  {
+                    "key": "bsb_lamaHari",
+                    "operator": ">",
+                    "value": 14
+                  }
+                ],
+                "keterangan": "RUJUK untuk pemeriksaan lanjutan"
+            },
+            {
+                "tipe": null,
+                "rule": null,
+                "keterangan": "Beri pelega tenggorokan dan pereda batuk yang aman."
+            },
+            {
+                "tipe": null,
+                "rule": null,
+                "keterangan": "Obati wheezing bila ada"
+            },
+            {
+                "tipe": null,
+                "rule": null,
+                "keterangan": "Nasehati kapan kembali segera"
+            },
+            {
+                "tipe": null,
+                "rule": null,
+                "keterangan": "Kunjungan ulang 2 hari"
+            }
+        ]
+    },
+    {
+        "penyakit": "Batuk",
+        "klasifikasi": "Batuk Bukan Pneumonia",
+        "conditioned": [
+            {
+                "tipe": "wheezing",
+                "rule": [
+                  {
+                    "key": "bsb_wheezing",
+                    "operator": "=",
+                    "value": "true"
+                  }
+                ],
+                "keterangan": "Obati wheezing"
+            },
+            {
+                "tipe": "lamaHari",
+                "rule": [
+                  {
+                    "key": "bsb_lamaHari",
+                    "operator": ">=",
+                    "value": 14
+                  }
+                ],
+                "keterangan": "Rujuk untuk pemeriksaan TB dan sebab lain"
+            },
+            {
+                "tipe": null,
+                "rule": null,
+                "keterangan": "Beri pelega tenggorokan dan pereda batuk yang aman"
+            },
+            {
+                "tipe": null,
+                "rule": null,
+                "keterangan": "Nasehati kapan kembali segera"
+            },
+            {
+                "tipe": null,
+                "rule": null,
+                "keterangan": "Kunjungan ulang 2 hari jika tidak ada perbaikan"
+            }
+        ]
+    }
+]

@@ -2,7 +2,6 @@ const Point = require("./point");
 const Interpolator = require("./interpolator");
 
 const classifierGizi = (ansGizi) => {
-  console.log(ansGizi);
   if (
     (ansGizi.gizi_tampakSangatKurus === true ||
       ansGizi.gizi_pembengkakanKeduaPunggungKakiAtauTangan === true ||

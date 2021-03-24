@@ -118,7 +118,7 @@ const Classifier = async (
       )
     );
     dispatch(
-      KlasifikasiTelingaChange("TELINGA_STATUS", telinga.statusKlasifikasi)
+      KlasifikasiTelingaChange("TELINGA_STATUS", telinga.data.statusKlasifikasi)
     );
     if (
       telinga.data.statusKlasifikasi === "danger" ||

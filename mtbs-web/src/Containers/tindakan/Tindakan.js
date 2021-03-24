@@ -34,40 +34,32 @@ const Tindakan = (props) => {
     async function fetchResult() {
       await axios
         .post(`http://localhost:8000/Tindakan`, {
-          dataanak: {
-            dataAnak: dataAnak,
-          },
-          tbu: {
-            ansTBU: ansTBU,
-            klasifikasiTBU: klasifikasiTBU,
-          },
-          batuk: {
-            ansBatuk: ansBatuk,
-            klasifikasiBatuk: klasifikasiBatuk,
-          },
-          diare: {
-            ansDiare: ansDiare,
-            klasifikasiDiare: klasifikasiDiare,
-          },
-          demam: {
-            ansDemam: ansDemam,
-            klasifikasiDemam: klasifikasiDemam,
-          },
-          telinga: {
-            ansTelinga: ansTelinga,
-            klasifikasiTelinga: klasifikasiTelinga,
-          },
-          gizi: {
-            ansGizi: ansGizi,
-            klasifikasiGizi: klasifikasiGizi,
-          },
-          anemia: {
-            ansAnemia: ansAnemia,
-            klasifikasiAnemia: klasifikasiAnemia,
-          },
-          hiv: {
-            ansHIV: ansHIV,
-            klasifikasiHIV: klasifikasiHIV,
+          dataAnak,
+          ansTBU,
+          klasifikasiTBU,
+          ansBatuk,
+          klasifikasiBatuk,
+          ansDiare,
+          klasifikasiDiare,
+          ansDemam,
+          klasifikasiDemam,
+          ansTelinga,
+          klasifikasiTelinga,
+          ansGizi,
+          klasifikasiGizi,
+          ansAnemia,
+          klasifikasiAnemia,
+          ansHIV,
+          klasifikasiHIV,
+          klasifkasiLain: {
+            klasifkasiBeratLain:
+              klasifikasiTBU.tbu_status !== "success" ||
+              klasifikasiBatuk.bsb_klasifikasi !== "success" ||
+              klasifikasiDemam.demam_status !== "success" ||
+              klasifikasiTelinga.telinga_status !== "success" ||
+              klasifikasiGizi.gizi_status !== "success" ||
+              klasifikasiAnemia.anemia_status !== "success" ||
+              klasifikasiHIV.hiv_status !== "success",
           },
         })
         .then((res) => {

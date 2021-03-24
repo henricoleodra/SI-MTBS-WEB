@@ -87,23 +87,27 @@ const KonfirmasiDataAnak = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    var tmpCurDate = new Date();
-    var tmpTanggalLahir = new Date(tglLahir);
-    var differenceInDays = Math.floor(
+    let tmpCurDate = new Date();
+    let tmpTanggalLahir = new Date(tglLahir);
+    let differenceInDays = Math.floor(
       (tmpCurDate.getTime() - tmpTanggalLahir.getTime()) / (1000 * 3600 * 24)
     );
-    var month = Math.floor(differenceInDays / 30);
+    let month = Math.floor(differenceInDays / 30);
     if (month >= 12) {
-      var year = Math.floor(month / 12);
-      var tmpMonth = month % 12;
-      var umur = year + " tahun " + tmpMonth + " bulan";
+      let year = Math.floor(month / 12);
+      let tmpMonth = month % 12;
+      let umur = year + " tahun " + tmpMonth + " bulan";
       dispatch(DataAnakChange("DISPLAY_UMUR_ANAK", umur));
     } else {
-      var umur2 = month + " bulan";
+      let umur2 = month + " bulan";
       dispatch(DataAnakChange("DISPLAY_UMUR_ANAK", umur2));
     }
     dispatch(AnsDemamChange("UMUR_ANAK", month));
     dispatch(DataAnakChange("UMUR_ANAK", differenceInDays));
+    dispatch(DataAnakChange("UMUR_ANAK_BULAN", Number(differenceInDays / 30)));
+    dispatch(
+      DataAnakChange("UMUR_ANAK_TAHUN", Number(differenceInDays / 30 / 12))
+    );
     dispatch(
       DataAnakChange("TANGGAL_KUNJUNGAN", tmpCurDate.toISOString().slice(0, 10))
     );

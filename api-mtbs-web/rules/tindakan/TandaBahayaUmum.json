@@ -1,12 +1,14 @@
 [
   {
     "penyakit": "TandaBahayaUmum",
-    "klasifikasi": "Penyakit Sangat Berat",
+    "klasifikasi": "Penyakit sangat berat",
     "conditioned": [
       {
         "tipe": "Stridor",
+        "conditonal": "AND",
         "rule": [
           {
+            "node": "ansTBU",
             "key": "tbu_stridor",
             "operator": "=",
             "value": "true"
@@ -16,18 +18,22 @@
       },
       {
         "tipe": "Stridor, Sianosis, Ujung Tangan dan Kaki Pucat",
+        "conditonal": "AND",
         "rule": [
           {
+            "node": "ansTBU",
             "key": "tbu_stridor",
             "operator": "=",
             "value": "true"
           },
           {
+            "node": "ansTBU",
             "key": "tbu_sianosis",
             "operator": "=",
             "value": "true"
           },
           {
+            "node": "ansTBU",
             "key": "tbu_pucatDingin",
             "operator": "=",
             "value": "true"
@@ -36,18 +42,12 @@
         "keterangan": "Berikan oksigen 3 - 5 liter/menit melalui nasal prong dengan perangkat oksigen standar (tabung O2 dan humidifier)."
       },
       {
-        "tipe": null,
-        "rule": null,
         "keterangan": "Cegah agar gula darah tidak turun."
       },
       {
-        "tipe": null,
-        "rule": null,
         "keterangan": "Jaga anak tetap hangat."
       },
       {
-        "tipe": null,
-        "rule": null,
         "keterangan": "RUJUK SEGARA."
       }
     ]

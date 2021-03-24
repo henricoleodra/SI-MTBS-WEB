@@ -2,65 +2,64 @@ const fs = require("fs");
 
 const classifyPengobatan = (klasifikasi, penyakit, obat, data) => {
   let rawRules;
-  let res = "";
+  let res = Array();
   switch (klasifikasi) {
     case "tandabahayaumum":
       try {
-        rawRules = fs.readFileSync("./rules/TandaBahayaUmum.json");
+        rawRules = fs.readFileSync("./rules/pengobatan/TandaBahayaUmum.json");
       } catch (err) {
         return err;
       }
       break;
     case "batuk":
       try {
-        rawRules = fs.readFileSync("./rules/Batuk.json");
+        rawRules = fs.readFileSync("./rules/pengobatan/Batuk.json");
       } catch (err) {
         return err;
       }
       break;
     case "diare":
       try {
-        rawRules = fs.readFileSync("./rules/Diare.json");
+        rawRules = fs.readFileSync("./rules/pengobatan/Diare.json");
       } catch (err) {
         return err;
       }
       break;
     case "demam":
       try {
-        rawRules = fs.readFileSync("./rules/Demam.json");
+        rawRules = fs.readFileSync("./rules/pengobatan/Demam.json");
       } catch (err) {
         return err;
       }
       break;
     case "telinga":
       try {
-        rawRules = fs.readFileSync("./rules/Telinga.json");
+        rawRules = fs.readFileSync("./rules/pengobatan/Telinga.json");
       } catch (err) {
         return err;
       }
       break;
     case "anemia":
       try {
-        rawRules = fs.readFileSync("./rules/Anemia.json");
+        rawRules = fs.readFileSync("./rules/pengobatan/Anemia.json");
       } catch (err) {
         return err;
       }
       break;
     case "malaria":
       try {
-        rawRules = fs.readFileSync(".rules/Malaria.json");
+        rawRules = fs.readFileSync(".rules/pengobatan/Malaria.json");
       } catch (err) {
         return err;
       }
       break;
     case "vitamina":
       try {
-        rawRules = fs.readFileSync(".rules/VitA_Gizi.json");
+        rawRules = fs.readFileSync(".rules/pengobatan/VitA_Gizi.json");
       } catch (err) {
         return err;
       }
       break;
-    // Other Penyakit Here!
     default:
       return "Error";
   }
@@ -68,43 +67,47 @@ const classifyPengobatan = (klasifikasi, penyakit, obat, data) => {
   let i = 0;
   rules.forEach((rule) => {
     if (rule.penyakit === penyakit && rule.jenisObat === obat) {
+      let tmp = "";
       let flag = true;
-      res += "Berikan " + rule.jenisObat + " " + rule.keterangan;
-      if (rule.keteranganKondisiSpesial !== "") {
-        res += " atau " + rule.keteranganKondisiSpesial;
+      tmp += "Berikan " + rule.jenisObat;
+      if (rule.keterangan !== "") {
+        tmp += " " + rule.keterangan;
       }
-      res += ". Dengan pilihan:";
+      if (rule.keteranganKondisiSpesial !== "") {
+        tmp += " atau " + rule.keteranganKondisiSpesial;
+      }
+      tmp += ". Dengan pilihan:";
       rule.conditioned.forEach((condition) => {
         let valid = true;
         condition.rule.forEach((validation) => {
           let dataAnak = "";
           if (validation.key === "beratbadan") {
-            dataAnak = data.dataanak.dataAnak.beratAnak;
+            dataAnak = data.dataAnak.beratAnak;
           }
           if (validation.key === "umur") {
-            dataAnak = Number(data.dataanak.dataAnak.umurAnak) / 30;
+            dataAnak = Number(data.dataAnak.umurAnak) / 30;
           }
-          // Other Data Anak Type Here!
           if (!evaluateRules(dataAnak, validation.value, validation.operator)) {
             valid = valid && false;
           }
         });
         if (valid) {
           if (flag) {
-            res +=
+            tmp +=
               " (" + ++i + ") " + condition.tipe + " " + condition.keterangan;
             flag = false;
           } else {
-            res +=
+            tmp +=
               ", (" + ++i + ") " + condition.tipe + " " + condition.keterangan;
           }
         }
       });
-      res += ".";
+      tmp += ".";
       if (rule.keteranganObatAlternatif !== "") {
-        res +=
+        tmp +=
           " " + rule.keteranganObatAlternatif + " " + rule.obatAlternatif + ".";
       }
+      res.push(tmp);
     }
   });
   return res;

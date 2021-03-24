@@ -11,6 +11,15 @@ const tindakan = function (req, res, next) {
   let gizi = Array();
   let anemia = Array();
   let hiv = Array();
+  let obat = {
+    zatbesi: { name: "Zat Besi", value: 0 },
+    obatcacing: { name: "Obat Cacing", value: 0 },
+    antibiotik: { name: "Antibiotik", value: 0 },
+    vitamina: { name: "Vitamin A", value: 0 },
+    parasetamol: { name: "Parasetamol", value: 0 },
+    antimalaria: { name: "Anti Malaria", value: 0 },
+    diazepam: { name: "Diazepam", value: 0 },
+  };
   // TANDA BAHAYA UMUM
   tbu = tbu.concat(
     Tindakan.classifyTindakan(
@@ -29,6 +38,7 @@ const tindakan = function (req, res, next) {
           data
         )
       );
+      obat.antibiotik.value++;
     }
     if (data.ansTBU.tbu_kejang === true) {
       tbu = tbu.concat(
@@ -39,6 +49,7 @@ const tindakan = function (req, res, next) {
           data
         )
       );
+      obat.diazepam.value++;
     }
   }
   // BATUK
@@ -53,10 +64,12 @@ const tindakan = function (req, res, next) {
     batuk = batuk.concat(
       Pengobatan.classifyPengobatan("batuk", "Pneumonia", "Antibiotik", data)
     );
+    obat.antibiotik.value++;
   } else if (data.klasifikasiBatuk.bsb_klasifikasi === "Pneumonia") {
     batuk = batuk.concat(
       Pengobatan.classifyPengobatan("batuk", "Pneumonia", "Antibiotik", data)
     );
+    obat.antibiotik.value++;
   }
   // DIARE
   if (
@@ -69,6 +82,7 @@ const tindakan = function (req, res, next) {
       diare = diare.concat(
         Pengobatan.classifyPengobatan("diare", "Kolera", "Antibiotik", data)
       );
+      obat.antibiotik.value++;
     }
   } else if (
     data.klasifikasiDiare.diare_klasifikasi.includes(
@@ -101,6 +115,7 @@ const tindakan = function (req, res, next) {
     diare = diare.concat(
       Pengobatan.classifyPengobatan("diare", "Disentri", "Antibiotik", data)
     );
+    obat.antibiotik.value++;
   }
   // DEMAM
   if (
@@ -123,6 +138,7 @@ const tindakan = function (req, res, next) {
           data
         )
       );
+      obat.parasetamol.value++;
     } else if (data.klasifikasiDemam.demam_klasifikasi.includes("Malaria")) {
       demam = demam.concat(
         Pengobatan.classifyPengobatan(
@@ -150,6 +166,7 @@ const tindakan = function (req, res, next) {
           data
         )
       );
+      obat.antimalaria.value++;
       demam = demam.concat(Tindakan.classifyTindakan("demam", "Malaria", data));
     } else if (
       data.klasifikasiDemam.demam_klasifikasi.includes(
@@ -164,6 +181,7 @@ const tindakan = function (req, res, next) {
           data
         )
       );
+      obat.parasetamol.value++;
       demam = demam.concat(
         Tindakan.classifyTindakan("demam", "Demam mungkin bukan malaria", data)
       );
@@ -185,6 +203,7 @@ const tindakan = function (req, res, next) {
           data
         )
       );
+      obat.parasetamol.value++;
     } else if (
       data.klasifikasiDemam.demam_klasifikasi.includes("Demam bukan malaria")
     ) {
@@ -218,6 +237,7 @@ const tindakan = function (req, res, next) {
           data
         )
       );
+      obat.vitamina.value++;
     } else {
       demam = demam.concat(
         Pengobatan.classifyPengobatan(
@@ -227,6 +247,7 @@ const tindakan = function (req, res, next) {
           data
         )
       );
+      obat.vitamina.value++;
     }
     demam = demam.concat(
       Tindakan.classifyTindakan("demam", "Campak dengan komplikasi berat", data)
@@ -244,6 +265,7 @@ const tindakan = function (req, res, next) {
         data
       )
     );
+    obat.vitamina.value++;
     demam = demam.concat(
       Tindakan.classifyTindakan(
         "demam",
@@ -263,6 +285,7 @@ const tindakan = function (req, res, next) {
           data
         )
       );
+      obat.vitamina.value++;
     }
   }
   if (
@@ -282,6 +305,7 @@ const tindakan = function (req, res, next) {
           data
         )
       );
+      obat.parasetamol.value++;
     }
   } else if (data.klasifikasiDemam.demam_klasifikasi.includes("Mungkin DBD")) {
     if (data.dataAnak.suhuAnak >= 38.5) {
@@ -293,6 +317,7 @@ const tindakan = function (req, res, next) {
           data
         )
       );
+      obat.parasetamol.value++;
     }
     demam = demam.concat(
       Tindakan.classifyTindakan("demam", "Mungkin DBD", data)
@@ -312,6 +337,7 @@ const tindakan = function (req, res, next) {
           data
         )
       );
+      obat.parasetamol.value++;
     }
   }
   // TELINGA
@@ -330,6 +356,8 @@ const tindakan = function (req, res, next) {
         data
       )
     );
+    obat.antibiotik.value++;
+    obat.parasetamol.value++;
     telinga = telinga.concat(
       Tindakan.classifyTindakan(
         "telinga",
@@ -348,6 +376,7 @@ const tindakan = function (req, res, next) {
         data
       )
     );
+    obat.antibiotik.value++;
     telinga = telinga.concat(
       Tindakan.classifyTindakan(
         "telinga",
@@ -388,6 +417,7 @@ const tindakan = function (req, res, next) {
         data
       )
     );
+    obat.vitamina.value++;
     gizi = gizi.concat(
       Tindakan.classifyTindakan(
         "gizi",
@@ -406,6 +436,7 @@ const tindakan = function (req, res, next) {
         data
       )
     );
+    obat.vitamina.value++;
     gizi = gizi.concat(
       Tindakan.classifyTindakan(
         "gizi",
@@ -436,6 +467,7 @@ const tindakan = function (req, res, next) {
       anemia = anemia.concat(
         Pengobatan.classifyPengobatan("anemia", "Anemia", "Obat Cacing", data)
       );
+      obat.obatcacing.value++;
     }
     anemia = anemia.concat(
       Tindakan.classifyTindakan(
@@ -449,6 +481,8 @@ const tindakan = function (req, res, next) {
       Pengobatan.classifyPengobatan("anemia", "Anemia", "Zat Besi", data),
       Pengobatan.classifyPengobatan("anemia", "Anemia", "Obat Cacing", data)
     );
+    obat.zatbesi.value++;
+    obat.obatcacing.value++;
     anemia = anemia.concat(
       Tindakan.classifyTindakan(
         "anemia",
@@ -499,6 +533,18 @@ const tindakan = function (req, res, next) {
       )
     );
   }
+  let duplicate = "";
+  let flag = true;
+  Object.keys(obat).map((key) => {
+    if (obat[key].value > 1) {
+      if (flag) {
+        duplicate += obat[key].name;
+        flag = false;
+      } else {
+        duplicate += ", " + obat[key].name;
+      }
+    }
+  });
   const result = {
     tbu: tbu,
     batuk: batuk,
@@ -508,24 +554,7 @@ const tindakan = function (req, res, next) {
     gizi: gizi,
     anemia: anemia,
     hiv: hiv,
-  };
-  res.json(result);
-};
-
-const testing = (req, res, next) => {
-  let data = req.body;
-  console.log(
-    Tindakan.classifyTindakan("demam", "Campak dengan komplikasi berat", data)
-  );
-  const result = {
-    tbu: [tbu],
-    batuk: [],
-    diare: [],
-    demam: [],
-    telinga: [],
-    gizi: [],
-    anemia: [],
-    hiv: [],
+    duplicate: duplicate,
   };
   res.json(result);
 };

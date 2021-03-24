@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Row, Button, Spinner, Container } from "reactstrap";
+import { Row, Button, Spinner, Container, Badge } from "reactstrap";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import { Wrapper } from "./style";
@@ -9,6 +9,7 @@ import { Tindakan as CompTindakan } from "../../Components";
 const Tindakan = (props) => {
   let [isLoading, set_isLoading] = useState(true);
   let [hasilTindakan, set_hasilTindakan] = useState();
+  let [duplicate, set_duplicate] = useState("");
 
   const klasifikasiTBU = useSelector((state) => state.klasifikasiTBU);
   const klasifikasiBatuk = useSelector((state) => state.klasifikasiBatuk);
@@ -88,7 +89,10 @@ const Tindakan = (props) => {
             },
             {
               judul: "Demam",
-              klasifikasi: klasifikasiDemam.demam_klasifikasi,
+              klasifikasi: klasifikasiDemam.demam_klasifikasi.replace(
+                "\n",
+                ", "
+              ),
               status: klasifikasiDemam.demam_status,
               tindakan: res.data.demam,
             },
@@ -117,6 +121,7 @@ const Tindakan = (props) => {
               tindakan: res.data.hiv,
             },
           ]);
+          set_duplicate(res.data.duplicate);
           set_isLoading(false);
         })
         .catch((err) => {
@@ -195,7 +200,13 @@ const Tindakan = (props) => {
               return <React.Fragment key={idx}></React.Fragment>;
             }
           })}
-
+        <Row
+          className={`justify-content-center mt-5 ${
+            duplicate === "" ? "d-none" : ""
+          }`}
+        >
+          <Badge color="danger">Obat duplikat: {duplicate}</Badge>
+        </Row>
         <Row className="justify-content-between px-5 py-0 mt-5">
           <Link to="Klasifikasi">
             <Button className="button-sebelumnya-tindakan">

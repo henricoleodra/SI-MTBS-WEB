@@ -1,101 +1,81 @@
-[ 
-    {
-        "penyakit": "Gizi",
-        "klasifikasi": "Sangat Kurus Dengan Komplikasi",
-        "conditioned": [
-            {
-                "tipe": null,
-                "rule": null,
-                "keterangan": "Beri dosis pertama antibiotik yang sesuai"
-            },
-            {
-                "tipe": null,
-                "rule": null,
-                "keterangan": "Cegah gula darah tidak turun"
-            },
-            {
-                "tipe": null,
-                "rule": null,
-                "keterangan": "Hangatkan badan"
-            },
-            {
-                "tipe": null,
-                "rule": null,
-                "keterangan": "RUJUK SEGERA"
-            }
-        ]
-    },
-    {
-        "penyakit": "Gizi",
-        "klasifikasi": "Sangat Kurus Tanpa Komplikasi",
-        "conditioned": [
-            {
-                "tipe": null,
-                "rule": null,
-                "keterangan": "Beri antibiotik yang sesuai selama 5 hari"
-            },
-            {
-                "tipe": null,
-                "rule": null,
-                "keterangan": "Cegah gula darah tidak turun"
-            },
-            {
-                "tipe": null,
-                "rule": null,
-                "keterangan": "Hangatkan badan"
-            },
-            {
-                "tipe": null,
-                "rule": null,
-                "keterangan": "RUJUK untuk penanganan gizi sangat kurus termasuk kemungkinan adanya penyakit penyerta"
-            },
-            {
-                "tipe": null,
-                "rule": null,
-                "keterangan": "Nasihati kapan kembali segera"
-            },
-            {
-                "tipe": null,
-                "rule": null,
-                "keterangan": "Kunjungan ulang 7 hari"
-            }
-        ]
-    },
-    {
-        "penyakit": "Gizi",
-        "klasifikasi": "Kurus",
-        "conditioned": [
-            {
-                "tipe": null,
-                "rule": null,
-                "keterangan": "Lakukan Penilaian Pemberian Makan pada anak dan nasihati sesuai Anjuran Makan Untuk Anak Sehat Maupun Sakit. Bila ada masalah pemberian makan, kunjungan ulang 7 hari"
-            },
-            {
-                "tipe": null,
-                "rule": null,
-                "keterangan": "RUJUK untuk penilaianan kemungkinan adanya penyakit penyerta (Infeksi TB dll)"
-            },
-            {
-                "tipe": null,
-                "rule": null,
-                "keterangan": "Kunjungan ulang 30 hari"
-            }
-        ]
-    },
-    {
-        "penyakit": "Gizi",
-        "klasifikasi": "Gizi Normal",
-        "conditioned": [
-            {
-                "tipe": null,
-                "rule": null,
-                "keterangan": "Jika anak berumur kurang dari 2 tahun, lakukan penilaian pemberian makan dan nasihati sesuai Anjuran Makan Untuk Anak Sehat Maupun Sakit. Bila ada masalah pemberian makan, kunjungan ulang 7 hari"
-            },
-            {
-                "tipe": null,
-                "rule": null,
-                "keterangan": "Anjurkan untuk menimbang berat badan anak setiap bulan"
-            }
-        ]
-    } 
+[
+  {
+    "penyakit": "Gizi",
+    "klasifikasi": "Sangat kurus dengan komplikasi",
+    "conditioned": [
+      {
+        "keterangan": "Beri dosis pertama antibiotik yang sesuai."
+      },
+      {
+        "keterangan": "Cegah gula darah tidak turun."
+      },
+      {
+        "keterangan": "Hangatkan badan."
+      },
+      {
+        "keterangan": "RUJUK SEGERA."
+      }
+    ]
+  },
+  {
+    "penyakit": "Gizi",
+    "klasifikasi": "Sangat kurus tanpa komplikasi.",
+    "conditioned": [
+      {
+        "keterangan": "Beri antibiotik yang sesuai selama 5 hari."
+      },
+      {
+        "keterangan": "Cegah gula darah tidak turun."
+      },
+      {
+        "keterangan": "Hangatkan badan."
+      },
+      {
+        "keterangan": "RUJUK untuk penanganan gizi sangat kurus termasuk kemungkinan adanya penyakit penyerta."
+      },
+      {
+        "keterangan": "Nasihati kapan kembali segera."
+      },
+      {
+        "keterangan": "Kunjungan ulang 7 hari."
+      }
+    ]
+  },
+  {
+    "penyakit": "Gizi",
+    "klasifikasi": "Kurus",
+    "conditioned": [
+      {
+        "keterangan": "Lakukan Penilaian Pemberian Makan pada anak dan nasihati sesuai Anjuran Makan Untuk Anak Sehat Maupun Sakit. Bila ada masalah pemberian makan, kunjungan ulang 7 hari."
+      },
+      {
+        "keterangan": "RUJUK untuk penilaianan kemungkinan adanya penyakit penyerta (Infeksi TB dll)."
+      },
+      {
+        "keterangan": "Kunjungan ulang 30 hari."
+      }
+    ]
+  },
+  {
+    "penyakit": "Gizi",
+    "klasifikasi": "Gizi normal",
+    "conditioned": [
+      {
+        "tipe": "berumur kurang dari 2 tahun",
+        "conditional": "AND",
+        "rule": [
+          {
+            "node": "dataAnak",
+            "key": "umurAnakTahun",
+            "operator": "<",
+            "value": 2
+          }
+        ],
+        "keterangan": "Lakukan penilaian pemberian makan dan nasihati sesuai Anjuran Makan Untuk Anak Sehat Maupun Sakit. Bila ada masalah pemberian makan, kunjungan ulang 7 hari."
+      },
+      {
+        "keterangan": "Anjurkan untuk menimbang berat badan anak setiap bulan"
+      }
+    ]
+  }
 ]

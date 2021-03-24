@@ -32,6 +32,20 @@ const classifyTindakan = (penyakit, klasifikasi, data) => {
         return err;
       }
       break;
+    case "telinga":
+      try {
+        rawRules = fs.readFileSync("./rules/tindakan/Telinga.json");
+      } catch (err) {
+        return err;
+      }
+      break;
+    case "gizi":
+      try {
+        rawRules = fs.readFileSync("./rules/tindakan/Gizi.json");
+      } catch (err) {
+        return err;
+      }
+      break;
     default:
       return "Error";
   }

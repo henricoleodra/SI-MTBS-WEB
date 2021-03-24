@@ -1,62 +1,47 @@
 [
-    {
-        "penyakit": "Telinga",
-        "klasifikasi": "Infeksi Telinga Kronis",
-        "conditioned": [
-            {
-                "tipe": null,
-                "rule": null,
-                "conditioned": null,
-                "keterangan": "Beri antibiotik yang sesuai selama 7 hari"
-            },
-            {
-                "tipe": null,
-                "rule": null,
-                "conditioned": null,
-                "keterangan": "Keringkan telinga dengan bahan penyerap"
-            },
-            {
-                "tipe": null,
-                "rule": null,
-                "conditioned": null,
-                "keterangan": "Kunjungan ulang 5 hari"
-            }
-        ]
-    },
-    {
-        "penyakit": "Telinga",
-        "klasifikasi": "Infeksi Telinga Akut",
-        "conditioned": [
-            {
-                "tipe": null,
-                "rule": null,
-                "conditioned": null,
-                "keterangan": "Keringkan telinga dengan bahan penyerap setelah dicuci dengan NaCl 0,9% atau H2O23%"
-            },
-            {
-                "tipe": null,
-                "rule": null,
-                "conditioned": null,
-                "keterangan": "Beri tetes telinga yang sesuai"
-            },
-            {
-                "tipe": null,
-                "rule": null,
-                "conditioned": null,
-                "keterangan": "Kunjungan ulang 5 hari"
-            }
-        ]
-    },
-    {
-        "penyakit": "Telinga",
-        "klasifikasi": "Tidak ada Infeksi Telinga",
-        "conditioned": [
-            {
-                "tipe": null,
-                "rule": null,
-                "conditioned": null,
-                "keterangan": "Tangani masalah telinga yang ditemukan"
-            }
-        ]
-    }
+  {
+    "penyakit": "Telinga",
+    "klasifikasi": "Mastoiditis",
+    "conditioned": [
+      {
+        "keterangan": "RUJUK SEGERA."
+      }
+    ]
+  },
+  {
+    "penyakit": "Telinga",
+    "klasifikasi": "Infeksi telinga akut",
+    "conditioned": [
+      {
+        "keterangan": "Keringkan telinga dengan bahan penyerap."
+      },
+      {
+        "keterangan": "Kunjungan ulang 5 hari."
+      }
+    ]
+  },
+  {
+    "penyakit": "Telinga",
+    "klasifikasi": "Infeksi telinga kronis",
+    "conditioned": [
+      {
+        "keterangan": "Keringkan telinga dengan bahan penyerap setelah dicuci dengan NaCl 0,9% atau H2O23%."
+      },
+      {
+        "keterangan": "Beri tetes telinga yang sesuai."
+      },
+      {
+        "keterangan": "Kunjungan ulang 5 hari."
+      }
+    ]
+  },
+  {
+    "penyakit": "Telinga",
+    "klasifikasi": "Tidak ada infeksi telinga",
+    "conditioned": [
+      {
+        "keterangan": "Tangani masalah telinga yang ditemukan."
+      }
+    ]
+  }
 ]

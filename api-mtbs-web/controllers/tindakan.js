@@ -7,6 +7,8 @@ const tindakan = function (req, res, next) {
   let batuk = Array();
   let diare = Array();
   let demam = Array();
+  let telinga = Array();
+  let gizi = Array();
   // TANDA BAHAYA UMUM
   tbu = tbu.concat(
     Tindakan.classifyTindakan(
@@ -310,12 +312,130 @@ const tindakan = function (req, res, next) {
       );
     }
   }
+  // TELINGA
+  if (data.klasifikasiTelinga.telinga_klasifikasi === "Mastoditis") {
+    telinga = telinga.concat(
+      Pengobatan.classifyPengobatan(
+        "telinga",
+        "Infeksi Telinga Akut",
+        "Antibiotik",
+        data
+      ),
+      Pengobatan.classifyPengobatan(
+        "telinga",
+        "Sakit Telinga",
+        "Parasetamol",
+        data
+      )
+    );
+    telinga = telinga.concat(
+      Tindakan.classifyTindakan(
+        "telinga",
+        data.klasifikasiTelinga.telinga_klasifikasi,
+        data
+      )
+    );
+  } else if (
+    data.klasifikasiTelinga.telinga_klasifikasi === "Infeksi telinga akut"
+  ) {
+    telinga = telinga.concat(
+      Pengobatan.classifyPengobatan(
+        "telinga",
+        "Infeksi Telinga Akut",
+        "Antibiotik",
+        data
+      )
+    );
+    telinga = telinga.concat(
+      Tindakan.classifyTindakan(
+        "telinga",
+        data.klasifikasiTelinga.telinga_klasifikasi,
+        data
+      )
+    );
+  } else if (
+    data.klasifikasiTelinga.telinga_klasifikasi === "Infeksi telinga kronis"
+  ) {
+    telinga = telinga.concat(
+      Tindakan.classifyTindakan(
+        "telinga",
+        data.klasifikasiTelinga.telinga_klasifikasi,
+        data
+      )
+    );
+  } else if (
+    data.klasifikasiTelinga.telinga_klasifikasi === "Tidak ada infeksi telinga"
+  ) {
+    telinga = telinga.concat(
+      Tindakan.classifyTindakan(
+        "telinga",
+        data.klasifikasiTelinga.telinga_klasifikasi,
+        data
+      )
+    );
+  }
+  // GIZI
+  if (
+    data.gizi.klasifikasiGizi.gizi_klasifikasi ===
+    "Sangat kurus dengan komplikasi"
+  ) {
+    gizi = gizi.concat(
+      Pengobatan.classifyPengobatan(
+        "vitamina",
+        "Defisiensi Vit A, Xerofthalmia dan Gizi Sangat Kurus",
+        "Vitamin A",
+        data
+      )
+    );
+    gizi = gizi.concat(
+      Tindakan.classifyTindakan(
+        "gizi",
+        data.gizi.klasifikasiGizi.gizi_klasifikasi,
+        data
+      )
+    );
+  } else if (
+    data.gizi.klasifikasiGizi.gizi_klasifikasi ===
+    "Sangat kurus tanpa komplikasi"
+  ) {
+    gizi = gizi.concat(
+      Pengobatan.classifyPengobatan(
+        "vitamina",
+        "Defisiensi Vit A, Xerofthalmia dan Gizi Sangat Kurus",
+        "Vitamin A",
+        data
+      )
+    );
+    gizi = gizi.concat(
+      Tindakan.classifyTindakan(
+        "gizi",
+        data.gizi.klasifikasiGizi.gizi_klasifikasi,
+        data
+      )
+    );
+  } else if (data.gizi.klasifikasiGizi.gizi_klasifikasi === "Kurus") {
+    gizi = gizi.concat(
+      Tindakan.classifyTindakan(
+        "gizi",
+        data.gizi.klasifikasiGizi.gizi_klasifikasi,
+        data
+      )
+    );
+  } else if (data.gizi.klasifikasiGizi.gizi_klasifikasi === "Gizi normal") {
+    gizi = gizi.concat(
+      Tindakan.classifyTindakan(
+        "gizi",
+        data.gizi.klasifikasiGizi.gizi_klasifikasi,
+        data
+      )
+    );
+  }
   const result = {
     tbu: tbu,
     batuk: batuk,
     diare: diare,
     demam: demam,
-    telinga: [],
+    telinga: telinga,
     gizi: [],
     anemia: [],
     hiv: [],

@@ -46,6 +46,20 @@ const classifyTindakan = (penyakit, klasifikasi, data) => {
         return err;
       }
       break;
+    case "anemia":
+      try {
+        rawRules = fs.readFileSync("./rules/tindakan/Anemia.json");
+      } catch (err) {
+        return err;
+      }
+      break;
+    case "hiv":
+      try {
+        rawRules = fs.readFileSync("./rules/tindakan/HIV.json");
+      } catch (err) {
+        return err;
+      }
+      break;
     default:
       return "Error";
   }

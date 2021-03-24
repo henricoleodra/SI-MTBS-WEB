@@ -1,46 +1,38 @@
 [
-    {
-        "penyakit": "HIV",
-        "klasifikasi": "Infeksi HIV Terkonfirmasi",
-        "conditioned": [
-            {
-                "tipe": null,
-                "rule": null,
-                "keterangan": "Rujuk ke puskesmas/RS Rujukan ARV untuk mendapatkan terapi ARV dan Kotrimoksasol profilaksis"
-            }
-        ]
-    },
-    {
-        "penyakit": "HIV",
-        "klasifikasi": "Diduga terinfeksi HIV",
-        "conditioned": [
-            {
-                "tipe": null,
-                "rule": null,
-                "keterangan": "Rujuk ke puskesmas/RS Rujukan ARV untuk mendapatkan pemeriksaan lebih lanjut dan terapi ARV dan Kotrimoksasol profilaksis"
-            }
-        ]
-    },
-    {
-        "penyakit": "HIV",
-        "klasifikasi": "Terpajan HIV",
-        "conditioned": [
-            {
-                "tipe": null,
-                "rule": null,
-                "keterangan": "Rujuk ke puskesmas/RS rujukan ARV untuk mendapatkan pemeriksaan lebih lanjut dan ARV profilaksis serta Kotrimoksasol profilaksis"
-            }
-        ]
-    },
-    {
-        "penyakit": "HIV",
-        "klasifikasi": "Mungkin bukan infeksi HIV",
-        "conditioned": [
-            {
-                "tipe": null,
-                "rule": null,
-                "keterangan": "Tangani Infeksi yang ada"
-            }
-        ]
-    }
+  {
+    "penyakit": "HIV",
+    "klasifikasi": "Infeksi HIV terkonfirmasi",
+    "conditioned": [
+      {
+        "keterangan": "Rujuk ke puskesmas/RS Rujukan ARV untuk mendapatkan terapi ARV dan Kotrimoksasol profilaksis."
+      }
+    ]
+  },
+  {
+    "penyakit": "HIV",
+    "klasifikasi": "Diduga terinfeksi HIV",
+    "conditioned": [
+      {
+        "keterangan": "Rujuk ke puskesmas/RS Rujukan ARV untuk mendapatkan pemeriksaan lebih lanjut dan terapi ARV dan Kotrimoksasol profilaksis."
+      }
+    ]
+  },
+  {
+    "penyakit": "HIV",
+    "klasifikasi": "Terpajan HIV",
+    "conditioned": [
+      {
+        "keterangan": "Rujuk ke puskesmas/RS rujukan ARV untuk mendapatkan pemeriksaan lebih lanjut dan ARV profilaksis serta Kotrimoksasol profilaksis."
+      }
+    ]
+  },
+  {
+    "penyakit": "HIV",
+    "klasifikasi": "Mungkin bukan infeksi HIV",
+    "conditioned": [
+      {
+        "keterangan": "Tangani Infeksi yang ada."
+      }
+    ]
+  }
 ]

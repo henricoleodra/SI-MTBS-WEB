@@ -9,6 +9,8 @@ const tindakan = function (req, res, next) {
   let demam = Array();
   let telinga = Array();
   let gizi = Array();
+  let anemia = Array();
+  let hiv = Array();
   // TANDA BAHAYA UMUM
   tbu = tbu.concat(
     Tindakan.classifyTindakan(
@@ -376,8 +378,7 @@ const tindakan = function (req, res, next) {
   }
   // GIZI
   if (
-    data.gizi.klasifikasiGizi.gizi_klasifikasi ===
-    "Sangat kurus dengan komplikasi"
+    data.klasifikasiGizi.gizi_klasifikasi === "Sangat kurus dengan komplikasi"
   ) {
     gizi = gizi.concat(
       Pengobatan.classifyPengobatan(
@@ -390,13 +391,12 @@ const tindakan = function (req, res, next) {
     gizi = gizi.concat(
       Tindakan.classifyTindakan(
         "gizi",
-        data.gizi.klasifikasiGizi.gizi_klasifikasi,
+        data.klasifikasiGizi.gizi_klasifikasi,
         data
       )
     );
   } else if (
-    data.gizi.klasifikasiGizi.gizi_klasifikasi ===
-    "Sangat kurus tanpa komplikasi"
+    data.klasifikasiGizi.gizi_klasifikasi === "Sangat kurus tanpa komplikasi"
   ) {
     gizi = gizi.concat(
       Pengobatan.classifyPengobatan(
@@ -409,23 +409,92 @@ const tindakan = function (req, res, next) {
     gizi = gizi.concat(
       Tindakan.classifyTindakan(
         "gizi",
-        data.gizi.klasifikasiGizi.gizi_klasifikasi,
+        data.klasifikasiGizi.gizi_klasifikasi,
         data
       )
     );
-  } else if (data.gizi.klasifikasiGizi.gizi_klasifikasi === "Kurus") {
+  } else if (data.klasifikasiGizi.gizi_klasifikasi === "Kurus") {
     gizi = gizi.concat(
       Tindakan.classifyTindakan(
         "gizi",
-        data.gizi.klasifikasiGizi.gizi_klasifikasi,
+        data.klasifikasiGizi.gizi_klasifikasi,
         data
       )
     );
-  } else if (data.gizi.klasifikasiGizi.gizi_klasifikasi === "Gizi normal") {
+  } else if (data.klasifikasiGizi.gizi_klasifikasi === "Gizi normal") {
     gizi = gizi.concat(
       Tindakan.classifyTindakan(
         "gizi",
-        data.gizi.klasifikasiGizi.gizi_klasifikasi,
+        data.klasifikasiGizi.gizi_klasifikasi,
+        data
+      )
+    );
+  }
+  // ANEMIA
+  if (data.klasifikasiAnemia.anemia_klasifikasi === "Anemia berat") {
+    if (data.dataAnak.umurAnakBulan >= 4) {
+      anemia = anemia.concat(
+        Pengobatan.classifyPengobatan("anemia", "Anemia", "Obat Cacing", data)
+      );
+    }
+    anemia = anemia.concat(
+      Tindakan.classifyTindakan(
+        "anemia",
+        data.klasifikasiAnemia.anemia_klasifikasi,
+        data
+      )
+    );
+  } else if (data.klasifikasiAnemia.anemia_klasifikasi === "Anemia") {
+    anemia = anemia.concat(
+      Pengobatan.classifyPengobatan("anemia", "Anemia", "Zat Besi", data),
+      Pengobatan.classifyPengobatan("anemia", "Anemia", "Obat Cacing", data)
+    );
+    anemia = anemia.concat(
+      Tindakan.classifyTindakan(
+        "anemia",
+        data.klasifikasiAnemia.anemia_klasifikasi,
+        data
+      )
+    );
+  } else if (data.klasifikasiAnemia.anemia_klasifikasi === "Tidak anemia") {
+    Tindakan.classifyTindakan(
+      "anemia",
+      data.klasifikasiAnemia.anemia_klasifikasi,
+      data
+    );
+  }
+  // HIV
+  if (data.klasifikasiHIV.hiv_klasifikasi === "Infeksi HIV terkonfirmasi") {
+    hiv = hiv.concat(
+      Tindakan.classifyTindakan(
+        "hiv",
+        data.klasifikasiHIV.hiv_klasifikasi,
+        data
+      )
+    );
+  } else if (data.klasifikasiHIV.hiv_klasifikasi === "Diduga terinfeksi HIV") {
+    hiv = hiv.concat(
+      Tindakan.classifyTindakan(
+        "hiv",
+        data.klasifikasiHIV.hiv_klasifikasi,
+        data
+      )
+    );
+  } else if (data.klasifikasiHIV.hiv_klasifikasi === "Terpajan HIV") {
+    hiv = hiv.concat(
+      Tindakan.classifyTindakan(
+        "hiv",
+        data.klasifikasiHIV.hiv_klasifikasi,
+        data
+      )
+    );
+  } else if (
+    data.klasifikasiHIV.hiv_klasifikasi === "Mungkin bukan infeksi HIV"
+  ) {
+    hiv = hiv.concat(
+      Tindakan.classifyTindakan(
+        "hiv",
+        data.klasifikasiHIV.hiv_klasifikasi,
         data
       )
     );
@@ -436,9 +505,9 @@ const tindakan = function (req, res, next) {
     diare: diare,
     demam: demam,
     telinga: telinga,
-    gizi: [],
-    anemia: [],
-    hiv: [],
+    gizi: gizi,
+    anemia: anemia,
+    hiv: hiv,
   };
   res.json(result);
 };

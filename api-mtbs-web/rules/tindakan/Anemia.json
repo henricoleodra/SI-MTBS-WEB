@@ -1,73 +1,64 @@
 [
-    {
-        "penyakit": "Anemia",
-        "klasifikasi": "Anemia Berat",
-        "conditioned": [
-            {
-                "tipe": null,
-                "rule": null,
-                "conditioned": null,
-                "keterangan": "Bila masih menyusu, teruskan pemberian ASI"
-            },
-            {
-                "tipe": null,
-                "rule": null,
-                "conditioned": null,
-                "keterangan": "RUJUK SEGERA"
-            }
-        ]
-    },
-    {
-        "penyakit": "Anemia",
-        "klasifikasi": "Anemia",
-        "conditioned": [
-            {
-                "tipe": "isDaerahEndemis",
-                "rule": [
-                    {
-                        "key": "demam_isDaerahEndemis",
-                        "operator": "=",
-                        "value": "Tinggi"
-                    }
-                ],
-                "keterangan": "Jika daerah Endemis Tinggi Malaria: periksa dan obati malaria terlebih dahulu jika positif"
-            },
-            {
-                "tipe": null,
-                "rule": null,
-                "conditioned": null,
-                "keterangan": "Lakukan Penilaian Pemberian Makan pada anak. Bila ada masalah, beri konseling pemberian makan dan kunjungan ulang 7 hari"
-            },
-            {
-                "tipe": null,
-                "rule": null,
-                "conditioned": null,
-                "keterangan": "Lakukan pemberiksaan tinja untuk deteksi kecacingan"
-            },
-            {
-                "tipe": null,
-                "rule": null,
-                "conditioned": null,
-                "keterangan": "Nasihati kapan kembali segera"
-            },
-            {
-                "tipe": null,
-                "rule": null,
-                "conditioned": null,
-                "keterangan": "Kunjungan ulang 14 hari"
-            }
-        ]
-    },
-    {
-        "penyakit": "Anemia",
-        "klasifikasi": "Tidak Anemia",
-        "conditioned": [
-            {
-                "tipe":null,
-                "rule":null,
-                "conditioned":null,
-                "keterangan": "Jika anak < 2 tahun, nilai pemberian makanan pada anak. Jika ada masalah pemberian makanan, kunjungan ulang 7 hari"
-            }
-        ]
-    }
+  {
+    "penyakit": "Anemia",
+    "klasifikasi": "Anemia berat",
+    "conditioned": [
+      {
+        "keterangan": "Bila masih menyusu, teruskan pemberian ASI."
+      },
+      {
+        "keterangan": "RUJUK SEGERA."
+      }
+    ]
+  },
+  {
+    "penyakit": "Anemia",
+    "klasifikasi": "Anemia",
+    "conditioned": [
+      {
+        "keterangan": "Lakukan Penilaian Pemberian Makan pada anak. Bila ada masalah, beri konseling pemberian makan dan kunjungan ulang 7 hari."
+      },
+      {
+        "tipe": "berada pada daerah Endemis Tinggi Malaria",
+        "conditional": "AND",
+        "rule": [
+          {
+            "node": "ansDemam",
+            "key": "demam_isDaerahEndemis",
+            "operator": "=",
+            "value": "Tinggi"
+          }
+        ],
+        "keterangan": "Periksa dan obati malaria terlebih dahulu jika positif."
+      },
+      {
+        "keterangan": "Lakukan pemberiksaan tinja untuk deteksi kecacingan."
+      },
+      {
+        "keterangan": "Nasihati kapan kembali segera."
+      },
+      {
+        "keterangan": "Kunjungan ulang 14 hari."
+      }
+    ]
+  },
+  {
+    "penyakit": "Anemia",
+    "klasifikasi": "Tidak Anemia",
+    "conditioned": [
+      {
+        "tipe": "berumur dibawah 2 tahun",
+        "conditional": "AND",
+        "rule": [
+          {
+            "node": "dataAnak",
+            "key": "umurAnakTahun",
+            "operator": "<",
+            "value": "2"
+          }
+        ],
+        "keterangan": "Nilai pemberian makanan pada anak. Jika ada masalah pemberian makanan, kunjungan ulang 7 hari"
+      }
+    ]
+  }
 ]

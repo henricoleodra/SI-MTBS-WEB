@@ -63,6 +63,7 @@ const Tindakan = (props) => {
           },
         })
         .then((res) => {
+          console.log(res.data.gizi);
           set_hasilTindakan([
             {
               judul: "Tanda Bahaya Umum",
@@ -78,7 +79,10 @@ const Tindakan = (props) => {
             },
             {
               judul: "Diare",
-              klasifikasi: klasifikasiDiare.diare_klasifikasi,
+              klasifikasi: klasifikasiDiare.diare_klasifikasi.replace(
+                "\n",
+                ", "
+              ),
               status: klasifikasiDiare.diare_status,
               tindakan: res.data.diare,
             },

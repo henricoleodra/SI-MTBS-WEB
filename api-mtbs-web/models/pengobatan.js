@@ -55,7 +55,7 @@ const classifyPengobatan = (klasifikasi, penyakit, obat, data) => {
       break;
     case "vitamina":
       try {
-        rawRules = fs.readFileSync(".rules/pengobatan/VitA_Gizi.json");
+        rawRules = fs.readFileSync("./rules/pengobatan/VitA_Gizi.json");
       } catch (err) {
         return err;
       }

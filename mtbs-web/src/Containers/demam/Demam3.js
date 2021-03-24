@@ -18,7 +18,6 @@ import {
   faChevronLeft,
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
-//import axios from 'axios';
 import { useDispatch, useSelector } from "react-redux";
 
 // Actions

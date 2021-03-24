@@ -59,7 +59,7 @@ const Demam = (props) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const res = await axios(`http://localhost:8000/Demam`, {
+    const res = await axios.post(`http://localhost:8000/Demam`, {
       ansDemam: ansDemam,
     });
     dispatch(

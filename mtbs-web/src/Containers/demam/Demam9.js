@@ -55,7 +55,7 @@ const Demam = (props) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     dispatch(FlagChange("FLAG_DEMAM", 2));
-    const res = await axios(`http://localhost:8000/Demam`, {
+    const res = await axios.post(`http://localhost:8000/Demam`, {
       ansDemam: ansDemam,
     });
     dispatch(

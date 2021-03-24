@@ -51,7 +51,7 @@ const Tindakan = (props) => {
           klasifikasiAnemia,
           ansHIV,
           klasifikasiHIV,
-          klasifkasiLain: {
+          klasifikasiLain: {
             klasifkasiBeratLain:
               klasifikasiTBU.tbu_status !== "success" ||
               klasifikasiBatuk.bsb_klasifikasi !== "success" ||

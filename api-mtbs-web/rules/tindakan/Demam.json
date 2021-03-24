@@ -101,6 +101,7 @@
             "value": true
           },
           {
+            "node": "ansDemam",
             "key": "demam_nanahDiMata",
             "operator": "=",
             "value": true

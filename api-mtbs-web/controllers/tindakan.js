@@ -229,7 +229,7 @@ const tindakan = function (req, res, next) {
       );
     }
     demam = demam.concat(
-      Tindakan.classifyTindakan("demam", "Campak dengan komplikasi berat")
+      Tindakan.classifyTindakan("demam", "Campak dengan komplikasi berat", data)
     );
   } else if (
     data.klasifikasiDemam.demam_klasifikasi.includes(
@@ -271,7 +271,7 @@ const tindakan = function (req, res, next) {
     )
   ) {
     demam = demam.concat(
-      Tindakan.classifyTindakan("demam", "Demam berdarah dengan (DBD)", data)
+      Tindakan.classifyTindakan("demam", "Demam berdarah dengue (DBD)", data)
     );
     if (data.dataAnak.suhuAnak >= 38.5) {
       demam = demam.concat(
@@ -508,6 +508,24 @@ const tindakan = function (req, res, next) {
     gizi: gizi,
     anemia: anemia,
     hiv: hiv,
+  };
+  res.json(result);
+};
+
+const testing = (req, res, next) => {
+  let data = req.body;
+  console.log(
+    Tindakan.classifyTindakan("demam", "Campak dengan komplikasi berat", data)
+  );
+  const result = {
+    tbu: [tbu],
+    batuk: [],
+    diare: [],
+    demam: [],
+    telinga: [],
+    gizi: [],
+    anemia: [],
+    hiv: [],
   };
   res.json(result);
 };

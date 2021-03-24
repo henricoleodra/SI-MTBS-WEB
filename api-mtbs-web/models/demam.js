@@ -14,9 +14,9 @@ const classifierDemam = (ansDemam) => {
       ) {
         status = 1;
         if (klasifikasi === null) {
-          klasifikasi = "Penyakit Berat Dengan Demam";
+          klasifikasi = "Penyakit berat dengan demam";
         } else {
-          klasifikasi += "\nPenyakit Berat Dengan Demam";
+          klasifikasi += "\nPenyakit berat dengan demam";
         }
       } else if (ansDemam.demam_hasilRDT != null) {
         if (ansDemam.suhuAnak >= 37.5 && ansDemam.demam_hasilRDT === true) {
@@ -44,9 +44,9 @@ const classifierDemam = (ansDemam) => {
             }
           }
           if (klasifikasi === null) {
-            klasifikasi = "Demam Mungkin Bukan Malaria";
+            klasifikasi = "Demam mungkin bukan malaria";
           } else {
-            klasifikasi += "\nDemam Mungkin Bukan Malaria";
+            klasifikasi += "\nDemam mungkin bukan malaria";
           }
         }
       } else if (ansDemam.demam_sebabLain != "") {
@@ -58,9 +58,9 @@ const classifierDemam = (ansDemam) => {
           }
         }
         if (klasifikasi === null) {
-          klasifikasi = "Demam Mungkin Bukan Malaria";
+          klasifikasi = "Demam mungkin bukan malaria";
         } else {
-          klasifikasi += "\nDemam Mungkin Bukan Malaria";
+          klasifikasi += "\nDemam mungkin bukan malaria";
         }
       }
     }
@@ -76,9 +76,9 @@ const classifierDemam = (ansDemam) => {
       ) {
         status = 1;
         if (klasifikasi === null) {
-          klasifikasi = "Penyakit Berat Dengan Demam";
+          klasifikasi = "Penyakit berat dengan demam";
         } else {
-          klasifikasi += "\nPenyakit Berat Dengan Demam";
+          klasifikasi += "\nPenyakit berat dengan demam";
         }
       } else if (
         ansDemam.klasifikasiTBU === false &&
@@ -92,9 +92,9 @@ const classifierDemam = (ansDemam) => {
           }
         }
         if (klasifikasi === null) {
-          klasifikasi = "Demam Bukan Malaria";
+          klasifikasi = "Demam bukan malaria";
         } else {
-          klasifikasi += "\nDemam Bukan Malaria";
+          klasifikasi += "\nDemam bukan malaria";
         }
       }
     }
@@ -110,9 +110,9 @@ const classifierDemam = (ansDemam) => {
       ) {
         status = 1;
         if (klasifikasi === null) {
-          klasifikasi = "Campak Dengan Komplikasi Berat";
+          klasifikasi = "Campak dengan komplikasi berat";
         } else {
-          klasifikasi += "\nCampak Dengan Komplikasi Berat";
+          klasifikasi += "\nCampak dengan komplikasi berat";
         }
       } else if (
         ansDemam.demam_nanahDiMata === true ||
@@ -126,9 +126,9 @@ const classifierDemam = (ansDemam) => {
           }
         }
         if (klasifikasi === null) {
-          klasifikasi = "Campak Dengan Komplikasi Pada Mata Dan/Atau Mulut";
+          klasifikasi = "Campak dengan komplikasi pada mata dan/atau mulut";
         } else {
-          klasifikasi += "\nCampak Dengan Komplikasi Pada Mata Dan/Atau Mulut";
+          klasifikasi += "\nCampak dengan komplikasi pada mata dan/atau mulut";
         }
       }
     }
@@ -169,9 +169,9 @@ const classifierDemam = (ansDemam) => {
     ) {
       status = 1;
       if (klasifikasi === null) {
-        klasifikasi = "Demam Berdarah Dengue (DBD)";
+        klasifikasi = "Demam berdarah dengue (DBD)";
       } else {
-        klasifikasi += "\nDemam Berdarah Dengue (DBD)";
+        klasifikasi += "\nDemam berdarah dengue (DBD)";
       }
     } else if (
       tmpMendadakTinggi === true ||
@@ -206,9 +206,9 @@ const classifierDemam = (ansDemam) => {
         }
       }
       if (klasifikasi === null) {
-        klasifikasi = "Demam Mungkin Bukan DBD";
+        klasifikasi = "Demam mungkin bukan DBD";
       } else {
-        klasifikasi += "\nDemam Mungkin Bukan DBD";
+        klasifikasi += "\nDemam mungkin bukan DBD";
       }
     }
   }

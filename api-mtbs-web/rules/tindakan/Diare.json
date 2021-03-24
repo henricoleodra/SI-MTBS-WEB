@@ -14,7 +14,7 @@
             "value": false
           }
         ],
-        "keterangan": "Beri cairan untuk dehidrasi berat dan tablet Zinc sesuai rencana terapi C"
+        "keterangan": "Beri cairan untuk dehidrasi berat dan tablet Zinc sesuai rencana terapi C."
       },
       {
         "tipe": "memiliki klasifikasi berat lain",
@@ -30,7 +30,7 @@
         "keterangan": "RUJUK SEGERA"
       },
       {
-        "tipe": "memiliki klasifikasi berat lain dan masih bisa minum",
+        "tipe": "memiliki klasifikasi berat lain dan masih bisa minum.",
         "conditional": "AND",
         "rule": [
           {
@@ -46,7 +46,7 @@
             "value": true
           }
         ],
-        "keterangan": "Berikan ASI dan larutan oralit selama perjalanan"
+        "keterangan": "Berikan ASI dan larutan oralit selama perjalanan."
       }
     ]
   },
@@ -55,7 +55,7 @@
     "klasifikasi": "Diare dehidrasi ringan/sedang",
     "conditioned": [
       {
-        "keterangan": "Beri cairan, tablet Zinc dan makanan sesuai Rencana Terapi B"
+        "keterangan": "Beri cairan, tablet Zinc dan makanan sesuai Rencana Terapi B."
       },
       {
         "tipe": "memiliki klasifikasi berat lain dan masih bisa minum",
@@ -74,13 +74,13 @@
             "value": true
           }
         ],
-        "keterangan": "Berikan ASI dan larutan oralit selama perjalanan"
+        "keterangan": "Berikan ASI dan larutan oralit selama perjalanan."
       }
       {
-        "keterangan": "Nasihati kapan kembali segera"
+        "keterangan": "Nasihati kapan kembali segera."
       },
       {
-        "keterangan": "Kunjungan ulang 3 hari jika tidak ada perbaikan"
+        "keterangan": "Kunjungan ulang 3 hari jika tidak ada perbaikan."
       }
     ]
   },
@@ -89,13 +89,13 @@
     "klasifikasi": "Diare tanpa dehidrasi",
     "conditioned": [
       {
-        "keterangan": "Beri cairan, tablet Zinc dan makanan sesuai Rencana Terapi A"
+        "keterangan": "Beri cairan, tablet Zinc dan makanan sesuai Rencana Terapi A."
       },
       {
-        "keterangan": "Nasihati kapan kembali segera"
+        "keterangan": "Nasihati kapan kembali segera."
       },
       {
-        "keterangan": "Kunjungan ulang 3 hari jika tidak ada perbaikan"
+        "keterangan": "Kunjungan ulang 3 hari jika tidak ada perbaikan."
       }
     ]
   },
@@ -104,10 +104,10 @@
     "klasifikasi": "Diare persisten berat",
     "conditioned": [
       {
-        "keterangan": "Atasi dehidrasi sebelum dirujuk, kecuali ada klasifikasi berat lain"
+        "keterangan": "Atasi dehidrasi sebelum dirujuk, kecuali ada klasifikasi berat lain."
       },
       {
-        "keterangan": "RUJUK"
+        "keterangan": "RUJUK."
       }
     ]
   },
@@ -116,16 +116,16 @@
     "klasifikasi": "Diare persisten",
     "conditioned": [
       {
-        "keterangan": "Nasihati pemberian makan untuk Diare Persisten"
+        "keterangan": "Nasihati pemberian makan untuk Diare Persisten."
       },
       {
-        "keterangan": "Beri tablet zinc selama 10 hari berturut-turut"
+        "keterangan": "Beri tablet zinc selama 10 hari berturut-turut."
       },
       {
-        "keterangan": "Nasihati kapan kembali segera"
+        "keterangan": "Nasihati kapan kembali segera."
       },
       {
-        "keterangan": "Kunjungan ulang 3 hari"
+        "keterangan": "Kunjungan ulang 3 hari."
       }
     ]
   },
@@ -134,13 +134,13 @@
     "klasifikasi": "Disentri",
     "conditioned": [
       {
-        "keterangan": "Beri tablet zinc selama 10 hari berturut-turut"
+        "keterangan": "Beri tablet zinc selama 10 hari berturut-turut."
       },
       {
-        "keterangan": "Nasihati kapan kembali segera"
+        "keterangan": "Nasihati kapan kembali segera."
       },
       {
-        "keterangan": "Kunjungan ulang 3 hari"
+        "keterangan": "Kunjungan ulang 3 hari."
       }
     ]
   }

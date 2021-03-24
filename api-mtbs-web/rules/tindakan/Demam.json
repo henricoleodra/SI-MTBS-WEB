@@ -1,54 +1,19 @@
 [
   {
     "penyakit": "Demam",
-    "klasifikasi": "Penyakit Berat Dengan Demam",
+    "klasifikasi": "Penyakit berat dengan demam",
     "conditioned": [
       {
-        "tipe": "Daerah Endemis, Berkunjung Daerah Endemis",
-        "conditional": "OR",
-        "rule": [
-          {
-            "key": "demam_isDaerahEndemis",
-            "operator": "=",
-            "value": "Tinggi"
-          },
-          {
-            "key": "demam_isDaerahEndemis",
-            "operator": "=",
-            "value": "Rendah"
-          },
-          {
-            "key": "demam_isBerkunjungDaerahEndemis",
-            "operator": "=",
-            "value": "Tinggi"
-          },
-          {
-            "key": "demam_isBerkunjungDaerahEndemis",
-            "operator": "=",
-            "value": "Rendah"
-          }
-        ],
-        "keterangan": ""
-      },
-      {
-        "tipe": null,
-        "rule": null,
         "keterangan": "Beri dosis pertama artemeter injeksi atau kinin injeksi untuk malaria berat."
       },
       {
-        "tipe": null,
-        "rule": null,
         "keterangan": "Beri dosis pertama antibiotik yang sesuai."
       },
       {
-        "tipe": null,
-        "rule": null,
         "keterangan": "Cegah agar gula darah tidak turun."
       },
       {
-        "tipe": null,
-        "rule": null,
-        "keterangan": "Rujuk Segera."
+        "keterangan": "RUJUK SEGERA."
       }
     ]
   },
@@ -57,366 +22,201 @@
     "klasifikasi": "Malaria",
     "conditioned": [
       {
-        "tipe": "Daerah Endemis, Berkunjung Daerah Endemis",
-        "conditional": "OR",
-        "rule": [
-          {
-            "key": "demam_isDaerahEndemis",
-            "operator": "=",
-            "value": "Tinggi"
-          },
-          {
-            "key": "demam_isDaerahEndemis",
-            "operator": "=",
-            "value": "Rendah"
-          },
-          {
-            "key": "demam_isBerkunjungDaerahEndemis",
-            "operator": "=",
-            "value": "Tinggi"
-          },
-          {
-            "key": "demam_isBerkunjungDaerahEndemis",
-            "operator": "=",
-            "value": "Rendah"
-          }
-        ],
-        "keterangan": ""
-      },
-      {
-        "tipe": null,
-        "rule": null,
         "keterangan": "Nasihati kapan kembali segera."
       },
       {
-        "tipe": null,
-        "rule": null,
         "keterangan": "Kunjungan ulang 3 hari jika tetap demam."
       },
       {
-        "tipe": null,
-        "rule": null,
         "keterangan": "Jika demam berlanjut lebih dari 7 hari, RUJUK untuk penilaian lebih lanjut."
       }
     ]
   },
   {
     "penyakit": "Demam",
-    "klasifikasi": "Demam Mungkin Bukan Malaria",
+    "klasifikasi": "Demam mungkin bukan malaria",
     "conditioned": [
       {
-        "tipe": "Daerah Endemis, Berkunjung Daerah Endemis",
-        "conditional": "OR",
-        "rule": [
-          {
-            "key": "demam_isDaerahEndemis",
-            "operator": "=",
-            "value": "Tinggi"
-          },
-          {
-            "key": "demam_isDaerahEndemis",
-            "operator": "=",
-            "value": "Rendah"
-          },
-          {
-            "key": "demam_isBerkunjungDaerahEndemis",
-            "operator": "=",
-            "value": "Tinggi"
-          },
-          {
-            "key": "demam_isBerkunjungDaerahEndemis",
-            "operator": "=",
-            "value": "Rendah"
-          }
-        ],
-        "keterangan": ""
-      },
-      {
-        "tipe": null,
-        "rule": null,
         "keterangan": "Obati penyebab lain dari demam."
       },
       {
-        "tipe": null,
-        "rule": null,
         "keterangan": "Nasihati kapan kembali segera."
       },
       {
-        "tipe": null,
-        "rule": null,
         "keterangan": "Kunjungan ulang 3 hari jika tetap demam."
       },
       {
-        "tipe": null,
-        "rule": null,
         "keterangan": "Jika demam berlanjut lebih dari 7 hari, RUJUK untuk penilaian lebih lanjut."
       }
     ]
   },
   {
     "penyakit": "Demam",
-    "klasifikasi": "Penyakit Berat Dengan Demam",
+    "klasifikasi": "Penyakit berat dengan demam",
     "conditioned": [
       {
-        "tipe": "Daerah Endemis, Berkunjung Daerah Endemis",
-        "conditional": "OR",
-        "rule": [
-          {
-            "key": "demam_isDaerahEndemis",
-            "operator": "=",
-            "value": "Non Endemis"
-          },
-          {
-            "key": "demam_isBerkunjungDaerahEndemis",
-            "operator": "=",
-            "value": "Non Endemis"
-          }
-        ],
-        "keterangan": ""
-      },
-      {
-        "tipe": null,
-        "rule": null,
         "keterangan": "Beri dosis pertama antibiotik yang sesuai."
       },
       {
-        "tipe": null,
-        "rule": null,
         "keterangan": "Cegah agar gula darah tidak turun."
       },
       {
-        "tipe": null,
-        "rule": null,
-        "keterangan": "Rujuk Segera."
-      }
-    ]
-  },
-  {
-    "penyakit": "Demam",
-    "klasifikasi": "Demam Bukan Malaria",
-    "conditioned": [
-      {
-        "tipe": "Daerah Endemis, Berkunjung Daerah Endemis",
-        "conditional": "OR",
-        "rule": [
-          {
-            "key": "demam_isDaerahEndemis",
-            "operator": "=",
-            "value": "Non Endemis"
-          },
-          {
-            "key": "demam_isBerkunjungDaerahEndemis",
-            "operator": "=",
-            "value": "Non Endemis"
-          }
-        ],
-        "keterangan": ""
-      },
-      {
-        "tipe": null,
-        "rule": null,
-        "keterangan": "Obati penyebab lain dari demam."
-      },
-      {
-        "tipe": null,
-        "rule": null,
-        "keterangan": "Nasihati kapan kembali segera."
-      },
-      {
-        "tipe": null,
-        "rule": null,
-        "keterangan": "Kunjungan ulang 2 hari jika tetap demam."
-      },
-      {
-        "tipe": null,
-        "rule": null,
-        "keterangan": "Jika demam berlanjut lebih dari 7 hari, RUJUK untuk penilaian lebih lanjut."
-      }
-    ]
-  },
-  {
-    "penyakit": "Demam",
-    "klasifikasi": "Campak Dengan Komplikasi Berat",
-    "conditioned": [
-      {
-        "tipe": "Kornea Keruh, Nanah di Mata",
-        "conditional": "OR",
-        "rule": [
-          {
-            "key": "demam_korneaKeruh",
-            "operator": "=",
-            "value": "true"
-          },
-          {
-            "key": "demam_nanahDiMata",
-            "operator": "=",
-            "value": "true"
-          }
-        ],
-        "keterangan": "Berikan salep mata antibiotik."
-      },
-      {
-        "tipe": null,
-        "rule": null,
         "keterangan": "RUJUK SEGERA."
       }
     ]
   },
   {
     "penyakit": "Demam",
-    "klasifikasi": "Campak Dengan Komplikasi Pada Mata Dan/Atau Mulut",
+    "klasifikasi": "Demam bukan malaria",
     "conditioned": [
       {
-        "tipe": "Nanah di Mata",
-        "conditional": "",
+        "keterangan": "Obati penyebab lain dari demam."
+      },
+      {
+        "keterangan": "Nasihati kapan kembali segera."
+      },
+      {
+        "keterangan": "Kunjungan ulang 2 hari jika tetap demam."
+      },
+      {
+        "keterangan": "Jika demam berlanjut lebih dari 7 hari, RUJUK untuk penilaian lebih lanjut."
+      }
+    ]
+  },
+  {
+    "penyakit": "Demam",
+    "klasifikasi": "Campak dengan komplikasi berat",
+    "conditioned": [
+      {
+        "keterangan": "Beri dosis pertama antibiotik yang sesuai."
+      },
+      {
+        "tipe": "memiliki kekeruhan pada kornea atau nanah pada mata",
+        "conditional": "OR",
         "rule": [
+          {
+            "node": "ansDemam",
+            "key": "demam_korneaKeruh",
+            "operator": "=",
+            "value": true
+          },
           {
             "key": "demam_nanahDiMata",
             "operator": "=",
-            "value": "true"
+            "value": true
+          }
+        ],
+        "keterangan": "Berikan salep mata antibiotik."
+      },
+      {
+        "keterangan": "RUJUK SEGERA."
+      }
+    ]
+  },
+  {
+    "penyakit": "Demam",
+    "klasifikasi": "Campak dengan komplikasi pada mata dan/atau mulut",
+    "conditioned": [
+      {
+        "tipe": "memiliki nanah di mata",
+        "conditional": "AND",
+        "rule": [
+          {
+            "node": "ansDemam",
+            "key": "demam_nanahDiMata",
+            "operator": "=",
+            "value": true
           }
         ],
         "keterangan": "Berikan salep mata antibiotik."
       },
       {
         "tipe": "Luka Mulut",
-        "conditional": "",
+        "conditional": "AND",
         "rule": [
           {
+            "node": "ansDemam",
             "key": "demam_isLukaMulut",
             "operator": "=",
-            "value": "true"
+            "value": true
           }
         ],
         "keterangan": "Oleskan antiseptik mulut."
       },
       {
-        "tipe": "BB menurut PB Atau TB",
-        "conditional": "",
-        "rule": [
-          {
-            "key": "gizi_BBmenurutPBAtauTB",
-            "operator": "=",
-            "value": "BB/PB (TB) < -3 SD (Sangat Kurus)"
-          }
-        ],
-        "keterangan": "Kunjungan ulang 3 hari."
-      },
-      {
-        "tipe": null,
-        "rule": null,
         "keterangan": "Kunjungan ulang 3 hari."
       }
     ]
   },
   {
     "penyakit": "Demam",
-    "klasifikasi": "Demam Berdarah Dengue (DBD)",
+    "klasifikasi": "Demam berdarah dengue (DBD)",
     "conditioned": [
       {
-        "tipe": "Ekstremitas Dingin",
-        "conditional": "",
+        "tipe": "Syok",
+        "conditional": "AND",
         "rule": [
           {
+            "node": "ansDemam",
             "key": "demam_isEkstremitasDingin",
             "operator": "=",
-            "value": "true"
+            "value": true
           }
         ],
         "keterangan": "Beri Oksigen 2-4 liter/menit dan beri segera cairan intravena sesuai petunjuk."
       },
       {
-        "tipe": "Ekstremitas Dingin, Anak Muntah, Anak Sering Muntah.",
+        "tipe": "sering muntah atau malas minum dan tidak syok",
         "conditional": "AND",
         "rule": [
           {
+            "node": "ansDemam",
             "key": "demam_isEkstremitasDingin",
             "operator": "=",
-            "value": "false"
+            "value": false
           },
           {
+            "node": "ansDemam",
             "key": "demam_anakMuntah",
             "operator": "=",
-            "value": "true"
+            "value": true
           },
           {
+            "node": "ansDemam",
             "key": "demam_anakSeringMuntah",
             "operator": "=",
-            "value": "true"
+            "value": true
           }
         ],
         "keterangan": "Beri cairan infus Ringer Laktat/Ringer Asetat, jumlah cairan rumatan."
       },
       {
-        "tipe": "Ekstremitas Dingin, Anak Muntah, Anak Sering Muntah.",
+        "tipe": "tidak muntah atau masih mau minum dan tidak syok",
         "conditional": "AND",
         "rule": [
           {
+            "node": "ansDemam",
             "key": "demam_isEkstremitasDingin",
             "operator": "=",
-            "value": "false"
+            "value": false
           },
           {
+            "node": "ansDemam",
             "key": "demam_anakMuntah",
             "operator": "=",
-            "value": "false"
+            "value": false
           },
           {
+            "node": "ansDemam",
             "key": "demam_anakSeringMuntah",
             "operator": "=",
-            "value": "false"
+            "value": false
           }
         ],
         "keterangan": "Beri oralit atau cairan lain sebanyak mungkin dalam perjalanan ke rumah sakit."
       },
       {
-        "tipe": "Ekstremitas Dingin, Anak Muntah, Anak Sering Muntah.",
-        "conditional": "AND",
-        "rule": [
-          {
-            "key": "demam_isEkstremitasDingin",
-            "operator": "=",
-            "value": "false"
-          },
-          {
-            "key": "demam_anakMuntah",
-            "operator": "=",
-            "value": "true"
-          },
-          {
-            "key": "demam_anakSeringMuntah",
-            "operator": "=",
-            "value": "false"
-          }
-        ],
-        "keterangan": "Beri oralit atau cairan lain sebanyak mungkin dalam perjalanan ke rumah sakit."
-      },
-      {
-        "tipe": "Ekstremitas Dingin, Anak Muntah, Anak Sering Muntah.",
-        "conditional": "AND",
-        "rule": [
-          {
-            "key": "demam_isEkstremitasDingin",
-            "operator": "=",
-            "value": "false"
-          },
-          {
-            "key": "demam_anakMuntah",
-            "operator": "=",
-            "value": "false"
-          },
-          {
-            "key": "demam_anakSeringMuntah",
-            "operator": "=",
-            "value": "true"
-          }
-        ],
-        "keterangan": "Beri oralit atau cairan lain sebanyak mungkin dalam perjalanan ke rumah sakit."
-      },
-      {
-        "tipe": null,
-        "rule": null,
-        "keterangan": "Rujuk Segera."
+        "keterangan": "RUJUK SEGERA."
       }
     ]
   },
@@ -425,39 +225,27 @@
     "klasifikasi": "Mungkin DBD",
     "conditioned": [
       {
-        "tipe": null,
-        "rule": null,
         "keterangan": "Nasihati untuk lebih banyak minum: oralit/cairan lain."
       },
       {
-        "tipe": null,
-        "rule": null,
         "keterangan": "Nasihati kapan kembali segera."
       },
       {
-        "tipe": null,
-        "rule": null,
         "keterangan": "Kunjungan ulang 1 hari."
       }
     ]
   },
   {
     "penyakit": "Demam",
-    "klasifikasi": "Demam Mungkin Bukan DBD",
+    "klasifikasi": "Demam mungkin bukan DBD",
     "conditioned": [
       {
-        "tipe": null,
-        "rule": null,
         "keterangan": "Obati penyebab lain dari demam."
       },
       {
-        "tipe": null,
-        "rule": null,
         "keterangan": "Nasihati kapan kembali segera."
       },
       {
-        "tipe": null,
-        "rule": null,
         "keterangan": "Kunjungan ulang 2 hari jika tetap demam."
       }
     ]

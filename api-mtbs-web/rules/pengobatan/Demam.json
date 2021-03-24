@@ -259,5 +259,158 @@
         "keterangan": "7.5ml (1 1/2 sdk taker) Sirup 120 mg/5 ml"
       }
     ]
+  },
+  {
+    "penyakit": "Demam tinggi (DBD)",
+    "jenisObat": "Parasetamol",
+    "keterangan": "Setiap 6 jam sampai demam hilang, tidak boleh golongan salisilat dan ibuprofen",
+    "kondisiSpesial": "",
+    "keteranganKondisiSpecial": "",
+    "conditioned": [
+      {
+        "tipe": "Parasetamol",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 4
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 7
+          }
+        ],
+        "keterangan": "1/8 Tablet 500 mg"
+      },
+      {
+        "tipe": "Parasetamol",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 4
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 7
+          }
+        ],
+        "keterangan": "1/2 Tablet 100 mg"
+      },
+      {
+        "tipe": "Parasetamol",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 4
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 7
+          }
+        ],
+        "keterangan": "2.5ml (1/2 sdk taker) Sirup 120 mg/5 ml"
+      },
+      {
+        "tipe": "Parasetamol",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 7
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 14
+          }
+        ],
+        "keterangan": "1/4 Tablet 500 mg"
+      },
+      {
+        "tipe": "Parasetamol",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 7
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 14
+          }
+        ],
+        "keterangan": "1 Tablet 100 mg"
+      },
+      {
+        "tipe": "Parasetamol",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 7
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 14
+          }
+        ],
+        "keterangan": "5ml (1 sdk taker) Sirup 120 mg/5 ml"
+      },
+      {
+        "tipe": "Parasetamol",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 14
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 19
+          }
+        ],
+        "keterangan": "1/2 Tablet 500 mg"
+      },
+      {
+        "tipe": "Parasetamol",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 14
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 19
+          }
+        ],
+        "keterangan": "2 Tablet 100 mg"
+      },
+      {
+        "tipe": "Parasetamol",
+        "rule": [
+          {
+            "key": "beratbadan",
+            "operator": ">",
+            "value": 14
+          },
+          {
+            "key": "beratbadan",
+            "operator": "<=",
+            "value": 19
+          }
+        ],
+        "keterangan": "7.5ml (1 1/2 sdk taker) Sirup 120 mg/5 ml"
+      }
+    ]
   }
 ]

@@ -99,11 +99,222 @@ const tindakan = function (req, res, next) {
     );
   }
   // DEMAM
+  if (
+    data.ansDemam.demam_isDaerahEndemis !== "Non Endemis" ||
+    data.ansDemam.demam_isBerkunjungDaerahEndemis !== "Non Endemis"
+  ) {
+    if (
+      data.klasifikasiDemam.demam_klasifikasi.includes(
+        "Penyakit berat dengan demam"
+      )
+    ) {
+      demam = demam.concat(
+        Tindakan.classifyTindakan("demam", "Penyakit berat dengan demam", data)
+      );
+      demam = demam.concat(
+        Pengobatan.classifyPengobatan(
+          "demam",
+          "Demam tinggi",
+          "Parasetamol",
+          data
+        )
+      );
+    } else if (data.klasifikasiDemam.demam_klasifikasi.includes("Malaria")) {
+      demam = demam.concat(
+        Pengobatan.classifyPengobatan(
+          "malaria",
+          "Malaria",
+          "Obat Anti Malaria Falsiparum",
+          data
+        ),
+        Pengobatan.classifyPengobatan(
+          "malaria",
+          "Malaria",
+          "Obat Anti Malaria Vivax",
+          data
+        ),
+        Pengobatan.classifyPengobatan(
+          "malaria",
+          "Malaria",
+          "Obat Anti Malaria Infeksi Campur",
+          data
+        ),
+        Pengobatan.classifyPengobatan(
+          "demam",
+          "Demam tinggi",
+          "Parasetamol",
+          data
+        )
+      );
+      demam = demam.concat(Tindakan.classifyTindakan("demam", "Malaria", data));
+    } else if (
+      data.klasifikasiDemam.demam_klasifikasi.includes(
+        "Demam mungkin bukan malaria"
+      )
+    ) {
+      demam = demam.concat(
+        Pengobatan.classifyPengobatan(
+          "demam",
+          "Demam tinggi",
+          "Parasetamol",
+          data
+        )
+      );
+      demam = demam.concat(
+        Tindakan.classifyTindakan("demam", "Demam mungkin bukan malaria", data)
+      );
+    }
+  } else {
+    if (
+      data.klasifikasiDemam.demam_klasifikasi.includes(
+        "Penyakit berat dengan demam"
+      )
+    ) {
+      demam = demam.concat(
+        Tindakan.classifyTindakan("demam", "Penyakit berat dengan demam", data)
+      );
+      demam = demam.concat(
+        Pengobatan.classifyPengobatan(
+          "demam",
+          "Demam tinggi",
+          "Parasetamol",
+          data
+        )
+      );
+    } else if (
+      data.klasifikasiDemam.demam_klasifikasi.includes("Demam bukan malaria")
+    ) {
+      demam = demam.concat(
+        Pengobatan.classifyPengobatan(
+          "demam",
+          "Demam tinggi",
+          "Parasetamol",
+          data
+        )
+      );
+      demam = demam.concat(
+        Tindakan.classifyTindakan("demam", "Demam bukan malaria", data)
+      );
+    }
+  }
+  if (
+    data.klasifikasiDemam.demam_klasifikasi.includes(
+      "Campak dengan komplikasi berat"
+    )
+  ) {
+    if (
+      data.ansDemam.demam_korneaKeruh === true ||
+      data.ansDemam.demam_nanahDiMata === true
+    ) {
+      demam = demam.concat(
+        Pengobatan.classifyPengobatan(
+          "demam",
+          "Campak dengan komplikasi mata atau mulut",
+          "Vitamin A",
+          data
+        )
+      );
+    } else {
+      demam = demam.concat(
+        Pengobatan.classifyPengobatan(
+          "demam",
+          "Campak tanpa komplikasi mata atau mulut",
+          "Vitamin A",
+          data
+        )
+      );
+    }
+    demam = demam.concat(
+      Tindakan.classifyTindakan("demam", "Campak dengan komplikasi berat")
+    );
+  } else if (
+    data.klasifikasiDemam.demam_klasifikasi.includes(
+      "Campak dengan komplikasi pada mata dan/atau mulut"
+    )
+  ) {
+    demam = demam.concat(
+      Pengobatan.classifyPengobatan(
+        "demam",
+        "Campak dengan komplikasi mata atau mulut",
+        "Vitamin A",
+        data
+      )
+    );
+    demam = demam.concat(
+      Tindakan.classifyTindakan(
+        "demam",
+        "Campak dengan komplikasi pada mata dan/atau mulut",
+        data
+      )
+    );
+    if (
+      data.ansGizi.gizi_BBmenurutPBAtauTB ===
+      "BB/PB (TB) < -3 SD (Sangat Kurus)"
+    ) {
+      demam = demam.concat(
+        Pengobatan.classifyPengobatan(
+          "vitamina",
+          "Defisiensi Vit A, Xerofthalmia dan Gizi Sangat Kurus",
+          "Vitamin A",
+          data
+        )
+      );
+    }
+  }
+  if (
+    data.klasifikasiDemam.demam_klasifikasi.includes(
+      "Demam berdarah dengue (DBD)"
+    )
+  ) {
+    demam = demam.concat(
+      Tindakan.classifyTindakan("demam", "Demam berdarah dengan (DBD)", data)
+    );
+    if (data.dataAnak.suhuAnak >= 38.5) {
+      demam = demam.concat(
+        Pengobatan.classifyPengobatan(
+          "demam",
+          "Demam tinggi (DBD)",
+          "Parasetamol",
+          data
+        )
+      );
+    }
+  } else if (data.klasifikasiDemam.demam_klasifikasi.includes("Mungkin DBD")) {
+    if (data.dataAnak.suhuAnak >= 38.5) {
+      demam = demam.concat(
+        Pengobatan.classifyPengobatan(
+          "demam",
+          "Demam tinggi (DBD)",
+          "Parasetamol",
+          data
+        )
+      );
+    }
+    demam = demam.concat(
+      Tindakan.classifyTindakan("demam", "Mungkin DBD", data)
+    );
+  } else if (
+    data.klasifikasiDemam.demam_klasifikasi.includes("Demam mungkin bukan DBD")
+  ) {
+    demam = demam.concat(
+      Tindakan.classifyTindakan("demam", "Demam mungkin bukan DBD", data)
+    );
+    if (data.dataAnak.suhuAnak >= 38.5) {
+      demam = demam.concat(
+        Pengobatan.classifyPengobatan(
+          "demam",
+          "Demam tinggi (DBD)",
+          "Parasetamol",
+          data
+        )
+      );
+    }
+  }
   const result = {
     tbu: tbu,
     batuk: batuk,
     diare: diare,
-    demam: [],
+    demam: demam,
     telinga: [],
     gizi: [],
     anemia: [],

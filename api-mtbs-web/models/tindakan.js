@@ -25,6 +25,13 @@ const classifyTindakan = (penyakit, klasifikasi, data) => {
         return err;
       }
       break;
+    case "demam":
+      try {
+        rawRules = fs.readFileSync("./rules/tindakan/Demam.json");
+      } catch (err) {
+        return err;
+      }
+      break;
     default:
       return "Error";
   }

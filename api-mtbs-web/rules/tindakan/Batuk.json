@@ -32,13 +32,13 @@
         "keterangan": "Beri pelega tenggorokan dan pereda batuk yang aman."
       },
       {
-        "keterangan": "Obati wheezing bila ada"
+        "keterangan": "Obati wheezing bila ada."
       },
       {
-        "keterangan": "Nasehati kapan kembali segera"
+        "keterangan": "Nasehati kapan kembali segera."
       },
       {
-        "keterangan": "Kunjungan ulang 2 hari"
+        "keterangan": "Kunjungan ulang 2 hari."
       }
     ]
   },
@@ -57,7 +57,7 @@
             "value": true
           }
         ],
-        "keterangan": "Obati wheezing"
+        "keterangan": "Obati wheezing".
       },
       {
         "tipe": "Batuk >= 14 hari",
@@ -70,16 +70,16 @@
             "value": 14
           }
         ],
-        "keterangan": "Rujuk untuk pemeriksaan TB dan sebab lain"
+        "keterangan": "Rujuk untuk pemeriksaan TB dan sebab lain."
       },
       {
-        "keterangan": "Beri pelega tenggorokan dan pereda batuk yang aman"
+        "keterangan": "Beri pelega tenggorokan dan pereda batuk yang aman."
       },
       {
-        "keterangan": "Nasehati kapan kembali segera"
+        "keterangan": "Nasehati kapan kembali segera."
       },
       {
-        "keterangan": "Kunjungan ulang 2 hari jika tidak ada perbaikan"
+        "keterangan": "Kunjungan ulang 2 hari jika tidak ada perbaikan."
       }
     ]
   }

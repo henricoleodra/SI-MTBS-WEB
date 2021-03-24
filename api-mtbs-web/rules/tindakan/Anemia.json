@@ -44,7 +44,7 @@
   },
   {
     "penyakit": "Anemia",
-    "klasifikasi": "Tidak Anemia",
+    "klasifikasi": "Tidak anemia",
     "conditioned": [
       {
         "tipe": "berumur dibawah 2 tahun",

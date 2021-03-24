@@ -88,6 +88,7 @@ const classifyTindakan = (penyakit, klasifikasi, data) => {
       });
     }
   });
+
   return res;
 };
 

@@ -165,7 +165,7 @@ const Tindakan = (props) => {
 
         {hasilTindakan &&
           hasilTindakan.map((tindakan, idx) => {
-            if (tindakan.status !== "info") {
+            if (tindakan.status !== "info" && tindakan.tindakan.length !== 0) {
               if (tindakan.judul !== "Tanda Bahaya Umum") {
                 return (
                   <CompTindakan

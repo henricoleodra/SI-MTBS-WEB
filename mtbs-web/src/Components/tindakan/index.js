@@ -3,7 +3,7 @@ import { Container, Row, Col } from "reactstrap";
 
 const Index = (props) => {
   return (
-    <div>
+    <div className="my-2">
       <div className="d-flex justify-content-center flex-column ml-4">
         <div>
           <h4 className="text-center">{props.judul}</h4>

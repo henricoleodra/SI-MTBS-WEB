@@ -1,4 +1,5 @@
 const initState = {
+  idAnak: null,
   namaAnak: "",
   namaIbu: "",
   jenisKelamin: null,
@@ -27,6 +28,10 @@ const initState = {
 
 const dataAnakReducer = (state = initState, action) => {
   switch (action.type) {
+    case "ID_ANAK":
+      return Object.assign({}, state, {
+        idAnak: action.answer,
+      });
     case "NAMA_ANAK":
       return Object.assign({}, state, {
         namaAnak: action.answer,

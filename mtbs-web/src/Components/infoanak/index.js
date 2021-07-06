@@ -10,7 +10,7 @@ const Index = (props) => {
       <Card
         className="mb-3 wrapper-info-anak"
         onClick={() => {
-          props.handleChoose(props.position);
+          props.handleChoose(props.idAnak);
         }}
       >
         <CardBody>

@@ -90,15 +90,15 @@ const Gizi2 = (props) => {
             </Link>
           </Col>
           <Col sm="4">
-            <Link to="Gizi3">
-              <Button
-                type="submit"
-                style={{ backgroundColor: "#46d0fe ", border: "0" }}
-                block
-              >
-                Selanjutnya <FontAwesomeIcon icon={faChevronRight} />
-              </Button>
-            </Link>
+            <Button
+              type="submit"
+              className="button-pepper-mint"
+              tag={Link}
+              to={"Gizi3"}
+              block
+            >
+              Selanjutnya <FontAwesomeIcon icon={faChevronRight} />
+            </Button>
           </Col>
         </Row>
       </div>

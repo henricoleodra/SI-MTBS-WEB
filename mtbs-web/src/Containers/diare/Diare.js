@@ -102,7 +102,7 @@ const Diare = (props) => {
   const handleAnswer1 = (event) => {
     let tmp = Number(event.target.value);
     set_diare_berapaLama(tmp);
-    dispatch(AnsDiareChange("BERAPA_LAMA", tmp));
+    dispatch(AnsDiareChange("BERAPA_LAMA_DIARE", tmp));
   };
 
   const handleAnswer2 = (event) => {

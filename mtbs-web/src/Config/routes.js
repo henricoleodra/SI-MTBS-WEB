@@ -18,7 +18,7 @@ import {
 const routes = [
   { path: "/ApaItuMTBS", component: ApaItuMTBS },
   { path: "/DataAnak/:id", component: DataAnak },
-  { path: "/RiwayatAnak/:ida&:idp", component: RiwayatAnak },
+  { path: "/RiwayatAnak/:id", component: RiwayatAnak },
   { path: "/MulaiPemeriksaan", component: MulaiPemeriksaan },
   { path: "/PemilihanDataAnak", component: PemilihanDataAnak },
   { path: "/PencarianDataAnak", component: PencarianDataAnak },

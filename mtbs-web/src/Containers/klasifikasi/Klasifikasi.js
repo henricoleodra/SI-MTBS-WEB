@@ -184,7 +184,7 @@ const Index = (props) => {
             className="button-orange"
             disabled={!valid}
           >
-            Akhiri Pemeriksaan
+            Lihat Tindakan
           </Button>
         </Row>
       </Container>

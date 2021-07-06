@@ -341,7 +341,7 @@ const tindakan = function (req, res, next) {
     }
   }
   // TELINGA
-  if (data.klasifikasiTelinga.telinga_klasifikasi === "Mastoditis") {
+  if (data.klasifikasiTelinga.telinga_klasifikasi === "Mastoiditis") {
     telinga = telinga.concat(
       Pengobatan.classifyPengobatan(
         "telinga",
@@ -491,10 +491,12 @@ const tindakan = function (req, res, next) {
       )
     );
   } else if (data.klasifikasiAnemia.anemia_klasifikasi === "Tidak anemia") {
-    Tindakan.classifyTindakan(
-      "anemia",
-      data.klasifikasiAnemia.anemia_klasifikasi,
-      data
+    anemia = anemia.concat(
+      Tindakan.classifyTindakan(
+        "anemia",
+        data.klasifikasiAnemia.anemia_klasifikasi,
+        data
+      )
     );
   }
   // HIV

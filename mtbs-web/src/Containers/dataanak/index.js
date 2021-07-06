@@ -37,18 +37,24 @@ const PencarianDataAnak = (props) => {
   let [currentRiwayat, setCurrentRiwayat] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
-      setLoading(true);
-      const infoAnak = await axios.get("http://localhost:8000/InfoAnak/" + id);
-      const riwayatAnak = await axios.get(
-        "http://localhost:8000/RiwayatAnak/" + id
-      );
-      setInfo(infoAnak.data);
-      setRiwayat(riwayatAnak.data);
-      setTotalRiwayatAnak(riwayatAnak.data.length);
-      setCurrentRiwayat(
-        riwayatAnak.data.slice(indexOfFirstPage, indexOfLastPage)
-      );
-      setLoading(false);
+      try {
+        setLoading(true);
+        const infoAnak = await axios.get(
+          `${process.env.REACT_APP_MAIN_API}/pasien/detail/${id}`
+        );
+        const riwayatAnak = await axios.get(
+          `${process.env.REACT_APP_MAIN_API}/pemeriksaan/lists/${infoAnak.data.idPasien}`
+        );
+        setInfo(infoAnak.data);
+        setRiwayat(riwayatAnak.data);
+        setTotalRiwayatAnak(riwayatAnak.data.length);
+        setCurrentRiwayat(
+          riwayatAnak.data.slice(indexOfFirstPage, indexOfLastPage)
+        );
+        setLoading(false);
+      } catch (err) {
+        console.log(err);
+      }
     };
     fetchData();
   }, []);
@@ -58,16 +64,16 @@ const PencarianDataAnak = (props) => {
   };
 
   const handleDetails = (idPemeriksaan) => {
-    history.push("../RiwayatAnak/" + id + "&" + idPemeriksaan);
+    history.push("../RiwayatAnak/" + idPemeriksaan);
   };
 
   const renderRiwayatPemeriksaan = currentRiwayat.map((curr) => {
     return (
       <RiwayatPemeriksaan
-        key={curr.id}
-        id={curr.id}
-        tanggal={curr.tanggal}
-        keluhanAnak={curr.keluhananak}
+        key={curr.idPemeriksaan}
+        idPemeriksaan={curr.idPemeriksaan}
+        tanggal={curr.tanggalPemeriksaan}
+        keluhanAnak={curr.keluhan}
         handleDetails={handleDetails}
       />
     );
@@ -109,24 +115,24 @@ const PencarianDataAnak = (props) => {
                 </Row>
                 <Row className="justify-content-center my-4">
                   <Label className="font-weight-bold mr-2">Nama Anak : </Label>{" "}
-                  {info.nama}
+                  {info.namaAnak}
                 </Row>
                 <Row className="justify-content-center my-4">
                   <Label className="font-weight-bold mr-2">Nama Ibu : </Label>{" "}
-                  {info.ibu}
+                  {info.namaIbu}
                 </Row>
                 <Row className="justify-content-center my-4">
                   <Label className="font-weight-bold mr-2">
                     {" "}
                     Jenis Kelamin :{" "}
                   </Label>{" "}
-                  {info.jeniskelamin}
+                  {Number(info.jenisKelamin) ? "Laki-laki" : "Perempuan"}
                 </Row>
                 <Row className="justify-content-center my-4">
                   <Label className="font-weight-bold mr-2">
                     Tanngal Lahir :{" "}
                   </Label>{" "}
-                  {info.tanggallahir}
+                  {info.tanggalLahir}
                 </Row>
                 <Row className="justify-content-center my-4">
                   <Label className="font-weight-bold mr-2">Alamat : </Label>{" "}

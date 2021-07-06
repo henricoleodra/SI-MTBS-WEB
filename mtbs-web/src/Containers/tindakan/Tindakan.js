@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { Row, Button, Spinner, Container, Badge } from "reactstrap";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import { Wrapper } from "./style";
+import { reset } from "../../Actions";
 import { Tindakan as CompTindakan } from "../../Components";
 
 const Tindakan = (props) => {
+  const history = useHistory();
+  const dispatch = useDispatch();
   let [isLoading, set_isLoading] = useState(true);
   let [hasilTindakan, set_hasilTindakan] = useState();
+  let [tindakan, set_tindakan] = useState();
   let [duplicate, set_duplicate] = useState("");
 
   const klasifikasiTBU = useSelector((state) => state.klasifikasiTBU);
@@ -64,7 +68,11 @@ const Tindakan = (props) => {
           },
         })
         .then((res) => {
-          console.log(res.data.gizi);
+          const unique = (value, index, self) => {
+            return self.indexOf(value) === index;
+          };
+          const uniqueDiare = res.data.diare.filter(unique);
+          const uniqueDemam = res.data.demam.filter(unique);
           set_hasilTindakan([
             {
               judul: "Tanda Bahaya Umum",
@@ -80,21 +88,21 @@ const Tindakan = (props) => {
             },
             {
               judul: "Diare",
-              klasifikasi: klasifikasiDiare.diare_klasifikasi.replace(
+              klasifikasi: klasifikasiDiare.diare_klasifikasi.replaceAll(
                 "\n",
                 ", "
               ),
               status: klasifikasiDiare.diare_status,
-              tindakan: res.data.diare,
+              tindakan: uniqueDiare,
             },
             {
               judul: "Demam",
-              klasifikasi: klasifikasiDemam.demam_klasifikasi.replace(
+              klasifikasi: klasifikasiDemam.demam_klasifikasi.replaceAll(
                 "\n",
                 ", "
               ),
               status: klasifikasiDemam.demam_status,
-              tindakan: res.data.demam,
+              tindakan: uniqueDemam,
             },
             {
               judul: "Telinga",
@@ -121,6 +129,16 @@ const Tindakan = (props) => {
               tindakan: res.data.hiv,
             },
           ]);
+          set_tindakan({
+            tindakan_tbu: res.data.tbu,
+            tindakan_batuk: res.data.batuk,
+            tindakan_diare: uniqueDiare,
+            tindakan_demam: uniqueDemam,
+            tindakan_telinga: res.data.telinga,
+            tindakan_gizi: res.data.gizi,
+            tindakan_anemia: res.data.anemia,
+            tindakan_hiv: res.data.hiv,
+          });
           set_duplicate(res.data.duplicate);
           set_isLoading(false);
         })
@@ -163,6 +181,32 @@ const Tindakan = (props) => {
       </Wrapper>
     );
   }
+
+  const akhiriPemeriksaan = async () => {
+    const data = {
+      dataAnak,
+      klasifikasiTBU,
+      klasifikasiBatuk,
+      klasifikasiDiare,
+      klasifikasiDemam,
+      klasifikasiTelinga,
+      klasifikasiGizi,
+      klasifikasiAnemia,
+      klasifikasiHIV,
+      tindakan,
+    };
+    // console.log(hasilTindakan);
+    try {
+      await axios.post(
+        `${process.env.REACT_APP_MAIN_API}/akhiripemeriksaan`,
+        data
+      );
+      dispatch(reset("RESET_STORE"));
+      history.push("/Lobby");
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <Wrapper>
@@ -213,11 +257,12 @@ const Tindakan = (props) => {
               Kembali ke Halaman Klasifikasi
             </Button>
           </Link>
-          <Link to="../..">
-            <Button className="button-selanjutnya-tindakan">
-              Akhiri Pemeriksaan
-            </Button>
-          </Link>
+          <Button
+            className="button-selanjutnya-tindakan"
+            onClick={akhiriPemeriksaan}
+          >
+            Akhiri Pemeriksaan
+          </Button>
         </Row>
       </div>
     </Wrapper>

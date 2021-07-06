@@ -47,13 +47,18 @@ const PemilihanDataAnak = (props) => {
 
   useEffect(() => {
     const fetchDataAnak = async () => {
-      setLoading(true);
-      const res = await axios.get("http://localhost:8000/DataAnak");
-
-      setAnak(res.data);
-      setCurrentData(res.data);
-      setTotalDataAnak(res.data.length);
-      setLoading(false);
+      try {
+        setLoading(true);
+        const res = await axios.get(
+          `${process.env.REACT_APP_MAIN_API}/pasien/lists`
+        );
+        setAnak(res.data);
+        setCurrentData(res.data);
+        setTotalDataAnak(res.data.length);
+        setLoading(false);
+      } catch (err) {
+        console.log(err);
+      }
     };
     fetchDataAnak();
   }, []);
@@ -100,22 +105,23 @@ const PemilihanDataAnak = (props) => {
     setCurrentData(anak);
   };
 
-  const handleChoose = (index) => {
-    let data = currentData[index];
-    dispatch(DataAnakChange("NAMA_ANAK", data.nama));
-    dispatch(DataAnakChange("NAMA_IBU", data.ibu));
-    if (data.jeniskelamin === "Laki-laki") {
+  const handleChoose = (idx) => {
+    let data = currentData[idx];
+    dispatch(DataAnakChange("ID_ANAK", data.idPasien));
+    dispatch(DataAnakChange("NAMA_ANAK", data.namaAnak));
+    dispatch(DataAnakChange("NAMA_IBU", data.namaIbu));
+    if (Number(data.jenisKelamin) === 1) {
       dispatch(DataAnakChange("JENIS_KELAMIN", true));
     } else {
       dispatch(DataAnakChange("JENIS_KELAMIN", false));
     }
-    dispatch(DataAnakChange("TANGGAL_LAHIR", data.tanggallahir));
+    dispatch(DataAnakChange("TANGGAL_LAHIR", data.tanggalLahir));
     dispatch(DataAnakChange("PROVINSI", data.provinsi));
     dispatch(DataAnakChange("KOTA", data.kota));
     dispatch(DataAnakChange("ALAMAT", data.alamat));
     dispatch(DataAnakChange("RT", data.rt));
     dispatch(DataAnakChange("RW", data.rw));
-    dispatch(DataAnakChange("KELURAHAN_DESA", data.keldes));
+    dispatch(DataAnakChange("KELURAHAN_DESA", data.kelurahanDesa));
     dispatch(DataAnakChange("KECAMATAN", data.kecamatan));
     history.push("IsiDataAnak/Konfirmasi");
   };
@@ -141,12 +147,13 @@ const PemilihanDataAnak = (props) => {
     .map((curr, index) => {
       return (
         <DataAnak
-          key={curr.id}
+          key={curr.idPasien}
+          idAnak={curr.idPasien}
           position={index}
-          namaAnak={curr.nama}
-          namaIbu={curr.ibu}
-          jenisKelamin={curr.jeniskelamin}
-          tanggalLahir={curr.tanggallahir}
+          namaAnak={curr.namaAnak}
+          namaIbu={curr.namaIbu}
+          jenisKelamin={curr.jenisKelamin ? "Laki-laki" : "Perempuan"}
+          tanggalLahir={curr.tanggalLahir}
           handleChoose={handleChoose}
         />
       );

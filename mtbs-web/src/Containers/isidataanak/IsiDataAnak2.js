@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -12,6 +12,7 @@ import {
   InputGroupText,
   Row,
   Col,
+  Spinner,
 } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -74,10 +75,11 @@ const IsiDataAnak2 = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const dataAnak = useSelector((state) => state.dataAnak);
+  let [loading, setLoading] = useState(false);
   let [suhuAnak, setSuhuAnak] = useState(dataAnak.suhuAnak);
   let [beratAnak, setBeratAnak] = useState(dataAnak.beratAnak);
   let [tinggiAnak, setTinggiAnak] = useState(dataAnak.tinggiAnak);
-  let [kunjunganKe, setKunjunganKe] = useState(dataAnak.kunjunganKe);
+  let [kunjunganKe, setKunjunganKe] = useState(1);
   let [keluhan, setKeluhan] = useState(
     dataAnak.keluhanAwal === "" ? [] : dataAnak.keluhanAwal.split(",")
   );
@@ -85,7 +87,24 @@ const IsiDataAnak2 = () => {
     hari + ", " + date.getDate() + " " + bulan + " " + date.getFullYear()
   );
   let [pilihDataAnak] = useState(dataAnak.pilihDataAnak);
-  console.log(pilihDataAnak);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      if (dataAnak.idAnak !== null) {
+        try {
+          setLoading(true);
+          const res = await axios.get(
+            `${process.env.REACT_APP_MAIN_API}/pasien/kunjungan/${dataAnak.idAnak}`
+          );
+          setKunjunganKe(res.data + 1);
+          setLoading(false);
+        } catch (err) {
+          console.log(err);
+        }
+      }
+    };
+    fetchData();
+  }, []);
 
   const handleSuhuAnak = (event) => {
     let tmp = Number(event.target.value);
@@ -139,6 +158,24 @@ const IsiDataAnak2 = () => {
       });
     history.push("../MTBS/TandaBahayaUmum1");
   };
+
+  if (loading) {
+    return (
+      <div style={{ overflowY: "hidden" }}>
+        <Container className="w-100 h-100 d-flex justify-content-center" fluid>
+          <div
+            style={{ minHeight: "800px" }}
+            className="d-flex justify-content-center flex-column"
+          >
+            <Spinner
+              style={{ width: "5rem", height: "5rem" }}
+              color="primary"
+            />
+          </div>
+        </Container>
+      </div>
+    );
+  }
 
   return (
     <Wrapper>
@@ -276,6 +313,7 @@ const IsiDataAnak2 = () => {
                       value={kunjunganKe}
                       onChange={handleKunjunganKe}
                       required
+                      disabled
                     />
                     <InputGroupAddon addonType="append">
                       <InputGroupText

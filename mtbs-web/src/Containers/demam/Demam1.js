@@ -105,7 +105,7 @@ const Demam = (props) => {
   const handleAnswer1 = (event) => {
     let tmp = Number(event.target.value);
     set_demam_berapaLama(tmp);
-    dispatch(AnsDemamChange("BERAPA_LAMA", tmp));
+    dispatch(AnsDemamChange("BERAPA_LAMA_DEMAM", tmp));
   };
 
   const handleAnswer2 = (event) => {

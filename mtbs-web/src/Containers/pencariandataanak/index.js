@@ -44,13 +44,18 @@ const PencarianDataAnak = (props) => {
 
   useEffect(() => {
     const fetchDataAnak = async () => {
-      setLoading(true);
-      const res = await axios.get("http://localhost:8000/DataAnak");
-
-      setAnak(res.data);
-      setCurrentData(res.data);
-      setTotalDataAnak(res.data.length);
-      setLoading(false);
+      try {
+        setLoading(true);
+        const res = await axios.get(
+          `${process.env.REACT_APP_MAIN_API}/pasien/lists`
+        );
+        setAnak(res.data);
+        setCurrentData(res.data);
+        setTotalDataAnak(res.data.length);
+        setLoading(false);
+      } catch (err) {
+        console.log(err);
+      }
     };
     fetchDataAnak();
   }, []);
@@ -97,9 +102,8 @@ const PencarianDataAnak = (props) => {
     setCurrentData(anak);
   };
 
-  const handleChoose = (index) => {
-    let data = currentData[index].id;
-    history.push("DataAnak/" + data);
+  const handleChoose = (idAnak) => {
+    history.push("DataAnak/" + idAnak);
   };
 
   const handleNamaAnak = (event) => {
@@ -120,15 +124,15 @@ const PencarianDataAnak = (props) => {
 
   const renderDaftarAnak = currentData
     .slice(indexOfFirstPage, indexOfLastPage)
-    .map((curr, index) => {
+    .map((curr) => {
       return (
         <InfoAnak
-          key={curr.id}
-          position={index}
-          namaAnak={curr.nama}
-          namaIbu={curr.ibu}
-          jenisKelamin={curr.jeniskelamin}
-          tanggalLahir={curr.tanggallahir}
+          key={curr.idPasien}
+          idAnak={curr.idPasien}
+          namaAnak={curr.namaAnak}
+          namaIbu={curr.namaIbu}
+          jenisKelamin={Number(curr.jenisKelamin) ? "Laki-laki" : "Perempuan"}
+          tanggalLahir={curr.tanggalLahir}
           handleChoose={handleChoose}
         />
       );
